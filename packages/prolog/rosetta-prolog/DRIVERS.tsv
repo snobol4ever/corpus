@@ -11,7 +11,6 @@ bell-numbers	main	:- initialization(main).
 benfords-law	go	:- initialization(go).
 best-shuffle-2	test	:- initialization(test).
 binary-digits	main	:- initialization(main).
-calculating-the-value-of-e-2	main	:- initialization(main).
 change-e-letters-to-i-in-words	main	:- initialization(main).
 changeable-words	main	:- initialization(main).
 chernicks-carmichael-numbers-1	main	:- initialization(main).
@@ -23,18 +22,14 @@ compare-a-list-of-strings	test	:- initialization(test).
 compile-time-calculation	test	:- initialization(test).
 concurrent-computing	main	:- initialization(main).
 conditional-structures-1	go	:- initialization(go).
-conditional-structures-2	go	:- initialization(go).
-conditional-structures-3	go	:- initialization(go).
 conditional-structures-4	go	:- initialization(go).
 create-a-two-dimensional-array-at-runtime	run	:- initialization(run).
-csv-data-manipulation	test	:- initialization(test).
 determine-if-a-string-has-all-the-same-characters	main	:- initialization(main).
 determine-if-a-string-has-all-unique-characters	test	:- initialization(test).
 determine-sentence-type	main	:- initialization(main).
 digital-root	main	:- initialization(main).
 dinesmans-multiple-dwelling-problem-2	main	:- initialization(main).
 discordian-date	main	:- initialization(main).
-dynamic-variable-names-1	test	:- initialization(test).
 egyptian-division	main	:- initialization(main).
 esthetic-numbers	main	:- initialization(main).
 ethiopian-multiplication-3	test	:- initialization(test).
@@ -48,7 +43,6 @@ function-definition-2	go	:- initialization(go).
 function-definition-4	go	:- initialization(go).
 function-definition-5	go	:- initialization(go).
 fusc-sequence	main	:- initialization(main).
-general-fizzbuzz-2	go	:- initialization(go).
 gray-code-2	go	:- initialization(go).
 greedy-algorithm-for-egyptian-fractions	main	:- initialization(main).
 guess-the-number-1	main	:- initialization(main).
@@ -56,16 +50,12 @@ guess-the-number-with-feedback-1	main	:- initialization(main).
 harmonic-series	main	:- initialization(main).
 identity-matrix	main	:- initialization(main).
 jaccard-index	task	:- initialization(task).
-koch-curve	main	:- initialization(main).
 lah-numbers	main	:- initialization(main).
 langtons-ant	go	:- initialization(go).
 law-of-cosines---triples	main	:- initialization(main).
 left-factorials	main	:- initialization(main).
-long-primes-1	main	:- initialization(main).
 long-year	main	:- initialization(main).
 longest-common-prefix	main	:- initialization(main).
-longest-common-subsequence-1	test	:- initialization(test).
-longest-common-subsequence-2	test	:- initialization(test).
 loops-for	example	:- initialization(example).
 loops-for-with-a-specified-step-1	example	:- initialization(example).
 loops-n-plus-one-half	example	:- initialization(example).
@@ -84,32 +74,24 @@ nth	test	:- initialization(test).
 palindromic-gapful-numbers	main	:- initialization(main).
 parametric-polymorphism	run	:- initialization(run).
 partition-an-integer-x-into-n-primes-1	main	:- initialization(main).
-peano-curve	main	:- initialization(main).
 quaternion-2	test	:- initialization(test).
 quine-4	main	:- initialization(main).
 range-consolidation	main	:- initialization(main).
 repeat	test	:- initialization(test).
-roman-numerals-decode	test	:- initialization(test).
 sexy-primes-1	main	:- initialization(main).
-sierpinski-arrowhead-curve	main	:- initialization(main).
-sierpinski-carpet	main	:- initialization(main).
-sierpinski-pentagon	main	:- initialization(main).
 solve-a-hopido-puzzle-2	test	:- initialization(test).
 sort-a-list-of-object-identifiers	main	:- initialization(main).
 sort-numbers-lexicographically	main	:- initialization(main).
 sorting-algorithms-bubble-sort-1	test	:- initialization(test).
 sorting-algorithms-cocktail-sort	test	:- initialization(test).
-soundex	test	:- initialization(test).
 spelling-of-ordinal-numbers-1	main	:- initialization(main).
 stirling-numbers-of-the-first-kind	main	:- initialization(main).
 stirling-numbers-of-the-second-kind	main	:- initialization(main).
-strip-comments-from-a-string-1	start	:- initialization(start).
 sum-digits-of-an-integer	main	:- initialization(main).
 sylvesters-sequence	main	:- initialization(main).
 temperature-conversion	test	:- initialization(test).
 the-name-game	test	:- initialization(test).
 the-twelve-days-of-christmas	main	:- initialization(main).
-tokenize-a-string-1	start	:- initialization(start).
 topswops	main	:- initialization(main).
 trabb-pardo-knuth-algorithm	main	:- initialization(main).
 truncatable-primes-1	main	:- initialization(main).
@@ -135,3 +117,352 @@ abundant-deficient-and-perfect-number-classifications	(dpa(20000, D, P, A), leng
 ackermann-function-1	forall(between(0, 3, M), (forall(between(0, 4, N), (ack(M, N, A), format("~w ", [A]))), nl))	:- initialization(forall(between(0, 3, M), (forall(between(0, 4, N), (ack(M, N, A), format("~w ", [A]))), nl))).
 ackermann-function-2	forall(member(M-N, [s(0)-s(s(0)), s(s(0))-s(0)]), (ack(M, N, P), format("~w~n", [P])))	:- initialization(forall(member(M-N, [s(0)-s(s(0)), s(s(0))-s(0)]), (ack(M, N, P), format("~w~n", [P])))).
 aks-test-for-primes-2	forall(between(0, 7, N), (pascal(N, R), format("~w: ~w~n", [N, R])))	:- initialization(forall(between(0, 7, N), (pascal(N, R), format("~w: ~w~n", [N, R])))).
+align-columns	aligner	:- set_prolog_flag(double_quotes, codes). at the head + :- initialization(aligner).
+amb	(amb_example([W1, W2, W3, W4]), format("~s ~s ~s ~s~n", [W1, W2, W3, W4]))	:- set_prolog_flag(double_quotes, codes). at the head + :- initialization((amb_example([W1, W2, W3, W4]), format("~s ~s ~s ~s~n", [W1, W2, W3, W4]))).
+amicable-pairs-1	(amicable_pairs_under_20000(Ps), forall(member(M-N, Ps), format("~w ~w~n", [M, N])))	:- initialization((amicable_pairs_under_20000(Ps), forall(member(M-N, Ps), format("~w ~w~n", [M, N])))).
+arbitrary-precision-integers-included--1	(task(L), format("~w~n", [L]))	:- initialization((task(L), format("~w~n", [L]))).
+arithmetic-evaluation	(calculator("(3+50)*7-9", X), format("~w~n", [X]))	:- initialization((calculator("(3+50)*7-9", X), format("~w~n", [X]))).
+arithmetic-integer-1	arithmetic_integer	:- initialization(arithmetic_integer). + arithmetic-integer-1.in
+arrays-1	(with_output_to(string(S), singleassignment), split_string(S, "\n", "", [V1, V2|_]), format("~w~n", [V1]), (sub_string(V2, 0, 1, _, "_") -> writeln('_') ; writeln(V2)))	:- initialization((with_output_to(string(S), singleassignment), split_string(S, "\n", "", [V1, V2|_]), format("~w~n", [V1]), (sub_string(V2, 0, 1, _, "_") -> writeln('_') ; writeln(V2)))).
+arrays-2	destructive	:- initialization(destructive).
+arrays-3	listvariant	:- initialization(listvariant).
+ascending-primes	do	:- initialization(do).
+assertions	(test(42), writeln('test(42): assertion holds'), catch(test(41), error(assertion_error(_, _), _), writeln('test(41): assertion failed')))	:- initialization((test(42), writeln('test(42): assertion holds'), catch(test(41), error(assertion_error(_, _), _), writeln('test(41): assertion failed')))).
+averages-arithmetic-mean	forall(member(L, [[1, 2, 3, 4, 5], [3, 1, 4, 1, 5, 9]]), (mean(L, M), format("~w: ~w~n", [L, M])))	:- initialization(forall(member(L, [[1, 2, 3, 4, 5], [3, 1, 4, 1, 5, 9]]), (mean(L, M), format("~w: ~w~n", [L, M])))).
+averages-median	forall(member(L, [[4.1, 5.6, 7.2, 1.7, 9.3, 4.4, 3.2], [4.1, 7.2, 1.7, 9.3, 4.4, 3.2]]), (median(L, Z), format("~w: ~w~n", [L, Z])))	:- initialization(forall(member(L, [[4.1, 5.6, 7.2, 1.7, 9.3, 4.4, 3.2], [4.1, 7.2, 1.7, 9.3, 4.4, 3.2]]), (median(L, Z), format("~w: ~w~n", [L, Z])))).
+babbage-problem-1	babbage	:- initialization(babbage).
+babbage-problem-2	babbage	:- initialization(babbage).
+balanced-brackets	rosetta_brackets	:- initialization(rosetta_brackets).
+balanced-ternary-2	forall(member(X-Y, ["+-0++0+"-"+-++-", "-++-0--"-"+-++-", "+-0++0+"-"-++-0--"]), (bt_add(X, Y, R), format("~w + ~w = ~w~n", [X, Y, R])))	:- initialization(forall(member(X-Y, ["+-0++0+"-"+-++-", "-++-0--"-"+-++-", "+-0++0+"-"-++-0--"]), (bt_add(X, Y, R), format("~w + ~w = ~w~n", [X, Y, R])))).
+bitmap-write-a-ppm-file-1	(tmp_file(ppm, F), write_ppm_p6(F, [[2, 2], [[[255, 0, 0], [0, 255, 0]], [[0, 0, 255], [255, 255, 255]]]]), read_file_to_codes(F, C, [type(binary)]), delete_file(F), format("~w~n", [C]))	:- initialization((tmp_file(ppm, F), write_ppm_p6(F, [[2, 2], [[[255, 0, 0], [0, 255, 0]], [[0, 0, 255], [255, 255, 255]]]]), read_file_to_codes(F, C, [type(binary)]), delete_file(F), format("~w~n", [C]))).
+box-the-compass-1	forall(member(A, [0.0, 16.87, 16.88, 33.75, 50.62, 50.63, 67.5, 84.37, 84.38, 101.25, 118.12, 118.13, 135.0, 151.87, 151.88, 168.75, 185.62, 185.63, 202.5, 219.37, 219.38, 236.25, 253.12, 253.13, 270.0, 286.87, 286.88, 303.75, 320.62, 320.63, 337.5, 354.37, 354.38]), (compassangle(I, N, _, A), format("~w    ~w   ~w~n", [I, N, A])))	:- initialization(forall(member(A, [0.0, 16.87, 16.88, 33.75, 50.62, 50.63, 67.5, 84.37, 84.38, 101.25, 118.12, 118.13, 135.0, 151.87, 151.88, 168.75, 185.62, 185.63, 202.5, 219.37, 219.38, 236.25, 253.12, 253.13, 270.0, 286.87, 286.88, 303.75, 320.62, 320.63, 337.5, 354.37, 354.38]), (compassangle(I, N, _, A), format("~w    ~w   ~w~n", [I, N, A])))).
+brace-expansion-1	forall(member(In, ['~/{Downloads,Pictures}/*.{jpg,gif,png}', 'It{{em,alic}iz,erat}e{d,}, please.', '{,{,gotta have{ ,\\, again\\, }}more }cowbell!', '{}} some }{,{\\\\{ edge, edge} \\,}{ cases, {here} \\\\\\\\\\}']), (format("~w~n", [In]), brace_expansion(In, Out), forall(member(O, Out), format("    ~w~n", [O]))))	:- initialization(forall(member(In, ['~/{Downloads,Pictures}/*.{jpg,gif,png}', 'It{{em,alic}iz,erat}e{d,}, please.', '{,{,gotta have{ ,\\, again\\, }}more }cowbell!', '{}} some }{,{\\\\{ edge, edge} \\,}{ cases, {here} \\\\\\\\\\}']), (format("~w~n", [In]), brace_expansion(In, Out), forall(member(O, Out), format("    ~w~n", [O]))))).
+brilliant-numbers	(findnsols(100, B, isBrilliant(B), BL), !, showList(BL, 10), nl, forall(between(1, 5, X), (L is 10^X, L1 is L - 1, brilliantList(2, L1, Bs), length(Bs, C), I is C + 1, once(nextBrilliant(L, Br)), writef('first >=%8r is%8r at position%6r', [L, Br, I]), nl)))	:- initialization((findnsols(100, B, isBrilliant(B), BL), !, showList(BL, 10), nl, forall(between(1, 5, X), (L is 10^X, L1 is L - 1, brilliantList(2, L1, Bs), length(Bs, C), I is C + 1, once(nextBrilliant(L, Br)), writef('first >=%8r is%8r at position%6r', [L, Br, I]), nl)))).
+bulls-and-cows-player-1	(S = [3, 5, 1, 7], repeat, tirage(Ms), aggregate_all(count, (nth0(I, Ms, D), nth0(I, S, D)), B), aggregate_all(count, (member(E, Ms), memberchk(E, S)), BC), C is BC - B, format("guess ~w: ~w bulls, ~w cows~n", [Ms, B, C]), assertz(guess(Ms, [B, C])), B =:= 4, !)	:- initialization((S = [3, 5, 1, 7], repeat, tirage(Ms), aggregate_all(count, (nth0(I, Ms, D), nth0(I, S, D)), B), aggregate_all(count, (member(E, Ms), memberchk(E, S)), BC), C is BC - B, format("guess ~w: ~w bulls, ~w cows~n", [Ms, B, C]), assertz(guess(Ms, [B, C])), B =:= 4, !)).
+caesar-cipher	caesar	:- set_prolog_flag(double_quotes, codes). at the head + :- initialization(caesar).
+calculating-the-value-of-e-2	(N = 100, L is 3*10**(N+1), l(1, 1, L, S), e(S, 0, 1, N, E), format("e = 2.~d\n", E))	:- initialization((N = 100, L is 3*10**(N+1), l(1, 1, L, S), e(S, 0, 1, N, E), format("e = 2.~d\n", E))).
+calendar	write_calendar(1969)	:- initialization(write_calendar(1969)).
+calkin-wilf-sequence	(findall(X, g(20, X), Xs), format("~w~n", [Xs]), t(83116/51639, I), format("~w~n", [I]))	:- initialization((findall(X, g(20, X), Xs), format("~w~n", [Xs]), t(83116/51639, I), format("~w~n", [I]))).
+carmichael-3-strong-pseudoprimes	show(61)	:- initialization(show(61)).
+cartesian-product-of-two-or-more-lists	forall(member(A-B, [[1, 2]-[3, 4], [3, 4]-[1, 2], [1, 2]-[], []-[1, 2]]), (findall(X, product(A, B, X), Ps), format("~w x ~w = ~w~n", [A, B, Ps])))	:- initialization(forall(member(A-B, [[1, 2]-[3, 4], [3, 4]-[1, 2], [1, 2]-[], []-[1, 2]]), (findall(X, product(A, B, X), Ps), format("~w x ~w = ~w~n", [A, B, Ps])))).
+case-sensitivity-of-identifiers	three_dogs	:- initialization(three_dogs).
+catalan-numbers	catalan(14)	:- initialization(catalan(14)).
+catamorphism-3	(foldl(plus, [1, 2, 3, 4, 5], 0, S), format("~w~n", [S]), foldl(atom_concat, [a, b, c, d], '', A), format("~w~n", [A]))	:- initialization((foldl(plus, [1, 2, 3, 4, 5], 0, S), format("~w~n", [S]), foldl(atom_concat, [a, b, c, d], '', A), format("~w~n", [A]))).
+catamorphism-4	(foldr(plus, [1, 2, 3, 4, 5], 0, S), format("~w~n", [S]), foldr(atom_concat, [a, b, c, d], '', A), format("~w~n", [A]))	:- initialization((foldr(plus, [1, 2, 3, 4, 5], 0, S), format("~w~n", [S]), foldr(atom_concat, [a, b, c, d], '', A), format("~w~n", [A]))).
+catamorphism-5	forall(member(F-S, [foldy_len-0, foldy_add-0, foldy_mult-1, foldy_build-[], foldy_squadd-0, foldy_join-"", foldy_expr(*)-1]), (foldl(F, [1, 2, 3, 4, 5], S, R), format("~w: ~q~n", [F, R])))	:- initialization(forall(member(F-S, [foldy_len-0, foldy_add-0, foldy_mult-1, foldy_build-[], foldy_squadd-0, foldy_join-"", foldy_expr(*)-1]), (foldl(F, [1, 2, 3, 4, 5], S, R), format("~w: ~q~n", [F, R])))).
+chemical-calculator-1	its own initialization goal	nothing appended; chemical-calculator-1.argv holds the arguments: main/1 parses the one formula on its command line; the task's longest example
+chinese-remainder-theorem-1	(crt([2-3, 3-5, 2-7], N), format("~w~n", [N]))	:- initialization((crt([2-3, 3-5, 2-7], N), format("~w~n", [N]))).
+closest-pair-problem-1	do_find_closest_points([point(0.654682, 0.925557), point(0.409382, 0.619391), point(0.891663, 0.888594), point(0.716629, 0.996200), point(0.477721, 0.946355), point(0.925092, 0.818220), point(0.624291, 0.142924), point(0.211332, 0.221507), point(0.293786, 0.691701), point(0.839186, 0.728260)])	:- initialization(do_find_closest_points([point(0.654682, 0.925557), point(0.409382, 0.619391), point(0.891663, 0.888594), point(0.716629, 0.996200), point(0.477721, 0.946355), point(0.925092, 0.818220), point(0.624291, 0.142924), point(0.211332, 0.221507), point(0.293786, 0.691701), point(0.839186, 0.728260)])).
+combinations-1	forall(comb_clpfd(L, 3, 5), format("~w~n", [L]))	:- initialization(forall(comb_clpfd(L, 3, 5), format("~w~n", [L]))).
+combinations-2	forall(comb_Prolog(L, 3, 5), format("~w~n", [L]))	:- initialization(forall(comb_Prolog(L, 3, 5), format("~w~n", [L]))).
+combinations-with-repetitions	(length(C, 2), forall(combinations_of_length([iced, jam, plain], C), format("~w~n", [C])), length(T, 3), numlist(1, 10, Ten), aggregate_all(count, combinations_of_length(Ten, T), N), format("~w~n", [N]))	:- initialization((length(C, 2), forall(combinations_of_length([iced, jam, plain], C), format("~w~n", [C])), length(T, 3), numlist(1, 10, Ten), aggregate_all(count, combinations_of_length(Ten, T), N), format("~w~n", [N]))).
+compiler-lexical-analyzer	(tester('/*\n  Hello world\n */\nprint("Hello, World!\\n");\n'), nl, tester('/*\n  Show Ident and Integers\n */\nphoenix_number = 142857;\nprint(phoenix_number, "\\n");\n'))	:- initialization((tester('/*\n  Hello world\n */\nprint("Hello, World!\\n");\n'), nl, tester('/*\n  Show Ident and Integers\n */\nphoenix_number = 142857;\nprint(phoenix_number, "\\n");\n'))).
+compound-data-type-1	(point(X, Y), format("X = ~w, Y = ~w~n", [X, Y]))	:- initialization((point(X, Y), format("X = ~w, Y = ~w~n", [X, Y]))).
+compound-data-type-3	(person_location(P, L), numbervars(P-L, 0, _), print(person_location(P, L)), nl)	:- initialization((person_location(P, L), numbervars(P-L, 0, _), print(person_location(P, L)), nl)).
+conditional-structures-2	(go -> writeln('go: true') ; writeln('go: false'))	:- initialization((go -> writeln('go: true') ; writeln('go: false'))).
+conditional-structures-3	(go -> writeln('go: true') ; writeln('go: false'))	:- initialization((go -> writeln('go: true') ; writeln('go: false'))).
+continued-fraction	continued_fraction	:- initialization(continued_fraction).
+convert-seconds-to-compound-duration	forall(member(N, [7259, 86400, 6000000]), compound_time(N))	:- initialization(forall(member(N, [7259, 86400, 6000000]), compound_time(N))).
+conways-game-of-life	(M0 = [[0, 1, 0], [0, 1, 0], [0, 1, 0]], step(M0, M1), step(M1, M2), forall(member(M, [M0, M1, M2]), (forall(member(Row, M), (atomic_list_concat(Row, ' ', A), writeln(A))), nl)))	:- initialization((M0 = [[0, 1, 0], [0, 1, 0], [0, 1, 0]], step(M0, M1), step(M1, M2), forall(member(M, [M0, M1, M2]), (forall(member(Row, M), (atomic_list_concat(Row, ' ', A), writeln(A))), nl)))).
+count-how-many-vowels-and-consonants-occur-in-a-string	its own initialization goal	nothing appended; count-how-many-vowels-and-consonants-occur-in-a-string.argv holds the arguments: main/1 counts the vowels and consonants of the one string on its command line
+count-in-octal	forall(limit(65, octal(X)), (maplist(write, X), nl))	:- initialization(forall(limit(65, octal(X)), (maplist(write, X), nl))).
+count-occurrences-of-a-substring-1	forall(member(S-Sub, ["the three truths"-"th", "ababababab"-"abab"]), (count_substring(S, Sub, N), format("~w~n", [N])))	:- initialization(forall(member(S-Sub, ["the three truths"-"th", "ababababab"-"abab"]), (count_substring(S, Sub, N), format("~w~n", [N])))).
+count-occurrences-of-a-substring-3	forall(member(S-Sub, ["the three truths"-"th", "ababababab"-"abab"]), (occurrences(S, Sub, N), format("~w~n", [N])))	:- initialization(forall(member(S-Sub, ["the three truths"-"th", "ababababab"-"abab"]), (occurrences(S, Sub, N), format("~w~n", [N])))).
+count-the-coins	(aggregate_all(count, coins_for(100), N), format("~w~n", [N]))	:- initialization((aggregate_all(count, coins_for(100), N), format("~w~n", [N]))).
+countdown	solution	:- initialization(solution).
+cramers-rule	(results(X), format("~w~n", [X]))	:- initialization((results(X), format("~w~n", [X]))).
+csv-data-manipulation	forall(member(Row, [row('C1', 'C2', 'C3', 'C4', 'C5'), row(1, 5, 9, 13, 17), row(2, 6, 10, 14, 18), row(3, 7, 11, 15, 19), row(4, 8, 12, 16, 20)]), (addrow(Row, Out), Out =.. [_|Fields], atomic_list_concat(Fields, ',', Line), writeln(Line)))	:- initialization(forall(member(Row, [row('C1', 'C2', 'C3', 'C4', 'C5'), row(1, 5, 9, 13, 17), row(2, 6, 10, 14, 18), row(3, 7, 11, 15, 19), row(4, 8, 12, 16, 20)]), (addrow(Row, Out), Out =.. [_|Fields], atomic_list_concat(Fields, ',', Line), writeln(Line)))).
+csv-to-html-translation-1	csv_html	:- set_prolog_flag(double_quotes, codes). at the head + :- initialization(csv_html).
+csv-to-html-translation-3	csv_html_plus	:- set_prolog_flag(double_quotes, codes). at the head + :- initialization(csv_html_plus).
+day-of-the-week	main	:- initialization(main).
+deceptive-numbers	(task(6, Ns), writeln(Ns))	:- initialization((task(6, Ns), writeln(Ns))).
+decision-tables-1	forall((member(P, [false, true]), member(L, [false, true]), member(C, [false, true])), (findall(A, troubleshoot(P, L, C, A), As), format("prints=~w flashing=~w recognised=~w: ~w~n", [P, L, C, As])))	:- initialization(forall((member(P, [false, true]), member(L, [false, true]), member(C, [false, true])), (findall(A, troubleshoot(P, L, C, A), As), format("prints=~w flashing=~w recognised=~w: ~w~n", [P, L, C, As])))).
+decorate-sort-undecorate-idiom-1	(schwartzian_transform(string_length, ["Rosetta", "Code", "is", "a", "programming", "chrestomathy", "site"], S), format("~q~n", [S]))	:- initialization((schwartzian_transform(string_length, ["Rosetta", "Code", "is", "a", "programming", "chrestomathy", "site"], S), format("~q~n", [S]))).
+descending-primes	do	:- initialization(do).
+detect-division-by-zero	forall(member(A/B, [10/2, 7/0, 7.0/0]), (div(A, B, C, Ex), (var(Ex) -> format("~w/~w = ~w~n", [A, B, C]) ; Ex = error(E, _), format("~w/~w = ~w (caught ~w)~n", [A, B, C, E]))))	:- initialization(forall(member(A/B, [10/2, 7/0, 7.0/0]), (div(A, B, C, Ex), (var(Ex) -> format("~w/~w = ~w~n", [A, B, C]) ; Ex = error(E, _), format("~w/~w = ~w (caught ~w)~n", [A, B, C, E]))))).
+determine-if-a-string-is-collapsible	forall(member(S, ["", "\"If I were two-faced, would I be wearing this one?\" --- Abraham Lincoln ", "..1111111111111111111111111111111111111111111111111111111111111117777888", "I never give 'em hell, I just tell the truth, and they think it's hell. ", "                                                    --- Harry S Truman "]), (once(collapse(S, C)), string_length(S, LS), string_length(C, LC), format("original:  <<<~w>>> (length ~d)~ncollapsed: <<<~w>>> (length ~d)~n", [S, LS, C, LC])))	:- initialization(forall(member(S, ["", "\"If I were two-faced, would I be wearing this one?\" --- Abraham Lincoln ", "..1111111111111111111111111111111111111111111111111111111111111117777888", "I never give 'em hell, I just tell the truth, and they think it's hell. ", "                                                    --- Harry S Truman "]), (once(collapse(S, C)), string_length(S, LS), string_length(C, LC), format("original:  <<<~w>>> (length ~d)~ncollapsed: <<<~w>>> (length ~d)~n", [S, LS, C, LC])))).
+determine-if-a-string-is-numeric-1	forall(member(S, ["123", "0.123", "-123.1", "NotNum", "1."]), ((numeric_string(S) -> R = a ; R = 'not a'), format('~w is ~w number.~n', [S, R])))	:- initialization(forall(member(S, ["123", "0.123", "-123.1", "NotNum", "1."]), ((numeric_string(S) -> R = a ; R = 'not a'), format('~w is ~w number.~n', [S, R])))).
+determine-if-a-string-is-squeezable	forall(member(S-Ch, [""-' ', "\"If I were two-faced, would I be wearing this one?\" --- Abraham Lincoln "-'-', "..1111111111111111111111111111111111111111111111111111111111111117777888"-'7', "I never give 'em hell, I just tell the truth, and they think it's hell. "-'.', "                                                    --- Harry S Truman "-' ', "                                                    --- Harry S Truman "-'-', "                                                    --- Harry S Truman "-'r', "The better the 4-wheel drive, the further you'll be from help when ya get stuck!"-'e', "headmistressship"-'s']), (once(squeeze(S, Ch, Q)), string_length(S, LS), string_length(Q, LQ), format("squeeze '~w'~noriginal: <<<~w>>> (length ~d)~nsqueezed: <<<~w>>> (length ~d)~n", [Ch, S, LS, Q, LQ])))	:- initialization(forall(member(S-Ch, [""-' ', "\"If I were two-faced, would I be wearing this one?\" --- Abraham Lincoln "-'-', "..1111111111111111111111111111111111111111111111111111111111111117777888"-'7', "I never give 'em hell, I just tell the truth, and they think it's hell. "-'.', "                                                    --- Harry S Truman "-' ', "                                                    --- Harry S Truman "-'-', "                                                    --- Harry S Truman "-'r', "The better the 4-wheel drive, the further you'll be from help when ya get stuck!"-'e', "headmistressship"-'s']), (once(squeeze(S, Ch, Q)), string_length(S, LS), string_length(Q, LQ), format("squeeze '~w'~noriginal: <<<~w>>> (length ~d)~nsqueezed: <<<~w>>> (length ~d)~n", [Ch, S, LS, Q, LQ])))).
+dijkstras-algorithm	(go(a, e), go(a, f))	:- initialization((go(a, e), go(a, f))).
+dinesmans-multiple-dwelling-problem-1	dinners	:- initialization(dinners).
+dinesmans-multiple-dwelling-problem-3	forall(dinesmans(X), writeln(X))	:- initialization(forall(dinesmans(X), writeln(X))).
+dot-product	(dot_product([1, 3, -5], [4, -2, -1], N), writeln(N))	:- initialization((dot_product([1, 3, -5], [4, -2, -1], N), writeln(N))).
+dutch-national-flag-problem-1	(L = [white, blue, red, blue, white, red, red, blue, white, red], writeln(L), test_sorted(L), sort_dutch_flag(L, T), append(T, F), writeln(F), test_sorted(F))	:- initialization((L = [white, blue, red, blue, white, red, red, blue, white, red], writeln(L), test_sorted(L), sort_dutch_flag(L, T), append(T, F), writeln(F), test_sorted(F))).
+dynamic-variable-names-1	test	:- initialization(test). + dynamic-variable-names-1.in
+elementary-cellular-automaton	play	:- initialization(play).
+empty-directory	(tmp_file(empty, Dir), make_directory(Dir), (empty_dir(Dir) -> E1 = empty ; E1 = 'not empty'), delete_directory(Dir), format("a new directory: ~w~n", [E1]), (empty_dir('/') -> E2 = empty ; E2 = 'not empty'), format("/: ~w~n", [E2]))	:- initialization((tmp_file(empty, Dir), make_directory(Dir), (empty_dir(Dir) -> E1 = empty ; E1 = 'not empty'), delete_directory(Dir), format("a new directory: ~w~n", [E1]), (empty_dir('/') -> E2 = empty ; E2 = 'not empty'), format("/: ~w~n", [E2]))).
+empty-string	(assign_empty_string(S), (is_empty_string(S) -> writeln('S is empty') ; writeln('S is not empty')), (not_empty_string("abc") -> writeln('"abc" is not empty') ; writeln('"abc" is empty')), (is_empty_string("abc") -> writeln('is_empty_string("abc") succeeds') ; writeln('is_empty_string("abc") fails')))	:- initialization((assign_empty_string(S), (is_empty_string(S) -> writeln('S is empty') ; writeln('S is not empty')), (not_empty_string("abc") -> writeln('"abc" is not empty') ; writeln('"abc" is empty')), (is_empty_string("abc") -> writeln('is_empty_string("abc") succeeds') ; writeln('is_empty_string("abc") fails')))).
+entropy	(shannon_entropy(1223334444, H), writeln(H))	:- initialization((shannon_entropy(1223334444, H), writeln(H))).
+enumerations	forall(fruit(_, N), write_fruit_name(N))	:- initialization(forall(fruit(_, N), write_fruit_name(N))).
+equilibrium-index-1	(findall(I, equilibrium_index([-7, 1, 5, 2, -4, 3, 0], I), Is), writeln(Is))	:- initialization((findall(I, equilibrium_index([-7, 1, 5, 2, -4, 3, 0], I), Is), writeln(Is))).
+ethiopian-multiplication-1	(once(ethiopian(17, 34, P)), writeln(P))	:- initialization((once(ethiopian(17, 34, P)), writeln(P))).
+eulers-identity	(reduce(exp(i*pi) + 1, R), writeln(R))	:- initialization((reduce(exp(i*pi) + 1, R), writeln(R))).
+eulers-sum-of-powers-conjecture	(once(solution(X0, X1, X2, X3, Y)), format("~w^5 + ~w^5 + ~w^5 + ~w^5 = ~w^5~n", [X0, X1, X2, X3, Y]))	:- initialization((once(solution(X0, X1, X2, X3, Y)), format("~w^5 + ~w^5 + ~w^5 + ~w^5 = ~w^5~n", [X0, X1, X2, X3, Y]))).
+evaluate-binomial-coefficients	forall(member(N-K, [5-3, 10-0, 10-5, 3-5]), (once(binomial(N, K, X)), format("binomial(~w, ~w) = ~w~n", [N, K, X])))	:- initialization(forall(member(N-K, [5-3, 10-0, 10-5, 3-5]), (once(binomial(N, K, X)), format("binomial(~w, ~w) = ~w~n", [N, K, X])))).
+even-or-odd-1	forall(between(-3, 6, N), (even(N) -> format("~w is even~n", [N]) ; format("~w is odd~n", [N])))	:- initialization(forall(between(-3, 6, N), (even(N) -> format("~w is even~n", [N]) ; format("~w is odd~n", [N])))).
+even-or-odd-2	forall(between(-3, 6, N), (odd(N) -> format("~w is odd~n", [N]) ; format("~w is even~n", [N])))	:- initialization(forall(between(-3, 6, N), (odd(N) -> format("~w is odd~n", [N]) ; format("~w is even~n", [N])))).
+exceptions	(go(5), go(42), catch(go(abc), E, format("go(abc) rethrew ~w~n", [E])))	:- initialization((go(5), go(42), catch(go(abc), E, format("go(abc) rethrew ~w~n", [E])))).
+execute-brain-	brain('++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.')	:- initialization(brain('++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.')).
+exponentiation-operator-4	forall(member(B-E, [2-3, 2-(-3), 2.5-3, 2.5-(-3), 2-0]), (once(exp_recursive(B, E, P)), format("~w ^ ~w = ~w~n", [B, E, P])))	:- initialization(forall(member(B-E, [2-3, 2-(-3), 2.5-3, 2.5-(-3), 2-0]), (once(exp_recursive(B, E, P)), format("~w ^ ~w = ~w~n", [B, E, P])))).
+factorial-1	forall(between(0, 10, N), (once(fact(N, F)), format("~w! = ~w~n", [N, F])))	:- initialization(forall(between(0, 10, N), (once(fact(N, F)), format("~w! = ~w~n", [N, F])))).
+factorial-2	forall(between(1, 10, N), (fact(N, F), format("~w! = ~w~n", [N, F])))	:- initialization(forall(between(1, 10, N), (fact(N, F), format("~w! = ~w~n", [N, F])))).
+factors-of-a-mersenne-number	(mersenne_factor(929, F), format("M929 has a factor: ~w~n", [F]))	:- initialization((mersenne_factor(929, F), format("M929 has a factor: ~w~n", [F]))).
+factors-of-an-integer-1	forall(member(N, [1, 12, 45, 53, 64, 100]), (brute_force_factors(N, Fs), format("~w: ~w~n", [N, Fs])))	:- initialization(forall(member(N, [1, 12, 45, 53, 64, 100]), (brute_force_factors(N, Fs), format("~w: ~w~n", [N, Fs])))).
+factors-of-an-integer-2	forall(member(N, [1, 12, 45, 53, 64, 100]), (smart_factors(N, Fs), format("~w: ~w~n", [N, Fs])))	:- initialization(forall(member(N, [1, 12, 45, 53, 64, 100]), (smart_factors(N, Fs), format("~w: ~w~n", [N, Fs])))).
+farey-sequence	(forall(between(1, 11, I), (farey(I, F), format("~w: ~w~n", [I, F]))), forall(between(1, 3, I), (N is I*100, farey(N, F), length(F, L), format("|F(~w)| = ~w~n", [N, L]))))	:- initialization((forall(between(1, 11, I), (farey(I, F), format("~w: ~w~n", [I, F]))), forall(between(1, 3, I), (N is I*100, farey(N, F), length(F, L), format("|F(~w)| = ~w~n", [N, L]))))).
+faulhabers-triangle	(show(10), sum(1000, 17, S), writeln(S))	:- initialization((show(10), sum(1000, 17, S), writeln(S))).
+fibonacci-sequence-1	(findall(V, (between(0, 20, N), fib(N, V)), Vs), writeln(Vs))	:- initialization((findall(V, (between(0, 20, N), fib(N, V)), Vs), writeln(Vs))).
+fibonacci-sequence-10	(findall(V, (between(0, 20, N), once(fib(N, V))), Vs), writeln(Vs))	:- initialization((findall(V, (between(0, 20, N), once(fib(N, V))), Vs), writeln(Vs))).
+fibonacci-sequence-11	(findall(V, (between(0, 20, N), fib(N, V)), Vs), writeln(Vs), fib(100, F100), format("fib(100) = ~w~n", [F100]))	:- initialization((findall(V, (between(0, 20, N), fib(N, V)), Vs), writeln(Vs), fib(100, F100), format("fib(100) = ~w~n", [F100]))).
+fibonacci-sequence-3	(findall(V, (between(0, 30, N), fib(N, V)), Vs), writeln(Vs))	:- initialization((findall(V, (between(0, 30, N), fib(N, V)), Vs), writeln(Vs))).
+fibonacci-sequence-7	(fib(L), length(P, 20), append(P, _, L), writeln(P))	:- initialization((fib(L), length(P, 20), append(P, _, L), writeln(P))).
+fibonacci-sequence-9	(take(15, fib(0, 1), X-[], G), writeln(X), writeln(G))	:- initialization((take(15, fib(0, 1), X-[], G), writeln(X), writeln(G))).
+filter-1	(evens([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], Es), writeln(Es))	:- initialization((evens([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], Es), writeln(Es))).
+find-common-directory-path	(directory_prefix(['/home/user1/tmp/coverage/test', '/home/user1/tmp/covert/operator', '/home/user1/tmp/coven/members'], '/', P), writeln(P))	:- initialization((directory_prefix(['/home/user1/tmp/coverage/test', '/home/user1/tmp/covert/operator', '/home/user1/tmp/coven/members'], '/', P), writeln(P))).
+finite-state-machine	act	:- initialization(act). + finite-state-machine.in
+five-weekends	main	:- initialization(main).
+fizzbuzz-1	fizzbuzz	:- initialization(fizzbuzz).
+fizzbuzz-2	dofizzbuzz	:- initialization(dofizzbuzz).
+flatten-a-list	(flatten([[1], 2, [[3, 4], 5], [[[]]], [[[6]]], 7, 8, []], F), writeln(F))	:- initialization((flatten([[1], 2, [[3, 4], 5], [[[]]], [[[6]]], 7, 8, []], F), writeln(F))).
+floyd-warshall-algorithm	print_all_paths	:- initialization(print_all_paths).
+floyds-triangle	(floyd(5), nl, floyd(14))	:- initialization((floyd(5), nl, floyd(14))).
+function-definition-1	(multiply(5, 2, P), format("The product is ~d.~n", [P]))	:- initialization((multiply(5, 2, P), format("The product is ~d.~n", [P]))).
+gamma-function	forall(between(1, 20, I), (X is I / 10.0, gamma(X, Y), format("gamma(~1f) = ~w~n", [X, Y])))	:- initialization(forall(between(1, 20, I), (X is I / 10.0, gamma(X, Y), format("gamma(~1f) = ~w~n", [X, Y])))).
+generate-chess960-starting-position-1	(findall(R, (permutation([♖,♘,♗,♕,♔,♗,♘,♖], R), check(R)), Rs), sort(Rs, S), length(S, N), format("~w distinct starting positions pass check/1~n", [N]), (check([♖,♘,♗,♕,♔,♗,♘,♖]) -> writeln('the classic position passes') ; writeln('the classic position fails')), (check([♔,♖,♘,♗,♕,♗,♘,♖]) -> writeln('king outside the rooks passes') ; writeln('king outside the rooks fails')))	:- initialization((findall(R, (permutation([♖,♘,♗,♕,♔,♗,♘,♖], R), check(R)), Rs), sort(Rs, S), length(S, N), format("~w distinct starting positions pass check/1~n", [N]), (check([♖,♘,♗,♕,♔,♗,♘,♖]) -> writeln('the classic position passes') ; writeln('the classic position fails')), (check([♔,♖,♘,♗,♕,♗,♘,♖]) -> writeln('king outside the rooks passes') ; writeln('king outside the rooks fails')))).
+generate-lower-case-ascii-alphabet	(a_to_z(a, z, L), format("~w~n", [L]))	:- initialization((a_to_z(a, z, L), format("~w~n", [L]))).
+gray-code-1	forall(between(0, 31, N), (to_gray(N, G), from_gray(G, D), format("~t~w~2| ~|~`0t~2r~5+ => ~|~`0t~2r~5+ => ~|~`0t~2r~5+ ~t~w~2+~n", [N, N, G, D, D])))	:- initialization(forall(between(0, 31, N), (to_gray(N, G), from_gray(G, D), format("~t~w~2| ~|~`0t~2r~5+ => ~|~`0t~2r~5+ => ~|~`0t~2r~5+ ~t~w~2+~n", [N, N, G, D, D])))).
+greatest-common-divisor-1	forall(member(A-B, [12-18, 1071-1029, 49865-69811, 0-5, 7-0]), (gcd(A, B, D), format("gcd(~w, ~w) = ~w~n", [A, B, D])))	:- initialization(forall(member(A-B, [12-18, 1071-1029, 49865-69811, 0-5, 7-0]), (gcd(A, B, D), format("gcd(~w, ~w) = ~w~n", [A, B, D])))).
+greatest-common-divisor-2	forall(member(A-B, [12-18, 1071-1029, 49865-69811, 0-5, 7-0]), (gcd(A, B, D), format("gcd(~w, ~w) = ~w~n", [A, B, D])))	:- initialization(forall(member(A-B, [12-18, 1071-1029, 49865-69811, 0-5, 7-0]), (gcd(A, B, D), format("gcd(~w, ~w) = ~w~n", [A, B, D])))).
+greatest-element-of-a-list-2	(max_list([1, 2, 10, 3, 0, 7, 9, 5], M), format("~w~n", [M]))	:- initialization((max_list([1, 2, 10, 3, 0, 7, 9, 5], M), format("~w~n", [M]))).
+greatest-subsequential-sum-1	greatest_subsequence	:- initialization(greatest_subsequence).
+guess-the-number-with-feedback-player--1	(play, nl)	:- initialization((play, nl)). + guess-the-number-with-feedback-player--1.in
+hailstone-sequence-1	(hailstone(27, L), length(L, N), L = [A, B, C, D|_], append(_, [E, F, G, H], L), format("hailstone(27): ~w elements, ~w, ~w, ~w, ~w ... ~w, ~w, ~w, ~w~n", [N, A, B, C, D, E, F, G, H]), aggregate_all(max(Len, K), (between(1, 9999, K), hailstone(K, S), length(S, Len)), max(ML, MK)), format("longest below 10000: ~w (~w elements)~n", [MK, ML]))	:- initialization((hailstone(27, L), length(L, N), L = [A, B, C, D|_], append(_, [E, F, G, H], L), format("hailstone(27): ~w elements, ~w, ~w, ~w, ~w ... ~w, ~w, ~w, ~w~n", [N, A, B, C, D, E, F, G, H]), aggregate_all(max(Len, K), (between(1, 9999, K), hailstone(K, S), length(S, Len)), max(ML, MK)), format("longest below 10000: ~w (~w elements)~n", [MK, ML]))).
+hailstone-sequence-5	(hailstone(27), findall(X, find_chr_constraint(hailstone(X)), L), clean, length(L, N), L = [A, B, C, D|_], append(_, [E, F, G, H], L), format("hailstone(27): ~w elements, ~w, ~w, ~w, ~w ... ~w, ~w, ~w, ~w~n", [N, A, B, C, D, E, F, G, H]))	:- initialization((hailstone(27), findall(X, find_chr_constraint(hailstone(X)), L), clean, length(L, N), L = [A, B, C, D|_], append(_, [E, F, G, H], L), format("hailstone(27): ~w elements, ~w, ~w, ~w, ~w ... ~w, ~w, ~w, ~w~n", [N, A, B, C, D, E, F, G, H]))).
+hamming-numbers-1	main(1000000)	:- initialization(main(1000000)).
+hamming-numbers-2	(hamming(20), hamming(1691))	:- initialization((hamming(20), hamming(1691))).
+happy-numbers-1	(happy_numbers(L, 8), format("~w~n", [L]))	:- initialization((happy_numbers(L, 8), format("~w~n", [L]))).
+hash-join	join_and_print	:- initialization(join_and_print).
+hofstadter-figure-figure-sequences-1	(hofstadter(10), findall(K-R, find_chr_constraint(ffr(K, R)), L), msort(L, S), pairs_values(S, V), format("~w~n", [V]))	:- initialization((hofstadter(10), findall(K-R, find_chr_constraint(ffr(K, R)), L), msort(L, S), pairs_values(S, V), format("~w~n", [V]))).
+horners-rule-for-polynomial-evaluation-1	(horner([-19, 7, -4, 6], 3, V), format("~w~n", [V]))	:- initialization((horner([-19, 7, -4, 6], 3, V), format("~w~n", [V]))).
+huffman-coding	huffman	:- initialization(huffman).
+idiomatically-determine-all-the-lowercase-and-uppercase-letters	chars	:- initialization(chars).
+increment-a-numerical-string-1	forall(member(S0, ["12345", "-10", "99"]), (incr_numerical_string(S0, S), format("~w -> ~w~n", [S0, S])))	:- initialization(forall(member(S0, ["12345", "-10", "99"]), (incr_numerical_string(S0, S), format("~w -> ~w~n", [S0, S])))).
+input-output-for-lines-of-text	lines	:- initialization(lines). + input-output-for-lines-of-text.in
+integer-comparison-1	forall(member(A-B, [1-2, 2-1, 2-2]), (format("~w ~w: ", [A, B]), my_compare(A, B)))	:- initialization(forall(member(A-B, [1-2, 2-1, 2-2]), (format("~w ~w: ", [A, B]), my_compare(A, B)))).
+integer-sequence-1	call_with_depth_limit(loop(1), 21, _)	:- initialization(call_with_depth_limit(loop(1), 21, _)).
+inverted-syntax	forall(vampire(X), format("~w is a vampire~n", [X]))	:- initialization(forall(vampire(X), format("~w is a vampire~n", [X]))).
+isbn13-check-digit-1	forall(member(S, ['978-0596528126', '978-0596528120', '978-1788399081', '978-1788399083']), (atom_codes(S, Cs), (phrase(isbn13, Cs) -> R = good ; R = bad), format("~w: ~w~n", [S, R])))	:- initialization(forall(member(S, ['978-0596528126', '978-0596528120', '978-1788399081', '978-1788399083']), (atom_codes(S, Cs), (phrase(isbn13, Cs) -> R = good ; R = bad), format("~w: ~w~n", [S, R])))).
+iterated-digits-squaring	its own initialization goal	nothing appended; iterated-digits-squaring.argv holds the arguments: main/1 counts the starts up to its command-line argument that reach 89; 100000 for the task's 100000000 (1000000 takes 7.5 s under swipl), time/1's report goes to stderr
+jewels-and-stones-1	forall(member(S-J, ["aAAbbbb"-"aA", "ZZ"-"z"]), (count_jewels(S, J, N), format("~s ~s: ~w~n", [S, J, N])))	:- initialization(forall(member(S-J, ["aAAbbbb"-"aA", "ZZ"-"z"]), (count_jewels(S, J, N), format("~s ~s: ~w~n", [S, J, N])))).
+jewels-and-stones-2	forall(member(S-J, ["aAAbbbb"-"aA", "ZZ"-"z"]), (count_jewels(S, J, N), format("~w ~w: ~w~n", [S, J, N])))	:- initialization(forall(member(S-J, ["aAAbbbb"-"aA", "ZZ"-"z"]), (count_jewels(S, J, N), format("~w ~w: ~w~n", [S, J, N])))).
+josephus-problem-1	(josephus(41, 3, S), format("~w~n", [S]), josephus(41, 3, 3, S3), format("~w~n", [S3]))	:- initialization((josephus(41, 3, S), format("~w~n", [S]), josephus(41, 3, 3, S3), format("~w~n", [S3]))).
+json-pointer-1	(atom_json_term('{"wiki": {"links": ["https://rosettacode.org/wiki/Rosetta_Code", "https://discord.com/channels/1011262808001880065"]}, "": "Rosetta", " ": "Code", "g/h": "chrestomathy", "i~j": "site", "abc": ["is", "a"], "def": {"": "programming"}}', J, []), forall(member(P, [``, `/`, `/ `, `/abc`, `/def/`, `/g~1h`, `/i~0j`, `/wiki/links/0`, `/wiki/links/1`, `/wiki/links/2`, `/wiki/name`, `/no/such/thing`, `bad/pointer`]), (json_pointer(P, J, V) -> format("\"~s\" => ~q~n", [P, V]) ; format("\"~s\" => error~n", [P]))))	:- initialization((atom_json_term('{"wiki": {"links": ["https://rosettacode.org/wiki/Rosetta_Code", "https://discord.com/channels/1011262808001880065"]}, "": "Rosetta", " ": "Code", "g/h": "chrestomathy", "i~j": "site", "abc": ["is", "a"], "def": {"": "programming"}}', J, []), forall(member(P, [``, `/`, `/ `, `/abc`, `/def/`, `/g~1h`, `/i~0j`, `/wiki/links/0`, `/wiki/links/1`, `/wiki/links/2`, `/wiki/name`, `/no/such/thing`, `bad/pointer`]), (json_pointer(P, J, V) -> format("\"~s\" => ~q~n", [P, V]) ; format("\"~s\" => error~n", [P]))))).
+kernighans-large-earthquake-problem	process_stream(user_input)	:- initialization(process_stream(user_input)). + kernighans-large-earthquake-problem.in
+knapsack-problem-0-1-1	knapsack	:- initialization(knapsack).
+knapsack-problem-0-1-2	knapsack	:- initialization(knapsack).
+knapsack-problem-bounded-1	knapsack	:- initialization(knapsack).
+knapsack-problem-bounded-2	knapsack	:- initialization(knapsack).
+knapsack-problem-continuous	knapsack	:- initialization(knapsack).
+knapsack-problem-unbounded	knapsack	:- initialization(knapsack).
+knights-tour-1	(knight(8), nl)	:- initialization((knight(8), nl)).
+koch-curve	koch_snowflake(user_output, 600, 2)	:- initialization(koch_snowflake(user_output, 600, 2)).
+largest-int-from-concatenated-ints-1	forall(member(L, [[1, 34, 3, 98, 9, 76, 45, 4], [54, 546, 548, 60]]), (largest_int_v1(L, N), format("~w~n", [N])))	:- initialization(forall(member(L, [[1, 34, 3, 98, 9, 76, 45, 4], [54, 546, 548, 60]]), (largest_int_v1(L, N), format("~w~n", [N])))).
+largest-int-from-concatenated-ints-2	forall(member(L, [[1, 34, 3, 98, 9, 76, 45, 4], [54, 546, 548, 60]]), (largest_int_v2(L, N), format("~w~n", [N])))	:- initialization(forall(member(L, [[1, 34, 3, 98, 9, 76, 45, 4], [54, 546, 548, 60]]), (largest_int_v2(L, N), format("~w~n", [N])))).
+largest-number-divisible-by-its-digits	(largest_decimal(N), format("~w~n", [N]))	:- initialization((largest_decimal(N), format("~w~n", [N]))).
+last-list-item-1	(debug(last_list_item), last_list_item([6, 81, 243, 14, 25, 49, 123, 69, 11], Last), format("~w~n", [Last]))	:- initialization((debug(last_list_item), last_list_item([6, 81, 243, 14, 25, 49, 123, 69, 11], Last), format("~w~n", [Last]))).
+last-list-item-3	(debug(last_list_item_heap), last_list_item_heap([6, 81, 243, 14, 25, 49, 123, 69, 11], Last), format("~w~n", [Last]))	:- initialization((debug(last_list_item_heap), last_list_item_heap([6, 81, 243, 14, 25, 49, 123, 69, 11], Last), format("~w~n", [Last]))).
+leap-year-1	leap_year([1900, 1994, 1996, 1997, 2000, 2024, 2100])	:- initialization(leap_year([1900, 1994, 1996, 1997, 2000, 2024, 2100])).
+least-common-multiple	forall(member(A-B, [12-18, 4-6, -5-3]), (lcm(A, B, Z), format("lcm(~w, ~w) = ~w~n", [A, B, Z])))	:- initialization(forall(member(A-B, [12-18, 4-6, -5-3]), (lcm(A, B, Z), format("lcm(~w, ~w) = ~w~n", [A, B, Z])))).
+letter-frequency	frequency('/dev/stdin')	:- initialization(frequency('/dev/stdin')). + letter-frequency.in
+levenshtein-distance	forall(member(A-B, [kitten-sitting, rosettacode-raisethysword]), (atom_codes(A, S), atom_codes(B, T), levenshtein(S, T, R), format("~w ~w: ~w~n", [A, B, R])))	:- initialization(forall(member(A-B, [kitten-sitting, rosettacode-raisethysword]), (atom_codes(A, S), atom_codes(B, T), levenshtein(S, T, R), format("~w ~w: ~w~n", [A, B, R])))).
+list-comprehensions	(L <- {(X,Y,Z) & X <- 1..20, Y <- X..20, Z <- Y..20 & X*X+Y*Y =:= Z*Z}, format("~w~n", [L]))	:- initialization((L <- {(X,Y,Z) & X <- 1..20, Y <- X..20, Z <- Y..20 & X*X+Y*Y =:= Z*Z}, format("~w~n", [L]))).
+long-primes-3	(longPrimes(500, LongPrimes), writeln('long primes up to 500:'), writeln(LongPrimes), forall(between(0, 5, X), (Limit is 500 * 2**X, longPrimes(Limit, L), length(L, Num), writef('there are%5r long primes up to%6r\n', [Num, Limit]))))	:- initialization((longPrimes(500, LongPrimes), writeln('long primes up to 500:'), writeln(LongPrimes), forall(between(0, 5, X), (Limit is 500 * 2**X, longPrimes(Limit, L), length(L, Num), writef('there are%5r long primes up to%6r\n', [Num, Limit]))))).
+longest-common-subsequence-1	(test, nl)	:- set_prolog_flag(double_quotes, codes). at the head + :- initialization((test, nl)).
+longest-common-subsequence-2	(test, nl)	:- set_prolog_flag(double_quotes, codes). at the head + :- initialization((test, nl)).
+longest-common-substring	forall(member(A-B, ["thisisatest"-"testing123testing"]), (longest_substring(A, B, S), format("~w~n", [S])))	:- initialization(forall(member(A-B, ["thisisatest"-"testing123testing"]), (longest_substring(A, B, S), format("~w~n", [S])))).
+longest-increasing-subsequence	forall(member(L, [[3,2,6,4,5,1], [0,8,4,12,2,10,6,14,1,9,5,13,3,11,7,15]]), (lis(L, S), format("~w: ~w~n", [L, S])))	:- initialization(forall(member(L, [[3,2,6,4,5,1], [0,8,4,12,2,10,6,14,1,9,5,13,3,11,7,15]]), (lis(L, S), format("~w: ~w~n", [L, S])))).
+look-and-say-sequence	(length(Ns, 10), foldl([_, L0, L1]>>(maplist(write, L0), nl, encode(L0, L1)), Ns, [1], _))	:- initialization((length(Ns, 10), foldl([_, L0, L1]>>(maplist(write, L0), nl, encode(L0, L1)), Ns, [1], _))).
+loop-over-multiple-arrays-simultaneously	multiple_arrays(`abc`, `ABC`, `123`)	:- initialization(multiple_arrays(`abc`, `ABC`, `123`)).
+loops-do-while	(wloop -> true ; true)	:- initialization((wloop -> true ; true)).
+loops-downward-for	reverse_iter	:- initialization(reverse_iter).
+loops-for-with-a-specified-step-2	(forall(for(10, 0, -2, V), (write(V), write(' '))), nl)	:- initialization((forall(for(10, 0, -2, V), (write(V), write(' '))), nl)).
+loops-while-1	while(1024)	:- initialization(while(1024)).
+loops-with-multiple-ranges	(calc_values(Sum, Prod), format("sum = ~w~nprod = ~w~n", [Sum, Prod]))	:- initialization((calc_values(Sum, Prod), format("sum = ~w~nprod = ~w~n", [Sum, Prod]))).
+lucas-lehmer-test	show(15)	:- initialization(show(15)).
+ludic-numbers	(t1, nl, t2, nl, t3, nl, t4, nl)	:- initialization((t1, nl, t2, nl, t3, nl, t4, nl)).
+mastermind	(intro(7, 4, no_duplicates), play(board([b, d, a, f], 4, 7, 8), [], 0))	:- initialization((intro(7, 4, no_duplicates), play(board([b, d, a, f], 4, 7, 8), [], 0))). + mastermind.in
+matrix-multiplication	(mmult([[1,2,3],[4,5,6]], [[7,8],[9,10],[11,12]], M), format("~w~n", [M]))	:- initialization((mmult([[1,2,3],[4,5,6]], [[7,8],[9,10],[11,12]], M), format("~w~n", [M]))).
+maximum-triangle-path-sum	forall(member(N, [1, 2]), (max_path(N, V), format("~w: ~w~n", [N, V])))	:- initialization(forall(member(N, [1, 2]), (max_path(N, V), format("~w: ~w~n", [N, V])))).
+menu-1	(rosetta_menu(["fee fie", "huff and puff", "mirror mirror", "tick tock"], S), format("~s~n", [S]))	:- initialization((rosetta_menu(["fee fie", "huff and puff", "mirror mirror", "tick tock"], S), format("~s~n", [S]))). + menu-1.in
+mersenne-primes	forall((between(2, 700, P), mersenne_prime(P)), format("M~w~n", [P]))	:- initialization(forall((between(2, 700, P), mersenne_prime(P)), format("M~w~n", [P]))).
+middle-three-digits-1	forall(member(N, [123, 12345, 1234567, 987654321, 10001, -10001, -123, -100, 100, -12345, 1, 2, -1, -10, 2002, -2002, 0]), catch((middle_3_digits(N, D), atom_chars(A, D), format("~w: ~w~n", [N, A])), error(E, _), format("~w: ~w~n", [N, E])))	:- initialization(forall(member(N, [123, 12345, 1234567, 987654321, 10001, -10001, -123, -100, 100, -12345, 1, 2, -1, -10, 2002, -2002, 0]), catch((middle_3_digits(N, D), atom_chars(A, D), format("~w: ~w~n", [N, A])), error(E, _), format("~w: ~w~n", [N, E])))).
+miller-rabin-primality-test	(findall(N, (between(1, 100, N), is_prime(N, R), R == true), Ps), format("~w~n", [Ps]), forall(member(N, [561, 1373653, 25326001, 3215031751, 2152302898747, 3474749660383, 4294967291, 1000000007, 999999999989]), (is_prime(N, R), format("~w: ~w~n", [N, R]))))	:- initialization((findall(N, (between(1, 100, N), is_prime(N, R), R == true), Ps), format("~w~n", [Ps]), forall(member(N, [561, 1373653, 25326001, 3215031751, 2152302898747, 3474749660383, 4294967291, 1000000007, 999999999989]), (is_prime(N, R), format("~w: ~w~n", [N, R]))))).
+minesweeper-game	(W = 6, H = 4, Len is W * H, length(Cells, Len), NB is Len // 5, length(Bs, NB), maplist(=('?'), Bs), map_bombs_to_cells(Cells, Bs, NewC), convert_col(NewC, W, H, CC), map_grid(adj_bomb(grid(W, H, CC)), grid(W, H, CC), G), play(G))	:- initialization((W = 6, H = 4, Len is W * H, length(Cells, Len), NB is Len // 5, length(Bs, NB), maplist(=('?'), Bs), map_bombs_to_cells(Cells, Bs, NewC), convert_col(NewC, W, H, CC), map_grid(adj_bomb(grid(W, H, CC)), grid(W, H, CC), G), play(G))). + minesweeper-game.in
+modular-inverse	(modinv(42, 2017, N), format("~w~n", [N]))	:- initialization((modinv(42, 2017, N), format("~w~n", [N]))).
+morse-code-1	(text2morse("Hello World", M), format("~w~n", [M]))	:- initialization((text2morse("Hello World", M), format("~w~n", [M]))).
+multiplication-tables	(make_table(1, 12), nl)	:- initialization((make_table(1, 12), nl)).
+multisplit	(phrase(multisplit(['==', '!=', '='], 'a!===b=!=c'), L), format("~w~n", [L]))	:- initialization((phrase(multisplit(['==', '!=', '='], 'a!===b=!=c'), L), format("~w~n", [L]))).
+mutex-2	forall(member(G, [writeln(first), writeln(second)]), synchronized_goal(G))	:- initialization(forall(member(G, [writeln(first), writeln(second)]), synchronized_goal(G))).
+mutual-recursion-1	(forall(between(0, 19, N), (female(N, F), format("~w ", [F]))), nl, forall(between(0, 19, N), (male(N, M), format("~w ", [M]))), nl)	:- initialization((forall(between(0, 19, N), (female(N, F), format("~w ", [F]))), nl, forall(between(0, 19, N), (male(N, M), format("~w ", [M]))), nl)).
+n-queens-problem-1	(findall(S, (template(S), solution(S)), Ss), forall(member(S, Ss), format("~w~n", [S])), length(Ss, N), format("~w solutions~n", [N]))	:- initialization((findall(S, (template(S), solution(S)), Ss), forall(member(S, Ss), format("~w~n", [S])), length(Ss, N), format("~w solutions~n", [N]))).
+n-queens-problem-2	(findall(Q, solution(Q), Qs), forall(member(Q, Qs), format("~w~n", [Q])), length(Qs, N), format("~w solutions~n", [N]))	:- initialization((findall(Q, solution(Q), Qs), forall(member(Q, Qs), format("~w~n", [Q])), length(Qs, N), format("~w solutions~n", [N]))).
+n-queens-problem-3	(findall(Q, solution(Q), Qs), forall(member(Q, Qs), format("~w~n", [Q])), length(Qs, N), format("~w solutions~n", [N]))	:- initialization((findall(Q, solution(Q), Qs), forall(member(Q, Qs), format("~w~n", [Q])), length(Qs, N), format("~w solutions~n", [N]))).
+n-queens-problem-5	queens	:- initialization(queens).
+n-queens-problem-6	(queens(8, Qs), forall(member(Q, Qs), format("~w~n", [Q])), length(Qs, N), format("~w solutions~n", [N]))	:- initialization((queens(8, Qs), forall(member(Q, Qs), format("~w~n", [Q])), length(Qs, N), format("~w solutions~n", [N]))).
+narcissistic-decimal-number	do	:- initialization(do).
+neighbour-primes	do	:- initialization(do).
+nim-game	(nim, nl)	:- initialization((nim, nl)). + nim-game.in
+non-continuous-subsequences-1	forall(member(L, [[1,2,3,4], [a,e,i,o,u]]), (ncsubs(L, S), format("~w: ~w~n", [L, S])))	:- initialization(forall(member(L, [[1,2,3,4], [a,e,i,o,u]]), (ncsubs(L, S), format("~w: ~w~n", [L, S])))).
+nonogram-solver-1	nonogram([[3],[2,1],[3,2],[2,2],[6],[1,5],[6],[1],[2]], [[1,2],[3,1],[1,5],[7,1],[5],[3],[4],[3]])	:- initialization(nonogram([[3],[2,1],[3,2],[2,2],[6],[1,5],[6],[1],[2]], [[1,2],[3,1],[1,5],[7,1],[5],[3],[4],[3]])).
+nth-root	forall(member(M-N, [2-2, 3-1000, 5-100000, 2-(2*10**100), 3-(2*10**60)]), (A is N, iroot(M, A, R), format("~w root of ~w = ~w~n", [M, A, R])))	:- initialization(forall(member(M-N, [2-2, 3-1000, 5-100000, 2-(2*10**100), 3-(2*10**60)]), (A is N, iroot(M, A, R), format("~w root of ~w = ~w~n", [M, A, R])))).
+number-names	forall(member(N, [0, 7, 13, 21, 99, 100, 101, 999, 1000, 1001, 12345, 1000000, 123456789, -42, 9007199254740991]), (spell(N, S), format("~w: ~w~n", [N, S])))	:- initialization(forall(member(N, [0, 7, 13, 21, 99, 100, 101, 999, 1000, 1001, 12345, 1000000, 123456789, -42, 9007199254740991]), (spell(N, S), format("~w: ~w~n", [N, S])))).
+number-reversal-game	do_turn(0, [2, 3, 1, 4, 5, 6, 7, 8, 9])	:- initialization(do_turn(0, [2, 3, 1, 4, 5, 6, 7, 8, 9])). + number-reversal-game.in
+odd-squarefree-semiprimes	do	:- initialization(do).
+odd-word-problem	forall(between(1, 2, _), odd_word_problem)	:- set_prolog_flag(double_quotes, codes). at the head + :- initialization(forall(between(1, 2, _), odd_word_problem)). + odd-word-problem.in
+old-russian-measure-of-length-1	its own initialization goal	nothing appended; old-russian-measure-of-length-1.argv holds the arguments: main/1 converts the amount and unit on its command line into every other unit; 42 centimetre, the amount of old-russian-measure-of-length-2's example query
+orbital-elements	(orbital_state_vectors(o(1.0, 0.1, 0.0, 355.0/(113*6), 0.0, 0.0), P, S), format("position: ~w~nspeed: ~w~n", [P, S]))	:- initialization((orbital_state_vectors(o(1.0, 0.1, 0.0, 355.0/(113*6), 0.0, 0.0), P, S), format("position: ~w~nspeed: ~w~n", [P, S]))).
+order-by-pair-comparisons-1	(ask_sort(["violet", "red", "green", "indigo", "blue", "yellow", "orange"], S), format("~w~n", [S]))	:- initialization((ask_sort(["violet", "red", "green", "indigo", "blue", "yellow", "orange"], S), format("~w~n", [S]))). + order-by-pair-comparisons-1.in
+palindrome-detection-1	forall(member(W, [racecar, rotor, abba, a, '', ab, palindrome]), ((palindrome(W) -> R = yes ; R = no), format("~q: ~w~n", [W, R])))	:- initialization(forall(member(W, [racecar, rotor, abba, a, '', ab, palindrome]), ((palindrome(W) -> R = yes ; R = no), format("~q: ~w~n", [W, R])))).
+palindrome-detection-2	forall(member(W, ["racecar", "rotor", "abba", "a", "", "ab", "palindrome"]), ((pali(W) -> R = yes ; R = no), format("~q: ~w~n", [W, R])))	:- initialization(forall(member(W, ["racecar", "rotor", "abba", "a", "", "ab", "palindrome"]), ((pali(W) -> R = yes ; R = no), format("~q: ~w~n", [W, R])))).
+palindrome-detection-3	forall(member(W, [racecar, rotor, abba, a, '', ab, palindrome]), ((pali(W) -> R = yes ; R = no), format("~q: ~w~n", [W, R])))	:- initialization(forall(member(W, [racecar, rotor, abba, a, '', ab, palindrome]), ((pali(W) -> R = yes ; R = no), format("~q: ~w~n", [W, R])))).
+pangram-checker	pangram_example	:- set_prolog_flag(double_quotes, codes). at the head + :- initialization(pangram_example).
+parsing-rpn-calculator-algorithm	(atom_codes('3 4 2 * 1 5 - 2 3 ^ ^ / +', L), rpn(L))	:- initialization((atom_codes('3 4 2 * 1 5 - 2 3 ^ ^ / +', L), rpn(L))).
+partial-function-application	fs	:- initialization(fs).
+partition-an-integer-x-into-n-primes-2	(find_prime_numbers(100), findall(P, is_prime(P), Ps), format("~w~n", [Ps]))	:- initialization((find_prime_numbers(100), findall(P, is_prime(P), Ps), format("~w~n", [Ps]))).
+pascals-triangle-3	pascal(5)	:- initialization(pascal(5)).
+pascals-triangle-puzzle	(once(puzzle(Ts, X, Y, Z)), forall(member(T, Ts), format("~w~n", [T])), format("X = ~w, Y = ~w, Z = ~w~n", [X, Y, Z]))	:- initialization((once(puzzle(Ts, X, Y, Z)), forall(member(T, Ts), format("~w~n", [T])), format("X = ~w, Y = ~w, Z = ~w~n", [X, Y, Z]))).
+peano-curve	peano_curve(user_output, "L", 8, 8, 8, 90, 2)	:- initialization(peano_curve(user_output, "L", 8, 8, 8, 90, 2)).
+perfect-numbers-1	(perfect_numbers(10000, L), format("~w~n", [L]))	:- initialization((perfect_numbers(10000, L), format("~w~n", [L]))).
+perfect-numbers-2	(findall(N, (between(1, 10000, N), perfect(N)), L), format("~w~n", [L]), forall(member(N, [33550336, 33550337, 8589869056, 137438691328, 2305843008139952128]), ((perfect(N) -> R = yes ; R = no), format("~w: ~w~n", [N, R]))))	:- initialization((findall(N, (between(1, 10000, N), perfect(N)), L), format("~w~n", [L]), forall(member(N, [33550336, 33550337, 8589869056, 137438691328, 2305843008139952128]), ((perfect(N) -> R = yes ; R = no), format("~w: ~w~n", [N, R]))))).
+permutations-1	forall(permut_clpfd(L, 3), writeln(L))	:- initialization(forall(permut_clpfd(L, 3), writeln(L))).
+permutations-3	forall(permut_Prolog(P, [ab, cd, ef]), writeln(P))	:- initialization(forall(permut_Prolog(P, [ab, cd, ef]), writeln(P))).
+permutations-5	forall(permutation([1, 2, 3], P), writeln(P))	:- initialization(forall(permutation([1, 2, 3], P), writeln(P))).
+pi	(pi(X), length(Ds, 100), append(Ds, _, X), forall(member(D, Ds), write(D)), nl)	:- initialization((pi(X), length(Ds, 100), append(Ds, _, X), forall(member(D, Ds), write(D)), nl)).
+playing-cards	(new_deck(D), print_deck(D), deck_deal(D, C, D1), length(D1, N), format("dealt ~w, ~w left~n", [C, N]))	:- initialization((new_deck(D), print_deck(D), deck_deal(D, C, D1), length(D1, N), format("dealt ~w, ~w left~n", [C, N]))).
+polymorphism	(test_point, nl, test_circle, nl)	:- initialization((test_point, nl, test_circle, nl)).
+power-set-1	(powerset([1, 2, 3, 4], P), format("~w~n", [P]))	:- initialization((powerset([1, 2, 3, 4], P), format("~w~n", [P]))).
+power-set-2	(power_set([1, 2, 3, 4], P), format("~w~n", [P]))	:- initialization((power_set([1, 2, 3, 4], P), format("~w~n", [P]))).
+power-set-3	(chr_power_set([1, 2, 3, 4], []), findall(L, find_chr_constraint(chr_power_set(L)), Ls), clean, format("~w~n", [Ls]))	:- initialization((chr_power_set([1, 2, 3, 4], []), findall(L, find_chr_constraint(chr_power_set(L)), Ls), clean, format("~w~n", [Ls]))).
+primality-by-trial-division	(findall(N, (between(1, 100, N), prime(N)), L), format("~w~n", [L]))	:- initialization((findall(N, (between(1, 100, N), prime(N)), L), format("~w~n", [L]))).
+prime-conspiracy	conspiracy(4)	:- initialization(conspiracy(4)).
+prime-decomposition-1	forall(member(N, [12, 1001, 9007199254740991, 576460752303423487]), (prime_decomp(N, L), format("~w: ~w~n", [N, L])))	:- initialization(forall(member(N, [12, 1001, 9007199254740991, 576460752303423487]), (prime_decomp(N, L), format("~w: ~w~n", [N, L])))).
+prime-decomposition-3	forall(member(N, [2, 3, 12, 13, 97, 360, 1001, 2147483647, 600851475143]), (factors(N, FS), numbervars(FS, 0, _), format("~w: ~w~n", [N, FS])))	:- initialization(forall(member(N, [2, 3, 12, 13, 97, 360, 1001, 2147483647, 600851475143]), (factors(N, FS), numbervars(FS, 0, _), format("~w: ~w~n", [N, FS])))).
+prime-decomposition-4	forall(member(N, [1, 2, 12, 360, 1001, 1024, 2147483647, 600851475143]), (factor(N, F), format("~w: ~w~n", [N, F])))	:- initialization(forall(member(N, [1, 2, 12, 360, 1001, 1024, 2147483647, 600851475143]), (factor(N, F), format("~w: ~w~n", [N, F])))).
+prime-numbers-p-for-which-the-sum-of-primes-less-than-or-equal-to-p-is-prime	do	:- initialization(do).
+priority-queue	priority-queue	:- initialization(priority-queue).
+program-name-1	(file_name(F), file_base_name(F, B), writeln(B))	:- initialization((file_name(F), file_base_name(F, B), writeln(B))).
+proper-divisors-1	(show_proper_divisors_of_range(1, 10), find_most_proper_divisors_in_range(1, 20000, R), writeln(R))	:- initialization((show_proper_divisors_of_range(1, 10), find_most_proper_divisors_in_range(1, 20000, R), writeln(R))).
+pythagorean-triples	forall(member(Max, [100, 1000, 10000, 100000, 1000000]), (count_triples(Max, Total, Prim), format("upto ~D, there are ~D Pythagorean triples (~D primitive.)~n", [Max, Total, Prim])))	:- initialization(forall(member(Max, [100, 1000, 10000, 100000, 1000000]), (count_triples(Max, Total, Prim), format("upto ~D, there are ~D Pythagorean triples (~D primitive.)~n", [Max, Total, Prim])))).
+quaternion-1	(Q = qx(1,2,3,4), Q1 = qx(2,3,4,5), Q2 = qx(3,4,5,6), R = 7, abs(Q, N), format("abs(q) = ~w~n", [N]), negate(Q, Ng), format("-q = ~w~n", [Ng]), conjugate(Q, C), format("conj(q) = ~w~n", [C]), add(Q, R, QR), format("q + r = ~w~n", [QR]), add(R, Q, RQ), format("r + q = ~w~n", [RQ]), add(Q1, Q2, S), format("q1 + q2 = ~w~n", [S]), mul(Q, R, M1), format("q * r = ~w~n", [M1]), mul(R, Q, M2), format("r * q = ~w~n", [M2]), mul(Q1, Q2, P12), format("q1 * q2 = ~w~n", [P12]), mul(Q2, Q1, P21), format("q2 * q1 = ~w~n", [P21]))	:- initialization((Q = qx(1,2,3,4), Q1 = qx(2,3,4,5), Q2 = qx(3,4,5,6), R = 7, abs(Q, N), format("abs(q) = ~w~n", [N]), negate(Q, Ng), format("-q = ~w~n", [Ng]), conjugate(Q, C), format("conj(q) = ~w~n", [C]), add(Q, R, QR), format("q + r = ~w~n", [QR]), add(R, Q, RQ), format("r + q = ~w~n", [RQ]), add(Q1, Q2, S), format("q1 + q2 = ~w~n", [S]), mul(Q, R, M1), format("q * r = ~w~n", [M1]), mul(R, Q, M2), format("r * q = ~w~n", [M2]), mul(Q1, Q2, P12), format("q1 * q2 = ~w~n", [P12]), mul(Q2, Q1, P21), format("q2 * q1 = ~w~n", [P21]))).
+queue-definition	(empty(Q0), push(Q0, 1, Q1), push(Q1, 2, Q2), push(Q2, 3, Q3), pop(Q3, A, Q4), format('pop: ~w~n', [A]), pop(Q4, B, Q5), format('pop: ~w~n', [B]), (empty(Q5) -> writeln('empty: yes') ; writeln('empty: no')), pop(Q5, C, Q6), format('pop: ~w~n', [C]), (empty(Q6) -> writeln('empty: yes') ; writeln('empty: no')), (pop(Q6, _, _) -> writeln('pop: a value') ; writeln('pop on the empty queue fails')))	:- initialization((empty(Q0), push(Q0, 1, Q1), push(Q1, 2, Q2), push(Q2, 3, Q3), pop(Q3, A, Q4), format('pop: ~w~n', [A]), pop(Q4, B, Q5), format('pop: ~w~n', [B]), (empty(Q5) -> writeln('empty: yes') ; writeln('empty: no')), pop(Q5, C, Q6), format('pop: ~w~n', [C]), (empty(Q6) -> writeln('empty: yes') ; writeln('empty: no')), (pop(Q6, _, _) -> writeln('pop: a value') ; writeln('pop on the empty queue fails')))).
+queue-usage	(empty(Q), copy_term(Q, C0), numbervars(C0, 0, _), format('Create queue ~w~n~n', [C0]), write('Add numbers 1 and 2 : '), push(Q, 1, Q1), push(Q1, 2, Q2), copy_term(Q2, C2), numbervars(C2, 0, _), format('~w~n~n', [C2]), pop(Q2, V, Q3), copy_term(Q3, C3), numbervars(C3, 0, _), format('Pop : Value ~w Queue : ~w~n~n', [V, C3]), write('Test of the queue : '), (empty(Q3) -> writeln('Queue empy') ; writeln('Queue not empty')), nl, write('Pop the queue : '), pop(Q3, V1, Q4), copy_term(Q4, C4), numbervars(C4, 0, _), format('Value ~w Queue : ~w~n~n', [V1, C4]), write('Pop the queue : '), (pop(Q4, _, _) -> writeln('a value') ; writeln('fails, the queue is empty')))	:- initialization((empty(Q), copy_term(Q, C0), numbervars(C0, 0, _), format('Create queue ~w~n~n', [C0]), write('Add numbers 1 and 2 : '), push(Q, 1, Q1), push(Q1, 2, Q2), copy_term(Q2, C2), numbervars(C2, 0, _), format('~w~n~n', [C2]), pop(Q2, V, Q3), copy_term(Q3, C3), numbervars(C3, 0, _), format('Pop : Value ~w Queue : ~w~n~n', [V, C3]), write('Test of the queue : '), (empty(Q3) -> writeln('Queue empy') ; writeln('Queue not empty')), nl, write('Pop the queue : '), pop(Q3, V1, Q4), copy_term(Q4, C4), numbervars(C4, 0, _), format('Value ~w Queue : ~w~n~n', [V1, C4]), write('Pop the queue : '), (pop(Q4, _, _) -> writeln('a value') ; writeln('fails, the queue is empty')))).
+quine-1	quine	:- initialization(quine).
+quine-2	quine	:- initialization(quine).
+range-expansion	range_expand	:- initialization(range_expand).
+range-extraction	range_extract	:- initialization(range_extract).
+read-entire-file	(main -> writeln('main/0 read the file named on its command line into a string') ; writeln('main/0 failed'))	:- initialization((main -> writeln('main/0 read the file named on its command line into a string') ; writeln('main/0 failed'))). + read-entire-file.in + read-entire-file.argv
+remove-duplicate-elements-1	(uniq([1, 2, 3, a, b, c, 2, 3, 4, b, c, d], U), format("~w~n", [U]))	:- initialization((uniq([1, 2, 3, a, b, c, 2, 3, 4, b, c, d], U), format("~w~n", [U]))).
+remove-duplicate-elements-3	(distinct([1, 2, 3, a, b, c, 2, 3, 4, b, c, d], U), format("~w~n", [U]))	:- initialization((distinct([1, 2, 3, a, b, c, 2, 3, 4, b, c, d], U), format("~w~n", [U]))).
+remove-vowels-from-a-string	(remove_vowels("Rosetta Code is a programming chrestomathy site.", O), atom_chars(A, O), writeln(A))	:- initialization((remove_vowels("Rosetta Code is a programming chrestomathy site.", O), atom_chars(A, O), writeln(A))).
+repeat-a-string-1	(repeat("ha", 5, R), writeln(R))	:- initialization((repeat("ha", 5, R), writeln(R))).
+repeat-a-string-2	(repeat("ha", 5, T), atom_chars(A, T), writeln(A))	:- initialization((repeat("ha", 5, T), atom_chars(A, T), writeln(A))).
+reverse-a-string-2	(atom_chars(asdf, L), rev(L, R), atom_chars(A, R), writeln(A))	:- initialization((atom_chars(asdf, L), rev(L, R), atom_chars(A, R), writeln(A))).
+reverse-the-order-of-lines-in-a-text-file-while-preserving-the-contents-of-each-line	its own initialization goal	nothing appended; reverse-the-order-of-lines-in-a-text-file-while-preserving-the-contents-of-each-line.argv holds the arguments: main/1 (initialization(main, main)) reverses the lines of the file named on its command line; the argument is /dev/stdin and the .in holds the task's Will Rogers quote
+rock-paper-scissors	forall((member(C, [rock, paper, scissors]), member(P, [rock, paper, scissors])), (format("computer ~w, you ~w: ", [C, P]), result(C, P, [], _)))	:- initialization(forall((member(C, [rock, paper, scissors]), member(P, [rock, paper, scissors])), (format("computer ~w, you ~w: ", [C, P]), result(C, P, [], _)))).
+roman-numerals-decode	forall(member(R, [mcmxc, mmviii, mdclxvi]), (decode_string(R, V), format("~w: ~w~n", [R, V])))	:- initialization(forall(member(R, [mcmxc, mmviii, mdclxvi]), (decode_string(R, V), format("~w: ~w~n", [R, V])))).
+roots-of-unity	forall(between(1, 2, N), (roots(N, Rs), format("~w: ~w~n", [N, Rs])))	:- initialization(forall(between(1, 2, N), (roots(N, Rs), format("~w: ~w~n", [N, Rs])))).
+rot-13-1	runtime_entry(start)	:- initialization(runtime_entry(start)). + rot-13-1.in
+rot-13-2	(rot13("Hello, World!", R), writeln(R))	:- set_prolog_flag(double_quotes, codes). at the head + :- initialization((rot13("Hello, World!", R), writeln(R))).
+run-length-encoding	run_length	:- set_prolog_flag(double_quotes, codes). at the head + :- initialization(run_length).
+search-a-list	search_a_list("Bush", "Washington")	:- set_prolog_flag(double_quotes, codes). at the head + :- initialization(search_a_list("Bush", "Washington")).
+self-describing-numbers	forall(between(1, 8, I), (findall(N, self_describling(I, N), L), format('Len ~w, Numbers ~w~n', [I, L])))	:- initialization(forall(between(1, 8, I), (findall(N, self_describling(I, N), L), format('Len ~w, Numbers ~w~n', [I, L])))).
+semiprime	do	:- initialization(do).
+sequence-of-primes-by-trial-division	(primes(100, Ps), format("~w~n", [Ps]))	:- initialization((primes(100, Ps), format("~w~n", [Ps]))).
+set-1	set	:- initialization(set).
+set-puzzle	(Cards = [[green,squiggle,one,solid],[red,squiggle,two,solid],[purple,squiggle,two,solid],[red,squiggle,two,striped],[red,diamond,one,striped],[green,oval,three,striped],[purple,oval,three,solid],[red,oval,three,open],[green,squiggle,two,open]], setof(Set, is_card_set(Cards, Set), Sets), format('Cards: ~n'), maplist(print_card, Cards), format('~nSets: ~n'), maplist(print_set, Sets))	:- initialization((Cards = [[green,squiggle,one,solid],[red,squiggle,two,solid],[purple,squiggle,two,solid],[red,squiggle,two,striped],[red,diamond,one,striped],[green,oval,three,striped],[purple,oval,three,solid],[red,oval,three,open],[green,squiggle,two,open]], setof(Set, is_card_set(Cards, Set), Sets), format('Cards: ~n'), maplist(print_card, Cards), format('~nSets: ~n'), maplist(print_set, Sets))).
+sexy-primes-2	(find_prime_numbers(100), findall(P, is_prime(P), Ps), format("~w~n", [Ps]))	:- initialization((find_prime_numbers(100), findall(P, is_prime(P), Ps), format("~w~n", [Ps]))).
+sha-1-1	(sha_hex("Rosetta Code", H), writeln(H))	:- initialization((sha_hex("Rosetta Code", H), writeln(H))).
+short-circuit-evaluation-1	short_circuit	:- initialization(short_circuit).
+show-ascii-table	ascii	:- initialization(ascii).
+sierpinski-arrowhead-curve	write_sierpinski_arrowhead('/dev/stdout', 600, 4)	:- initialization(write_sierpinski_arrowhead('/dev/stdout', 600, 4)).
+sierpinski-carpet	write_sierpinski_carpet('/dev/stdout', 486, 2)	:- initialization(write_sierpinski_carpet('/dev/stdout', 486, 2)).
+sierpinski-pentagon	write_sierpinski_pentagon('/dev/stdout', 600, 4)	:- initialization(write_sierpinski_pentagon('/dev/stdout', 600, 4)).
+sierpinski-triangle	sierpinski_triangle(4)	:- initialization(sierpinski_triangle(4)).
+sieve-of-eratosthenes-1	(primes(100, L), format("~w~n", [L]))	:- initialization((primes(100, L), format("~w~n", [L]))).
+sieve-of-eratosthenes-12	(once(findnsols(25, P, prime(P), Ps)), format("~w~n", [Ps]))	:- initialization((once(findnsols(25, P, prime(P), Ps)), format("~w~n", [Ps]))).
+sieve-of-eratosthenes-2	(primes(100, L), format("~w~n", [L]))	:- initialization((primes(100, L), format("~w~n", [L]))).
+sieve-of-eratosthenes-4	(primes(100, L), format("~w~n", [L]))	:- initialization((primes(100, L), format("~w~n", [L]))).
+sieve-of-eratosthenes-5	(primes(100, L), format("~w~n", [L]))	:- initialization((primes(100, L), format("~w~n", [L]))).
+sieve-of-eratosthenes-6	(primes(PS), take(25, PS, A), format("~w~n", [A]))	:- initialization((primes(PS), take(25, PS, A), format("~w~n", [A]))).
+sieve-of-eratosthenes-8	(sieve(100, Ps), format("~w~n", [Ps]))	:- initialization((sieve(100, Ps), format("~w~n", [Ps]))).
+sleep	rosetta_sleep(1)	:- initialization(rosetta_sleep(1)).
+smallest-square-that-begins-with-n	do	:- initialization(do).
+solve-a-hopido-puzzle-1	(P = [p(1,0),p(2,0),p(4,0),p(5,0),p(0,1),p(1,1),p(2,1),p(3,1),p(4,1),p(5,1),p(6,1),p(0,2),p(1,2),p(2,2),p(3,2),p(4,2),p(5,2),p(6,2),p(1,3),p(2,3),p(3,3),p(4,3),p(5,3),p(2,4),p(3,4),p(4,4),p(3,5)], XYs = [0,1,2,3,4,5,6], hopido(P, S, XYs, XYs), maplist(writeln, S))	:- initialization((P = [p(1,0),p(2,0),p(4,0),p(5,0),p(0,1),p(1,1),p(2,1),p(3,1),p(4,1),p(5,1),p(6,1),p(0,2),p(1,2),p(2,2),p(3,2),p(4,2),p(5,2),p(6,2),p(1,3),p(2,3),p(3,3),p(4,3),p(5,3),p(2,4),p(3,4),p(4,4),p(3,5)], XYs = [0,1,2,3,4,5,6], hopido(P, S, XYs, XYs), maplist(writeln, S))).
+solve-a-numbrix-puzzle	(test1, nl, test2)	:- initialization((test1, nl, test2)).
+solve-the-no-connection-puzzle	(no_connection_puzzle(Vs), format("~w~n", [Vs]))	:- initialization((no_connection_puzzle(Vs), format("~w~n", [Vs]))).
+sort-disjoint-sublist-1	(sort_disjoint_sublist([7,6,5,4,3,2,1,0], [6,1,7], R), format("~w~n", [R]))	:- initialization((sort_disjoint_sublist([7,6,5,4,3,2,1,0], [6,1,7], R), format("~w~n", [R]))).
+sort-disjoint-sublist-2	(sort_disjoint_sublist([7,6,5,4,3,2,1,0], [6,1,7], R), format("~w~n", [R]))	:- initialization((sort_disjoint_sublist([7,6,5,4,3,2,1,0], [6,1,7], R), format("~w~n", [R]))).
+sort-using-a-custom-comparator	rosetta_sort	:- initialization(rosetta_sort).
+sorting-algorithms-bogosort	(bogo_sort([3, 1, 4, 1, 5, 9, 2, 6], L), format("~w~n", [L]))	:- initialization((bogo_sort([3, 1, 4, 1, 5, 9, 2, 6], L), format("~w~n", [L]))).
+sorting-algorithms-insertion-sort-1	(insert_sort([4, 65, 2, -31, 0, 99, 2, 83, 782, 1], L), format("~w~n", [L]))	:- initialization((insert_sort([4, 65, 2, -31, 0, 99, 2, 83, 782, 1], L), format("~w~n", [L]))).
+sorting-algorithms-insertion-sort-2	(isort([4, 65, 2, -31, 0, 99, 2, 83, 782, 1], S), format("~w~n", [S]))	:- initialization((isort([4, 65, 2, -31, 0, 99, 2, 83, 782, 1], S), format("~w~n", [S]))).
+sorting-algorithms-merge-sort	(msort([4, 65, 2, -31, 0, 99, 2, 83, 782, 1], S), format("~w~n", [S]))	:- initialization((msort([4, 65, 2, -31, 0, 99, 2, 83, 782, 1], S), format("~w~n", [S]))).
+sorting-algorithms-patience-sort	(patience_sort([4, 65, 2, -31, 0, 99, 2, 83, 782, 1], S), format("~w~n", [S]))	:- initialization((patience_sort([4, 65, 2, -31, 0, 99, 2, 83, 782, 1], S), format("~w~n", [S]))).
+sorting-algorithms-permutation-sort	(permutation_sort([4, 65, 2, -31, 0, 99, 83, 1], S), format("~w~n", [S]))	:- initialization((permutation_sort([4, 65, 2, -31, 0, 99, 83, 1], S), format("~w~n", [S]))).
+sorting-algorithms-quicksort	(qsort([4, 65, 2, -31, 0, 99, 2, 83, 782, 1], S), format("~w~n", [S]))	:- initialization((qsort([4, 65, 2, -31, 0, 99, 2, 83, 782, 1], S), format("~w~n", [S]))).
+sorting-algorithms-selection-sort	(selection_sort([4, 65, 2, -31, 0, 99, 2, 83, 782, 1], S), format("~w~n", [S]))	:- initialization((selection_sort([4, 65, 2, -31, 0, 99, 2, 83, 782, 1], S), format("~w~n", [S]))).
+soundex	forall(member(N, ['Robert', 'Rupert', 'Rubin', 'Ashcroft', 'Ashcraft', 'Tymczak', 'Pfister']), (soundex(N, S), format("~w: ~w~n", [N, S])))	:- set_prolog_flag(double_quotes, codes). at the head + :- initialization(forall(member(N, ['Robert', 'Rupert', 'Rubin', 'Ashcroft', 'Ashcraft', 'Tymczak', 'Pfister']), (soundex(N, S), format("~w: ~w~n", [N, S])))).
+spelling-of-ordinal-numbers-2	forall(member(N, [1, 2, 3, 4, 5, 11, 65, 100, 101, 272, 23456, 8007006005004003]), (number_name(N, ordinal, Name), format("~w: ~w~n", [N, Name])))	:- initialization(forall(member(N, [1, 2, 3, 4, 5, 11, 65, 100, 101, 272, 23456, 8007006005004003]), (number_name(N, ordinal, Name), format("~w: ~w~n", [N, Name])))).
+spiral-matrix	(spiral(5, M), forall(member(R, M), format("~w~n", [R])))	:- initialization((spiral(5, M), forall(member(R, M), format("~w~n", [R])))).
+stable-marriage-problem-2	(retractall(person(_, _, _, _)), retractall(prop(_, _)), forall(prefere(P, Pref), assert(person(P, Pref, free, none))), bagof(X, man(X), LstMen), bagof(Y, woman(Y), LstWomen), forall(member(Z, LstWomen), assert(prop(Z, []))), iteration(LstMen, LstWomen, LstCouple), maplist(print_couple, LstCouple), nl, stability(LstCouple), nl, LstCouple = [couple(M1, W1), couple(M2, W2)|Rest], writeln('perturbation of couples'), format('~w with ~w~n', [W1, M2]), format('~w with ~w~n', [W2, M1]), nl, stability([couple(M1, W2), couple(M2, W1)|Rest]))	:- initialization((retractall(person(_, _, _, _)), retractall(prop(_, _)), forall(prefere(P, Pref), assert(person(P, Pref, free, none))), bagof(X, man(X), LstMen), bagof(Y, woman(Y), LstWomen), forall(member(Z, LstWomen), assert(prop(Z, []))), iteration(LstMen, LstWomen, LstCouple), maplist(print_couple, LstCouple), nl, stability(LstCouple), nl, LstCouple = [couple(M1, W1), couple(M2, W2)|Rest], writeln('perturbation of couples'), format('~w with ~w~n', [W1, M2]), format('~w with ~w~n', [W2, M1]), nl, stability([couple(M1, W2), couple(M2, W1)|Rest]))).
+stack	(empty(S0), push(1, S0, S1), push(2, S1, S2), push(3, S2, S3), format("stack: ~w~n", [S3]), pop(S3, T1, S4), format("popped ~w, stack: ~w~n", [T1, S4]), (empty(S4) -> writeln('empty: yes') ; writeln('empty: no')), pop(S4, T2, S5), pop(S5, T3, S6), format("popped ~w and ~w, stack: ~w~n", [T2, T3, S6]), (empty(S6) -> writeln('empty: yes') ; writeln('empty: no')))	:- initialization((empty(S0), push(1, S0, S1), push(2, S1, S2), push(3, S2, S3), format("stack: ~w~n", [S3]), pop(S3, T1, S4), format("popped ~w, stack: ~w~n", [T1, S4]), (empty(S4) -> writeln('empty: yes') ; writeln('empty: no')), pop(S4, T2, S5), pop(S5, T3, S6), format("popped ~w and ~w, stack: ~w~n", [T2, T3, S6]), (empty(S6) -> writeln('empty: yes') ; writeln('empty: no')))).
+state-name-puzzle	state_name_puzzle	:- initialization(state_name_puzzle).
+steady-squares	do	:- initialization(do).
+stem-and-leaf-plot	(display_stem_leaf_plot([12, 127, 28, 42, 39, 113, 42, 18, 44, 118, 44, 37, 113, 124, 37, 48, 127, 36, 29, 31, 125, 139, 131, 115, 105, 132, 104, 123, 35, 113, 122, 42, 117, 119, 58, 109, 23, 105, 63, 27, 44, 105, 99, 41, 128, 121, 116, 125, 32, 61, 37, 127, 29, 113, 121, 58, 114, 126, 53, 114, 96, 25, 109, 7, 31, 141, 46, 13, 27, 43, 117, 116, 27, 7, 68, 40, 31, 115, 124, 42, 128, 52, 71, 118, 117, 38, 27, 106, 33, 117, 116, 111, 40, 119, 47, 105, 57, 122, 109, 124, 115, 43, 120, 43, 27, 27, 18, 28, 48, 125, 107, 114, 34, 133, 45, 120, 30, 127, 31, 116, 146]), halt)	:- initialization((display_stem_leaf_plot([12, 127, 28, 42, 39, 113, 42, 18, 44, 118, 44, 37, 113, 124, 37, 48, 127, 36, 29, 31, 125, 139, 131, 115, 105, 132, 104, 123, 35, 113, 122, 42, 117, 119, 58, 109, 23, 105, 63, 27, 44, 105, 99, 41, 128, 121, 116, 125, 32, 61, 37, 127, 29, 113, 121, 58, 114, 126, 53, 114, 96, 25, 109, 7, 31, 141, 46, 13, 27, 43, 117, 116, 27, 7, 68, 40, 31, 115, 124, 42, 128, 52, 71, 118, 117, 38, 27, 106, 33, 117, 116, 111, 40, 119, 47, 105, 57, 122, 109, 124, 115, 43, 120, 43, 27, 27, 18, 28, 48, 125, 107, 114, 34, 133, 45, 120, 30, 127, 31, 116, 146]), halt)).
+strange-unique-prime-triplets	run([30, 500])	:- initialization(run([30, 500])).
+string-matching	forall(member(F-S, ["abcd"-"ab", "abcd"-"bc", "abcd"-"cd", "abab"-"ab"]), ((starts_with(F, S) -> A = yes ; A = no), (contains(F, S) -> B = yes ; B = no), findall(N, contains(F, S, N), Ns), (ends_with(F, S) -> C = yes ; C = no), format("~s / ~s: starts with ~w, contains ~w at ~w, ends with ~w~n", [F, S, A, B, Ns, C])))	:- initialization(forall(member(F-S, ["abcd"-"ab", "abcd"-"bc", "abcd"-"cd", "abab"-"ab"]), ((starts_with(F, S) -> A = yes ; A = no), (contains(F, S) -> B = yes ; B = no), findall(N, contains(F, S, N), Ns), (ends_with(F, S) -> C = yes ; C = no), format("~s / ~s: starts with ~w, contains ~w at ~w, ends with ~w~n", [F, S, A, B, Ns, C])))).
+string-prepend-1	(Str = `World!`, `Hello, ` =+ Str, format("~s~n", [Str]))	:- initialization((Str = `World!`, `Hello, ` =+ Str, format("~s~n", [Str]))).
+strip-a-set-of-characters-from-a-string-2	(strip_chars("She was a soul stripper. She took my heart!", "aei", T), atom_chars(A, T), writeln(A))	:- initialization((strip_chars("She was a soul stripper. She took my heart!", "aei", T), atom_chars(A, T), writeln(A))).
+strip-block-comments	(strip_block_comments("  /**\n   * Some comments\n   * longer comments here that we can parse.\n   *\n   * Rahoo \n   */\n   function subroutine() {\n    a = /* inline comment */ b + c ;\n   }\n   /*/ <-- tricky comments */\n\n   /**\n    * Another comment.\n    */\n    function something() {\n    }\n", Out), format("```~n", []), format("~s~n", [Out]), format("```~n", []))	:- initialization((strip_block_comments("  /**\n   * Some comments\n   * longer comments here that we can parse.\n   *\n   * Rahoo \n   */\n   function subroutine() {\n    a = /* inline comment */ b + c ;\n   }\n   /*/ <-- tricky comments */\n\n   /**\n    * Another comment.\n    */\n    function something() {\n    }\n", Out), format("```~n", []), format("~s~n", [Out]), format("```~n", []))).
+strip-comments-from-a-string-1	start	:- set_prolog_flag(double_quotes, codes). at the head + :- initialization(start).
+strip-comments-from-a-string-2	forall(member(S, [`apples, pears # and bananas`, `apples, pears ; and bananas`]), (strip_1comment(S, D), format("~s~n", [D])))	:- initialization(forall(member(S, [`apples, pears # and bananas`, `apples, pears ; and bananas`]), (strip_1comment(S, D), format("~s~n", [D])))).
+strip-whitespace-from-a-string-top-and-tail-1	strip	:- set_prolog_flag(double_quotes, codes). at the head + :- initialization(strip).
+strip-whitespace-from-a-string-top-and-tail-2	(S = "  \t Hello, World! \t  ", strip_leading(S, L), strip_trailing(S, T), strip_leading_and_trailing(S, B), format("[~s]~n[~s]~n[~s]~n[~s]~n", [S, L, T, B]))	:- initialization((S = "  \t Hello, World! \t  ", strip_leading(S, L), strip_trailing(S, T), strip_leading_and_trailing(S, B), format("[~s]~n[~s]~n[~s]~n[~s]~n", [S, L, T, B]))).
+substitution-cipher	(cypher('The quick brown fox jumped over the lazy dogs', S), writeln(S), cypher(O, S), writeln(O))	:- initialization((cypher('The quick brown fox jumped over the lazy dogs', S), writeln(S), cypher(O, S), writeln(O))).
+substring-1	substring_task("abcdefghijk", 2, 4, "d", "ef")	:- initialization(substring_task("abcdefghijk", 2, 4, "d", "ef")).
+substring-top-and-tail	remove_first_last_chars	:- set_prolog_flag(double_quotes, codes). at the head + :- initialization(remove_first_last_chars).
+successive-prime-differences	(numlist(2, 100000, L), include(prime, L, PL), length(PL, NP), format('there are ~w primes until ~w~n', [NP, 100000]), forall(member(D, [[1], [2], [2,2], [2,4], [4,2], [2,4,6], [2,6,4], [4,2,6], [4,6,2], [6,2,4], [6,4,2]]), (primesByDiffs(PL, D, SL), length(SL, Num), SL = [First|Tail], format('~|~w~t~7+ number: ~|~t~d~4+ first: ~|~w~t~22+', [D, Num, First]), once(writeLast(Tail)), nl)))	:- initialization((numlist(2, 100000, L), include(prime, L, PL), length(PL, NP), format('there are ~w primes until ~w~n', [NP, 100000]), forall(member(D, [[1], [2], [2,2], [2,4], [4,2], [2,4,6], [2,6,4], [4,2,6], [4,6,2], [6,2,4], [6,4,2]]), (primesByDiffs(PL, D, SL), length(SL, Num), SL = [First|Tail], format('~|~w~t~7+ number: ~|~t~d~4+ first: ~|~w~t~22+', [D, Num, First]), once(writeLast(Tail)), nl)))).
+sudoku-1	(problem(1, Rows), sudoku(Rows), maplist(label, Rows), forall(member(R, Rows), format("~w~n", [R])))	:- initialization((problem(1, Rows), sudoku(Rows), maplist(label, Rows), forall(member(R, Rows), format("~w~n", [R])))).
+sum-and-product-of-an-array-1	(L = [1, 2, 3, 4, 5], sum(L, S), format("sum of ~w: ~w~n", [L, S]))	:- initialization((L = [1, 2, 3, 4, 5], sum(L, S), format("sum of ~w: ~w~n", [L, S]))).
+sum-multiples-of-3-and-5-1	(sum_of_multiples_of_3_and_5_slow(1000, S), format("~w~n", [S]))	:- initialization((sum_of_multiples_of_3_and_5_slow(1000, S), format("~w~n", [S]))).
+sum-multiples-of-3-and-5-2	forall(member(N, [1000, 100000000000000000000]), (sum_of_multiples_of_3_and_5_fast(N, S), format("~w: ~w~n", [N, S])))	:- initialization(forall(member(N, [1000, 100000000000000000000]), (sum_of_multiples_of_3_and_5_fast(N, S), format("~w: ~w~n", [N, S])))).
+sum-of-a-series	(sum(S), format("~w~n", [S]))	:- initialization((sum(S), format("~w~n", [S]))).
+summarize-primes	do	:- initialization(do).
+symmetric-difference	sym_diff	:- initialization(sym_diff).
+test-a-function	(forall(member(W, ['ingirumimusnocteetconsumimurigni', 'this is not a palindrome']), ((palindrome(W) -> R = yes ; R = no), format("~w: ~w~n", [W, R]))), (run_tests(palindrome) -> writeln('palindrome tests: passed') ; writeln('palindrome tests: failed')))	:- initialization((forall(member(W, ['ingirumimusnocteetconsumimurigni', 'this is not a palindrome']), ((palindrome(W) -> R = yes ; R = no), format("~w: ~w~n", [W, R]))), (run_tests(palindrome) -> writeln('palindrome tests: passed') ; writeln('palindrome tests: failed')))).
+tokenize-a-string-1	start	:- set_prolog_flag(double_quotes, codes). at the head + :- initialization(start).
+top-rank-per-group	topDeps(3)	:- initialization(topDeps(3)).
+towers-of-hanoi-1	hanoi(3)	:- initialization(hanoi(3)).
+towers-of-hanoi-2	(hanoi(3, left, center, right, Moves-N), format("~w moves: ~w~n", [N, Moves]))	:- initialization((hanoi(3, left, center, right, Moves-N), format("~w moves: ~w~n", [N, Moves]))).
+tree-traversal	(tree, nl)	:- initialization((tree, nl)).
+truncatable-primes-2	(find_prime_numbers(100), findall(P, is_prime(P), Ps), format("~w~n", [Ps]))	:- initialization((find_prime_numbers(100), findall(P, is_prime(P), Ps), format("~w~n", [Ps]))).
+truth-table	(truth_table, nl, truth_table)	:- initialization((truth_table, nl, truth_table)). + truth-table.in
+unicode-variable-names-1	((是 -> writeln(true) ; writeln(false)), (不是 -> writeln(true) ; writeln(false)), test(X, Y), format("X = ~w, Y = ~w~n", [X, Y]), test2(1, R), format("Result = ~w~n", [R]))	:- initialization(((是 -> writeln(true) ; writeln(false)), (不是 -> writeln(true) ; writeln(false)), test(X, Y), format("X = ~w, Y = ~w~n", [X, Y]), test2(1, R), format("Result = ~w~n", [R]))).
+universal-lambda-machine	interpret	:- initialization(interpret). + universal-lambda-machine.in
+universal-turing-machine-1	(forall(member(C, [inc_config(q0, [qf], [q0], b, [b, 1]), inc_rules(q0, 1, 1, right, q0), inc_rules(q0, b, 1, stay, qf), bb_config('A', ['HALT'], ['A', 'B', 'C'], 0, [0, 1]), bb_rules('A', 0, 1, right, 'B'), bb_rules('A', 1, 1, left, 'C'), bb_rules('B', 0, 1, left, 'A'), bb_rules('B', 1, 1, right, 'B'), bb_rules('C', 0, 1, left, 'B'), bb_rules('C', 1, 1, stay, 'HALT')]), assertz(C)), turing(inc_config, inc_rules, [1, 1, 1], T1), format("incrementer: ~w~n", [T1]), turing(bb_config, bb_rules, [], T2), format("three-state busy beaver: ~w~n", [T2]))	:- initialization((forall(member(C, [inc_config(q0, [qf], [q0], b, [b, 1]), inc_rules(q0, 1, 1, right, q0), inc_rules(q0, b, 1, stay, qf), bb_config('A', ['HALT'], ['A', 'B', 'C'], 0, [0, 1]), bb_rules('A', 0, 1, right, 'B'), bb_rules('A', 1, 1, left, 'C'), bb_rules('B', 0, 1, left, 'A'), bb_rules('B', 1, 1, right, 'B'), bb_rules('C', 0, 1, left, 'B'), bb_rules('C', 1, 1, stay, 'HALT')]), assertz(C)), turing(inc_config, inc_rules, [1, 1, 1], T1), format("incrementer: ~w~n", [T1]), turing(bb_config, bb_rules, [], T2), format("three-state busy beaver: ~w~n", [T2]))).
+van-der-corput-sequence-2	(writeln('First 10 members in base 2:'), forall(g(1, 10, X), writeln(X)), writeln('First 10 members in base 4:'), forall(g(3, 10, Y), writeln(Y)))	:- initialization((writeln('First 10 members in base 2:'), forall(g(1, 10, X), writeln(X)), writeln('First 10 members in base 4:'), forall(g(3, 10, Y), writeln(Y)))).
+variables-1	forall(member(Q, [socrates, zeus]), ((mortal(Q) -> R = yes ; R = no), format("mortal(~w): ~w~n", [Q, R])))	:- initialization(forall(member(Q, [socrates, zeus]), ((mortal(Q) -> R = yes ; R = no), format("mortal(~w): ~w~n", [Q, R])))).
+variables-2	((student(X, socrates) -> format("student(X, socrates): X = ~w~n", [X]) ; writeln('student(X, socrates): no')), (student(socrates, Y) -> format("student(socrates, X): X = ~w~n", [Y]) ; writeln('student(socrates, X): no')))	:- initialization(((student(X, socrates) -> format("student(X, socrates): X = ~w~n", [X]) ; writeln('student(X, socrates): no')), (student(socrates, Y) -> format("student(socrates, X): X = ~w~n", [Y]) ; writeln('student(socrates, X): no')))).
+variadic-function-1	printAll(['Mary', had, a, little, lamb])	:- initialization(printAll(['Mary', had, a, little, lamb])).
+variadic-function-2	execute(write('Mary', had, a, little, lamb))	:- initialization(execute(write('Mary', had, a, little, lamb))).
+vector-products	(A = [3, 4, 5], B = [4, 3, 5], C = [-5, -12, -13], dot_product(A, B, D), cross_product(A, B, X), scala_triple(A, B, C, S), vector_triple(A, B, C, V), format("a . b = ~w~na x b = ~w~na . (b x c) = ~w~na x (b x c) = ~w~n", [D, X, S, V]))	:- initialization((A = [3, 4, 5], B = [4, 3, 5], C = [-5, -12, -13], dot_product(A, B, D), cross_product(A, B, X), scala_triple(A, B, C, S), vector_triple(A, B, C, V), format("a . b = ~w~na x b = ~w~na . (b x c) = ~w~na x (b x c) = ~w~n", [D, X, S, V]))).
+wilson-primes-of-order-n-2	(find_prime_numbers(100), findall(P, is_prime(P), Ps), format("~w~n", [Ps]))	:- initialization((find_prime_numbers(100), findall(P, is_prime(P), Ps), format("~w~n", [Ps]))).
+wireworld	(phrase(grid(G0), "tH.........\n.   .      \n   ...     \n.   .      \nHt.. ......\n"), display(G0), nl, foldl([_, Ga, Gb]>>(map_grid0(transition(Ga), Ga, Gb), display(Gb), nl), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], G0, _), halt)	:- initialization((phrase(grid(G0), "tH.........\n.   .      \n   ...     \n.   .      \nHt.. ......\n"), display(G0), nl, foldl([_, Ga, Gb]>>(map_grid0(transition(Ga), Ga, Gb), display(Gb), nl), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], G0, _), halt)).
+zebra-puzzle-2	(zebra(Owner, Houses), maplist(length, Houses, _), forall(member(H, Houses), format("~w~n", [H])), format("~w owns the zebra~n", [Owner]))	:- initialization((zebra(Owner, Houses), maplist(length, Houses, _), forall(member(H, Houses), format("~w~n", [H])), format("~w owns the zebra~n", [Owner]))).
+zebra-puzzle-5	zebra	:- initialization(zebra).
+zero-to-the-zero-power	(X is 0 ^ 0, format("0 ^ 0 = ~w~n", [X]))	:- initialization((X is 0 ^ 0, format("0 ^ 0 = ~w~n", [X]))).
+zig-zag-matrix	zig_zag(5)	:- initialization(zig_zag(5)).
+almost-prime-1	forall(between(1, 5, K), (almostPrime(K, 10, L), format("~w: ~w~n", [K, L])))	:- initialization(forall(between(1, 5, K), (almostPrime(K, 10, L), format("~w: ~w~n", [K, L])))). including almost-prime-2.pl almost-prime-3.pl
+chernicks-carmichael-numbers-2	main	:- initialization(main). including chernicks-carmichael-numbers-1.pl
+general-fizzbuzz-2	go	:- initialization(go). including general-fizzbuzz-1.pl
+long-primes-1	main	:- initialization(main). including long-primes-2.pl

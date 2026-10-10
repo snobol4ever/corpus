@@ -19,3 +19,6 @@ sym_braces(String, Context) --> ['}'], sym_braces(S2, Context), {atomics_to_stri
 grammar(String) --> sym_braces(String, braces).
 
 brace_expansion(In, Out) :- atom_chars(In, Chars), findall(Out,grammar(Out, Chars, []), List), list_to_set(List, Out).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines brace_expansion/2 and never calls it; the driver expands the task's four test strings.
+:- initialization(forall(member(In, ['~/{Downloads,Pictures}/*.{jpg,gif,png}', 'It{{em,alic}iz,erat}e{d,}, please.', '{,{,gotta have{ ,\\, again\\, }}more }cowbell!', '{}} some }{,{\\\\{ edge, edge} \\,}{ cases, {here} \\\\\\\\\\}']), (format("~w~n", [In]), brace_expansion(In, Out), forall(member(O, Out), format("    ~w~n", [O]))))).

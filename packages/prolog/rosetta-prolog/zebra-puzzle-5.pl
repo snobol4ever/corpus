@@ -52,3 +52,6 @@ zebra :-
     format(Fmt, SmokeNames),
     format(Fmt, PetNames),
     format(Fmt, DrinkNames).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines zebra/0 and never calls it; the driver calls it once at load.
+:- initialization(zebra).

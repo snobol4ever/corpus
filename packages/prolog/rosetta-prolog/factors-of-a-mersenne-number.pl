@@ -25,3 +25,6 @@ prime(N, D, _) :- D*D > N, !.
 prime(N, D, [A|As]) :-
     N mod D =\= 0,
     D2 is D + A, prime(N, D2, As).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines mersenne_factor/2 and never calls it; the driver finds the task's factor of 2^929 - 1.
+:- initialization((mersenne_factor(929, F), format("M929 has a factor: ~w~n", [F]))).

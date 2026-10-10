@@ -19,3 +19,6 @@ wheel_prime(N, [D|Ds]) :- N mod D =\= 0, wheel_prime(N, Ds).
 primes(Limit, [2, 3, 5 | Primes]) :-
     roll235wheel(Limit, Candidates),
     include(prime235, Candidates, Primes).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines primes/2 and never calls it; the driver prints the primes up to 100.
+:- initialization((primes(100, Ps), format("~w~n", [Ps]))).

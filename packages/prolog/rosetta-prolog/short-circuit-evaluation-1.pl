@@ -24,3 +24,6 @@ a(X) :-
 b(X) :-
 	format('b(~w)~n', [X]),
 	X.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines short_circuit/0 and never calls it; the driver calls it once at load.
+:- initialization(short_circuit).

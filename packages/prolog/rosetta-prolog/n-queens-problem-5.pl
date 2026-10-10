@@ -21,3 +21,6 @@ queens :-
   length(Boards, Len), writef('%w solutions:\n', [Len]),  % Output solutions
   member(R,Boards), reverse(R,Board), writef('  - %w\n', [Board]), fail.
 queens.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines queens/0 and never calls it; the driver calls it once at load (the 92 boards of 8 queens).
+:- initialization(queens).

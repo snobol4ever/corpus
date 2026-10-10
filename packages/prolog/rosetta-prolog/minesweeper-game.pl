@@ -205,3 +205,6 @@ expose_grid_([H|T], G, Ng) :- % is a space, recurse
 	grid_set_xy(G, H, cell(0,0), Ng1),
 	expose_grid(H, Ng1, Ng2),
 	expose_grid_(T, Ng2, Ng).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): play/2 shuffles its bombs with random_permutation/2 inside make_grid/3; the driver builds the same 6x4 grid with make_grid/3's own steps minus the shuffle (its four bombs stay in the top row) and plays it, play/1, with the moves in minesweeper-game.in (open 6 4, mark the four bombs).
+:- initialization((W = 6, H = 4, Len is W * H, length(Cells, Len), NB is Len // 5, length(Bs, NB), maplist(=('?'), Bs), map_bombs_to_cells(Cells, Bs, NewC), convert_col(NewC, W, H, CC), map_grid(adj_bomb(grid(W, H, CC)), grid(W, H, CC), G), play(G))).

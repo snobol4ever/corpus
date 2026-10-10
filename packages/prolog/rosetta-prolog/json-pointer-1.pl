@@ -73,3 +73,6 @@ test(invalid_pointers, [fail, forall(member(Pointer, [
     json_pointer(Pointer, JSON, _).
 
 :- end_tests(json_pointer).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines json_pointer/3 and its plunit tests, whose example_json/1 dies under swipl 9.0.4 (atom_json_term/3 refuses a code list); the driver parses the task's document from an atom and resolves the task's pointers.
+:- initialization((atom_json_term('{"wiki": {"links": ["https://rosettacode.org/wiki/Rosetta_Code", "https://discord.com/channels/1011262808001880065"]}, "": "Rosetta", " ": "Code", "g/h": "chrestomathy", "i~j": "site", "abc": ["is", "a"], "def": {"": "programming"}}', J, []), forall(member(P, [``, `/`, `/ `, `/abc`, `/def/`, `/g~1h`, `/i~0j`, `/wiki/links/0`, `/wiki/links/1`, `/wiki/links/2`, `/wiki/name`, `/no/such/thing`, `bad/pointer`]), (json_pointer(P, J, V) -> format("\"~s\" => ~q~n", [P, V]) ; format("\"~s\" => error~n", [P]))))).

@@ -12,3 +12,6 @@ my_compare(A, B) :-
         A == B
     ->  println("A is equal to B")
     ).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines my_compare/2 and never calls it; the driver compares three fixed pairs, one for each outcome.
+:- initialization(forall(member(A-B, [1-2, 2-1, 2-2]), (format("~w ~w: ", [A, B]), my_compare(A, B)))).

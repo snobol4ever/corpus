@@ -65,3 +65,6 @@ nonogram(Rows, Cols) :-
 	nono(Rows, Cols, Grid),
 	label(Vars),
 	print(Grid).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines nonogram/2 and never calls it; the driver solves the task's first puzzle (rows C BA CB BB F AE F A B, columns AB CA AE GA E C D C, letters as numbers).
+:- initialization(nonogram([[3],[2,1],[3,2],[2,2],[6],[1,5],[6],[1],[2]], [[1,2],[3,1],[1,5],[7,1],[5],[3],[4],[3]])).

@@ -8,3 +8,6 @@ move(N,A,B,C) :-
     move(M,C,B,A).
 
 inform(X,Y) :- write([move,a,disk,from,the,X,pole,to,Y,pole]), nl.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines hanoi/1 and never calls it; the driver moves 3 disks.
+:- initialization(hanoi(3)).

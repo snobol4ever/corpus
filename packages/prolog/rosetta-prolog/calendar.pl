@@ -92,3 +92,6 @@ day_offset(7, 0).
 is_leap_year(Year) :-
 	0 is Year mod 100 -> 0 is Year mod 400
 	; 0 is Year mod 4.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines write_calendar/1 and never calls it; the driver prints the task's year 1969.
+:- initialization(write_calendar(1969)).

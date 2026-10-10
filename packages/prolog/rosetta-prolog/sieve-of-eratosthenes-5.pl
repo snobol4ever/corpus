@@ -11,3 +11,6 @@ rmv(P,M,[A|B],C):- (   M>A ->  C=[A|D], rmv(P,M,B,D)
                    ;   M==A ->  M2 is M+2*P, rmv(P,M2,B,C)
                    ;   M<A ->  M2 is M+2*P, rmv(P,M2,[A|B],C)
                    ).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines primes/2 and never calls it; the driver prints the primes up to 100.
+:- initialization((primes(100, L), format("~w~n", [L]))).

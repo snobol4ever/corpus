@@ -24,3 +24,6 @@ adjust_heap(H0, N, H) :-
     adjust_heap(H2, N, H).
 adjust_heap(H, N, H) :-
     \+ min_of_heap(H, N, _).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the unbounded generator prime/1 and never calls it; the driver prints its first 25 primes (those below 100).
+:- initialization((once(findnsols(25, P, prime(P), Ps)), format("~w~n", [Ps]))).

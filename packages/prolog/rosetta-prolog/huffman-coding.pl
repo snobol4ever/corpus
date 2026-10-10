@@ -45,3 +45,6 @@ run(V, [V|LRest], [N1,V], RRest):-
     N1 is N + 1.
 run(V, [Other|RRest], [1,V], [Other|RRest]):-
     dif(V, Other).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines huffman/0 (on the task's string) and never calls it; the driver calls it once at load.
+:- initialization(huffman).

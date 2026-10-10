@@ -49,5 +49,5 @@ sierpinski_pentagons(Stream, X, Y, Scale_factor, Side, Angle, N, I):-
     sierpinski_pentagon(Stream, X1, Y1, Scale_factor, Side, N),
     sierpinski_pentagons(Stream, X1, Y1, Scale_factor, Side, Angle1, N, I1).
 
-% DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
-:- initialization(main).
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): main/0 writes an order-5 SVG to sierpinski_pentagon.svg and prints nothing; the driver has write_sierpinski_pentagon/3 write an order-4 pentaflake (125 pentagons) to /dev/stdout.
+:- initialization(write_sierpinski_pentagon('/dev/stdout', 600, 4)).

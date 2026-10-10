@@ -23,3 +23,6 @@ t1:- g(500,L), s(25,L,X,_), write(X), !.
 t2:- g(1000,L), length(L,X), write(X), !.
 t3:- g(22000,L), s(1999,L,_,R), s(6,R,X,_), write(X), !.
 t4:- g(249,L), findall(A, t(L,A), X), write(X), !.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the task's four parts t1..t4 and never calls them; the driver calls each once (first 25, count up to 1000, 2000th..2005th, triplets below 250).
+:- initialization((t1, nl, t2, nl, t3, nl, t4, nl)).

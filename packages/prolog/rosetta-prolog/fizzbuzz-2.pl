@@ -5,3 +5,6 @@ fizzbuzz(X) :- write(X).
 
 dofizzbuzz :-between(1, 100, X), fizzbuzz(X), nl, fail.
 dofizzbuzz.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines dofizzbuzz/0 and never calls it; the driver calls it once at load.
+:- initialization(dofizzbuzz).

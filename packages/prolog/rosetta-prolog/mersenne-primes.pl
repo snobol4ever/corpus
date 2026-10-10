@@ -14,3 +14,6 @@ mersenne_prime(P) :-
     lucas_lehmer_seq(M, Residues),
     Skip is P - 3, drop(Skip, Residues, [R|_]),
     R =:= 0.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines mersenne_prime/1 and never calls it; the driver lists the Mersenne primes 2^P-1 for P up to 700 (to M607).
+:- initialization(forall((between(2, 700, P), mersenne_prime(P)), format("M~w~n", [P]))).

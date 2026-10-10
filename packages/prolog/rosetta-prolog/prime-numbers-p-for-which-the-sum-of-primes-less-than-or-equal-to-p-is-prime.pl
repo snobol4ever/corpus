@@ -31,3 +31,6 @@ do(Limit):-
 	showList(SumList).
 
 do:- do(2000).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines do/0 (the task's primes below 2000) and never calls it; the driver calls it once at load.
+:- initialization(do).

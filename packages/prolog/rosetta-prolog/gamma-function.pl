@@ -34,3 +34,6 @@ recip_gamma(X, PrevPow, [C|Cs], _, X1, Y) :-
     Power is PrevPow * X,
     X2 is X1 + C*Power,
     recip_gamma(X, Power, Cs, X1, X2, Y).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines gamma/2 and never calls it; the driver prints gamma(x) for x = 0.1 .. 2.0 in steps of 0.1.
+:- initialization(forall(between(1, 20, I), (X is I / 10.0, gamma(X, Y), format("gamma(~1f) = ~w~n", [X, Y])))).

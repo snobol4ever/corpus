@@ -45,3 +45,6 @@ is_op(43, X, Y, V) :-	V is X+Y.
 is_op(45, X, Y, V) :-	V is X-Y.
 is_op(47, X, Y, V) :-	V is X/Y.
 is_op(94, X, Y, V) :-	V is X**Y.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines rpn/1 over a code list and never calls it; the driver runs the task's expression 3 4 2 * 1 5 - 2 3 ^ ^ / +.
+:- initialization((atom_codes('3 4 2 * 1 5 - 2 3 ^ ^ / +', L), rpn(L))).

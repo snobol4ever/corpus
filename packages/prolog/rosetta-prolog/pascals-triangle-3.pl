@@ -27,3 +27,6 @@ pascal(N) :-
   pascal(N, Triangle), member(Row, Triangle), % Iterate and write each row
   write(Row), nl, fail.
 pascal(_).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines pascal/1 and never calls it; the driver runs pascals-triangle-4's example pascal(5).
+:- initialization(pascal(5)).

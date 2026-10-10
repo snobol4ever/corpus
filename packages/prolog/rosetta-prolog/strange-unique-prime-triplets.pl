@@ -43,3 +43,6 @@ run([Limit|TLimits]):-
 	run(TLimits).
 	
 do:- run([30, 1000]).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): do/0 runs run([30, 1000]) in about 8 s; the driver calls run/1 on the task's 30 and a shrunk 500 (the count only).
+:- initialization(run([30, 500])).

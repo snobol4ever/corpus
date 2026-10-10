@@ -55,3 +55,6 @@ do:-findnsols(100, B, isBrilliant(B), BList),!,
 	showList(BList, 10),nl,
 	findall(N, (between(1, 6, X), N is 10^X), LimitList),
 	run(LimitList).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): do/0 also prints each step's runtime, which no ref can hold; the driver prints the first 100 brilliant numbers with showList/2 and, from brilliantList/3 and nextBrilliant/2, the first >= 10^1..10^5 in do/0's own format without the time, shrunk to 10^1..10^5 (10^6 alone takes 30 s).
+:- initialization((findnsols(100, B, isBrilliant(B), BL), !, showList(BL, 10), nl, forall(between(1, 5, X), (L is 10^X, L1 is L - 1, brilliantList(2, L1, Bs), length(Bs, C), I is C + 1, once(nextBrilliant(L, Br)), writef('first >=%8r is%8r at position%6r', [L, Br, I]), nl)))).

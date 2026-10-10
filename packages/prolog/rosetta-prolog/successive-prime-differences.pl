@@ -49,3 +49,6 @@ do:-	Num is 1000000,
 	DiffList = [[1], [2], [2,2], [2,4], [4,2], [2,4,6],
 		    [2,6,4], [4,2,6], [4,6,2], [6,2,4], [6,4,2]],
 	run(DiffList, PrimeList).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): do/0 prints its runtime and takes 25 s over primes below 1,000,000; the driver calls primesByDiffs/3 over the primes below 100,000 (shrunk) for do/0's eleven difference lists and prints run/2's lines without the time.
+:- initialization((numlist(2, 100000, L), include(prime, L, PL), length(PL, NP), format('there are ~w primes until ~w~n', [NP, 100000]), forall(member(D, [[1], [2], [2,2], [2,4], [4,2], [2,4,6], [2,6,4], [4,2,6], [4,6,2], [6,2,4], [6,4,2]]), (primesByDiffs(PL, D, SL), length(SL, Num), SL = [First|Tail], format('~|~w~t~7+ number: ~|~t~d~4+ first: ~|~w~t~22+', [D, Num, First]), once(writeLast(Tail)), nl)))).

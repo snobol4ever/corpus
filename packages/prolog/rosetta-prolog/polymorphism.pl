@@ -41,3 +41,6 @@ test_poly(T) :-
 	Y1 is Y * 2,
 	shape_x_y_set(T, X1, Y1, T1),	
 	print_shape(T1).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines test_point/0 and test_circle/0 and never calls them; the driver calls each once at load.
+:- initialization((test_point, nl, test_circle, nl)).

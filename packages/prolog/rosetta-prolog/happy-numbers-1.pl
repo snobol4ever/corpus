@@ -45,3 +45,6 @@ number_chars_(D, CD) :-
 
 square(N, SN) :-
 	SN is N * N.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines happy_numbers/2 and never calls it; the driver prints the task's first 8 happy numbers.
+:- initialization((happy_numbers(L, 8), format("~w~n", [L]))).

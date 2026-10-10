@@ -30,3 +30,6 @@ Vs <- {Var & Dec & Pred} :-
 % for list comprehension without Pred
 Vs <- {Var & Dec} :-
 	findall(Var, maplist(call, [Dec]), Vs).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the <- comprehension and never uses it; the driver builds the task's Pythagorean triples up to 20.
+:- initialization((L <- {(X,Y,Z) & X <- 1..20, Y <- X..20, Z <- Y..20 & X*X+Y*Y =:= Z*Z}, format("~w~n", [L]))).

@@ -33,3 +33,6 @@ between(Min, Max, By, I) :-
 %  declared:
 
 :- dynamic( composite/1 ).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines sieve/2 and never calls it; the driver prints the primes up to 100.
+:- initialization((sieve(100, Ps), format("~w~n", [Ps]))).

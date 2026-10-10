@@ -84,3 +84,6 @@ strip_trailing_spacious
 -->
 \+ [_] % .i.e. at end-of-string .
 .
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines strip_leading/2, strip_trailing/2 and strip_leading_and_trailing/2 and never calls them; the driver strips one padded string all three ways, each bracketed.
+:- initialization((S = "  \t Hello, World! \t  ", strip_leading(S, L), strip_trailing(S, T), strip_leading_and_trailing(S, B), format("[~s]~n[~s]~n[~s]~n[~s]~n", [S, L, T, B]))).

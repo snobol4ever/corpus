@@ -27,3 +27,6 @@ insert_fresh_vars_by_splintering([],V,[],[],V).
 splinter(List, N, Elem, Front, Back) :-
     length(Front, N),
     append(Front, [Elem|Back], List).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines sort_disjoint_sublist/3 and never calls it; the driver runs the task's values and indices {6, 1, 7}.
+:- initialization((sort_disjoint_sublist([7,6,5,4,3,2,1,0], [6,1,7], R), format("~w~n", [R]))).

@@ -43,3 +43,7 @@ factor_2s(S, D, S, D) :- D /\ 1 =\= 0, !.
 factor_2s(S0, D0, S, D) :-
     succ(S0, S1), D1 is D0 >> 1,
     factor_2s(S1, D1, S, D).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): one Rosetta page split in two blocks: this block is the primality library (prime/1 by Miller-Rabin) that chernicks-carmichael-numbers-1's a/2 and main/0 load as library(primality); the entry block -1 is UNGRADABLE (its use_module of the absent library errs) and no NEEDS_DRIVER row, so this block includes it and -1's own ?- main. directive prints a(3)..a(9) and halts at include time.
+:- include('chernicks-carmichael-numbers-1.pl').
+:- initialization(main).

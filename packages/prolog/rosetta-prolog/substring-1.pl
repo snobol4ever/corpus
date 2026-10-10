@@ -15,3 +15,6 @@ substring_task(Str, N, M, Char, SubStr) :-
 string_from_substring_to_m(String, Sub, M, FromSubToM) :-
     sub_string(String, Before, _, _, Sub),
     sub_string(String, Before, M, _, FromSubToM).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines substring_task/5 and never calls it; the driver runs the Rosetta page's own query (substring-2) substring_task("abcdefghijk", 2, 4, "d", "ef").
+:- initialization(substring_task("abcdefghijk", 2, 4, "d", "ef")).

@@ -18,3 +18,6 @@ solution(X0, X1, X2, X3, Y) :-
     within(1, X2,  X3), pow5(X3, X3_5th),
     Y_5th is X0_5th + X1_5th + X2_5th + X3_5th,
     pow5(Y, Y_5th).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines solution/5 and never calls it; the driver prints its first answer (the search bounds are fixed at 250 by the solution itself, about 9 s under swipl).
+:- initialization((once(solution(X0, X1, X2, X3, Y)), format("~w^5 + ~w^5 + ~w^5 + ~w^5 = ~w^5~n", [X0, X1, X2, X3, Y]))).

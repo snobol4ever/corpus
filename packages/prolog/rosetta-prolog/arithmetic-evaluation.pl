@@ -49,3 +49,6 @@
 
  % Example use
  % calculator("(3+50)*7-9", X).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines calculator/2 and never calls it; the driver runs the file's own example calculator("(3+50)*7-9", X).
+:- initialization((calculator("(3+50)*7-9", X), format("~w~n", [X]))).

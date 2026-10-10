@@ -11,3 +11,6 @@ print_item(X) :-
    ;  write(X)
    ),
    nl.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines fizzbuzz/0 and never calls it; the driver calls it once at load.
+:- initialization(fizzbuzz).

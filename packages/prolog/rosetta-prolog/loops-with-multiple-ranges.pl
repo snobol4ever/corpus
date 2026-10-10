@@ -38,3 +38,6 @@ calc_values([J|Js], S, P, Sum, Product) :-
 calc_values(Sum, Product) :-    % Find the sum and product
 	findall(V, range_value(V), Values),
 	calc_values(Values, 0, 1, Sum, Product).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines calc_values/2 and never calls it; the driver prints the task's sum and product over its seven ranges.
+:- initialization((calc_values(Sum, Prod), format("sum = ~w~nprod = ~w~n", [Sum, Prod]))).

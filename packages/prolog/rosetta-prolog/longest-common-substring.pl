@@ -18,3 +18,6 @@ longest_substring(A, B, Result) :-
 	), AllSubstrings),
 	longest_list(AllSubstrings, [], 0, LongestSubString),
 	string_chars(Result, LongestSubString).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines longest_substring/3 and never calls it; the driver prints the longest common substring of the task's two strings thisisatest and testing123testing.
+:- initialization(forall(member(A-B, ["thisisatest"-"testing123testing"]), (longest_substring(A, B, S), format("~w~n", [S])))).

@@ -25,3 +25,6 @@ print_all_paths :-
         find_path(D, From, To, Path, Weight),(
             atomic_list_concat(Path, ' -> ', PPath),
             format('~p -> ~p\t  ~p\t~w~n', [From, To, Weight, PPath]))).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines print_all_paths/0 (the task's graph) and never calls it; the driver calls it once at load.
+:- initialization(print_all_paths).

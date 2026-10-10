@@ -38,3 +38,6 @@ rule_90(' ','*','*', '*').
 rule_90(' ','*',' ', ' ').
 rule_90(' ',' ','*', '*').
 rule_90(' ',' ',' ', ' ').
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines sierpinski_triangle/1 and never calls it; the driver draws the task's order 4.
+:- initialization(sierpinski_triangle(4)).

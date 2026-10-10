@@ -24,3 +24,6 @@ problem(1, [[_,_,_,_,_,_,_,_,_],
             [5,_,_,_,_,_,_,7,3],
             [_,_,2,_,1,_,_,_,_],
             [_,_,_,_,4,_,_,_,9]]).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines sudoku/1 and its own problem(1, Rows) and never calls them; the driver solves problem 1 and prints the grid, one row a line.
+:- initialization((problem(1, Rows), sudoku(Rows), maplist(label, Rows), forall(member(R, Rows), format("~w~n", [R])))).

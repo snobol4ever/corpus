@@ -27,3 +27,6 @@ rwrite([R, T|Rs]) :- rprint(R), write(', '), rwrite([T|Rs]).
 rcompare(<, A, B) :- A < B, !.
 rcompare(>, A, B) :- A > B, !.
 rcompare(=, A, B) :- A =< B.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines task/1 and farey/2 and never calls them; task(1)'s printer rprint/1 expects rdiv/2 terms and fails on swipl's rationals, so the driver prints farey/2's sequences F1..F11 with ~w and the lengths of F100..F300 in task(2)'s format (F400..F1000 take 28 s).
+:- initialization((forall(between(1, 11, I), (farey(I, F), format("~w: ~w~n", [I, F]))), forall(between(1, 3, I), (N is I*100, farey(N, F), length(F, L), format("|F(~w)| = ~w~n", [N, L]))))).

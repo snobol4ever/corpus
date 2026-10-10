@@ -89,3 +89,6 @@ number_name(Number, Type, Name):-
         atomic_list_concat([C, ' ', Name3], Name2)
     ),
     atomic_list_concat([Name1, ' ', Name2], Name).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the module number_name with number_name/3 and never calls it; the driver spells the task's twelve numbers as ordinals.
+:- initialization(forall(member(N, [1, 2, 3, 4, 5, 11, 65, 100, 101, 272, 23456, 8007006005004003]), (number_name(N, ordinal, Name), format("~w: ~w~n", [N, Name])))).

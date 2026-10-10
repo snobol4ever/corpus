@@ -40,3 +40,6 @@ do:-between(1, 7, Exp),
 	writef('%d -> %w\n', [Exp, AList]),
 	fail.
 do.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines do/0 and never calls it; the driver calls it once at load (the narcissistic numbers of 1..7 digits, the task's first 25).
+:- initialization(do).

@@ -70,3 +70,6 @@ first_n_elements(List, N, FirstN):-
 last_n_elements(List, N, LastN) :-
     length(LastN, N),
     append(_, LastN, List).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines main/0 (written main()) and never calls it; the driver calls it once at load (1900..2100).
+:- initialization(main).

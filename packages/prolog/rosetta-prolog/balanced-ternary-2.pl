@@ -121,3 +121,6 @@ strip_nombre([48 | L]) -->
 
 strip_nombre(L) -->
 	L.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines bt_add/3 and never calls it; the driver adds the task's a = +-0++0+, b = -++-0-- (-436) and c = +-++- pairwise.
+:- initialization(forall(member(X-Y, ["+-0++0+"-"+-++-", "-++-0--"-"+-++-", "+-0++0+"-"-++-0--"]), (bt_add(X, Y, R), format("~w + ~w = ~w~n", [X, Y, R])))).

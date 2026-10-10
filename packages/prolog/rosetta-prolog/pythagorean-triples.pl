@@ -35,3 +35,6 @@ triple(P, A, B, C) :-
 
 order2(A, B, A, B) :- A < B, !.
 order2(A, B, B, A).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines show/0 and never calls it; show/0 runs perimeters up to 100,000,000 (over a minute), so the driver calls count_triples/3 for 100 .. 1,000,000 and prints them in show/0's own format.
+:- initialization(forall(member(Max, [100, 1000, 10000, 100000, 1000000]), (count_triples(Max, Total, Prim), format("upto ~D, there are ~D Pythagorean triples (~D primitive.)~n", [Max, Total, Prim])))).

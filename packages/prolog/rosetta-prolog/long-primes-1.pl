@@ -75,5 +75,6 @@ main(Limit):-
 main:-
     main(256000).
 
-% DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): one Rosetta page split in blocks: this block's main/0 is the entry and calls find_prime_numbers/1 and is_prime/1, which long-primes-2 (module prime_numbers) defines, so the driver includes that block (its module/2 directive errs inside an include and its clauses join user) and calls main/0, the long primes to 500 and their counts to 256000.
+:- include('long-primes-2.pl').
 :- initialization(main).

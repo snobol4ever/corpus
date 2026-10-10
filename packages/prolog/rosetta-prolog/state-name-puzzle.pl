@@ -68,3 +68,6 @@ compute_Goedel([H|T], GC, GF) :-
 	Ind is H - 97,
 	GC1 is GC + 26 ** Ind,
 	compute_Goedel(T, GC1, GF).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines state_name_puzzle/0 (the task's 50 states plus its fictitious five) and never calls it; the driver calls it once at load.
+:- initialization(state_name_puzzle).

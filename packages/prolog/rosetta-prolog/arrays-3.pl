@@ -7,3 +7,6 @@ listvariant:-
     append(List2,Add,List3),   % append 10 free variables to List2 , List3 now has 111 elements
     nth1(1 ,List3,Value),      % get the value at position 1
     print(Value),nl.           % will print out a
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines listvariant/0 and never calls it; the driver calls it once at load.
+:- initialization(listvariant).

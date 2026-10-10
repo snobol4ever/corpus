@@ -8,3 +8,6 @@ coins(Q, D, N, P, T) :-
 coins_for(T) :-
 	coins(Q,D,N,P,T),
 	maplist(indomain, [Q,D,N,P]).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines coins_for/1, which enumerates one way per solution, and never calls it; the driver counts the ways to change the task's 100 cents.
+:- initialization((aggregate_all(count, coins_for(100), N), format("~w~n", [N]))).

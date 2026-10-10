@@ -39,5 +39,5 @@ write_square(Stream, X, Y, Side):-
            "<rect fill='black' x='~g' y='~g' width='~g' height='~g'/>\n",
            [X, Y, Side, Side]).
 
-% DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
-:- initialization(main).
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): main/0 writes an order-4 SVG (4681 squares) to sierpinski_carpet.svg and prints nothing; the driver has write_sierpinski_carpet/3 write an order-2 carpet to /dev/stdout.
+:- initialization(write_sierpinski_carpet('/dev/stdout', 486, 2)).

@@ -105,3 +105,6 @@ run(Var,[Var|LRest],[N1, Var],RRest):-
 
 run(Var,[Other|RRest], [1, Var],[Other|RRest]):-
     dif(Var,Other).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines self_describling/0 and never calls it; it searches lengths 1..10 (25 s), so the driver runs its own loop over self_describling/2 for lengths 1..8 in its own format.
+:- initialization(forall(between(1, 8, I), (findall(N, self_describling(I, N), L), format('Len ~w, Numbers ~w~n', [I, L])))).

@@ -23,3 +23,6 @@ fs :-
 	S2 = [2,4,6,8],
 	call(FSF1,S2, S21), format('~w : ~w ==> ~w~n',[FSF2, S2, S21]),
 	call(FSF2,S2, S22), format('~w : ~w ==> ~w~n',[FSF1, S2, S22]).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines fs/0 and never calls it; the driver calls it once at load.
+:- initialization(fs).

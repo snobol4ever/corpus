@@ -13,3 +13,5 @@ do(V) :-
 wloop :-
    do(0).
 
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines wloop/0 and never calls it; the driver calls it once at load (it prints 0..5 and then fails by design when the value reaches a multiple of 6, so the failure is absorbed).
+:- initialization((wloop -> true ; true)).

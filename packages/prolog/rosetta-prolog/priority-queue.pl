@@ -26,3 +26,6 @@ priority-queue :-
   % we list the content of the heap:
   heap_to_list(Heap4, TL2),
   writeln('Content of the queue'), maplist(writeln, TL2).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the clause priority-queue (a -/2 head over the task's five prioritised tasks) and never calls it; the driver calls it once at load.
+:- initialization(priority-queue).

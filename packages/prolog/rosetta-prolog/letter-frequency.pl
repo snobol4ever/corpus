@@ -51,3 +51,6 @@ run(Var,[Var|LRest],[N1, Var],RRest):-
 
 run(Var,[Other|RRest], [1,Var],[Other|RRest]):-
   dif(Var,Other).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines frequency/1 over a named file and never calls it; the driver names standard input, which carries a fixed text.
+:- initialization(frequency('/dev/stdin')).

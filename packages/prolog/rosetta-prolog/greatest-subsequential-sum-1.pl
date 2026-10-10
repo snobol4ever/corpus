@@ -53,3 +53,6 @@ memoseq(_DC, _LC, TTC), gss(D, L, TT) <=> TTC =< TT |
 
 memoseq(DC, LC, TTC), gss(_D, _L, TT) <=> TTC > TT |
 		gss(DC, LC, TTC).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the CHR constraint greatest_subsequence/0 (on the task's list) and never posts it; the driver posts it once at load.
+:- initialization(greatest_subsequence).

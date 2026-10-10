@@ -24,3 +24,6 @@ do:- semiPrimeList(100, SemiPrimes),
 	writeln(SemiPrimes),
 	findall(N, semiPrimes(1675, 1685, N), SemiPrimes2),
 	writeln(SemiPrimes2).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines do/0 (the semiprimes to 100 and in 1675..1685) and never calls it; the driver calls it once at load.
+:- initialization(do).

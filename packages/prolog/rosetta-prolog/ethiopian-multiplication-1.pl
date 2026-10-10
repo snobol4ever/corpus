@@ -21,3 +21,6 @@ ethiopian(First,Second,Product) :-
     columns(First,Second,Left,Right),
     maplist(contribution,Left,Right,Contributions),
     sumlist(Contributions,Product).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines ethiopian/3 and never calls it; the driver multiplies the task's 17 by 34.
+:- initialization((once(ethiopian(17, 34, P)), writeln(P))).

@@ -87,3 +87,6 @@ run(Var,[Var1|LRest],[Deb, Fin], RRest):-
 	run(Var1,LRest,[Deb, Fin], RRest).
 
 run(Val,[Other|RRest], [Val, Val],[Other|RRest]).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines range_extract/0 (the task's 33 integers) and never calls it; the driver calls it once at load.
+:- initialization(range_extract).

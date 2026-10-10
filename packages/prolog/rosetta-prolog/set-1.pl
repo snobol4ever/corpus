@@ -47,3 +47,6 @@ equal([], []).
 equal([H1 | T1], B) :-
 	select(H1, B, B1),
 	equal(T1, B1).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines set/0 and never calls it; the driver calls it once at load.
+:- initialization(set).

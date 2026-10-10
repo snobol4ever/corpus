@@ -38,7 +38,6 @@ call-a-foreign-language-function-4.pl	ORACLE_REFUSES	swipl -q reports a load err
 catamorphism-1.pl	ORACLE_REFUSES	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Catamorphism/Prolog/catamorphism-1.pro:1:
 check-that-file-exists.pl	ORACLE_REFUSES	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Check-that-file-exists/Prolog/check-that-file-exists.pro:1:
 chemical-calculator-2.pl	ORACLE_REFUSES	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Chemical-calculator/Prolog/chemical-calculator-2.pro:1:
-chernicks-carmichael-numbers-1.pl	ORACLE_REFUSES	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Chernicks-Carmichael-numbers/Prolog/chernicks-carmichael-numb
 circular-primes.pl	ORACLE_REFUSES	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Circular-primes/Prolog/circular-primes.pro:1:
 closures-value-capture.pl	ORACLE_REFUSES	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Closures-Value-capture/Prolog/closures-value-capture.pro:1:
 collections-1.pl	ORACLE_REFUSES	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Collections/Prolog/collections-1.pro:2:
@@ -46,7 +45,6 @@ collections-2.pl	ORACLE_REFUSES	swipl -q reports a load error: ERROR: /home/reso
 combinations-3.pl	ORACLE_REFUSES	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Combinations/Prolog/combinations-3.pro:3:2: Syntax error: Ope
 comma-quibbling-2.pl	ORACLE_REFUSES	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Comma-quibbling/Prolog/comma-quibbling-2.pro:1:
 compound-data-type-2.pl	ORACLE_REFUSES	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Compound-data-type/Prolog/compound-data-type-2.pro:1:
-concurrent-computing.pl	NONDETERMINISTIC	swipl -q answers differently on two runs (time, randomness or addresses in its output)
 constrained-random-points-on-a-circle.pl	ORACLE_REFUSES	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Constrained-random-points-on-a-circle/Prolog/constrained-rand
 copy-a-string.pl	ORACLE_REFUSES	swipl -q reports a load error: Warning: /home/resources/pascal-demos/rosetta/Task/Copy-a-string/Prolog/copy-a-string.pro:1:
 copy-stdin-to-stdout-1.pl	ORACLE_REFUSES	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Copy-stdin-to-stdout/Prolog/copy-stdin-to-stdout-1.pro:2: Ini
@@ -204,3 +202,33 @@ yin-and-yang.pl	ORACLE_REFUSES	swipl -q reports a load error: ERROR: /home/resou
 zebra-puzzle-1.pl	ORACLE_REFUSES	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Zebra-puzzle/Prolog/zebra-puzzle-1.pro:20:2: Syntax error: Op
 zebra-puzzle-3.pl	ORACLE_REFUSES	swipl -q reports a load error: ERROR: /home/resources/pascal-demos/rosetta/Task/Zebra-puzzle/Prolog/zebra-puzzle-3.pro:1:
 2048.pl	NONDETERMINISTIC	each new tile is placed by random/3 (random_space/3, four_or_two/1), so two games differ; the oracle gives no one ground truth, and its moves are keys read with get_single_char
+anagrams-deranged-anagrams.pl	NEEDS_NETWORK	longest_deranged_anagram/0 reads unixdict.txt through http_open/3 from www.puzzlers.org; the word list is shipped nowhere for its read_file/3 to read instead
+anagrams.pl	NEEDS_NETWORK	anagrams/0 reads unixdict.txt through http_open/3 from wiki.puzzlers.org; the word list is shipped nowhere for its read_file/3 to read instead
+animate-a-pendulum.pl	NEEDS_DISPLAY	pendulum/0 opens an XPCE window (library(pce)) and animates the pendulum with a pce timer
+animation.pl	NEEDS_DISPLAY	animation/0 opens an XPCE window (library(pce)) and scrolls its label with a pce timer and click gesture
+balanced-ternary-1.pl	ORACLE_REFUSES	swipl 9.0.4 loads it, but bt_convert/2 raises on every nonzero number, either direction: ERROR: Domain error: `clpfd_expression' expected, found `523/3' (convert/4's N1 #= N / 3; this clpfd has no (/)/2), so only 0 converts
+best-shuffle-1.pl	NONDETERMINISTIC	shuffle/2 draws with random/1 and best_shuffle/1 prints the first random shuffle reaching the minimum score (two runs: raacadabrab, raacbdaraab); calcule_min/3 beneath yields only the score, not a shuffle
+date-format.pl	NONDETERMINISTIC	display_date/0 formats get_time/1, today's date, and it is the whole solution: no solving predicate beneath it to call on a fixed date
+dragon-curve.pl	NEEDS_DISPLAY	dragonCurve/1 draws the curve in an xpce window (new(D, window('Dragon Curve')), send(D, open)); the task's answer is the picture
+dutch-national-flag-problem-2.pl	NONDETERMINISTIC	dutch_flag/1 draws its balls with random/1 (init/1) and sorts them inline in its own foldl/4 lambda; no sorting predicate beneath it to call on fixed balls
+evolutionary-algorithm.pl	NONDETERMINISTIC	weasel/0 starts from rndTxt/2 and mutates with mutate/3, both drawing random/1, and the solving loop weasel/4 is driven by those draws; no deterministic solver beneath it
+execute-a-system-command.pl	ENVIRONMENT_IDENTITY_IN_OUTPUT	the file is the query shell('ls') written as a clause; what the task shows is a listing of the directory the run happens in, which varies with where it runs
+fractal-tree.pl	NEEDS_DISPLAY	fractal/0 draws the tree in an xpce window (new(D, window('Fractal')), send(D, display, Line)); the task's answer is the picture
+hello-world-web-server.pl	NEEDS_NETWORK	server/0 starts http_server/2 on port 8080 (library(http/thread_httpd)) and serves until killed; its output is an HTTP reply to a browser, not standard output
+http.pl	NEEDS_NETWORK	http/0 fetches http://www.rosettacode.org/ with http_open/3 and copies the page to standard output
+magic-8-ball.pl	NONDETERMINISTIC	every answer is random_member/2 over the twenty responses inside a repeat loop that never ends; there is no deterministic answer beneath it
+mandelbrot-set.pl	NEEDS_DISPLAY	mandelbrot/0 draws into an xpce window (library(pce), new(D, window('Mandelbrot Set')), send(D, open))
+matrix-transposition.pl	ORACLE_REFUSES	loads, but transpose/2 fails on every matrix (swipl: Warning: Singleton variables: [L], then Initialization goal failed): it hands work/3 the rows T where it means L, the initdl difference lists it just built, so my_append/3 meets a plain row and fails; the vendored file is byte-identical to the Rosetta source
+maze-generation.pl	NEEDS_DISPLAY	maze/2 draws the grid in an xpce window (new(D, window('Maze')), send(D, open)) and picks its cells with random/1
+ordered-words.pl	NEEDS_NETWORK	ordered_words/0 fetches unixdict.txt with http_open/3 from http://www.puzzlers.org/pub/wordlists/unixdict.txt, which neither the task data nor this package ships
+penneys-game.pl	NONDETERMINISTIC	who chooses first and every coin toss come from random/1 (rand1/1, rand3/1), so the game's course and winner differ run to run; no deterministic game lies beneath
+roman-numerals-encode.pl	ORACLE_REFUSES	every call of roman/2 goes through roman//2's N1 #= N / 10, which swipl 9.0.4's clpfd rejects: roman/0 raises ERROR: Domain error: `clpfd_expression' expected, found `_7674/10'
+rpg-attributes-generator-1.pl	NONDETERMINISTIC	generate_stat/1 rolls four dice with random_between/3 and generate_stats/1 repeats until the six rolls pass, so two runs differ; nothing beneath it is a deterministic solver
+sockets.pl	NEEDS_NETWORK	start/1 opens a TCP socket with socket/2 and socket_connect/4 to localhost on the port it is given and writes to it; it needs a listening server
+sorting-algorithms-sleep-sort.pl	NONDETERMINISTIC	sleep_sort/1 starts one thread per value in a pool and each prints after sleep(V): the order is the threads' timing, and there is no deterministic solver beneath it
+stair-climbing-puzzle-2.pl	NONDETERMINISTIC	step/0 draws random_between(0,3,N) to climb or fall and prints the level; the step_up/0 it serves is stair-climbing-puzzle-1's, and there is no deterministic solver beneath it
+visualize-a-tree.pl	NEEDS_DISPLAY	display_tree/1 draws the tree in an xpce window (new(D, window(A)), send(D, open))
+walk-a-directory-recursively-1.pl	ENVIRONMENT_IDENTITY_IN_OUTPUT	it walks a Windows path that exists on no machine here; any directory it walks gives that machine's own listing, unsorted
+window-creation.pl	NEEDS_DISPLAY	its one line opens an xpce window: new(D, window('Prolog Window')), send(D, open)
+stair-climbing-puzzle-1.pl	NONDETERMINISTIC	step_up/0 calls step/0, which only stair-climbing-puzzle-2 defines, and step/0 draws random_between(0,3,N) to climb or fall and prints each level (stair-climbing-puzzle-2 is UNGRADABLE NONDETERMINISTIC), so the composed page prints a different trace on each run; no deterministic solver lies beneath step_up/0
+tic-tac-toe-2.pl	NEEDS_DISPLAY	minimax/5 calls eval/4, get_next/6 and computer/1, which only tic-tac-toe-1 defines, and tic-tac-toe-1 is the xpce game that loads this block as 'min-max.pl' (new(D, window('Tic-tac-Toe')), pce_begin_class, moves by mouse click), so the composed page is a GUI

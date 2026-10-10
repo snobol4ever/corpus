@@ -99,3 +99,6 @@ truncate_list([A|T], N, [A|R]) :-
 	N > 0,
 	N1 is N - 1,
 	truncate_list(T, N1, R).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): mastermind/0 draws its code with random_member/2; the driver plays the same game, play/3, on the fixed code bdaf with the guesses in mastermind.in, after mastermind/4's intro.
+:- initialization((intro(7, 4, no_duplicates), play(board([b, d, a, f], 4, 7, 8), [], 0))).

@@ -44,3 +44,6 @@ go(From, To) :-
 	  writef('Shortest path is %w with distance %w = %w\n',
 	       [Path, Dist, Distance]);
 	writef('There is no route from %w to %w\n', [From, To]).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines go/2 and never calls it; the driver asks for the task's shortest paths a to e and a to f on its graph.
+:- initialization((go(a, e), go(a, f))).

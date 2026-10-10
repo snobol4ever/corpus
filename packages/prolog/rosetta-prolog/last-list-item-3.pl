@@ -13,3 +13,6 @@ last_list_item_heap_(Heap0, Last) :-
         last_list_item_heap_(Heap, Last)
     ;   Value0 = Last
     ).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines last_list_item_heap/2 and never calls it; the driver turns on its debug topic to show the steps and runs the task's list.
+:- initialization((debug(last_list_item_heap), last_list_item_heap([6, 81, 243, 14, 25, 49, 123, 69, 11], Last), format("~w~n", [Last]))).

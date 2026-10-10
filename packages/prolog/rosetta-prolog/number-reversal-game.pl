@@ -25,3 +25,6 @@ random_numbers(L) :- random_permutation([1,2,3,4,5,6,7,8,9],L).
 print_list(L) :-
 	atomic_list_concat(L, ' ', Lf),
 	format('(~w) ',Lf).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): play/0 deals the digits with random_permutation/2; the driver plays the same game, do_turn/2, from the fixed list 2 3 1 4 5 6 7 8 9 with the flips 2 and 3 in number-reversal-game.in.
+:- initialization(do_turn(0, [2, 3, 1, 4, 5, 6, 7, 8, 9])).

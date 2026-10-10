@@ -212,3 +212,6 @@ unstable_couple(couple(X1, Y1), couple(X2, Y2)) :-
 	% A couple is unstable
 	( (IY12 < IY11 , IX21 < IX22);
 	  (IY21 < IY22 , IX12 < IX11)).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): stable_mariage/0 perturbs two couples chosen by random/1; the driver runs its own set-up, iteration/3, print_couple/1 and stability/1 and swaps the first two couples' wives as the fixed perturbation, in stable_mariage/0's own format.
+:- initialization((retractall(person(_, _, _, _)), retractall(prop(_, _)), forall(prefere(P, Pref), assert(person(P, Pref, free, none))), bagof(X, man(X), LstMen), bagof(Y, woman(Y), LstWomen), forall(member(Z, LstWomen), assert(prop(Z, []))), iteration(LstMen, LstWomen, LstCouple), maplist(print_couple, LstCouple), nl, stability(LstCouple), nl, LstCouple = [couple(M1, W1), couple(M2, W2)|Rest], writeln('perturbation of couples'), format('~w with ~w~n', [W1, M2]), format('~w with ~w~n', [W2, M1]), nl, stability([couple(M1, W2), couple(M2, W1)|Rest]))).

@@ -80,3 +80,6 @@ dinners :-
 	init(L),
 	solve(L),
 	maplist(writeln, L).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines dinners/0 and never calls it; the driver calls it once at load.
+:- initialization(dinners).

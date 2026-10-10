@@ -28,3 +28,6 @@ zebra( Owner, Houses):-
                          , [[drink -water    ],  [smoke-'Blend'   ]]    % 16
                          ] ),
     in( Houses, [owns-zebra, nation-Owner]).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines zebra/2 and never calls it; the driver prints the first solution's five houses (each attribute list closed) and the zebra's owner.
+:- initialization((zebra(Owner, Houses), maplist(length, Houses, _), forall(member(H, Houses), format("~w~n", [H])), format("~w owns the zebra~n", [Owner]))).

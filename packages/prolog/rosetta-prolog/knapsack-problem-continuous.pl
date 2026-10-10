@@ -64,3 +64,5 @@ print_results(S, A1, A2, A3, [(Name, W, V)|T], [N|TN], W1, V1) :-
        V2 is V1 + Vtemp ),
    print_results(S, A1, A2, A3, T, TN, W2, V2).
 
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines knapsack/0 (simplex, on the task's items) and never calls it; the driver calls it once at load.
+:- initialization(knapsack).

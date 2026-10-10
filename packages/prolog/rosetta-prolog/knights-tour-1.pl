@@ -78,3 +78,6 @@ display(N, M, [H | T]) :-
   writef('%3r', [H]),
   M1 is M + 1,
   display(N, M1, T).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines knight/1 and never calls it; the driver prints a tour of the task's 8x8 board.
+:- initialization((knight(8), nl)).

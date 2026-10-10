@@ -1,3 +1,6 @@
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): written for double_quotes=codes (DEC-10 Prolog, ISO, SWI before 7); the program sets the flag, as
+% GOAL-PROLOG-100's superset ruling has a program set a dialect flag (it is SCRIP's default; swipl 7 reads "..." as a string).
+:- set_prolog_flag(double_quotes, codes).
 csv_html_plus :-
    L =
 "Character,Speech
@@ -88,3 +91,6 @@ csv_body_td_in([62|T], S) -->
 csv_body_td_in([H|T], S) -->
    [H],
    csv_body_td_in(T, S).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines csv_html_plus/0 (the task's CSV text in a DCG over codes) and never calls it; written for code lists, so the flag is set at its head and the driver calls it once at load.
+:- initialization(csv_html_plus).

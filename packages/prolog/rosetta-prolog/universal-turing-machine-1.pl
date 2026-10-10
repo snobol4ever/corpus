@@ -29,3 +29,6 @@ left([L|Ls], Rs, Ls, [L|Rs], _).
 
 right(L, [],     [B|L], [], B).
 right(L, [S|Rs], [S|L], Rs, _).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the machine turing/4 and never calls it; the driver asserts the task's simple incrementer and three-state busy beaver (as universal-turing-machine-2 and -3 write them) and prints each final tape.
+:- initialization((forall(member(C, [inc_config(q0, [qf], [q0], b, [b, 1]), inc_rules(q0, 1, 1, right, q0), inc_rules(q0, b, 1, stay, qf), bb_config('A', ['HALT'], ['A', 'B', 'C'], 0, [0, 1]), bb_rules('A', 0, 1, right, 'B'), bb_rules('A', 1, 1, left, 'C'), bb_rules('B', 0, 1, left, 'A'), bb_rules('B', 1, 1, right, 'B'), bb_rules('C', 0, 1, left, 'B'), bb_rules('C', 1, 1, stay, 'HALT')]), assertz(C)), turing(inc_config, inc_rules, [1, 1, 1], T1), format("incrementer: ~w~n", [T1]), turing(bb_config, bb_rules, [], T2), format("three-state busy beaver: ~w~n", [T2]))).

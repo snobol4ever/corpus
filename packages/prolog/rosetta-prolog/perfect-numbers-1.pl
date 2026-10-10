@@ -12,3 +12,6 @@ perfect(X) :-
 perfect_numbers(N, L) :-
 	numlist(2, N, LN),
 	include(perfect, LN, L).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines perfect_numbers/2 and never calls it; the driver prints the perfect numbers up to 10000.
+:- initialization((perfect_numbers(10000, L), format("~w~n", [L]))).

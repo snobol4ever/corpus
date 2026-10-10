@@ -54,3 +54,6 @@ level_order_([nil | T], CS, FS) :-
 
 
 append_dl(X-Y, Y-Z, X-Z).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines tree/0 (the task's tree, all four orders) and never calls it; the driver calls it once at load and ends its last line.
+:- initialization((tree, nl)).

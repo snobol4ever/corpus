@@ -15,3 +15,6 @@ init(V, N, [H | T]) :-
 
 my_write(N, V) :-
   format('~w : ~w~n', [N, V]).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines catalan/1 and never calls it; the driver prints the task's first 15 Catalan numbers, C(0)..C(14).
+:- initialization(catalan(14)).

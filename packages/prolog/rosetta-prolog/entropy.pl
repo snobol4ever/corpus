@@ -129,3 +129,6 @@ sum(A, B, Sum):-
 	must_be(number, A)
 	,must_be(number, B)
 	,Sum is A + B.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines shannon_entropy/2 and never calls it; the driver runs its own example query on the task's 1223334444.
+:- initialization((shannon_entropy(1223334444, H), writeln(H))).

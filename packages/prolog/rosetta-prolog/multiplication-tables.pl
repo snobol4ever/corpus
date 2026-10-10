@@ -31,3 +31,6 @@ print_row_item(N, N2, X) :-
 print_num(X) :- X < 10,	          format('   ~p', X).
 print_num(X) :- between(10,99,X), format('  ~p', X).
 print_num(X) :- X > 99,	          format(' ~p', X).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines make_table/2 and never calls it; the driver prints the task's 12x12 upper-triangle table.
+:- initialization((make_table(1, 12), nl)).

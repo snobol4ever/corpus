@@ -67,3 +67,6 @@ main([Filename]) :-
     format("Welcome to WireWorld! Press ^C to exit.~n~n", []),
     once(phrase_from_file(grid(Grid), Filename)),
     simulate(Grid).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): main/1 under initialization(main, main) reads a grid file named on its command line and animates it forever with sleep/1 and cursor escapes; the driver parses the task's sample circuit with grid//1, prints ten generations of transition/4 with display/1, and halts before main runs.
+:- initialization((phrase(grid(G0), "tH.........\n.   .      \n   ...     \n.   .      \nHt.. ......\n"), display(G0), nl, foldl([_, Ga, Gb]>>(map_grid0(transition(Ga), Ga, Gb), display(Gb), nl), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], G0, _), halt)).

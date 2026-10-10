@@ -11,3 +11,6 @@ floyd(N) :-
 
 get_column(Last, C) :-
 	name(Last, N1), length(N1,C).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines floyd/1 and never calls it; the driver prints the task's triangles of 5 and 14 rows.
+:- initialization((floyd(5), nl, floyd(14))).

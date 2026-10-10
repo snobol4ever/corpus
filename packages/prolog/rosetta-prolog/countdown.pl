@@ -109,3 +109,6 @@ c6 :-
 /* solution */
 
 solution :- c1 ; c2 ; c3 ; c4 ; c5 ; c6.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines solution/0 (the given numbers and target 952) and never calls it; the driver calls it once at load.
+:- initialization(solution).

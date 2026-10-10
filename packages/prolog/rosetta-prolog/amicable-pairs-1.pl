@@ -31,3 +31,6 @@ get_amicable_pair(Assoc, M-N) :-
 amicable_pairs_under_20000(Pairs) :-
     assoc_num_divsSum_in_range(1,20000, Assoc),
     findall(P, get_amicable_pair(Assoc, P), Pairs).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines amicable_pairs_under_20000/1 and never calls it; the driver prints the task's amicable pairs below 20000, one pair a line.
+:- initialization((amicable_pairs_under_20000(Ps), forall(member(M-N, Ps), format("~w ~w~n", [M, N])))).

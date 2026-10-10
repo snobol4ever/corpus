@@ -18,3 +18,6 @@ next_turn(N) :-
       -> format('Computer wins!')
       ; next_turn(N2)
    ).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines nim/0 and never calls it; nim-game.in holds the player's three moves 1, 2 and 3, after which the computer has taken the last of the 12 dots.
+:- initialization((nim, nl)).

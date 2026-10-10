@@ -39,3 +39,5 @@ data(2, P) :-
 	  [6, 71, 28, 75, 94, 48, 37, 10, 23, 51, 6, 48, 53, 18, 74, 98, 15],
 	  [27, 2, 92, 23, 8, 71, 76, 84, 15, 52, 92, 63, 81, 10, 44, 10, 69, 93]].
 
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines max_path/2 and never calls it; the driver prints the maximum path sum of its small example and of the task's 18-row triangle.
+:- initialization(forall(member(N, [1, 2]), (max_path(N, V), format("~w: ~w~n", [N, V])))).

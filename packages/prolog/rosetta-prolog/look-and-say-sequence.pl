@@ -42,3 +42,6 @@ run(Var,[Var|LRest],[N1, Var],RRest):-
 
 run(Var,[Other|RRest], [1,Var],[Other|RRest]):-
     dif(Var,Other).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): look_and_say/1 prints a term and recurses forever; the driver runs the same step, encode/2, from [1] and prints the first 10 terms in look_and_say/1's own format.
+:- initialization((length(Ns, 10), foldl([_, L0, L1]>>(maplist(write, L0), nl, encode(L0, L1)), Ns, [1], _))).

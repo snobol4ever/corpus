@@ -36,3 +36,6 @@ print_deck(Deck) :-
 % print_card(+Card)
 print_card(card(Pip, Suit)) :-
         format('~a of ~a~n', [Pip, Suit]).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this module defines new_deck/1, print_deck/1 and deck_deal/3 and never calls them; the driver prints a new deck and deals one card (deck_shuffle/2 is random/1 and is not called).
+:- initialization((new_deck(D), print_deck(D), deck_deal(D, C, D1), length(D1, N), format("dealt ~w, ~w left~n", [C, N]))).

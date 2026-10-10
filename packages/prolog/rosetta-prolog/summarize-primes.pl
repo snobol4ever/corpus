@@ -24,3 +24,6 @@ do:-Limit is 1000,
 	primeSum(PrimeList, 1, 0, CntList),
 	length(CntList, Number),
 	format('~nfound ~d such primes~n', [Number]).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines do/0 (primes below 1000) and never calls it; the driver calls it once at load.
+:- initialization(do).

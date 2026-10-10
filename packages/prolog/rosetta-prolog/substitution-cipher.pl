@@ -22,3 +22,6 @@ sub_chars(Original,Subbed) :-
 	
 sub_char([Co|_],[Cs|_],Co,Cs) :- !.
 sub_char([_|To],[_|Ts], Co, Cs) :- sub_char(To,Ts,Co,Cs).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines cypher/2 and never calls it; the driver encodes a sample sentence and decodes it back.
+:- initialization((cypher('The quick brown fox jumped over the lazy dogs', S), writeln(S), cypher(O, S), writeln(O))).

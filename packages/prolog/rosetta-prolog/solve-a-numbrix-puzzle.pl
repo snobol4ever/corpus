@@ -105,3 +105,6 @@ test3 :- numbrix([
     _,  29,  _,  _, 40,  _,  _, 47,  _,
     31,  _,  _,  _, 39,  _,  _,  _, 45
 ]).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines test1/0, test2/0 (the task's two puzzles) and test3/0 and never calls them; the driver solves the task's two.
+:- initialization((test1, nl, test2)).

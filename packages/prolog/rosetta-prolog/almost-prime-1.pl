@@ -18,3 +18,8 @@ almostPrime(K, Take, Primes, List) :-
   multiplylist( Primes, L, Long),
   sort(Long, Sorted), % uniquifies
   take(Take, Sorted, List).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): one Rosetta page split in three blocks: this block's almostPrime/3 is the entry and calls nPrimes/2, multiplylist/3 and take/3 of almost-prime-2 and generate/2 of almost-prime-3, so the driver includes both and prints the task's first ten k-almost primes for k = 1..5.
+:- include('almost-prime-2.pl').
+:- include('almost-prime-3.pl').
+:- initialization(forall(between(1, 5, K), (almostPrime(K, 10, L), format("~w: ~w~n", [K, L])))).

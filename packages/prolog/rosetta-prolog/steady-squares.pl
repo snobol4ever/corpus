@@ -33,3 +33,6 @@ do:- candidateList(1000000, List),
 	LastSqrLen is 1 + floor(log10(LastStSqr ^ 2)),
 	swritef(FrmStr, '~|~t~d~%d+ ~|~t~d~%d+~n', [LastLen, LastSqrLen]),
 	showList(FrmStr, SteadySquareList).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines do/0 (the steady squares below 1,000,000) and never calls it; the driver calls it once at load.
+:- initialization(do).

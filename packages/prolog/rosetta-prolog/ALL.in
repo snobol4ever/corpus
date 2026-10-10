@@ -1,0 +1,119 @@
+%-------------------------------------------------------------- 6 15-puzzle-game
+w
+d
+w
+a
+a
+s
+a
+w
+d
+d
+s
+s
+s
+a
+a
+w
+w
+w
+d
+d
+s
+d
+s
+s
+%---------------------------------------------------------------------- 10 a_b-1
+2 3
+%---------------------------------------------------- 11 abbreviations-automatic
+Sunday Monday Tuesday Wednesday Thursday Friday Saturday
+Sondag Maandag Dinsdag Woensdag Donderdag Vrydag Saterdag
+Dimanche Lundi Mardi Mercredi Jeudi Vendredi Samedi
+Sonntag Montag Dienstag Mittwoch Donnerstag Freitag Samstag
+Domingo Lunes Martes Miercoles Jueves Viernes Sabado
+
+Sunday Sunnday Monday Tuesday Wednesday Thursday Friday
+%------------------------------------------------------- 28 arithmetic-integer-1
+-7.
+2.
+%-------------------------------------------------- 120 dynamic-variable-names-1
+'Foo'.
+%------------------------------------------------------ 157 finite-state-machine
+deposit.
+select.
+remove.
+deposit.
+refund.
+quit.
+%---------------------------------- 183 guess-the-number-with-feedback-player--1
+y.
+h.
+l.
+c.
+%-------------------------------------------- 200 input-output-for-lines-of-text
+3
+hello
+hello world
+Pack my Box with 5 dozen liquor jugs
+%--------------------------------------- 212 kernighans-large-earthquake-problem
+8/27/1883    Krakatoa            8.8
+5/18/1980    MountStHelens       7.6
+3/13/2009    CostaRica           5.1
+%---------------------------------------------------------- 233 letter-frequency
+Rosetta Code is a programming chrestomathy site.
+The idea is to present solutions to the same task in as many different languages as possible.
+%---------------------------------------------------------------- 262 mastermind
+abcd
+badf
+bdfa
+bdaf
+%-------------------------------------------------------------------- 265 menu-1
+a.
+10.
+3.
+%---------------------------------------------------------- 272 minesweeper-game
+o 6 4
+m 1 1
+m 2 1
+m 3 1
+m 4 1
+%------------------------------------------------------------------ 291 nim-game
+1
+2
+3
+%------------------------------------------------------ 298 number-reversal-game
+2
+3
+%---------------------------------------------------------- 302 odd-word-problem
+what,is,the;meaning,of:life.
+we,are;not,in,kansas;any,more.
+%----------------------------------------------- 305 order-by-pair-comparisons-1
+<
+>
+>
+>
+>
+>
+>
+<
+>
+>
+<
+>
+>
+%---------------------------------------------------------- 355 read-entire-file
+Read entire file
+This text is the file the program reads into one string.
+%- 363 reverse-the-order-of-lines-in-a-text-file-while-preserving-the-contents-of-each-line
+  "Diplomacy is the art of
+    saying  'Nice Doggy'
+  until you can find a rock."
+                            --- Will Rogers
+%------------------------------------------------------------------ 367 rot-13-1
+Hello, World!
+The Quick Brown Fox Jumps Over The Lazy Dog.
+%--------------------------------------------------------------- 461 truth-table
+not a and (b or c)
+a xor b
+%-------------------------------------------------- 465 universal-lambda-machine
+00100110

@@ -41,3 +41,6 @@ napier_ab(N, N, V) :-
 pi_ab(0, 3, _).
 pi_ab(N, 6, V) :-
 	V is (2 * N - 1)*(2 * N - 1).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines continued_fraction/0 and never calls it; the driver calls it once at load.
+:- initialization(continued_fraction).

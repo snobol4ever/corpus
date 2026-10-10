@@ -27,3 +27,6 @@ merge_pile([N|T1],[P|T2],[P|R]) :-
 merge_pile([N|T1],[P|T2],[N|R]) :-
 	N < P,
 	merge_pile(T1,[P|T2],R).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines patience_sort/2 and never calls it; the driver sorts one ten-element sample list (the task gives no data) and prints it.
+:- initialization((patience_sort([4, 65, 2, -31, 0, 99, 2, 83, 782, 1], S), format("~w~n", [S]))).

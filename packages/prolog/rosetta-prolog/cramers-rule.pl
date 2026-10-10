@@ -62,3 +62,6 @@ results(X) :-
         ],
     B = [-3, -32, -47, 49],
     cramer(A, B, X).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines results/1 (the task's 4x4 system) and never calls it; the driver prints its solution.
+:- initialization((results(X), format("~w~n", [X]))).

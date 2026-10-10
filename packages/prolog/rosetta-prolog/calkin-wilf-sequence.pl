@@ -11,3 +11,6 @@ g(N,X):- g(N,[1/1|Ls]-Ls,X).
 t(A/1,S,C,X):- X is C*(2**(A-1+S)-S).
 t(A/B,S,C,X):- B > 1, divmod(A,B,M,N), T is 1-S, D is C*2**M, t(B/N,T,D,Y), X is Y + S*C*(2**M-1).
 t(A/B,X):- t(A/B,1,1,X), !.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines g/2 and t/2 and never calls them; the driver prints the task's first 20 terms and the index of 83116/51639.
+:- initialization((findall(X, g(20, X), Xs), format("~w~n", [Xs]), t(83116/51639, I), format("~w~n", [I]))).

@@ -81,3 +81,6 @@ inner_loop(Base, N, Loop, S, Result) :-
 	; Next_Loop =:= S          -> Result = false
 	; inner_loop(Next_Base, N, Next_Loop, S, Result)
 	).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines is_prime/2 and never calls it; the driver prints the primes up to 100 and its verdict on some strong pseudoprimes and large primes, all below its deterministic-witness bound (no random witnesses).
+:- initialization((findall(N, (between(1, 100, N), is_prime(N, R), R == true), Ps), format("~w~n", [Ps]), forall(member(N, [561, 1373653, 25326001, 3215031751, 2152302898747, 3474749660383, 4294967291, 1000000007, 999999999989]), (is_prime(N, R), format("~w: ~w~n", [N, R]))))).

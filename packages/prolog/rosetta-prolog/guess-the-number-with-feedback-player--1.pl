@@ -20,3 +20,6 @@ guess_number(Min, Max) :-
 play :-
     pick_number(Min, Max),
     guess_number(Min, Max).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines play/0 and never calls it; the input answers as the transcript in guess-the-number-with-feedback-player--2 does (ready, h, l, c for the number 3).
+:- initialization((play, nl)).

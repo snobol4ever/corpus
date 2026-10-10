@@ -68,3 +68,6 @@ morse('=', "-...-").
 morse('+', ".-.-.").
 morse('-', "-....-").
 morse('@', ".--.-.").
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines text2morse/2 and never calls it; the driver runs morse-code-2's example text Hello World.
+:- initialization((text2morse("Hello World", M), format("~w~n", [M]))).

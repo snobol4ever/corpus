@@ -17,3 +17,6 @@ handle(a(Msg)) :-
     format('~w~n', Msg),
     !.
 handle(X) :- throw(X).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines go/1 (foo/1 under catch/3 with handle/1) and never calls it; the driver calls it on a valid number, on one out of range (caught and handled) and on an atom (rethrown, caught by the driver).
+:- initialization((go(5), go(42), catch(go(abc), E, format("go(abc) rethrew ~w~n", [E])))).

@@ -51,3 +51,6 @@ topDeps(N) :-
   writef('  ID: %w\t%w\tSalary: %w\n', [Id,Name,Sal]),
   fail.
 topDeps(_).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines topDeps/1 and never calls it; the driver prints the top 3 salaries of each department of the task's table.
+:- initialization(topDeps(3)).

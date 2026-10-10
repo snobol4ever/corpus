@@ -52,3 +52,6 @@ do:-	longPrimes(500, LongPrimes),
 	numlist(0, 7, List),
 	maplist([X, Y]>>(Y is 500 * 2**X), List, LimitList),
 	run(LimitList).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): do/0 also prints each limit's runtime, which no ref can hold; the driver calls longPrimes/2 and prints do/0's lines without the time, for limits 500..16000 (the task's 64000 takes 8 s under swipl).
+:- initialization((longPrimes(500, LongPrimes), writeln('long primes up to 500:'), writeln(LongPrimes), forall(between(0, 5, X), (Limit is 500 * 2**X, longPrimes(Limit, L), length(L, Num), writef('there are%5r long primes up to%6r\n', [Num, Limit]))))).

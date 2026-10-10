@@ -40,3 +40,6 @@ cross_out(S, N, P):-
 cross_out(S, N, P):-
     Q is S + 2 * P,
     cross_out(Q, N, P).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution is the prime_numbers module (a sieve) that truncatable-primes-1 loads, and never calls it; the driver sieves to 100 and prints the primes it asserted.
+:- initialization((find_prime_numbers(100), findall(P, is_prime(P), Ps), format("~w~n", [Ps]))).

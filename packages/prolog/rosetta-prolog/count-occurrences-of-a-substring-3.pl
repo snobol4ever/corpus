@@ -31,3 +31,5 @@ occurrences(_SUBSTRINGz0_,COUNT,COUNT)
 !
 .
 
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines occurrences/3 (over chars, its own double_quotes flag) and never calls it; the driver counts the task's two examples.
+:- initialization(forall(member(S-Sub, ["the three truths"-"th", "ababababab"-"abab"]), (occurrences(S, Sub, N), format("~w~n", [N])))).

@@ -17,3 +17,6 @@ insert([H | T], N, [N, H|T]) :-
 
 insert([H | T], N, [H|L1]) :-
 	insert(T, N, L1).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines isort/2 and never calls it; the driver sorts one ten-element sample list (the task gives no data) and prints it.
+:- initialization((isort([4, 65, 2, -31, 0, 99, 2, 83, 782, 1], S), format("~w~n", [S]))).

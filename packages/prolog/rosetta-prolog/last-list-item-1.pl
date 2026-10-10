@@ -10,3 +10,6 @@ last_list_item_([X, Y | List0], Last) :-
     msort([Z | List0], List),
     ignore(( debugging(last_list_item), writeln('List' = List) )),
     last_list_item_(List, Last).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines last_list_item/2 and never calls it; the driver turns on its debug topic to show the steps and runs the task's list.
+:- initialization((debug(last_list_item), last_list_item([6, 81, 243, 14, 25, 49, 123, 69, 11], Last), format("~w~n", [Last]))).

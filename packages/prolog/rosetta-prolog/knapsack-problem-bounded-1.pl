@@ -74,3 +74,6 @@ print_results(A1, A2, A3, [(Name, W, V, _)|T], [N|TR], WM, VM) :-
    sformat(W3, A3, [V]),
    format('~w~w~w~w~n', [W0,W1,W2,W3]),
    print_results(A1, A2, A3, T, TR, WM, VM).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines knapsack/0 (clpfd, on the task's items) and never calls it; the driver calls it once at load (time/1's report goes to stderr).
+:- initialization(knapsack).

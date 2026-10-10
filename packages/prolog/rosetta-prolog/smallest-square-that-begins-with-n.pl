@@ -14,3 +14,6 @@ showList(_).
 
 do:-findall([Num, Sqr], (between(1, 49, Num), firstSqr(Num, Sqr)), NumSqrList),
 	showList(NumSqrList).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines do/0 (the task's n = 1..49) and never calls it; the driver calls it once at load.
+:- initialization(do).

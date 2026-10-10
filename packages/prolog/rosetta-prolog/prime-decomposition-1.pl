@@ -35,3 +35,6 @@ prime_decomp_2(N, SN, D, L, LF) :-
             prime_decomp_2(N, SN, D1, L, LF)
         )
     ).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines prime_decomp/2 and never calls it; the driver decomposes two small numbers and prime-decomposition-2's first two examples (its third takes 8 s).
+:- initialization(forall(member(N, [12, 1001, 9007199254740991, 576460752303423487]), (prime_decomp(N, L), format("~w: ~w~n", [N, L])))).

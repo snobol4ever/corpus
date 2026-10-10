@@ -27,3 +27,6 @@ main([File]):-
 main(_):-
     swritef(Message, 'File argument is missing\n', []),
     write(user_error, Message).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): main/1 reads the file named on its command line; the driver feeds the same reader, process_stream/1, the task's three data lines (main then runs with no argument and only writes its usage to stderr).
+:- initialization(process_stream(user_input)).

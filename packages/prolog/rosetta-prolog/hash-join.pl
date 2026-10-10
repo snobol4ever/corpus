@@ -18,3 +18,6 @@ join_and_print :-
     (person_age(Person, Age), character_nemisis(Person, Nemesis)),
     format('~w\t~w\t~w\t\t~w\n', [Age, Person, Person, Nemesis])
   ).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines join_and_print/0 (over the task's two tables) and never calls it; the driver calls it once at load.
+:- initialization(join_and_print).

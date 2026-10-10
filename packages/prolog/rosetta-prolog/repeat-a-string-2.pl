@@ -20,3 +20,5 @@ SOURCEz0 ,
 repeat(SOURCEz0,COUNT)
 .
 
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines repeat/3 over char lists (it sets double_quotes=chars itself) and never calls it; the driver prints the task's "ha" repeated 5 times.
+:- initialization((repeat("ha", 5, T), atom_chars(A, T), writeln(A))).

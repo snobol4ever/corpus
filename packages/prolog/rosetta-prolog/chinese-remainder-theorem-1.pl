@@ -22,3 +22,6 @@ crt(Pairs, N) :-
     maplist(divmod(M), Ms, Ps, _), % p(n) <- M/m(n)
     foldl(crt_fold, As, Ms, Ps, 0, N0),
     N is N0 mod M.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines crt/2 and never calls it; the driver solves the task's system x = 2 (mod 3), 3 (mod 5), 2 (mod 7).
+:- initialization((crt([2-3, 3-5, 2-7], N), format("~w~n", [N]))).

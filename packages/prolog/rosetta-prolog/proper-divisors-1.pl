@@ -46,3 +46,6 @@ find_most_proper_divisors_in_range(Low, High, Result) :-
                      proper_divisor_count(N, Count) ),
                    max(MaxCount, Num) ),
     Result = (num(Num)-divisor_count(MaxCount)).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the task's two entries and never calls them; the driver prints the proper divisors of 1..10 and the number in 1..20000 with the most proper divisors.
+:- initialization((show_proper_divisors_of_range(1, 10), find_most_proper_divisors_in_range(1, 20000, R), writeln(R))).

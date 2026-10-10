@@ -14,3 +14,6 @@ exp_recursive_(Base, Exp, Acc,   Power)   :-
     NewAcc is Base * Acc,
     NewExp is Exp  - 1,
     exp_recursive_(Base, NewExp, NewAcc, Power).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines exp_recursive/3 and never calls it; the driver raises the task's 2 and 2.5 to 3 and -3 (the examples of exponentiation-operator-3) and 2 to 0.
+:- initialization(forall(member(B-E, [2-3, 2-(-3), 2.5-3, 2.5-(-3), 2-0]), (once(exp_recursive(B, E, P)), format("~w ^ ~w = ~w~n", [B, E, P])))).

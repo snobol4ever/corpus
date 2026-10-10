@@ -57,3 +57,6 @@ find_l(1.0, SemiMajor, L) :-
 find_l(Ecc, SemiMajor, L) :-
 	dif(Ecc,1.0),
 	{ L = SemiMajor * (1.0 - Ecc * Ecc) }.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines orbital_state_vectors/3 and never calls it; the driver runs the task's elements (a 1, e 0.1, i 0, node 355/(113*6), periapsis 0, true anomaly 0).
+:- initialization((orbital_state_vectors(o(1.0, 0.1, 0.0, 355.0/(113*6), 0.0, 0.0), P, S), format("position: ~w~nspeed: ~w~n", [P, S]))).

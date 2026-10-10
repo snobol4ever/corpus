@@ -35,3 +35,6 @@ prime(N, D, _) :- D*D > N, !.
 prime(N, D, [A|As]) :-
     N mod D =\= 0,
     D2 is D + A, prime(N, D2, As).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines show/1 and never calls it; the driver prints the first 15 Mersenne prime exponents (to M1279).
+:- initialization(show(15)).

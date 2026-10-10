@@ -97,3 +97,6 @@ e(and,0,0,0). e(and,0,1,0). e(and,1,0,0). e(and,1,1,1).
 e(xor,0,0,0). e(xor,0,1,1). e(xor,1,0,1). e(xor,1,1,0).
 e(nand,0,0,1). e(nand,0,1,1). e(nand,1,0,1). e(nand,1,1,0).
 e(not, 1, 0). e(not, 0, 1).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines truth_table/0 (reads one expression line) and never calls it; truth-table.in holds two expressions, the one in its own comment and a xor b.
+:- initialization((truth_table, nl, truth_table)).

@@ -179,3 +179,6 @@ interpret :-
     false.
 interpret :-
     halt.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines interpret/0 (reads a BLC program and its input as 0/1 characters from standard input) and never calls it; universal-lambda-machine.in holds the identity program 0010 and the input 0110.
+:- initialization(interpret).

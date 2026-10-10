@@ -38,3 +38,6 @@ my_sort(>, (N, N1, _), (N, N2, _)) :-
 
 my_sort(<, (N, N1, _), (N, N2, _)) :-
 	N1 > N2.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the multisplit//2 DCG and never calls it; the driver splits the task's a!===b=!=c on the separators ==, != and = and prints the tokens and separators.
+:- initialization((phrase(multisplit(['==', '!=', '='], 'a!===b=!=c'), L), format("~w~n", [L]))).

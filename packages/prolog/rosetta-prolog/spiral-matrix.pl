@@ -49,3 +49,6 @@ spiralH(Dir, Mx, Coor, [H|Vs], R)  :-
 spiral(N, Mx) :-
   Sq is N*N-1, numlist(0, Sq, Ns),
   create(N, EMx), spiralH(right, EMx, (0,0), Ns, Mx).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines spiral/2 and never calls it; the driver prints the task's 5x5 spiral, one row a line.
+:- initialization((spiral(5, M), forall(member(R, M), format("~w~n", [R])))).

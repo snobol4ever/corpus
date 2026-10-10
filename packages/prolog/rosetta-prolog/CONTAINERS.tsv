@@ -1,0 +1,11 @@
+# CONTAINERS.tsv -- rosetta-prolog: files that are NOT PROGRAMS and leave the shipped population, each named with the measurement
+# util_container_or_library.py re-derives (CEO-1272; CEO-1607: a Rosetta code block that defines nothing runnable). name<TAB>KIND<TAB>measurement.
+catamorphism-2.pl	NO_DEFINITION	no clause and no load directive
+comments-1.pl	NO_DEFINITION	no clause and no load directive
+comments-2.pl	NO_DEFINITION	no clause and no load directive
+exponentiation-operator-1.pl	NO_DEFINITION	no clause and no load directive
+almost-prime-2.pl	INCLUDED_BY	almost-prime-1.pl -- its include directive splices this block of the Rosetta page Almost-prime, graded whole through almost-prime-1.pl's driver (CEO-1608)
+almost-prime-3.pl	INCLUDED_BY	almost-prime-1.pl -- its include directive splices this block of the Rosetta page Almost-prime, graded whole through almost-prime-1.pl's driver (CEO-1608)
+chernicks-carmichael-numbers-1.pl	INCLUDED_BY	chernicks-carmichael-numbers-2.pl -- its include directive splices this block of the Rosetta page Chernicks-Carmichael-numbers, graded whole through chernicks-carmichael-numbers-2.pl's driver (CEO-1608)
+general-fizzbuzz-1.pl	INCLUDED_BY	general-fizzbuzz-2.pl -- its include directive splices this block of the Rosetta page General-FizzBuzz, graded whole through general-fizzbuzz-2.pl's driver (CEO-1608)
+long-primes-2.pl	INCLUDED_BY	long-primes-1.pl -- its include directive splices this block of the Rosetta page Long-primes, graded whole through long-primes-1.pl's driver (CEO-1608)

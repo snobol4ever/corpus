@@ -14,3 +14,5 @@ josephus(N, K, M, Survivors) :-
         ), Survivors)
     ).
 
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines josephus/3 and josephus/4 and never calls them; the driver prints the task's survivor for n = 41, k = 3 and the last three (extra credit).
+:- initialization((josephus(41, 3, S), format("~w~n", [S]), josephus(41, 3, 3, S3), format("~w~n", [S3]))).

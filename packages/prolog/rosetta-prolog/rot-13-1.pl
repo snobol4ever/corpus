@@ -20,3 +20,6 @@ rot13_char(Ch, Rot) :-
 		Rot is Ch + ((Letter + 13) mod 26) - Letter
 	;   Rot = Ch
 	).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines runtime_entry(start) (rot13 of standard input) and never calls it; rot-13-1.in holds two sample lines.
+:- initialization(runtime_entry(start)).

@@ -31,5 +31,5 @@ test :-
    decode_string(mmviii, 2008),
    decode_string(mdclxvi, 1666).
 
-% DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines test/0 and never calls it; the driver calls it once at load.
-:- initialization(test).
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): test/0 only checks the task's three numerals and prints nothing; the driver prints decode_string/2 for the task's MCMXC, MMVIII and MDCLXVI.
+:- initialization(forall(member(R, [mcmxc, mmviii, mdclxvi]), (decode_string(R, V), format("~w: ~w~n", [R, V])))).

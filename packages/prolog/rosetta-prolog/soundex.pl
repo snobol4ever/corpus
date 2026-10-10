@@ -1,3 +1,6 @@
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): written for double_quotes=codes (DEC-10 Prolog, ISO, SWI before 7); the program sets the flag, as
+% GOAL-PROLOG-100's superset ruling has a program set a dialect flag (it is SCRIP's default; swipl 7 reads "..." as a string).
+:- set_prolog_flag(double_quotes, codes).
 %____________________________________________________________________
 % Implements the American soundex algorithm
 %   as described at https://en.wikipedia.org/wiki/Soundex
@@ -74,5 +77,5 @@ test :- test('Tymczak', 't522'), !, fail.
 test :- test('Pfister', 'p236'), !, fail.
 test.  % Succeeds only if all the tests succeed
 
-% DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines test/0 and never calls it; the driver calls it once at load.
-:- initialization(test).
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): the coo's driver called test/0, which prints nothing when every check passes; written for code lists (member/2 over "bfpv"), so the flag is set at its head and the driver prints soundex/2 of the seven names test/0 checks.
+:- initialization(forall(member(N, ['Robert', 'Rupert', 'Rubin', 'Ashcroft', 'Ashcraft', 'Tymczak', 'Pfister']), (soundex(N, S), format("~w: ~w~n", [N, S])))).

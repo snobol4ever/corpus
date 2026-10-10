@@ -79,3 +79,6 @@ run(Var,[Var1|LRest],[Deb, Fin], RRest):-
 	run(Var1,LRest,[Deb, Fin], RRest).
 
 run(Val,[Other|RRest], [Val, Val],[Other|RRest]).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines range_expand/0 (the task's range -6,-3--1,3-5,7-11,14,15,17-20) and never calls it; the driver calls it once at load.
+:- initialization(range_expand).

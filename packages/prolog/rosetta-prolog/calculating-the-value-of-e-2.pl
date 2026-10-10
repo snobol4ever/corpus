@@ -20,5 +20,5 @@ main:-
 
 ?- main.
 
-% DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
-:- initialization(main).
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): main/0 reads N from its command line and prints its computation time, which no ref can hold; the driver calls l/4 and e/5 for N = 100 and prints e in main/0's own format.
+:- initialization((N = 100, L is 3*10**(N+1), l(1, 1, L, S), e(S, 0, 1, N, E), format("e = 2.~d\n", E))).

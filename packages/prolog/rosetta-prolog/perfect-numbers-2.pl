@@ -24,3 +24,6 @@ prime(N, D, _) :- D*D > N, !.
 prime(N, D, [A|As]) :-
     N mod D =\= 0,
     D2 is D + A, prime(N, D2, As).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines perfect/1 and never calls it; the driver prints the perfect numbers up to 10000 and its verdict on four larger even perfect numbers and one non-perfect.
+:- initialization((findall(N, (between(1, 10000, N), perfect(N)), L), format("~w~n", [L]), forall(member(N, [33550336, 33550337, 8589869056, 137438691328, 2305843008139952128]), ((perfect(N) -> R = yes ; R = no), format("~w: ~w~n", [N, R]))))).

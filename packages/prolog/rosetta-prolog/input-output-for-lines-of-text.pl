@@ -18,3 +18,6 @@ input_lines_for_num(Num, CurrentLines) :-
 lines :-
 	number_of_lines(Num),
 	input_lines_for_num(Num, []).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines lines/0 (reads a count, then that many lines) and never calls it; the input is the task's sample.
+:- initialization(lines).

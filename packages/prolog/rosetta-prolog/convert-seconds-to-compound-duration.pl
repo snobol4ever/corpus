@@ -42,3 +42,6 @@ time_type(d, 60 * 60 * 24).
 time_type(hr, 60 * 60).
 time_type(min, 60).
 time_type(sec, 1).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines compound_time/1 and never calls it; the driver runs the task's three test cases.
+:- initialization(forall(member(N, [7259, 86400, 6000000]), compound_time(N))).

@@ -33,3 +33,6 @@ add_factor(F, Fac, F*Fac).
 
 reverse_factors(A*B, C*A) :- reverse_factors(B, C), !.
 reverse_factors(A, A).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines factor/2 and never calls it; the driver prints factor(N, F), the factorisation as a product term, for a few small numbers and two large ones.
+:- initialization(forall(member(N, [1, 2, 12, 360, 1001, 1024, 2147483647, 600851475143]), (factor(N, F), format("~w: ~w~n", [N, F])))).

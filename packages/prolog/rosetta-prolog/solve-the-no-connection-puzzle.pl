@@ -53,3 +53,5 @@ set_constraint(H, [H1 | T1], V, [_VH | VT]) :-
 	\+connected(H, H1),
 	set_constraint(H, T1, V, VT).
 
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines no_connection_puzzle/1 and never calls it; the driver prints the first arrangement it finds, the values of holes a..h.
+:- initialization((no_connection_puzzle(Vs), format("~w~n", [Vs]))).

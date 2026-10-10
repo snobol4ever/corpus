@@ -34,3 +34,6 @@ simplify(cos(pi), -1) :- !.
 simplify(sin(pi), 0)  :- !.
 
 simplify(X, X).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines reduce/2 (it prints each step) and never calls it; the driver reduces e^(i*pi) + 1.
+:- initialization((reduce(exp(i*pi) + 1, R), writeln(R))).

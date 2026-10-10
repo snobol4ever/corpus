@@ -24,3 +24,6 @@ dinesmans(X) :-
     %% Where does everyone live?
     X = ['Baker'(Baker), 'Cooper'(Cooper), 'Fletcher'(Fletcher),
          'Miller'(Miller), 'Smith'(Smith)].
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines dinesmans/1 and never calls it; the driver prints every solution of the puzzle.
+:- initialization(forall(dinesmans(X), writeln(X))).

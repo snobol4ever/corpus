@@ -65,3 +65,6 @@ bignum(Radix, Number) :-
 
 largest_decimal(N) :- bignum(10, N), !.
 largest_hex(N, H) :- bignum(16, N), !, sformat(H, '~16r', [N]).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines largest_decimal/1 and largest_hex/2 and never calls them; the driver prints the decimal answer (the hexadecimal extra credit takes 16 s under swipl, so it is left out).
+:- initialization((largest_decimal(N), format("~w~n", [N]))).

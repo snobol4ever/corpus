@@ -29,3 +29,6 @@ apply([A,B,C|T], Prev, First, [Prev,This|Rest]) :-  r(A,B,C,This), apply([B,C|T]
 
 writ(0) :- write('.').
 writ(1) :- write(1).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines play/0 (50 generations from one live cell) and never calls it; the driver calls it once at load.
+:- initialization(play).

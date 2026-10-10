@@ -5,5 +5,5 @@ fact(baz).
 go :- fact(booger).
 go :- fact(bar).
 
-% DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines go/0 and never calls it; the driver calls it once at load.
-:- initialization(go).
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): go/0 succeeds through its second clause and prints nothing, so the coo's driver printed nothing; the driver prints whether go/0 succeeds.
+:- initialization((go -> writeln('go: true') ; writeln('go: false'))).

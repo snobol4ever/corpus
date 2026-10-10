@@ -13,3 +13,6 @@ sym_diff :-
     format('difference B\\A : ~w~n', [DBA]),
     union(DAB, DBA, Diff),
     format('symetric difference : ~w~n', [Diff]).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines sym_diff/0 and never calls it; the driver calls it once at load.
+:- initialization(sym_diff).

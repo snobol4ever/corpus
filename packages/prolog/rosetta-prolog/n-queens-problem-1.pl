@@ -19,3 +19,6 @@ member(Item,[First|Rest]) :-
  member(Item,Rest).
 
 template([1/Y1,2/Y2,3/Y3,4/Y4,5/Y5,6/Y6,7/Y7,8/Y8]).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines solution/1 and template/1 and never calls them; the driver prints every 8-queens solution and their count.
+:- initialization((findall(S, (template(S), solution(S)), Ss), forall(member(S, Ss), format("~w~n", [S])), length(Ss, N), format("~w solutions~n", [N]))).

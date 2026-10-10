@@ -95,3 +95,6 @@ update_caddr(mem(BackMem, [_,M|Mem]), Caddr, mem(BackMem, [Caddr,M|Mem])).
 % The next instruction, and remaining code
 next_instruction([_], [], []).
 next_instruction([_,NextI|Rest], NextI, [NextI|Rest]).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines brain/1 and never calls it; the driver runs the Hello World! program of the Brainf*** article.
+:- initialization(brain('++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.')).

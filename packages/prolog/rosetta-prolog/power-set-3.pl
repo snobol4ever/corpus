@@ -16,3 +16,6 @@ creation @ chr_power_set([H | T], A) <=>
 
 
 empty_element @ chr_power_set([], _) <=> chr_power_set([]).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the CHR constraint chr_power_set/2 and never posts it; the driver posts it for the task's {1,2,3,4}, collects the chr_power_set/1 subsets from the store and cleans it.
+:- initialization((chr_power_set([1, 2, 3, 4], []), findall(L, find_chr_constraint(chr_power_set(L)), Ls), clean, format("~w~n", [Ls]))).

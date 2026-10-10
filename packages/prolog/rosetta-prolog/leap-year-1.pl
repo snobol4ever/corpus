@@ -8,3 +8,6 @@ is_leap_year(Year) :-
 	R100 is Year mod 100,
 	R400 is Year mod 400,
 	(   (R4 = 0, R100 \= 0); R400 = 0).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines leap_year/1 and never calls it; the driver classifies seven fixed years.
+:- initialization(leap_year([1900, 1994, 1996, 1997, 2000, 2024, 2100])).

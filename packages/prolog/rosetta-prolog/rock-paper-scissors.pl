@@ -25,3 +25,6 @@ result(C,C,R,[B|R]) :-
 beats(paper, rock).
 beats(rock, scissors).
 beats(scissors, paper).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): play/0 reads the player's moves and draws the computer's with random_member/2, which no ref can hold; the driver calls the judge beneath it, result/4, on all nine pairs of moves and prints its verdicts.
+:- initialization(forall((member(C, [rock, paper, scissors]), member(P, [rock, paper, scissors])), (format("computer ~w, you ~w: ", [C, P]), result(C, P, [], _)))).

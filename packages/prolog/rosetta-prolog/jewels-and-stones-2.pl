@@ -17,3 +17,6 @@ count_jewels([S|Stones], [J|Jewels], N, R):-
     count_jewels([S|Stones], Jewels, N, R).
 count_jewels([_|Stones], Jewels, N, R):-
     count_jewels(Stones, Jewels, N, R).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines count_jewels/3 and never calls it; the driver counts the task's two examples.
+:- initialization(forall(member(S-J, ["aAAbbbb"-"aA", "ZZ"-"z"]), (count_jewels(S, J, N), format("~w ~w: ~w~n", [S, J, N])))).

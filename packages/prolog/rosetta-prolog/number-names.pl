@@ -59,3 +59,6 @@ spell_remaining(0, "") :- !.
 spell_remaining(N, S) :-
     spell(N, Rest),
     string_concat(", ", Rest, S).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines spell/2 and never calls it; the driver spells a range of numbers, a negative and a large one.
+:- initialization(forall(member(N, [0, 7, 13, 21, 99, 100, 101, 999, 1000, 1001, 12345, 1000000, 123456789, -42, 9007199254740991]), (spell(N, S), format("~w: ~w~n", [N, S])))).

@@ -59,3 +59,6 @@ init(Len, C) :-
 
 init_n(N, L) :-
   nth0(0, L, N).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines levenshtein/3 and never calls it; the driver runs the task's two pairs.
+:- initialization(forall(member(A-B, [kitten-sitting, rosettacode-raisethysword]), (atom_codes(A, S), atom_codes(B, T), levenshtein(S, T, R), format("~w ~w: ~w~n", [A, B, R])))).

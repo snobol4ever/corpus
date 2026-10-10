@@ -44,5 +44,5 @@ koch_curve(Stream, X0, Y0, X1, Y1, N):-
     koch_curve(Stream, X3, Y3, X4, Y4, N1),
     koch_curve(Stream, X4, Y4, X1, Y1, N1).
 
-% DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
-:- initialization(main).
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): main/0 writes koch_snowflake.svg (depth 5, 3072 path lines) to a file and prints nothing; the driver writes the same SVG at depth 2 to standard output.
+:- initialization(koch_snowflake(user_output, 600, 2)).

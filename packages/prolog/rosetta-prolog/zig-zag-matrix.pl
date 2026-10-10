@@ -75,3 +75,6 @@ print_line(L) :-
 
 print_val(V) :-
    writef('%3r ', [V]).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines zig_zag/1 and never calls it; the driver prints the task's 5x5 zig-zag matrix.
+:- initialization(zig_zag(5)).

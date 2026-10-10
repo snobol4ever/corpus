@@ -31,3 +31,6 @@ horner(N, A, S0, S1) :-
 
 drop(N, Lz1, Lz2) :-
     append(Pfx, Lz2, Lz1), length(Pfx, N), !.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines show/1 and sum/3 and never calls them; the driver prints the task's first 10 rows and the sum of n^17 for n = 1..1000.
+:- initialization((show(10), sum(1000, 17, S), writeln(S))).

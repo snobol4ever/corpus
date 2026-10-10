@@ -177,3 +177,6 @@ write_line(S,[H|T]) :-
    write(S,H), put(S,' '),
    write_line(S,T).
 write_line(_,[]) :- !.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): cellular/1 reads and writes PBM files of a 300x300 grid for 1000 generations; the driver calls its rule step/2 on the task's blinker in a 3x3 grid and prints three generations.
+:- initialization((M0 = [[0, 1, 0], [0, 1, 0], [0, 1, 0]], step(M0, M1), step(M1, M2), forall(member(M, [M0, M1, M2]), (forall(member(Row, M), (atomic_list_concat(Row, ' ', A), writeln(A))), nl)))).

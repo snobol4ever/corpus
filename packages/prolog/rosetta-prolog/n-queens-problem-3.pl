@@ -18,3 +18,6 @@ del(Item,[Item|List],List).
 
 del(Item,[First|List],[First|List1]) :-
  del(Item,List,List1).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines solution/1 and never calls it; the driver prints every 8-queens solution and their count.
+:- initialization((findall(Q, solution(Q), Qs), forall(member(Q, Qs), format("~w~n", [Q])), length(Qs, N), format("~w solutions~n", [N]))).

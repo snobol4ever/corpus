@@ -159,3 +159,6 @@ tok(space(L,P),Len,L,P) --> c_types(S,space), { length(S,Len) }.
 
 % anything else is an error
 tok(_,_,L,P) --> { format(atom(Error), 'Invalid token at line ~d,~d', [L,P]), throw(Error) }.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines tester/1 (and test_file/1 over a named file) and never calls it; the driver tokenizes the task's first two test programs, Hello world and phoenix_number.
+:- initialization((tester('/*\n  Hello world\n */\nprint("Hello, World!\\n");\n'), nl, tester('/*\n  Show Ident and Integers\n */\nphoenix_number = 142857;\nprint(phoenix_number, "\\n");\n'))).

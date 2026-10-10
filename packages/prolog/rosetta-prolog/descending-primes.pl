@@ -30,3 +30,6 @@ showList(_).
     	
 do:-findall(DPrim, descPrimes(DPrim), DList),
 	showList(DList).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines do/0 (every descending prime, ten a line) and never calls it; the driver calls it once at load.
+:- initialization(do).

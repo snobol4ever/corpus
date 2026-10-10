@@ -19,3 +19,6 @@ iroot_loop(_, X1, N, A, R) :-
 
 newton(2, A, X0, X1) :- X1 is (X0 + A div X0) >> 1, !.  % fast special case
 newton(N, A, X0, X1) :- X1 is ((N - 1)*X0 + A div X0**(N - 1)) div N.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines iroot/3 and never calls it; the driver prints integer M-th roots of a few numbers, sqrt(2) and cbrt(2) to many digits among them.
+:- initialization(forall(member(M-N, [2-2, 3-1000, 5-100000, 2-(2*10**100), 3-(2*10**60)]), (A is N, iroot(M, A, R), format("~w root of ~w = ~w~n", [M, A, R])))).

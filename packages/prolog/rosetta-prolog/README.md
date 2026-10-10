@@ -20,6 +20,18 @@ vendor, such as the tasks' unixdict.txt, is UNGRADED NEEDS_VENDORED_SOURCE (CEO-
 across files is measured by util_container_or_library.py: one that defines nothing is a CONTAINER (CONTAINERS.tsv, NO_DEFINITION,
 out of shipped); one that defines clauses is a LIBRARY, UNGRADED NEEDS_DRIVER, owed a driver that needs its sibling block.
 
+THE DRIVERS ROLL-OUT (hq_pascal 2026-10-10, row prolog-rosetta-the-458-needs-driver-..., CEO-1595): every one of the 458 NEEDS_DRIVER
+solutions was read and given a driver or named. 364 carry one (DRIVERS.tsv: 358 appended, 6 an .argv alone; written by six workers to one procedure, each verified
+under swipl -q twice in a scratch copy and again in place): the goal calls the solution's own entry on the task's sample data; a
+`<stem>.in` or `<stem>.argv` holds its input; where the solution was written for code lists (DEC-10, SWI before 7) the driver sets
+`:- set_prolog_flag(double_quotes, codes).` at the file's head, named per file in DRIVERS.tsv; where the entry prints time or a random
+draw, the driver calls the solver beneath it. COMPOSED DRIVERS (CEO-1608): a Rosetta page that splits one program into blocks is one
+program -- the entry block's driver includes its sibling blocks (`:- include('sibling.pl').`), and each included block is a CONTAINER
+INCLUDED_BY that entry; a block that is itself a graded program is never included. bitmap.pl, a module other tasks' solutions load,
+carries no driver: a load-time driver there would print inside them. After the rebuild: shipped 786 = graded 483 + ungraded 62 (44
+NEEDS_DRIVER, most needing a predicate only an already-graded block defines; 10 TIMEOUT; 8 NEEDS_VENDORED_SOURCE) + ungradable 232 +
+containers 9; inventory_line rc 0.
+
 Graded against the oracle: swipl -q (SWI-Prolog, the Prolog oracle; a program runs its load-time directives and its initialization goal). The container ALL.pl / ALL.ref / ALL.csv is built by
 SCRIP/scripts/util_build_package_suite.py, which cuts every ref from the oracle and names in ALL.excluded.txt, with its
 reason, every program the oracle cannot grade (it refuses to compile or load it, fails, hangs past the timeout, prints

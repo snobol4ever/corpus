@@ -16,3 +16,6 @@ my_comp(Comp, W1, W2) :-
 
 my_write(W) :-
 	format('~s ', [W]).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines rosetta_sort/0 (the task's eight strings) and never calls it; the driver calls it once at load.
+:- initialization(rosetta_sort).

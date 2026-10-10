@@ -43,3 +43,6 @@ match([A|T1],[A|T2],[A|T3]) :-
 match([A|T1],[B|T2],[C|T3]) :-
 	dif(A,B), dif(B,C), dif(A,C),
 	match(T1,T2,T3).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): do_it/1 deals its cards with random_member/2, which no ref can hold; the driver gives the solver beneath it, is_card_set/2, one fixed nine-card deal with exactly four sets and prints cards and sets in do_it/1's format.
+:- initialization((Cards = [[green,squiggle,one,solid],[red,squiggle,two,solid],[purple,squiggle,two,solid],[red,squiggle,two,striped],[red,diamond,one,striped],[green,oval,three,striped],[purple,oval,three,solid],[red,oval,three,open],[green,squiggle,two,open]], setof(Set, is_card_set(Cards, Set), Sets), format('Cards: ~n'), maplist(print_card, Cards), format('~nSets: ~n'), maplist(print_set, Sets))).

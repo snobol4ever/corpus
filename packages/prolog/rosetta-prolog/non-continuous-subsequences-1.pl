@@ -23,3 +23,6 @@ sublist(L, SL) :-
 	(L = [_|SL];
 	reverse(L, [_|SL1]),
 	reverse(SL1, SL)).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines ncsubs/2 and never calls it; the driver prints the non-continuous subsequences of the task's 1..4 and of the sibling's example [a,e,i,o,u].
+:- initialization(forall(member(L, [[1,2,3,4], [a,e,i,o,u]]), (ncsubs(L, S), format("~w: ~w~n", [L, S])))).

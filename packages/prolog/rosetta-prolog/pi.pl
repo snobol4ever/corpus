@@ -17,3 +17,6 @@ pi(Q, R, T, I, OUT) :-
                I2 is I + 1,
                pi(Q2, R2, T2, I2, OUT_)
            ;   true)).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): pi_spigot/0 writes digits of pi forever; the driver takes the first 100 digits of the same lazy list, pi/1, and writes them as pi_spigot/0 does.
+:- initialization((pi(X), length(Ds, 100), append(Ds, _, X), forall(member(D, Ds), write(D)), nl)).

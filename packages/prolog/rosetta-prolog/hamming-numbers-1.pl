@@ -19,3 +19,6 @@ main(N) :-
     mkHamm(G),take(20,G,A-[],_),           write(A), nl,
     take(1691-1,G,_,G2),take(2,G2,B-[],_),     write(B), nl,
     take(  N  -1,G,_,G3),take(2,G3,[C1|_]-_,_),   write(C1), nl.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines main/1 and never calls it; the driver runs main(1000000): the first 20, the 1691st and 1692nd, and the millionth Hamming number, as the task asks.
+:- initialization(main(1000000)).

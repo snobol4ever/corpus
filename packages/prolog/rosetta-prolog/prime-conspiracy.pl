@@ -57,3 +57,6 @@ remove_multiples(N, M, [A|As], [A|R]) :-
 remove_multiples(N, M, L, R) :-
     plus(M, N, M2),
     remove_multiples(N, M2, L, R).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines conspiracy/1 and never calls it; the driver runs it on the first 10000 primes (its table reaches 100000, the task's million is out of reach).
+:- initialization(conspiracy(4)).

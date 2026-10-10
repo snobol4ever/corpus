@@ -24,3 +24,6 @@ do:-Limit is 500,
 	findall(P, primes(P, Limit), PrimeList),
 	findall(Pair, primeProd(PrimeList, Pair), P1P2List),
 	showList(P1P2List).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines do/0 and never calls it; the driver calls it once at load (the task's limit 500).
+:- initialization(do).

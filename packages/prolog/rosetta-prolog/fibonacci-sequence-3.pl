@@ -7,3 +7,6 @@ fib(N, Value) :-
   B is N - 2, fib(B, B1),
   Value is A1 + B1,
   asserta((fib(N, Value) :- !)).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the memoising fib/2 and never calls it; the driver prints fib(0) .. fib(30).
+:- initialization((findall(V, (between(0, 30, N), fib(N, V)), Vs), writeln(Vs))).

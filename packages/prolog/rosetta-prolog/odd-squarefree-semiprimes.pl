@@ -35,3 +35,6 @@ do:-Limit is 1000,
 	findall(N, oddPrimes(N, PLimit), PList),
 	semiPrimes(PList, Limit, SpList),!,
 	showList(SpList).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines do/0 and never calls it; the driver calls it once at load (the task's limit 1000).
+:- initialization(do).

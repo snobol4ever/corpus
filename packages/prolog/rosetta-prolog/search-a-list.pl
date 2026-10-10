@@ -1,3 +1,6 @@
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): written for double_quotes=codes (DEC-10 Prolog, ISO, SWI before 7); the program sets the flag, as
+% GOAL-PROLOG-100's superset ruling has a program set a dialect flag (it is SCRIP's default; swipl 7 reads "..." as a string).
+:- set_prolog_flag(double_quotes, codes).
 search_a_list(N1, N2) :-
 	L = ["Zig", "Zag", "Wally", "Ronald", "Bush", "Krusty", "Charlie", "Bush", "Boz", "Zag"],
 
@@ -21,3 +24,6 @@ reverse_nth1(Ind, L, N) :-
 
 my_write(Name) :-
 	writef(' %s', [Name]).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines search_a_list/2 over the task's haystack and never calls it; written for code lists (writef %s and format ~s over "..."), so the flag is set at its head and the driver searches the task's needles Bush and Washington.
+:- initialization(search_a_list("Bush", "Washington")).

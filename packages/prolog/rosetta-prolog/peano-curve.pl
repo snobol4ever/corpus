@@ -55,5 +55,5 @@ execute(Stream, X, Y, Length, Angle, ['-'|Chars]):-
 execute(Stream, X, Y, Length, Angle, [_|Chars]):-
     execute(Stream, X, Y, Length, Angle, Chars).
 
-% DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
-:- initialization(main).
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): main/0 writes peano_curve.svg (order 4, 6561 segments) and prints nothing; the driver writes the same path element, peano_curve/7, to standard output at order 2.
+:- initialization(peano_curve(user_output, "L", 8, 8, 8, 90, 2)).

@@ -47,3 +47,5 @@ ends_with(TARGET,END)
 prolog:atom_concat(_,END,TARGET)
 .
 
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines directory_prefix/3 and never calls it; the driver runs it on the task's three paths with separator /.
+:- initialization((directory_prefix(['/home/user1/tmp/coverage/test', '/home/user1/tmp/covert/operator', '/home/user1/tmp/coven/members'], '/', P), writeln(P))).

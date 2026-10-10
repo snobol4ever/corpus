@@ -23,3 +23,6 @@ act(State) :-
 	act(NextState).
 	
 print_message(State) :-	message(State, Message), format(Message).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines act/0 (a vending machine reading its actions with read/1) and never calls it; finite-state-machine.in drives deposit, select, remove, deposit, refund, quit.
+:- initialization(act).

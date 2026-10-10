@@ -14,3 +14,5 @@ sum_of_multiples_of_3_and_5(N, K, C, S) :-
 	K1 is K+1,
 	sum_of_multiples_of_3_and_5(N, K1, C5, S).
 
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines sum_of_multiples_of_3_and_5_slow/2 and never calls it; the driver prints it for the task's 1000.
+:- initialization((sum_of_multiples_of_3_and_5_slow(1000, S), format("~w~n", [S]))).

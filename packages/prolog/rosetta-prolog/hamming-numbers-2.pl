@@ -72,3 +72,6 @@ watch_20(N, [X|L]):-
 	     (format('~w ', [X]),
 	      N1 is N - 1,
 	      watch_20(N1, L))).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines hamming/1 and never calls it; the driver prints the first 20 and the 1691st (the millionth takes 18 s under swipl, so it is left out).
+:- initialization((hamming(20), hamming(1691))).

@@ -50,3 +50,6 @@ gen_bracket(N) -->
 
 bracket(0) --> ['['].
 bracket(1) --> [']'].
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): balanced_brackets/0 draws its brackets with random/1; the driver calls rosetta_brackets/0, the solution's own fixed bracket strings.
+:- initialization(rosetta_brackets).

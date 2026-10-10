@@ -24,3 +24,5 @@ hofstadter(N) ==>  ffr(1,1), ffs(1,2).
 % loop
 hofstadter(N), ffr(N1, _R), ffs(N1, _S) ==> N1 < N, N2 is N1 +1 |  ffr(N2,_), ffs(N2,_).
 
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the CHR constraints hofstadter/1, ffr/2, ffs/2 and never posts them; the driver posts hofstadter(10) and prints the task's first ten R (the 1..1000 check at hofstadter(960) takes 41 s under swipl).
+:- initialization((hofstadter(10), findall(K-R, find_chr_constraint(ffr(K, R)), L), msort(L, S), pairs_values(S, V), format("~w~n", [V]))).

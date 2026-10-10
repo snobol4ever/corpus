@@ -41,5 +41,5 @@ curve(Stream, Order, Length, Cursor, Cursor1, Angle):-
     turn(Cursor4, Angle, Cursor5),
     curve(Stream, Order1, Length2, Cursor5, Cursor1, Angle1).
 
-% DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
-:- initialization(main).
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): main/0 writes an order-8 SVG to sierpinski_arrowhead.svg and prints nothing; the driver has write_sierpinski_arrowhead/3 write an order-4 curve to /dev/stdout.
+:- initialization(write_sierpinski_arrowhead('/dev/stdout', 600, 4)).

@@ -33,3 +33,6 @@ my_sort(<, [H1,  H2 | _], [H1]) :-
 
 my_sort(R, [H1,  H1 | T], [H1]) :-
 	my_sort(R, [H1 | T], [H1]) .
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines largest_int_v2/2 and never calls it; the driver runs the task's two lists.
+:- initialization(forall(member(L, [[1, 34, 3, 98, 9, 76, 45, 4], [54, 546, 548, 60]]), (largest_int_v2(L, N), format("~w~n", [N])))).
