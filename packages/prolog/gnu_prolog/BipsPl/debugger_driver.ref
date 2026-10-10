@@ -1,0 +1,20 @@
+Using leashing stopping at [call,exit,redo,fail,exception] ports
+leash(full) => [leash(full)]
+Using leashing stopping at [call,redo] ports
+leash(half) => [leash(half)]
+Using leashing stopping at [call] ports
+leash(loose) => [leash(loose)]
+Using leashing stopping at [call,redo,fail,exception] ports
+leash(tight) => [leash(tight)]
+No leashing
+leash(none) => [leash(none)]
+Using leashing stopping at [call,exit] ports
+leash([call,exit]) => [leash([call,exit])]
+No leashing
+leash([]) => [leash([])]
+leash(bogus) => error(domain_error(leash_ports,bogus))
+leash([call,bogus]) => error(domain_error(leash_ports,[call,bogus]))
+leash(A) => error(instantiation_error)
+Spypoint placed on d_foo/1
+The debugger will first leap -- showing spypoints (debug)
+{debug}

@@ -1,0 +1,17 @@
+shell('rm -f /tmp/gnu_drv_sockets') => [shell('rm -f /tmp/gnu_drv_sockets')]
+socket_af_unix_is_an_integer_descriptor => true
+socket_af_inet_is_an_integer_descriptor => true
+socket(bogus,A) => error(domain_error(socket_domain,bogus))
+socket(A,B) => error(instantiation_error)
+socket('AF_UNIX',3) => error(uninstantiation_error(3))
+socket_close(A) => error(instantiation_error)
+socket_close(foo) => error(type_error(integer,foo))
+unix_round_trip(A,B) => [unix_round_trip('ping from the client','pong from the server')]
+shell('rm -f /tmp/gnu_drv_sockets') => [shell('rm -f /tmp/gnu_drv_sockets')]
+af_inet_bind_to_an_unbound_port_names_the_port => true
+socket_bind(A,'AF_UNIX'('/tmp/gnu_drv_sockets_x')) => error(instantiation_error)
+socket_bind_to_a_bad_address_is_a_domain_error => true
+socket_listen(A,1) => error(instantiation_error)
+hostname_address(localhost,A) => [hostname_address(localhost,'127.0.0.1')]
+hostname_address(A,B) => error(instantiation_error)
+hostname_address(42,A) => error(type_error(atom,42))

@@ -1,0 +1,68 @@
+call((A=1;A=2)) => [call((1=1;1=2)),call((2=1;2=2))]
+call((fail->true;A=3)) => [call((fail->true;3=3))]
+call((true,A)) => error(instantiation_error)
+call(1) => error(type_error(callable,1))
+call((true,1)) => error(type_error(callable,(true,1)))
+call((1;true)) => error(type_error(callable,(1;true)))
+call((true->1;true)) => error(type_error(callable,(true->1;true)))
+assertz(A) => error(instantiation_error)
+assertz(3) => error(type_error(callable,3))
+assertz((3:-true)) => error(type_error(callable,3))
+assertz((A:-true)) => error(instantiation_error)
+assertz((u_h1:-4)) => error(type_error(callable,4))
+assertz((u_h1:-true,4)) => error(type_error(callable,(true,4)))
+assertz((u_h1:-A)) => [assertz((u_h1:-B))]
+clause(u_h1,A) => [clause(u_h1,call(B))]
+assertz((u_h2(A):-A)) => [assertz((u_h2(B):-B))]
+assertz((u_h2(A):-A,true;A)) => [assertz((u_h2(B):-B,true;B))]
+clause(u_h2(A),B) => [clause(u_h2(C),call(C)),clause(u_h2(D),(call(D),true;call(D)))]
+findall(A,member(A,[a,b]),B) => [findall(C,member(C,[a,b]),[a,b])]
+findall(A,member(A,[a,b]),[a|B]) => [findall(C,member(C,[a,b]),[a,b])]
+findall(A,member(A,[a,b]),foo) => error(type_error(list,foo))
+findall(A,member(A,[a,b]),[a|foo]) => error(type_error(list,[a|foo]))
+op(700,xfx,[u_op1,u_op2]) => [op(700,xfx,[u_op1,u_op2])]
+current_op(A,B,u_op1) => [current_op(700,xfx,u_op1)]
+current_op(A,B,u_op2) => [current_op(700,xfx,u_op2)]
+op(700,xfx,u_op3) => [op(700,xfx,u_op3)]
+op(700,xfx,[u_op4,1]) => error(type_error(atom,1))
+op(700,xfx,A) => error(instantiation_error)
+op(700,xfx,[A]) => error(instantiation_error)
+op(700,xfx,[u_op5|A]) => error(instantiation_error)
+op(700,xfx,foo(bar)) => error(type_error(list,foo(bar)))
+op(0,xfx,[u_op1,u_op2,u_op3]) => [op(0,xfx,[u_op1,u_op2,u_op3])]
+current_op(A,B,u_op1) => []
+<f('A',b)> true
+<> error(type_error(list,foo))
+<> error(instantiation_error)
+<> error(instantiation_error)
+<> error(instantiation_error)
+<> error(type_error(list,[quoted(true)|bar]))
+open('/tmp/gnu_drv_utils.txt',write,A,[type(B)]) => error(instantiation_error)
+open('/tmp/gnu_drv_utils.txt',write,A,[alias(B)]) => error(domain_error(stream_option,alias(C)))
+open('/tmp/gnu_drv_utils.txt',write,A,foo) => error(type_error(list,foo))
+open('/tmp/gnu_drv_utils.txt',write,A,[B]) => error(instantiation_error)
+close(user_output,[force(A)]) => error(instantiation_error)
+close(user_output,foo) => error(type_error(list,foo))
+<
+% file: user_input
+
+u_h1 :-
+	call(_).
+> true
+<
+% file: user_input
+
+u_h2(A) :-
+	call(A).
+u_h2(A) :-
+	(   call(A),
+	    true
+	;   call(A)
+	).
+> true
+<> error(type_error(integer,bar))
+<> error(instantiation_error)
+consult(A) => error(instantiation_error)
+consult([A]) => error(instantiation_error)
+consult(42) => error(type_error(list,42))
+consult([abc,1]) => error(type_error(atom,1))

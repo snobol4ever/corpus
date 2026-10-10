@@ -1,0 +1,57 @@
+session_default
+descriptor_is_an_integer => true
+current_descriptor_is_it => true
+stream_is_a_stream => true
+sr_get_file_name(0,A) => [sr_get_file_name(0,'/tmp/gnu_drv_src_rdr.pl')]
+term((:-op(700,xfx,===>)),1-1,[],sr_ok)
+term(a(1),2-2,[],sr_ok)
+term((a(A):-A===>b),3-3,[],sr_ok)
+term(inc(1),1-1,['/tmp/gnu_drv_src_rdr.pl':4],sr_ok)
+term((inc(2):-inc(1)),2-2,['/tmp/gnu_drv_src_rdr.pl':4],sr_ok)
+term('$sr_read_term_error',5-5,[],sr_error(error,syntax(5,8,'expression expected')))
+term(e([115,116,114],97,[1,2|A],A),6-6,[],sr_ok)
+term(f,8-8,[],sr_ok)
+term(end_of_file,9-9,[],sr_ok)
+sr_get_size_counters(0,A,B) => [sr_get_size_counters(0,167,10)]
+sr_get_error_counters(0,A,B) => [sr_get_error_counters(0,1,0)]
+sr_set_error_counters(0,5,7) => [sr_set_error_counters(0,5,7)]
+sr_get_error_counters(0,A,B) => [sr_get_error_counters(0,5,7)]
+sr_close(0) => [sr_close(0)]
+session_default => true
+session_include_reflected_op_killed
+descriptor_is_an_integer => true
+current_descriptor_is_it => true
+stream_is_a_stream => true
+sr_get_file_name(0,A) => [sr_get_file_name(0,'/tmp/gnu_drv_src_rdr.pl')]
+term(a(1),2-2,[],sr_ok)
+term((a(A):-A===>b),3-3,[],sr_ok)
+term((:-include('/tmp/gnu_drv_src_rdr_inc.pl')),4-4,['/tmp/gnu_drv_src_rdr.pl':4],sr_ok)
+term(inc(1),1-1,['/tmp/gnu_drv_src_rdr.pl':4],sr_ok)
+term((inc(2):-inc(1)),2-2,['/tmp/gnu_drv_src_rdr.pl':4],sr_ok)
+term('$sr_read_term_error',5-5,[],sr_error(error,syntax(5,8,'expression expected')))
+term(e([115,116,114],97,[1,2|A],A),6-6,[],sr_ok)
+term(f,8-8,[],sr_ok)
+term(end_of_file,9-9,[],sr_ok)
+sr_get_size_counters(0,A,B) => [sr_get_size_counters(0,167,10)]
+sr_get_error_counters(0,A,B) => [sr_get_error_counters(0,1,0)]
+sr_set_error_counters(0,5,7) => [sr_set_error_counters(0,5,7)]
+sr_get_error_counters(0,A,B) => [sr_get_error_counters(0,5,7)]
+sr_close(0) => [sr_close(0)]
+session_include_reflected_op_killed => true
+session_include_ignored
+descriptor_is_an_integer => true
+current_descriptor_is_it => true
+stream_is_a_stream => true
+sr_get_file_name(0,A) => [sr_get_file_name(0,'/tmp/gnu_drv_src_rdr.pl')]
+term((:-op(700,xfx,===>)),1-1,[],sr_ok)
+term(a(1),2-2,[],sr_ok)
+term((a(A):-A===>b),3-3,[],sr_ok)
+session_include_ignored => error(instantiation_error)
+sr_open(A,B,[]) => error(instantiation_error)
+sr_open('/tmp/gnu_drv_src_rdr.pl',A,foo) => error(type_error(list,foo))
+sr_open('/tmp/gnu_drv_src_rdr.pl',A,[bogus]) => error(domain_error(sr_option,bogus))
+sr_open('/tmp/gnu_drv_src_rdr_nope.pl',A,[]) => error(existence_error(source_sink,'/tmp/gnu_drv_src_rdr_nope.pl'))
+sr_open('/tmp/gnu_drv_src_rdr.pl',3,[]) => error(type_error(variable,3))
+sr_close(A) => error(instantiation_error)
+sr_error_from_exception(error(syntax_error(oops),foo/1),A) => [sr_error_from_exception(error(syntax_error(oops),foo/1),sr_error(error,syntax(5,8,'expression expected')))]
+sr_error_from_exception(error(type_error(integer,a),foo/1),A) => [sr_error_from_exception(error(type_error(integer,a),foo/1),sr_error(error,type_error(integer,a)))]

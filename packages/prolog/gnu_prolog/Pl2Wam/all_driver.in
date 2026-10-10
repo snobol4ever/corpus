@@ -1,0 +1,15 @@
+:- dynamic(seen/1).
+:- op(700, xfx, ===>).
+len([], 0).
+len([_|T], N) :- len(T, N0), N is N0 + 1.
+max_of([X], X) :- !.
+max_of([X|T], M) :- max_of(T, M0), ( X > M0 -> M = X ; M = M0 ).
+classify(X, small) :- X < 10, !.
+classify(X, big) :- X >= 10.
+walk(f(A, B), [A|L]) :- walk(B, L).
+walk(nil, []).
+note(X) :- \+ seen(X), assertz(seen(X)).
+pick(X, [X|_]).
+pick(X, [_|T]) :- pick(X, T).
+rule(X) :- X ===> y.
+safe(X) :- catch(atom_length(X, _), error(type_error(_, _), _), fail).

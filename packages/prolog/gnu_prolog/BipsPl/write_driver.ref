@@ -36,7 +36,7 @@
 <+(1,2)> true
 <D> true
 <$VAR(3)> true
-<[1,2,...]> true
+<[1,2,3|...]> true
 <f(g(...))> true
 <f(a, b)> true
 <(a,b)> true
@@ -46,7 +46,7 @@
 <> error(instantiation_error)
 <> error(type_error(list,foo))
 <'X'> true
-<[...]> true
+<[a|...]> true
 <> error(existence_error(stream,nosuch))
 <
 > true

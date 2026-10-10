@@ -1,0 +1,202 @@
+% compiler: GNU Prolog 1.6.0
+% file    : user
+
+
+file_name(user).
+
+
+predicate(len/2,3,static,private,monofile,global,[
+    switch_on_term(1,2,fail,4,fail),
+
+label(1),
+    try_me_else(3),
+
+label(2),
+    get_nil(0),
+    get_integer(0,1),
+    proceed,
+
+label(3),
+    trust_me_else_fail,
+
+label(4),
+    allocate(2),
+    get_variable(y(0),1),
+    get_list(0),
+    unify_void(1),
+    unify_variable(x(0)),
+    put_variable(y(1),1),
+    call(len/2),
+    call_c('Pl_Set_Bip_Name_Untagged_2',[by_value],[is,2]),
+    math_load_value(y(1),0),
+    call_c('Pl_Fct_Inc',[fast_call,x(0)],[x(0)]),
+    get_value(y(0),0),
+    deallocate,
+    proceed]).
+
+
+predicate(max_of/2,5,static,private,monofile,global,[
+    pragma_arity(3),
+    get_current_choice(x(2)),
+    switch_on_term(2,fail,fail,1,fail),
+
+label(1),
+    try(3),
+    trust(5),
+
+label(2),
+    try_me_else(4),
+
+label(3),
+    get_list(0),
+    unify_local_value(x(1)),
+    unify_nil,
+    cut(x(2)),
+    proceed,
+
+label(4),
+    trust_me_else_fail,
+
+label(5),
+    allocate(3),
+    get_variable(y(1),1),
+    get_list(0),
+    unify_variable(y(0)),
+    unify_variable(x(0)),
+    put_variable(y(2),1),
+    call(max_of/2),
+    put_value(y(0),0),
+    put_unsafe_value(y(2),1),
+    put_value(y(1),2),
+    deallocate,
+    execute('$max_of/2_$aux1'/3)]).
+
+
+predicate('$max_of/2_$aux1'/3,6,static,private,monofile,local,[
+    pragma_arity(4),
+    get_current_choice(x(3)),
+    try_me_else(1),
+    call_c('Pl_Set_Bip_Name_Untagged_2',[by_value],[>,2]),
+    math_load_value(x(0),4),
+    math_load_value(x(1),1),
+    call_c('Pl_Blt_Gt',[fast_call,boolean],[x(4),x(1)]),
+    cut(x(3)),
+    get_value(x(0),2),
+    proceed,
+
+label(1),
+    trust_me_else_fail,
+    get_value(x(1),2),
+    proceed]).
+
+
+predicate(classify/2,7,static,private,monofile,global,[
+    pragma_arity(3),
+    get_current_choice(x(2)),
+    try_me_else(1),
+    get_atom(small,1),
+    call_c('Pl_Set_Bip_Name_Untagged_2',[by_value],[<,2]),
+    math_load_value(x(0),0),
+    put_integer(10,1),
+    call_c('Pl_Blt_Lt',[fast_call,boolean],[x(0),x(1)]),
+    cut(x(2)),
+    proceed,
+
+label(1),
+    trust_me_else_fail,
+    get_atom(big,1),
+    call_c('Pl_Set_Bip_Name_Untagged_2',[by_value],[>=,2]),
+    math_load_value(x(0),0),
+    put_integer(10,1),
+    call_c('Pl_Blt_Gte',[fast_call,boolean],[x(0),x(1)]),
+    proceed]).
+
+
+predicate(walk/2,9,static,private,monofile,global,[
+    switch_on_term(1,4,fail,fail,2),
+
+label(1),
+    try_me_else(3),
+
+label(2),
+    get_structure(f/2,0),
+    unify_variable(x(2)),
+    unify_variable(x(0)),
+    get_list(1),
+    unify_value(x(2)),
+    unify_variable(x(1)),
+    execute(walk/2),
+
+label(3),
+    trust_me_else_fail,
+
+label(4),
+    get_atom(nil,0),
+    get_nil(1),
+    proceed]).
+
+
+predicate(note/1,11,static,private,monofile,global,[
+    allocate(1),
+    get_variable(y(0),0),
+    put_structure(seen/1,0),
+    unify_local_value(y(0)),
+    call((\+)/1),
+    put_structure(seen/1,0),
+    unify_local_value(y(0)),
+    deallocate,
+    execute(assertz/1)]).
+
+
+predicate(pick/2,12,static,private,monofile,global,[
+    try_me_else(1),
+    get_list(1),
+    unify_local_value(x(0)),
+    unify_void(1),
+    proceed,
+
+label(1),
+    trust_me_else_fail,
+    get_list(1),
+    unify_void(1),
+    unify_variable(x(1)),
+    execute(pick/2)]).
+
+
+predicate(rule/1,14,static,private,monofile,global,[
+    put_atom(y,1),
+    execute((===>)/2)]).
+
+
+predicate(safe/1,15,static,private,monofile,global,[
+    get_variable(x(1),0),
+    put_structure(atom_length/2,0),
+    unify_local_value(x(1)),
+    unify_void(1),
+    put_structure(type_error/2,2),
+    unify_void(2),
+    put_structure(error/2,1),
+    unify_value(x(2)),
+    unify_void(1),
+    put_atom(fail,2),
+    put_atom(safe,3),
+    put_integer(1,4),
+    put_atom(true,5),
+    execute('$catch'/6)]).
+
+
+predicate(seen/1,1,dynamic,public,monofile,global,[
+    get_variable(x(1),0),
+    put_structure(seen/1,0),
+    unify_local_value(x(1)),
+    put_atom(seen,1),
+    put_integer(1,2),
+    put_atom(true,3),
+    execute('$call'/4)]).
+
+
+directive(2,system,[
+    put_integer(700,0),
+    put_atom(xfx,1),
+    put_atom(===>,2),
+    execute(op/3)]).
