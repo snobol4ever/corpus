@@ -2894,28 +2894,12 @@ person_location(person(name(N), age(A)), point(X, Y)).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the nested compound person_location(person(name(N), age(A)), point(X, Y)) and never queries it; the driver prints it with its variables numbered.
 :- initialization((person_location(P, L), numbervars(P-L, 0, _), print(person_location(P, L)), nl)).
-%------------------------------------------------------- 79 concurrent-computing
-main :-
-    thread_create(say("Enjoy"),A,[]),
-    thread_create(say("Rosetta"),B,[]),
-    thread_create(say("Code"),C,[]),
-    thread_join(A,_),
-    thread_join(B,_),
-    thread_join(C,_).
-
-say(Message) :-
-    Delay is random_float,
-    sleep(Delay),
-    writeln(Message).
-
-% DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
-:- initialization(main).
-%--------------------------------------------------- 80 conditional-structures-1
+%--------------------------------------------------- 79 conditional-structures-1
 go :- write('Hello, World!'), nl.
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines go/0 and never calls it; the driver calls it once at load.
 :- initialization(go).
-%--------------------------------------------------- 81 conditional-structures-2
+%--------------------------------------------------- 80 conditional-structures-2
 fact(foo).
 fact(bar).
 fact(baz).
@@ -2925,7 +2909,7 @@ go :- fact(bar).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): go/0 succeeds through its second clause and prints nothing, so the coo's driver printed nothing; the driver prints whether go/0 succeeds.
 :- initialization((go -> writeln('go: true') ; writeln('go: false'))).
-%--------------------------------------------------- 82 conditional-structures-3
+%--------------------------------------------------- 81 conditional-structures-3
 fact(X) :-
     (   X = foo
     ;   X = bar
@@ -2937,7 +2921,7 @@ go :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): go/0 succeeds through its second disjunct and prints nothing, so the coo's driver printed nothing; the driver prints whether go/0 succeeds.
 :- initialization((go -> writeln('go: true') ; writeln('go: false'))).
-%--------------------------------------------------- 83 conditional-structures-4
+%--------------------------------------------------- 82 conditional-structures-4
 fact(X) :-
     (   X = bar ->  write('You got me!'), nl
     ;               write(X), write(' is not right!'), nl, fail ).
@@ -2948,7 +2932,7 @@ go :-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines go/0 and never calls it; the driver calls it once at load.
 :- initialization(go).
-%--------------------------------------------------------- 84 continued-fraction
+%--------------------------------------------------------- 83 continued-fraction
 continued_fraction :-
 	% square root 2
 	continued_fraction(200, sqrt_2_ab, V1),
@@ -2995,7 +2979,7 @@ pi_ab(N, 6, V) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines continued_fraction/0 and never calls it; the driver calls it once at load.
 :- initialization(continued_fraction).
-%--------------------------------------- 85 convert-seconds-to-compound-duration
+%--------------------------------------- 84 convert-seconds-to-compound-duration
 :- use_module(library(clpfd)).
 
 % helper to perform the operation with just a number.
@@ -3043,7 +3027,7 @@ time_type(sec, 1).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines compound_time/1 and never calls it; the driver runs the task's three test cases.
 :- initialization(forall(member(N, [7259, 86400, 6000000]), compound_time(N))).
-%------------------------------------------------------- 86 conways-game-of-life
+%------------------------------------------------------- 85 conways-game-of-life
 %----------------------------------------------------------------------%
 % GAME OF LIFE                                                         %
 %                                                                      %
@@ -3226,7 +3210,7 @@ write_line(_,[]) :- !.
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): cellular/1 reads and writes PBM files of a 300x300 grid for 1000 generations; the driver calls its rule step/2 on the task's blinker in a 3x3 grid and prints three generations.
 :- initialization((M0 = [[0, 1, 0], [0, 1, 0], [0, 1, 0]], step(M0, M1), step(M1, M2), forall(member(M, [M0, M1, M2]), (forall(member(Row, M), (atomic_list_concat(Row, ' ', A), writeln(A))), nl)))).
-%--------------------- 87 count-how-many-vowels-and-consonants-occur-in-a-string
+%--------------------- 86 count-how-many-vowels-and-consonants-occur-in-a-string
 :- set_prolog_flag(double_quotes, codes).
 
 key_is_vowel(Code - _) :- ord_memberchk(Code, "aeiou").
@@ -3248,7 +3232,7 @@ task(String) :-
 
 :- initialization(main, main).
 main([Arg]) :- atom_codes(Arg, Codes), task(Codes).
-%------------------------------------------------------------- 88 count-in-octal
+%------------------------------------------------------------- 87 count-in-octal
 o(O) :- member(O, [0,1,2,3,4,5,6,7]).
 
 octal([O]) :- o(O).
@@ -3266,7 +3250,7 @@ octalize :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): octalize/0 counts in octal forever; the driver runs its loop over octal/1 bounded to the first 65 numbers (0 .. 100 octal).
 :- initialization(forall(limit(65, octal(X)), (maplist(write, X), nl))).
-%----------------------------------------- 89 count-occurrences-of-a-substring-1
+%----------------------------------------- 88 count-occurrences-of-a-substring-1
 count_substring(String, Sub, Total) :-
     count_substring(String, Sub, 0, Total).
 
@@ -3286,7 +3270,7 @@ substring_rest(String, Sub, Rest) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines count_substring/3 and never calls it; the driver counts the task's two examples.
 :- initialization(forall(member(S-Sub, ["the three truths"-"th", "ababababab"-"abab"]), (count_substring(S, Sub, N), format("~w~n", [N])))).
-%----------------------------------------- 90 count-occurrences-of-a-substring-3
+%----------------------------------------- 89 count-occurrences-of-a-substring-3
 :- system:set_prolog_flag(double_quotes,chars) .
 
 occurrences(TARGETz0,SUBSTRINGz0,COUNT)
@@ -3322,7 +3306,7 @@ occurrences(_SUBSTRINGz0_,COUNT,COUNT)
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines occurrences/3 (over chars, its own double_quotes flag) and never calls it; the driver counts the task's two examples.
 :- initialization(forall(member(S-Sub, ["the three truths"-"th", "ababababab"-"abab"]), (occurrences(S, Sub, N), format("~w~n", [N])))).
-%------------------------------------------------------------ 91 count-the-coins
+%------------------------------------------------------------ 90 count-the-coins
 :- use_module(library(clpfd)).
 
 % Basic, Q = Quarter, D = Dime, N = Nickel, P = Penny
@@ -3336,7 +3320,7 @@ coins_for(T) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines coins_for/1, which enumerates one way per solution, and never calls it; the driver counts the ways to change the task's 100 cents.
 :- initialization((aggregate_all(count, coins_for(100), N), format("~w~n", [N]))).
-%------------------------------------------------------------------ 92 countdown
+%------------------------------------------------------------------ 91 countdown
 /* given numbers & target */
 
 n(100,1). n(75,2). n(50,3). n(25,4). n(6,5). n(3,6).
@@ -3451,7 +3435,7 @@ solution :- c1 ; c2 ; c3 ; c4 ; c5 ; c6.
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines solution/0 (the given numbers and target 952) and never calls it; the driver calls it once at load.
 :- initialization(solution).
-%--------------------------------------------------------------- 93 cramers-rule
+%--------------------------------------------------------------- 92 cramers-rule
 removeElement([_|Tail], 0, Tail).
 removeElement([Head|Tail], J, [Head|X]) :-
     J_2 is J - 1,
@@ -3519,7 +3503,7 @@ results(X) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines results/1 (the task's 4x4 system) and never calls it; the driver prints its solution.
 :- initialization((results(X), format("~w~n", [X]))).
-%---------------------------------- 94 create-a-two-dimensional-array-at-runtime
+%---------------------------------- 93 create-a-two-dimensional-array-at-runtime
 :- dynamic array/2.
 
 run :-
@@ -3532,7 +3516,7 @@ run :-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines run/0 and never calls it; the driver calls it once at load.
 :- initialization(run).
-%------------------------------------------------------ 95 csv-data-manipulation
+%------------------------------------------------------ 94 csv-data-manipulation
 test :- augment('test.csv', 'test.out.csv').
 
 % augment( +InFileName, +OutFileName)
@@ -3558,7 +3542,7 @@ addrow( Term, NewTerm ) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): the coo's test/0 reads test.csv, which neither the task nor this package ships; the driver gives the solution's own addrow/2 the task's five CSV rows and prints each augmented row comma-joined (csv_write_stream/3 would end every line with a carriage return).
 :- initialization(forall(member(Row, [row('C1', 'C2', 'C3', 'C4', 'C5'), row(1, 5, 9, 13, 17), row(2, 6, 10, 14, 18), row(3, 7, 11, 15, 19), row(4, 8, 12, 16, 20)]), (addrow(Row, Out), Out =.. [_|Fields], atomic_list_concat(Fields, ',', Line), writeln(Line)))).
-%-------------------------------------------------- 96 csv-to-html-translation-1
+%-------------------------------------------------- 95 csv-to-html-translation-1
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): written for double_quotes=codes (DEC-10 Prolog, ISO, SWI before 7); the program sets the flag, as
 % GOAL-PROLOG-100's superset ruling has a program set a dialect flag (it is SCRIP's default; swipl 7 reads "..." as a string).
 :- set_prolog_flag(double_quotes, codes).
@@ -3617,7 +3601,7 @@ csv_td_in([H|T], S) -->
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines csv_html/0 (the task's CSV text in a DCG over codes) and never calls it; written for code lists, so the flag is set at its head and the driver calls it once at load.
 :- initialization(csv_html).
-%-------------------------------------------------- 97 csv-to-html-translation-3
+%-------------------------------------------------- 96 csv-to-html-translation-3
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): written for double_quotes=codes (DEC-10 Prolog, ISO, SWI before 7); the program sets the flag, as
 % GOAL-PROLOG-100's superset ruling has a program set a dialect flag (it is SCRIP's default; swipl 7 reads "..." as a string).
 :- set_prolog_flag(double_quotes, codes).
@@ -3714,7 +3698,7 @@ csv_body_td_in([H|T], S) -->
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines csv_html_plus/0 (the task's CSV text in a DCG over codes) and never calls it; written for code lists, so the flag is set at its head and the driver calls it once at load.
 :- initialization(csv_html_plus).
-%------------------------------------------------------------- 98 damm-algorithm
+%------------------------------------------------------------- 97 damm-algorithm
 %!  damm_algorithm(+Number) is semidet.
 %   Succeeds if the number is valid according to the Damm algorithm.
 damm_algorithm(Number) :-
@@ -3742,7 +3726,7 @@ damm_algorithm(Matrix, Code, N0, N) :-
     ( damm_algorithm(Number) -> write(Number is valid) ; write(Number is invalid) ),
     nl
 )).
-%------------------------------------------------------------ 99 day-of-the-week
+%------------------------------------------------------------ 98 day-of-the-week
 main() :-
     christmas_days_falling_on_sunday(2011, 2121, SundayList),
     writeln(SundayList).
@@ -3758,7 +3742,7 @@ is_christmas_day_a_sunday(Year) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines main/0 (written main()) and never calls it; the driver calls it once at load (Christmas on a Sunday, 2011..2121).
 :- initialization(main).
-%--------------------------------------------------------- 100 deceptive-numbers
+%---------------------------------------------------------- 99 deceptive-numbers
 checkpair(1, 2).
 checkpair(R, K) :-
     checkpair(R0, K0),
@@ -3793,7 +3777,7 @@ prime(N, D, [A|As]) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines task/2 and never calls it; the driver prints the first 6 deceptive numbers (the task asks for 10, which take 20 s under swipl: checkpair/2 rebuilds every repunit on each step).
 :- initialization((task(6, Ns), writeln(Ns))).
-%--------------------------------------------------------- 101 decision-tables-1
+%--------------------------------------------------------- 100 decision-tables-1
 %!  troubleshoot(?PrinterPrints, ?LightIsFlashing, ?RecognisedByComputer, ?Advice) is nondet.
 troubleshoot(false, false, false, 'check the power cable').
 troubleshoot(false,     _, false, 'check the printer-computer cable').
@@ -3804,7 +3788,7 @@ troubleshoot(false,     _,  true, 'check for paper jam').
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the decision table troubleshoot/4 and never queries it; the driver prints every advice it gives for each of the eight condition combinations of the task's printer table.
 :- initialization(forall((member(P, [false, true]), member(L, [false, true]), member(C, [false, true])), (findall(A, troubleshoot(P, L, C, A), As), format("prints=~w flashing=~w recognised=~w: ~w~n", [P, L, C, As])))).
-%------------------------------------------ 102 decorate-sort-undecorate-idiom-1
+%------------------------------------------ 101 decorate-sort-undecorate-idiom-1
 :- use_module(library(pairs)).
 
 :- meta_predicate schwartzian_transform(2, +, -).
@@ -3815,7 +3799,7 @@ schwartzian_transform(KeyGoal, List, SortedList) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines schwartzian_transform/3 and never calls it; the driver sorts the task's seven words by length.
 :- initialization((schwartzian_transform(string_length, ["Rosetta", "Code", "is", "a", "programming", "chrestomathy", "site"], S), format("~q~n", [S]))).
-%-------------------------------------------------------- 103 department-numbers
+%-------------------------------------------------------- 102 department-numbers
 dept(X) :- between(1, 7, X).
 
 police(X) :- member(X, [2, 4, 6]).
@@ -3833,7 +3817,7 @@ main :-
     halt.
 
 ?- main.
-%--------------------------------------------------------- 104 descending-primes
+%--------------------------------------------------------- 103 descending-primes
 isPrime(2).
 isPrime(N):-
 	between(3, inf, N),
@@ -3869,13 +3853,13 @@ do:-findall(DPrim, descPrimes(DPrim), DList),
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines do/0 (every descending prime, ten a line) and never calls it; the driver calls it once at load.
 :- initialization(do).
-%--------------------------------------------------- 105 detect-division-by-zero
+%--------------------------------------------------- 104 detect-division-by-zero
 div(A, B, C, Ex) :-
     catch((C is A/B), Ex, (C = infinity)).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines div/4 and never calls it; the driver divides 10 by 2 and 7 and 7.0 by zero and prints the result and the caught error (its formal term only, the context holds a variable).
 :- initialization(forall(member(A/B, [10/2, 7/0, 7.0/0]), (div(A, B, C, Ex), (var(Ex) -> format("~w/~w = ~w~n", [A, B, C]) ; Ex = error(E, _), format("~w/~w = ~w (caught ~w)~n", [A, B, C, E]))))).
-%------------------------- 106 determine-if-a-string-has-all-the-same-characters
+%------------------------- 105 determine-if-a-string-has-all-the-same-characters
 :- system:set_prolog_flag(double_quotes,chars) .
 
 main
@@ -3933,7 +3917,7 @@ system:format('character "~s" (hex ~16r) different than "~s" at 1-based index ~1
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%--------------------------- 107 determine-if-a-string-has-all-unique-characters
+%--------------------------- 106 determine-if-a-string-has-all-unique-characters
 report_duplicates(S) :-
 	duplicates(S, Dups),		
 	format('For value "~w":~n', S),
@@ -3974,7 +3958,7 @@ test :-	report_duplicates('1234567890ABCDEFGHIJKLMN0PQRSTUVWXYZ').
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines test/0 and never calls it; the driver calls it once at load.
 :- initialization(test).
-%-------------------------------------- 108 determine-if-a-string-is-collapsible
+%-------------------------------------- 107 determine-if-a-string-is-collapsible
 collapse_( [], [] ).
 collapse_( [A], [A] ).
 collapse_( [A,A|T], R ) :- collapse_( [A|T], R ).
@@ -3987,14 +3971,14 @@ collapse( Str, Collapsed ) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines collapse/2 and never calls it; the driver collapses the task's five strings and prints each with its length (<<< >>> in place of the task's guillemets).
 :- initialization(forall(member(S, ["", "\"If I were two-faced, would I be wearing this one?\" --- Abraham Lincoln ", "..1111111111111111111111111111111111111111111111111111111111111117777888", "I never give 'em hell, I just tell the truth, and they think it's hell. ", "                                                    --- Harry S Truman "]), (once(collapse(S, C)), string_length(S, LS), string_length(C, LC), format("original:  <<<~w>>> (length ~d)~ncollapsed: <<<~w>>> (length ~d)~n", [S, LS, C, LC])))).
-%---------------------------------------- 109 determine-if-a-string-is-numeric-1
+%---------------------------------------- 108 determine-if-a-string-is-numeric-1
 numeric_string(String) :-
     atom_string(Atom, String),
     atom_number(Atom, _).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines numeric_string/1 and never calls it; the driver tests the five strings of the solution's own example (determine-if-a-string-is-numeric-3) in its test_strings/1 format.
 :- initialization(forall(member(S, ["123", "0.123", "-123.1", "NotNum", "1."]), ((numeric_string(S) -> R = a ; R = 'not a'), format('~w is ~w number.~n', [S, R])))).
-%--------------------------------------- 110 determine-if-a-string-is-squeezable
+%--------------------------------------- 109 determine-if-a-string-is-squeezable
 squeeze_( [], _, [] ).
 squeeze_( [A], _, [A] ).
 squeeze_( [A,A|T], A, R ) :- squeeze_( [A|T], A, R ).
@@ -4008,7 +3992,7 @@ squeeze( Str, SqueezeChar, Collapsed ) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines squeeze/3 and never calls it; the driver squeezes the task's strings on the task's characters and prints each with its length (<<< >>> in place of the task's guillemets).
 :- initialization(forall(member(S-Ch, [""-' ', "\"If I were two-faced, would I be wearing this one?\" --- Abraham Lincoln "-'-', "..1111111111111111111111111111111111111111111111111111111111111117777888"-'7', "I never give 'em hell, I just tell the truth, and they think it's hell. "-'.', "                                                    --- Harry S Truman "-' ', "                                                    --- Harry S Truman "-'-', "                                                    --- Harry S Truman "-'r', "The better the 4-wheel drive, the further you'll be from help when ya get stuck!"-'e', "headmistressship"-'s']), (once(squeeze(S, Ch, Q)), string_length(S, LS), string_length(Q, LQ), format("squeeze '~w'~noriginal: <<<~w>>> (length ~d)~nsqueezed: <<<~w>>> (length ~d)~n", [Ch, S, LS, Q, LQ])))).
-%--------------------------------------------------- 111 determine-sentence-type
+%--------------------------------------------------- 110 determine-sentence-type
 spam([
     "hi there, how are you today?",
     "I'd like to present to you the washing machine 9001.",
@@ -4033,7 +4017,7 @@ main :-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%-------------------------------------------------------------- 112 digital-root
+%-------------------------------------------------------------- 111 digital-root
 digit_sum(N, Base, Sum):-
     digit_sum(N, Base, Sum, 0).
 
@@ -4070,7 +4054,7 @@ main:-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%------------------------------------------------------- 113 dijkstras-algorithm
+%------------------------------------------------------- 112 dijkstras-algorithm
 %___________________________________________________________________________
 
 :-dynamic
@@ -4120,7 +4104,7 @@ go(From, To) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines go/2 and never calls it; the driver asks for the task's shortest paths a to e and a to f on its graph.
 :- initialization((go(a, e), go(a, f))).
-%------------------------------------- 114 dinesmans-multiple-dwelling-problem-1
+%------------------------------------- 113 dinesmans-multiple-dwelling-problem-1
 :- use_module(library(clpfd)).
 
 :- dynamic top/1, bottom/1.
@@ -4206,7 +4190,7 @@ dinners :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines dinners/0 and never calls it; the driver calls it once at load.
 :- initialization(dinners).
-%------------------------------------- 115 dinesmans-multiple-dwelling-problem-2
+%------------------------------------- 114 dinesmans-multiple-dwelling-problem-2
 select([A|As],S):- select(A,S,S1),select(As,S1).
 select([],_).
 
@@ -4243,7 +4227,7 @@ main :-  bagof( X, dinesmans(X), L )
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%------------------------------------- 116 dinesmans-multiple-dwelling-problem-3
+%------------------------------------- 115 dinesmans-multiple-dwelling-problem-3
 dinesmans(X) :-
     %% 1. Baker, Cooper, Fletcher, Miller, and Smith live on different floors
     %%    of an apartment house that contains only five floors.
@@ -4273,7 +4257,7 @@ dinesmans(X) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines dinesmans/1 and never calls it; the driver prints every solution of the puzzle.
 :- initialization(forall(dinesmans(X), writeln(X))).
-%----------------------------------------------------------- 117 discordian-date
+%----------------------------------------------------------- 116 discordian-date
 % See https://en.wikipedia.org/wiki/Discordian_calendar
 
 main:-
@@ -4357,7 +4341,7 @@ holy_day(4, 50, 'Afflux').
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%--------------------------------------------------------------- 118 dot-product
+%--------------------------------------------------------------- 117 dot-product
 dot_product(L1, L2, N) :-
 	maplist(mult, L1, L2, P),
 	sumlist(P, N).
@@ -4367,7 +4351,7 @@ mult(A,B,C) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines dot_product/3 and never calls it; the driver prints the task's [1, 3, -5] . [4, -2, -1].
 :- initialization((dot_product([1, 3, -5], [4, -2, -1], N), writeln(N))).
-%--------------------------------------------- 119 dutch-national-flag-problem-1
+%--------------------------------------------- 118 dutch-national-flag-problem-1
 dutch_flag(N) :-
 	length(L, N),
 	repeat,
@@ -4430,12 +4414,12 @@ is_dutch_flag_blue([]).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): dutch_flag/1 draws its balls with random/1 (init/1); the driver runs its steps on a fixed unsorted row of ten balls: prints it, tests it, sorts it with the solver sort_dutch_flag/2, prints and tests the result.
 :- initialization((L = [white, blue, red, blue, white, red, red, blue, white, red], writeln(L), test_sorted(L), sort_dutch_flag(L, T), append(T, F), writeln(F), test_sorted(F))).
-%-------------------------------------------------- 120 dynamic-variable-names-1
+%-------------------------------------------------- 119 dynamic-variable-names-1
 test :- read(Name), atomics_to_string([Name, "= 50, writeln('", Name, "' = " , Name, ")"], String), term_string(Term, String), Term.
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines test/0 (reads a variable name with read/1, binds it to 50) and never calls it; dynamic-variable-names-1.in holds the name 'Foo' as a quoted atom.
 :- initialization(test).
-%--------------------------------------------------------- 121 egyptian-division
+%--------------------------------------------------------- 120 egyptian-division
 egyptian_divide(Dividend, Divisor, Quotient, Remainder):-
     powers2_multiples(Dividend, [1], Powers, [Divisor], Multiples),
     accumulate(Dividend, Powers, Multiples, 0, Quotient, 0, Acc),
@@ -4471,7 +4455,7 @@ main:-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%--------------------------------------------- 122 elementary-cellular-automaton
+%--------------------------------------------- 121 elementary-cellular-automaton
 play :-	initial(I), do_auto(50, I).
 
 initial([0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0]).
@@ -4506,7 +4490,7 @@ writ(1) :- write(1).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines play/0 (50 generations from one live cell) and never calls it; the driver calls it once at load.
 :- initialization(play).
-%----------------------------------------------------------- 123 empty-directory
+%----------------------------------------------------------- 122 empty-directory
 non_empty_file('.').
 non_empty_file('..').
 
@@ -4516,7 +4500,7 @@ empty_dir(Dir) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines empty_dir/1 and never calls it; the driver tests a freshly made temporary directory and / (its path is not printed, it holds the pid).
 :- initialization((tmp_file(empty, Dir), make_directory(Dir), (empty_dir(Dir) -> E1 = empty ; E1 = 'not empty'), delete_directory(Dir), format("a new directory: ~w~n", [E1]), (empty_dir('/') -> E2 = empty ; E2 = 'not empty'), format("/: ~w~n", [E2]))).
-%-------------------------------------------------------------- 124 empty-string
+%-------------------------------------------------------------- 123 empty-string
 assign_empty_string(Variable) :- Variable = "".
 
 is_empty_string(String)  :- String ==  "".
@@ -4524,7 +4508,7 @@ not_empty_string(String) :- String \== "".
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines assign_empty_string/1, is_empty_string/1 and not_empty_string/1 and never calls them; the driver assigns the empty string and tests it and "abc".
 :- initialization((assign_empty_string(S), (is_empty_string(S) -> writeln('S is empty') ; writeln('S is not empty')), (not_empty_string("abc") -> writeln('"abc" is not empty') ; writeln('"abc" is empty')), (is_empty_string("abc") -> writeln('is_empty_string("abc") succeeds') ; writeln('is_empty_string("abc") fails')))).
-%------------------------------------------------------------------- 125 entropy
+%------------------------------------------------------------------- 124 entropy
 :-module(shannon_entropy, [shannon_entropy/2]).
 
 %!	shannon_entropy(+String, -Entropy) is det.
@@ -4659,7 +4643,7 @@ sum(A, B, Sum):-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines shannon_entropy/2 and never calls it; the driver runs its own example query on the task's 1223334444.
 :- initialization((shannon_entropy(1223334444, H), writeln(H))).
-%-------------------------------------------------------------- 126 enumerations
+%-------------------------------------------------------------- 125 enumerations
 fruit(apple,1).
 fruit(banana,2).
 fruit(cherry,4).
@@ -4670,7 +4654,7 @@ write_fruit_name(N) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the enumeration fruit/2 and write_fruit_name/1 and never calls them; the driver names every fruit by its value.
 :- initialization(forall(fruit(_, N), write_fruit_name(N))).
-%------------------------------------------------------- 127 equilibrium-index-1
+%------------------------------------------------------- 126 equilibrium-index-1
 equilibrium_index(List, Index) :-
     append(Front, [_|Back], List),
     sumlist(Front, Sum),
@@ -4680,7 +4664,7 @@ equilibrium_index(List, Index) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines equilibrium_index/2 and never calls it; the driver lists every equilibrium index of the task's sequence.
 :- initialization((findall(I, equilibrium_index([-7, 1, 5, 2, -4, 3, 0], I), Is), writeln(Is))).
-%---------------------------------------------------------- 128 esthetic-numbers
+%---------------------------------------------------------- 127 esthetic-numbers
 main:-
     forall(between(2, 16, Base),
             (Min_index is Base * 4, Max_index is Base * 6,
@@ -4738,7 +4722,7 @@ next_esthetic_number(Base, M, N):-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%------------------------------------------------ 129 ethiopian-multiplication-1
+%------------------------------------------------ 128 ethiopian-multiplication-1
 halve(X,Y) :- Y is X // 2.
 double(X,Y) :- Y is 2*X.
 is_even(X) :- 0 is X mod 2.
@@ -4765,7 +4749,7 @@ ethiopian(First,Second,Product) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines ethiopian/3 and never calls it; the driver multiplies the task's 17 by 34.
 :- initialization((once(ethiopian(17, 34, P)), writeln(P))).
-%------------------------------------------------ 130 ethiopian-multiplication-3
+%------------------------------------------------ 129 ethiopian-multiplication-3
 :- module(ethiopia, [test/0, mul/3]).
 
 :- use_module(library(chr)).
@@ -4794,7 +4778,7 @@ test :-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines test/0 and never calls it; the driver calls it once at load.
 :- initialization(test).
-%------------------------------------------------ 131 ethiopian-multiplication-4
+%------------------------------------------------ 130 ethiopian-multiplication-4
 :- module(ethiopia, [test/0, mul/3]).
 
 :- use_module(library(chr)).
@@ -4819,7 +4803,7 @@ test :-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines test/0 and never calls it; the driver calls it once at load.
 :- initialization(test).
-%----------------------------------------------------------- 132 eulers-identity
+%----------------------------------------------------------- 131 eulers-identity
 % reduce() prints the intermediate results so that one can see Prolog "thinking."
 %
 reduce(A, C) :-
@@ -4859,7 +4843,7 @@ simplify(X, X).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines reduce/2 (it prints each step) and never calls it; the driver reduces e^(i*pi) + 1.
 :- initialization((reduce(exp(i*pi) + 1, R), writeln(R))).
-%------------------------------------------- 133 eulers-sum-of-powers-conjecture
+%------------------------------------------- 132 eulers-sum-of-powers-conjecture
 makepowers :-
     retractall(pow5(_, _)),
     between(1, 249, X),
@@ -4883,7 +4867,7 @@ solution(X0, X1, X2, X3, Y) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines solution/5 and never calls it; the driver prints its first answer (the search bounds are fixed at 250 by the solution itself, about 9 s under swipl).
 :- initialization((once(solution(X0, X1, X2, X3, Y)), format("~w^5 + ~w^5 + ~w^5 + ~w^5 = ~w^5~n", [X0, X1, X2, X3, Y]))).
-%-------------------------------------------- 134 evaluate-binomial-coefficients
+%-------------------------------------------- 133 evaluate-binomial-coefficients
 binomial(N, K, 0) :- K > N.
 binomial(N, K, X) :- binomial_helper(1, 1, K, N, X).
 
@@ -4897,19 +4881,19 @@ binomial_helper(R, D, K, N, X) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines binomial/3 and never calls it; the driver prints the task's (5 3) = 10 and three more.
 :- initialization(forall(member(N-K, [5-3, 10-0, 10-5, 3-5]), (once(binomial(N, K, X)), format("binomial(~w, ~w) = ~w~n", [N, K, X])))).
-%------------------------------------------------------------- 135 even-or-odd-1
+%------------------------------------------------------------- 134 even-or-odd-1
   even(N) :-
      (between(0, inf, N); integer(N) ),
      0 is N mod 2.
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines even/1 and never calls it; the driver classifies -3..6.
 :- initialization(forall(between(-3, 6, N), (even(N) -> format("~w is even~n", [N]) ; format("~w is odd~n", [N])))).
-%------------------------------------------------------------- 136 even-or-odd-2
+%------------------------------------------------------------- 135 even-or-odd-2
   odd(N) :- N = 0 -> false; 0 is lsb(abs(N)).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines odd/1 and never calls it; the driver classifies -3..6.
 :- initialization(forall(between(-3, 6, N), (odd(N) -> format("~w is odd~n", [N]) ; format("~w is even~n", [N])))).
-%---------------------------------------------------------------- 137 exceptions
+%---------------------------------------------------------------- 136 exceptions
 foo(X) :-
     \+ integer(X),
     throw(b('not even an int')).
@@ -4932,7 +4916,7 @@ handle(X) :- throw(X).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines go/1 (foo/1 under catch/3 with handle/1) and never calls it; the driver calls it on a valid number, on one out of range (caught and handled) and on an atom (rethrown, caught by the driver).
 :- initialization((go(5), go(42), catch(go(abc), E, format("go(abc) rethrew ~w~n", [E])))).
-%------------------------------------------------------------ 138 execute-brain-
+%------------------------------------------------------------ 137 execute-brain-
 /******************************************
  Starting point, call with program in atom.
 *******************************************/
@@ -5033,7 +5017,7 @@ next_instruction([_,NextI|Rest], NextI, [NextI|Rest]).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines brain/1 and never calls it; the driver runs the Hello World! program of the Brainf*** article.
 :- initialization(brain('++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.')).
-%------------------------------------------------- 139 exponentiation-operator-4
+%------------------------------------------------- 138 exponentiation-operator-4
 exp_recursive(Base, NegExp, NegPower) :-
     NegExp < 0,
     Exp is NegExp * -1,
@@ -5053,13 +5037,13 @@ exp_recursive_(Base, Exp, Acc,   Power)   :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines exp_recursive/3 and never calls it; the driver raises the task's 2 and 2.5 to 3 and -3 (the examples of exponentiation-operator-3) and 2 to 0.
 :- initialization(forall(member(B-E, [2-3, 2-(-3), 2.5-3, 2.5-(-3), 2-0]), (once(exp_recursive(B, E, P)), format("~w ^ ~w = ~w~n", [B, E, P])))).
-%--------------------------------------------------------------- 140 factorial-1
+%--------------------------------------------------------------- 139 factorial-1
 fact(X, 1) :- X<2.
 fact(X, F) :- Y is X-1, fact(Y,Z), F is Z*X.
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines fact/2 and never calls it; the driver prints 0! .. 10! (its first answer each: backtracking into it does not end).
 :- initialization(forall(between(0, 10, N), (once(fact(N, F)), format("~w! = ~w~n", [N, F])))).
-%--------------------------------------------------------------- 141 factorial-2
+%--------------------------------------------------------------- 140 factorial-2
 fact(N, NF) :-
 	fact(1, N, 1, NF).
 
@@ -5071,7 +5055,7 @@ fact(X, N, FX, F) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines fact/2 and never calls it; the driver prints 1! .. 10! (fact(0, F) counts up from 1 and never ends).
 :- initialization(forall(between(1, 10, N), (fact(N, F), format("~w! = ~w~n", [N, F])))).
-%---------------------------------------------- 142 factors-of-a-mersenne-number
+%---------------------------------------------- 141 factors-of-a-mersenne-number
 mersenne_factor(P, F) :-
     prime(P),
     once((
@@ -5102,7 +5086,7 @@ prime(N, D, [A|As]) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines mersenne_factor/2 and never calls it; the driver finds the task's factor of 2^929 - 1.
 :- initialization((mersenne_factor(929, F), format("M929 has a factor: ~w~n", [F]))).
-%--------------------------------------------------- 143 factors-of-an-integer-1
+%--------------------------------------------------- 142 factors-of-an-integer-1
 brute_force_factors( N , Fs ) :-
   integer(N) ,
   N > 0 ,
@@ -5111,7 +5095,7 @@ brute_force_factors( N , Fs ) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines brute_force_factors/2 and never calls it; the driver factors 1, 12, 45, 53, 64 and 100.
 :- initialization(forall(member(N, [1, 12, 45, 53, 64, 100]), (brute_force_factors(N, Fs), format("~w: ~w~n", [N, Fs])))).
-%--------------------------------------------------- 144 factors-of-an-integer-2
+%--------------------------------------------------- 143 factors-of-an-integer-2
 smart_factors(N,Fs) :-
   integer(N) ,
   N > 0 ,
@@ -5127,7 +5111,7 @@ factor(N,F) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines smart_factors/2 and never calls it; the driver factors 1, 12, 45, 53, 64 and 100.
 :- initialization(forall(member(N, [1, 12, 45, 53, 64, 100]), (smart_factors(N, Fs), format("~w: ~w~n", [N, Fs])))).
-%------------------------------------------------------------ 145 farey-sequence
+%------------------------------------------------------------ 144 farey-sequence
 task(1) :-
 	between(1, 11, I),
 	farey(I, F),
@@ -5160,7 +5144,7 @@ rcompare(=, A, B) :- A =< B.
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines task/1 and farey/2 and never calls them; task(1)'s printer rprint/1 expects rdiv/2 terms and fails on swipl's rationals, so the driver prints farey/2's sequences F1..F11 with ~w and the lengths of F100..F300 in task(2)'s format (F400..F1000 take 28 s).
 :- initialization((forall(between(1, 11, I), (farey(I, F), format("~w: ~w~n", [I, F]))), forall(between(1, 3, I), (N is I*100, farey(N, F), length(F, L), format("|F(~w)| = ~w~n", [N, L]))))).
-%---------------------------------------------------- 146 fast-fourier-transform
+%---------------------------------------------------- 145 fast-fourier-transform
 :- dynamic twiddles/2.
 %_______________________________________________________________
 % Arithemetic for complex numbers; only the needed rules
@@ -5201,7 +5185,7 @@ test :- D=[cx(1,0),cx(1,0),cx(1,0),cx(1,0),cx(0,0),cx(0,0),cx(0,0),cx(0,0)],
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines test/0 and never calls it; the driver calls it once at load.
 :- initialization(test).
-%------------------------------------------------------- 147 faulhabers-triangle
+%------------------------------------------------------- 146 faulhabers-triangle
 ft_rows(Lz) :-
     lazy_list(ft_row, [], Lz).
 
@@ -5238,7 +5222,7 @@ drop(N, Lz1, Lz2) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines show/1 and sum/3 and never calls them; the driver prints the task's first 10 rows and the sum of n^17 for n = 1..1000.
 :- initialization((show(10), sum(1000, 17, S), writeln(S))).
-%------------------------------------------------------ 148 fibonacci-sequence-1
+%------------------------------------------------------ 147 fibonacci-sequence-1
 fib(1, 1) :- !.
 fib(0, 0) :- !.
 fib(N, Value) :-
@@ -5248,7 +5232,7 @@ fib(N, Value) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines fib/2 and never calls it; the driver prints fib(0) .. fib(20).
 :- initialization((findall(V, (between(0, 20, N), fib(N, V)), Vs), writeln(Vs))).
-%----------------------------------------------------- 149 fibonacci-sequence-10
+%----------------------------------------------------- 148 fibonacci-sequence-10
 % Fibonacci sequence generator
 fib(C, [P,S], C, N)  :- N is P + S.
 fib(C, [P,S], Cv, V) :- succ(C, Cn), N is P + S, !, fib(Cn, [S,N], Cv, V).
@@ -5259,7 +5243,7 @@ fib(C, N) :- fib(2, [0,1], C, N). % Generate from 3rd sequence on
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines fib/2 and never calls it; the driver prints fib(0) .. fib(20) (its first answer each: retrying fib(0, V) does not end).
 :- initialization((findall(V, (between(0, 20, N), once(fib(N, V))), Vs), writeln(Vs))).
-%----------------------------------------------------- 150 fibonacci-sequence-11
+%----------------------------------------------------- 149 fibonacci-sequence-11
 % John Devou: 26-Nov-2021
 % Efficient program to calculate n-th Fibonacci number.
 % Works fast for n ≤ 1 000 000 000.
@@ -5275,7 +5259,7 @@ fib(N,F):- b(N,[],Bs), f(Bs,0,1,2,F), !.
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines fib/2 and never calls it; the driver prints fib(0) .. fib(20) and fib(100).
 :- initialization((findall(V, (between(0, 20, N), fib(N, V)), Vs), writeln(Vs), fib(100, F100), format("fib(100) = ~w~n", [F100]))).
-%------------------------------------------------------ 151 fibonacci-sequence-3
+%------------------------------------------------------ 150 fibonacci-sequence-3
 %:- dynamic fib/2.  % This is ISO, but GNU doesn't like it.
 :- dynamic(fib/2).  % Not ISO, but works in SWI, YAP and GNU unlike the ISO declaration.
 fib(1, 1) :- !.
@@ -5288,7 +5272,7 @@ fib(N, Value) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the memoising fib/2 and never calls it; the driver prints fib(0) .. fib(30).
 :- initialization((findall(V, (between(0, 30, N), fib(N, V)), Vs), writeln(Vs))).
-%------------------------------------------------------ 152 fibonacci-sequence-7
+%------------------------------------------------------ 151 fibonacci-sequence-7
 fib([0,1|X]) :-
     ffib(0,1,X).
 ffib(A,B,X) :-
@@ -5296,7 +5280,7 @@ ffib(A,B,X) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the lazy list fib/1 and never calls it; the driver takes its first 20 elements.
 :- initialization((fib(L), length(P, 20), append(P, _, L), writeln(P))).
-%------------------------------------------------------ 153 fibonacci-sequence-9
+%------------------------------------------------------ 152 fibonacci-sequence-9
 take( 0, Next, Z-Z, Next).
 take( N, Next, [A|B]-Z, NZ):- N>0, !, next( Next, A, Next1),
   N1 is N-1,
@@ -5310,12 +5294,12 @@ next( fib(A,B), A, fib(B,C)):- C is A+B.
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines take/4 and never calls it; the driver runs its own usage comment, take(15, fib(0,1), X-[], G).
 :- initialization((take(15, fib(0, 1), X-[], G), writeln(X), writeln(G))).
-%------------------------------------------------------------------ 154 filter-1
+%------------------------------------------------------------------ 153 filter-1
 evens(D, Es) :- findall(E, (member(E, D), E mod 2 =:= 0), Es).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines evens/2 and never calls it; the driver filters the even numbers of 1..10.
 :- initialization((evens([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], Es), writeln(Es))).
-%------------------------------------------------ 155 find-common-directory-path
+%------------------------------------------------ 154 find-common-directory-path
 %! directory_prefix(PATHs,STOP0,PREFIX)
 
 directory_prefix([],_STOP0_,'')
@@ -5367,7 +5351,7 @@ prolog:atom_concat(_,END,TARGET)
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines directory_prefix/3 and never calls it; the driver runs it on the task's three paths with separator /.
 :- initialization((directory_prefix(['/home/user1/tmp/coverage/test', '/home/user1/tmp/covert/operator', '/home/user1/tmp/coven/members'], '/', P), writeln(P))).
-%------------------------------ 156 find-the-intersection-of-a-line-with-a-plane
+%------------------------------ 155 find-the-intersection-of-a-line-with-a-plane
 :- initialization(main).
 
 vector_plus(U, V, W) :-
@@ -5413,7 +5397,7 @@ main :-
     PlanePoint = p(0.0, 0.0, 5.0),
     intersect_point(RayVector, RayPoint, PlaneNormal, PlanePoint, p(X, Y, Z)),
     format("The ray intersects the plane at (~f, ~f, ~f)\n", [X, Y, Z]).
-%------------------------------------------------------ 157 finite-state-machine
+%------------------------------------------------------ 156 finite-state-machine
 state(ready, deposit, waiting).
 state(ready, quit, exit).
 state(waiting, select, dispense).
@@ -5442,7 +5426,7 @@ print_message(State) :-	message(State, Message), format(Message).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines act/0 (a vending machine reading its actions with read/1) and never calls it; finite-state-machine.in drives deposit, select, remove, deposit, refund, quit.
 :- initialization(act).
-%------------------------------------------------------------- 158 five-weekends
+%------------------------------------------------------------- 157 five-weekends
 main() :-
     weekends(1900, 2100, FiveWeekendList, RemainderWeekendList),
 
@@ -5518,7 +5502,7 @@ last_n_elements(List, N, LastN) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines main/0 (written main()) and never calls it; the driver calls it once at load (1900..2100).
 :- initialization(main).
-%---------------------------------------------------------------- 159 fizzbuzz-1
+%---------------------------------------------------------------- 158 fizzbuzz-1
 fizzbuzz :-
    forall(between(1, 100, X), print_item(X)).
 
@@ -5535,7 +5519,7 @@ print_item(X) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines fizzbuzz/0 and never calls it; the driver calls it once at load.
 :- initialization(fizzbuzz).
-%---------------------------------------------------------------- 160 fizzbuzz-2
+%---------------------------------------------------------------- 159 fizzbuzz-2
 fizzbuzz(X) :- X mod 15 =:= 0, !, write('FizzBuzz').
 fizzbuzz(X) :- X mod 3 =:= 0, !, write('Fizz').
 fizzbuzz(X) :- X mod 5 =:= 0, !, write('Buzz').
@@ -5546,7 +5530,7 @@ dofizzbuzz.
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines dofizzbuzz/0 and never calls it; the driver calls it once at load.
 :- initialization(dofizzbuzz).
-%---------------------------------------------------------------- 161 fizzbuzz-3
+%---------------------------------------------------------------- 160 fizzbuzz-3
 %        N  /3?  /5?  V
 fizzbuzz(_, yes, yes, 'FizzBuzz').
 fizzbuzz(_, yes, no,  'Fizz').
@@ -5571,7 +5555,7 @@ main :-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%------------------------------------------------------------ 162 flatten-a-list
+%------------------------------------------------------------ 161 flatten-a-list
 flatten(List, FlatList) :-
 	flatten(List, [], FlatList).
 
@@ -5586,7 +5570,7 @@ flatten(NonList, T, [NonList|T]).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines flatten/2 and never calls it; the driver flattens the task's list.
 :- initialization((flatten([[1], 2, [[3, 4], 5], [[[]]], [[[6]]], 7, 8, []], F), writeln(F))).
-%-------------------------------------------------- 163 floyd-warshall-algorithm
+%-------------------------------------------------- 162 floyd-warshall-algorithm
 :- use_module(library(clpfd)).
 
 path(List, To, From, [From], W) :-
@@ -5617,7 +5601,7 @@ print_all_paths :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines print_all_paths/0 (the task's graph) and never calls it; the driver calls it once at load.
 :- initialization(print_all_paths).
-%----------------------------------------------------------- 164 floyds-triangle
+%----------------------------------------------------------- 163 floyds-triangle
 floyd(N) :-
 	forall(between(1, N, I),
 	       (   forall(between(1,I, J),
@@ -5634,7 +5618,7 @@ get_column(Last, C) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines floyd/1 and never calls it; the driver prints the task's triangles of 5 and 14 rows.
 :- initialization((floyd(5), nl, floyd(14))).
-%------------------------------------------------------------ 165 four-bit-adder
+%------------------------------------------------------------ 164 four-bit-adder
 % binary 4 bit adder chip simulation
 
 b_not(in(hi), out(lo)) :- !.      % not(1) = 0
@@ -5680,7 +5664,7 @@ go :-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines go/0 and never calls it; the driver calls it once at load.
 :- initialization(go).
-%------------------------------------------------------------------ 166 fractran
+%------------------------------------------------------------------ 165 fractran
 load(Program, Fractions) :-
     re_split("[ ]+", Program, Split), odd_items(Split, TextualFractions),
     maplist(convert_frac, TextualFractions, Fractions).
@@ -5731,12 +5715,12 @@ main :-
     halt.
 
 ?- main.
-%----------------------------------------------------- 167 function-definition-1
+%----------------------------------------------------- 166 function-definition-1
 multiply(A, B, P) :- P is A * B.
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines multiply/3 and never calls it; the driver multiplies 5 by 2 as function-definition-2's go/0 does.
 :- initialization((multiply(5, 2, P), format("The product is ~d.~n", [P]))).
-%----------------------------------------------------- 168 function-definition-4
+%----------------------------------------------------- 167 function-definition-4
 :- use_module(library(function_expansion)).
 
 user:function_expansion(multiply(A, B), P, P is A * B).  % "function" definition
@@ -5746,14 +5730,14 @@ go :-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines go/0 and never calls it; the driver calls it once at load.
 :- initialization(go).
-%----------------------------------------------------- 169 function-definition-5
+%----------------------------------------------------- 168 function-definition-5
 go :-
   A is 5*2,
   format('The product is ~d.~n', [A]).
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines go/0 and never calls it; the driver calls it once at load.
 :- initialization(go).
-%------------------------------------------------------------- 170 fusc-sequence
+%------------------------------------------------------------- 169 fusc-sequence
 :- dynamic fusc_cache/2.
 
 fusc(0, 0):-!.
@@ -5812,7 +5796,7 @@ main:-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%------------------------------------------------------------ 171 gamma-function
+%------------------------------------------------------------ 170 gamma-function
 gamma_coefficients(
      [ 1.00000000000000000000000,  0.57721566490153286060651, -0.65587807152025388107701,
       -0.04200263503409523552900,  0.16653861138229148950170, -0.04219773455554433674820,
@@ -5852,7 +5836,7 @@ recip_gamma(X, PrevPow, [C|Cs], _, X1, Y) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines gamma/2 and never calls it; the driver prints gamma(x) for x = 0.1 .. 2.0 in steps of 0.1.
 :- initialization(forall(between(1, 20, I), (X is I / 10.0, gamma(X, Y), format("gamma(~1f) = ~w~n", [X, Y])))).
-%-------------------------------------------------------- 172 general-fizzbuzz-2
+%-------------------------------------------------------- 171 general-fizzbuzz-2
 go :- maxNumber(M), factors(Fs), MLast is M+1, loop(1,MLast,Fs).
 
 loop(B,B,_).
@@ -5868,7 +5852,7 @@ fizzbuzz(N,[(F,S)|Fs],Res) :-
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): one Rosetta page split in blocks: this block's go/0 is the entry and reads maxNumber/1 and factors/1, the input facts of general-fizzbuzz-1 (max 105; 3 Fizz, 5 Buzz, 7 Baxx), so the driver includes that block and calls go/0 once at load.
 :- include('general-fizzbuzz-1.pl').
 :- initialization(go).
-%------------------------------------- 173 generate-chess960-starting-position-1
+%------------------------------------- 172 generate-chess960-starting-position-1
 check(Row) :-
     nth1(King, Row, ♔),
     nth1(Rook1, Row, ♖),
@@ -5884,7 +5868,7 @@ generate(Row) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): generate/1 draws its row with random_permutation/2; the driver runs the rule beneath it, check/1, over every permutation of the eight pieces (the 960 legal rows) and on two fixed rows, printing ASCII only.
 :- initialization((findall(R, (permutation([♖,♘,♗,♕,♔,♗,♘,♖], R), check(R)), Rs), sort(Rs, S), length(S, N), format("~w distinct starting positions pass check/1~n", [N]), (check([♖,♘,♗,♕,♔,♗,♘,♖]) -> writeln('the classic position passes') ; writeln('the classic position fails')), (check([♔,♖,♘,♗,♕,♗,♘,♖]) -> writeln('king outside the rooks passes') ; writeln('king outside the rooks fails')))).
-%---------------------------------------- 174 generate-lower-case-ascii-alphabet
+%---------------------------------------- 173 generate-lower-case-ascii-alphabet
 a_to_z(From, To, L) :-
 	maplist(atom_codes, [From, To], [[C_From], [C_To]]),
 	bagof([C], between(C_From, C_To, C), L1),
@@ -5892,7 +5876,7 @@ a_to_z(From, To, L) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines a_to_z/3 and never calls it; the driver prints a_to_z(a, z, L), the task's lower-case alphabet.
 :- initialization((a_to_z(a, z, L), format("~w~n", [L]))).
-%-------------------------------------------------- 175 golden-ratio-convergence
+%-------------------------------------------------- 174 golden-ratio-convergence
 iterate(Phi0, N0, Phi, N) :-
     Phi1 = (1.0 + (1.0 / Phi0)),
     N1 is N0 + 1,
@@ -5917,7 +5901,7 @@ main :-
     halt.
 
 :- initialization(main).
-%--------------------------------------------------------------- 176 gray-code-1
+%--------------------------------------------------------------- 175 gray-code-1
 to_gray(N, G) :-
   N0 is N >> 1,
   G is N xor N0.
@@ -5931,7 +5915,7 @@ from_gray(G, N) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines to_gray/2 and from_gray/2 and never calls them; the driver prints the task's 5-bit table for 0..31: binary, Gray code, decoded.
 :- initialization(forall(between(0, 31, N), (to_gray(N, G), from_gray(G, D), format("~t~w~2| ~|~`0t~2r~5+ => ~|~`0t~2r~5+ => ~|~`0t~2r~5+ ~t~w~2+~n", [N, N, G, D, D])))).
-%--------------------------------------------------------------- 177 gray-code-2
+%--------------------------------------------------------------- 176 gray-code-2
 :- use_module(library(apply)).
 
 to_gray(N, G) :-
@@ -5966,7 +5950,7 @@ go :- halt(1).
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines go/0 and never calls it; the driver calls it once at load.
 :- initialization(go).
-%------------------------------------------------- 178 greatest-common-divisor-1
+%------------------------------------------------- 177 greatest-common-divisor-1
 gcd(X, 0, X):- !.
 gcd(0, X, X):- !.
 gcd(X, Y, D):- X > Y, !, Z is X mod Y, gcd(Y, Z, D).
@@ -5974,7 +5958,7 @@ gcd(X, Y, D):- Z is Y mod X, gcd(X, Z, D).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines gcd/3 and never calls it; the driver prints gcd for five fixed pairs.
 :- initialization(forall(member(A-B, [12-18, 1071-1029, 49865-69811, 0-5, 7-0]), (gcd(A, B, D), format("gcd(~w, ~w) = ~w~n", [A, B, D])))).
-%------------------------------------------------- 179 greatest-common-divisor-2
+%------------------------------------------------- 178 greatest-common-divisor-2
 gcd(X, 0, X):- !.
 gcd(0, X, X):- !.
 gcd(X, Y, D):- X =< Y, !, Z is Y - X, gcd(X, Z, D).
@@ -5982,13 +5966,13 @@ gcd(X, Y, D):- gcd(Y, X, D).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines gcd/3 (by subtraction) and never calls it; the driver prints gcd for five fixed pairs.
 :- initialization(forall(member(A-B, [12-18, 1071-1029, 49865-69811, 0-5, 7-0]), (gcd(A, B, D), format("gcd(~w, ~w) = ~w~n", [A, B, D])))).
-%---------------------------------------------- 180 greatest-element-of-a-list-2
+%---------------------------------------------- 179 greatest-element-of-a-list-2
 max_list(L, V) :-
 	select(V, L, R), \+((member(X, R), X > V)).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines max_list/2 and never calls it; the driver runs the example query of greatest-element-of-a-list-1, max_list([1,2,10,3,0,7,9,5], M).
 :- initialization((max_list([1, 2, 10, 3, 0, 7, 9, 5], M), format("~w~n", [M]))).
-%---------------------------------------------- 181 greatest-subsequential-sum-1
+%---------------------------------------------- 180 greatest-subsequential-sum-1
 :- use_module(library(chr)).
 
 :- chr_constraint
@@ -6047,7 +6031,7 @@ memoseq(DC, LC, TTC), gss(_D, _L, TT) <=> TTC > TT |
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the CHR constraint greatest_subsequence/0 (on the task's list) and never posts it; the driver posts it once at load.
 :- initialization(greatest_subsequence).
-%----------------------------------- 182 greedy-algorithm-for-egyptian-fractions
+%----------------------------------- 181 greedy-algorithm-for-egyptian-fractions
 count_digits(Number, Count):-
     atom_number(A, Number),
     atom_length(A, Count).
@@ -6148,7 +6132,7 @@ main:-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%---------------------------------- 183 guess-the-number-with-feedback-player--1
+%---------------------------------- 182 guess-the-number-with-feedback-player--1
 min(1). max(10).
 
 pick_number(Min, Max) :-
@@ -6174,14 +6158,14 @@ play :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines play/0 and never calls it; the input answers as the transcript in guess-the-number-with-feedback-player--2 does (ready, h, l, c for the number 3).
 :- initialization((play, nl)).
-%------------------------------------------------------ 184 hailstone-sequence-1
+%------------------------------------------------------ 183 hailstone-sequence-1
 hailstone(1,[1]) :- !.
 hailstone(N,[N|S]) :- 0 is N mod 2, N1 is N / 2, hailstone(N1,S).
 hailstone(N,[N|S]) :- 1 is N mod 2, N1 is (3 * N) + 1, hailstone(N1, S).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines hailstone/2 and never calls it; the driver shows the task's 27 sequence and the longest start below 10000 (below the task's 100000 it takes 6 s under swipl).
 :- initialization((hailstone(27, L), length(L, N), L = [A, B, C, D|_], append(_, [E, F, G, H], L), format("hailstone(27): ~w elements, ~w, ~w, ~w, ~w ... ~w, ~w, ~w, ~w~n", [N, A, B, C, D, E, F, G, H]), aggregate_all(max(Len, K), (between(1, 9999, K), hailstone(K, S), length(S, Len)), max(ML, MK)), format("longest below 10000: ~w (~w elements)~n", [MK, ML]))).
-%------------------------------------------------------ 185 hailstone-sequence-5
+%------------------------------------------------------ 184 hailstone-sequence-5
 :- use_module(library(chr)).
 :- chr_option(debug, off).
 :- chr_option(optimize, full).
@@ -6202,7 +6186,7 @@ hailstone(N) ==> N \= 1 | collatz(N, H), hailstone(H).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the CHR constraints hailstone/1, collatz/2 and clean/0 and never posts them; the driver posts hailstone(27) and prints the task's length and first and last four, as hailstone-sequence-6 checks.
 :- initialization((hailstone(27), findall(X, find_chr_constraint(hailstone(X)), L), clean, length(L, N), L = [A, B, C, D|_], append(_, [E, F, G, H], L), format("hailstone(27): ~w elements, ~w, ~w, ~w, ~w ... ~w, ~w, ~w, ~w~n", [N, A, B, C, D, E, F, G, H]))).
-%--------------------------------------------------------- 186 hamming-numbers-1
+%--------------------------------------------------------- 185 hamming-numbers-1
 %% collect N elements produced by a generator in a row
 
 take( 0, Next, Z-Z, Next).
@@ -6227,7 +6211,7 @@ main(N) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines main/1 and never calls it; the driver runs main(1000000): the first 20, the 1691st and 1692nd, and the millionth Hamming number, as the task asks.
 :- initialization(main(1000000)).
-%--------------------------------------------------------- 187 hamming-numbers-2
+%--------------------------------------------------------- 186 hamming-numbers-2
 hamming(N) :-
      % to stop cleanly
      nb_setval(go, 1),
@@ -6305,7 +6289,7 @@ watch_20(N, [X|L]):-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines hamming/1 and never calls it; the driver prints the first 20 and the 1691st (the millionth takes 18 s under swipl, so it is left out).
 :- initialization((hamming(20), hamming(1691))).
-%----------------------------------------------------------- 188 happy-numbers-1
+%----------------------------------------------------------- 187 happy-numbers-1
 happy_numbers(L, Nb) :-
     % creation of the list
     length(L, Nb),
@@ -6356,7 +6340,7 @@ square(N, SN) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines happy_numbers/2 and never calls it; the driver prints the task's first 8 happy numbers.
 :- initialization((happy_numbers(L, 8), format("~w~n", [L]))).
-%----------------------------------------------------------- 189 harmonic-series
+%----------------------------------------------------------- 188 harmonic-series
 main:-
     print_harmonic_series(20),
     nl,
@@ -6413,7 +6397,7 @@ nth_harmonic_number(N, T, H1):-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%----------------------------------------------------------------- 190 hash-join
+%----------------------------------------------------------------- 189 hash-join
 % Name/Age
 person_age('Jonah',  27).
 person_age('Alan',   18).
@@ -6437,16 +6421,16 @@ join_and_print :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines join_and_print/0 (over the task's two tables) and never calls it; the driver calls it once at load.
 :- initialization(join_and_print).
-%---------------------------------------------- 191 hello-world-newline-omission
+%---------------------------------------------- 190 hello-world-newline-omission
 :- write('Goodbye, World!').
-%---------------------------------------------------------- 192 hello-world-text
+%---------------------------------------------------------- 191 hello-world-text
 :- write('Hello world!'), nl.
-%---------------------------------------------------- 193 higher-order-functions
+%---------------------------------------------------- 192 higher-order-functions
 first(Predicate) :- call(Predicate).
 second(Argument) :- write(Argument).
 
 :-first(second('Hello World!')).
-%-------------------------------------- 194 hofstadter-figure-figure-sequences-1
+%-------------------------------------- 193 hofstadter-figure-figure-sequences-1
 :- use_module(library(chr)).
 
 :- chr_constraint ffr/2, ffs/2, hofstadter/1,hofstadter/2.
@@ -6475,7 +6459,7 @@ hofstadter(N), ffr(N1, _R), ffs(N1, _S) ==> N1 < N, N2 is N1 +1 |  ffr(N2,_), ff
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the CHR constraints hofstadter/1, ffr/2, ffs/2 and never posts them; the driver posts hofstadter(10) and prints the task's first ten R (the 1..1000 check at hofstadter(960) takes 41 s under swipl).
 :- initialization((hofstadter(10), findall(K-R, find_chr_constraint(ffr(K, R)), L), msort(L, S), pairs_values(S, V), format("~w~n", [V]))).
-%---------------------------------- 195 horners-rule-for-polynomial-evaluation-1
+%---------------------------------- 194 horners-rule-for-polynomial-evaluation-1
 horner([], _X, 0).
 
 horner([H|T], X, V) :-
@@ -6484,7 +6468,7 @@ horner([H|T], X, V) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines horner/3 and never calls it; the driver evaluates the task's 6x^3 - 4x^2 + 7x - 19 at x = 3.
 :- initialization((horner([-19, 7, -4, 6], 3, V), format("~w~n", [V]))).
-%------------------------------------------------------------ 196 huffman-coding
+%------------------------------------------------------------ 195 huffman-coding
 huffman :-
    L = 'this is an example for huffman encoding',
    atom_chars(L, LA),
@@ -6535,7 +6519,7 @@ run(V, [Other|RRest], [1,V], [Other|RRest]):-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines huffman/0 (on the task's string) and never calls it; the driver calls it once at load.
 :- initialization(huffman).
-%----------------------------------------------------------- 197 identity-matrix
+%----------------------------------------------------------- 196 identity-matrix
 %rotates one list clockwise by one integer
 rotate(Int,List,Rotated) :-
    integer(Int),
@@ -6568,7 +6552,7 @@ main :-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%----------- 198 idiomatically-determine-all-the-lowercase-and-uppercase-letters
+%----------- 197 idiomatically-determine-all-the-lowercase-and-uppercase-letters
 chars :-
     findall(Lower, maplist(char_type(Lower), [alpha, ascii, lower]), Lowers),
 
@@ -6582,7 +6566,7 @@ chars :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines chars/0 and never calls it; the driver calls it once at load.
 :- initialization(chars).
-%-------------------------------------------- 199 increment-a-numerical-string-1
+%-------------------------------------------- 198 increment-a-numerical-string-1
 incr_numerical_string(S1, S2) :-
 	string_to_atom(S1, A1),
 	atom_number(A1, N1),
@@ -6592,7 +6576,7 @@ incr_numerical_string(S1, S2) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines incr_numerical_string/2 and never calls it; the driver increments three fixed numerical strings.
 :- initialization(forall(member(S0, ["12345", "-10", "99"]), (incr_numerical_string(S0, S), format("~w -> ~w~n", [S0, S])))).
-%-------------------------------------------- 200 input-output-for-lines-of-text
+%-------------------------------------------- 199 input-output-for-lines-of-text
 number_of_lines(Num) :-	
 	current_input(In),
 	read_line_to_codes(In, Line),
@@ -6616,7 +6600,7 @@ lines :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines lines/0 (reads a count, then that many lines) and never calls it; the input is the task's sample.
 :- initialization(lines).
-%------------------------------------------------------ 201 integer-comparison-1
+%------------------------------------------------------ 200 integer-comparison-1
 :- set_prolog_flag(double_quotes, chars).
 
 println([]) :- write('\n').
@@ -6634,7 +6618,7 @@ my_compare(A, B) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines my_compare/2 and never calls it; the driver compares three fixed pairs, one for each outcome.
 :- initialization(forall(member(A-B, [1-2, 2-1, 2-2]), (format("~w ~w: ", [A, B]), my_compare(A, B)))).
-%-------------------------------------------------------- 202 integer-sequence-1
+%-------------------------------------------------------- 201 integer-sequence-1
 loop(I) :-
 	writeln(I),
 	I1 is I+1,
@@ -6642,7 +6626,7 @@ loop(I) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines loop/1, which prints integers forever, and never calls it; the driver bounds it with call_with_depth_limit/3 (depth 21: 1..20).
 :- initialization(call_with_depth_limit(loop(1), 21, _)).
-%----------------------------------------------------------- 203 inverted-syntax
+%----------------------------------------------------------- 202 inverted-syntax
 % Dracula is a vampire.
 % Also, you become a vampire if someone who is a vampire bites you.
 vampire(dracula).
@@ -6653,7 +6637,7 @@ bites(dracula, bob).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines vampire/1 and bites/2 and never queries them; the driver lists every vampire.
 :- initialization(forall(vampire(X), format("~w is a vampire~n", [X]))).
-%------------------------------------------------------ 204 isbn13-check-digit-1
+%------------------------------------------------------ 203 isbn13-check-digit-1
 :- use_module(library(clpfd)).
 :- use_module(library(dcg/basics), [digit/3]).
 :- use_module(library(dcg/high_order), [sequence/4]).
@@ -6669,7 +6653,7 @@ isbn13 -->
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the DCG isbn13//0 and never calls it; the driver checks the task's four ISBNs.
 :- initialization(forall(member(S, ['978-0596528126', '978-0596528120', '978-1788399081', '978-1788399083']), (atom_codes(S, Cs), (phrase(isbn13, Cs) -> R = good ; R = bad), format("~w: ~w~n", [S, R])))).
-%-------------------------------------------- 205 isqrt-integer-square-root-of-x
+%-------------------------------------------- 204 isqrt-integer-square-root-of-x
 %%% -*- Prolog -*-
 %%%
 %%% The Rosetta Code integer square root task, for SWI Prolog.
@@ -6731,7 +6715,7 @@ main :-
 %%% prolog-indent-width: 2
 %%% end:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%-------------------------------------------------- 206 iterated-digits-squaring
+%-------------------------------------------------- 205 iterated-digits-squaring
 :- initialization(main, main).
 
 %!  next_number_in_chain(+Number0, -Number) is det.
@@ -6768,7 +6752,7 @@ main([Input]) :-
     atom_number(Input, Number),
     time(task(Number, Result)),
     writeln(Result).
-%------------------------------------------------------------- 207 jaccard-index
+%------------------------------------------------------------- 206 jaccard-index
 show([]).
 show([X|Xs]):- write(X), show(Xs).
 
@@ -6782,7 +6766,7 @@ task:- L = [[], [1,2,3,4,5], [1,3,5,7,9], [2,4,6,8,10], [2,3,5,7], [8]],
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines task/0 and never calls it; the driver calls it once at load.
 :- initialization(task).
-%------------------------------------------------------- 208 jewels-and-stones-1
+%------------------------------------------------------- 207 jewels-and-stones-1
 :- system:set_prolog_flag(double_quotes,codes) .
 
 count_jewels(STONEs0,JEWELs0,COUNT)
@@ -6793,7 +6777,7 @@ length(ALLs,COUNT)
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines count_jewels/3 and never calls it; the driver counts the task's two examples (the file sets double_quotes=codes itself).
 :- initialization(forall(member(S-J, ["aAAbbbb"-"aA", "ZZ"-"z"]), (count_jewels(S, J, N), format("~s ~s: ~w~n", [S, J, N])))).
-%------------------------------------------------------- 209 jewels-and-stones-2
+%------------------------------------------------------- 208 jewels-and-stones-2
 count_jewels(Stones, Jewels, N):-
     string_codes(Stones, Scodes),
     string_codes(Jewels, Jcodes),
@@ -6816,7 +6800,7 @@ count_jewels([_|Stones], Jewels, N, R):-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines count_jewels/3 and never calls it; the driver counts the task's two examples.
 :- initialization(forall(member(S-J, ["aAAbbbb"-"aA", "ZZ"-"z"]), (count_jewels(S, J, N), format("~w ~w: ~w~n", [S, J, N])))).
-%-------------------------------------------------------- 210 josephus-problem-1
+%-------------------------------------------------------- 209 josephus-problem-1
 josephus(N, K, Survivors) :- josephus(N, K, 1, Survivors).
 
 :- table josephus/4.
@@ -6835,7 +6819,7 @@ josephus(N, K, M, Survivors) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines josephus/3 and josephus/4 and never calls them; the driver prints the task's survivor for n = 41, k = 3 and the last three (extra credit).
 :- initialization((josephus(41, 3, S), format("~w~n", [S]), josephus(41, 3, 3, S3), format("~w~n", [S3]))).
-%------------------------------------------------------------ 211 json-pointer-1
+%------------------------------------------------------------ 210 json-pointer-1
 :- module(json_pointer, [json_pointer/3]).
 :- use_module(library(http/json), [atom_json_term/3]).
 
@@ -6914,7 +6898,7 @@ test(invalid_pointers, [fail, forall(member(Pointer, [
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines json_pointer/3 and its plunit tests, whose example_json/1 dies under swipl 9.0.4 (atom_json_term/3 refuses a code list); the driver parses the task's document from an atom and resolves the task's pointers.
 :- initialization((atom_json_term('{"wiki": {"links": ["https://rosettacode.org/wiki/Rosetta_Code", "https://discord.com/channels/1011262808001880065"]}, "": "Rosetta", " ": "Code", "g/h": "chrestomathy", "i~j": "site", "abc": ["is", "a"], "def": {"": "programming"}}', J, []), forall(member(P, [``, `/`, `/ `, `/abc`, `/def/`, `/g~1h`, `/i~0j`, `/wiki/links/0`, `/wiki/links/1`, `/wiki/links/2`, `/wiki/name`, `/no/such/thing`, `bad/pointer`]), (json_pointer(P, J, V) -> format("\"~s\" => ~q~n", [P, V]) ; format("\"~s\" => error~n", [P]))))).
-%--------------------------------------- 212 kernighans-large-earthquake-problem
+%--------------------------------------- 211 kernighans-large-earthquake-problem
 :- initialization(main, main).
 
 process_line(Line):-
@@ -6947,7 +6931,7 @@ main(_):-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): main/1 reads the file named on its command line; the driver feeds the same reader, process_stream/1, the task's three data lines (main then runs with no argument and only writes its usage to stderr).
 :- initialization(process_stream(user_input)).
-%---------------------------------------------------- 213 knapsack-problem-0-1-1
+%---------------------------------------------------- 212 knapsack-problem-0-1-1
 :- use_module(library(clpfd)).
 
 knapsack :-
@@ -7021,7 +7005,7 @@ print_results(A1, A2, A3, [item(Name, W, V)|T], [1|TR], WM, VM) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines knapsack/0 (clpfd, on the task's items) and never calls it; the driver calls it once at load.
 :- initialization(knapsack).
-%---------------------------------------------------- 214 knapsack-problem-0-1-2
+%---------------------------------------------------- 213 knapsack-problem-0-1-2
 :- use_module(library(simplex)).
 
 knapsack  :-
@@ -7103,7 +7087,7 @@ print_results(S, A1, A2, A3, [(Name, W, V)|T], [N|TN], W1, V1) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines knapsack/0 (simplex, on the task's items) and never calls it; the driver calls it once at load (time/1's report goes to stderr).
 :- initialization(knapsack).
-%------------------------------------------------ 215 knapsack-problem-bounded-1
+%------------------------------------------------ 214 knapsack-problem-bounded-1
 :- use_module(library(clpfd)).
 
 % tuples (name, weights, value, nb pieces).
@@ -7183,7 +7167,7 @@ print_results(A1, A2, A3, [(Name, W, V, _)|T], [N|TR], WM, VM) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines knapsack/0 (clpfd, on the task's items) and never calls it; the driver calls it once at load (time/1's report goes to stderr).
 :- initialization(knapsack).
-%------------------------------------------------ 216 knapsack-problem-bounded-2
+%------------------------------------------------ 215 knapsack-problem-bounded-2
 :- use_module(library(simplex)).
 % tuples (name, weights, value, pieces).
 knapsack :-
@@ -7267,7 +7251,7 @@ print_results(S, A1, A2, A3, [(Name, W, V,_)|T], [N|TN], W1, V1) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines knapsack/0 (simplex, on the task's items) and never calls it; the driver calls it once at load (time/1's report goes to stderr).
 :- initialization(knapsack).
-%----------------------------------------------- 217 knapsack-problem-continuous
+%----------------------------------------------- 216 knapsack-problem-continuous
 :- use_module(library(simplex)).
 % tuples (name, weights, value).
 knapsack :-
@@ -7336,7 +7320,7 @@ print_results(S, A1, A2, A3, [(Name, W, V)|T], [N|TN], W1, V1) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines knapsack/0 (simplex, on the task's items) and never calls it; the driver calls it once at load.
 :- initialization(knapsack).
-%------------------------------------------------ 218 knapsack-problem-unbounded
+%------------------------------------------------ 217 knapsack-problem-unbounded
 :- use_module(library(simplex)).
 
 % tuples (name, Explantion, Value, weights, volume).
@@ -7426,7 +7410,7 @@ print_results(S, A0, A1, A2, A3, A4, [(Name, _, Va, W, Vo)|T], [N|TN], Va1, W1, 
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines knapsack/0 (simplex, on the task's items) and never calls it; the driver calls it once at load (time/1's report goes to stderr).
 :- initialization(knapsack).
-%------------------------------------------------------------ 219 knights-tour-1
+%------------------------------------------------------------ 218 knights-tour-1
 % N is the number of lines of the chessboard
 knight(N) :-
   Max is N * N,
@@ -7510,7 +7494,7 @@ display(N, M, [H | T]) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines knight/1 and never calls it; the driver prints a tour of the task's 8x8 board.
 :- initialization((knight(8), nl)).
-%------------------------------------------------------------ 220 knights-tour-2
+%------------------------------------------------------------ 219 knights-tour-2
 :- initialization(main).
 
 
@@ -7568,7 +7552,7 @@ show_path(Pn)  :- findall(_, (in_board(P), show_cell(Pn,P)), _).
 
 
 main :- make_graph, hamiltonian(5*3,Pn), show_path(Pn), halt.
-%---------------------------------------------------------------- 221 koch-curve
+%---------------------------------------------------------------- 220 koch-curve
 main:-
     write_koch_snowflake('koch_snowflake.svg').
 
@@ -7617,7 +7601,7 @@ koch_curve(Stream, X0, Y0, X1, Y1, N):-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): main/0 writes koch_snowflake.svg (depth 5, 3072 path lines) to a file and prints nothing; the driver writes the same SVG at depth 2 to standard output.
 :- initialization(koch_snowflake(user_output, 600, 2)).
-%--------------------------------------------------------------- 222 lah-numbers
+%--------------------------------------------------------------- 221 lah-numbers
 % Reference: https://en.wikipedia.org/wiki/Lah_number#Identities_and_relations
 
 :- dynamic unsigned_lah_number_cache/3.
@@ -7665,7 +7649,7 @@ main:-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%-------------------------------------- 223 largest-int-from-concatenated-ints-1
+%-------------------------------------- 222 largest-int-from-concatenated-ints-1
 largest_int_v1(In, Out) :-
 	maplist(name, In, LC),
 	aggregate(max(V), get_int(LC, V), Out).
@@ -7678,7 +7662,7 @@ get_int(LC, V) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines largest_int_v1/2 and never calls it; the driver runs the task's two lists.
 :- initialization(forall(member(L, [[1, 34, 3, 98, 9, 76, 45, 4], [54, 546, 548, 60]]), (largest_int_v1(L, N), format("~w~n", [N])))).
-%-------------------------------------- 224 largest-int-from-concatenated-ints-2
+%-------------------------------------- 223 largest-int-from-concatenated-ints-2
 largest_int_v2(In, Out) :-
 	maplist(name, In, LC),
 	predsort(my_sort,LC, LCS),
@@ -7717,7 +7701,7 @@ my_sort(R, [H1,  H1 | T], [H1]) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines largest_int_v2/2 and never calls it; the driver runs the task's two lists.
 :- initialization(forall(member(L, [[1, 34, 3, 98, 9, 76, 45, 4], [54, 546, 548, 60]]), (largest_int_v2(L, N), format("~w~n", [N])))).
-%------------------------------------ 225 largest-number-divisible-by-its-digits
+%------------------------------------ 224 largest-number-divisible-by-its-digits
 %  Find the largest integer divisible by all it's digits, with no digit repeated.
 %  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 %  We go for a generic algorithm here.  Test for divisibility is done by
@@ -7788,7 +7772,7 @@ largest_hex(N, H) :- bignum(16, N), !, sformat(H, '~16r', [N]).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines largest_decimal/1 and largest_hex/2 and never calls them; the driver prints the decimal answer (the hexadecimal extra credit takes 16 s under swipl, so it is left out).
 :- initialization((largest_decimal(N), format("~w~n", [N]))).
-%------------------------------------------------------ 226 largest-prime-factor
+%------------------------------------------------------ 225 largest-prime-factor
 wheel2357(L) :-
    W = [2,  4,  2,  4,  6,  2,  6,  4,
         2,  4,  6,  6,  2,  6,  4,  2,
@@ -7817,7 +7801,7 @@ main :-
     halt.
 
 ?- main.
-%---------------------------------------------------------- 227 last-list-item-1
+%---------------------------------------------------------- 226 last-list-item-1
 %!  last_list_item(+List, -Last) is det.
 last_list_item(List, Last) :-
     msort(List, Sorted),
@@ -7833,7 +7817,7 @@ last_list_item_([X, Y | List0], Last) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines last_list_item/2 and never calls it; the driver turns on its debug topic to show the steps and runs the task's list.
 :- initialization((debug(last_list_item), last_list_item([6, 81, 243, 14, 25, 49, 123, 69, 11], Last), format("~w~n", [Last]))).
-%---------------------------------------------------------- 228 last-list-item-3
+%---------------------------------------------------------- 227 last-list-item-3
 :- use_module(library(heaps)).
 last_list_item_heap(List, Last) :-
     pairs_keys(Pairs, List),
@@ -7852,7 +7836,7 @@ last_list_item_heap_(Heap0, Last) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines last_list_item_heap/2 and never calls it; the driver turns on its debug topic to show the steps and runs the task's list.
 :- initialization((debug(last_list_item_heap), last_list_item_heap([6, 81, 243, 14, 25, 49, 123, 69, 11], Last), format("~w~n", [Last]))).
-%-------------------------------------------------- 229 law-of-cosines---triples
+%-------------------------------------------------- 228 law-of-cosines---triples
 find_solutions(Limit, Solutions):-
     find_solutions(Limit, Solutions, Limit, []).
 
@@ -7920,7 +7904,7 @@ main:-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%--------------------------------------------------------------- 230 leap-year-1
+%--------------------------------------------------------------- 229 leap-year-1
 leap_year(L) :-
 	partition(is_leap_year, L, LIn, LOut),
 	format('leap years : ~w~n', [LIn]),
@@ -7934,13 +7918,13 @@ is_leap_year(Year) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines leap_year/1 and never calls it; the driver classifies seven fixed years.
 :- initialization(leap_year([1900, 1994, 1996, 1997, 2000, 2024, 2100])).
-%----------------------------------------------------- 231 least-common-multiple
+%----------------------------------------------------- 230 least-common-multiple
 lcm(X, Y, Z) :-
 	Z is abs(X * Y) / gcd(X,Y).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines lcm/3 and never calls it; the driver prints the task's lcm(12, 18) and two more.
 :- initialization(forall(member(A-B, [12-18, 4-6, -5-3]), (lcm(A, B, Z), format("lcm(~w, ~w) = ~w~n", [A, B, Z])))).
-%----------------------------------------------------------- 232 left-factorials
+%----------------------------------------------------------- 231 left-factorials
 leftfact(N):-
     leftfact(N, 0, 0, 1).
 
@@ -7966,7 +7950,7 @@ main:-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%---------------------------------------------------------- 233 letter-frequency
+%---------------------------------------------------------- 232 letter-frequency
 frequency(File) :-
   read_file_to_codes(File, Code, []),
 
@@ -8023,7 +8007,7 @@ run(Var,[Other|RRest], [1,Var],[Other|RRest]):-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines frequency/1 over a named file and never calls it; the driver names standard input, which carries a fixed text.
 :- initialization(frequency('/dev/stdin')).
-%------------------------------------------------------ 234 levenshtein-distance
+%------------------------------------------------------ 233 levenshtein-distance
 levenshtein(S, T, R) :-
   length(S, M),
   M1 is M+1,
@@ -8088,7 +8072,7 @@ init_n(N, L) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines levenshtein/3 and never calls it; the driver runs the task's two pairs.
 :- initialization(forall(member(A-B, [kitten-sitting, rosettacode-raisethysword]), (atom_codes(A, S), atom_codes(B, T), levenshtein(S, T, R), format("~w ~w: ~w~n", [A, B, R])))).
-%------------------------------------------------------- 235 list-comprehensions
+%------------------------------------------------------- 234 list-comprehensions
 % We need operators
 :- op(700, xfx, <-).
 :- op(450, xfx, ..).
@@ -8124,7 +8108,7 @@ Vs <- {Var & Dec} :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the <- comprehension and never uses it; the driver builds the task's Pythagorean triples up to 20.
 :- initialization((L <- {(X,Y,Z) & X <- 1..20, Y <- X..20, Z <- Y..20 & X*X+Y*Y =:= Z*Z}, format("~w~n", [L]))).
-%------------------------------------------------------------- 236 long-primes-1
+%------------------------------------------------------------- 235 long-primes-1
 % See https://en.wikipedia.org/wiki/Full_reptend_prime
 long_prime(Prime):-
     is_prime(Prime),
@@ -8205,7 +8189,7 @@ main:-
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): one Rosetta page split in blocks: this block's main/0 is the entry and calls find_prime_numbers/1 and is_prime/1, which long-primes-2 (module prime_numbers) defines, so the driver includes that block (its module/2 directive errs inside an include and its clauses join user) and calls main/0, the long primes to 500 and their counts to 256000.
 :- include('long-primes-2.pl').
 :- initialization(main).
-%------------------------------------------------------------- 237 long-primes-3
+%------------------------------------------------------------- 236 long-primes-3
 isPrime(A):-
   	A1 is ceil(sqrt(A)),
   	between(2, A1, N),
@@ -8263,7 +8247,7 @@ do:-	longPrimes(500, LongPrimes),
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): do/0 also prints each limit's runtime, which no ref can hold; the driver calls longPrimes/2 and prints do/0's lines without the time, for limits 500..16000 (the task's 64000 takes 8 s under swipl).
 :- initialization((longPrimes(500, LongPrimes), writeln('long primes up to 500:'), writeln(LongPrimes), forall(between(0, 5, X), (Limit is 500 * 2**X, longPrimes(Limit, L), length(L, Num), writef('there are%5r long primes up to%6r\n', [Num, Limit]))))).
-%----------------------------------------------------------------- 238 long-year
+%----------------------------------------------------------------- 237 long-year
 % See https://en.wikipedia.org/wiki/ISO_week_date#Weeks_per_year
 
 p(Year, P):-
@@ -8305,7 +8289,7 @@ main:-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%----------------------------------------------------- 239 longest-common-prefix
+%----------------------------------------------------- 238 longest-common-prefix
 common_prefix(String1, String2, Prefix):-
     string_chars(String1, Chars1),
     string_chars(String2, Chars2),
@@ -8344,7 +8328,7 @@ main:-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%---------------------------------------------- 240 longest-common-subsequence-1
+%---------------------------------------------- 239 longest-common-subsequence-1
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): written for double_quotes=codes (DEC-10 Prolog, ISO, SWI before 7); the program sets the flag, as
 % GOAL-PROLOG-100's superset ruling has a program set a dialect flag (it is SCRIP's default; swipl 7 reads "..." as a string).
 :- set_prolog_flag(double_quotes, codes).
@@ -8371,7 +8355,7 @@ longest(L1,L2,Longest) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines test/0 and never calls it; written for code lists, so the flag is set at its head; the driver calls it once and ends the line (time/1's report goes to stderr).
 :- initialization((test, nl)).
-%---------------------------------------------- 241 longest-common-subsequence-2
+%---------------------------------------------- 240 longest-common-subsequence-2
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): written for double_quotes=codes (DEC-10 Prolog, ISO, SWI before 7); the program sets the flag, as
 % GOAL-PROLOG-100's superset ruling has a program set a dialect flag (it is SCRIP's default; swipl 7 reads "..." as a string).
 :- set_prolog_flag(double_quotes, codes).
@@ -8407,7 +8391,7 @@ longest(L1,L2,Longest) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines test/0 and never calls it; written for code lists, so the flag is set at its head; the driver calls it once and ends the line (time/1's report goes to stderr).
 :- initialization((test, nl)).
-%-------------------------------------------------- 242 longest-common-substring
+%-------------------------------------------------- 241 longest-common-substring
 common_sublist(A, B, M) :-
 	append(_, Ma, A),
 	append(M, _, Ma),
@@ -8431,7 +8415,7 @@ longest_substring(A, B, Result) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines longest_substring/3 and never calls it; the driver prints the longest common substring of the task's two strings thisisatest and testing123testing.
 :- initialization(forall(member(A-B, ["thisisatest"-"testing123testing"]), (longest_substring(A, B, S), format("~w~n", [S])))).
-%-------------------------------------------- 243 longest-increasing-subsequence
+%-------------------------------------------- 242 longest-increasing-subsequence
 lis(In, Out) :-
 	% we ask Prolog to find the longest sequence
 	aggregate(max(N,Is), (one_is(In, [], Is), length(Is, N)), max(_, Res)),
@@ -8449,7 +8433,7 @@ one_is([H | T], Current, Final) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines lis/2 and never calls it; the driver prints a longest increasing subsequence of each of the task's two lists.
 :- initialization(forall(member(L, [[3,2,6,4,5,1], [0,8,4,12,2,10,6,14,1,9,5,13,3,11,7,15]]), (lis(L, S), format("~w: ~w~n", [L, S])))).
-%----------------------------------------------------- 244 look-and-say-sequence
+%----------------------------------------------------- 243 look-and-say-sequence
 look_and_say(L) :-
   maplist(write, L), nl,
   encode(L, L1),
@@ -8497,7 +8481,7 @@ run(Var,[Other|RRest], [1,Var],[Other|RRest]):-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): look_and_say/1 prints a term and recurses forever; the driver runs the same step, encode/2, from [1] and prints the first 10 terms in look_and_say/1's own format.
 :- initialization((length(Ns, 10), foldl([_, L0, L1]>>(maplist(write, L0), nl, encode(L0, L1)), Ns, [1], _))).
-%---------------------------------- 245 loop-over-multiple-arrays-simultaneously
+%---------------------------------- 244 loop-over-multiple-arrays-simultaneously
 multiple_arrays(L1, L2, L3) :-
 	maplist(display, L1, L2, L3).
 
@@ -8506,7 +8490,7 @@ display(A,B,C) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines multiple_arrays/3 and never calls it; the driver runs it on the task's three arrays a b c, A B C, 1 2 3, as code lists (its writef %s takes a code).
 :- initialization(multiple_arrays(`abc`, `ABC`, `123`)).
-%------------------------------------------------------------ 246 loops-continue
+%------------------------------------------------------------ 245 loops-continue
 :- initialization(main).
 
 print_list(Min, Max) :-
@@ -8526,7 +8510,7 @@ print_list(Max, Max) :-
 
 main :-
     print_list(1, 10).
-%------------------------------------------------------------ 247 loops-do-while
+%------------------------------------------------------------ 246 loops-do-while
 % initial condition
 do(0):- write(0),nl,do(1).
 
@@ -8544,7 +8528,7 @@ wloop :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines wloop/0 and never calls it; the driver calls it once at load (it prints 0..5 and then fails by design when the value reaches a multiple of 6, so the failure is absorbed).
 :- initialization((wloop -> true ; true)).
-%-------------------------------------------------------- 248 loops-downward-for
+%-------------------------------------------------------- 247 loops-downward-for
 rfor(Hi,Lo,Hi) :- Hi >= Lo.
 rfor(Hi,Lo,Val) :- Hi > Lo, H is Hi - 1, !, rfor(H,Lo,Val).
 
@@ -8554,7 +8538,7 @@ reverse_iter.
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines reverse_iter/0 and never calls it; the driver calls it once at load (10 down to 0).
 :- initialization(reverse_iter).
-%----------------------------------------- 249 loops-for-with-a-specified-step-1
+%----------------------------------------- 248 loops-for-with-a-specified-step-1
 for(Lo,Hi,Step,Lo)  :- Step>0, Lo=<Hi.
 for(Lo,Hi,Step,Val) :- Step>0, plus(Lo,Step,V), V=<Hi, !, for(V,Hi,Step,Val).
 
@@ -8564,13 +8548,13 @@ example.
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines example/0 and never calls it; the driver calls it once at load.
 :- initialization(example).
-%----------------------------------------- 250 loops-for-with-a-specified-step-2
+%----------------------------------------- 249 loops-for-with-a-specified-step-2
 for(Hi,Lo,Step,Hi)  :- Step<0, Lo=<Hi.
 for(Hi,Lo,Step,Val) :- Step<0, plus(Hi,Step,V), Lo=<V, !, for(V,Lo,Step,Val).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the downward for/4 and never calls it; the driver counts from 10 down to 0 by step -2, as the sibling's example/0 does upward.
 :- initialization((forall(for(10, 0, -2, V), (write(V), write(' '))), nl)).
-%----------------------------------------------------------------- 251 loops-for
+%----------------------------------------------------------------- 250 loops-for
 example :-
     between(1,5,I), nl, between(1,I,_J),
     write('*'), fail.
@@ -8578,7 +8562,7 @@ example.
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines example/0 and never calls it; the driver calls it once at load.
 :- initialization(example).
-%------------------------------------------------------------- 252 loops-foreach
+%------------------------------------------------------------- 251 loops-foreach
 ?- foreach(member(X, [red,green,blue,black,white]), writeln(X)).
 red
 green
@@ -8586,14 +8570,14 @@ blue
 black
 white
 true.
-%----------------------------------------------------- 253 loops-n-plus-one-half
+%----------------------------------------------------- 252 loops-n-plus-one-half
 example :-
   between(1,10,Val), write(Val), Val<10, write(', '), fail.
 example.
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines example/0 and never calls it; the driver calls it once at load.
 :- initialization(example).
-%------------------------------------------------------------- 254 loops-while-1
+%------------------------------------------------------------- 253 loops-while-1
 while(0) :- !.
 while(X) :-
     writeln(X),
@@ -8602,7 +8586,7 @@ while(X) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines while/1 and never calls it; the driver starts it at the task's 1024 (halving to 1).
 :- initialization(while(1024)).
-%------------------------------------------------ 255 loops-with-multiple-ranges
+%------------------------------------------------ 254 loops-with-multiple-ranges
 for(Lo,Hi,Step,Lo)  :- Step>0, Lo=<Hi.
 for(Lo,Hi,Step,Val) :- Step>0, plus(Lo,Step,V), V=<Hi, !, for(V,Hi,Step,Val).
 for(Hi,Lo,Step,Hi)  :- Step<0, Lo=<Hi.
@@ -8646,7 +8630,7 @@ calc_values(Sum, Product) :-    % Find the sum and product
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines calc_values/2 and never calls it; the driver prints the task's sum and product over its seven ranges.
 :- initialization((calc_values(Sum, Prod), format("sum = ~w~nprod = ~w~n", [Sum, Prod]))).
-%--------------------------------------------------------- 256 lucas-lehmer-test
+%--------------------------------------------------------- 255 lucas-lehmer-test
 show(Count) :-
     findall(N, limit(Count, (between(2, infinite, N), mersenne_prime(N))), S),
     forall(member(P, S), (write(P), write(" "))), nl.
@@ -8687,7 +8671,7 @@ prime(N, D, [A|As]) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines show/1 and never calls it; the driver prints the first 15 Mersenne prime exponents (to M1279).
 :- initialization(show(15)).
-%------------------------------------------------------------- 257 ludic-numbers
+%------------------------------------------------------------- 256 ludic-numbers
 % John Devou: 26-Nov-2021
 
 d(_,_,[],[]).
@@ -8716,7 +8700,7 @@ t4:- g(249,L), findall(A, t(L,A), X), write(X), !.
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the task's four parts t1..t4 and never calls them; the driver calls each once (first 25, count up to 1000, 2000th..2005th, triplets below 250).
 :- initialization((t1, nl, t2, nl, t3, nl, t4, nl)).
-%---------------------------------------------------------- 258 lunar-arithmetic
+%---------------------------------------------------------- 257 lunar-arithmetic
 number_digits(Number, Digits) :-
     (   ground(Number)
     ->  number_chars(Number, Chars),
@@ -8851,7 +8835,7 @@ task :-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines task/0 and never calls it; the driver calls it once at load.
 :- initialization(task).
-%----------------------------------------------------------- 259 lychrel-numbers
+%----------------------------------------------------------- 258 lychrel-numbers
 reverse_number(Number, Rev):-
     reverse_number(Number, 0, Rev).
 
@@ -8912,7 +8896,7 @@ main:-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%------------------------------------------------------------ 260 magic-constant
+%------------------------------------------------------------ 259 magic-constant
 m(X,Y):- Y is X*(X*X+1)/2.
 
 l(L,R,T,X):- L > R -> X is L; M is div(L+R,2), m(M,F),
@@ -8926,7 +8910,7 @@ task:-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines task/0 and never calls it; the driver calls it once at load.
 :- initialization(task).
-%----------------------------------------------------------------- 261 map-range
+%----------------------------------------------------------------- 260 map-range
 % map_range(+S, +A1, +A2, +B1, +B2, -R)
 map_range(S, A1, A2, B1, B2, R) :-
     R is B1 + (S - A1) * (B2 - B1) / (A2 - A1).
@@ -8940,7 +8924,7 @@ run :-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines run/0 and never calls it; the driver calls it once at load.
 :- initialization(run).
-%---------------------------------------------------------------- 262 mastermind
+%---------------------------------------------------------------- 261 mastermind
 mastermind :- mastermind(7, 4, 8, no_duplicates).
 
 mastermind(Colours, Length, Guesses, Duplicates) :-
@@ -9045,7 +9029,7 @@ truncate_list([A|T], N, [A|R]) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): mastermind/0 draws its code with random_member/2; the driver plays the same game, play/3, on the fixed code bdaf with the guesses in mastermind.in, after mastermind/4's intro.
 :- initialization((intro(7, 4, no_duplicates), play(board([b, d, a, f], 4, 7, 8), [], 0))).
-%----------------------------------------------------- 263 matrix-multiplication
+%----------------------------------------------------- 262 matrix-multiplication
 % SWI-Prolog has transpose/2 in its clpfd library
 :- use_module(library(clpfd)).
 
@@ -9060,7 +9044,7 @@ mm_helper(M2, I1, M3) :- maplist(dot(I1), M2, M3).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines mmult/3 and never calls it; the driver multiplies a 2x3 by a 3x2 matrix and prints the product.
 :- initialization((mmult([[1,2,3],[4,5,6]], [[7,8],[9,10],[11,12]], M), format("~w~n", [M]))).
-%------------------------------------------------- 264 maximum-triangle-path-sum
+%------------------------------------------------- 263 maximum-triangle-path-sum
 max_path(N, V) :-
 	data(N, T),
 	path(0, T, V).
@@ -9104,7 +9088,7 @@ data(2, P) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines max_path/2 and never calls it; the driver prints the maximum path sum of its small example and of the task's 18-row triangle.
 :- initialization(forall(member(N, [1, 2]), (max_path(N, V), format("~w: ~w~n", [N, V])))).
-%-------------------------------------------------------------------- 265 menu-1
+%-------------------------------------------------------------------- 264 menu-1
 rosetta_menu([], "") :- !.              %% Incase of an empty list.
 rosetta_menu(Items, SelectedItem) :-
     repeat,                             %% Repeat until everything that follows is true.
@@ -9125,7 +9109,7 @@ get_choice(Choice) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines rosetta_menu/2 and never calls it; the driver runs menu-2's example over the task's four items with the answers a, 10 and 3 (two rejected, then mirror mirror) in menu-1.in.
 :- initialization((rosetta_menu(["fee fie", "huff and puff", "mirror mirror", "tick tock"], S), format("~s~n", [S]))).
-%-------------------------------------------- 266 merge-and-aggregate-datasets-1
+%-------------------------------------------- 265 merge-and-aggregate-datasets-1
 patient(1001,'Hopper').
 patient(4004,'Wirth').
 patient(3003,'Kemeny').
@@ -9165,7 +9149,7 @@ test :-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines test/0 and never calls it; the driver calls it once at load.
 :- initialization(test).
-%----------------------------------------------------------- 267 mersenne-primes
+%----------------------------------------------------------- 266 mersenne-primes
 lucas_lehmer_seq(M, L) :-
     lazy_list(ll_iter, 4-M, L).
 
@@ -9185,7 +9169,7 @@ mersenne_prime(P) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines mersenne_prime/1 and never calls it; the driver lists the Mersenne primes 2^P-1 for P up to 700 (to M607).
 :- initialization(forall((between(2, 700, P), mersenne_prime(P)), format("M~w~n", [P]))).
-%---------------------------------------------------------- 268 mertens-function
+%---------------------------------------------------------- 267 mertens-function
 :- dynamic mertens_number_cache/2.
 
 mertens_number(1, 1):- !.
@@ -9247,12 +9231,12 @@ main:-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%--------------------------------------------------------- 269 metaprogramming-1
+%--------------------------------------------------------- 268 metaprogramming-1
 :- initialization(main).
 main :- clause(less_than(1,2),B),writeln(B).
 less_than(A,B) :- A<B.
 
-%----------------------------------------------------- 270 middle-three-digits-1
+%----------------------------------------------------- 269 middle-three-digits-1
 middle_3_digits(Number, [D1,D2,D3]) :-
     verify_middle_3_able(Number, Digits),
     append(FrontDigits, [D1,D2,D3| BackDigits], Digits),
@@ -9270,7 +9254,7 @@ verify_middle_3_able(Number, Digits) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines middle_3_digits/2 and never calls it; the driver prints it for the task's ten good and seven bad numbers, the bad ones as the domain_error it raises.
 :- initialization(forall(member(N, [123, 12345, 1234567, 987654321, 10001, -10001, -123, -100, 100, -12345, 1, 2, -1, -10, 2002, -2002, 0]), catch((middle_3_digits(N, D), atom_chars(A, D), format("~w: ~w~n", [N, A])), error(E, _), format("~w: ~w~n", [N, E])))).
-%----------------------------------------------- 271 miller-rabin-primality-test
+%----------------------------------------------- 270 miller-rabin-primality-test
 :- module(primality, [is_prime/2]).
 
 % is_prime/2 returns false if N is composite, true if N probably prime
@@ -9357,7 +9341,7 @@ inner_loop(Base, N, Loop, S, Result) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines is_prime/2 and never calls it; the driver prints the primes up to 100 and its verdict on some strong pseudoprimes and large primes, all below its deterministic-witness bound (no random witnesses).
 :- initialization((findall(N, (between(1, 100, N), is_prime(N, R), R == true), Ps), format("~w~n", [Ps]), forall(member(N, [561, 1373653, 25326001, 3215031751, 2152302898747, 3474749660383, 4294967291, 1000000007, 999999999989]), (is_prime(N, R), format("~w: ~w~n", [N, R]))))).
-%---------------------------------------------------------- 272 minesweeper-game
+%---------------------------------------------------------- 271 minesweeper-game
 :- use_module(library(clpfd)).
 
 % Play - run the minesweeper game with a specified width and height
@@ -9568,7 +9552,7 @@ expose_grid_([H|T], G, Ng) :- % is a space, recurse
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): play/2 shuffles its bombs with random_permutation/2 inside make_grid/3; the driver builds the same 6x4 grid with make_grid/3's own steps minus the shuffle (its four bombs stay in the top row) and plays it, play/1, with the moves in minesweeper-game.in (open 6 4, mark the four bombs).
 :- initialization((W = 6, H = 4, Len is W * H, length(Cells, Len), NB is Len // 5, length(Bs, NB), maplist(=('?'), Bs), map_bombs_to_cells(Cells, Bs, NewC), convert_col(NewC, W, H, CC), map_grid(adj_bomb(grid(W, H, CC)), grid(W, H, CC), G), play(G))).
-%-------------------------- 273 minimum-multiple-of-m-where-digital-sum-equals-m
+%-------------------------- 272 minimum-multiple-of-m-where-digital-sum-equals-m
 main:-
     between(1, 40, N),
     min_mult_dsum(N, M),
@@ -9602,7 +9586,7 @@ digit_sum(N, Sum, S1):-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%---------------------------------------------------- 274 modular-exponentiation
+%---------------------------------------------------- 273 modular-exponentiation
 main:-
     A = 2988348162058574136915891421498819466320163312926952423791023078876139,
     B = 2351399303373464486466122544523690094744975233415544072992656881240319,
@@ -9612,7 +9596,7 @@ main:-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%----------------------------------------------------------- 275 modular-inverse
+%----------------------------------------------------------- 274 modular-inverse
 egcd(_, 0, 1, 0) :- !.
 egcd(A, B, X, Y) :-
     divmod(A, B, Q, R),
@@ -9626,7 +9610,7 @@ modinv(A, B, N) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines modinv/3 and never calls it; the driver prints the task's inverse of 42 modulo 2017.
 :- initialization((modinv(42, 2017, N), format("~w~n", [N]))).
-%-------------------------------------------------------------- 276 morse-code-1
+%-------------------------------------------------------------- 275 morse-code-1
 % convert text to morse
 % query text2morse(Text, Morse)
 % where
@@ -9700,7 +9684,7 @@ morse('@', ".--.-.").
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines text2morse/2 and never calls it; the driver runs morse-code-2's example text Hello World.
 :- initialization((text2morse("Hello World", M), format("~w~n", [M]))).
-%----------------------------------------------------- 277 multiplication-tables
+%----------------------------------------------------- 276 multiplication-tables
 make_table(S,E) :-
 	print_header(S,E),
 	make_table_rows(S,E),
@@ -9737,7 +9721,7 @@ print_num(X) :- X > 99,	          format(' ~p', X).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines make_table/2 and never calls it; the driver prints the task's 12x12 upper-triangle table.
 :- initialization((make_table(1, 12), nl)).
-%---------------------------------------------------------------- 278 multisplit
+%---------------------------------------------------------------- 277 multisplit
 multisplit(_LSep, '') -->
 	{!},
 	[].
@@ -9781,12 +9765,12 @@ my_sort(<, (N, N1, _), (N, N2, _)) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the multisplit//2 DCG and never calls it; the driver splits the task's a!===b=!=c on the separators ==, != and = and prints the tokens and separators.
 :- initialization((phrase(multisplit(['==', '!=', '='], 'a!===b=!=c'), L), format("~w~n", [L]))).
-%------------------------------------------------------------------- 279 mutex-2
+%------------------------------------------------------------------- 278 mutex-2
 synchronized_goal(G) :- with_mutex(my_mutex, call(G)).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines synchronized_goal/1 and never calls it; the driver runs two goals in turn under its mutex my_mutex (with_mutex/2 creates it on first use).
 :- initialization(forall(member(G, [writeln(first), writeln(second)]), synchronized_goal(G))).
-%-------------------------------------------------------- 280 mutual-recursion-1
+%-------------------------------------------------------- 279 mutual-recursion-1
 female(0,1).
 female(N,F) :- N>0,
 	       N1 is N-1,
@@ -9803,7 +9787,7 @@ male(N,F) :- N>0,
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines female/2 and male/2 and never calls them; the driver prints F(n) and M(n) for n = 0..19.
 :- initialization((forall(between(0, 19, N), (female(N, F), format("~w ", [F]))), nl, forall(between(0, 19, N), (male(N, M), format("~w ", [M]))), nl)).
-%-------------------------------------------------------- 281 n-queens-problem-1
+%-------------------------------------------------------- 280 n-queens-problem-1
 solution([]).
 
 solution([X/Y|Others]) :-
@@ -9828,7 +9812,7 @@ template([1/Y1,2/Y2,3/Y3,4/Y4,5/Y5,6/Y6,7/Y7,8/Y8]).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines solution/1 and template/1 and never calls them; the driver prints every 8-queens solution and their count.
 :- initialization((findall(S, (template(S), solution(S)), Ss), forall(member(S, Ss), format("~w~n", [S])), length(Ss, N), format("~w solutions~n", [N]))).
-%-------------------------------------------------------- 282 n-queens-problem-2
+%-------------------------------------------------------- 281 n-queens-problem-2
 solution(Queens) :-
  permutation([1,2,3,4,5,6,7,8], Queens),
  safe(Queens).
@@ -9860,7 +9844,7 @@ noattack(Y,[Y1|Ylist],Xdist) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines solution/1 and never calls it; the driver prints every 8-queens solution and their count.
 :- initialization((findall(Q, solution(Q), Qs), forall(member(Q, Qs), format("~w~n", [Q])), length(Qs, N), format("~w solutions~n", [N]))).
-%-------------------------------------------------------- 283 n-queens-problem-3
+%-------------------------------------------------------- 282 n-queens-problem-3
 solution(Ylist) :-
  sol(Ylist,[1,2,3,4,5,6,7,8],
     [1,2,3,4,5,6,7,8],
@@ -9884,7 +9868,7 @@ del(Item,[First|List],[First|List1]) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines solution/1 and never calls it; the driver prints every 8-queens solution and their count.
 :- initialization((findall(Q, solution(Q), Qs), forall(member(Q, Qs), format("~w~n", [Q])), length(Qs, N), format("~w solutions~n", [N]))).
-%-------------------------------------------------------- 284 n-queens-problem-4
+%-------------------------------------------------------- 283 n-queens-problem-4
 :- initialization(main).
 
 
@@ -9901,7 +9885,7 @@ not_diag(Q, [Qh|Qs], D) :-
 
 
 main :- findall(Qs, (queens(8,Qs), write(Qs), nl), _), halt.
-%-------------------------------------------------------- 285 n-queens-problem-5
+%-------------------------------------------------------- 284 n-queens-problem-5
 % 8 queens problem.
 %  q(Row) represents a queen, allocated one per row. No rows ever clash.
 %  The columns are chosen iteratively from available columns held in a
@@ -9928,7 +9912,7 @@ queens.
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines queens/0 and never calls it; the driver calls it once at load (the 92 boards of 8 queens).
 :- initialization(queens).
-%-------------------------------------------------------- 286 n-queens-problem-6
+%-------------------------------------------------------- 285 n-queens-problem-6
 not_diagonal(X, N) :-
   maplist(plus, X, N, Z1), maplist(plus, X, Z2, N), is_set(Z1), is_set(Z2).
 
@@ -9937,7 +9921,7 @@ queens(N, Qs) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines queens/2 and never calls it; the driver prints the solutions for N = 8 and their count.
 :- initialization((queens(8, Qs), forall(member(Q, Qs), format("~w~n", [Q])), length(Qs, N), format("~w solutions~n", [N]))).
-%-------------------------------------------------------- 287 n-queens-problem-8
+%-------------------------------------------------------- 286 n-queens-problem-8
 :- use_module(library(clpfd)).
 
 % DOC: http://www.pathwayslms.com/swipltuts/clpfd/clpfd.html
@@ -10013,7 +9997,7 @@ main :-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%---------------------------------------------------------- 288 named-parameters
+%---------------------------------------------------------- 287 named-parameters
 :- initialization(main).
 
 main :-
@@ -10028,7 +10012,7 @@ named_args([],_).
 named_args([A|B],C) :-
 	member(A,C),
 	named_args(B,C).
-%----------------------------------------------- 289 narcissistic-decimal-number
+%----------------------------------------------- 288 narcissistic-decimal-number
 digits(0, []):-!.
 digits(N, [D|DList]):-
 	divmod(N, 10, N1, D),
@@ -10074,7 +10058,7 @@ do.
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines do/0 and never calls it; the driver calls it once at load (the narcissistic numbers of 1..7 digits, the task's first 25).
 :- initialization(do).
-%---------------------------------------------------------- 290 neighbour-primes
+%---------------------------------------------------------- 289 neighbour-primes
 primes(2, Limit):- 2 =< Limit.
 primes(P, Limit):-
 	between(3, Limit, P),
@@ -10104,7 +10088,7 @@ do:-Limit is 500,
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines do/0 and never calls it; the driver calls it once at load (the task's limit 500).
 :- initialization(do).
-%------------------------------------------------------------------ 291 nim-game
+%------------------------------------------------------------------ 290 nim-game
 nim :- next_turn(12), !.
 
 next_turn(N) :-
@@ -10128,7 +10112,7 @@ next_turn(N) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines nim/0 and never calls it; nim-game.in holds the player's three moves 1, 2 and 3, after which the computer has taken the last of the 12 dots.
 :- initialization((nim, nl)).
-%--------------------------------------------------------- 292 nimber-arithmetic
+%--------------------------------------------------------- 291 nimber-arithmetic
 % highest power of 2 that divides a given number
 hpo2(N, P):-
     P is N /\ -N.
@@ -10210,7 +10194,7 @@ main:-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%--------------------------------------------- 293 non-continuous-subsequences-1
+%--------------------------------------------- 292 non-continuous-subsequences-1
 % fetch all the subsequences
 ncsubs(L, LNCSL) :-
 	setof(NCSL, one_ncsubs(L, NCSL), LNCSL).
@@ -10239,7 +10223,7 @@ sublist(L, SL) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines ncsubs/2 and never calls it; the driver prints the non-continuous subsequences of the task's 1..4 and of the sibling's example [a,e,i,o,u].
 :- initialization(forall(member(L, [[1,2,3,4], [a,e,i,o,u]]), (ncsubs(L, S), format("~w: ~w~n", [L, S])))).
-%--------------------------------------------------------- 294 nonogram-solver-1
+%--------------------------------------------------------- 293 nonogram-solver-1
 /*
 * Nonogram/paint-by-numbers solver in SWI-Prolog. Uses CLP(FD),
 * in particular the automaton/3 (finite-state/RE) constraint.
@@ -10310,7 +10294,7 @@ nonogram(Rows, Cols) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines nonogram/2 and never calls it; the driver solves the task's first puzzle (rows C BA CB BB F AE F A B, columns AB CA AE GA E C D C, letters as numbers).
 :- initialization(nonogram([[3],[2,1],[3,2],[2,2],[6],[1,5],[6],[1],[2]], [[1,2],[3,1],[1,5],[7,1],[5],[3],[4],[3]])).
-%------------------------------------------------------------------ 295 nth-root
+%------------------------------------------------------------------ 294 nth-root
 iroot(_, 0, 0) :- !.
 iroot(M, N, R) :-
     M > 1,
@@ -10335,7 +10319,7 @@ newton(N, A, X0, X1) :- X1 is ((N - 1)*X0 + A div X0**(N - 1)) div N.
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines iroot/3 and never calls it; the driver prints integer M-th roots of a few numbers, sqrt(2) and cbrt(2) to many digits among them.
 :- initialization(forall(member(M-N, [2-2, 3-1000, 5-100000, 2-(2*10**100), 3-(2*10**60)]), (A is N, iroot(M, A, R), format("~w root of ~w = ~w~n", [M, A, R])))).
-%----------------------------------------------------------------------- 296 nth
+%----------------------------------------------------------------------- 295 nth
 nth(N, N_Th) :-
     ( tween(N)      -> Th = "th"
     ; 1 is N mod 10 -> Th = "st"
@@ -10355,7 +10339,7 @@ test :-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines test/0 and never calls it; the driver calls it once at load.
 :- initialization(test).
-%-------------------------------------------------------------- 297 number-names
+%-------------------------------------------------------------- 296 number-names
 :- module(spell, [spell/2]).
 
 %
@@ -10420,7 +10404,7 @@ spell_remaining(N, S) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines spell/2 and never calls it; the driver spells a range of numbers, a negative and a large one.
 :- initialization(forall(member(N, [0, 7, 13, 21, 99, 100, 101, 999, 1000, 1001, 12345, 1000000, 123456789, -42, 9007199254740991]), (spell(N, S), format("~w: ~w~n", [N, S])))).
-%------------------------------------------------------ 298 number-reversal-game
+%------------------------------------------------------ 297 number-reversal-game
 play :- random_numbers(L), do_turn(0,L), !.
 
 do_turn(N, L) :-
@@ -10451,7 +10435,7 @@ print_list(L) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): play/0 deals the digits with random_permutation/2; the driver plays the same game, do_turn/2, from the fixed list 2 3 1 4 5 6 7 8 9 with the flips 2 and 3 in number-reversal-game.in.
 :- initialization(do_turn(0, [2, 3, 1, 4, 5, 6, 7, 8, 9])).
-%--------------------------------- 299 numbers-with-prime-digits-whose-sum-is-13
+%--------------------------------- 298 numbers-with-prime-digits-whose-sum-is-13
 digit_sum(N, M) :- digit_sum(N, 0, M).
 digit_sum(0, A, B) :- !, A = B.
 digit_sum(N, A0, M) :-
@@ -10476,7 +10460,7 @@ main :-
     halt.
 
 ?- main.
-%---------------------------- 300 numerical-integration-adaptive-simpsons-method
+%---------------------------- 299 numerical-integration-adaptive-simpsons-method
 %%% -*- mode: prolog; prolog-indent-width: 2; -*-
 
 main :-
@@ -10523,7 +10507,7 @@ simpson_rule(F, A, FA, B, FB, M, FM, QuadVal) :-
   QuadVal is ((B - A) / 6.0) * (FA + (4.0 * FM) + FB).
 
 :- initialization(main).
-%------------------------------------------------- 301 odd-squarefree-semiprimes
+%------------------------------------------------- 300 odd-squarefree-semiprimes
 oddPrimes(3, Limit):- 3 =< Limit.
 oddPrimes(N, Limit):-
 	between(5, Limit, N),
@@ -10564,7 +10548,7 @@ do:-Limit is 1000,
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines do/0 and never calls it; the driver calls it once at load (the task's limit 1000).
 :- initialization(do).
-%---------------------------------------------------------- 302 odd-word-problem
+%---------------------------------------------------------- 301 odd-word-problem
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): written for double_quotes=codes (DEC-10 Prolog, ISO, SWI before 7); the program sets the flag, as
 % GOAL-PROLOG-100's superset ruling has a program set a dialect flag (it is SCRIP's default; swipl 7 reads "..." as a string).
 :- set_prolog_flag(double_quotes, codes).
@@ -10598,7 +10582,7 @@ odd_word([H|T], R) -->
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines odd_word_problem/0 and never calls it; written for code lists (even_word//1 matches "." against read codes), so the flag is set at its head; odd-word-problem.in holds the task's two sentences, one a line, and the driver runs it once per line.
 :- initialization(forall(between(1, 2, _), odd_word_problem)).
-%------------------------------------------- 303 old-russian-measure-of-length-1
+%------------------------------------------- 302 old-russian-measure-of-length-1
 :- module(old_russian_unit_conversion, [convert/2]).
 :- set_prolog_flag(prefer_rationals, true).     % Int/Int --> Rational
 :- set_prolog_flag(rational_syntax,  natural).  % Write as `1/3`
@@ -10700,7 +10684,7 @@ normalise(sazhen, sazhen).
 normalise(сажень, sazhen).
 normalise(vyersta, vyersta).
 normalise(верста, vyersta).
-%---------------------------------------------------------- 304 orbital-elements
+%---------------------------------------------------------- 303 orbital-elements
 :- use_module(library(clpr)).
 
 v3_add(v(X1,Y1,Z1),v(X2,Y2,Z2),v(X,Y,Z)) :-
@@ -10763,7 +10747,7 @@ find_l(Ecc, SemiMajor, L) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines orbital_state_vectors/3 and never calls it; the driver runs the task's elements (a 1, e 0.1, i 0, node 355/(113*6), periapsis 0, true anomaly 0).
 :- initialization((orbital_state_vectors(o(1.0, 0.1, 0.0, 355.0/(113*6), 0.0, 0.0), P, S), format("position: ~w~nspeed: ~w~n", [P, S]))).
-%----------------------------------------------- 305 order-by-pair-comparisons-1
+%----------------------------------------------- 304 order-by-pair-comparisons-1
 ask_sort(List, Sorted) :- predsort(ask, List, Sorted).
 
 ask(Cmp, Left, Right) :-
@@ -10779,24 +10763,24 @@ ask(Cmp, Left, Right) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines ask_sort/2 and never calls it; the driver sorts the task's seven colours, order-by-pair-comparisons-1.in holding the answers to each comparison, one a line (get_single_char/1).
 :- initialization((ask_sort(["violet", "red", "green", "indigo", "blue", "yellow", "orange"], S), format("~w~n", [S]))).
-%---------------------------------------------------- 306 palindrome-detection-1
+%---------------------------------------------------- 305 palindrome-detection-1
 palindrome(Word) :- name(Word,List), reverse(List,List).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines palindrome/1 and never calls it; the driver tests a few palindromes and non-palindromes.
 :- initialization(forall(member(W, [racecar, rotor, abba, a, '', ab, palindrome]), ((palindrome(W) -> R = yes ; R = no), format("~q: ~w~n", [W, R])))).
-%---------------------------------------------------- 307 palindrome-detection-2
+%---------------------------------------------------- 306 palindrome-detection-2
 pali(Str) :- sub_string(Str, 0, 1, _, X), string_concat(Str2, X, Str), string_concat(X, Mid, Str2), pali(Mid).
 pali(Str) :- string_length(Str, Len), Len < 2.
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines pali/1 over strings and never calls it; the driver tests a few palindromes and non-palindromes.
 :- initialization(forall(member(W, ["racecar", "rotor", "abba", "a", "", "ab", "palindrome"]), ((pali(W) -> R = yes ; R = no), format("~q: ~w~n", [W, R])))).
-%---------------------------------------------------- 308 palindrome-detection-3
+%---------------------------------------------------- 307 palindrome-detection-3
 pali(Str) :- sub_atom(Str, 0, 1, _, X), atom_concat(Str2, X, Str), atom_concat(X, Mid, Str2), pali(Mid).
 pali(Str) :- atom_length(Str, Len), Len < 2.
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines pali/1 over atoms and never calls it; the driver tests a few palindromes and non-palindromes.
 :- initialization(forall(member(W, [racecar, rotor, abba, a, '', ab, palindrome]), ((pali(W) -> R = yes ; R = no), format("~q: ~w~n", [W, R])))).
-%------------------------------------------------ 309 palindromic-gapful-numbers
+%------------------------------------------------ 308 palindromic-gapful-numbers
 init_palindrome(Digit, p(10, Next, 0)):-
     Next is Digit * 10 - 1.
 
@@ -10907,7 +10891,7 @@ main:-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%----------------------------------------------------------- 310 pangram-checker
+%----------------------------------------------------------- 309 pangram-checker
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): written for double_quotes=codes (DEC-10 Prolog, ISO, SWI before 7); the program sets the flag, as
 % GOAL-PROLOG-100's superset ruling has a program set a dialect flag (it is SCRIP's default; swipl 7 reads "..." as a string).
 :- set_prolog_flag(double_quotes, codes).
@@ -10926,7 +10910,7 @@ pangram_example :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines pangram_example/0 and never calls it; written for code lists (member/2 over "..."), so the flag is set at its head and the driver calls it once at load.
 :- initialization(pangram_example).
-%--------------------------------------------------- 311 parametric-polymorphism
+%--------------------------------------------------- 310 parametric-polymorphism
 % Tree Definition
 tree(leaf(_)).
 tree(branch(Left, Right)) :- tree(Left), tree(Right).
@@ -10948,7 +10932,7 @@ run :-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines run/0 and never calls it; the driver calls it once at load.
 :- initialization(run).
-%-------------------------------------------- 312 parse-command-line-arguments-1
+%-------------------------------------------- 311 parse-command-line-arguments-1
 :- initialization(main, main).
 
 main(Argv) :-
@@ -10994,7 +10978,7 @@ opt_spec([
 		longflags([port]),
 		help('The server port.')]	
 ]).
-%------------------------------------------ 313 parsing-rpn-calculator-algorithm
+%------------------------------------------ 312 parsing-rpn-calculator-algorithm
 rpn(L) :-
 	writeln('Token  Action                             Stack'),
 	parse(L, [],[X] ,[]),
@@ -11045,7 +11029,7 @@ is_op(94, X, Y, V) :-	V is X**Y.
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines rpn/1 over a code list and never calls it; the driver runs the task's expression 3 4 2 * 1 5 - 2 3 ^ ^ / +.
 :- initialization((atom_codes('3 4 2 * 1 5 - 2 3 ^ ^ / +', L), rpn(L))).
-%---------------------------------------------- 314 partial-function-application
+%---------------------------------------------- 313 partial-function-application
 fs(P, S, S1) :-
 	maplist(P, S, S1).
 
@@ -11074,7 +11058,7 @@ fs :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines fs/0 and never calls it; the driver calls it once at load.
 :- initialization(fs).
-%------------------------------------ 315 partition-an-integer-x-into-n-primes-2
+%------------------------------------ 314 partition-an-integer-x-into-n-primes-2
 :- module(prime_numbers, [find_prime_numbers/1, is_prime/1]).
 :- dynamic is_prime/1.
 
@@ -11120,7 +11104,7 @@ cross_out(S, N, P):-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this file is the sieve module (find_prime_numbers/1, is_prime/1) of the solution and never calls it; the driver sieves to 100 and prints the primes it leaves.
 :- initialization((find_prime_numbers(100), findall(P, is_prime(P), Ps), format("~w~n", [Ps]))).
-%-------------------------------------------------------- 316 pascals-triangle-3
+%-------------------------------------------------------- 315 pascals-triangle-3
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % Produce a pascal's triangle of depth N
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -11153,7 +11137,7 @@ pascal(_).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines pascal/1 and never calls it; the driver runs pascals-triangle-4's example pascal(5).
 :- initialization(pascal(5)).
-%--------------------------------------------------- 317 pascals-triangle-puzzle
+%--------------------------------------------------- 316 pascals-triangle-puzzle
 :- use_module(library(clpfd)).
 
 puzzle(Ts, X, Y, Z) :-
@@ -11176,7 +11160,7 @@ triangle_([T|Ts], [A,B|Rest]) :- T #= A + B, triangle_(Ts, [B|Rest]).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines puzzle/4 and never calls it; the driver prints the first solution of its comment's example, the solved rows and X, Y, Z.
 :- initialization((once(puzzle(Ts, X, Y, Z)), forall(member(T, Ts), format("~w~n", [T])), format("X = ~w, Y = ~w, Z = ~w~n", [X, Y, Z]))).
-%--------------------------------------------------------------- 318 peano-curve
+%--------------------------------------------------------------- 317 peano-curve
 main:-
     write_peano_curve('peano_curve.svg', 656, 4).
 
@@ -11236,7 +11220,7 @@ execute(Stream, X, Y, Length, Angle, [_|Chars]):-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): main/0 writes peano_curve.svg (order 4, 6561 segments) and prints nothing; the driver writes the same path element, peano_curve/7, to standard output at order 2.
 :- initialization(peano_curve(user_output, "L", 8, 8, 8, 90, 2)).
-%--------------------------------------------------------- 319 perfect-numbers-1
+%--------------------------------------------------------- 318 perfect-numbers-1
 tt_divisors(X, N, TT) :-
 	Q is X / N,
 	(   0 is X mod N -> (Q = N -> TT1 is N + TT;
@@ -11254,7 +11238,7 @@ perfect_numbers(N, L) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines perfect_numbers/2 and never calls it; the driver prints the perfect numbers up to 10000.
 :- initialization((perfect_numbers(10000, L), format("~w~n", [L]))).
-%--------------------------------------------------------- 320 perfect-numbers-2
+%--------------------------------------------------------- 319 perfect-numbers-2
 perfect(N) :-
    factor_2s(N, Chk, Exp),
    Chk =:= (1 << (Exp+1)) - 1,
@@ -11284,7 +11268,7 @@ prime(N, D, [A|As]) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines perfect/1 and never calls it; the driver prints the perfect numbers up to 10000 and its verdict on four larger even perfect numbers and one non-perfect.
 :- initialization((findall(N, (between(1, 10000, N), perfect(N)), L), format("~w~n", [L]), forall(member(N, [33550336, 33550337, 8589869056, 137438691328, 2305843008139952128]), ((perfect(N) -> R = yes ; R = no), format("~w: ~w~n", [N, R]))))).
-%------------------------------------------------------------ 321 permutations-1
+%------------------------------------------------------------ 320 permutations-1
 :- use_module(library(clpfd)).
 
 permut_clpfd(L, N) :-
@@ -11295,7 +11279,7 @@ permut_clpfd(L, N) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines permut_clpfd/2 and never calls it; the driver runs permutations-2's example, the permutations of 1..3.
 :- initialization(forall(permut_clpfd(L, 3), writeln(L))).
-%------------------------------------------------------------ 322 permutations-3
+%------------------------------------------------------------ 321 permutations-3
 % permut_Prolog(P, L)
 % P is a permutation of L
 
@@ -11306,7 +11290,7 @@ permut_Prolog([H | T], NL) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines permut_Prolog/2 and never calls it; the driver runs permutations-4's example over [ab, cd, ef].
 :- initialization(forall(permut_Prolog(P, [ab, cd, ef]), writeln(P))).
-%------------------------------------------------------------ 323 permutations-5
+%------------------------------------------------------------ 322 permutations-5
 insert(X, L, [X|L]).
 insert(X, [Y|Ys], [Y|L2]) :- insert(X, Ys, L2).
 
@@ -11315,7 +11299,7 @@ permutation([X|Xs], P) :- permutation(Xs, L), insert(X, L, P).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines permutation/2 and never calls it; the driver prints the permutations of [1,2,3].
 :- initialization(forall(permutation([1, 2, 3], P), writeln(P))).
-%---------------------------------------------------------- 324 phrase-reversals
+%---------------------------------------------------------- 323 phrase-reversals
 :- set_prolog_flag(double_quotes, chars).
 :- use_module(library(dcg/basics)).
 :- use_module(library(dcg/high_order)).
@@ -11336,7 +11320,7 @@ phrase_reversals(String) :-
     format("~s~n~s~n~s~n~s~n", [String, Reversed, ReversedWordsString, ReversedPhrase]).
 
 ?- phrase_reversals("rosetta code phrase reversal").
-%------------------------------------------------------------------------ 325 pi
+%------------------------------------------------------------------------ 324 pi
 pi_spigot :-
     pi(X),
     forall(member(Y, X), write(Y)).
@@ -11359,7 +11343,7 @@ pi(Q, R, T, I, OUT) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): pi_spigot/0 writes digits of pi forever; the driver takes the first 100 digits of the same lazy list, pi/1, and writes them as pi_spigot/0 does.
 :- initialization((pi(X), length(Ds, 100), append(Ds, _, X), forall(member(D, Ds), write(D)), nl)).
-%----------------------------------------------------------- 326 pierpont-primes
+%----------------------------------------------------------- 325 pierpont-primes
 ?- use_module(library(heaps)).
 
 three_smooth(Lz) :-
@@ -11448,7 +11432,7 @@ factor_2s(S0, D0, S, D) :-
     factor_2s(S1, D1, S, D).
 
 ?- main.
-%------------------------------------------------------------- 327 playing-cards
+%------------------------------------------------------------- 326 playing-cards
 /** <module> Cards
 
   A card is represented by the term "card(Pip, Suit)".
@@ -11490,7 +11474,7 @@ print_card(card(Pip, Suit)) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this module defines new_deck/1, print_deck/1 and deck_deal/3 and never calls them; the driver prints a new deck and deals one card (deck_shuffle/2 is random/1 and is not called).
 :- initialization((new_deck(D), print_deck(D), deck_deal(D, C, D1), length(D1, N), format("dealt ~w, ~w left~n", [C, N]))).
-%-------------------------------------------------------------- 328 polymorphism
+%-------------------------------------------------------------- 327 polymorphism
 % Point
 point_construct(X, Y, point(X1,Y1)) :-
 	default(X, X1),
@@ -11537,7 +11521,7 @@ test_poly(T) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines test_point/0 and test_circle/0 and never calls them; the driver calls each once at load.
 :- initialization((test_point, nl, test_circle, nl)).
-%---------------------------------------------------------- 329 population-count
+%---------------------------------------------------------- 328 population-count
 is_evil(Number) :- popcount(Number) mod 2 =:= 0.
 
 :-  numlist(0, 29, Powers),
@@ -11550,7 +11534,7 @@ is_evil(Number) :- popcount(Number) mod 2 =:= 0.
     writeln(EvilNumbers),
     writeln('The first 30 odious numbers are:'),
     writeln(OdiousNumbers).
-%--------------------------------------------------------------- 330 power-set-1
+%--------------------------------------------------------------- 329 power-set-1
 powerset(X,Y) :- bagof( S, subseq(S,X), Y).
 
 subseq( [], []).
@@ -11560,7 +11544,7 @@ subseq( [X|Xs], [_|Ys] ) :- append(_, [X|Zs], Ys), subseq(Xs, Zs).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines powerset/2 and never calls it; the driver prints the power set of the task's {1,2,3,4}.
 :- initialization((powerset([1, 2, 3, 4], P), format("~w~n", [P]))).
-%--------------------------------------------------------------- 331 power-set-2
+%--------------------------------------------------------------- 330 power-set-2
 power_set( [], [[]]).
 power_set( [X|Xs], PS) :-
   power_set(Xs, PS1),
@@ -11569,7 +11553,7 @@ power_set( [X|Xs], PS) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines power_set/2 and never calls it; the driver prints the power set of the task's {1,2,3,4}.
 :- initialization((power_set([1, 2, 3, 4], P), format("~w~n", [P]))).
-%--------------------------------------------------------------- 332 power-set-3
+%--------------------------------------------------------------- 331 power-set-3
 :- use_module(library(chr)).
 
 :- chr_constraint chr_power_set/2, chr_power_set/1, clean/0.
@@ -11591,7 +11575,7 @@ empty_element @ chr_power_set([], _) <=> chr_power_set([]).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the CHR constraint chr_power_set/2 and never posts it; the driver posts it for the task's {1,2,3,4}, collects the chr_power_set/1 subsets from the store and cleans it.
 :- initialization((chr_power_set([1, 2, 3, 4], []), findall(L, find_chr_constraint(chr_power_set(L)), Ls), clean, format("~w~n", [Ls]))).
-%----------------------------------------------- 333 primality-by-trial-division
+%----------------------------------------------- 332 primality-by-trial-division
 prime(2).
 prime(N) :-
   between(3, inf, N),
@@ -11602,7 +11586,7 @@ prime(N) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines prime/1 and never calls it; the driver prints the primes up to 100.
 :- initialization((findall(N, (between(1, 100, N), prime(N)), L), format("~w~n", [L]))).
-%---------------------------------------------------------- 334 prime-conspiracy
+%---------------------------------------------------------- 333 prime-conspiracy
 % table of nth prime values (up to 100,000)
 
 nthprime(    10, 29).
@@ -11665,7 +11649,7 @@ remove_multiples(N, M, L, R) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines conspiracy/1 and never calls it; the driver runs it on the first 10000 primes (its table reaches 100000, the task's million is out of reach).
 :- initialization(conspiracy(4)).
-%----------------------------------------------------- 335 prime-decomposition-1
+%----------------------------------------------------- 334 prime-decomposition-1
 prime_decomp(N, L) :-
     SN is sqrt(N),
     prime_decomp_1(N, SN, 2, [], L).
@@ -11706,7 +11690,7 @@ prime_decomp_2(N, SN, D, L, LF) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines prime_decomp/2 and never calls it; the driver decomposes two small numbers and prime-decomposition-2's first two examples (its third takes 8 s).
 :- initialization(forall(member(N, [12, 1001, 9007199254740991, 576460752303423487]), (prime_decomp(N, L), format("~w: ~w~n", [N, L])))).
-%----------------------------------------------------- 336 prime-decomposition-3
+%----------------------------------------------------- 335 prime-decomposition-3
 factors( N, FS):-
     factors2( N, FS).
 
@@ -11726,7 +11710,7 @@ factors( N, K, FS):-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines factors/2 and never calls it; the driver prints factors(N, FS) for a few small numbers and two large ones (factors2/2 pushes an unbound K for each factor 2, so FS goes through numbervars/3 before printing).
 :- initialization(forall(member(N, [2, 3, 12, 13, 97, 360, 1001, 2147483647, 600851475143]), (factors(N, FS), numbervars(FS, 0, _), format("~w: ~w~n", [N, FS])))).
-%----------------------------------------------------- 337 prime-decomposition-4
+%----------------------------------------------------- 336 prime-decomposition-4
 wheel2357(L) :-
     W = [2,  4,  2,  4,  6,  2,  6,  4,
          2,  4,  6,  6,  2,  6,  4,  2,
@@ -11765,7 +11749,7 @@ reverse_factors(A, A).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines factor/2 and never calls it; the driver prints factor(N, F), the factorisation as a product term, for a few small numbers and two large ones.
 :- initialization(forall(member(N, [1, 2, 12, 360, 1001, 1024, 2147483647, 600851475143]), (factor(N, F), format("~w: ~w~n", [N, F])))).
-%- 338 prime-numbers-p-for-which-the-sum-of-primes-less-than-or-equal-to-p-is-prime
+%- 337 prime-numbers-p-for-which-the-sum-of-primes-less-than-or-equal-to-p-is-prime
 primes(2, Limit):- 2 =< Limit.
 primes(3, Limit):- 3 =< Limit.
 primes(N, Limit):-
@@ -11802,7 +11786,7 @@ do:- do(2000).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines do/0 (the task's primes below 2000) and never calls it; the driver calls it once at load.
 :- initialization(do).
-%------------------------------------------------------------ 339 priority-queue
+%------------------------------------------------------------ 338 priority-queue
 priority-queue :-
   TL0 = [3-'Clear drains',
          4-'Feed cat'],
@@ -11834,7 +11818,7 @@ priority-queue :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the clause priority-queue (a -/2 head over the task's five prioritised tasks) and never calls it; the driver calls it once at load.
 :- initialization(priority-queue).
-%------------------------------------------------------------ 340 program-name-1
+%------------------------------------------------------------ 339 program-name-1
 % SWI-Prolog version 8.0.0 for i686-linux.
 % This will find itself, and return the knowledge base it is in.
 file_name(F) :- true
@@ -11846,7 +11830,7 @@ file_name(F) :- true
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines file_name/1 and never calls it; the driver prints the base name of the file it returns, so the answer does not depend on the directory the program runs in.
 :- initialization((file_name(F), file_base_name(F, B), writeln(B))).
-%--------------------------------------------------------- 341 proper-divisors-1
+%--------------------------------------------------------- 340 proper-divisors-1
 divisor(N, Divisor) :-
     UpperBound is round(sqrt(N)),
     between(1, UpperBound, D),
@@ -11898,7 +11882,7 @@ find_most_proper_divisors_in_range(Low, High, Result) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the task's two entries and never calls them; the driver prints the proper divisors of 1..10 and the number in 1..20000 with the most proper divisors.
 :- initialization((show_proper_divisors_of_range(1, 10), find_most_proper_divisors_in_range(1, 20000, R), writeln(R))).
-%------------------------------------------------------- 342 pythagorean-triples
+%------------------------------------------------------- 341 pythagorean-triples
 show :-
     Data = [100, 1_000, 10_000, 100_000, 1_000_000, 10_000_000, 100_000_000],
     forall(
@@ -11939,7 +11923,7 @@ order2(A, B, B, A).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines show/0 and never calls it; show/0 runs perimeters up to 100,000,000 (over a minute), so the driver calls count_triples/3 for 100 .. 1,000,000 and prints them in show/0's own format.
 :- initialization(forall(member(Max, [100, 1000, 10000, 100000, 1000000]), (count_triples(Max, Total, Prim), format("upto ~D, there are ~D Pythagorean triples (~D primitive.)~n", [Max, Total, Prim])))).
-%-------------------------------------------------------------- 343 quaternion-1
+%-------------------------------------------------------------- 342 quaternion-1
 % A quaternion is represented as a complex term qx/4
 add(qx(R0,I0,J0,K0), qx(R1,I1,J1,K1), qx(R,I,J,K)) :-
 	!, R is R0+R1, I is I0+I1, J is J0+J1, K is K0+K1.
@@ -11965,7 +11949,7 @@ conjugate(qx(R,Ii,Ji,Ki),qx(R,I,J,K)) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the quaternion operations over qx/4 and never calls them; the driver runs each on the task's q = (1,2,3,4), q1 = (2,3,4,5), q2 = (3,4,5,6), r = 7.
 :- initialization((Q = qx(1,2,3,4), Q1 = qx(2,3,4,5), Q2 = qx(3,4,5,6), R = 7, abs(Q, N), format("abs(q) = ~w~n", [N]), negate(Q, Ng), format("-q = ~w~n", [Ng]), conjugate(Q, C), format("conj(q) = ~w~n", [C]), add(Q, R, QR), format("q + r = ~w~n", [QR]), add(R, Q, RQ), format("r + q = ~w~n", [RQ]), add(Q1, Q2, S), format("q1 + q2 = ~w~n", [S]), mul(Q, R, M1), format("q * r = ~w~n", [M1]), mul(R, Q, M2), format("r * q = ~w~n", [M2]), mul(Q1, Q2, P12), format("q1 * q2 = ~w~n", [P12]), mul(Q2, Q1, P21), format("q2 * q1 = ~w~n", [P21]))).
-%---------------------------------------------------------- 344 queue-definition
+%---------------------------------------------------------- 343 queue-definition
 empty(U-V) :-
     unify_with_occurs_check(U, V).
 
@@ -11980,7 +11964,7 @@ append_dl(X-Y, Y-Z, X-Z).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines empty/1, push/3 and pop/3 and never calls them; the driver pushes 1, 2, 3, pops them in FIFO order and tests empty/1 and pop/3 on the empty queue.
 :- initialization((empty(Q0), push(Q0, 1, Q1), push(Q1, 2, Q2), push(Q2, 3, Q3), pop(Q3, A, Q4), format('pop: ~w~n', [A]), pop(Q4, B, Q5), format('pop: ~w~n', [B]), (empty(Q5) -> writeln('empty: yes') ; writeln('empty: no')), pop(Q5, C, Q6), format('pop: ~w~n', [C]), (empty(Q6) -> writeln('empty: yes') ; writeln('empty: no')), (pop(Q6, _, _) -> writeln('pop: a value') ; writeln('pop on the empty queue fails')))).
-%--------------------------------------------------------------- 345 queue-usage
+%--------------------------------------------------------------- 344 queue-usage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% definitions of queue
 empty(U-V) :-
@@ -12032,18 +12016,18 @@ queue :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): queue/0 prints its difference-list queues with their unbound tails by name (_123), which no ref can hold; the driver runs queue/0's own steps over empty/1, push/3 and pop/3 and prints each queue in queue/0's format after numbervars/3.
 :- initialization((empty(Q), copy_term(Q, C0), numbervars(C0, 0, _), format('Create queue ~w~n~n', [C0]), write('Add numbers 1 and 2 : '), push(Q, 1, Q1), push(Q1, 2, Q2), copy_term(Q2, C2), numbervars(C2, 0, _), format('~w~n~n', [C2]), pop(Q2, V, Q3), copy_term(Q3, C3), numbervars(C3, 0, _), format('Pop : Value ~w Queue : ~w~n~n', [V, C3]), write('Test of the queue : '), (empty(Q3) -> writeln('Queue empy') ; writeln('Queue not empty')), nl, write('Pop the queue : '), pop(Q3, V1, Q4), copy_term(Q4, C4), numbervars(C4, 0, _), format('Value ~w Queue : ~w~n~n', [V1, C4]), write('Pop the queue : '), (pop(Q4, _, _) -> writeln('a value') ; writeln('fails, the queue is empty')))).
-%------------------------------------------------------------------- 346 quine-1
+%------------------------------------------------------------------- 345 quine-1
 quine :-
 	listing(quine).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines quine/0 (it lists its own clause) and never calls it; the driver calls it once at load.
 :- initialization(quine).
-%------------------------------------------------------------------- 347 quine-2
+%------------------------------------------------------------------- 346 quine-2
 quine:-asserta(a((quine:-asserta(a(A,B)),a(C,D+E),a(D,E),numbervars(C),write(C),write(.)),A+B)),a(F,G+H),a(G,H),numbervars(F),write(F),write(.).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines quine/0 and never calls it; the driver calls it once at load.
 :- initialization(quine).
-%------------------------------------------------------------------- 348 quine-3
+%------------------------------------------------------------------- 347 quine-3
 % Tested with SWI-Prolog version 7.1.37
 :- initialization(main).
 
@@ -12155,14 +12139,14 @@ quine(Q) :-
 
 main :- (quine(Q), write(Q);true),halt.
 % line break in the end of file is important
-%------------------------------------------------------------------- 349 quine-4
+%------------------------------------------------------------------- 348 quine-4
 main:-X='main:-X=~q,format(X,X).',format(X,X).
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%----------------------------------------------------------------- 350 rainbow-1
+%----------------------------------------------------------------- 349 rainbow-1
 :- write('\e[91mR\e[33mA\e[92mI\e[32mN\e[36mB\e[94mO\e[35mW\e[0m'), nl.
-%----------------------------------------------------------------- 351 rainbow-2
+%----------------------------------------------------------------- 350 rainbow-2
 :- use_module(library(ansi_term)).
 
 :-  ansi_format([fg(255,  10,  10)], 'R',   []),
@@ -12172,7 +12156,7 @@ main:-X='main:-X=~q,format(X,X).',format(X,X).
     ansi_format([fg(  0, 200, 240)], 'B',   []),
     ansi_format([fg(  0,   0, 255)], 'O',   []),
     ansi_format([fg(240,   0, 240)], 'W~n', []).
-%------------------------------------------------------- 352 range-consolidation
+%------------------------------------------------------- 351 range-consolidation
 consolidate_ranges(Ranges, Consolidated):-
     normalize(Ranges, Normalized),
     sort(Normalized, Sorted),
@@ -12219,7 +12203,7 @@ main:-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%----------------------------------------------------------- 353 range-expansion
+%----------------------------------------------------------- 352 range-expansion
 range_expand :-
 	L = '-6,-3--1,3-5,7-11,14,15,17-20',
 	writeln(L),
@@ -12304,7 +12288,7 @@ run(Val,[Other|RRest], [Val, Val],[Other|RRest]).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines range_expand/0 (the task's range -6,-3--1,3-5,7-11,14,15,17-20) and never calls it; the driver calls it once at load.
 :- initialization(range_expand).
-%---------------------------------------------------------- 354 range-extraction
+%---------------------------------------------------------- 353 range-extraction
 range_extract :-
 	L = [0,  1,  2,  4,  6,  7,  8, 11, 12, 14,
 	     15, 16, 17, 18, 19, 20, 21, 22, 23, 24,
@@ -12397,7 +12381,7 @@ run(Val,[Other|RRest], [Val, Val],[Other|RRest]).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines range_extract/0 (the task's 33 integers) and never calls it; the driver calls it once at load.
 :- initialization(range_extract).
-%---------------------------------------------------------- 355 read-entire-file
+%---------------------------------------------------------- 354 read-entire-file
 :- initialization(main).
 
 main :-
@@ -12406,12 +12390,12 @@ main :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): main/0 reads the file named by its first argument into a string and prints nothing (the task asks for no output); read-entire-file.argv names /dev/stdin and read-entire-file.in holds a short text, and the driver reports whether main/0 succeeded.
 :- initialization((main -> writeln('main/0 read the file named on its command line into a string') ; writeln('main/0 failed'))).
-%----------------------------------------------- 356 remove-duplicate-elements-1
+%----------------------------------------------- 355 remove-duplicate-elements-1
 uniq(Data,Uniques) :- sort(Data,Uniques).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines uniq/2 and never calls it; the driver prints it for a sample list with duplicates (the task fixes none).
 :- initialization((uniq([1, 2, 3, a, b, c, 2, 3, 4, b, c, d], U), format("~w~n", [U]))).
-%----------------------------------------------- 357 remove-duplicate-elements-3
+%----------------------------------------------- 356 remove-duplicate-elements-3
 member1(X,[H|_]) :- X==H,!.
 member1(X,[_|T]) :- member1(X,T).
 
@@ -12421,7 +12405,7 @@ distinct([H|T],[H|C]) :- distinct(T,C).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines distinct/2 and never calls it; the driver prints it for a sample list with duplicates (the task fixes none).
 :- initialization((distinct([1, 2, 3, a, b, c, 2, 3, 4, b, c, d], U), format("~w~n", [U]))).
-%----------------------------------------------- 358 remove-vowels-from-a-string
+%----------------------------------------------- 357 remove-vowels-from-a-string
 :- system:set_prolog_flag(double_quotes,chars) .
 
 :- [library(lists)] .
@@ -12461,7 +12445,7 @@ lists:member(CHAR,"AEIOUaeiouüéâäàåçêëèïîìÄÅÉæÆôöòûùÿÖ�
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines remove_vowels/2 over char lists (it sets double_quotes=chars itself) and never calls it; the driver prints it for a sample sentence (the task fixes none).
 :- initialization((remove_vowels("Rosetta Code is a programming chrestomathy site.", O), atom_chars(A, O), writeln(A))).
-%--------------------------------------------------------- 359 repeat-a-string-1
+%--------------------------------------------------------- 358 repeat-a-string-1
 %repeat(Str,Num,Res).
 repeat(Str,1,Str).
 repeat(Str,Num,Res):-
@@ -12471,7 +12455,7 @@ repeat(Str,Num,Res):-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines repeat/3 and never calls it; the driver prints the task's "ha" repeated 5 times.
 :- initialization((repeat("ha", 5, R), writeln(R))).
-%--------------------------------------------------------- 360 repeat-a-string-2
+%--------------------------------------------------------- 359 repeat-a-string-2
 :- system:set_prolog_flag(double_quotes,chars) .
 
 repeat(SOURCEz0,COUNT0,TARGETz)
@@ -12496,7 +12480,7 @@ repeat(SOURCEz0,COUNT)
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines repeat/3 over char lists (it sets double_quotes=chars itself) and never calls it; the driver prints the task's "ha" repeated 5 times.
 :- initialization((repeat("ha", 5, T), atom_chars(A, T), writeln(A))).
-%-------------------------------------------------------------------- 361 repeat
+%-------------------------------------------------------------------- 360 repeat
 repeat(_, 0).
 repeat(Callable, Times) :-
 	succ(TimesLess1, Times),
@@ -12508,7 +12492,7 @@ test(Name) :- format('Hello, ~w~n', Name).
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines test/0 and never calls it; the driver calls it once at load.
 :- initialization(test).
-%-------------------------------------------------------- 362 reverse-a-string-2
+%-------------------------------------------------------- 361 reverse-a-string-2
 accRev([H|T], A, R) :- accRev(T, [H|A], R).
 accRev([], A, A).
 
@@ -12516,7 +12500,7 @@ rev(L,R) :- accRev(L,[],R).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines rev/2 over lists and never calls it; the driver reverses the task's asdf.
 :- initialization((atom_chars(asdf, L), rev(L, R), atom_chars(A, R), writeln(A))).
-%- 363 reverse-the-order-of-lines-in-a-text-file-while-preserving-the-contents-of-each-line
+%- 362 reverse-the-order-of-lines-in-a-text-file-while-preserving-the-contents-of-each-line
 :- use_module(library(dcg/basics), [string_without/4]).
 :- use_module(library(dcg/high_order), [sequence/4]).
 :- initialization(main, main).
@@ -12529,7 +12513,7 @@ main([Filename]) :-
     reverse(Lines, ReversedLines),
     phrase(lines(ReversedLines), Codes),
     format("~s", [Codes]).
-%------------------------------------------------------- 364 rock-paper-scissors
+%------------------------------------------------------- 363 rock-paper-scissors
 play :-
   findall(P,beats(P,_),Prev),
   play(Prev).
@@ -12560,7 +12544,7 @@ beats(scissors, paper).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): play/0 reads the player's moves and draws the computer's with random_member/2, which no ref can hold; the driver calls the judge beneath it, result/4, on all nine pairs of moves and prints its verdicts.
 :- initialization(forall((member(C, [rock, paper, scissors]), member(P, [rock, paper, scissors])), (format("computer ~w, you ~w: ", [C, P]), result(C, P, [], _)))).
-%----------------------------------------------------- 365 roman-numerals-decode
+%----------------------------------------------------- 364 roman-numerals-decode
 decode_digit(i, 1).
 decode_digit(v, 5).
 decode_digit(x, 10).
@@ -12596,7 +12580,7 @@ test :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): test/0 only checks the task's three numerals and prints nothing; the driver prints decode_string/2 for the task's MCMXC, MMVIII and MDCLXVI.
 :- initialization(forall(member(R, [mcmxc, mmviii, mdclxvi]), (decode_string(R, V), format("~w: ~w~n", [R, V])))).
-%------------------------------------------------------------ 366 roots-of-unity
+%------------------------------------------------------------ 365 roots-of-unity
 roots(N, Rs) :-
     succ(Pn, N), numlist(0, Pn, Ks),
     maplist(root(N), Ks, Rs).
@@ -12616,7 +12600,7 @@ cis(P rdiv Q, exp(P*i*pi/Q)).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines roots/2 and never calls it; under swipl 9 rdiv yields a rational number (1r3) that cis/2's P rdiv Q heads never match, so roots/2 fails for every n >= 3 and the driver prints the roots for n = 1 and 2 only.
 :- initialization(forall(between(1, 2, N), (roots(N, Rs), format("~w: ~w~n", [N, Rs])))).
-%------------------------------------------------------------------ 367 rot-13-1
+%------------------------------------------------------------------ 366 rot-13-1
 :- use_module(library(ctypes)).
 
 runtime_entry(start) :-
@@ -12642,7 +12626,7 @@ rot13_char(Ch, Rot) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines runtime_entry(start) (rot13 of standard input) and never calls it; rot-13-1.in holds two sample lines.
 :- initialization(runtime_entry(start)).
-%------------------------------------------------------------------ 368 rot-13-2
+%------------------------------------------------------------------ 367 rot-13-2
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): written for double_quotes=codes (DEC-10 Prolog, ISO, SWI before 7); the program sets the flag, as
 % GOAL-PROLOG-100's superset ruling has a program set a dialect flag (it is SCRIP's default; swipl 7 reads "..." as a string).
 :- set_prolog_flag(double_quotes, codes).
@@ -12656,7 +12640,7 @@ rot(C, C1) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines rot13/2 and never calls it; written for code lists (member/2 over "..."), so the flag is set at its head and the driver prints rot13 of a sample line.
 :- initialization((rot13("Hello, World!", R), writeln(R))).
-%------------------------------------------------------- 369 run-length-encoding
+%------------------------------------------------------- 368 run-length-encoding
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): written for double_quotes=codes (DEC-10 Prolog, ISO, SWI before 7); the program sets the flag, as
 % GOAL-PROLOG-100's superset ruling has a program set a dialect flag (it is SCRIP's default; swipl 7 reads "..." as a string).
 :- set_prolog_flag(double_quotes, codes).
@@ -12771,7 +12755,7 @@ run(Var,[Other|RRest], [1,Var],[Other|RRest]):-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines run_length/0 (the task's WWW...W string) and never calls it; written for code lists (writef %s and string_to_list/2 over "..."), so the flag is set at its head and the driver calls it once at load.
 :- initialization(run_length).
-%------------------------------------------------------------- 370 search-a-list
+%------------------------------------------------------------- 369 search-a-list
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): written for double_quotes=codes (DEC-10 Prolog, ISO, SWI before 7); the program sets the flag, as
 % GOAL-PROLOG-100's superset ruling has a program set a dialect flag (it is SCRIP's default; swipl 7 reads "..." as a string).
 :- set_prolog_flag(double_quotes, codes).
@@ -12801,7 +12785,7 @@ my_write(Name) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines search_a_list/2 over the task's haystack and never calls it; written for code lists (writef %s and format ~s over "..."), so the flag is set at its head and the driver searches the task's needles Bush and Washington.
 :- initialization(search_a_list("Bush", "Washington")).
-%------------------------------------------------------------------ 371 sedols-1
+%------------------------------------------------------------------ 370 sedols-1
 :- set_prolog_flag(double_quotes, codes).
 :- use_module(library(clpfd)).
 
@@ -12842,7 +12826,7 @@ task(SEDOL6s) :-
       "BOYBKT", % Ill formed test case - illegal vowel.
       "B00030"
     ]).
-%--------------------------------------------------- 372 self-describing-numbers
+%--------------------------------------------------- 371 self-describing-numbers
 :- use_module(library(clpfd)).
 
 self_describling :-
@@ -12953,7 +12937,7 @@ run(Var,[Other|RRest], [1, Var],[Other|RRest]):-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines self_describling/0 and never calls it; it searches lengths 1..10 (25 s), so the driver runs its own loop over self_describling/2 for lengths 1..8 in its own format.
 :- initialization(forall(between(1, 8, I), (findall(N, self_describling(I, N), L), format('Len ~w, Numbers ~w~n', [I, L])))).
-%----------------------------------------------------------------- 373 semiprime
+%----------------------------------------------------------------- 372 semiprime
 factors(N, FList):-
 	factors(N, 2, 0, FList).
 
@@ -12983,7 +12967,7 @@ do:- semiPrimeList(100, SemiPrimes),
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines do/0 (the semiprimes to 100 and in 1675..1685) and never calls it; the driver calls it once at load.
 :- initialization(do).
-%-------------------------------------- 374 sequence-of-primes-by-trial-division
+%-------------------------------------- 373 sequence-of-primes-by-trial-division
 wheel235(L) :-
     W = [6, 4, 2, 4, 2, 4, 6, 2 | W],
     lazy_list(accumulate, 1/W, L).
@@ -13008,7 +12992,7 @@ primes(Limit, [2, 3, 5 | Primes]) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines primes/2 and never calls it; the driver prints the primes up to 100.
 :- initialization((primes(100, Ps), format("~w~n", [Ps]))).
-%--------------------------------------------------------------------- 375 set-1
+%--------------------------------------------------------------------- 374 set-1
 :- use_module(library(lists)).
 
 set :-
@@ -13061,7 +13045,7 @@ equal([H1 | T1], B) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines set/0 and never calls it; the driver calls it once at load.
 :- initialization(set).
-%---------------------------------------------------------------- 376 set-puzzle
+%---------------------------------------------------------------- 375 set-puzzle
 do_it(N) :-	
 	card_sets(N, Cards, Sets),
 	!,
@@ -13110,7 +13094,7 @@ match([A|T1],[B|T2],[C|T3]) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): do_it/1 deals its cards with random_member/2, which no ref can hold; the driver gives the solver beneath it, is_card_set/2, one fixed nine-card deal with exactly four sets and prints cards and sets in do_it/1's format.
 :- initialization((Cards = [[green,squiggle,one,solid],[red,squiggle,two,solid],[purple,squiggle,two,solid],[red,squiggle,two,striped],[red,diamond,one,striped],[green,oval,three,striped],[purple,oval,three,solid],[red,oval,three,open],[green,squiggle,two,open]], setof(Set, is_card_set(Cards, Set), Sets), format('Cards: ~n'), maplist(print_card, Cards), format('~nSets: ~n'), maplist(print_set, Sets))).
-%------------------------------------------------------------- 377 sexy-primes-2
+%------------------------------------------------------------- 376 sexy-primes-2
 :- module(prime_numbers, [find_prime_numbers/1, is_prime/1]).
 :- dynamic is_prime/1.
 
@@ -13156,7 +13140,7 @@ cross_out(S, N, P):-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this file is the sieve module (prime_numbers) of the task's solution and never calls it; the driver sieves to 100 with find_prime_numbers/1 and prints the is_prime/1 table it builds.
 :- initialization((find_prime_numbers(100), findall(P, is_prime(P), Ps), format("~w~n", [Ps]))).
-%------------------------------------------------------------------- 378 sha-1-1
+%------------------------------------------------------------------- 377 sha-1-1
 :- use_module(library(sha)).
 sha_hex(Str,Hex):-
    sha_hash(Str, Hash, []),
@@ -13164,7 +13148,7 @@ sha_hex(Str,Hex):-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines sha_hex/2 and never calls it; the driver prints the SHA-1 of the task's "Rosetta Code".
 :- initialization((sha_hex("Rosetta Code", H), writeln(H))).
-%------------------------------------------------ 379 short-circuit-evaluation-1
+%------------------------------------------------ 378 short-circuit-evaluation-1
 short_circuit :-
 	(   a_or_b(true, true) -> writeln('==> true'); writeln('==> false')) , nl,
 	(   a_or_b(true, false)-> writeln('==>  true'); writeln('==> false')) , nl,
@@ -13194,7 +13178,7 @@ b(X) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines short_circuit/0 and never calls it; the driver calls it once at load.
 :- initialization(short_circuit).
-%---------------------------------------------------------- 380 show-ascii-table
+%---------------------------------------------------------- 379 show-ascii-table
 ascii :-
     forall(between(32, 47, N), row(N)).
 
@@ -13214,7 +13198,7 @@ ascii(A) :- char_code(D,A), format(' ~w      ', D).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines ascii/0 and never calls it; the driver calls it once at load.
 :- initialization(ascii).
-%------------------------------------------------ 381 sierpinski-arrowhead-curve
+%------------------------------------------------ 380 sierpinski-arrowhead-curve
 main:-
     write_sierpinski_arrowhead('sierpinski_arrowhead.svg', 600, 8).
 
@@ -13260,7 +13244,7 @@ curve(Stream, Order, Length, Cursor, Cursor1, Angle):-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): main/0 writes an order-8 SVG to sierpinski_arrowhead.svg and prints nothing; the driver has write_sierpinski_arrowhead/3 write an order-4 curve to /dev/stdout.
 :- initialization(write_sierpinski_arrowhead('/dev/stdout', 600, 4)).
-%--------------------------------------------------------- 382 sierpinski-carpet
+%--------------------------------------------------------- 381 sierpinski-carpet
 main:-
     write_sierpinski_carpet('sierpinski_carpet.svg', 486, 4).
 
@@ -13304,7 +13288,7 @@ write_square(Stream, X, Y, Side):-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): main/0 writes an order-4 SVG (4681 squares) to sierpinski_carpet.svg and prints nothing; the driver has write_sierpinski_carpet/3 write an order-2 carpet to /dev/stdout.
 :- initialization(write_sierpinski_carpet('/dev/stdout', 486, 2)).
-%------------------------------------------------------- 383 sierpinski-pentagon
+%------------------------------------------------------- 382 sierpinski-pentagon
 main:-
     write_sierpinski_pentagon('sierpinski_pentagon.svg', 600, 5).
 
@@ -13358,7 +13342,7 @@ sierpinski_pentagons(Stream, X, Y, Scale_factor, Side, Angle, N, I):-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): main/0 writes an order-5 SVG to sierpinski_pentagon.svg and prints nothing; the driver has write_sierpinski_pentagon/3 write an order-4 pentaflake (125 pentagons) to /dev/stdout.
 :- initialization(write_sierpinski_pentagon('/dev/stdout', 600, 4)).
-%------------------------------------------------------- 384 sierpinski-triangle
+%------------------------------------------------------- 383 sierpinski-triangle
 sierpinski_triangle(N) :-
 	Len is 2 ** (N+1) - 1,
 	length(L, Len),
@@ -13402,7 +13386,7 @@ rule_90(' ',' ',' ', ' ').
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines sierpinski_triangle/1 and never calls it; the driver draws the task's order 4.
 :- initialization(sierpinski_triangle(4)).
-%--------------------------------------------------- 385 sieve-of-eratosthenes-1
+%--------------------------------------------------- 384 sieve-of-eratosthenes-1
 primes(N, L) :- numlist(2, N, Xs),
            sieve(Xs, L).
 
@@ -13420,7 +13404,7 @@ filter(H, H2, [H1|T], R) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines primes/2 and never calls it; the driver prints the primes up to 100.
 :- initialization((primes(100, L), format("~w~n", [L]))).
-%-------------------------------------------------- 386 sieve-of-eratosthenes-10
+%-------------------------------------------------- 385 sieve-of-eratosthenes-10
 sieve(N, [2|PS]) :-       % PS is list of odd primes up to N
     retractall(mult(_)),
     sieve_O(3,N,PS).
@@ -13451,7 +13435,7 @@ main(N) :- current_prolog_flag(verbose,F),
 
 :- dynamic( mult/1 ).
 :- main(100000), main(1000000).
-%-------------------------------------------------- 387 sieve-of-eratosthenes-12
+%-------------------------------------------------- 386 sieve-of-eratosthenes-12
 ?- use_module(library(heaps)).
 
 prime(2).
@@ -13481,7 +13465,7 @@ adjust_heap(H, N, H) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the unbounded generator prime/1 and never calls it; the driver prints its first 25 primes (those below 100).
 :- initialization((once(findnsols(25, P, prime(P), Ps)), format("~w~n", [Ps]))).
-%--------------------------------------------------- 388 sieve-of-eratosthenes-2
+%--------------------------------------------------- 387 sieve-of-eratosthenes-2
 primes(X, PS) :- X > 1, range(2, X, R), sieve(R, PS).
 
 range(X, X, [X]) :- !.
@@ -13499,7 +13483,7 @@ remove( X,       [H | Y], [H | R]) :- remove(X, Y, R).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines primes/2 and never calls it; the driver prints the primes up to 100.
 :- initialization((primes(100, L), format("~w~n", [L]))).
-%--------------------------------------------------- 389 sieve-of-eratosthenes-4
+%--------------------------------------------------- 388 sieve-of-eratosthenes-4
 primes(X, PS) :- X > 1, range(2, X, R), sieve(X, R, PS).
 
 range(X, X, [X]) :- !.
@@ -13519,7 +13503,7 @@ remove( X,       [H | Y], [H | R]) :- remove(X, Y, R).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines primes/2 and never calls it; the driver prints the primes up to 100.
 :- initialization((primes(100, L), format("~w~n", [L]))).
-%--------------------------------------------------- 390 sieve-of-eratosthenes-5
+%--------------------------------------------------- 389 sieve-of-eratosthenes-5
 primes(N,[]):- N < 2, !.
 primes(N,[2|R]):- ints(3,N,L), sift(N,L,R).
 ints(A,B,[A|C]):- A=<B -> D is A+2, ints(D,B,C).
@@ -13536,7 +13520,7 @@ rmv(P,M,[A|B],C):- (   M>A ->  C=[A|D], rmv(P,M,B,D)
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines primes/2 and never calls it; the driver prints the primes up to 100.
 :- initialization((primes(100, L), format("~w~n", [L]))).
-%--------------------------------------------------- 391 sieve-of-eratosthenes-6
+%--------------------------------------------------- 390 sieve-of-eratosthenes-6
 primes(PS):- count(2, 1, NS), sieve(NS, PS).
 
 count(N, D, [N|T]):- freeze(T, (N2 is N+D, count(N2, D, T))).
@@ -13551,7 +13535,7 @@ remove([A|T],[B|S],R):- A < B -> remove(T,[B|S],R) ;
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the lazy infinite list primes/1 and its take/3 and never calls them; the driver prints its first 25 primes (those below 100).
 :- initialization((primes(PS), take(25, PS, A), format("~w~n", [A]))).
-%--------------------------------------------------- 392 sieve-of-eratosthenes-8
+%--------------------------------------------------- 391 sieve-of-eratosthenes-8
 % %sieve( +N, -Primes ) is true if Primes is the list of consecutive primes
 % that are less than or equal to N
 sieve( N, [2|Rest]) :-
@@ -13590,7 +13574,7 @@ between(Min, Max, By, I) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines sieve/2 and never calls it; the driver prints the primes up to 100.
 :- initialization((sieve(100, Ps), format("~w~n", [Ps]))).
-%--------------------------------------------------------------------- 393 sleep
+%--------------------------------------------------------------------- 392 sleep
 rosetta_sleep(Time) :-
 	writeln('Sleeping...'),
 	sleep(Time),
@@ -13598,7 +13582,7 @@ rosetta_sleep(Time) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines rosetta_sleep/1 and never calls it; the driver sleeps one second between its two lines.
 :- initialization(rosetta_sleep(1)).
-%---------------------------------------- 394 smallest-square-that-begins-with-n
+%---------------------------------------- 393 smallest-square-that-begins-with-n
 firstSqr(Num, Sqr):-
 	Start is ceil(sqrt(Num)),
 	NumLen is floor(log10(Num)) + 1,
@@ -13618,7 +13602,7 @@ do:-findall([Num, Sqr], (between(1, 49, Num), firstSqr(Num, Sqr)), NumSqrList),
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines do/0 (the task's n = 1..49) and never calls it; the driver calls it once at load.
 :- initialization(do).
-%--------------------------------------------------- 395 solve-a-hopido-puzzle-1
+%--------------------------------------------------- 394 solve-a-hopido-puzzle-1
 hopido(Grid,[C|Solved],Xs,Ys) :-	
 	select(C,Grid,RGrid),
 	solve(RGrid,C,Solved,Xs,Ys).
@@ -13646,7 +13630,7 @@ j3(O,N,[_|T]) :- j3(O,N,T).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines hopido/4 and never calls it; the driver solves the task's puzzle (the cells solve-a-hopido-puzzle-2 lists) and prints the path, as that file's test/0 does.
 :- initialization((P = [p(1,0),p(2,0),p(4,0),p(5,0),p(0,1),p(1,1),p(2,1),p(3,1),p(4,1),p(5,1),p(6,1),p(0,2),p(1,2),p(2,2),p(3,2),p(4,2),p(5,2),p(6,2),p(1,3),p(2,3),p(3,3),p(4,3),p(5,3),p(2,4),p(3,4),p(4,4),p(3,5)], XYs = [0,1,2,3,4,5,6], hopido(P, S, XYs, XYs), maplist(writeln, S))).
-%---------------------------------------------------- 396 solve-a-numbrix-puzzle
+%---------------------------------------------------- 395 solve-a-numbrix-puzzle
 /*
  * Solver
  */
@@ -13757,7 +13741,7 @@ test3 :- numbrix([
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines test1/0, test2/0 (the task's two puzzles) and test3/0 and never calls them; the driver solves the task's two.
 :- initialization((test1, nl, test2)).
-%-------------------------------------------- 397 solve-the-no-connection-puzzle
+%-------------------------------------------- 396 solve-the-no-connection-puzzle
 :- use_module(library(clpfd)).
 
 edge(a, c).
@@ -13815,7 +13799,7 @@ set_constraint(H, [H1 | T1], V, [_VH | VT]) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines no_connection_puzzle/1 and never calls it; the driver prints the first arrangement it finds, the values of holes a..h.
 :- initialization((no_connection_puzzle(Vs), format("~w~n", [Vs]))).
-%----------------------------------------- 398 sort-a-list-of-object-identifiers
+%----------------------------------------- 397 sort-a-list-of-object-identifiers
 main:-
     sort_oid_list(["1.3.6.1.4.1.11.2.17.19.3.4.0.10",
     "1.3.6.1.4.1.11.2.17.5.2.0.79",
@@ -13845,7 +13829,7 @@ number_strings([Number|Numbers], [String|Strings]):-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%--------------------------------------------------- 399 sort-disjoint-sublist-1
+%--------------------------------------------------- 398 sort-disjoint-sublist-1
 % ===
 % Problem description
 % ===
@@ -13942,7 +13926,7 @@ insert_fresh_vars(_,[],V,[],[],V).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines sort_disjoint_sublist/3 and never calls it; the driver runs the task's values and indices {6, 1, 7}.
 :- initialization((sort_disjoint_sublist([7,6,5,4,3,2,1,0], [6,1,7], R), format("~w~n", [R]))).
-%--------------------------------------------------- 400 sort-disjoint-sublist-2
+%--------------------------------------------------- 399 sort-disjoint-sublist-2
 % ===
 % Main predicate
 % ===
@@ -13975,7 +13959,7 @@ splinter(List, N, Elem, Front, Back) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines sort_disjoint_sublist/3 and never calls it; the driver runs the task's values and indices {6, 1, 7}.
 :- initialization((sort_disjoint_sublist([7,6,5,4,3,2,1,0], [6,1,7], R), format("~w~n", [R]))).
-%-------------------------------------------- 401 sort-numbers-lexicographically
+%-------------------------------------------- 400 sort-numbers-lexicographically
 lexicographical_sort(Numbers, Sorted_numbers):-
     number_strings(Numbers, Strings),
     sort(Strings, Sorted_strings),
@@ -14014,7 +13998,7 @@ main:-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%-------------------------------------------- 402 sort-using-a-custom-comparator
+%-------------------------------------------- 401 sort-using-a-custom-comparator
 rosetta_sort :-
 	L = ["Here", "are", "some", "sample", "strings", "to", "be", "sorted" ],
 	predsort(my_comp, L, L1),
@@ -14036,7 +14020,7 @@ my_write(W) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines rosetta_sort/0 (the task's eight strings) and never calls it; the driver calls it once at load.
 :- initialization(rosetta_sort).
-%----------------------------------------------- 403 sorting-algorithms-bogosort
+%----------------------------------------------- 402 sorting-algorithms-bogosort
 bogo_sort(L,Rl) :-
 	min_list(L,Min),
 	repeat,
@@ -14051,7 +14035,7 @@ is_sorted([N|T],P) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines bogo_sort/2 and never calls it; it shuffles with random_permutation/2 until sorted, so only its running time varies, and the driver prints the sorted result for an eight-element list.
 :- initialization((bogo_sort([3, 1, 4, 1, 5, 9, 2, 6], L), format("~w~n", [L]))).
-%------------------------------------------ 404 sorting-algorithms-bubble-sort-1
+%------------------------------------------ 403 sorting-algorithms-bubble-sort-1
 %___________________________________________________________________________
 % Bubble sort
 
@@ -14075,7 +14059,7 @@ test :-  In = [8,9,1,3,4,2,6,5,4],
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines test/0 and never calls it; the driver calls it once at load.
 :- initialization(test).
-%------------------------------------------ 405 sorting-algorithms-bubble-sort-2
+%------------------------------------------ 404 sorting-algorithms-bubble-sort-2
 :- initialization(main).
 
 
@@ -14098,7 +14082,7 @@ bubble_pass(Xs,Res,Changed) :-
 test([8,9,1,3,4,2,6,5,4]).
 
 main :- test(T), bubble_sort(T,_), halt.
-%------------------------------------------ 406 sorting-algorithms-cocktail-sort
+%------------------------------------------ 405 sorting-algorithms-cocktail-sort
 ctail(_, [], Rev, Rev, sorted) :- write(Rev), nl.
 ctail(fwrd, [A,B|T], In, Rev, unsorted) :- A > B, !,
 	ctail(fwrd, [B,A|T], In, Rev, _).
@@ -14120,7 +14104,7 @@ test :-  In = [8,9,1,3,4,2,6,5,4],
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines test/0 and never calls it; the driver calls it once at load.
 :- initialization(test).
-%--------------------------------------- 407 sorting-algorithms-insertion-sort-1
+%--------------------------------------- 406 sorting-algorithms-insertion-sort-1
 insert_sort(L1,L2) :-
   insert_sort_intern(L1,[],L2).
 
@@ -14138,7 +14122,7 @@ insert([H|T],X,[H|T2]) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines insert_sort/2 and never calls it; the driver sorts a sample list.
 :- initialization((insert_sort([4, 65, 2, -31, 0, 99, 2, 83, 782, 1], L), format("~w~n", [L]))).
-%--------------------------------------- 408 sorting-algorithms-insertion-sort-2
+%--------------------------------------- 407 sorting-algorithms-insertion-sort-2
 % insertion sort
 isort(L, LS) :-
 	foldl(insert, [], L, LS).
@@ -14161,7 +14145,7 @@ insert([H | T], N, [H|L1]) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines isort/2 and never calls it; the driver sorts one ten-element sample list (the task gives no data) and prints it.
 :- initialization((isort([4, 65, 2, -31, 0, 99, 2, 83, 782, 1], S), format("~w~n", [S]))).
-%--------------------------------------------- 409 sorting-algorithms-merge-sort
+%--------------------------------------------- 408 sorting-algorithms-merge-sort
 % msort( L, S )
 % True if S is a sorted copy of L, using merge sort
 msort( [], [] ).
@@ -14183,7 +14167,7 @@ merge( [L|LS], [R|RS], [R|T] ) :- L > R,  merge( [L|LS],   RS,  T).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines msort/2 (its own merge sort, overriding the builtin) and never calls it; the driver sorts one ten-element sample list (the task gives no data) and prints it.
 :- initialization((msort([4, 65, 2, -31, 0, 99, 2, 83, 782, 1], S), format("~w~n", [S]))).
-%------------------------------------------ 410 sorting-algorithms-patience-sort
+%------------------------------------------ 409 sorting-algorithms-patience-sort
 patience_sort(UnSorted,Sorted) :-
 	make_piles(UnSorted,[],Piled),
 	merge_piles(Piled,[],Sorted).
@@ -14216,7 +14200,7 @@ merge_pile([N|T1],[P|T2],[N|R]) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines patience_sort/2 and never calls it; the driver sorts one ten-element sample list (the task gives no data) and prints it.
 :- initialization((patience_sort([4, 65, 2, -31, 0, 99, 2, 83, 782, 1], S), format("~w~n", [S]))).
-%--------------------------------------- 411 sorting-algorithms-permutation-sort
+%--------------------------------------- 410 sorting-algorithms-permutation-sort
 permutation_sort(L,S) :- permutation(L,S), sorted(S).
 
 sorted([]).
@@ -14228,7 +14212,7 @@ permutation([X|XS],YS) :- permutation(XS,ZS), select(X,YS,ZS).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines permutation_sort/2 and never calls it; the driver sorts one eight-element sample list (permutation sort is n!, so kept short) and prints it.
 :- initialization((permutation_sort([4, 65, 2, -31, 0, 99, 83, 1], S), format("~w~n", [S]))).
-%---------------------------------------------- 412 sorting-algorithms-quicksort
+%---------------------------------------------- 411 sorting-algorithms-quicksort
 qsort( [], [] ).
 qsort( [H|U], S ) :- splitBy(H, U, L, R), qsort(L, SL), qsort(R, SR), append(SL, [H|SR], S).
 
@@ -14240,7 +14224,7 @@ splitBy( H, [U|T], LS, [U|RS] ) :- U  > H, splitBy(H, T, LS, RS).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines qsort/2 and never calls it; the driver sorts one ten-element sample list (the task gives no data) and prints it.
 :- initialization((qsort([4, 65, 2, -31, 0, 99, 2, 83, 782, 1], S), format("~w~n", [S]))).
-%----------------------------------------- 413 sorting-algorithms-selection-sort
+%----------------------------------------- 412 sorting-algorithms-selection-sort
 selection_sort([], []).
 selection_sort([H | L], [H1 | L2]) :-
 	exchange(H, L, H1, L1),
@@ -14261,7 +14245,7 @@ exchange(H, L, H1, L1) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines selection_sort/2 and never calls it; the driver sorts one ten-element sample list (the task gives no data) and prints it.
 :- initialization((selection_sort([4, 65, 2, -31, 0, 99, 2, 83, 782, 1], S), format("~w~n", [S]))).
-%------------------------------------------------------------------- 414 soundex
+%------------------------------------------------------------------- 413 soundex
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): written for double_quotes=codes (DEC-10 Prolog, ISO, SWI before 7); the program sets the flag, as
 % GOAL-PROLOG-100's superset ruling has a program set a dialect flag (it is SCRIP's default; swipl 7 reads "..." as a string).
 :- set_prolog_flag(double_quotes, codes).
@@ -14343,7 +14327,7 @@ test.  % Succeeds only if all the tests succeed
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): the coo's driver called test/0, which prints nothing when every check passes; written for code lists (member/2 over "bfpv"), so the flag is set at its head and the driver prints soundex/2 of the seven names test/0 checks.
 :- initialization(forall(member(N, ['Robert', 'Rupert', 'Rubin', 'Ashcroft', 'Ashcraft', 'Tymczak', 'Pfister']), (soundex(N, S), format("~w: ~w~n", [N, S])))).
-%--------------------------------------------- 415 spelling-of-ordinal-numbers-2
+%--------------------------------------------- 414 spelling-of-ordinal-numbers-2
 :- module(number_name, [number_name/3]).
 
 small_name(0, zero, zeroth).
@@ -14438,7 +14422,7 @@ number_name(Number, Type, Name):-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the module number_name with number_name/3 and never calls it; the driver spells the task's twelve numbers as ordinals.
 :- initialization(forall(member(N, [1, 2, 3, 4, 5, 11, 65, 100, 101, 272, 23456, 8007006005004003]), (number_name(N, ordinal, Name), format("~w: ~w~n", [N, Name])))).
-%------------------------------------------------------------- 416 spiral-matrix
+%------------------------------------------------------------- 415 spiral-matrix
 %  Prolog implementation: SWI-Prolog 7.2.3
 
 replace([_|T], 0, E, [E|T]) :- !.
@@ -14493,7 +14477,7 @@ spiral(N, Mx) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines spiral/2 and never calls it; the driver prints the task's 5x5 spiral, one row a line.
 :- initialization((spiral(5, M), forall(member(R, M), format("~w~n", [R])))).
-%------------------------------------------------- 417 stable-marriage-problem-2
+%------------------------------------------------- 416 stable-marriage-problem-2
 :- dynamic person/4, prop/2.
 % person(Name, Preference, Status, Candidate)
 % prop(Name, List_of_Candidates) (for a woman)
@@ -14711,7 +14695,7 @@ unstable_couple(couple(X1, Y1), couple(X2, Y2)) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): stable_mariage/0 perturbs two couples chosen by random/1; the driver runs its own set-up, iteration/3, print_couple/1 and stability/1 and swaps the first two couples' wives as the fixed perturbation, in stable_mariage/0's own format.
 :- initialization((retractall(person(_, _, _, _)), retractall(prop(_, _)), forall(prefere(P, Pref), assert(person(P, Pref, free, none))), bagof(X, man(X), LstMen), bagof(Y, woman(Y), LstWomen), forall(member(Z, LstWomen), assert(prop(Z, []))), iteration(LstMen, LstWomen, LstCouple), maplist(print_couple, LstCouple), nl, stability(LstCouple), nl, LstCouple = [couple(M1, W1), couple(M2, W2)|Rest], writeln('perturbation of couples'), format('~w with ~w~n', [W1, M2]), format('~w with ~w~n', [W2, M1]), nl, stability([couple(M1, W2), couple(M2, W1)|Rest]))).
-%--------------------------------------------------------------------- 418 stack
+%--------------------------------------------------------------------- 417 stack
 % push( ELEMENT, STACK, NEW )
 % True if NEW is [ELEMENT|STACK]
 push(ELEMENT,STACK,[ELEMENT|STACK]).
@@ -14726,7 +14710,7 @@ empty([]).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines push/3, pop/3 and empty/1 and never calls them; the driver pushes 1, 2, 3, pops them and asks empty/1 between.
 :- initialization((empty(S0), push(1, S0, S1), push(2, S1, S2), push(3, S2, S3), format("stack: ~w~n", [S3]), pop(S3, T1, S4), format("popped ~w, stack: ~w~n", [T1, S4]), (empty(S4) -> writeln('empty: yes') ; writeln('empty: no')), pop(S4, T2, S5), pop(S5, T3, S6), format("popped ~w and ~w, stack: ~w~n", [T2, T3, S6]), (empty(S6) -> writeln('empty: yes') ; writeln('empty: no')))).
-%--------------------------------------------------------- 419 state-name-puzzle
+%--------------------------------------------------------- 418 state-name-puzzle
 state_name_puzzle :-
 	L = ["Alabama", "Alaska", "Arizona", "Arkansas",
 	     "California", "Colorado", "Connecticut",
@@ -14800,7 +14784,7 @@ compute_Goedel([H|T], GC, GF) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines state_name_puzzle/0 (the task's 50 states plus its fictitious five) and never calls it; the driver calls it once at load.
 :- initialization(state_name_puzzle).
-%------------------------------------------------------------ 420 steady-squares
+%------------------------------------------------------------ 419 steady-squares
 steadySquare([], _, []).
 steadySquare([N| NTail], Modulo, SteadyList):-
 	Modulo =< N,!,
@@ -14839,7 +14823,7 @@ do:- candidateList(1000000, List),
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines do/0 (the steady squares below 1,000,000) and never calls it; the driver calls it once at load.
 :- initialization(do).
-%-------------------------------------------------------- 421 stem-and-leaf-plot
+%-------------------------------------------------------- 420 stem-and-leaf-plot
 :- initialization(main, main).
 :- use_module(library(dcg/basics), [blanks/2, eol/2, integer/3]).
 :- use_module(library(dcg/high_order), [sequence/4, sequence/5]).
@@ -14880,7 +14864,7 @@ main([Filename]) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): main/1 under initialization(main, main) reads the numbers from a file named on its command line; the driver gives display_stem_leaf_plot/1 the task's 121 numbers and halts before main runs.
 :- initialization((display_stem_leaf_plot([12, 127, 28, 42, 39, 113, 42, 18, 44, 118, 44, 37, 113, 124, 37, 48, 127, 36, 29, 31, 125, 139, 131, 115, 105, 132, 104, 123, 35, 113, 122, 42, 117, 119, 58, 109, 23, 105, 63, 27, 44, 105, 99, 41, 128, 121, 116, 125, 32, 61, 37, 127, 29, 113, 121, 58, 114, 126, 53, 114, 96, 25, 109, 7, 31, 141, 46, 13, 27, 43, 117, 116, 27, 7, 68, 40, 31, 115, 124, 42, 128, 52, 71, 118, 117, 38, 27, 106, 33, 117, 116, 111, 40, 119, 47, 105, 57, 122, 109, 124, 115, 43, 120, 43, 27, 27, 18, 28, 48, 125, 107, 114, 34, 133, 45, 120, 30, 127, 31, 116, 146]), halt)).
-%---------------------------------------- 422 stirling-numbers-of-the-first-kind
+%---------------------------------------- 421 stirling-numbers-of-the-first-kind
 :- dynamic stirling1_cache/3.
 
 stirling1(N, N, 1):-!.
@@ -14926,7 +14910,7 @@ main:-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%--------------------------------------- 423 stirling-numbers-of-the-second-kind
+%--------------------------------------- 422 stirling-numbers-of-the-second-kind
 :- dynamic stirling2_cache/3.
 
 stirling2(N, N, 1):-!.
@@ -14972,7 +14956,7 @@ main:-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%--------------------------------------------- 424 strange-unique-prime-triplets
+%--------------------------------------------- 423 strange-unique-prime-triplets
 primes(2, Limit):- 2 =< Limit.
 primes(N, Limit):-
 	between(3, Limit, N),
@@ -15021,7 +15005,7 @@ do:- run([30, 1000]).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): do/0 runs run([30, 1000]) in about 8 s; the driver calls run/1 on the task's 30 and a shrunk 500 (the count only).
 :- initialization(run([30, 500])).
-%------------------------------------------------------ 425 string-concatenation
+%------------------------------------------------------ 424 string-concatenation
 :- set_prolog_flag(double_quotes, chars).
 
 println([]) :- write('\n').
@@ -15031,7 +15015,7 @@ println([Char | Chars]) :- write(Char), println(Chars).
    S1 = "world!",
    append(S0, S1, S),
    println(S).
-%----------------------------------------------------------- 426 string-matching
+%----------------------------------------------------------- 425 string-matching
 :- system:set_prolog_flag(double_quotes,codes) .
 
 :- [library(lists)] .
@@ -15077,7 +15061,7 @@ lists:append(_,SECONDz,FIRSTz)
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines starts_with/2, contains/2,3 and ends_with/2 and never calls them; the driver asks all three of four string pairs, with every match position of contains/3.
 :- initialization(forall(member(F-S, ["abcd"-"ab", "abcd"-"bc", "abcd"-"cd", "abab"-"ab"]), ((starts_with(F, S) -> A = yes ; A = no), (contains(F, S) -> B = yes ; B = no), findall(N, contains(F, S, N), Ns), (ends_with(F, S) -> C = yes ; C = no), format("~s / ~s: starts with ~w, contains ~w at ~w, ends with ~w~n", [F, S, A, B, Ns, C])))).
-%---------------------------------------------------------- 427 string-prepend-1
+%---------------------------------------------------------- 426 string-prepend-1
 :- op(200, xfx, user:(=+)).
 
 %% +Prepend =+ +Chars
@@ -15093,7 +15077,7 @@ lists:append(_,SECONDz,FIRSTz)
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines =+/2 and never calls it; the driver runs the Rosetta page's own query (Str = `World!`, `Hello, ` =+ Str) and prints Str.
 :- initialization((Str = `World!`, `Hello, ` =+ Str, format("~s~n", [Str]))).
-%--------------------------------- 428 strip-a-set-of-characters-from-a-string-2
+%--------------------------------- 427 strip-a-set-of-characters-from-a-string-2
 :- system:set_prolog_flag(double_quotes,chars) .
 
 %! strip_chars(SOURCEz0,SETz0,TARGETz)
@@ -15122,7 +15106,7 @@ strip_chars(SOURCEz0,SETz0)
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines strip_chars/3 and never calls it; the driver strips the task's "aei" from the task's sentence.
 :- initialization((strip_chars("She was a soul stripper. She took my heart!", "aei", T), atom_chars(A, T), writeln(A))).
-%------------------------------------------------------ 429 strip-block-comments
+%------------------------------------------------------ 428 strip-block-comments
 :- system:set_prolog_flag(double_quotes,codes) .
 
 strip_block_comments(INPUTz)
@@ -15153,7 +15137,7 @@ zero_or_more(_) --> ! .
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): strip_block_comments/1 passes an argument to format/2 strings with no directive, which swipl refuses (too many arguments); the driver calls strip_block_comments/2 on the task's sample text and prints it in /1's own format.
 :- initialization((strip_block_comments("  /**\n   * Some comments\n   * longer comments here that we can parse.\n   *\n   * Rahoo \n   */\n   function subroutine() {\n    a = /* inline comment */ b + c ;\n   }\n   /*/ <-- tricky comments */\n\n   /**\n    * Another comment.\n    */\n    function something() {\n    }\n", Out), format("```~n", []), format("~s~n", [Out]), format("```~n", []))).
-%-------------------------------------------- 430 strip-comments-from-a-string-1
+%-------------------------------------------- 429 strip-comments-from-a-string-1
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): written for double_quotes=codes (DEC-10 Prolog, ISO, SWI before 7); the program sets the flag, as
 % GOAL-PROLOG-100's superset ruling has a program set a dialect flag (it is SCRIP's default; swipl 7 reads "..." as a string).
 :- set_prolog_flag(double_quotes, codes).
@@ -15171,12 +15155,12 @@ apples, pears # and bananas",
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines start/0 and never calls it; written for code lists (stripcomment/2 walks "..." as codes), so the flag is set at its head and the driver calls start/0 once at load.
 :- initialization(start).
-%-------------------------------------------- 431 strip-comments-from-a-string-2
+%-------------------------------------------- 430 strip-comments-from-a-string-2
 strip_1comment(A,D) :- ((S1=0'#;S1=0';),append(B,[S1|C],A)), \+ ((S2=0'#;S2=0';),append(_X,[S2|_Y],B)) -> B=D; A=D.
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines strip_1comment/2 over code lists and never calls it; the driver strips the task's two sample lines.
 :- initialization(forall(member(S, [`apples, pears # and bananas`, `apples, pears ; and bananas`]), (strip_1comment(S, D), format("~s~n", [D])))).
-%----------------------------- 432 strip-whitespace-from-a-string-top-and-tail-1
+%----------------------------- 431 strip-whitespace-from-a-string-top-and-tail-1
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): written for double_quotes=codes (DEC-10 Prolog, ISO, SWI before 7); the program sets the flag, as
 % GOAL-PROLOG-100's superset ruling has a program set a dialect flag (it is SCRIP's default; swipl 7 reads "..." as a string).
 :- set_prolog_flag(double_quotes, codes).
@@ -15212,7 +15196,7 @@ strip_action(X) --> X.
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines strip/0 and never calls it; written for code lists (strip_action//1 over "..."), so the flag is set at its head and the driver calls strip/0 once at load.
 :- initialization(strip).
-%----------------------------- 433 strip-whitespace-from-a-string-top-and-tail-2
+%----------------------------- 432 strip-whitespace-from-a-string-top-and-tail-2
 :- system:set_prolog_flag(double_quotes,chars) .
 
 strip_leading(INPUTz,OUTPUTz)
@@ -15302,7 +15286,7 @@ strip_trailing_spacious
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines strip_leading/2, strip_trailing/2 and strip_leading_and_trailing/2 and never calls them; the driver strips one padded string all three ways, each bracketed.
 :- initialization((S = "  \t Hello, World! \t  ", strip_leading(S, L), strip_trailing(S, T), strip_leading_and_trailing(S, B), format("[~s]~n[~s]~n[~s]~n[~s]~n", [S, L, T, B]))).
-%------------------------------------------------------- 434 substitution-cipher
+%------------------------------------------------------- 433 substitution-cipher
 cypher(O, S) :-
 	nonvar(O),
 	var(S),
@@ -15330,7 +15314,7 @@ sub_char([_|To],[_|Ts], Co, Cs) :- sub_char(To,Ts,Co,Cs).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines cypher/2 and never calls it; the driver encodes a sample sentence and decodes it back.
 :- initialization((cypher('The quick brown fox jumped over the lazy dogs', S), writeln(S), cypher(O, S), writeln(O))).
-%--------------------------------------------------------------- 435 substring-1
+%--------------------------------------------------------------- 434 substring-1
 substring_task(Str, N, M, Char, SubStr) :-
     sub_string(Str, N, M, _, Span),
     sub_string(Str, N, _, 0, ToEnd),
@@ -15351,7 +15335,7 @@ string_from_substring_to_m(String, Sub, M, FromSubToM) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines substring_task/5 and never calls it; the driver runs the Rosetta page's own query (substring-2) substring_task("abcdefghijk", 2, 4, "d", "ef").
 :- initialization(substring_task("abcdefghijk", 2, 4, "d", "ef")).
-%---------------------------------------------------- 436 substring-top-and-tail
+%---------------------------------------------------- 435 substring-top-and-tail
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): written for double_quotes=codes (DEC-10 Prolog, ISO, SWI before 7); the program sets the flag, as
 % GOAL-PROLOG-100's superset ruling has a program set a dialect flag (it is SCRIP's default; swipl 7 reads "..." as a string).
 :- set_prolog_flag(double_quotes, codes).
@@ -15370,7 +15354,7 @@ remove_last(L, LR) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines remove_first_last_chars/0 and never calls it; written for code lists (L = "Rosetta", L = [_|L1]), so the flag is set at its head and the driver calls it once at load.
 :- initialization(remove_first_last_chars).
-%---------------------------------------------- 437 successive-prime-differences
+%---------------------------------------------- 436 successive-prime-differences
 prime(2).     % use swi prolog
 prime(N):-
 	N /\ 1 > 0,              % odd
@@ -15425,7 +15409,7 @@ do:-	Num is 1000000,
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): do/0 prints its runtime and takes 25 s over primes below 1,000,000; the driver calls primesByDiffs/3 over the primes below 100,000 (shrunk) for do/0's eleven difference lists and prints run/2's lines without the time.
 :- initialization((numlist(2, 100000, L), include(prime, L, PL), length(PL, NP), format('there are ~w primes until ~w~n', [NP, 100000]), forall(member(D, [[1], [2], [2,2], [2,4], [4,2], [2,4,6], [2,6,4], [4,2,6], [4,6,2], [6,2,4], [6,4,2]]), (primesByDiffs(PL, D, SL), length(SL, Num), SL = [First|Tail], format('~|~w~t~7+ number: ~|~t~d~4+ first: ~|~w~t~22+', [D, Num, First]), once(writeLast(Tail)), nl)))).
-%------------------------------------------------------------------ 438 sudoku-1
+%------------------------------------------------------------------ 437 sudoku-1
 :- use_module(library(clpfd)).
 
 sudoku(Rows) :-
@@ -15455,7 +15439,7 @@ problem(1, [[_,_,_,_,_,_,_,_,_],
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines sudoku/1 and its own problem(1, Rows) and never calls them; the driver solves problem 1 and prints the grid, one row a line.
 :- initialization((problem(1, Rows), sudoku(Rows), maplist(label, Rows), forall(member(R, Rows), format("~w~n", [R])))).
-%--------------------------------------------- 439 sum-and-product-of-an-array-1
+%--------------------------------------------- 438 sum-and-product-of-an-array-1
 sum([],0).
 sum([H|T],X) :- sum(T,Y), X is H + Y.
 product([],1).
@@ -15463,7 +15447,7 @@ product([H|T],X) :- product(T,Y), X is H * X.
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines sum/2 and product/2 and never calls them; product/2 evaluates X is H * X with X unbound (an instantiation error), so the driver prints sum/2 of a sample array only.
 :- initialization((L = [1, 2, 3, 4, 5], sum(L, S), format("sum of ~w: ~w~n", [L, S]))).
-%-------------------------------------------------- 440 sum-digits-of-an-integer
+%-------------------------------------------------- 439 sum-digits-of-an-integer
 digit_sum(N, Base, Sum):-
     digit_sum(N, Base, Sum, 0).
 
@@ -15488,7 +15472,7 @@ main:-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%------------------------------------------------ 441 sum-multiples-of-3-and-5-1
+%------------------------------------------------ 440 sum-multiples-of-3-and-5-1
 sum_of_multiples_of_3_and_5_slow(N, TT) :-
 	sum_of_multiples_of_3_and_5(N, 1, 0, TT).
 
@@ -15507,7 +15491,7 @@ sum_of_multiples_of_3_and_5(N, K, C, S) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines sum_of_multiples_of_3_and_5_slow/2 and never calls it; the driver prints it for the task's 1000.
 :- initialization((sum_of_multiples_of_3_and_5_slow(1000, S), format("~w~n", [S]))).
-%------------------------------------------------ 442 sum-multiples-of-3-and-5-2
+%------------------------------------------------ 441 sum-multiples-of-3-and-5-2
 sum_of_multiples_of_3_and_5_fast(N, TT):-
 	maplist(compute_sum(N), [3,5,15], [TT3, TT5, TT15]),
 	TT is TT3 + TT5 - TT15.
@@ -15520,14 +15504,14 @@ compute_sum(N, N1, Sum) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines sum_of_multiples_of_3_and_5_fast/2 and never calls it; the driver prints it for the task's 1000 and its stretch 1e20.
 :- initialization(forall(member(N, [1000, 100000000000000000000]), (sum_of_multiples_of_3_and_5_fast(N, S), format("~w: ~w~n", [N, S])))).
-%----------------------------------------------------------- 443 sum-of-a-series
+%----------------------------------------------------------- 442 sum-of-a-series
 sum(S) :-
         findall(L, (between(1,1000,N),L is 1/N^2), Ls),
         sumlist(Ls, S).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines sum/1 (1/k^2 for k = 1..1000) and never calls it; the driver prints the sum.
 :- initialization((sum(S), format("~w~n", [S]))).
-%------------------------------------------------------ 444 sum-of-first-n-cubes
+%------------------------------------------------------ 443 sum-of-first-n-cubes
 cube(X, XCubed) :- XCubed is X ^ 3.
 
 first_n_cubes(N, Cubes) :-
@@ -15549,7 +15533,7 @@ print_formatted(Width, Height, Numbers) :-
 :-  first_n_cubes(50, [Cube | Cubes]),
     scanl(plus, Cubes, Cube, CumulativeSums),
     print_formatted(10, 5, CumulativeSums).
-%---------------------------------------------------------- 445 summarize-primes
+%---------------------------------------------------------- 444 summarize-primes
 isPrime(2).
 isPrime(N):-
 	between(3, inf, N),
@@ -15579,7 +15563,7 @@ do:-Limit is 1000,
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines do/0 (primes below 1000) and never calls it; the driver calls it once at load.
 :- initialization(do).
-%------------------------------------------------------- 446 sylvesters-sequence
+%------------------------------------------------------- 445 sylvesters-sequence
 sylvesters_sequence(N, S, R):-
     sylvesters_sequence(N, S, 2, R, 0).
 
@@ -15602,7 +15586,7 @@ main:-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%------------------------------------------------------ 447 symmetric-difference
+%------------------------------------------------------ 446 symmetric-difference
 sym_diff :-
     A = ['John', 'Serena', 'Bob', 'Mary', 'Serena'],
     B = ['Jim', 'Mary', 'John', 'Jim', 'Bob'],
@@ -15621,7 +15605,7 @@ sym_diff :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines sym_diff/0 and never calls it; the driver calls it once at load.
 :- initialization(sym_diff).
-%---------------------------------------------------------------- 448 tau-number
+%---------------------------------------------------------------- 447 tau-number
 tau(N, T) :-
     findall(M, (between(1, N, M), 0 is N mod M), Ms),
     length(Ms, T).
@@ -15635,7 +15619,7 @@ print_tau_numbers :-
     forall(member(N, Ns), format("~d ", [N])).
 
 :- print_tau_numbers.
-%---------------------------------------------------- 449 temperature-conversion
+%---------------------------------------------------- 448 temperature-conversion
 convKelvin(Temp) :-
     Kelvin is Temp,
     Celsius is Temp - 273.15,
@@ -15653,7 +15637,7 @@ test :-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines test/0 and never calls it; the driver calls it once at load.
 :- initialization(test).
-%----------------------------------------------------------- 450 test-a-function
+%----------------------------------------------------------- 449 test-a-function
 palindrome(Word) :- name(Word,List), reverse(List,List).
 
 :- begin_tests(palindrome).
@@ -15665,7 +15649,7 @@ test(invalid_palindrome, [fail]) :- palindrome('this is not a palindrome').
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines palindrome/1 and a plunit unit and never runs them; the driver asks palindrome/1 of the two test words and runs the unit, printing its verdict (plunit's own report goes to stderr).
 :- initialization((forall(member(W, ['ingirumimusnocteetconsumimurigni', 'this is not a palindrome']), ((palindrome(W) -> R = yes ; R = no), format("~w: ~w~n", [W, R]))), (run_tests(palindrome) -> writeln('palindrome tests: passed') ; writeln('palindrome tests: failed')))).
-%------------------------------------------------------------- 451 the-name-game
+%------------------------------------------------------------- 450 the-name-game
 map_name1(C, Cs, C, Cs).
 map_name1(C, Cs, Fc, [Fc,C|Cs]) :- member(C, ['a','e','i','o','u']).
 map_name1(C, Cs, Fc, [Fc|Cs]) :-
@@ -15695,7 +15679,7 @@ test :-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines test/0 and never calls it; the driver calls it once at load.
 :- initialization(test).
-%---------------------------------------------- 452 the-twelve-days-of-christmas
+%---------------------------------------------- 451 the-twelve-days-of-christmas
 day(1, 'first').
 day(2, 'second').
 day(3, 'third').
@@ -15741,7 +15725,7 @@ main :- writeLoop(12), halt.
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%---------------------------------------------------------------- 453 thue-morse
+%---------------------------------------------------------------- 452 thue-morse
 %!  thue_morse(+N, -TM) is det.
 %   Calculates the Nth number of the Thue-Morse sequence, indexing from 0.
 thue_morse(N, TM) :- TM is popcount(N) mod 2.
@@ -15757,7 +15741,7 @@ thue_morse_list(N, [TM | List]) :-
     ).
 
 :- length(List, 20), once(thue_morse_list(List)), write(List).
-%------------------------------------------------------- 454 tokenize-a-string-1
+%------------------------------------------------------- 453 tokenize-a-string-1
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): written for double_quotes=codes (DEC-10 Prolog, ISO, SWI before 7); the program sets the flag, as
 % GOAL-PROLOG-100's superset ruling has a program set a dialect flag (it is SCRIP's default; swipl 7 reads "..." as a string).
 :- set_prolog_flag(double_quotes, codes).
@@ -15773,7 +15757,7 @@ start :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines start/0 and never calls it; written for code lists (splitup//3 over "Hello,How,Are,You,Today"), so the flag is set at its head and the driver calls start/0 once at load.
 :- initialization(start).
-%-------------------------------------------------------- 455 top-rank-per-group
+%-------------------------------------------------------- 454 top-rank-per-group
 % emp(name,id,salary,dpt)
 emp('Tyler Bennett','E10297',32000,'D101').
 emp('John Rappl','E21437',47000,'D050').
@@ -15830,7 +15814,7 @@ topDeps(_).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines topDeps/1 and never calls it; the driver prints the top 3 salaries of each department of the task's table.
 :- initialization(topDeps(3)).
-%--------------------------------------------------------- 456 towers-of-hanoi-1
+%--------------------------------------------------------- 455 towers-of-hanoi-1
 hanoi(N) :- move(N,left,center,right).
 
 move(0,_,_,_) :- !.
@@ -15844,7 +15828,7 @@ inform(X,Y) :- write([move,a,disk,from,the,X,pole,to,Y,pole]), nl.
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines hanoi/1 and never calls it; the driver moves 3 disks.
 :- initialization(hanoi(3)).
-%--------------------------------------------------------- 457 towers-of-hanoi-2
+%--------------------------------------------------------- 456 towers-of-hanoi-2
 hanoi(N, Src, Aux, Dest, Moves-NMoves) :-
   NMoves is 2^N - 1,
   length(Moves, NMoves),
@@ -15865,7 +15849,7 @@ move(N, Src, Aux, Dest) -->
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines hanoi/5 and never calls it; the driver moves 3 disks and prints the move count and the moves.
 :- initialization((hanoi(3, left, center, right, Moves-N), format("~w moves: ~w~n", [N, Moves]))).
-%----------------------------------------------- 458 trabb-pardo-knuth-algorithm
+%----------------------------------------------- 457 trabb-pardo-knuth-algorithm
 :- use_module(library(dcg/basics)).
 :- use_module(library(dcg/high_order)).
 
@@ -15895,7 +15879,7 @@ main :-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%------------------------------------------------------------ 459 tree-traversal
+%------------------------------------------------------------ 458 tree-traversal
 tree :-
 	Tree= [1,
 	        [2,
@@ -15955,7 +15939,7 @@ append_dl(X-Y, Y-Z, X-Z).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines tree/0 (the task's tree, all four orders) and never calls it; the driver calls it once at load and ends its last line.
 :- initialization((tree, nl)).
-%------------------------------------------------------ 460 truncatable-primes-2
+%------------------------------------------------------ 459 truncatable-primes-2
 :- module(prime_numbers, [find_prime_numbers/1, is_prime/1]).
 :- dynamic is_prime/1.
 
@@ -16001,7 +15985,7 @@ cross_out(S, N, P):-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution is the prime_numbers module (a sieve) that truncatable-primes-1 loads, and never calls it; the driver sieves to 100 and prints the primes it asserted.
 :- initialization((find_prime_numbers(100), findall(P, is_prime(P), Ps), format("~w~n", [Ps]))).
-%--------------------------------------------------------------- 461 truth-table
+%--------------------------------------------------------------- 460 truth-table
 /*
     To evaluate the truth table a line of text is inputted and then there are three steps
     Let's say the expression is:
@@ -16104,7 +16088,7 @@ e(not, 1, 0). e(not, 0, 1).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines truth_table/0 (reads one expression line) and never calls it; truth-table.in holds two expressions, the one in its own comment and a xor b.
 :- initialization((truth_table, nl, truth_table)).
-%----------------------------------------------------- 462 two-identical-strings
+%----------------------------------------------------- 461 two-identical-strings
 main:-
     writeln('Decimal\tBinary'),
     main(1, 1000).
@@ -16122,7 +16106,7 @@ main(_, _).
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%----------------------------------------------------------- 463 twos-complement
+%----------------------------------------------------------- 462 twos-complement
 d(1234567).
 
 b([-D, -D + 1, -2, -1, 0, 1, 2, D - 2, D - 1]) :-
@@ -16140,7 +16124,7 @@ main :-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%-------------------------------------------------- 464 unicode-variable-names-1
+%-------------------------------------------------- 463 unicode-variable-names-1
 % Unicode in predicate names:
 是.            % be: means, approximately, "True".
 不是 :- \+ 是.  % not be: means, approximately, "False".  Defined as not 是.
@@ -16155,7 +16139,7 @@ test2(Δ, R) :- R is Δ + 1.
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines 是/0, 不是/0, test/2 and test2/2 and never calls them; the driver runs the Rosetta page's own four queries (unicode-variable-names-2).
 :- initialization(((是 -> writeln(true) ; writeln(false)), (不是 -> writeln(true) ; writeln(false)), test(X, Y), format("X = ~w, Y = ~w~n", [X, Y]), test2(1, R), format("Result = ~w~n", [R]))).
-%-------------------------------------------------- 465 universal-lambda-machine
+%-------------------------------------------------- 464 universal-lambda-machine
 :- set_prolog_flag(double_quotes, chars).
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -16340,7 +16324,7 @@ interpret :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines interpret/0 (reads a BLC program and its input as 0/1 characters from standard input) and never calls it; universal-lambda-machine.in holds the identity program 0010 and the input 0110.
 :- initialization(interpret).
-%------------------------------------------------ 466 universal-turing-machine-1
+%------------------------------------------------ 465 universal-turing-machine-1
 turing(Config, Rules, TapeIn, TapeOut) :-
     call(Config, IS, _, _, _, _),
     perform(Config, Rules, IS, {[], TapeIn}, {Ls, Rs}),
@@ -16375,7 +16359,7 @@ right(L, [S|Rs], [S|L], Rs, _).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the machine turing/4 and never calls it; the driver asserts the task's simple incrementer and three-state busy beaver (as universal-turing-machine-2 and -3 write them) and prints each final tape.
 :- initialization((forall(member(C, [inc_config(q0, [qf], [q0], b, [b, 1]), inc_rules(q0, 1, 1, right, q0), inc_rules(q0, b, 1, stay, qf), bb_config('A', ['HALT'], ['A', 'B', 'C'], 0, [0, 1]), bb_rules('A', 0, 1, right, 'B'), bb_rules('A', 1, 1, left, 'C'), bb_rules('B', 0, 1, left, 'A'), bb_rules('B', 1, 1, right, 'B'), bb_rules('C', 0, 1, left, 'B'), bb_rules('C', 1, 1, stay, 'HALT')]), assertz(C)), turing(inc_config, inc_rules, [1, 1, 1], T1), format("incrementer: ~w~n", [T1]), turing(bb_config, bb_rules, [], T2), format("three-state busy beaver: ~w~n", [T2]))).
-%------------------------------------------------- 467 van-der-corput-sequence-1
+%------------------------------------------------- 466 van-der-corput-sequence-1
 % vdc( N, Base, Out )
 % Out = the Van der Corput representation of N in given Base
 vdc( 0, _, [] ).
@@ -16420,7 +16404,7 @@ test :-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines test/0 and never calls it; the driver calls it once at load.
 :- initialization(test).
-%------------------------------------------------- 468 van-der-corput-sequence-2
+%------------------------------------------------- 467 van-der-corput-sequence-2
 % g(B,N,X):- consecutively generate in X the first N elements of the sequence based on {0, 1, ..., B}
 
 g(_,N,[L|_]-_,X):- N > 1, atomic_list_concat(['0.'|L],X).
@@ -16430,7 +16414,7 @@ g(B,N,X):- N > 0, findall([I], between(1,B,I), T), T \= [], append(T,Ys,Xs), g(B
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines g/3 (its first argument the largest digit, so base B+1) and never calls it; the driver prints the task's first ten in base 2 and the stretch base 4.
 :- initialization((writeln('First 10 members in base 2:'), forall(g(1, 10, X), writeln(X)), writeln('First 10 members in base 4:'), forall(g(3, 10, Y), writeln(Y)))).
-%---------------------------------------------------------- 469 van-eck-sequence
+%---------------------------------------------------------- 468 van-eck-sequence
 van_eck_init(v(0, 0, _assoc)):-
     empty_assoc(_assoc).
 
@@ -16482,31 +16466,31 @@ main:-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%--------------------------------------------------------------- 470 variables-1
+%--------------------------------------------------------------- 469 variables-1
 mortal(X) :- man(X).
 man(socrates).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines mortal/1 and man/1 and never calls them; the driver asks the Rosetta page's own queries mortal(socrates) and mortal(zeus) (variables-3, -4).
 :- initialization(forall(member(Q, [socrates, zeus]), ((mortal(Q) -> R = yes ; R = no), format("mortal(~w): ~w~n", [Q, R])))).
-%--------------------------------------------------------------- 471 variables-2
+%--------------------------------------------------------------- 470 variables-2
 student(X,Y) :- taught(Y,X).
 taught(socrates,plato).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines student/2 and taught/2 and never calls them; the driver asks the Rosetta page's own queries student(X, socrates) and student(socrates, X) (variables-3).
 :- initialization(((student(X, socrates) -> format("student(X, socrates): X = ~w~n", [X]) ; writeln('student(X, socrates): no')), (student(socrates, Y) -> format("student(socrates, X): X = ~w~n", [Y]) ; writeln('student(socrates, X): no')))).
-%------------------------------------------------------- 472 variadic-function-1
+%------------------------------------------------------- 471 variadic-function-1
 printAll( List ) :- forall( member(X,List), (write(X), nl)).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines printAll/1 and never calls it; the driver prints five arguments, one a line.
 :- initialization(printAll(['Mary', had, a, little, lamb])).
-%------------------------------------------------------- 473 variadic-function-2
+%------------------------------------------------------- 472 variadic-function-2
 execute( Term ) :-
   Term =.. [F | Args],
   forall( member(X,Args), (G =.. [F,X], G, nl) ).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines execute/1 and never calls it; the driver applies write/1 to five arguments, one a line.
 :- initialization(execute(write('Mary', had, a, little, lamb))).
-%----------------------------------------------------------- 474 vector-products
+%----------------------------------------------------------- 473 vector-products
 dot_product([A1, A2, A3], [B1, B2, B3], Ans) :-
     Ans is A1 * B1 + A2 * B2 + A3 * B3.
 
@@ -16526,7 +16510,7 @@ vector_triple(A, B, C, Ans) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the four products and never calls them; the driver prints them for the task's a = (3,4,5), b = (4,3,5), c = (-5,-12,-13).
 :- initialization((A = [3, 4, 5], B = [4, 3, 5], C = [-5, -12, -13], dot_product(A, B, D), cross_product(A, B, X), scala_triple(A, B, C, S), vector_triple(A, B, C, V), format("a . b = ~w~na x b = ~w~na . (b x c) = ~w~na x (b x c) = ~w~n", [D, X, S, V]))).
-%------------------------------------------------ 475 wilson-primes-of-order-n-1
+%------------------------------------------------ 474 wilson-primes-of-order-n-1
 main:-
     wilson_primes(11000).
 
@@ -16572,7 +16556,7 @@ make_factorials(N, M, F):-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%------------------------------------------------ 476 wilson-primes-of-order-n-2
+%------------------------------------------------ 475 wilson-primes-of-order-n-2
 :- module(prime_numbers, [find_prime_numbers/1, is_prime/1]).
 :- dynamic is_prime/1.
 
@@ -16618,7 +16602,7 @@ cross_out(S, N, P):-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution is the prime_numbers module (a sieve) that wilson-primes-of-order-n-1 loads, and never calls it; the driver sieves to 100 and prints the primes it asserted.
 :- initialization((find_prime_numbers(100), findall(P, is_prime(P), Ps), format("~w~n", [Ps]))).
-%----------------------------------------------------------------- 477 wireworld
+%----------------------------------------------------------------- 476 wireworld
 :- initialization(main, main).
 :- set_prolog_flag(double_quotes, codes).
 :- use_module(library(ansi_term), [ansi_format/3]).
@@ -16691,7 +16675,7 @@ main([Filename]) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): main/1 under initialization(main, main) reads a grid file named on its command line and animates it forever with sleep/1 and cursor escapes; the driver parses the task's sample circuit with grid//1, prints ten generations of transition/4 with display/1, and halts before main runs.
 :- initialization((phrase(grid(G0), "tH.........\n.   .      \n   ...     \n.   .      \nHt.. ......\n"), display(G0), nl, foldl([_, Ga, Gb]>>(map_grid0(transition(Ga), Ga, Gb), display(Gb), nl), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], G0, _), halt)).
-%----------------------------------------------------------------- 478 word-wrap
+%----------------------------------------------------------------- 477 word-wrap
 % See https://en.wikipedia.org/wiki/Line_wrap_and_word_wrap#Minimum_number_of_lines
 word_wrap(String, Length, Wrapped):-
     re_split("\\S+", String, Words),
@@ -16733,7 +16717,7 @@ main:-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%------------------------------------------------------------ 479 zebra-puzzle-2
+%------------------------------------------------------------ 478 zebra-puzzle-2
 % attribute store is 'Name - Value' pairs with unique names
 attrs( H, [N-V | R]) :- !, memberchk( N-X, H), X = V, (R = [], ! ; attrs( H, R)).
 attrs( HS, AttrsL) :- maplist( attrs, HS, AttrsL).
@@ -16767,7 +16751,7 @@ zebra( Owner, Houses):-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines zebra/2 and never calls it; the driver prints the first solution's five houses (each attribute list closed) and the zebra's owner.
 :- initialization((zebra(Owner, Houses), maplist(length, Houses, _), forall(member(H, Houses), format("~w~n", [H])), format("~w owns the zebra~n", [Owner]))).
-%------------------------------------------------------------ 480 zebra-puzzle-4
+%------------------------------------------------------------ 479 zebra-puzzle-4
 :- initialization(main).
 
 
@@ -16813,7 +16797,7 @@ nextto(P,Xs) :- permutation(P,R), infix(R,Xs).
 
 
 main :- findall(_, (zebra(_), nl), _), halt.
-%------------------------------------------------------------ 481 zebra-puzzle-5
+%------------------------------------------------------------ 480 zebra-puzzle-5
 :- use_module(library(clpfd)).
 
 zebra :-
@@ -16871,12 +16855,12 @@ zebra :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines zebra/0 and never calls it; the driver calls it once at load.
 :- initialization(zebra).
-%---------------------------------------------------- 482 zero-to-the-zero-power
+%---------------------------------------------------- 481 zero-to-the-zero-power
 :- X is 0 ^ 0.
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution evaluates X is 0 ^ 0 in a directive and never prints X; the driver evaluates the same expression and prints it.
 :- initialization((X is 0 ^ 0, format("0 ^ 0 = ~w~n", [X]))).
-%------------------------------------------------------------ 483 zig-zag-matrix
+%------------------------------------------------------------ 482 zig-zag-matrix
 zig_zag(N) :-
    zig_zag(N, N).
 

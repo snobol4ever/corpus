@@ -75,6 +75,7 @@ comma-quibbling-2: oracle produced EMPTY output -- refusing to mint a vacuous re
 comments-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
 comments-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 compound-data-type-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+concurrent-computing: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 constrained-random-points-on-a-circle: oracle produced EMPTY output -- refusing to mint a vacuous ref
 copy-a-string: oracle produced EMPTY output -- refusing to mint a vacuous ref
 copy-stdin-to-stdout-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
