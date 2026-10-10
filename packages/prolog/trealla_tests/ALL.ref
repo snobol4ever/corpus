@@ -1,0 +1,166 @@
+%-------------------------------------------------------------- 1 tests_test0000
+1
+	a
+	b
+2
+	a
+	b
+3
+	a
+	b
+%-------------------------------------------------------------- 2 tests_test0001
+1
+2
+3
+%-------------------------------------------------------------- 3 tests_test0002
+[a,b,c,d]
+%-------------------------------------------------------------- 4 tests_test0003
+[d,c,b,a]
+%-------------------------------------------------------------- 5 tests_test0004
+a
+[b,b]
+c
+%-------------------------------------------------------------- 6 tests_test0005
+f(1,2,3)
+%-------------------------------------------------------------- 7 tests_test0007
+a
+%-------------------------------------------------------------- 8 tests_test0008
+a
+b
+%-------------------------------------------------------------- 9 tests_test0009
+a
+%------------------------------------------------------------- 10 tests_test0010
+[1,1]
+[2,1]
+[2,2]
+[3,1]
+[3,2]
+[3,3]
+%------------------------------------------------------------- 11 tests_test0011
+[1,1]
+[2,1]
+[2,2]
+[3,1]
+[3,2]
+[3,3]
+%------------------------------------------------------------- 12 tests_test0012
+49995000
+%------------------------------------------------------------- 13 tests_test0015
+PASSED!
+%------------------------------------------------------------- 14 tests_test0016
+ok
+%------------------------------------------------------------- 15 tests_test0017
+1
+%------------------------------------------------------------- 16 tests_test0018
+ <==> abcdef
+a <==> bcdef
+ab <==> cdef
+abc <==> def
+abcd <==> ef
+abcde <==> f
+abcdef <==> 
+%------------------------------------------------------------- 17 tests_test0019
+ > 0 <==> true
+ > 1 <==> true
+ > 2 <==> true
+ > 3 <==> true
+%------------------------------------------------------------- 18 tests_test0020
+0
+%------------------------------------------------------------- 19 tests_test0021
+0
+1
+2
+3
+%------------------------------------------------------------- 20 tests_test0022
+a b c
+%------------------------------------------------------------- 21 tests_test0023
+[a, ,b, ,c]
+%------------------------------------------------------------- 22 tests_test0024
+[97,32,98,32,99]
+%------------------------------------------------------------- 23 tests_test0025
+[integer(1),integer(2),integer(3),integer(4),integer(5),integer(6),integer(7),integer(8),integer(9),integer(10)]
+%------------------------------------------------------------- 24 tests_test0026
+[c,d,e,f,g,g]
+%------------------------------------------------------------- 25 tests_test0027
+[c,d]
+[e,f]
+[g]
+[g]
+%------------------------------------------------------------- 26 tests_test0028
+[[c,d],[e,f],[g],[g]]
+%------------------------------------------------------------- 27 tests_test0029
+[c,d]
+[e,f]
+[g]
+[g]
+[c,d]
+[e,f]
+[g]
+[g]
+[c,d]
+[e,f]
+[g]
+[g]
+[c,d]
+[e,f]
+[g]
+[g]
+[c,d]
+[e,f]
+[g]
+[g]
+[c,d]
+[e,f]
+[g]
+[g]
+[c,d]
+[e,f]
+[g]
+[g]
+[c,d]
+[e,f]
+[g]
+[g]
+[c,d]
+[e,f]
+[g]
+[g]
+[c,d]
+[e,f]
+[g]
+[g]
+%------------------------------------------------------------- 28 tests_test0030
+[c,d,e,f,g,g]
+%------------------------------------------------------------- 29 tests_test0031
+[c,d,e,f,g]
+%------------------------------------------------------------- 30 tests_test0032
+ok
+%------------------------------------------------------------- 31 tests_test0033
+Philip K Dick
+%------------------------------------------------------------- 32 tests_test0034
+PASSED!
+%------------------------------------------------------------- 33 tests_test0035
+1/2/3
+a,b,c
+{a,b,c}
+1/2/3
+a,b,c
+{a,b,c}
+%------------------------------------------------------------- 34 tests_test0036
+[a]
+%------------------------------------------------------------- 35 tests_test0037
+ab
+%------------------------------------------------------------- 36 tests_test0039
+foobar
+%------------------------------------------------------------- 37 tests_test0040
+''(1,2)
+1 2
+-(-,-)
+(-)-(-)
+*(+(1,2),3)
+(1+2)*3
+*(1,+(2,3))
+1*(2+3)
+['.','.'('.','.','.')]
+%------------------------------------------------------------- 38 tests_test0041
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc

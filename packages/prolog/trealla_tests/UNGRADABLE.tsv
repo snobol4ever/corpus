@@ -1,0 +1,4 @@
+# UNGRADABLE.tsv -- trealla_tests: the shipped programs the oracle (swipl -q 9.0.4) gives no one ground truth for -- it refuses them
+# (an ERROR on load or from the goal, quoted) or answers differently on two runs. name<TAB>CLASS<TAB>evidence; classes from
+# lib_inventory.sh's closed vocabulary. In the published denominator (CEO-1286).
+tests_test0013.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: tests_test0013.pl:1: Initialization goal raised exception: ERROR: length/2: Type error: `list' expected, found `"一二三"' (a string)

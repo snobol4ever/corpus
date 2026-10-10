@@ -1,0 +1,4 @@
+# UNGRADED.tsv -- trealla_tests: the shipped programs owed work before they are graded -- NEEDS_DRIVER (it prints nothing, so a
+# driver must make its result observable) or TIMEOUT (no answer under the build's timeout, twice). name<TAB>CLASS<TAB>evidence.
+# In the published denominator (CEO-1286).
+tests_test0014.pl	NEEDS_DRIVER	swipl -q runs it, rc 0, and it prints nothing on stdout or stderr

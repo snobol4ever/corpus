@@ -1,0 +1,2 @@
+tests_test0013: oracle produced EMPTY output -- refusing to mint a vacuous ref
+tests_test0014: oracle produced EMPTY output -- refusing to mint a vacuous ref
