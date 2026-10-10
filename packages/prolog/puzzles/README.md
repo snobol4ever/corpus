@@ -15,6 +15,13 @@ CEO-1595): hakank/sicstus (MIT) and 99-prolog-problems (MIT). Sets found and NOT
 three state no license (Bratko's 4th edition, Triska's clpfd examples, mmalita's PrologPuzzles) and Rosetta Code's Prolog solutions are
 their own package, rosetta-prolog.
 
+THE SICSTUS SET (hq_pascal 2026-10-10, CEO-1595): hakank/sicstus at the same commit 2823c48, MIT (`LICENSE.hakank`), 148 programs as
+`hakank_sicstus_<stem>.pl`, each defining go/0 with `:- initialization(go).` appended (DRIVERS.tsv, 147 rows; one already called it).
+50 more are NOT vendored and named in NOT_VENDORED.tsv: they `ensure_loaded(hakank_utils)` meaning the SICStus set's own
+hakank_utils.pl, which differs from the SWI set's file this flat package ships under that name -- vendored here they would load the
+SWI file and be graded as programs they are not. Measured at the build (TIMEOUT=60, --twice): 12 graded, all CLP(FD) and named
+OUTSIDE_CLPFD; 136 UNGRADABLE ORACLE_REFUSES, swipl's first error line quoted (SICStus' domain/3, operators and syntax swipl lacks).
+
 ## Layout
 
 Flat (the container runner counts the `*.pl` at depth 1): each program carries its set prefix (`hakank_swi_`; the SICStus tree repeats 180

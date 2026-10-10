@@ -3,7 +3,18 @@
 # needs library(clpfd) goes into the container WITH its swipl ref and is named here, shown in the Excl column, never dropped from the
 # package; the row is struck the day SCRIP's Prolog carries a finite-domain solver. THE TEST, MEASURED NOT READ: the program's load
 # closure reaches :- use_module(library(clpfd)), directly or through a module vendored beside it (comments stripped first).
-euler_utils.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 71
+hakank_sicstus_clique.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 53
+hakank_sicstus_diet1.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 29
+hakank_sicstus_general_store.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 50
+hakank_sicstus_langford.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 34
+hakank_sicstus_rabbits.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 17
+hakank_sicstus_set_covering2.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 22
+hakank_sicstus_set_covering3.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 34
+hakank_sicstus_set_covering4.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 45
+hakank_sicstus_set_covering_deployment.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 28
+hakank_sicstus_set_covering_skiena.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 27
+hakank_sicstus_sudoku.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 22
+hakank_sicstus_tsp.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 19
 hakank_swi_3_jugs.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 16
 hakank_swi_3_jugs_regular.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 15
 hakank_swi_K4P2GracefulGraph2.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 15
@@ -14,7 +25,6 @@ hakank_swi_ackermann.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 12
 hakank_swi_added_corner.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 22
 hakank_swi_all_differ_from_at_least_k_pos.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 38
 hakank_swi_all_equal.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 29
-hakank_swi_all_interval.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 31
 hakank_swi_all_min_dist.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 29
 hakank_swi_alldiffer_on_intersection.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 29
 hakank_swi_alldifferent_cst.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 32
@@ -31,17 +41,14 @@ hakank_swi_averbach_1_2.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 35
 hakank_swi_averbach_1_3.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 28
 hakank_swi_babysitting.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 33
 hakank_swi_bales_of_hay.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 26
-hakank_swi_bin_packing.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 15
 hakank_swi_bin_packing2.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 35
 hakank_swi_breaking_news.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 42
 hakank_swi_broken_weights.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 32
-hakank_swi_building_a_house.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 63
 hakank_swi_bus_schedule.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 15
 hakank_swi_calculs_d_enfer.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 29
 hakank_swi_changes.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 24
 hakank_swi_circling_squares.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 25
 hakank_swi_circuit.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 16
-hakank_swi_clique.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 45
 hakank_swi_clock_triplets.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 30
 hakank_swi_coins3.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 29
 hakank_swi_coins_grid.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 31
@@ -55,7 +62,6 @@ hakank_swi_crossword2.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 39
 hakank_swi_crypta.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 26
 hakank_swi_crypto.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 39
 hakank_swi_cur_num.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 29
-hakank_swi_curious_set_of_integers.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 43
 hakank_swi_de_bruijn.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 25
 hakank_swi_devils_word.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 19
 hakank_swi_diet.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 22
@@ -129,7 +135,6 @@ hakank_swi_five_brigands.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 29
 hakank_swi_four_islands.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 52
 hakank_swi_fractions.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 19
 hakank_swi_friends_at_different_floors.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 54
-hakank_swi_frustration_patience.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 29
 hakank_swi_furniture_moving.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 39
 hakank_swi_futoshiki.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 22
 hakank_swi_general_store.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 46
@@ -185,7 +190,6 @@ hakank_swi_organize_day.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 14
 hakank_swi_p_median.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 20
 hakank_swi_pair_divides_the_sum.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 35
 hakank_swi_pandigital_numbers.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 48
-hakank_swi_perfect_square_sequence.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 37
 hakank_swi_pert.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 14
 hakank_swi_photo_problem.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 42
 hakank_swi_pigeon_hole.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 19
@@ -215,7 +219,6 @@ hakank_swi_set_covering3.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 27
 hakank_swi_set_covering4.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 38
 hakank_swi_set_covering_deployment.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 22
 hakank_swi_set_covering_skiena.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 22
-hakank_swi_shifted_division.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 88
 hakank_swi_sicherman_dice.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 47
 hakank_swi_ski_assignment.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 29
 hakank_swi_sliding_sum.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 36
@@ -230,7 +233,6 @@ hakank_swi_subset_sum.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 22
 hakank_swi_subset_sum2.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 22
 hakank_swi_sudoku.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 19
 hakank_swi_survo_puzzle.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 37
-hakank_swi_talisman_square.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 18
 hakank_swi_telephone_number.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 34
 hakank_swi_the_family_puzzle.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 34
 hakank_swi_timpkin.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 20
@@ -252,4 +254,3 @@ hakank_swi_who_killed_the_bosmer.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 2
 hakank_swi_xkcd.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 15
 hakank_swi_young_tableaux.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 39
 hakank_swi_zebra.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 35
-hakank_utils.pl	OUTSIDE_CLPFD	loads library(clpfd) at line 94
