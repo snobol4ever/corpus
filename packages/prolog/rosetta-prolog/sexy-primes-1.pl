@@ -46,5 +46,6 @@ main(Limit):-
 main:-
     main(1000035).
 
-% DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): one Rosetta page split in blocks: this block's main/0 is the entry and calls find_prime_numbers/1 and is_prime/1 of sexy-primes-2 (module prime_numbers), so the driver takes that block over (CEO-1613; its module/2 directive errs inside an include and its clauses join user, as long-primes-1 composes) and calls main/0, the task's groups below 1000035.
+:- include('sexy-primes-2.pl').
 :- initialization(main).

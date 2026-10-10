@@ -20,6 +20,3 @@ negate(qx(Ri,Ii,Ji,Ki),qx(R,I,J,K)) :-
 	R is -Ri, I is -Ii, J is -Ji, K is -Ki.
 conjugate(qx(R,Ii,Ji,Ki),qx(R,I,J,K)) :-
 	I is -Ii, J is -Ji, K is -Ki.
-
-% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the quaternion operations over qx/4 and never calls them; the driver runs each on the task's q = (1,2,3,4), q1 = (2,3,4,5), q2 = (3,4,5,6), r = 7.
-:- initialization((Q = qx(1,2,3,4), Q1 = qx(2,3,4,5), Q2 = qx(3,4,5,6), R = 7, abs(Q, N), format("abs(q) = ~w~n", [N]), negate(Q, Ng), format("-q = ~w~n", [Ng]), conjugate(Q, C), format("conj(q) = ~w~n", [C]), add(Q, R, QR), format("q + r = ~w~n", [QR]), add(R, Q, RQ), format("r + q = ~w~n", [RQ]), add(Q1, Q2, S), format("q1 + q2 = ~w~n", [S]), mul(Q, R, M1), format("q * r = ~w~n", [M1]), mul(R, Q, M2), format("r * q = ~w~n", [M2]), mul(Q1, Q2, P12), format("q1 * q2 = ~w~n", [P12]), mul(Q2, Q1, P21), format("q2 * q1 = ~w~n", [P21]))).

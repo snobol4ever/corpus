@@ -23,5 +23,6 @@ test :- data(q1, Q1), data(q2, Q2), mul(Q2, Q1, Qx),
 	writef('q2*q1 is %w\n', [Qx]), fail.
 test.
 
-% DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines test/0 and never calls it; the driver calls it once at load.
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): one Rosetta page split in blocks: this block's test/0 is the entry and calls abs/2, negate/2, conjugate/2, add/3 and mul/3 over qx/4 of quaternion-1, so the driver takes that block over (CEO-1613) and calls test/0 once at load (the task's q, q1, q2 and r).
+:- include('quaternion-1.pl').
 :- initialization(test).

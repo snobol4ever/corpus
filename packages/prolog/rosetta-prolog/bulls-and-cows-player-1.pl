@@ -130,6 +130,3 @@ compte_bien_placees([H | T], [H1 | T1], MPC, MPF) :-
 compte_bien_placees([H | T], [H1 | T1], MPC, MPF) :-
    H #\= H1,
    compte_bien_placees(T, T1, MPC, MPF).
-
-% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the guessing engine tirage/1 (module ia.pl) and never calls it; the driver plays the scorer for the fixed secret [3,5,1,7], recording each answer as guess/2 the way bulls-and-cows-player-2 does, until 4 bulls.
-:- initialization((S = [3, 5, 1, 7], repeat, tirage(Ms), aggregate_all(count, (nth0(I, Ms, D), nth0(I, S, D)), B), aggregate_all(count, (member(E, Ms), memberchk(E, S)), BC), C is BC - B, format("guess ~w: ~w bulls, ~w cows~n", [Ms, B, C]), assertz(guess(Ms, [B, C])), B =:= 4, !)).

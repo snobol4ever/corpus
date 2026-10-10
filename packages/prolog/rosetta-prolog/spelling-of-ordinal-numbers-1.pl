@@ -23,5 +23,6 @@ main:-
     test_ordinal(7891233),
     test_ordinal(8007006005004003).
 
-% DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): one Rosetta page split in blocks: this block's main/0 is the entry and calls number_name/3 of spelling-of-ordinal-numbers-2 (module number_name), so the driver takes that block over (CEO-1613; its module/2 directive errs inside an include and its clauses join user, as long-primes-1 composes) and calls main/0, the task's nineteen ordinals.
+:- include('spelling-of-ordinal-numbers-2.pl').
 :- initialization(main).

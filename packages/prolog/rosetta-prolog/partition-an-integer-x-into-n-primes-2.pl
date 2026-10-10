@@ -40,6 +40,3 @@ cross_out(S, N, P):-
 cross_out(S, N, P):-
     Q is S + 2 * P,
     cross_out(Q, N, P).
-
-% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this file is the sieve module (find_prime_numbers/1, is_prime/1) of the solution and never calls it; the driver sieves to 100 and prints the primes it leaves.
-:- initialization((find_prime_numbers(100), findall(P, is_prime(P), Ps), format("~w~n", [Ps]))).

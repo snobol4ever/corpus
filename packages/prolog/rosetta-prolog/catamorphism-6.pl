@@ -50,3 +50,9 @@ test(foo_foldl_expr_empty)   :- ffl(foldy_expr(*) , [],  1 , R), R=1.
 :- end_tests(foldl).
 
 rt :- run_tests(foldr),run_tests(foldl).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): one Rosetta page split in blocks: this block's plunit tests and rt/0 are the entry and call foldl/4 of catamorphism-3, foldr/4 of catamorphism-4 and the foldy_* steps of catamorphism-5, so the driver takes those three over (CEO-1613), prints each step folded over the task's [1,2,3,4,5] both ways (what the tests check) and runs rt/0, printing whether every test passed (plunit's own report goes to stderr).
+:- include('catamorphism-3.pl').
+:- include('catamorphism-4.pl').
+:- include('catamorphism-5.pl').
+:- initialization((forall(member(F-S, [foldy_len-0, foldy_add-0, foldy_mult-1, foldy_build-[], foldy_squadd-0, foldy_join-"", foldy_expr(*)-1]), (foldr(F, [1, 2, 3, 4, 5], S, R1), foldl(F, [1, 2, 3, 4, 5], S, R2), format("~w: foldr ~q, foldl ~q~n", [F, R1, R2]))), (rt -> writeln('run_tests: all passed') ; writeln('run_tests: some failed')))).

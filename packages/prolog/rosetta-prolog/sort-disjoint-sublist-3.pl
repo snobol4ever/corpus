@@ -27,3 +27,7 @@ test(fail2,[fail]) :- sort_disjoint_sublist([],[0,1],_).
 % ---
 
 rt :- run_tests(sort_disjoint_sublist).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): one Rosetta page split in blocks: this block's plunit tests and rt/0 are the entry and call sort_disjoint_sublist/3, which sort-disjoint-sublist-1 and -2 define as alternatives (CEO-1608 rule 5), so the driver takes over -1, the first (CEO-1613), prints the task's example and runs rt/0, printing whether every test passed (plunit's own report goes to stderr).
+:- include('sort-disjoint-sublist-1.pl').
+:- initialization((sort_disjoint_sublist([7,6,5,4,3,2,1,0], [6,1,7], R), format("~w~n", [R]), (rt -> writeln('run_tests: all passed') ; writeln('run_tests: some failed')))).

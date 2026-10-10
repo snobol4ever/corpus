@@ -31,6 +31,21 @@ INCLUDED_BY that entry; a block that is itself a graded program is never include
 carries no driver: a load-time driver there would print inside them. After the rebuild: shipped 786 = graded 483 + ungraded 62 (44
 NEEDS_DRIVER, most needing a predicate only an already-graded block defines; 10 TIMEOUT; 8 NEEDS_VENDORED_SOURCE) + ungradable 232 +
 containers 9; inventory_line rc 0.
+THE TAKE-OVER PASS (hq_pascal 2026-10-10, ceo CEO-1613 and CEO-1621): the 44 blocks still NEEDS_DRIVER were each read and ended in a
+class. A composed driver may now TAKE OVER an already-graded sibling: the sibling's own driver is stripped, the entry includes it, and
+it becomes a CONTAINER INCLUDED_BY the entry, so the page's program is graded whole and once (27 siblings, 27 entries, the graded
+count unchanged by the swap). One sibling is a module that an include cannot splice (its module/2 errs). The entry loads it with
+use_module, and it is a CONTAINER LOADED_BY that entry, the sixth container kind the ceo ruled at CEO-1621
+(bulls-and-cows-player-1 to -2). The other blocks end as follows:
+- A block that calls a predicate no block of its page defines (nth/3, suffix/2, for/3, make_new_line/2 ...) is UNGRADABLE
+  ORACLE_REFUSES, with swipl's own measured error line.
+- A toplevel transcript pasted as facts is replayed by its driver (associative-array-iteration-1).
+- consult('filename') names a file no page shows, so that block is NEEDS_VENDORED_SOURCE.
+- ?- abort., whose result exists only at an interactive toplevel, is UNGRADABLE NEEDS_INTERACTIVE_TTY.
+- Two runs past the grading timeout, measured, are UNGRADED TIMEOUT.
+After the rebuild: shipped 786 = graded 482 + ungraded 21 (12 TIMEOUT, 9 NEEDS_VENDORED_SOURCE; NEEDS_DRIVER 0) + ungradable 240 +
+containers 43 (38 INCLUDED_BY, 4 NO_DEFINITION, 1 LOADED_BY). util_container_or_library.py verify reads 43 of 43, and inventory_line
+prints whole.
 
 Graded against the oracle: swipl -q (SWI-Prolog, the Prolog oracle; a program runs its load-time directives and its initialization goal). The container ALL.pl / ALL.ref / ALL.csv is built by
 SCRIP/scripts/util_build_package_suite.py, which cuts every ref from the oracle and names in ALL.excluded.txt, with its

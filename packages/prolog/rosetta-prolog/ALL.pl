@@ -626,53 +626,25 @@ ack(s(M),s(N),P):- ack(s(M),N,S), ack(M,S,P).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines ack/3 over successor numerals and never calls it; the driver runs its own example ack(s(0),s(s(0)),P) and one more.
 :- initialization(forall(member(M-N, [s(0)-s(s(0)), s(s(0))-s(0)]), (ack(M, N, P), format("~w~n", [P])))).
-%------------------------------------------------------ 17 aks-test-for-primes-2
-% To generate the n-th row of a Pascal triangle
-% pascal(+N, Row)
-pascal(0, [1]).
-pascal(N, Row) :-
-  N > 0, optpascal( [1, N|Xs] ),
-  !,
-  pascalize( [1, N|Xs], Row ).
+%------------------------------------------------------ 17 aks-test-for-primes-4
+%%% Task 3. Use the previous function in creating [sic]
+%%% another function that when given p returns whether p is prime
+%%% using the AKS test.
 
-pascalize( Opt, Row ) :-
-  % if Opt ends in a pair, then peel off the pair:
-  ( append(X, [R,R], Opt) -> true ; append(X, [R], Opt) ),
-  reverse(X, Rs),
-  append( Opt, Rs, Row ).
+% Even for testing whether a given number, N, is prime,
+% this approach is inefficient, but here is a Prolog implementation:
 
-% optpascal(-X) generates optpascal lines:
-optpascal(X) :-
-  optpascal_successor( [], X).
+   prime_test_per_requirements(N) :-
+     coefficients(N, [1|Coefficients]),
+     append(Cs, [_], Coefficients),
+     forall( member(C, Cs), 0 is C mod N).
 
-% optpascal_successor(+P, -Q) is true if Q is an optpascal list beneath the optpascal list P:
-optpascal_successor(P, Q) :-
-  optpascal(P, NextP),
-  (Q = NextP ; optpascal_successor(NextP, Q)).
-
-% optpascal(+Row, NextRow) is true if Row and NextRow are adjacent rows in the Pascal triangle.
-% optpascal(+Row, NextRow) where the optpascal representation is used
-optpascal(X, [1|Y]) :-
-  add_pairs(X, Y).
-
-% add_pairs(+OptPascal, NextOptPascal) is a helper function for optpascal/2.
-% Given one OptPascal list, it generates the next by adding adjacent
-% items, but if the last two items are unequal, then their sum is
-% repeated.  This is intended to be a deterministic predicate, and to
-% avoid a probable compiler limitation, we therefore use one cut.
-add_pairs([], []).
-add_pairs([X], [X]).
-add_pairs([X,Y], Ans) :-
-  S is X + Y,
-  (X = Y -> Ans=[S] ; Ans=[S,S]),
-  !.  % To overcome potential limitation of compiler
-
-add_pairs( [X1, X2, X3|Xs], [S|Ys]) :-
-  S is X1 + X2,
-  add_pairs( [X2, X3|Xs], Ys).
-
-% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines pascal/2 and never calls it; the driver prints the rows 0..7 the task asks for.
-:- initialization(forall(between(0, 7, N), (pascal(N, R), format("~w: ~w~n", [N, R])))).
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): one Rosetta page split in blocks: this block's prime_test_per_requirements/1 (task 3) calls coefficients/2 of aks-test-for-primes-3 (task 2), which runs over pascal/2 and optpascal/1 of aks-test-for-primes-2, and aks-test-for-primes-6 (tasks 4 and 5) runs aks-test-for-primes-5's prime/1, so the driver takes -2 over (CEO-1613) and includes -3, -5 and -6 in the page's order: -3's directive prints the coefficients for p = 0..7 and -6's print the primes under 35 and 50 as they load, and the driver then lists 1..49 by prime_test_per_requirements/1.
+:- include('aks-test-for-primes-2.pl').
+:- include('aks-test-for-primes-3.pl').
+:- include('aks-test-for-primes-5.pl').
+:- include('aks-test-for-primes-6.pl').
+:- initialization((findall(N, (between(1, 49, N), prime_test_per_requirements(N)), Ps), format("prime_test_per_requirements, 1..49: ~w~n", [Ps]))).
 %------------------------------------------------------ 18 aks-test-for-primes-7
 main :- task1(8), nl, task2(50), halt.
 
@@ -1244,7 +1216,13 @@ test(A):-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines test/1 (assertion(A==42)) and never calls it; the driver calls it with 42 and with 41, catching the assertion error (its backtrace goes to stderr).
 :- initialization((test(42), writeln('test(42): assertion holds'), catch(test(41), error(assertion_error(_, _), _), writeln('test(41): assertion failed')))).
-%--------------------------------------------------------- 34 attractive-numbers
+%---------------------------------------------- 34 associative-array-iteration-1
+assert( mymap(key1,value1) ).
+assert( mymap(key2,value1) ).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this block is the page's session goals assert(mymap(key1,value1)) and assert(mymap(key2,value1)) pasted as clauses of assert/1, which shadow the builtin (calling assert/1 would match them and assert nothing); the driver replays them in source order through clause/2 as assertz/1 goals (assert/1's ISO name) and then types the page's iteration ?- forall(mymap(Key,Value), writeln([Key,Value])) of associative-array-iteration-2, which cannot be included (its query runs at include time before the replay, measured: Unknown procedure: mymap/2, and its echoed answers are a syntax error), so the map the page builds prints.
+:- initialization((forall(clause(assert(T), true), assertz(T)), forall(mymap(Key, Value), writeln([Key, Value])))).
+%--------------------------------------------------------- 35 attractive-numbers
 prime_factors(N, Factors):-
     S is sqrt(N),
     prime_factors(N, Factors, S, 2).
@@ -1306,7 +1284,7 @@ main:-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%--------------------------------------------------- 35 averages-arithmetic-mean
+%--------------------------------------------------- 36 averages-arithmetic-mean
 mean(List, Mean) :-
     length(List, Length),
     sumlist(List, Sum),
@@ -1314,7 +1292,7 @@ mean(List, Mean) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines mean/2 and never calls it; the driver prints the mean of two vectors.
 :- initialization(forall(member(L, [[1, 2, 3, 4, 5], [3, 1, 4, 1, 5, 9]]), (mean(L, M), format("~w: ~w~n", [L, M])))).
-%------------------------------------------------------------ 36 averages-median
+%------------------------------------------------------------ 37 averages-median
 median(L, Z) :-
     length(L, Length),
     I is Length div 2,
@@ -1327,7 +1305,7 @@ median(L, Z) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines median/2 and never calls it; the driver prints the median of the task's odd- and even-length vectors.
 :- initialization(forall(member(L, [[4.1, 5.6, 7.2, 1.7, 9.3, 4.4, 3.2], [4.1, 7.2, 1.7, 9.3, 4.4, 3.2]]), (median(L, Z), format("~w: ~w~n", [L, Z])))).
-%-------------------------------------------------- 37 averages-root-mean-square
+%-------------------------------------------------- 38 averages-root-mean-square
 :- initialization(main).
 
 rms(Xs, Y) :-
@@ -1345,7 +1323,7 @@ main :-
     bagof(X, between(1, 10, X), Xs),
     rms(Xs, Y),
     format('The root-mean-square of 1..10 is ~f\n', [Y]).
-%---------------------------------------------------------- 38 babbage-problem-1
+%---------------------------------------------------------- 39 babbage-problem-1
 :- use_module(library(clpfd)).
 
 babbage_(B, B, Sq) :-
@@ -1362,7 +1340,7 @@ babbage :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines babbage/0 and never calls it; the driver calls it once at load.
 :- initialization(babbage).
-%---------------------------------------------------------- 39 babbage-problem-2
+%---------------------------------------------------------- 40 babbage-problem-2
 babbage :-
     Start is ceil(sqrt(269696)),
     between(Start, inf, N),
@@ -1373,7 +1351,7 @@ babbage :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines babbage/0 and never calls it; the driver calls it once at load.
 :- initialization(babbage).
-%---------------------------------------------------------- 40 balanced-brackets
+%---------------------------------------------------------- 41 balanced-brackets
 rosetta_brackets :-
     test_brackets([]),
     test_brackets(['[',']']),
@@ -1429,7 +1407,7 @@ bracket(1) --> [']'].
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): balanced_brackets/0 draws its brackets with random/1; the driver calls rosetta_brackets/0, the solution's own fixed bracket strings.
 :- initialization(rosetta_brackets).
-%--------------------------------------------------------- 41 balanced-ternary-2
+%--------------------------------------------------------- 42 balanced-ternary-2
 :- module('bt_add.pl', [bt_add/3,
 			bt_add1/3,
 			op(900, xfx, btplus),
@@ -1556,7 +1534,7 @@ strip_nombre(L) -->
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines bt_add/3 and never calls it; the driver adds the task's a = +-0++0+, b = -++-0-- (-436) and c = +-++- pairwise.
 :- initialization(forall(member(X-Y, ["+-0++0+"-"+-++-", "-++-0--"-"+-++-", "+-0++0+"-"-++-0--"]), (bt_add(X, Y, R), format("~w + ~w = ~w~n", [X, Y, R])))).
-%--------------------------------------------------------------- 42 bell-numbers
+%--------------------------------------------------------------- 43 bell-numbers
 bell(N, Bell):-
     bell(N, Bell, [], _).
 
@@ -1605,7 +1583,7 @@ main:-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%--------------------------------------------------------------- 43 benfords-law
+%--------------------------------------------------------------- 44 benfords-law
 %_________________________________________________________________
 % Does the Fibonacci sequence follow Benford's law?
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1653,13 +1631,13 @@ go :- % main goal
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines go/0 and never calls it; the driver calls it once at load.
 :- initialization(go).
-%-------------------------------------------------------------- 44 binary-digits
+%-------------------------------------------------------------- 45 binary-digits
 binary(X) :- format('~2r~n', [X]).
 main :- maplist(binary, [5,50,9000]), halt.
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%-------------------------------------------------- 45 bitmap-write-a-ppm-file-1
+%-------------------------------------------------- 46 bitmap-write-a-ppm-file-1
 :- module(bitmapIO, [
    write_ppm_p6/2]).
 
@@ -1679,48 +1657,74 @@ write_ppm_p6(Filename,[[X,Y],Pixels]):-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines write_ppm_p6/2 and never calls it; the driver writes a 2x2 bitmap to a temporary file and prints the file's bytes.
 :- initialization((tmp_file(ppm, F), write_ppm_p6(F, [[2, 2], [[[255, 0, 0], [0, 255, 0]], [[0, 0, 255], [255, 255, 255]]]]), read_file_to_codes(F, C, [type(binary)]), delete_file(F), format("~w~n", [C]))).
-%---------------------------------------------------------- 46 box-the-compass-1
-compassangle(1, 'North',n, 0.00).
-compassangle(2, 'North by east', nbe, 11.25).
-compassangle(3, 'North-northeast', nne,22.50).
-compassangle(4, 'Northeast by north', nebn,33.75).
-compassangle(5, 'Northeast', ne,45.00).
-compassangle(6, 'Norteast by east', nebe,56.25).
-compassangle(7, 'East-northeast', ene,67.50).
-compassangle(8, 'East by North', ebn,78.75).
-compassangle(9, 'East', e,90.00).
-compassangle(10, 'East by south', ebs, 101.25).
-compassangle(11, 'East-southeast', ese,112.50).
-compassangle(12, 'Southeast by east', sebe, 123.75).
-compassangle(13, 'Southeast', se, 135.00).
-compassangle(14, 'Southeast by south', sebs, 146.25).
-compassangle(15, 'South-southeast',sse, 157.50).
-compassangle(16, 'South by east', sbe, 168.75).
-compassangle(17, 'South', s, 180.00).
-compassangle(18, 'South by west', sbw, 191.25).
-compassangle(19, 'South-southwest', ssw, 202.50).
-compassangle(20, 'Southwest by south', swbs, 213.75).
-compassangle(21, 'Southwest', sw, 225.00).
-compassangle(22, 'Southwest by west', swbw, 236.25).
-compassangle(23, 'West-southwest', wsw, 247.50).
-compassangle(24, 'West by south', wbs, 258.75).
-compassangle(25, 'West', w, 270.00).
-compassangle(26, 'West by north', wbn, 281.25).
-compassangle(27, 'West-northwest', wnw, 292.50).
-compassangle(28, 'Northwest by west', nwbw, 303.75).
-compassangle(29, 'Northwest', nw, 315.00).
-compassangle(30, 'Northwest by north', nwbn, 326.25).
-compassangle(31, 'North-northwest', nnw, 337.50).
-compassangle(32, 'North by west', nbw, 348.75).
-compassangle(1, 'North', n, 360.00).
-compassangle(Index , Name, Heading, Angle) :- nonvar(Angle), resolveindex(Angle, Index),
-                                               compassangle(Index,Name, Heading, _).
+%--------------------------------------------------------------------- 47 bitmap
+:- module(bitmap, [
+   new_bitmap/3,
+   fill_bitmap/3,
+   get_pixel0/3,
+   set_pixel0/4 ]).
 
-resolveindex(Angle, Index) :- N is Angle / 11.25 + 0.5, I is floor(N),Index is (I mod 32) + 1.
+:- use_module(library(lists)).
 
-% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines compassangle/4 and never calls it; the driver prints the index and point name of the task's 33 headings.
-:- initialization(forall(member(A, [0.0, 16.87, 16.88, 33.75, 50.62, 50.63, 67.5, 84.37, 84.38, 101.25, 118.12, 118.13, 135.0, 151.87, 151.88, 168.75, 185.62, 185.63, 202.5, 219.37, 219.38, 236.25, 253.12, 253.13, 270.0, 286.87, 286.88, 303.75, 320.62, 320.63, 337.5, 354.37, 354.38]), (compassangle(I, N, _, A), format("~w    ~w   ~w~n", [I, N, A])))).
-%---------------------------------------------------------- 47 brace-expansion-1
+%-----------------------------------------------------------------------------%
+% Convenience Predicates
+replicate(Term,Times,L):-
+   length(L,Times),
+   maplist(=(Term),L).
+
+replace0(N,OL,E,NL):-
+   nth0(N,OL,_,TL),
+   nth0(N,NL,E,TL).
+%-----------------------------------------------------------------------------%
+% Bitmap Utilities
+%
+% The Bitmap structure is a list with pixels kept in row major order:
+% [dimensions-[X,Y],pixels-[[n11,n12...],[n21,n22...]]]
+
+% In this code what exactly an RGB value is doesn't matter however
+% in other bitmap tasks it is assumed to be a list [R,G,B] where
+% each is an int between 0 and 255, in code:
+rgb_pixel(RGB):-
+   length(RGB,3),
+   maplist(integer,RGB),
+   maplist(between(0,255),RGB).
+
+%new_bitmap(Bitmap,Dimensions,RGB)
+new_bitmap([[X,Y],Pixels],[X,Y],RGB) :-
+   replicate(RGB,X,Row),
+   replicate(Row,Y,Pixels).
+
+%fill_bitmap(New_Bitmap,Bitmap,RGB)
+fill_bitmap(New_Bitmap,[[X,Y],_],RGB) :-
+   new_bitmap(New_Bitmap,[X,Y],RGB).
+
+%here get and set use 0 based indexing
+%get_pixel0(Bitmap,Coordinates,RGB)
+get_pixel0([[_DimX,_DimY],Pixels],[X,Y],RGB) :-
+   nth0(Y,Pixels,Row),
+   nth0(X,Row,RGB).
+
+%set_pixel0(New Bitmap, Bitmap, Coordinates, RGB)
+set_pixel0([[DimX,DimY],New_Pixels],[[DimX,DimY],Pixels],[X,Y],RGB) :-
+   nth0(Y,Pixels,Row),
+   replace0(X,Row,RGB,New_Row),
+   replace0(Y,Pixels,New_Row,New_Pixels).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this file is the module bitmap (new_bitmap/3, fill_bitmap/3, get_pixel0/3, set_pixel0/4) that bitmap-write-a-ppm-file-2 and bitmap-bresenhams-line-algorithm load with use_module(bitmap), so its driver runs only when bitmap.pl is the program run with its declared argument demo (bitmap.argv) and is silent when another program loads it; it creates a 4x3 bitmap, fills it, sets a pixel and reads it back.
+:- initialization((current_prolog_flag(argv, Av), memberchk(demo, Av) -> new_bitmap(B0, [4, 3], [0, 0, 0]), format("new 4x3 black: ~w~n", [B0]), fill_bitmap(B1, B0, [255, 255, 255]), format("filled white: ~w~n", [B1]), set_pixel0(B2, B1, [1, 2], [255, 0, 0]), format("pixel (1,2) set red: ~w~n", [B2]), get_pixel0(B2, [1, 2], P), format("pixel (1,2): ~w~n", [P]) ; true)).
+%---------------------------------------------------------- 48 box-the-compass-2
+printTableRow(Angle) :- compassangle(Index, Name, _, Angle),
+                        write(Index), write('    '),
+                        write(Name), write('   '),
+                        write(Angle).
+
+printTable([X|Xs]) :- printTableRow(X), nl, printTable(Xs),!.
+printTable([]).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): one Rosetta page split in blocks: this block's printTable/1 is the entry and calls compassangle/4 of box-the-compass-1, so the driver takes that block over (CEO-1613) and prints the table of the task's 33 headings, the call box-the-compass-3's transcript shows.
+:- include('box-the-compass-1.pl').
+:- initialization(printTable([0.0, 16.87, 16.88, 33.75, 50.62, 50.63, 67.5, 84.37, 84.38, 101.25, 118.12, 118.13, 135.0, 151.87, 151.88, 168.75, 185.62, 185.63, 202.5, 219.37, 219.38, 236.25, 253.12, 253.13, 270.0, 286.87, 286.88, 303.75, 320.62, 320.63, 337.5, 354.37, 354.38])).
+%---------------------------------------------------------- 49 brace-expansion-1
 sym(',', commalist) --> ['\\',','], !.
 sym(H, Context)         --> [H], { not(H = '{'; H = '}'), (Context = commalist -> not(H = ','); true) }.
 syms([H|T], Context)    --> sym(H, Context), !, syms(T, Context).
@@ -1745,7 +1749,7 @@ brace_expansion(In, Out) :- atom_chars(In, Chars), findall(Out,grammar(Out, Char
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines brace_expansion/2 and never calls it; the driver expands the task's four test strings.
 :- initialization(forall(member(In, ['~/{Downloads,Pictures}/*.{jpg,gif,png}', 'It{{em,alic}iz,erat}e{d,}, please.', '{,{,gotta have{ ,\\, again\\, }}more }cowbell!', '{}} some }{,{\\\\{ edge, edge} \\,}{ cases, {here} \\\\\\\\\\}']), (format("~w~n", [In]), brace_expansion(In, Out), forall(member(O, Out), format("    ~w~n", [O]))))).
-%---------------------------------------------------------- 48 brilliant-numbers
+%---------------------------------------------------------- 50 brilliant-numbers
 factors(N, Flist):-
 	factors(N, 2, 0, Flist).
 
@@ -1806,143 +1810,33 @@ do:-findnsols(100, B, isBrilliant(B), BList),!,
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): do/0 also prints each step's runtime, which no ref can hold; the driver prints the first 100 brilliant numbers with showList/2 and, from brilliantList/3 and nextBrilliant/2, the first >= 10^1..10^5 in do/0's own format without the time, shrunk to 10^1..10^5 (10^6 alone takes 30 s).
 :- initialization((findnsols(100, B, isBrilliant(B), BL), !, showList(BL, 10), nl, forall(between(1, 5, X), (L is 10^X, L1 is L - 1, brilliantList(2, L1, Bs), length(Bs, C), I is C + 1, once(nextBrilliant(L, Br)), writef('first >=%8r is%8r at position%6r', [L, Br, I]), nl)))).
-%---------------------------------------------------- 49 bulls-and-cows-player-1
-:- module('ia.pl', [tirage/1]).
-:- use_module(library(clpfd)).
+%---------------------------------------------------- 51 bulls-and-cows-player-2
+bulls_and_cows :-
+   retractall('ia.pl':guess(_,_)),
+   retractall(coups(_)),
+   assert(coups(1)),
 
-% to store the previous guesses and the answers
-:- dynamic guess/2.
+   repeat,
+   (   tirage(Ms)
+   ->  maplist(add_1, Ms, Ms1),
+       atomic_list_concat(Ms1, Guess),
+       retract(coups(Coup)),
+       Coup_1 is Coup + 1,
+       assert(coups(Coup_1)),
+       format('~w My guess ~w~n', [Coup, Guess]),
+       write('Bulls : '), read(Bulls),
+       write('Cows  : '), read(Cows), nl,
+       assert('ia.pl':guess(Ms, [Bulls, Cows])),
+       Bulls = 4
+   ;   writeln('Sorry, I can''t find a solution !'), true).
 
-% parameters of the engine
+add_1(X, Y) :-
+   Y is X + 1.
 
-% length of the guess
-proposition(4).
-
-% Numbers of digits
-% 0 -> 8
-digits(8).
-
-
-% tirage(-)
-tirage(Ms) :-
-   % are there previous guesses ?
-   (  bagof([P, R], guess(P,R), Propositions)
-   ->  tirage(Propositions, Ms)
-   ;   % First try
-       tirage_1(Ms)),
-   !.
-
-% tirage_1(-)
-% We choose the first Len numbers
-tirage_1(L):-
-   proposition(Len),
-   Max is Len-1,
-   numlist(0, Max, L).
-
-
-% tirage(+,-)
-tirage(L, Ms) :-
-   proposition(Len),
-        length(Ms, Len),
-
-   digits(Digits),
-
-   % The guess contains only this numbers
-        Ms ins 0..Digits,
-   all_different(Ms),
-
-   % post the constraints
-        maplist(placees(Ms), L),
-
-   % compute a possible solution
-   label(Ms).
-
-% placees(+, +])
-placees(Sol, [Prop, [BP, MP]]) :-
-   V #= 0,
-
-   % compute the numbers of digits in good places
-   compte_bien_placees(Sol, Prop, V, BP1),
-   BP1 #= BP,
-
-   % compute the numbers of digits inbad places
-   compte_mal_placees(Sol, Prop, 0, V, MP1),
-   MP1 #= MP.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% compte_mal_placees(+, +, +, +, -).
-% @arg1 : guess to create
-% @arg2 : guess already used
-% @arg3 : range of the first digit of the previuos arg
-% @arg4 : current counter of the digit in bad places
-% @arg5 : final counter of the digit in bad places
-%
-%
-compte_mal_placees(_, [], _, MP, MP).
-
-compte_mal_placees(Sol, [H | T], N, MPC, MPF) :-
-   compte_une_mal_placee(H, N, Sol, 0,  0, VF),
-   MPC1 #= MPC + VF,
-   N1 is N+1,
-   compte_mal_placees(Sol, T, N1, MPC1, MPF).
-
-
-% Here we check one digit of an already done guess
-% compte_une_mal_placee(+, +, +, +, -).
-% @arg1 : the digit
-% @arg2 : range of this digit
-% @arg3 : guess to create
-%         we check each digit of this guess
-% @arg4 : range of the digit of this guess
-% @arg5 : current counter of the digit in bad places
-% @arg6 : final counter of the digit in bad places
-%
-compte_une_mal_placee(_H, _N, [], _, TT, TT).
-
-% digit in the same range, continue
-compte_une_mal_placee(H, NH, [_H1 | T], NH, TTC, TTF) :-
-   NH1 is NH + 1, !,
-   compte_une_mal_placee(H, NH, T, NH1, TTC, TTF).
-
-% same digit in different places
-% increment the counter and continue continue
-compte_une_mal_placee(H, NH, [H1 | T], NH1, TTC, TTF) :-
-   H #= H1,
-   NH \= NH1,
-   NH2 is NH1 + 1,
-   TTC1 #= TTC + 1,
-   compte_une_mal_placee(H, NH, T, NH2, TTC1, TTF).
-
-compte_une_mal_placee(H, NH, [H1 | T], NH1, TTC, TTF) :-
-   H #\= H1,
-   NH2 is NH1 + 1,
-   compte_une_mal_placee(H, NH, T, NH2, TTC, TTF).
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% compte_bien_placees(+, +, +, -)
-% @arg1 : guess to create
-% @arg2 : previous guess
-% @arg3 : current counter of the digit in good places
-% @arg4 : final counter of the digit in good places
-%
-%
-compte_bien_placees([], [], MP, MP).
-
-compte_bien_placees([H | T], [H1 | T1], MPC, MPF) :-
-   H #= H1,
-   MPC1 #= MPC + 1,
-   compte_bien_placees(T, T1, MPC1, MPF).
-
-compte_bien_placees([H | T], [H1 | T1], MPC, MPF) :-
-   H #\= H1,
-   compte_bien_placees(T, T1, MPC, MPF).
-
-% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the guessing engine tirage/1 (module ia.pl) and never calls it; the driver plays the scorer for the fixed secret [3,5,1,7], recording each answer as guess/2 the way bulls-and-cows-player-2 does, until 4 bulls.
-:- initialization((S = [3, 5, 1, 7], repeat, tirage(Ms), aggregate_all(count, (nth0(I, Ms, D), nth0(I, S, D)), B), aggregate_all(count, (member(E, Ms), memberchk(E, S)), BC), C is BC - B, format("guess ~w: ~w bulls, ~w cows~n", [Ms, B, C]), assertz(guess(Ms, [B, C])), B =:= 4, !)).
-%-------------------------------------------------------------- 50 caesar-cipher
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): one Rosetta page split in blocks: this block's bulls_and_cows/0 is the game and asks tirage/1 of bulls-and-cows-player-1, the module 'ia.pl' whose guess/2 it asserts module-qualified, so the driver takes -1 over and loads it with use_module (use_module_takeover: an include drops the module boundary and the game repeats its first guess forever) and plays it once at load; bulls-and-cows-player-2.in scores each guess for the secret 4628 (Bulls then Cows, one term a line), which it finds on the fifth guess.
+:- use_module('bulls-and-cows-player-1.pl').
+:- initialization(bulls_and_cows).
+%-------------------------------------------------------------- 52 caesar-cipher
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): written for double_quotes=codes (DEC-10 Prolog, ISO, SWI before 7); the program sets the flag, as
 % GOAL-PROLOG-100's superset ruling has a program set a dialect flag (it is SCRIP's default; swipl 7 reads "..." as a string).
 :- set_prolog_flag(double_quotes, codes).
@@ -1982,7 +1876,7 @@ caesar_cipher(Key, V1, V2) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines caesar/0 and never calls it; written for code lists (maplist/3 over "..."), so the flag is set at its head and the driver calls it once at load.
 :- initialization(caesar).
-%----------------------------------------------- 51 calculating-the-value-of-e-1
+%----------------------------------------------- 53 calculating-the-value-of-e-1
 % Calculate the value e = exp 1
 %   Use Newton's method: x0 = 2; y = x(2 - ln x)
 
@@ -2004,7 +1898,7 @@ main :-
     halt.
 
 ?- main.
-%----------------------------------------------- 52 calculating-the-value-of-e-2
+%----------------------------------------------- 54 calculating-the-value-of-e-2
 % John Devou: 26-Nov-2021
 % Simple program to calculate e up to n decimal digits.
 % Works fast for n ≤ 1 000 000.
@@ -2029,7 +1923,7 @@ main:-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): main/0 reads N from its command line and prints its computation time, which no ref can hold; the driver calls l/4 and e/5 for N = 100 and prints e in main/0's own format.
 :- initialization((N = 100, L is 3*10**(N+1), l(1, 1, L, S), e(S, 0, 1, N, E), format("e = 2.~d\n", E))).
-%------------------------------------------------------------------- 53 calendar
+%------------------------------------------------------------------- 55 calendar
 % Write out the calender, because format can actually span multiple lines, it is easier
 % to write out the static parts in place and insert the generated parts into that format.
 write_calendar(Year) :-
@@ -2127,7 +2021,7 @@ is_leap_year(Year) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines write_calendar/1 and never calls it; the driver prints the task's year 1969.
 :- initialization(write_calendar(1969)).
-%------------------------------------------------------- 54 calkin-wilf-sequence
+%------------------------------------------------------- 56 calkin-wilf-sequence
 % John Devou: 26-Nov-2021
 
 % g(N,X):- consecutively generate in X the first N elements of the Calkin-Wilf sequence
@@ -2144,7 +2038,7 @@ t(A/B,X):- t(A/B,1,1,X), !.
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines g/2 and t/2 and never calls them; the driver prints the task's first 20 terms and the index of 83116/51639.
 :- initialization((findall(X, g(20, X), Xs), format("~w~n", [Xs]), t(83116/51639, I), format("~w~n", [I]))).
-%------------------------------------------- 55 carmichael-3-strong-pseudoprimes
+%------------------------------------------- 57 carmichael-3-strong-pseudoprimes
 show(Limit) :-
     forall(
         carmichael(Limit, P1, P2, P3, C),
@@ -2179,13 +2073,13 @@ prime(N, D, [A|As]) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines show/1 and never calls it; the driver runs it for the task's Prime1 up to 61.
 :- initialization(show(61)).
-%------------------------------------- 56 cartesian-product-of-two-or-more-lists
+%------------------------------------- 58 cartesian-product-of-two-or-more-lists
 product([A|_], Bs, [A, B]) :- member(B, Bs).
 product([_|As], Bs, X) :- product(As, Bs, X).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines product/3 and never calls it; the driver prints the task's four products {1,2}x{3,4}, {3,4}x{1,2}, {1,2}x{} and {}x{1,2}.
 :- initialization(forall(member(A-B, [[1, 2]-[3, 4], [3, 4]-[1, 2], [1, 2]-[], []-[1, 2]]), (findall(X, product(A, B, X), Ps), format("~w x ~w = ~w~n", [A, B, Ps])))).
-%-------------------------------------------- 57 case-sensitivity-of-identifiers
+%-------------------------------------------- 59 case-sensitivity-of-identifiers
 three_dogs :-
 	DoG = 'Benjamin',
 	Dog = 'Samba',
@@ -2194,7 +2088,7 @@ three_dogs :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines three_dogs/0 and never calls it; the driver calls it once at load.
 :- initialization(three_dogs).
-%------------------------------------------------------------ 58 catalan-numbers
+%------------------------------------------------------------ 60 catalan-numbers
 catalan(N) :-
   length(L1, N),
   L = [1 | L1],
@@ -2215,73 +2109,65 @@ my_write(N, V) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines catalan/1 and never calls it; the driver prints the task's first 15 Catalan numbers, C(0)..C(14).
 :- initialization(catalan(14)).
-%------------------------------------------------------------- 59 catamorphism-3
-% Computes "Out" as:
-%
-% starter value -->--f-->--f-->--f-->--f-->-- Out
-%                    |     |     |     |
-%                    a     b     c     d
+%------------------------------------------------------------- 61 catamorphism-6
+:- begin_tests(foldr).
+
+in([1,2,3,4,5]).
+
+ffr(Foldy,List,Starter,AccUp) :- foldr(Foldy,List,Starter,AccUp).
+
+test(foo_foldr_len)    :- in(L),ffr(foldy_len     , L ,  0 , R), R=5.
+test(foo_foldr_add)    :- in(L),ffr(foldy_add     , L ,  0 , R), R=15.
+test(foo_foldr_mult)   :- in(L),ffr(foldy_mult    , L ,  1 , R), R=120.
+test(foo_foldr_build)  :- in(L),ffr(foldy_build   , L , [] , R), R=[1,2,3,4,5].
+test(foo_foldr_squadd) :- in(L),ffr(foldy_squadd  , L ,  0 , R), R=507425426245.
+test(foo_foldr_join)   :- in(L),ffr(foldy_join    , L , "" , R), R="1,2,3,4,5".
+test(foo_foldr_expr)   :- in(L),ffr(foldy_expr(*) , L ,  1 , R), R=1*(2*(3*(4*(5*1)))).
+
+test(foo_foldr_len_empty)    :- ffr(foldy_len     , [],  0 , R), R=0.
+test(foo_foldr_add_empty)    :- ffr(foldy_add     , [],  0 , R), R=0.
+test(foo_foldr_mult_empty)   :- ffr(foldy_mult    , [],  1 , R), R=1.
+test(foo_foldr_build_empty)  :- ffr(foldy_build   , [], [] , R), R=[].
+test(foo_foldr_squadd_empty) :- ffr(foldy_squadd  , [],  0 , R), R=0.
+test(foo_foldr_join_empty)   :- ffr(foldy_join    , [], "" , R), R="".
+test(foo_foldr_expr_empty)   :- ffr(foldy_expr(*) , [],  1 , R), R=1.
+
+% library(apply) has no "foldr" so no comparison tests!
+
+:- end_tests(foldr).
 
 
-foldl(Foldy,[Item|Items],Acc,Result) :-    % case of nonempty list
-   !,                                      % GREEN CUT for determinism
-   call(Foldy,Item,Acc,AccNext),           % call Foldy(Item,Acc,AccNext)
-   foldl(Foldy,Items,AccNext,Result).      % then recurse (open to tail call optimization)
+:- begin_tests(foldl).
 
-foldl(_,[],Acc,Result) :-                  % case of empty list
-   Acc=Result.                             % unification not in head for clarity
+in([1,2,3,4,5]).
 
-% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines foldl/4 and never calls it; the driver folds the sum of 1..5 with plus/3 and the list [a,b,c,d] with atom_concat/3, showing the left fold's order.
-:- initialization((foldl(plus, [1, 2, 3, 4, 5], 0, S), format("~w~n", [S]), foldl(atom_concat, [a, b, c, d], '', A), format("~w~n", [A]))).
-%------------------------------------------------------------- 60 catamorphism-4
-% Computes "Out" as:
-%
-% Out --<--f--<--f--<--f--<--f--<-- starter value
-%          |     |     |     |
-%          a     b     c     d
+ffl(Foldy,List,Starter,Result) :- foldl(Foldy,List,Starter,Result).
 
-foldr(Foldy,[Item|Items],Starter,AccUp) :-    % case of nonempty list
-   !,                                         % GREEN CUT for determinism
-   foldr(Foldy,Items,Starter,AccUpPrev),      % recurse (NOT open to tail-call optimization)
-   call(Foldy,Item,AccUpPrev,AccUp).          % call Foldy(Item,AccupPrev,AccUp) as last action
+test(foo_foldl_len)    :- in(L),ffl(foldy_len     , L ,  0 , R), R=5.
+test(foo_foldl_add)    :- in(L),ffl(foldy_add     , L,   0 , R), R=15.
+test(foo_foldl_mult)   :- in(L),ffl(foldy_mult    , L,   1 , R), R=120.
+test(foo_foldl_build)  :- in(L),ffl(foldy_build   , L,  [] , R), R=[5,4,3,2,1].
+test(foo_foldl_squadd) :- in(L),ffl(foldy_squadd  , L,   0 , R), R=21909.
+test(foo_foldl_join)   :- in(L),ffl(foldy_join    , L,  "" , R), R="5,4,3,2,1".
+test(foo_foldl_expr)   :- in(L),ffl(foldy_expr(*) , L,   1 , R), R=5*(4*(3*(2*(1*1)))).
 
-foldr(_,[],Starter,AccUp) :-                  % empty list: bounce Starter "upwards" into AccUp
-   AccUp=Starter.                             % unification not in head for clarity
+test(foo_foldl_len_empty)    :- ffl(foldy_len     , [],  0 , R), R=0.
+test(foo_foldl_add_empty)    :- ffl(foldy_add     , [],  0 , R), R=0.
+test(foo_foldl_mult_empty)   :- ffl(foldy_mult    , [],  1 , R), R=1.
+test(foo_foldl_build_empty)  :- ffl(foldy_build   , [], [] , R), R=[].
+test(foo_foldl_squadd_empty) :- ffl(foldy_squadd  , [],  0 , R), R=0.
+test(foo_foldl_join_empty)   :- ffl(foldy_join    , [], "" , R), R="".
+test(foo_foldl_expr_empty)   :- ffl(foldy_expr(*) , [],  1 , R), R=1.
 
-% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines foldr/4 and never calls it; the driver folds the sum of 1..5 with plus/3 and the list [a,b,c,d] with atom_concat/3, showing the right fold's order.
-:- initialization((foldr(plus, [1, 2, 3, 4, 5], 0, S), format("~w~n", [S]), foldr(atom_concat, [a, b, c, d], '', A), format("~w~n", [A]))).
-%------------------------------------------------------------- 61 catamorphism-5
-:- use_module(library(clpfd)). % We are using #= instead of the raw "is".
+:- end_tests(foldl).
 
-foldy_len(_Item,ThreadIn,ThreadOut) :-
-   succ(ThreadIn,ThreadOut).
+rt :- run_tests(foldr),run_tests(foldl).
 
-foldy_add(Item,ThreadIn,ThreadOut) :-
-   ThreadOut #= Item+ThreadIn.
-
-foldy_mult(Item,ThreadIn,ThreadOut) :-
-   ThreadOut #= Item*ThreadIn.
-
-foldy_squadd(Item,ThreadIn,ThreadOut) :-
-   ThreadOut #= Item+(ThreadIn^2).
-
-% '[|]' is SWI-Prolog specific, replace by '.' as consbox constructor in other Prologs
-
-foldy_build(Item,ThreadIn,ThreadOut) :-
-   ThreadOut = '[|]'(Item,ThreadIn).
-
-foldy_join(Item,ThreadIn,ThreadOut) :-
-   (ThreadIn \= "")
-   -> with_output_to(string(ThreadOut),format("~w,~w",[Item,ThreadIn]))
-   ;  with_output_to(string(ThreadOut),format("~w",[Item])).
-
-% '=..' ("univ") constructs a term from a list of functor and arguments
-
-foldy_expr(Functor,Item,ThreadIn,ThreadOut) :-
-   ThreadOut =.. [Functor,Item,ThreadIn].
-
-% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the foldy_* step predicates and never calls them; the driver folds the task's [1,2,3,4,5] with each through foldl/4 (library(apply)), as catamorphism-6's foldl tests do.
-:- initialization(forall(member(F-S, [foldy_len-0, foldy_add-0, foldy_mult-1, foldy_build-[], foldy_squadd-0, foldy_join-"", foldy_expr(*)-1]), (foldl(F, [1, 2, 3, 4, 5], S, R), format("~w: ~q~n", [F, R])))).
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): one Rosetta page split in blocks: this block's plunit tests and rt/0 are the entry and call foldl/4 of catamorphism-3, foldr/4 of catamorphism-4 and the foldy_* steps of catamorphism-5, so the driver takes those three over (CEO-1613), prints each step folded over the task's [1,2,3,4,5] both ways (what the tests check) and runs rt/0, printing whether every test passed (plunit's own report goes to stderr).
+:- include('catamorphism-3.pl').
+:- include('catamorphism-4.pl').
+:- include('catamorphism-5.pl').
+:- initialization((forall(member(F-S, [foldy_len-0, foldy_add-0, foldy_mult-1, foldy_build-[], foldy_squadd-0, foldy_join-"", foldy_expr(*)-1]), (foldr(F, [1, 2, 3, 4, 5], S, R1), foldl(F, [1, 2, 3, 4, 5], S, R2), format("~w: foldr ~q, foldl ~q~n", [F, R1, R2]))), (rt -> writeln('run_tests: all passed') ; writeln('run_tests: some failed')))).
 %------------------------------------------------------ 62 chemical-calculator-1
 :- use_module(library(dcg/basics)).
 :- use_module(library(dcg/high_order)).
@@ -2583,40 +2469,23 @@ run :-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines run/0 and never calls it; the driver calls it once at load.
 :- initialization(run).
-%----------------------------------------------------- 67 closest-pair-problem-1
-% main predicate, find and print closest point
-do_find_closest_points(Points) :-
-	points_closest(Points, points(point(X1,Y1),point(X2,Y2),Dist)),
-	format('Point 1 : (~p, ~p)~n', [X1,Y1]),
-	format('Point 1 : (~p, ~p)~n', [X2,Y2]),
-	format('Distance: ~p~n', [Dist]).
+%----------------------------------------------------- 67 closest-pair-problem-2
+do_find_closest_points([
+    point(0.654682, 0.925557),
+    point(0.409382, 0.619391),
+    point(0.891663, 0.888594),
+    point(0.716629, 0.996200),
+    point(0.477721, 0.946355),
+    point(0.925092, 0.818220),
+    point(0.624291, 0.142924),
+    point(0.211332, 0.221507),
+    point(0.293786, 0.691701),
+    point(0.839186, 0.728260)
+]).
 
-% Find the distance between two points
-distance(point(X1,Y1), point(X2,Y2), points(point(X1,Y1),point(X2,Y2),Dist)) :-
-	Dx is X2 - X1,
-	Dy is Y2 - Y1,
-	Dist is sqrt(Dx * Dx + Dy * Dy).
-
-% find the closest point that relatest to another point
-point_closest(Points, Point, Closest) :-
-	select(Point, Points, Remaining),
-	maplist(distance(Point), Remaining, PointList),
-	foldl(closest, PointList, 0, Closest).
-
-% find the closest point/dist pair for all points
-points_closest(Points, Closest) :-
-	maplist(point_closest(Points), Points, ClosestPerPoint),
-	foldl(closest, ClosestPerPoint, 0, Closest).
-
-% used by foldl to get the lowest point/distance combination
-closest(points(P1,P2,Dist), 0, points(P1,P2,Dist)).
-closest(points(_,_,Dist), points(P1,P2,Dist2), points(P1,P2,Dist2)) :-
-	Dist2 < Dist.
-closest(points(P1,P2,Dist), points(_,_,Dist2), points(P1,P2,Dist)) :-
-	Dist =< Dist2.
-
-% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines do_find_closest_points/1 and never calls it; the driver runs it on the ten points of closest-pair-problem-2, the solution's own example.
-:- initialization(do_find_closest_points([point(0.654682, 0.925557), point(0.409382, 0.619391), point(0.891663, 0.888594), point(0.716629, 0.996200), point(0.477721, 0.946355), point(0.925092, 0.818220), point(0.624291, 0.142924), point(0.211332, 0.221507), point(0.293786, 0.691701), point(0.839186, 0.728260)])).
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): one Rosetta page split in blocks: this block is the page's example query do_find_closest_points([ten points]) written as a fact, and the entry do_find_closest_points/1 is closest-pair-problem-1's, so the driver takes that block over (CEO-1613) and asks the query on the same ten points through all its answers: the fact answers first and prints nothing, the program's rule then prints the closest pair.
+:- include('closest-pair-problem-1.pl').
+:- initialization(forall(do_find_closest_points([point(0.654682, 0.925557), point(0.409382, 0.619391), point(0.891663, 0.888594), point(0.716629, 0.996200), point(0.477721, 0.946355), point(0.925092, 0.818220), point(0.624291, 0.142924), point(0.211332, 0.221507), point(0.293786, 0.691701), point(0.839186, 0.728260)]), true)).
 %------------------------------------------------------------- 68 combinations-1
 :- use_module(library(clpfd)).
 
@@ -3971,13 +3840,19 @@ collapse( Str, Collapsed ) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines collapse/2 and never calls it; the driver collapses the task's five strings and prints each with its length (<<< >>> in place of the task's guillemets).
 :- initialization(forall(member(S, ["", "\"If I were two-faced, would I be wearing this one?\" --- Abraham Lincoln ", "..1111111111111111111111111111111111111111111111111111111111111117777888", "I never give 'em hell, I just tell the truth, and they think it's hell. ", "                                                    --- Harry S Truman "]), (once(collapse(S, C)), string_length(S, LS), string_length(C, LC), format("original:  <<<~w>>> (length ~d)~ncollapsed: <<<~w>>> (length ~d)~n", [S, LS, C, LC])))).
-%---------------------------------------- 108 determine-if-a-string-is-numeric-1
-numeric_string(String) :-
-    atom_string(Atom, String),
-    atom_number(Atom, _).
+%---------------------------------------- 108 determine-if-a-string-is-numeric-2
+test_strings(Strings) :-
+    forall( member(String, Strings),
+            ( ( numeric_string(String)
+              ->  Result = a
+              ;   Result = 'not a' ),
+              format('~w is ~w number.~n', [String, Result])
+            )
+          ).
 
-% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines numeric_string/1 and never calls it; the driver tests the five strings of the solution's own example (determine-if-a-string-is-numeric-3) in its test_strings/1 format.
-:- initialization(forall(member(S, ["123", "0.123", "-123.1", "NotNum", "1."]), ((numeric_string(S) -> R = a ; R = 'not a'), format('~w is ~w number.~n', [S, R])))).
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): one Rosetta page split in blocks: this block's test_strings/1 is the entry and calls numeric_string/1 of determine-if-a-string-is-numeric-1, so the driver takes that block over (CEO-1613) and runs the five strings of the page's example (determine-if-a-string-is-numeric-3's transcript).
+:- include('determine-if-a-string-is-numeric-1.pl').
+:- initialization(test_strings(["123", "0.123", "-123.1", "NotNum", "1."])).
 %--------------------------------------- 109 determine-if-a-string-is-squeezable
 squeeze_( [], _, [] ).
 squeeze_( [A], _, [A] ).
@@ -5715,11 +5590,15 @@ main :-
     halt.
 
 ?- main.
-%----------------------------------------------------- 166 function-definition-1
-multiply(A, B, P) :- P is A * B.
+%----------------------------------------------------- 166 function-definition-2
+go :-
+  multiply(5, 2, P),
+  format("The product is ~d.~n", [P]).
 
-% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines multiply/3 and never calls it; the driver multiplies 5 by 2 as function-definition-2's go/0 does.
-:- initialization((multiply(5, 2, P), format("The product is ~d.~n", [P]))).
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): one Rosetta page split in blocks: multiply/3 is function-definition-1's and this block's go/0 and function-definition-3's test_multiply/0 call it, so the driver takes function-definition-1 over (CEO-1613), includes -3, calls go/0 (the product of 5 and 2) and prints whether test_multiply/0 holds (its comments: the first check passes, the second does not).
+:- include('function-definition-1.pl').
+:- include('function-definition-3.pl').
+:- initialization((go, (test_multiply -> R = true ; R = false), format("test_multiply: ~w~n", [R]))).
 %----------------------------------------------------- 167 function-definition-4
 :- use_module(library(function_expansion)).
 
@@ -5836,22 +5715,13 @@ recip_gamma(X, PrevPow, [C|Cs], _, X1, Y) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines gamma/2 and never calls it; the driver prints gamma(x) for x = 0.1 .. 2.0 in steps of 0.1.
 :- initialization(forall(between(1, 20, I), (X is I / 10.0, gamma(X, Y), format("gamma(~1f) = ~w~n", [X, Y])))).
-%-------------------------------------------------------- 171 general-fizzbuzz-2
-go :- maxNumber(M), factors(Fs), MLast is M+1, loop(1,MLast,Fs).
+%-------------------------------------------------------- 171 general-fizzbuzz-4
+factors([(3, "Fizz"), (5, "Buzz")]).
 
-loop(B,B,_).
-loop(A,B,Fs) :-
-    A < B, fizzbuzz(A,Fs,S), ( (S = "", Res is A) ; Res = S ), writeln(Res),
-    Next is A+1, loop(Next,B,Fs).
-
-fizzbuzz(_,[],"").
-fizzbuzz(N,[(F,S)|Fs],Res) :-
-    fizzbuzz(N,Fs,OldRes),
-    ( N mod F =:= 0, string_concat(S,OldRes,Res) ; Res = OldRes ).
-
-% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): one Rosetta page split in blocks: this block's go/0 is the entry and reads maxNumber/1 and factors/1, the input facts of general-fizzbuzz-1 (max 105; 3 Fizz, 5 Buzz, 7 Baxx), so the driver includes that block and calls go/0 once at load.
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): one Rosetta page split in blocks: this block is the alternative input factors([(3, "Fizz"), (5, "Buzz")]) for general-fizzbuzz-2's go/0, which reads maxNumber/1 and factors/1, the page's sample input facts of general-fizzbuzz-1 (maxNumber(105); factors 3 Fizz, 5 Buzz, 7 Baxx); the driver takes -2 over (CEO-1613), includes -1 and calls go/0, which takes this block's factors/1 (the first clause) with the page's maxNumber 105, then, after a blank line, runs go/0's own steps (loop/3 from 1 to maxNumber) on -1's factors/1, the page's main answer -2's driver printed.
 :- include('general-fizzbuzz-1.pl').
-:- initialization(go).
+:- include('general-fizzbuzz-2.pl').
+:- initialization((go, nl, findall(Fs, factors(Fs), [_, Fs1]), maxNumber(M), MLast is M + 1, once(loop(1, MLast, Fs1)))).
 %------------------------------------- 172 generate-chess960-starting-position-1
 check(Row) :-
     nth1(King, Row, ♔),
@@ -6158,34 +6028,34 @@ play :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines play/0 and never calls it; the input answers as the transcript in guess-the-number-with-feedback-player--2 does (ready, h, l, c for the number 3).
 :- initialization((play, nl)).
-%------------------------------------------------------ 183 hailstone-sequence-1
-hailstone(1,[1]) :- !.
-hailstone(N,[N|S]) :- 0 is N mod 2, N1 is N / 2, hailstone(N1,S).
-hailstone(N,[N|S]) :- 1 is N mod 2, N1 is (3 * N) + 1, hailstone(N1, S).
+%------------------------------------------------------ 183 hailstone-sequence-3
+longestHailstoneSequence(M, Seq, Len) :- longesthailstone(M, 1, 1, Seq, Len).
+longesthailstone(1, Cn, Cl, Mn, Ml):- Mn = Cn,
+	                               Ml = Cl.
+longesthailstone(N, _, Cl, Mn, Ml) :- hailstone(N, X),
+                                       length(X, L),
+                                       Cl < L,
+                                       N1 is N-1,
+                                       longesthailstone(N1, N, L, Mn, Ml).
+longesthailstone(N, Cn, Cl, Mn, Ml) :- N1 is N-1,
+                                       longesthailstone(N1, Cn, Cl, Mn, Ml).
 
-% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines hailstone/2 and never calls it; the driver shows the task's 27 sequence and the longest start below 10000 (below the task's 100000 it takes 6 s under swipl).
-:- initialization((hailstone(27, L), length(L, N), L = [A, B, C, D|_], append(_, [E, F, G, H], L), format("hailstone(27): ~w elements, ~w, ~w, ~w, ~w ... ~w, ~w, ~w, ~w~n", [N, A, B, C, D, E, F, G, H]), aggregate_all(max(Len, K), (between(1, 9999, K), hailstone(K, S), length(S, Len)), max(ML, MK)), format("longest below 10000: ~w (~w elements)~n", [MK, ML]))).
-%------------------------------------------------------ 184 hailstone-sequence-5
-:- use_module(library(chr)).
-:- chr_option(debug, off).
-:- chr_option(optimize, full).
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): one Rosetta page split in blocks: this block's longestHailstoneSequence/3 is the entry and calls hailstone/2 of hailstone-sequence-1, and hailstone-sequence-4 is the page's query of it written as a fact (for 100000, which no smaller call reaches), so the driver takes -1 over (CEO-1613), includes -4, prints the task's 27 sequence and the longest start below 10000 (the task's 100000 takes 5.2 s under swipl).
+:- include('hailstone-sequence-1.pl').
+:- include('hailstone-sequence-4.pl').
+:- initialization((hailstone(27, L), length(L, N), L = [A, B, C, D|_], append(_, [E, F, G, H], L), format("hailstone(27): ~w elements, ~w, ~w, ~w, ~w ... ~w, ~w, ~w, ~w~n", [N, A, B, C, D, E, F, G, H]), longestHailstoneSequence(10000, S, Len), format("longest below 10000: ~w (~w elements)~n", [S, Len]))).
+%------------------------------------------------------ 184 hailstone-sequence-6
+task1 :-
+	hailstone(27),
+	findall(X, find_chr_constraint(hailstone(X)), L),
+	clean,
+	% check the requirements
+	(   (length(L, 112), append([27, 82, 41, 124 | _], [8,4,2,1], L)) -> writeln(ok); writeln(ko)).
 
-:- chr_constraint collatz/2, hailstone/1, clean/0.
-
-% to remove all constraints hailstone/1 after computation
-clean @ clean \ hailstone(_) <=> true.
-clean @ clean <=> true.
-
-% compute Collatz number
-init @ collatz(1,X) <=>  X = 1 | true.
-collatz @ collatz(N, C) <=> (N mod 2 =:= 0 -> C is N / 2; C is 3 * N + 1).
-
-% Hailstone loop
-hailstone(1) ==> true.
-hailstone(N) ==> N \= 1 | collatz(N, H), hailstone(H).
-
-% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the CHR constraints hailstone/1, collatz/2 and clean/0 and never posts them; the driver posts hailstone(27) and prints the task's length and first and last four, as hailstone-sequence-6 checks.
-:- initialization((hailstone(27), findall(X, find_chr_constraint(hailstone(X)), L), clean, length(L, N), L = [A, B, C, D|_], append(_, [E, F, G, H], L), format("hailstone(27): ~w elements, ~w, ~w, ~w, ~w ... ~w, ~w, ~w, ~w~n", [N, A, B, C, D, E, F, G, H]))).
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): one Rosetta page split in blocks (its CHR solution): this block's task1/0 and hailstone-sequence-7's longest_sequence/0 post the CHR constraints of hailstone-sequence-5, so the driver takes -5 over (CEO-1613), includes -7, runs task1/0 (the 27 check) and -7's seq/4 below 10000 in longest_sequence/0's own format (longest_sequence/0 is fixed at 100000 and takes 34 s under swipl).
+:- include('hailstone-sequence-5.pl').
+:- include('hailstone-sequence-7.pl').
+:- initialization((task1, seq(2, 10000, 1-[1], Len-V), format('For ~w sequence has ~w len ! ~n', [V, Len]))).
 %--------------------------------------------------------- 185 hamming-numbers-1
 %% collect N elements produced by a generator in a row
 
@@ -6600,24 +6470,21 @@ lines :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines lines/0 (reads a count, then that many lines) and never calls it; the input is the task's sample.
 :- initialization(lines).
-%------------------------------------------------------ 200 integer-comparison-1
+%------------------------------------------------------ 200 integer-comparison-2
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): written for double_quotes=chars (the ISO flag value its page sets ahead of this block); the program sets
+% the flag, as GOAL-PROLOG-100's superset ruling has a program set a dialect flag (swipl 7 reads "..." as a string).
 :- set_prolog_flag(double_quotes, chars).
+my_compare2(A, B) :-
+    compare(Order, A, B),
+    my_compare2_(Order).
 
-println([]) :- write('\n').
-println([Char | Chars]) :- write(Char), println(Chars).
+my_compare2_(<) :- println("A is less than B.").
+my_compare2_(=) :- println("A is equal to B.").
+my_compare2_(>) :- println("A is greater than B.").
 
-my_compare(A, B) :-
-    (   A < B
-    ->  println("A is less than B")
-    ;   A > B
-    ->  println("A is greater than B")
-    ;   % double equals is necessary if we want the predicate to fail if A or B is unbound
-        A == B
-    ->  println("A is equal to B")
-    ).
-
-% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines my_compare/2 and never calls it; the driver compares three fixed pairs, one for each outcome.
-:- initialization(forall(member(A-B, [1-2, 2-1, 2-2]), (format("~w ~w: ", [A, B]), my_compare(A, B)))).
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): one Rosetta page split in blocks: this block's my_compare2/2 is the entry and prints through println/1 of integer-comparison-1, whose head sets double_quotes to chars ahead of this block on the page, so the driver sets chars at this block's head (chars_head), takes -1 over (CEO-1613) and compares three fixed pairs, one for each outcome, with -1's my_compare/2 (what its driver printed) and this block's my_compare2/2.
+:- include('integer-comparison-1.pl').
+:- initialization(forall(member(A-B, [1-2, 2-1, 2-2]), (format('my_compare(~w, ~w): ', [A, B]), my_compare(A, B), format('my_compare2(~w, ~w): ', [A, B]), my_compare2(A, B)))).
 %-------------------------------------------------------- 201 integer-sequence-1
 loop(I) :-
 	writeln(I),
@@ -9236,24 +9103,17 @@ main:-
 main :- clause(less_than(1,2),B),writeln(B).
 less_than(A,B) :- A<B.
 
-%----------------------------------------------------- 269 middle-three-digits-1
-middle_3_digits(Number, [D1,D2,D3]) :-
-    verify_middle_3_able(Number, Digits),
-    append(FrontDigits, [D1,D2,D3| BackDigits], Digits),
-    same_length(FrontDigits, BackDigits).
+%----------------------------------------------------- 269 middle-three-digits-2
+test_correct :-
+    TestCases = [123, 12345, 1234567, 987654321, 10001, -10001, -123, -100, 100, -12345],
+    foreach( ( member(TestCase, TestCases),
+               middle_3_digits(TestCase, Result) ),
+            format('Middle 3 digits of ~w ~30|: ~w~n', [TestCase, Result])
+          ).
 
-verify_middle_3_able(Number, Digits) :-
-    must_be(number, Number),
-    AbsNumber is abs(Number),
-    number_chars(AbsNumber, Digits),
-    length(Digits, NumDigits),
-    ( 3 > NumDigits         ->  domain_error('at least 3 digits',    Number)
-    ; 0 is NumDigits mod 2  ->  domain_error('odd number of digits', Number)
-    ; true
-    ).
-
-% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines middle_3_digits/2 and never calls it; the driver prints it for the task's ten good and seven bad numbers, the bad ones as the domain_error it raises.
-:- initialization(forall(member(N, [123, 12345, 1234567, 987654321, 10001, -10001, -123, -100, 100, -12345, 1, 2, -1, -10, 2002, -2002, 0]), catch((middle_3_digits(N, D), atom_chars(A, D), format("~w: ~w~n", [N, A])), error(E, _), format("~w: ~w~n", [N, E])))).
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): one Rosetta page split in blocks: this block's test_correct/0 is the entry and calls middle_3_digits/2 of middle-three-digits-1, so the driver takes that block over (CEO-1613), runs test_correct/0 on the task's ten good numbers and prints the task's seven bad ones in its format, each as the domain_error it raises.
+:- include('middle-three-digits-1.pl').
+:- initialization((test_correct, forall(member(N, [1, 2, -1, -10, 2002, -2002, 0]), catch((middle_3_digits(N, R), format('Middle 3 digits of ~w ~30|: ~w~n', [N, R])), error(E, _), format('Middle 3 digits of ~w ~30|: ~w~n', [N, E]))))).
 %----------------------------------------------- 270 miller-rabin-primality-test
 :- module(primality, [is_prime/2]).
 
@@ -9610,80 +9470,12 @@ modinv(A, B, N) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines modinv/3 and never calls it; the driver prints the task's inverse of 42 modulo 2017.
 :- initialization((modinv(42, 2017, N), format("~w~n", [N]))).
-%-------------------------------------------------------------- 275 morse-code-1
-% convert text to morse
-% query text2morse(Text, Morse)
-% where
-% Text is string to convert
-% Morse is Morse representation
-% There is a space between chars and double space between words
-%
-text2morse(Text, Morse) :-
-   string_lower(Text, TextLower),         % rules are in lower case
-   string_chars(TextLower, Chars),        % convert string into list of chars
-   chars2morse(Chars, MorseChars),        % convert each char into morse
-   string_chars(MorsePlusSpace, MorseChars), % append returned string list into single string
-   string_concat(Morse, ' ', MorsePlusSpace).   % Remove trailing space
+%-------------------------------------------------------------- 275 morse-code-2
+text2morse("Hello World", Morse).
 
-chars2morse([], "").
-chars2morse([H|CharTail], Morse) :-
-   morse(H, M),
-   chars2morse(CharTail, MorseTail),
-   string_concat(M,' ', MorseSpace),
-   string_concat(MorseSpace, MorseTail, Morse).
-
-% space
-morse(' ', " ").
-% letters
-morse('a', ".-").
-morse('b', "-...").
-morse('c', "-.-.").
-morse('d', "-..").
-morse('e', ".").
-morse('f', "..-.").
-morse('g', "--.").
-morse('h', "....").
-morse('i', "..").
-morse('j', ".---").
-morse('k', "-.-").
-morse('l', ".-..").
-morse('m', "--").
-morse('n', "-.").
-morse('o', "---").
-morse('p', ".--.").
-morse('q', "--.-").
-morse('r', ".-.").
-morse('s', "...").
-morse('t', "-").
-morse('u', "..-").
-morse('v', "...-").
-morse('w', ".--").
-morse('x', "-..-").
-morse('y', "-.--").
-morse('z', "--..").
-% numbers
-morse('1', ".----").
-morse('2', "..---").
-morse('3', "...--").
-morse('4', "....-").
-morse('5', ".....").
-morse('6', "-....").
-morse('7', "--...").
-morse('8', "---..").
-morse('9', "----.").
-morse('0', "-----").
-% common punctuation
-morse('.', ".-.-.-").
-morse(',', "--..--").
-morse('/', "-..-.").
-morse('?', "..--..").
-morse('=', "-...-").
-morse('+', ".-.-.").
-morse('-', "-....-").
-morse('@', ".--.-.").
-
-% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines text2morse/2 and never calls it; the driver runs morse-code-2's example text Hello World.
-:- initialization((text2morse("Hello World", M), format("~w~n", [M]))).
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): one Rosetta page split in blocks: this block is the page's example query text2morse("Hello World", Morse) written as a fact, and text2morse/2 is morse-code-1's, so the driver takes that block over (CEO-1613), asks the query and prints its first answer that binds Morse (the fact answers first, unbound).
+:- include('morse-code-1.pl').
+:- initialization((once((text2morse("Hello World", Morse), nonvar(Morse))), format("~w~n", [Morse]))).
 %----------------------------------------------------- 276 multiplication-tables
 make_table(S,E) :-
 	print_header(S,E),
@@ -10223,77 +10015,35 @@ sublist(L, SL) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines ncsubs/2 and never calls it; the driver prints the non-continuous subsequences of the task's 1..4 and of the sibling's example [a,e,i,o,u].
 :- initialization(forall(member(L, [[1,2,3,4], [a,e,i,o,u]]), (ncsubs(L, S), format("~w: ~w~n", [L, S])))).
-%--------------------------------------------------------- 293 nonogram-solver-1
-/*
-* Nonogram/paint-by-numbers solver in SWI-Prolog. Uses CLP(FD),
-* in particular the automaton/3 (finite-state/RE) constraint.
-* Copyright (c) 2011 Lars Buitinck.
-* Do with this code as you like, but don't remove the copyright notice.
-*/
+%--------------------------------------------------------- 293 nonogram-solver-2
+nonogram :-
+	open('C:/Users/Utilisateur/Documents/Prolog/Rosetta/nonogram/nonogram.txt',
+	     read, In, []),
+	repeat,
+	     read_line_to_codes(In, Line_1),
+	     read_line_to_codes(In, Line_2),
+	     compute_values(Line_1, [], [], Lines),
+	     compute_values(Line_2, [], [], Columns),
+	     nonogram(Lines, Columns) , nl, nl,
+	read_line_to_codes(In, end_of_file),
+	close(In).
 
-:- use_module(library(clpfd)).
+compute_values([], Current, Tmp, R) :-
+	reverse(Current, R_Current),
+	reverse([R_Current | Tmp], R).
 
-nono(RowSpec, ColSpec, Grid) :-
-	rows(RowSpec, Grid),
-	transpose(Grid, GridT),
-	rows(ColSpec, GridT).
+compute_values([32 | T], Current, Tmp, R) :-
+	!,
+	reverse(Current, R_Current),
+	compute_values(T, [], [R_Current | Tmp], R).
 
-rows([], []).
-rows([C|Cs], [R|Rs]) :-
-	row(C, R),
-	rows(Cs, Rs).
+compute_values([X | T], Current, Tmp, R) :-
+	V is X - 64,
+	compute_values(T, [V | Current], Tmp, R).
 
-row(Ks, Row) :-
-	sum(Ks, #=, Ones),
-	sum(Row, #=, Ones),
-	arcs(Ks, Arcs, start, Final),
-	append(Row, [0], RowZ),
-	automaton(RowZ, [source(start), sink(Final)], [arc(start,0,start) | Arcs]).
-
-% Make list of transition arcs for finite-state constraint.
-arcs([], [], Final, Final).
-arcs([K|Ks], Arcs, CurState, Final) :-
-	gensym(state, NextState),
-	(   K == 0
-	->  Arcs = [arc(CurState,0,CurState), arc(CurState,0,NextState) | Rest],
-	    arcs(Ks, Rest, NextState, Final)
-	;   Arcs = [arc(CurState,1,NextState) | Rest],
-	    K1 #= K-1,
-	    arcs([K1|Ks], Rest, NextState, Final)).
-
-
-make_grid(Grid, X, Y, Vars) :-
-	length(Grid,X),
-	make_rows(Grid, Y, Vars).
-
-make_rows([], _, []).
-make_rows([R|Rs], Len, Vars) :-
-	length(R, Len),
-	make_rows(Rs, Len, Vars0),
-	append(R, Vars0, Vars).
-
-print([]).
-print([R|Rs]) :-
-	print_row(R),
-	print(Rs).
-
-print_row([]) :- nl.
-print_row([X|R]) :-
-	(   X == 0
-	->  write(' ')
-	;   write('x')),
-	print_row(R).
-
-nonogram(Rows, Cols) :-
-	length(Rows, X),
-	length(Cols, Y),
-	make_grid(Grid, X, Y, Vars),
-	nono(Rows, Cols, Grid),
-	label(Vars),
-	print(Grid).
-
-% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines nonogram/2 and never calls it; the driver solves the task's first puzzle (rows C BA CB BB F AE F A B, columns AB CA AE GA E C D C, letters as numbers).
-:- initialization(nonogram([[3],[2,1],[3,2],[2,2],[6],[1,5],[6],[1],[2]], [[1,2],[3,1],[1,5],[7,1],[5],[3],[4],[3]])).
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): one Rosetta page split in blocks: this block's nonogram/0 reads puzzle line pairs from a fixed Windows path (C:/Users/Utilisateur/.../nonogram.txt) and solves them with nonogram/2 of nonogram-solver-1, so the driver takes -1 over (CEO-1613) and runs nonogram/0's own steps on the first three puzzles of the task's problem list (the first is its example; the fourth, the largest, is left out) given as text: compute_values/4 on each line, nonogram/2, two newlines.
+:- include('nonogram-solver-1.pl').
+:- initialization(forall(member(R-C, ['C BA CB BB F AE F A B'-'AB CA AE GA E C D C', 'F CAC ACAC CN AAA AABB EBB EAA ECCC HCCC'-'D D AE CD AE A DA BBB CC AAB BAA AAB DA AAB AAA BAB AAA CD BBA DA', 'CA BDA ACC BD CCAC CBBAC BBBBB BAABAA ABAD AABB BBH BBBD ABBAAA CCEA AACAAB BCACC ACBH DCH ADBE ADBB DBE ECE DAA DB CC'-'BC CAC CBAB BDD CDBDE BEBDF ADCDFA DCCFB DBCFC ABDBA BBF AAF BADB DBF AAAAD BDG CEF CBDB BBB FC']), (atom_codes(R, Line_1), atom_codes(C, Line_2), compute_values(Line_1, [], [], Lines), compute_values(Line_2, [], [], Columns), nonogram(Lines, Columns), nl, nl))).
 %------------------------------------------------------------------ 294 nth-root
 iroot(_, 0, 0) :- !.
 iroot(M, N, R) :-
@@ -11058,52 +10808,55 @@ fs :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines fs/0 and never calls it; the driver calls it once at load.
 :- initialization(fs).
-%------------------------------------ 314 partition-an-integer-x-into-n-primes-2
-:- module(prime_numbers, [find_prime_numbers/1, is_prime/1]).
-:- dynamic is_prime/1.
-
-find_prime_numbers(N):-
-    retractall(is_prime(_)),
-    assertz(is_prime(2)),
-    init_sieve(N, 3),
-    sieve(N, 3).
-
-init_sieve(N, P):-
-    P > N,
+%------------------------------------ 314 partition-an-integer-x-into-n-primes-1
+prime_partition(N, 1, [N], Min):-
+    is_prime(N),
+    N > Min,
     !.
-init_sieve(N, P):-
-    assertz(is_prime(P)),
-    Q is P + 2,
-    init_sieve(N, Q).
-
-sieve(N, P):-
-    P * P > N,
-    !.
-sieve(N, P):-
+prime_partition(N, K, [P|Rest], Min):-
+    K > 1,
     is_prime(P),
-    !,
-    S is P * P,
-    cross_out(S, N, P),
-    Q is P + 2,
-    sieve(N, Q).
-sieve(N, P):-
-    Q is P + 2,
-    sieve(N, Q).
-
-cross_out(S, N, _):-
-    S > N,
+    P > Min,
+    P < N,
+    K1 is K - 1,
+    N1 is N - P,
+    prime_partition(N1, K1, Rest, P),
     !.
-cross_out(S, N, P):-
-    retract(is_prime(S)),
-    !,
-    Q is S + 2 * P,
-    cross_out(Q, N, P).
-cross_out(S, N, P):-
-    Q is S + 2 * P,
-    cross_out(Q, N, P).
 
-% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this file is the sieve module (find_prime_numbers/1, is_prime/1) of the solution and never calls it; the driver sieves to 100 and prints the primes it leaves.
-:- initialization((find_prime_numbers(100), findall(P, is_prime(P), Ps), format("~w~n", [Ps]))).
+prime_partition(N, K, Primes):-
+    prime_partition(N, K, Primes, 1).
+
+print_primes([Prime]):-
+    !,
+    writef('%w\n', [Prime]).
+print_primes([Prime|Primes]):-
+    writef('%w + ', [Prime]),
+    print_primes(Primes).
+
+print_prime_partition(N, K):-
+    prime_partition(N, K, Primes),
+    !,
+    writef('%w = ', [N]),
+    print_primes(Primes).
+print_prime_partition(N, K):-
+    writef('%w cannot be partitioned into %w primes.\n', [N, K]).
+
+main:-
+    find_prime_numbers(100000),
+    print_prime_partition(99809, 1),
+    print_prime_partition(18, 2),
+    print_prime_partition(19, 3),
+    print_prime_partition(20, 4),
+    print_prime_partition(2017, 24),
+    print_prime_partition(22699, 1),
+    print_prime_partition(22699, 2),
+    print_prime_partition(22699, 3),
+    print_prime_partition(22699, 4),
+    print_prime_partition(40355, 3).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): one Rosetta page split in blocks: this block's main/0 is the entry and calls find_prime_numbers/1 and is_prime/1 of partition-an-integer-x-into-n-primes-2 (module prime_numbers), so the driver takes that block over (CEO-1613; its module/2 directive errs inside an include and its clauses join user, as long-primes-1 composes) and calls main/0, the task's ten partitions.
+:- include('partition-an-integer-x-into-n-primes-2.pl').
+:- initialization(main).
 %-------------------------------------------------------- 315 pascals-triangle-3
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % Produce a pascal's triangle of depth N
@@ -11923,32 +11676,35 @@ order2(A, B, B, A).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines show/0 and never calls it; show/0 runs perimeters up to 100,000,000 (over a minute), so the driver calls count_triples/3 for 100 .. 1,000,000 and prints them in show/0's own format.
 :- initialization(forall(member(Max, [100, 1000, 10000, 100000, 1000000]), (count_triples(Max, Total, Prim), format("upto ~D, there are ~D Pythagorean triples (~D primitive.)~n", [Max, Total, Prim])))).
-%-------------------------------------------------------------- 342 quaternion-1
-% A quaternion is represented as a complex term qx/4
-add(qx(R0,I0,J0,K0), qx(R1,I1,J1,K1), qx(R,I,J,K)) :-
-	!, R is R0+R1, I is I0+I1, J is J0+J1, K is K0+K1.
-add(qx(R0,I,J,K), F, qx(R,I,J,K)) :-
-	number(F), !, R is R0 + F.
-add(F, qx(R0,I,J,K), Qx) :-
-	add(qx(R0,I,J,K), F, Qx).
-mul(qx(R0,I0,J0,K0), qx(R1,I1,J1,K1), qx(R,I,J,K)) :- !,
-	R is R0*R1 - I0*I1 - J0*J1 - K0*K1,
-	I is R0*I1 + I0*R1 + J0*K1 - K0*J1,
-	J is R0*J1 - I0*K1 + J0*R1 + K0*I1,
-	K is R0*K1 + I0*J1 - J0*I1 + K0*R1.
-mul(qx(R0,I0,J0,K0), F, qx(R,I,J,K)) :-
-	number(F), !, R is R0*F, I is I0*F, J is J0*F, K is K0*F.
-mul(F, qx(R0,I0,J0,K0), Qx) :-
-	mul(qx(R0,I0,J0,K0),F,Qx).
-abs(qx(R,I,J,K), Norm) :-
-	Norm is sqrt(R*R+I*I+J*J+K*K).
-negate(qx(Ri,Ii,Ji,Ki),qx(R,I,J,K)) :-
-	R is -Ri, I is -Ii, J is -Ji, K is -Ki.
-conjugate(qx(R,Ii,Ji,Ki),qx(R,I,J,K)) :-
-	I is -Ii, J is -Ji, K is -Ki.
+%-------------------------------------------------------------- 342 quaternion-2
+data(q,  qx(1,2,3,4)).
+data(q1, qx(2,3,4,5)).
+data(q2, qx(3,4,5,6)).
+data(r, 7).
 
-% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the quaternion operations over qx/4 and never calls them; the driver runs each on the task's q = (1,2,3,4), q1 = (2,3,4,5), q2 = (3,4,5,6), r = 7.
-:- initialization((Q = qx(1,2,3,4), Q1 = qx(2,3,4,5), Q2 = qx(3,4,5,6), R = 7, abs(Q, N), format("abs(q) = ~w~n", [N]), negate(Q, Ng), format("-q = ~w~n", [Ng]), conjugate(Q, C), format("conj(q) = ~w~n", [C]), add(Q, R, QR), format("q + r = ~w~n", [QR]), add(R, Q, RQ), format("r + q = ~w~n", [RQ]), add(Q1, Q2, S), format("q1 + q2 = ~w~n", [S]), mul(Q, R, M1), format("q * r = ~w~n", [M1]), mul(R, Q, M2), format("r * q = ~w~n", [M2]), mul(Q1, Q2, P12), format("q1 * q2 = ~w~n", [P12]), mul(Q2, Q1, P21), format("q2 * q1 = ~w~n", [P21]))).
+test :-	data(Name, qx(A,B,C,D)), abs(qx(A,B,C,D), Norm),
+	writef('abs(%w) is %w\n', [Name, Norm]), fail.
+test :- data(q, Qx), negate(Qx, Nqx),
+	writef('negate(%w) is %w\n', [q, Nqx]), fail.
+test :- data(q, Qx), conjugate(Qx, Nqx),
+	writef('conjugate(%w) is %w\n', [q, Nqx]), fail.
+test :- data(q1, Q1), data(q2, Q2), add(Q1, Q2, Qx),
+	writef('q1+q2 is %w\n', [Qx]), fail.
+test :- data(q1, Q1), data(q2, Q2), add(Q2, Q1, Qx),
+	writef('q2+q1 is %w\n', [Qx]), fail.
+test :- data(q, Qx), data(r, R), mul(Qx, R, Nqx),
+	writef('q*r is %w\n', [Nqx]), fail.
+test :- data(q, Qx), data(r, R), mul(R, Qx, Nqx),
+	writef('r*q is %w\n', [Nqx]), fail.
+test :- data(q1, Q1), data(q2, Q2), mul(Q1, Q2, Qx),
+	writef('q1*q2 is %w\n', [Qx]), fail.
+test :- data(q1, Q1), data(q2, Q2), mul(Q2, Q1, Qx),
+	writef('q2*q1 is %w\n', [Qx]), fail.
+test.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): one Rosetta page split in blocks: this block's test/0 is the entry and calls abs/2, negate/2, conjugate/2, add/3 and mul/3 over qx/4 of quaternion-1, so the driver takes that block over (CEO-1613) and calls test/0 once at load (the task's q, q1, q2 and r).
+:- include('quaternion-1.pl').
+:- initialization(test).
 %---------------------------------------------------------- 343 queue-definition
 empty(U-V) :-
     unify_with_occurs_check(U, V).
@@ -13094,52 +12850,58 @@ match([A|T1],[B|T2],[C|T3]) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): do_it/1 deals its cards with random_member/2, which no ref can hold; the driver gives the solver beneath it, is_card_set/2, one fixed nine-card deal with exactly four sets and prints cards and sets in do_it/1's format.
 :- initialization((Cards = [[green,squiggle,one,solid],[red,squiggle,two,solid],[purple,squiggle,two,solid],[red,squiggle,two,striped],[red,diamond,one,striped],[green,oval,three,striped],[purple,oval,three,solid],[red,oval,three,open],[green,squiggle,two,open]], setof(Set, is_card_set(Cards, Set), Sets), format('Cards: ~n'), maplist(print_card, Cards), format('~nSets: ~n'), maplist(print_set, Sets))).
-%------------------------------------------------------------- 376 sexy-primes-2
-:- module(prime_numbers, [find_prime_numbers/1, is_prime/1]).
-:- dynamic is_prime/1.
-
-find_prime_numbers(N):-
-    retractall(is_prime(_)),
-    assertz(is_prime(2)),
-    init_sieve(N, 3),
-    sieve(N, 3).
-
-init_sieve(N, P):-
-    P > N,
+%------------------------------------------------------------- 376 sexy-primes-1
+sexy_prime_group(1, N, _, [N]):-
+    is_prime(N),
     !.
-init_sieve(N, P):-
-    assertz(is_prime(P)),
-    Q is P + 2,
-    init_sieve(N, Q).
+sexy_prime_group(Size, N, Limit, [N|Group]):-
+    is_prime(N),
+    N1 is N + 6,
+    N1 =< Limit,
+    S1 is Size - 1,
+    sexy_prime_group(S1, N1, Limit, Group).
 
-sieve(N, P):-
-    P * P > N,
-    !.
-sieve(N, P):-
-    is_prime(P),
+print_sexy_prime_groups(Size, Limit):-
+    findall(G, (is_prime(P), P =< Limit, sexy_prime_group(Size, P, Limit, G)), Groups),
+    length(Groups, Len),
+    writef('Number of groups of size %t is %t\n', [Size, Len]),
+    last_n(Groups, 5, Len, Last, Last_len),
+    writef('Last %t groups of size %t: %t\n\n', [Last_len, Size, Last]).
+
+last_n([], _, L, [], L):-!.
+last_n([_|List], Max, Length, Last, Last_len):-
+    Max < Length,
     !,
-    S is P * P,
-    cross_out(S, N, P),
-    Q is P + 2,
-    sieve(N, Q).
-sieve(N, P):-
-    Q is P + 2,
-    sieve(N, Q).
+    Len1 is Length - 1,
+    last_n(List, Max, Len1, Last, Last_len).
+last_n([E|List], Max, Length, [E|Last], Last_len):-
+    last_n(List, Max, Length, Last, Last_len).
 
-cross_out(S, N, _):-
-    S > N,
-    !.
-cross_out(S, N, P):-
-    retract(is_prime(S)),
-    !,
-    Q is S + 2 * P,
-    cross_out(Q, N, P).
-cross_out(S, N, P):-
-    Q is S + 2 * P,
-    cross_out(Q, N, P).
+unsexy(P):-
+    P1 is P + 6,
+    \+is_prime(P1),
+    P2 is P - 6,
+    \+is_prime(P2).
 
-% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this file is the sieve module (prime_numbers) of the task's solution and never calls it; the driver sieves to 100 with find_prime_numbers/1 and prints the is_prime/1 table it builds.
-:- initialization((find_prime_numbers(100), findall(P, is_prime(P), Ps), format("~w~n", [Ps]))).
+main(Limit):-
+    Max is Limit + 6,
+    find_prime_numbers(Max),
+    print_sexy_prime_groups(2, Limit),
+    print_sexy_prime_groups(3, Limit),
+    print_sexy_prime_groups(4, Limit),
+    print_sexy_prime_groups(5, Limit),
+    findall(P, (is_prime(P), P =< Limit, unsexy(P)), Unsexy),
+    length(Unsexy, Count),
+    writef('Number of unsexy primes is %t\n', [Count]),
+    last_n(Unsexy, 10, Count, Last10, _),
+    writef('Last 10 unsexy primes: %t', [Last10]).
+
+main:-
+    main(1000035).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): one Rosetta page split in blocks: this block's main/0 is the entry and calls find_prime_numbers/1 and is_prime/1 of sexy-primes-2 (module prime_numbers), so the driver takes that block over (CEO-1613; its module/2 directive errs inside an include and its clauses join user, as long-primes-1 composes) and calls main/0, the task's groups below 1000035.
+:- include('sexy-primes-2.pl').
+:- initialization(main).
 %------------------------------------------------------------------- 377 sha-1-1
 :- use_module(library(sha)).
 sha_hex(Str,Hex):-
@@ -13465,23 +13227,15 @@ adjust_heap(H, N, H) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the unbounded generator prime/1 and never calls it; the driver prints its first 25 primes (those below 100).
 :- initialization((once(findnsols(25, P, prime(P), Ps)), format("~w~n", [Ps]))).
-%--------------------------------------------------- 387 sieve-of-eratosthenes-2
-primes(X, PS) :- X > 1, range(2, X, R), sieve(R, PS).
+%--------------------------------------------------- 387 sieve-of-eratosthenes-3
+primes(X, PS) :- X > 1, range(2, X, R), sieve(X, R, PS).
 
-range(X, X, [X]) :- !.
-range(X, Y, [X | R]) :- X < Y, X1 is X + 1, range(X1, Y, R).
+sieve(X, [H | T], [H | T]) :- H*H > X, !.
+sieve(X, [H | T], [H | S]) :- maplist( mult(H), [H | T], MS),
+                              remove(MS, T, R), sieve(X, R, S).
 
-mult(A, B, C) :- C is A*B.
-
-sieve([X], [X]) :- !.
-sieve([H | T], [H | S]) :- maplist( mult(H), [H | T], MS),
-                           remove(MS, T, R), sieve(R, S).
-
-remove( _,       [],      []     ) :- !.
-remove( [H | X], [H | Y], R      ) :- !, remove(X, Y, R).
-remove( X,       [H | Y], [H | R]) :- remove(X, Y, R).
-
-% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines primes/2 and never calls it; the driver prints the primes up to 100.
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): one Rosetta page split in blocks: this block's primes/2 and sieve/3 (the sieve stopped at the square root) are the entry and call range/3, mult/3 and remove/3 of sieve-of-eratosthenes-2, so the driver takes that block over (CEO-1613; this block's primes/2 clause comes first and answers) and prints the primes up to 100.
+:- include('sieve-of-eratosthenes-2.pl').
 :- initialization((primes(100, L), format("~w~n", [L]))).
 %--------------------------------------------------- 388 sieve-of-eratosthenes-4
 primes(X, PS) :- X > 1, range(2, X, R), sieve(X, R, PS).
@@ -13520,20 +13274,17 @@ rmv(P,M,[A|B],C):- (   M>A ->  C=[A|D], rmv(P,M,B,D)
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines primes/2 and never calls it; the driver prints the primes up to 100.
 :- initialization((primes(100, L), format("~w~n", [L]))).
-%--------------------------------------------------- 390 sieve-of-eratosthenes-6
-primes(PS):- count(2, 1, NS), sieve(NS, PS).
+%--------------------------------------------------- 390 sieve-of-eratosthenes-7
+primes([2|PS]):-
+    freeze(PS, (primes(BPS), count(3, 1, NS), sieve(NS, BPS, 4, PS))).
 
-count(N, D, [N|T]):- freeze(T, (N2 is N+D, count(N2, D, T))).
+sieve([N|NS], BPS, Q, PS):-
+    N < Q -> PS = [N|PS2], freeze(PS2, sieve(NS, BPS, Q, PS2))
+    ;  BPS = [BP,BP2|BPS2], Q2 is BP2*BP2, count(Q, BP, MS),
+       remove(MS, NS, R), sieve(R, [BP2|BPS2], Q2, PS).
 
-sieve([N|NS],[N|PS]):- N2 is N*N, count(N2,N,A), remove(A,NS,B), freeze(PS, sieve(B,PS)).
-
-take(N, X, A):- length(A, N), append(A, _, X).
-
-remove([A|T],[B|S],R):- A < B -> remove(T,[B|S],R) ;
-                        A=:=B -> remove(T,S,R) ;
-                        R = [B|R2], freeze(R2, remove([A|T], S, R2)).
-
-% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the lazy infinite list primes/1 and its take/3 and never calls them; the driver prints its first 25 primes (those below 100).
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): one Rosetta page split in blocks: this block's primes/1 and sieve/4 (the lazy sieve postponed to the squares) are the entry and call count/3 and remove/3 of sieve-of-eratosthenes-6, so the driver takes that block over (CEO-1613; this block's primes/1 clause comes first and answers) and prints the first 25 primes with -6's take/3.
+:- include('sieve-of-eratosthenes-6.pl').
 :- initialization((primes(PS), take(25, PS, A), format("~w~n", [A]))).
 %--------------------------------------------------- 391 sieve-of-eratosthenes-8
 % %sieve( +N, -Primes ) is true if Primes is the list of consecutive primes
@@ -13602,34 +13353,25 @@ do:-findall([Num, Sqr], (between(1, 49, Num), firstSqr(Num, Sqr)), NumSqrList),
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines do/0 (the task's n = 1..49) and never calls it; the driver calls it once at load.
 :- initialization(do).
-%--------------------------------------------------- 394 solve-a-hopido-puzzle-1
-hopido(Grid,[C|Solved],Xs,Ys) :-	
-	select(C,Grid,RGrid),
-	solve(RGrid,C,Solved,Xs,Ys).
+%--------------------------------------------------- 394 solve-a-hopido-puzzle-2
+puzzle([	
+           p(1,0),p(2,0)       ,p(4,0),p(5,0),
+    p(0,1),p(1,1),p(2,1),p(3,1),p(4,1),p(5,1),p(6,1),	
+    p(0,2),p(1,2),p(2,2),p(3,2),p(4,2),p(5,2),p(6,2),
+           p(1,3),p(2,3),p(3,3),p(4,3),p(5,3),
+                  p(2,4),p(3,4),p(4,4),
+                         p(3,5)
+]).
 	
-solve([],_,[],_,_).	
-solve(Grid,p(X,Y),[p(X1,Y1)|R],Xs,Ys) :-
-	valid_move(X,Y,Xs,Ys,X1,Y1),
-	select(p(X1,Y1),Grid,NextGrid),
-	solve(NextGrid,p(X1,Y1),R,Xs,Ys).	
-	
-valid_move(X,Y,Xs,_,X1,Y)   :- j3(X,X1,Xs).			% right	(3,0)
-valid_move(X,Y,Xs,_,X1,Y)   :- j3(X1,X,Xs).			% left (-3,0)
-valid_move(X,Y,_,Ys,X,Y1)   :- j3(Y,Y1,Ys).			% up (0,3).
-valid_move(X,Y,_,Ys,X,Y1)   :- j3(Y1,Y,Ys).  			% down (0,-3).
-valid_move(X,Y,Xs,Ys,X1,Y1) :- j2(X,X1,Xs), j2(Y,Y1,Ys).  	% up-right (2,2).
-valid_move(X,Y,Xs,Ys,X1,Y1) :- j2(X1,X,Xs), j2(Y,Y1,Ys).  	% up-left (-2,2).
-valid_move(X,Y,Xs,Ys,X1,Y1) :- j2(X1,X,Xs), j2(Y1,Y,Ys).  	% down-left (-2,-2).
-valid_move(X,Y,Xs,Ys,X1,Y1) :- j2(X,X1,Xs), j2(Y1,Y,Ys).  	% down-right (2,-2).
+test :-
+	puzzle(P),
+	XYs = [0,1,2,3,4,5,6],
+	hopido(P,S,XYs,XYs),
+	maplist(writeln,S).
 
-j2(O,N,[O,_,N|_]).
-j2(O,N,[_|T]) :- j2(O,N,T).
-
-j3(O,N,[O,_,_,N|_]).
-j3(O,N,[_|T]) :- j3(O,N,T).
-
-% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines hopido/4 and never calls it; the driver solves the task's puzzle (the cells solve-a-hopido-puzzle-2 lists) and prints the path, as that file's test/0 does.
-:- initialization((P = [p(1,0),p(2,0),p(4,0),p(5,0),p(0,1),p(1,1),p(2,1),p(3,1),p(4,1),p(5,1),p(6,1),p(0,2),p(1,2),p(2,2),p(3,2),p(4,2),p(5,2),p(6,2),p(1,3),p(2,3),p(3,3),p(4,3),p(5,3),p(2,4),p(3,4),p(4,4),p(3,5)], XYs = [0,1,2,3,4,5,6], hopido(P, S, XYs, XYs), maplist(writeln, S))).
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): one Rosetta page split in blocks: this block's test/0 is the entry and calls hopido/4 of solve-a-hopido-puzzle-1 on this block's puzzle/1, so the driver takes that block over (CEO-1613) and calls test/0 once at load.
+:- include('solve-a-hopido-puzzle-1.pl').
+:- initialization(test).
 %---------------------------------------------------- 395 solve-a-numbrix-puzzle
 /*
  * Solver
@@ -13829,104 +13571,7 @@ number_strings([Number|Numbers], [String|Strings]):-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%--------------------------------------------------- 398 sort-disjoint-sublist-1
-% ===
-% Problem description
-% ===
-% http://rosettacode.org/wiki/Sort_disjoint_sublist
-%
-% Given a list of values and a set of integer indices into that value list,
-% the task is to sort the values at the given indices, while preserving the
-% values at indices outside the set of those to be sorted.
-%
-% Make your example work with the following list of values and set of indices:
-%
-%        Values: [7, 6, 5, 4, 3, 2, 1, 0]
-%
-%        Indices: {6, 1, 7}
-%
-% Where the correct result would be:
-%
-%        [7, 0, 5, 4, 3, 2, 1, 6].
-%
-% In case of one-based indexing, rather than the zero-based indexing above,
-% you would use the indices {7, 2, 8} instead.
-%
-% The indices are described as a set rather than a list but any collection-type
-% of those indices without duplication may be used as long as the example is
-% insensitive to the order of indices given.
-
-
-% ===
-% Notes
-% ===
-% For predicate descriptions, see https://www.swi-prolog.org/pldoc/man?section=preddesc
-%
-% Solution using only predicates marked "builtin".
-%
-% - sort/2 is a built-in predicate. When called as sort(A,B) then
-%          it sorts A to B according to the "standard order of terms",
-%          (for integers, this means ascending order). It does remove
-%          duplicates.
-% - msort/2 is the same as sort/2 but does not remove duplicates.
-%
-% Everything is a list as there is no "set" datatype in Prolog.
-
-
-% ===
-% Main predicate (the one that would be exported from a Module)
-% sort_disjoint_sublist(+Values,+Indexes,?ValuesSorted)
-% ===
-
-sort_disjoint_sublist(Values,Indexes,ValuesSorted) :-
-   sort(Indexes,IndexesSorted),
-   insert_fresh_vars(0,IndexesSorted,Values,FreshVars,ValsToSort,ValuesFreshened),
-   msort(ValsToSort,ValsSorted),  % this is the "sorting of values"
-   % The next two lines could be left out with suitable naming,
-   % but they make explicit what happens:
-   FreshVars = ValsSorted,         % fresh variables are unified with sorted variables
-   ValuesSorted = ValuesFreshened. % ValuesFreshend is automatically the sought output
-
-% ===
-% Helper predicate (would not be exported from a Module)
-% ===
-
-% insert_fresh_vars(+CurIdx,+[I|Is],+[V|Vs],-FreshVars,-ValsToSort,-ValsFreshy)
-%
-%   CurIdx:     Monotonically increasing index into the list of values by
-%               which we iterate.
-%   [I|Is]:     Sorted list of indexes of interest. The smallest (leftmost)
-%               element is removed on every "index hit", leaving eventually
-%               an empty list, which gives us the base case.
-%   [V|Vs]:     The list of values of interest with the leftmost element the
-%               element with index CurIdx, all elements with lower index
-%               having been discarded. Leftmost element is popped off on
-%               each call.
-%   FreshVars:  Constructed as output. If there was an "index hit", the
-%               fresh variable pushed on FreshVars is also pushed on Vars.
-%   ValsToSort: Constructed as output. If there was an "index hit", the
-%               leftmost value from [V|Vs] is pushed on.
-%   ValsFreshy: Constructed as output. If there was an "index hit", a fresh
-%               variable is pushed on. If there was no "index hit", the actual
-%               value from [V|Vs] is pushed on instead.
-
-insert_fresh_vars(CurIdx,[I|Is],[V|Vs],FreshVars,ValsToSort,[V|ValsFreshy]) :-
-   CurIdx<I, % no index hit, CurIdx is still too small, iterate over value
-   !,
-   succ(CurIdx,NextIdx),
-   insert_fresh_vars(NextIdx,[I|Is],Vs,FreshVars,ValsToSort,ValsFreshy).
-
-insert_fresh_vars(CurIdx,[I|Is],[V|Vs],[Fresh|FreshVars],[V|ValsToSort],[Fresh|ValsFreshy]) :-
-   CurIdx=I, % index hit, replace value by fresh variable
-   !,
-   succ(CurIdx,NextIdx),
-   insert_fresh_vars(NextIdx,Is,Vs,FreshVars,ValsToSort,ValsFreshy).
-
-insert_fresh_vars(_,[],V,[],[],V).
-
-% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines sort_disjoint_sublist/3 and never calls it; the driver runs the task's values and indices {6, 1, 7}.
-:- initialization((sort_disjoint_sublist([7,6,5,4,3,2,1,0], [6,1,7], R), format("~w~n", [R]))).
-%--------------------------------------------------- 399 sort-disjoint-sublist-2
+%--------------------------------------------------- 398 sort-disjoint-sublist-2
 % ===
 % Main predicate
 % ===
@@ -13959,6 +13604,40 @@ splinter(List, N, Elem, Front, Back) :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines sort_disjoint_sublist/3 and never calls it; the driver runs the task's values and indices {6, 1, 7}.
 :- initialization((sort_disjoint_sublist([7,6,5,4,3,2,1,0], [6,1,7], R), format("~w~n", [R]))).
+%--------------------------------------------------- 399 sort-disjoint-sublist-3
+% We use the "R" intermediate var to decouple processing by the predicate
+% from subsequent checking against expected result.
+
+:- begin_tests(sort_disjoint_sublist).
+
+test(rosetta)  :- sort_disjoint_sublist([7,6,5,4,3,2,1,0],[6,1,7],R), R = [7,0,5,4,3,2,1,6].
+test(another1) :- sort_disjoint_sublist([4,2,1,4,5,5,0,0],[3,4,5,6,7],R), R = [4,2,1,0,0,4,5,5].
+test(another2) :- sort_disjoint_sublist([4,2,1,4,5,5,0,0],[0,1,2,3,4],R), R = [1,2,4,4,5,5,0,0].
+test(another3) :- sort_disjoint_sublist([4,2,1,4,5,5,0,0],[0,2,4,6],R), R = [0,2,1,4,4,5,5,0].
+test(another4) :- sort_disjoint_sublist([4,2,1,4,5,5,0,0],[1,3,5,7],R), R = [4,0,1,2,5,4,0,5].
+test(edge1)    :- sort_disjoint_sublist([],[],R), R = [].
+test(edge2)    :- sort_disjoint_sublist([3,2,1],[],R), R = [3,2,1].
+test(edge3)    :- sort_disjoint_sublist([3,2,1],[0],R), R = [3,2,1].
+test(edge4)    :- sort_disjoint_sublist([3,2,1],[1],R), R = [3,2,1].
+test(edge5)    :- sort_disjoint_sublist([3,2,1],[2],R), R = [3,2,1].
+test(x1)       :- sort_disjoint_sublist([3,2,1],[0,1,2],R), R = [1,2,3].
+test(x2)       :- sort_disjoint_sublist([1,2,3],[0,1,2],R), R = [1,2,3].
+test(dups1)    :- sort_disjoint_sublist([3,2,1],[1,1,1],R), R = [3,2,1].
+test(dups2)    :- sort_disjoint_sublist([3,2,1],[2,1,2],R), R = [3,1,2].
+test(fail1,[fail]) :- sort_disjoint_sublist([1,2],[0,1,2],_).
+test(fail2,[fail]) :- sort_disjoint_sublist([],[0,1],_).
+
+:- end_tests(sort_disjoint_sublist).
+
+% ---
+% Run unit tests.
+% ---
+
+rt :- run_tests(sort_disjoint_sublist).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): one Rosetta page split in blocks: this block's plunit tests and rt/0 are the entry and call sort_disjoint_sublist/3, which sort-disjoint-sublist-1 and -2 define as alternatives (CEO-1608 rule 5), so the driver takes over -1, the first (CEO-1613), prints the task's example and runs rt/0, printing whether every test passed (plunit's own report goes to stderr).
+:- include('sort-disjoint-sublist-1.pl').
+:- initialization((sort_disjoint_sublist([7,6,5,4,3,2,1,0], [6,1,7], R), format("~w~n", [R]), (rt -> writeln('run_tests: all passed') ; writeln('run_tests: some failed')))).
 %-------------------------------------------- 400 sort-numbers-lexicographically
 lexicographical_sort(Numbers, Sorted_numbers):-
     number_strings(Numbers, Strings),
@@ -14327,101 +14006,35 @@ test.  % Succeeds only if all the tests succeed
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): the coo's driver called test/0, which prints nothing when every check passes; written for code lists (member/2 over "bfpv"), so the flag is set at its head and the driver prints soundex/2 of the seven names test/0 checks.
 :- initialization(forall(member(N, ['Robert', 'Rupert', 'Rubin', 'Ashcroft', 'Ashcraft', 'Tymczak', 'Pfister']), (soundex(N, S), format("~w: ~w~n", [N, S])))).
-%--------------------------------------------- 414 spelling-of-ordinal-numbers-2
-:- module(number_name, [number_name/3]).
+%--------------------------------------------- 414 spelling-of-ordinal-numbers-1
+test_ordinal(Number):-
+    number_name(Number, ordinal, Name),
+    writef('%w: %w\n', [Number, Name]).
 
-small_name(0, zero, zeroth).
-small_name(1, one, first).
-small_name(2, two, second).
-small_name(3, three, third).
-small_name(4, four, fourth).
-small_name(5, five, fifth).
-small_name(6, six, sixth).
-small_name(7, seven, seventh).
-small_name(8, eight, eighth).
-small_name(9, nine, ninth).
-small_name(10, ten, tenth).
-small_name(11, eleven, eleventh).
-small_name(12, tewlve, twelfth).
-small_name(13, thirteen, thirteenth).
-small_name(14, fourteen, fourteenth).
-small_name(15, fifteen, fifteenth).
-small_name(16, sixteen, sixteenth).
-small_name(17, seventeen, seventeenth).
-small_name(18, eighteen, eighteenth).
-small_name(19, nineteen, nineteenth).
-small_name(20, twenty, twentieth).
-small_name(30, thirty, thirtieth).
-small_name(40, forty, fortieth).
-small_name(50, fifty, fiftieth).
-small_name(60, sixty, sixtieth).
-small_name(70, seventy, seventieth).
-small_name(80, eighty, eightieth).
-small_name(90, ninety, ninetieth).
+main:-
+    test_ordinal(1),
+    test_ordinal(2),
+    test_ordinal(3),
+    test_ordinal(4),
+    test_ordinal(5),
+    test_ordinal(11),
+    test_ordinal(15),
+    test_ordinal(21),
+    test_ordinal(42),
+    test_ordinal(65),
+    test_ordinal(98),
+    test_ordinal(100),
+    test_ordinal(101),
+    test_ordinal(272),
+    test_ordinal(300),
+    test_ordinal(750),
+    test_ordinal(23456),
+    test_ordinal(7891233),
+    test_ordinal(8007006005004003).
 
-big_names([big(100, hundred, hundredth),
-    big(1000, thousand, thousandth),
-    big(1000000, million, millionth),
-    big(1000000000, billion, billionth),
-    big(1000000000000, trillion, trillionth),
-    big(1000000000000000, quadrillion, quadrillionth),
-    big(1000000000000000000, quintillion, quintillionth),
-    big(1000000000000000000000, sextillion, sextillionth),
-    big(1000000000000000000000000, septillion, septillionth)]).
-
-big_name(Number, Big):-
-    big_names(Names),
-    big_name(Names, Number, Big).
-
-big_name([Big], _, Big):-
-    !.
-big_name([Big1, Big2|_], Number, Big1):-
-    Big2 = big(N2, _, _),
-    Number < N2,
-    !.
-big_name([_|Names], Number, Big):-
-    big_name(Names, Number, Big).
-
-get_big_name(big(_, C, _), cardinal, C).
-get_big_name(big(_, _, O), ordinal, O).
-
-get_small_name(Number, cardinal, Name):-
-    small_name(Number, Name, _),
-    !.
-get_small_name(Number, ordinal, Name):-
-    small_name(Number, _, Name).
-
-number_name(Number, Type, Name):-
-    Number < 20,
-    !,
-    get_small_name(Number, Type, Name).
-number_name(Number, Type, Name):-
-    Number < 100,
-    !,
-    N is Number mod 10,
-    (N = 0 ->
-        get_small_name(Number, Type, Name)
-        ;
-        N1 is Number - N,
-        get_small_name(N1, cardinal, Name1),
-        get_small_name(N, Type, Name2),
-        atomic_list_concat([Name1, '-', Name2], Name)
-     ).
-number_name(Number, Type, Name):-
-    big_name(Number, big(P, C, O)),
-    N is Number // P,
-    number_name(N, cardinal, Name1),
-    M is Number mod P,
-    (M = 0 ->
-        get_big_name(big(P, C, O), Type, Name2)
-        ;
-        number_name(M, Type, Name3),
-        atomic_list_concat([C, ' ', Name3], Name2)
-    ),
-    atomic_list_concat([Name1, ' ', Name2], Name).
-
-% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the module number_name with number_name/3 and never calls it; the driver spells the task's twelve numbers as ordinals.
-:- initialization(forall(member(N, [1, 2, 3, 4, 5, 11, 65, 100, 101, 272, 23456, 8007006005004003]), (number_name(N, ordinal, Name), format("~w: ~w~n", [N, Name])))).
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): one Rosetta page split in blocks: this block's main/0 is the entry and calls number_name/3 of spelling-of-ordinal-numbers-2 (module number_name), so the driver takes that block over (CEO-1613; its module/2 directive errs inside an include and its clauses join user, as long-primes-1 composes) and calls main/0, the task's nineteen ordinals.
+:- include('spelling-of-ordinal-numbers-2.pl').
+:- initialization(main).
 %------------------------------------------------------------- 415 spiral-matrix
 %  Prolog implementation: SWI-Prolog 7.2.3
 
@@ -15939,52 +15552,55 @@ append_dl(X-Y, Y-Z, X-Z).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines tree/0 (the task's tree, all four orders) and never calls it; the driver calls it once at load and ends its last line.
 :- initialization((tree, nl)).
-%------------------------------------------------------ 459 truncatable-primes-2
-:- module(prime_numbers, [find_prime_numbers/1, is_prime/1]).
-:- dynamic is_prime/1.
-
-find_prime_numbers(N):-
-    retractall(is_prime(_)),
-    assertz(is_prime(2)),
-    init_sieve(N, 3),
-    sieve(N, 3).
-
-init_sieve(N, P):-
-    P > N,
+%------------------------------------------------------ 459 truncatable-primes-1
+largest_left_truncatable_prime(N, N):-
+    is_left_truncatable_prime(N),
     !.
-init_sieve(N, P):-
-    assertz(is_prime(P)),
-    Q is P + 2,
-    init_sieve(N, Q).
+largest_left_truncatable_prime(N, P):-
+    N > 1,
+    N1 is N - 1,
+    largest_left_truncatable_prime(N1, P).
 
-sieve(N, P):-
-    P * P > N,
-    !.
-sieve(N, P):-
+is_left_truncatable_prime(P):-
     is_prime(P),
-    !,
-    S is P * P,
-    cross_out(S, N, P),
-    Q is P + 2,
-    sieve(N, Q).
-sieve(N, P):-
-    Q is P + 2,
-    sieve(N, Q).
+    is_left_truncatable_prime(P, P, 10).
 
-cross_out(S, N, _):-
-    S > N,
+is_left_truncatable_prime(P, _, N):-
+    P =< N,
     !.
-cross_out(S, N, P):-
-    retract(is_prime(S)),
-    !,
-    Q is S + 2 * P,
-    cross_out(Q, N, P).
-cross_out(S, N, P):-
-    Q is S + 2 * P,
-    cross_out(Q, N, P).
+is_left_truncatable_prime(P, Q, N):-
+    Q1 is P mod N,
+    is_prime(Q1),
+    Q \= Q1,
+    N1 is N * 10,
+    is_left_truncatable_prime(P, Q1, N1).
 
-% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution is the prime_numbers module (a sieve) that truncatable-primes-1 loads, and never calls it; the driver sieves to 100 and prints the primes it asserted.
-:- initialization((find_prime_numbers(100), findall(P, is_prime(P), Ps), format("~w~n", [Ps]))).
+largest_right_truncatable_prime(N, N):-
+    is_right_truncatable_prime(N),
+    !.
+largest_right_truncatable_prime(N, P):-
+    N > 1,
+    N1 is N - 1,
+    largest_right_truncatable_prime(N1, P).
+
+is_right_truncatable_prime(P):-
+    is_prime(P),
+    Q is P // 10,
+    (Q == 0, ! ; is_right_truncatable_prime(Q)).
+
+main(N):-
+    find_prime_numbers(N),
+    largest_left_truncatable_prime(N, L),
+    writef('Largest left-truncatable prime less than %t: %t\n', [N, L]),
+    largest_right_truncatable_prime(N, R),
+    writef('Largest right-truncatable prime less than %t: %t\n', [N, R]).
+
+main:-
+    main(1000000).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): one Rosetta page split in blocks: this block's main/0 is the entry and calls find_prime_numbers/1 and is_prime/1 of truncatable-primes-2 (module prime_numbers), so the driver takes that block over (CEO-1613; its module/2 directive errs inside an include and its clauses join user, as long-primes-1 composes) and calls main/0, the task's largest truncatable primes below 1000000.
+:- include('truncatable-primes-2.pl').
+:- initialization(main).
 %--------------------------------------------------------------- 460 truth-table
 /*
     To evaluate the truth table a line of text is inputted and then there are three steps
@@ -16324,41 +15940,22 @@ interpret :-
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines interpret/0 (reads a BLC program and its input as 0/1 characters from standard input) and never calls it; universal-lambda-machine.in holds the identity program 0010 and the input 0110.
 :- initialization(interpret).
-%------------------------------------------------ 465 universal-turing-machine-1
-turing(Config, Rules, TapeIn, TapeOut) :-
-    call(Config, IS, _, _, _, _),
-    perform(Config, Rules, IS, {[], TapeIn}, {Ls, Rs}),
-    reverse(Ls, Ls1),
-    append(Ls1, Rs, TapeOut).
+%------------------------------------------------ 465 universal-turing-machine-2
+incrementer_config(IS, FS, RS, B, S) :-
+    IS = q0,      % initial state
+    FS = [qf],    % halting states
+    RS = [IS],    % running states
+    B  = 0,       % blank symbol
+    S  = [B, 1].  % valid symbols
+incrementer(q0, 1, 1, right, q0).
+incrementer(q0, b, 1, stay,  qf).
 
-perform(Config, Rules, State, TapeIn, TapeOut) :-
-    call(Config, _, FS, RS, B, Symbols),
-    ( memberchk(State, FS) ->
-        TapeOut = TapeIn
-    ; memberchk(State, RS) ->
-        {LeftIn, RightIn} = TapeIn,
-        symbol(RightIn, Symbol, RightRem, B),
-        memberchk(Symbol, Symbols),
-        once(call(Rules, State, Symbol, NewSymbol, Action, NewState)),
-        memberchk(NewSymbol, Symbols),
-        action(Action, {LeftIn, [NewSymbol|RightRem]}, {LeftOut, RightOut}, B),
-        perform(Config, Rules, NewState, {LeftOut, RightOut}, TapeOut) ).
+turing(incrementer_config, incrementer, [1, 1, 1], TapeOut).
 
-symbol([],       B,   [], B).
-symbol([Sym|Rs], Sym, Rs, _).
-
-action(left,  {Lin, Rin},  {Lout, Rout}, B) :- left(Lin, Rin, Lout, Rout, B).
-action(stay,  Tape,        Tape,         _).
-action(right, {Lin, Rin},  {Lout, Rout}, B) :- right(Lin, Rin, Lout, Rout, B).
-
-left([],     Rs, [], [B|Rs], B).
-left([L|Ls], Rs, Ls, [L|Rs], _).
-
-right(L, [],     [B|L], [], B).
-right(L, [S|Rs], [S|L], Rs, _).
-
-% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines the machine turing/4 and never calls it; the driver asserts the task's simple incrementer and three-state busy beaver (as universal-turing-machine-2 and -3 write them) and prints each final tape.
-:- initialization((forall(member(C, [inc_config(q0, [qf], [q0], b, [b, 1]), inc_rules(q0, 1, 1, right, q0), inc_rules(q0, b, 1, stay, qf), bb_config('A', ['HALT'], ['A', 'B', 'C'], 0, [0, 1]), bb_rules('A', 0, 1, right, 'B'), bb_rules('A', 1, 1, left, 'C'), bb_rules('B', 0, 1, left, 'A'), bb_rules('B', 1, 1, right, 'B'), bb_rules('C', 0, 1, left, 'B'), bb_rules('C', 1, 1, stay, 'HALT')]), assertz(C)), turing(inc_config, inc_rules, [1, 1, 1], T1), format("incrementer: ~w~n", [T1]), turing(bb_config, bb_rules, [], T2), format("three-state busy beaver: ~w~n", [T2]))).
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): one Rosetta page split in blocks: turing/4 is universal-turing-machine-1's, and this block and universal-turing-machine-3 each define a machine (the incrementer, the three-state busy beaver) and end in the page's query turing(.., TapeOut) written as a fact, so the driver takes -1 over (CEO-1613), includes -3 and asks both queries, printing the first answer that binds TapeOut (this block's fact answers first, unbound); the incrementer's blank is 0 while its rule reads b, so swipl answers false for it.
+:- include('universal-turing-machine-1.pl').
+:- include('universal-turing-machine-3.pl').
+:- initialization(forall(member(C-R-I, [incrementer_config-incrementer-[1, 1, 1], busy_beaver_config-busy_beaver-[]]), (once((turing(C, R, I, T), nonvar(T))) -> format("turing(~w, ~w, ~w, TapeOut): TapeOut = ~w~n", [C, R, I, T]) ; format("turing(~w, ~w, ~w, TapeOut): false~n", [C, R, I])))).
 %------------------------------------------------- 466 van-der-corput-sequence-1
 % vdc( N, Base, Out )
 % Out = the Van der Corput representation of N in given Base
@@ -16466,18 +16063,18 @@ main:-
 
 % DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
 :- initialization(main).
-%--------------------------------------------------------------- 469 variables-1
-mortal(X) :- man(X).
-man(socrates).
-
-% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines mortal/1 and man/1 and never calls them; the driver asks the Rosetta page's own queries mortal(socrates) and mortal(zeus) (variables-3, -4).
-:- initialization(forall(member(Q, [socrates, zeus]), ((mortal(Q) -> R = yes ; R = no), format("mortal(~w): ~w~n", [Q, R])))).
-%--------------------------------------------------------------- 470 variables-2
+%--------------------------------------------------------------- 469 variables-2
 student(X,Y) :- taught(Y,X).
 taught(socrates,plato).
 
 % DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines student/2 and taught/2 and never calls them; the driver asks the Rosetta page's own queries student(X, socrates) and student(socrates, X) (variables-3).
 :- initialization(((student(X, socrates) -> format("student(X, socrates): X = ~w~n", [X]) ; writeln('student(X, socrates): no')), (student(socrates, Y) -> format("student(socrates, X): X = ~w~n", [Y]) ; writeln('student(socrates, X): no')))).
+%--------------------------------------------------------------- 470 variables-5
+mortal(X) :- man(Y).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): one Rosetta page split in blocks: this block's mortal(X) :- man(Y) is the page's example of a singleton variable and calls man/1 of variables-1, so the driver takes that block over (CEO-1613; this block's mortal/1 clause comes first) and asks the page's queries mortal(socrates) and mortal(zeus), both of which it answers yes.
+:- include('variables-1.pl').
+:- initialization(forall(member(Q, [socrates, zeus]), ((mortal(Q) -> R = yes ; R = no), format("mortal(~w): ~w~n", [Q, R])))).
 %------------------------------------------------------- 471 variadic-function-1
 printAll( List ) :- forall( member(X,List), (write(X), nl)).
 

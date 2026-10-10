@@ -49,3 +49,6 @@ set_pixel0([[DimX,DimY],New_Pixels],[[DimX,DimY],Pixels],[X,Y],RGB) :-
    nth0(Y,Pixels,Row),
    replace0(X,Row,RGB,New_Row),
    replace0(Y,Pixels,New_Row,New_Pixels).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this file is the module bitmap (new_bitmap/3, fill_bitmap/3, get_pixel0/3, set_pixel0/4) that bitmap-write-a-ppm-file-2 and bitmap-bresenhams-line-algorithm load with use_module(bitmap), so its driver runs only when bitmap.pl is the program run with its declared argument demo (bitmap.argv) and is silent when another program loads it; it creates a 4x3 bitmap, fills it, sets a pixel and reads it back.
+:- initialization((current_prolog_flag(argv, Av), memberchk(demo, Av) -> new_bitmap(B0, [4, 3], [0, 0, 0]), format("new 4x3 black: ~w~n", [B0]), fill_bitmap(B1, B0, [255, 255, 255]), format("filled white: ~w~n", [B1]), set_pixel0(B2, B1, [1, 2], [255, 0, 0]), format("pixel (1,2) set red: ~w~n", [B2]), get_pixel0(B2, [1, 2], P), format("pixel (1,2): ~w~n", [P]) ; true)).

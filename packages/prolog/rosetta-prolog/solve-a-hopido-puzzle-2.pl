@@ -13,5 +13,6 @@ test :-
 	hopido(P,S,XYs,XYs),
 	maplist(writeln,S).
 
-% DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines test/0 and never calls it; the driver calls it once at load.
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): one Rosetta page split in blocks: this block's test/0 is the entry and calls hopido/4 of solve-a-hopido-puzzle-1 on this block's puzzle/1, so the driver takes that block over (CEO-1613) and calls test/0 once at load.
+:- include('solve-a-hopido-puzzle-1.pl').
 :- initialization(test).
