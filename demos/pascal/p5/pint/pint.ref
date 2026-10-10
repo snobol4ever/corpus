@@ -1,0 +1,50 @@
+P5 Pascal interpreter vs. 1.4
+
+Assembling/loading program
+Running program
+
+*******************************************************************************
+
+                 TEST SUITE FOR ISO 7185 PASCAL
+
+                 Copyright (C) 1995 S. A. FRANCO - All rights reserved
+
+*******************************************************************************
+
+The following are implementation defined characteristics
+
+Maxint: 2147483647
+Bit length of integer without sign bit appears to be: 31
+With sign bit: 32
+Integer default output field
+         1111111111222222222233333333334
+1234567890123456789012345678901234567890
+         42
+        -42
+The length of default value of TotalWidth for integer-type is: 11
+Leaving 10 for digits plus a sign
+Real default output field
+         1111111111222222222233333333334
+1234567890123456789012345678901234567890
+ 1.23456789012346e+000
+The length of default value of TotalWidth for real-type is: 22
+The exponent character is: "e", lower case
+There are 15 digits in the mantissa and 3 in the exponent
+Boolean default output field
+         1111111111222222222233333333334
+1234567890123456789012345678901234567890
+false
+ true
+TotalWidth for boolean-type is: 5
+Booleal is lower case
+Note that the upper or lower case state of the characters in
+'true' and 'false' are implementation defined
+Char default output field
+         1111111111222222222233333333334
+1234567890123456789012345678901234567890
+a
+Appears to be ASCII
+
+*** Runtime error [824]: Eof on file              
+
+program complete

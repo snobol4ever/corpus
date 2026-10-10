@@ -1,0 +1,62 @@
+P5 Pascal compiler vs. 1.4
+Pascal-P5 complies with the requirements of level 0 of ISO/IEC 7185.
+
+
+     1      -28 program qsort(output); 
+     2      -28  
+     3      -28 const maxstr = 43; 
+     4      -28  
+     5      -28 type index = 1..maxstr; 
+     6      -28  
+     7      -28 var a: packed array [index] of char; 
+     8      -28  
+     9      -28 procedure sort(l, r: index); 
+    10      -36  
+    11      -36 var i, j: index;  
+    12      -44     x, w: char; 
+    13      -46  
+    14      -46 z: integer; 
+    15      -52  
+    16      -52 begin 
+    17        3  
+    18        3     i := l; 
+    19        8     j := r; 
+    20       11     x := a[(l+r) div 2]; 
+    21       23     repeat 
+    22       23  
+    23       23         while a[i] < x do i := i+1; 
+    24       38         while x < a[j] do j := j-1; 
+    25       53         if i <= j then begin 
+    26       57  
+    27       57             w := a[i]; a[i] := a[j]; a[j] := w; 
+    28       86             i := i+1; 
+    29       91             j := j-1 
+    30       92  
+    31       92         end 
+    32       96  
+    33       96     until i > j; 
+    34      100     if l < j then sort(l, j); 
+    35      109     if i < r then sort(i, r); 
+    36      118  
+    37      118 end; 
+z          unreferenced
+
+    38      119  
+    39      119 begin 
+    40      119  
+    41      119     a := 'erhklhklgsdtsknsknskdlhfksghskhskeljefhjgkh'; 
+    42      124     sort(1, maxstr); 
+    43      129     writeln('Result: ', a); 
+    44      141  
+    45      141 end.   *** eof encountered
+   *** eof encountered
+
+    45   ****     ^6,21
+
+Errors in program: 2
+
+Error numbers in listing:
+-------------------------
+  6  Illegal symbol
+ 21  '.' expected
+
