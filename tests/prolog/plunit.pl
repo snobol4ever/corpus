@@ -123,6 +123,7 @@ pj_is_codes_t([]).
 pj_is_codes_t([C|T]) :- integer(C), C >= 0, pj_is_codes_t(T).
 
 pj_has_sto([sto(_)|_]).    pj_has_sto([_|T]) :- pj_has_sto(T).
+pj_has_blocked([blocked(_)|_]). pj_has_blocked([_|T]) :- pj_has_blocked(T). pj_has_blocked(blocked(_)).
 pj_wants_fail([fail|_]).   pj_wants_fail([false|_]).   pj_wants_fail([_|T]) :- pj_wants_fail(T).
 pj_wants_fail(fail).       pj_wants_fail(false).
 pj_has_error([error(E)|_],E). pj_has_error([_|T],E) :- pj_has_error(T,E). pj_has_error(error(E),E).
@@ -155,6 +156,8 @@ pj_run_one(Suite,Name,Opts,Goal) :- pj_has_forall(Opts,Gen), !,
     catch(forall(Gen, once(pj_run_one(Suite,Name,Rest,Goal))), E, pj_gen_err(Suite,Name,E)).
 pj_run_one(Suite,Name,Opts,_) :- pj_has_sto(Opts), !,
     pj_inc_skip, format('  skip: ~w:~w  [sto]~n',[Suite,Name]).
+pj_run_one(Suite,Name,Opts,_) :- pj_has_blocked(Opts), !,
+    pj_inc_skip, format('  skip: ~w:~w  [blocked]~n',[Suite,Name]).
 pj_run_one(Suite,Name,Opts,_) :- pj_skip_cond(Opts), !,
     pj_inc_skip, format('  skip: ~w:~w  [cond]~n',[Suite,Name]).
 pj_run_one(Suite,Name,Opts,Goal) :- pj_has_error(Opts,E), !,
