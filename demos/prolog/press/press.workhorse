@@ -1,0 +1,3 @@
+stdin	press.session
+scale	1
+why	the workhorse run (Lon 2026-09-27, CEO-1313; the demo row CEO-1595): the 132 equations of PRESS's own exam.pl (A-level papers 1971-1983) that swipl 9.0.4 solves, in exam.pl's order -- of its 145 ground solve/1 goals, 6 run past 10 s (one ignores SIGTERM) and 7 fail; measured by hq_pascal 2026-10-10 on SCRIP c5b26a2a8 with the constructs SCRIP lacks patched in a scratch copy: swipl 9.0.4 0.52 s / 0.54 s 10 MB, 6,638 lines; SCRIP m3 28.34 s / 31.80 s at -d131072k -s4096k (29.50 s / 28.72 s at -s8192k), output equal to swipl's; m4 not measured (row prolog-m4-an-asserted-clause-...)
