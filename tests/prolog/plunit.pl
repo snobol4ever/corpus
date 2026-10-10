@@ -127,7 +127,10 @@ pj_has_blocked([blocked(_)|_]). pj_has_blocked([_|T]) :- pj_has_blocked(T). pj_h
 pj_wants_fail([fail|_]).   pj_wants_fail([false|_]).   pj_wants_fail([_|T]) :- pj_wants_fail(T).
 pj_wants_fail(fail).       pj_wants_fail(false).
 pj_has_error([error(E)|_],E). pj_has_error([_|T],E) :- pj_has_error(T,E). pj_has_error(error(E),E).
-pj_has_throws([throws(T)|_],T). pj_has_throws([_|T2],T) :- pj_has_throws(T2,T). pj_has_throws(throws(T),T).
+/* error(Formal, Context) is plunit's SICStus 4 form and means throws(error(Formal, Context)) -- swipl's own plunit.pl:
+   expand_option(error(F,C), throws(error(F,C))) -- so it is graded on the throws road, the whole ball unified */
+pj_has_throws([throws(T)|_],T). pj_has_throws([error(F,C)|_],error(F,C)). pj_has_throws([_|T2],T) :- pj_has_throws(T2,T).
+pj_has_throws(throws(T),T). pj_has_throws(error(F,C),error(F,C)).
 pj_has_true([true(E)|_],E). pj_has_true([_|T],E) :- pj_has_true(T,E).
 pj_has_all([all(E)|_],E).   pj_has_all([_|T],E) :- pj_has_all(T,E).
 pj_has_forall([forall(G)|_],G). pj_has_forall([_|T],G) :- pj_has_forall(T,G).
