@@ -63,11 +63,24 @@ pj_run_suite(Suite) :-
     format('~n% PL-Unit: ~w~n',[Suite]),
     nb_setval(pj_sf,0),
     nb_setval(pj_tc,0),
+    pj_unit_opt(Suite, setup),
     findall(t(N,O,G), pj_test(Suite,N,O,G), Tests),
     ( pj_run_tests(Suite, Tests) -> true ; true ),
+    pj_unit_opt(Suite, cleanup),
     nb_getval(pj_sf,SF),
     nb_getval(pj_tc,TC),
     pj_suite_verdict(Suite, TC, SF), !.
+
+/* A unit's own setup(G) runs before its tests and cleanup(G) after them, as plunit runs begin_tests(Unit, Options)'s two
+ * unit options (tabling/test_tabling.pl: 34 units declare cleanup(abolish_all_tables), and a unit that inherits the tables of
+ * every unit before it counts them in its expected_variants check). A goal that fails or raises is reported to user_error and
+ * the unit goes on (hq_prolog 2026-10-10, row prolog-swi-tabling-...). */
+pj_unit_opt(Suite, Kind) :-
+    nb_getval(pj_suites, L),
+    ( memberchk(Suite-Opts0, L) -> true ; Opts0 = [] ),
+    ( is_list(Opts0) -> Opts = Opts0 ; Opts = [Opts0] ),
+    Opt =.. [Kind, G],
+    ( memberchk(Opt, Opts) -> ( catch(G, E, (format(user_error, 'unit ~w ~w raised ~q~n', [Suite, Kind, E]), fail)) -> true ; format(user_error, 'unit ~w ~w failed~n', [Suite, Kind]) ) ; true ).
 
 /* SWI-5 (Opus 4.7, 2026-05-28): three-way verdict.
  *   TC =:= 0           -> EMPTY  (no test bodies registered or executed)
