@@ -1,0 +1,1 @@
+queens_clpfd	swipl	the SWI-Prolog bench (van Roy) program in SWI's dialect (CEO-1603: one oracle per dialect); the ref is swipl 9.0.4's, swipl -q -t halt, cut 2026-10-10
