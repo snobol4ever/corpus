@@ -14,3 +14,6 @@ ack(s(M),s(N),P):- ack(s(M),N,S), ack(M,S,P).
 % ?- ack(s(0),s(s(0)),P).
 % P = s(s(s(s(0)))) ;
 % false.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines ack/3 over successor numerals and never calls it; the driver runs its own example ack(s(0),s(s(0)),P) and one more.
+:- initialization(forall(member(M-N, [s(0)-s(s(0)), s(s(0))-s(0)]), (ack(M, N, P), format("~w~n", [P])))).

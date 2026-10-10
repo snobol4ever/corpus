@@ -89,3 +89,6 @@ next_value(M, N, R, CS,[[R - [/, M1, N1]] | CS2]) :-
 
 my_write(V) :-
 	format('~w ', [V]).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): play24/3 draws its digits with random/1; the driver calls the solver compute/4 on fixed digits, the task's own examples.
+:- initialization(forall(member(L, [[4,7,8,8], [1,1,1,1], [3,3,8,8]]), (compute(L, 24, [], S) -> format("~w: ~w~n", [L, S]) ; format("~w: no solution~n", [L])))).

@@ -11,6 +11,14 @@ it prints nothing under swipl -q, so the 120 solutions DRIVERS.tsv names carry o
 calling the zero-arity entry they define (main, test, go, run, task, example, start) once at load. A solution with no zero-arity
 entry needs a driver written for it and is named NEEDS_DRIVER in UNGRADED.tsv until it has one.
 
+A DRIVER WRITTEN FOR IT (hq_pascal 2026-10-10, row prolog-rosetta-the-458-needs-driver-...): the appended goal calls the solution's own
+entry on the task's sample data -- doors_unoptimized(100), ack(M, N, A) over the task's table -- and, where the solution reads
+standard input or its command line, <stem>.in or <stem>.argv beside it holds the task's sample (the builder feeds both). Where the
+solution's own entry prints something no ref can hold (its cputime, a random draw), the driver calls the solving predicate beneath
+it and prints in the solution's own format; DRIVERS.tsv names each. Two UNGRADABLE classes join the oracle's: FRAGMENT (one code
+block of a Rosetta solution split across files, calling predicates only another block defines) and NEEDS_FILE (it reads a data
+file, such as the tasks' unixdict.txt, that neither RosettaCodeData nor this package ships). Both stay in the denominator.
+
 Graded against the oracle: swipl -q (SWI-Prolog, the Prolog oracle; a program runs its load-time directives and its initialization goal). The container ALL.pl / ALL.ref / ALL.csv is built by
 SCRIP/scripts/util_build_package_suite.py, which cuts every ref from the oracle and names in ALL.excluded.txt, with its
 reason, every program the oracle cannot grade (it refuses to compile or load it, fails, hangs past the timeout, prints

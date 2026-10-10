@@ -10,3 +10,6 @@ do:- Index is 10001,
 	findnsols(Index, N, isPrime(N), PrimeList),!,
 	last(PrimeList, PrimeAtIndex),
 	format('prime(~d) is ~d', [Index, PrimeAtIndex]), nl.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines do/0 and never calls it; the driver calls it once at load.
+:- initialization(do).

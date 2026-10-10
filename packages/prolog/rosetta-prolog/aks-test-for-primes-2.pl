@@ -41,3 +41,6 @@ add_pairs([X,Y], Ans) :-
 add_pairs( [X1, X2, X3|Xs], [S|Ys]) :-
   S is X1 + X2,
   add_pairs( [X2, X3|Xs], Ys).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines pascal/2 and never calls it; the driver prints the rows 0..7 the task asks for.
+:- initialization(forall(between(0, 7, N), (pascal(N, R), format("~w: ~w~n", [N, R])))).

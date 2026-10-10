@@ -102,3 +102,6 @@ test_board(
     p(1,2,6),p(2,2,5),p(3,2,3),p(4,2,2),
     p(1,3,13),p(2,3,10),p(3,3,0),p(4,3,8),
     p(1,4,14),p(2,4,15),p(3,4,11),p(4,4,12)]).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines play/0 (the game on its test board, keys w a s d) and never calls it; 15-puzzle-game.in holds the 24 keys that solve the board, one a line (get_single_char/1 takes a line at a time from a non-terminal).
+:- initialization(play).

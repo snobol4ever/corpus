@@ -41,3 +41,6 @@ dpa(N) :-
 	format("deficient: ~d~n abundant: ~d~n  perfect: ~d~n",
 		   [LD, LA, LP]),
 	format("took ~f seconds~n", [Dur]).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): dpa/1 also prints its cputime, which no ref can hold; the driver calls dpa/4 on the task's 1..20000 and prints dpa/1's three counts in dpa/1's own format.
+:- initialization((dpa(20000, D, P, A), length(D, LD), length(P, LP), length(A, LA), format("deficient: ~d~n abundant: ~d~n  perfect: ~d~n", [LD, LA, LP]))).

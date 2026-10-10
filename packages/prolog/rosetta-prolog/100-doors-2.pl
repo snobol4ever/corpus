@@ -32,3 +32,6 @@ inverse(close, open).
 affiche(N, L) :-
 	forall(between(1, N, I),
 	       (   nth1(I, L, open) -> format('Door ~w is open.~n', [I]); true)).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines doors_unoptimized/1 and never calls it; the driver runs it on the task's 100 doors.
+:- initialization(doors_unoptimized(100)).

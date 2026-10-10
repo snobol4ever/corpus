@@ -62,3 +62,6 @@ display(Assoc, Path - Length) :-
         ;   true
         )
     )).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines astar_search/1 and never calls it; the driver searches from the task's start (0,0) to (7,7).
+:- initialization(astar_search(yx(0, 0))).

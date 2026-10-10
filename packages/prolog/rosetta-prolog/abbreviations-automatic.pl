@@ -52,5 +52,5 @@ process_file(File):-
 main:-
     process_file("days_of_week.txt").
 
-% DRIVER (the coo 2026-10-09, DRIVERS.tsv): this solution defines main/0 and never calls it; the driver calls it once at load.
-:- initialization(main).
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): main/0 reads days_of_week.txt, which neither the task nor this package ships; the driver feeds the same reader, process_stream/1, the day-name lines in abbreviations-automatic.in.
+:- initialization(process_stream(user_input)).

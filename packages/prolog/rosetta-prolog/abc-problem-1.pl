@@ -20,3 +20,6 @@ can_makeword(_L, []).
 can_makeword(L, [H | T]) :-
    (   select([H, _], L, L1); select([_, H], L, L1)),
    can_makeword(L1, T).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this solution defines abc_problem/0 and never calls it; the driver calls it once at load.
+:- initialization(abc_problem).
