@@ -123,3 +123,6 @@ tests_test0105.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: tes
 tests_test0106.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: tests_test0106.pl:1: ERROR:    source_sink `library(freeze)' does not exist
 tests_test0108.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: tests_test0108.pl:1: Initialization goal raised exception: ERROR: statistics/2: Domain error: `statistics_key' expected, found `frames'
 tests_test0112.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: tests_test0112.pl:1: Initialization goal raised exception: ERROR: main/0: Unknown procedure: load_text/2
+misc_quads.pl	ORACLE_REFUSES	swipl -q reports a load error and then runs past 60 s (measured 2026-10-10): ERROR: misc_quads.pl:7: ERROR:    source_sink `library(freeze)' does not exist
+misc_stream_timeout.pl	ORACLE_REFUSES	swipl -q reports a load error and then runs past 60 s (measured 2026-10-10): ERROR: misc_stream_timeout.pl:22: ERROR:    source_sink `library(iso_ext)' does not exist
+sundry_time_limit.pl	ORACLE_REFUSES	swipl -q reports a load error and then runs past 60 s (measured 2026-10-10): ERROR: sundry_time_limit.pl:14: ERROR:    source_sink `library(iso_ext)' does not exist

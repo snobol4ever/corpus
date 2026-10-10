@@ -1,4 +1,137 @@
-%----------------------------------------------------------------- 1 fp_test0081
+%--------------------------------------------------------------- 1 dcg_reference
+% Frozen copy of the translation core of the shared library/dcgs.pl, as
+% it stood before that file was replaced. NEVER loaded by the system -
+% it exists only as the differential oracle for the DCG tests, so that
+% "does the native translator still agree with the reference?" stays an
+% answerable question after the reference stops being the implementation.
+%
+% Deliberately stripped of everything that is not translation: no
+% phrase/2..5, no seq//1 / seqq//1 / ...//0, and in particular no
+% user:term_expansion/2 or user:goal_expansion/2. Loading those hooks
+% would re-install the old expansion machinery over the native one and
+% quietly make the tests measure the wrong thing.
+%
+% Do not "fix" anything here. Its whole value is being the unmodified
+% reference; where the native implementation deliberately differs, the
+% tests carry an explicit divergence entry (see #1102).
+
+:- module(dcg_reference, [dcg_rule/2, dcg_body/4, dcg_constr/1]).
+
+:- use_module(library(error)).
+:- use_module(library(lists), [append/3]).
+:- use_module(library(loader), [strip_module/3]).
+
+% The same version of the below two dcg_rule clauses, but with module scoping.
+dcg_rule(( M:NonTerminal, Terminals --> GRBody ), ( M:Head :- Body )) :-
+    dcg_non_terminal(NonTerminal, S0, S, Head),
+    dcg_body(GRBody, S0, S1, Goal1),
+    dcg_terminals(Terminals, S, S1, Goal2),
+    Body = ( Goal1, Goal2 ).
+dcg_rule(( M:NonTerminal --> GRBody ), ( M:Head :- Body )) :-
+    NonTerminal \= ( _, _ ),
+    dcg_non_terminal(NonTerminal, S0, S, Head),
+    dcg_body(GRBody, S0, S, Body).
+
+% This program uses append/3 as defined in the Prolog prologue.
+% Expands a DCG rule into a Prolog rule, when no error condition applies.
+dcg_rule(( NonTerminal, Terminals --> GRBody ), ( Head :- Body )) :-
+    dcg_non_terminal(NonTerminal, S0, S, Head),
+    dcg_body(GRBody, S0, S1, Goal1),
+    dcg_terminals(Terminals, S, S1, Goal2),
+    Body = ( Goal1, Goal2 ).
+dcg_rule(( NonTerminal --> GRBody ), ( Head :- Body )) :-
+    NonTerminal \= ( _, _ ),
+    dcg_non_terminal(NonTerminal, S0, S, Head),
+    dcg_body(GRBody, S0, S, Body).
+
+dcg_non_terminal(NonTerminal, S0, S, Goal) :-
+    NonTerminal =.. NonTerminalUniv,
+    append(NonTerminalUniv, [S0, S], GoalUniv),
+    (  callable(NonTerminal) ->
+       Goal =.. GoalUniv
+    ;  Goal = NonTerminal % let call/N throw an error instead of throwing one here.
+    ).
+
+dcg_terminals(Terminals, S0, S, S0 = List) :-
+    append(Terminals, S, List).
+
+dcg_body(Var, S0, S, Body) :-
+    var(Var),
+    Body = phrase(Var, S0, S).
+dcg_body(GRBody, S0, S, Body) :-
+    nonvar(GRBody),
+    dcg_constr(GRBody),
+    dcg_cbody(GRBody, S0, S, Body).
+dcg_body(NonTerminal, S0, S, Goal1) :-
+    nonvar(NonTerminal),
+    \+ dcg_constr(NonTerminal),
+    loader:strip_module(NonTerminal, M, NonTerminal0),
+    dcg_non_terminal(NonTerminal0, S0, S, Goal0),
+    (  functor(NonTerminal, (:), 2) ->
+       Goal1 = M:Goal0
+    ;  Goal1 = Goal0
+    ).
+
+% The following constructs in a grammar rule body
+% are defined in the corresponding subclauses.
+dcg_constr([]). % 7.14.1
+dcg_constr([_|_]). % 7.14.2 - terminal sequence
+dcg_constr(( _, _ )). % 7.14.3 - concatenation
+dcg_constr(( _ ; _ )). % 7.14.4 - alternative
+dcg_constr(( _'|'_ )). % 7.14.6 - alternative
+dcg_constr({_}). % 7.14.7
+dcg_constr(call(_)). % 7.14.8
+dcg_constr(phrase(_)). % 7.14.9
+dcg_constr(phrase(_,_)). % extension of 7.14.9
+dcg_constr(phrase(_,_,_)). % extension of 7.14.9
+dcg_constr(!). % 7.14.10
+dcg_constr(\+ G_0) :- % 7.14.11 - not (existence implementation def.)
+    throw(error(representation_error(dcg_body), [culprit- (\+ G_0)])).
+dcg_constr((If->Then)) :- % 7.14.12 - if-then (existence implementation def.)
+    throw(error(representation_error(dcg_body), [culprit- (If->Then)])).
+
+% The principal functor of the first argument indicates
+% the construct to be expanded.
+dcg_cbody([], S0, S, S0 = S).
+dcg_cbody([T|Ts], S0, S, Goal) :-
+    must_be(list, [T|Ts]),
+    dcg_terminals([T|Ts], S0, S, Goal).
+dcg_cbody(( GRFirst, GRSecond ), S0, S, ( First, Second )) :-
+    dcg_body(GRFirst, S0, S1, First),
+    dcg_body(GRSecond, S1, S, Second).
+dcg_cbody(( GREither ; GROr ), S0, S, ( Either ; Or )) :-
+    \+ subsumes_term(( _ -> _ ), GREither),
+    dcg_body(GREither, S0, S, Either),
+    dcg_body(GROr, S0, S, Or).
+dcg_cbody(( GRCond ; GRElse ), S0, S, ( Cond ; Else )) :-
+    subsumes_term(( _GRIf -> _GRThen ), GRCond),
+    dcg_cbody(GRCond, S0, S, Cond),
+    dcg_body(GRElse, S0, S, Else).
+dcg_cbody(( GREither '|' GROr ), S0, S, ( Either ; Or )) :-
+    dcg_body(GREither, S0, S, Either),
+    dcg_body(GROr, S0, S, Or).
+dcg_cbody({Goal}, S0, S, ( Goal, S0 = S )).
+dcg_cbody(call(Cont), S0, S, call(Cont, S0, S)).
+dcg_cbody(phrase(Body), S0, S, phrase(Body, S0, S)).
+dcg_cbody(phrase(Body, Arg), S0, S, phrase(Body, Arg, S0, S)).
+dcg_cbody(phrase(Body, Arg1, Arg2), S0, S, phrase(Body, Arg1, Arg2, S0, S)).
+dcg_cbody(!, S0, S, ( !, S0 = S )).
+% dcg_cbody(\+ GRBody, S0, S, ( \+ phrase(GRBody,S0,_), S0 = S )).
+dcg_cbody(( GRIf -> GRThen ), S0, S, ( If -> Then )) :-
+    dcg_body(GRIf, S0, S1, If),
+    dcg_body(GRThen, S1, S, Then).
+
+% then.
+error_goal(error(instantiation_error, _Context), _).
+error_goal(error(E, must_be/2), error(E, must_be/2)).
+error_goal(error(E, (=..)/2), error(E, (=..)/2)).
+error_goal(error(representation_error(dcg_body), Context),
+           error(representation_error(dcg_body), Context)).
+error_goal(E, _) :- throw(E).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this module (the DCG reference translation the sundry_dcg_ programs load) defines dcg_rule/2 and never calls it; the driver translates one rule.
+:- initialization((dcg_rule((greeting --> [hello], name), R), portray_clause(R))).
+%----------------------------------------------------------------- 2 fp_test0081
 %
 % Solving polynomial equations of degree 4
 % See http://alain.colmerauer.free.fr/alcol/ArchivesPublications/Equation4/Equation4.pdf
@@ -238,7 +371,7 @@ nulreel(0) :-
 nulreel(0.0) :-
     !.
 nulreel(-0.0).
-%----------------------------------------------------------------- 2 fp_test0585
+%----------------------------------------------------------------- 3 fp_test0585
 % Solving polynomial equations of degree 4
 % See http://alain.colmerauer.free.fr/alcol/ArchivesPublications/Equation4/Equation4.pdf
 
@@ -482,7 +615,7 @@ run :-
     true.
 
 :- initialization(run).
-%------------------------------------------- 3 issues_occurs_check_error_restore
+%------------------------------------------- 4 issues_occurs_check_error_restore
 % unify_with_occurs_check/2 restored occurs_check(error) as true, so later cyclic unifications failed instead of throwing.
 
 :- initialization(main).
@@ -501,17 +634,17 @@ main :-
 	write(uwoc_cyclic:R), nl,
 	cyclic(after_failure),
 	set_prolog_flag(occurs_check, false).
-%--------------------------------------------------------- 4 issues_old_test0008
+%--------------------------------------------------------- 5 issues_old_test0008
 :-initialization(main).
 
 main :-
 	Ls = "abc", write(Ls), nl.
-%--------------------------------------------------------- 5 issues_old_test0009
+%--------------------------------------------------------- 6 issues_old_test0009
 :-initialization(main).
 
 main :-
 	format("~w~n", [hello]).
-%--------------------------------------------------------- 6 issues_old_test0018
+%--------------------------------------------------------- 7 issues_old_test0018
 :- initialization(main).
 :- use_module(library(dcgs)).
 
@@ -520,13 +653,13 @@ main :-
 	phrase([a], Ls), write(Ls), nl,
 	!.
 main.
-%--------------------------------------------------------- 7 issues_old_test0019
+%--------------------------------------------------------- 8 issues_old_test0019
 :-initialization(main).
 :- use_module(library(dcgs)).
 
 main :-
 	phrase({true}, _), write(true), nl.
-%--------------------------------------------------------- 8 issues_old_test0023
+%--------------------------------------------------------- 9 issues_old_test0023
 :-initialization(main).
 
 main :-
@@ -536,12 +669,12 @@ main :-
 main :-
 	write(nok), nl.
 
-%--------------------------------------------------------- 9 issues_old_test0025
+%-------------------------------------------------------- 10 issues_old_test0025
 :-initialization(main).
 
 main :-
 	write_canonical("abc"), nl.
-%-------------------------------------------------------- 10 issues_old_test0027
+%-------------------------------------------------------- 11 issues_old_test0027
 :-initialization(main).
 
 main :-
@@ -552,7 +685,7 @@ main :-
 main :-
 	write(nok), nl.
 
-%-------------------------------------------------------- 11 issues_old_test0029
+%-------------------------------------------------------- 12 issues_old_test0029
 :-initialization(main).
 
 main :-
@@ -566,13 +699,13 @@ main :-
 		err(halt),
 		fail).
 main.
-%-------------------------------------------------------- 12 issues_old_test0031
+%-------------------------------------------------------- 13 issues_old_test0031
 :-initialization(main).
 
 main :-
 	X = f(X), X == X,
 	write_term(X,[max_depth(5)]), nl.
-%-------------------------------------------------------- 13 issues_old_test0033
+%-------------------------------------------------------- 14 issues_old_test0033
 :- use_module(library(dcgs)).
 :-initialization(main).
 
@@ -583,14 +716,14 @@ main :-
 	phrase(as, Ls),
 	Ls = [a|_],
 	writeq(Ls), nl.
-%-------------------------------------------------------- 14 issues_old_test0035
+%-------------------------------------------------------- 15 issues_old_test0035
 :- initialization(main).
 :- use_module(library(lists)).
 
 main :-
 	append([a,b,c], "def", Ls),
 	writeq(Ls), nl.
-%-------------------------------------------------------- 15 issues_old_test0042
+%-------------------------------------------------------- 16 issues_old_test0042
 :- use_module(library(dcgs)).
 :-initialization(main).
 
@@ -603,7 +736,7 @@ main :-
 	phrase(as, Ls),
 	E == 14,
 	!.
-%-------------------------------------------------------- 16 issues_old_test0044
+%-------------------------------------------------------- 17 issues_old_test0044
 :- initialization(main).
 :- use_module(library(lists)).
 
@@ -613,7 +746,7 @@ main :-
 	length(Ls, N),
 	maplist(=(a), Ls),
 	writeq(ok), nl.
-%-------------------------------------------------------- 17 issues_old_test0046
+%-------------------------------------------------------- 18 issues_old_test0046
 :-initialization(main).
 
 main :-
@@ -622,7 +755,7 @@ main :-
 	[aa] =.. L3, write(L3), nl,
 	[aa,bb] =.. L4, write(L4), nl,
 	[aa,bb,cc] =.. L5, write(L5), nl.
-%-------------------------------------------------------- 18 issues_old_test0048
+%-------------------------------------------------------- 19 issues_old_test0048
 :-initialization(main).
 
 main :-
@@ -630,7 +763,7 @@ main :-
 	'<https://josd.github.io/retina#p>'(S, O),
 	writeq(S), nl, writeq(O), nl,
 	writeq(ok), nl.
-%-------------------------------------------------------- 19 issues_old_test0049
+%-------------------------------------------------------- 20 issues_old_test0049
 :-initialization(main).
 
 main :-
@@ -638,7 +771,7 @@ main :-
 	writeq(Ls), nl,
 	setof(tt, true, Ls2),
 	writeq(Ls2), nl.
-%-------------------------------------------------------- 20 issues_old_test0050
+%-------------------------------------------------------- 21 issues_old_test0050
 :-initialization(main).
 
 main :-
@@ -646,7 +779,7 @@ main :-
 		assertz(hello(there)), false) ;
 		setof(X, hello(X), Ls),
 		writeq(Ls), nl.
-%-------------------------------------------------------- 21 issues_old_test0051
+%-------------------------------------------------------- 22 issues_old_test0051
 :-initialization(main).
 
 main :-
@@ -659,7 +792,7 @@ main :-
 	writeq(X), nl,
 	writeq(Y), nl,
 	writeq(ok), nl.
-%-------------------------------------------------------- 22 issues_old_test0053
+%-------------------------------------------------------- 23 issues_old_test0053
 :-initialization(main).
 
 main :-
@@ -667,13 +800,13 @@ main :-
 	writeq(X1), nl,
 	X2 =.. [1,2,3],
 	writeq(X2), nl.
-%-------------------------------------------------------- 23 issues_old_test0058
+%-------------------------------------------------------- 24 issues_old_test0058
 :-initialization(main).
 
 main :-
 	0 =:= 0 mod 10^0,
 	writeq(ok), nl.
-%-------------------------------------------------------- 24 issues_old_test0060
+%-------------------------------------------------------- 25 issues_old_test0060
 :- use_module(library(iso_ext)).
 :- initialization(main).
 
@@ -691,7 +824,7 @@ main :-
         C
     ),
     writeq(C), nl.
-%-------------------------------------------------------- 25 issues_old_test0061
+%-------------------------------------------------------- 26 issues_old_test0061
 :- initialization(main).
 
 :- use_module(library(lists)).
@@ -708,7 +841,7 @@ main :-
 
 col(Matrix, N, Column) :-
     maplist(nth1(N), Matrix, Column).
-%-------------------------------------------------------- 26 issues_old_test0062
+%-------------------------------------------------------- 27 issues_old_test0062
 :- initialization(main).
 :- use_module(library(lists)).
 
@@ -732,14 +865,14 @@ neighbours(p2, [p1, p4, p3]).
 neighbours(p3, [p5, p1, p4, p2]).
 neighbours(p4, [p1, p2, p3]).
 neighbours(p5, [p1, p3]).
-%-------------------------------------------------------- 27 issues_old_test0063
+%-------------------------------------------------------- 28 issues_old_test0063
 :- initialization(main).
 
 main :-
 	a(X) =.. [Y|Z],
 	write_term(Y, [quoted(true),variable_names(['X'=X])]), nl,
 	write_term(Z, [quoted(true),variable_names(['X'=X])]), nl.
-%-------------------------------------------------------- 28 issues_old_test0065
+%-------------------------------------------------------- 29 issues_old_test0065
 :- initialization(main).
 
 :- use_module(library(lists)).
@@ -747,7 +880,7 @@ main :-
 main :-
 	setof(I, member(I, [A,B,B,A]), Set), Set = [S1,S2], write_term(Set, [quoted(true),variable_names(['S1'=S1, 'S2'=S2])]), nl,
 	bagof(I, member(I, [A,B,B,A]), Bag), Bag = [B1,B2,B3,B4], write_term(Bag, [quoted(true),variable_names(['B1'=B1, 'B2'=B2, 'B3'=B3, 'B4'=B4])]), nl.
-%-------------------------------------------------------- 29 issues_old_test0066
+%-------------------------------------------------------- 30 issues_old_test0066
 % Fast Fourier Transform
 % Code from the book "Clause and Effect" Chapter 10
 
@@ -805,7 +938,7 @@ node(N, L-L) :-
     !.
 node(n(A1, N1), [n(A, N)|T]-[n(A1, N1), n(A, N)|T]) :-
     A1 is A+1.
-%-------------------------------------------------------- 30 issues_old_test0067
+%-------------------------------------------------------- 31 issues_old_test0067
 :- initialization(main).
 :- use_module(library(lists)).
 
@@ -817,7 +950,7 @@ main :-
 
 prepare(List, A, B) :-
     append([A,B], [B,A], List).
-%-------------------------------------------------------- 31 issues_old_test0068
+%-------------------------------------------------------- 32 issues_old_test0068
 :- initialization(main).
 
 main :-
@@ -829,7 +962,7 @@ main :-
 prepare([B,A], X, Y, Z) :-
     A =.. [pair,2,X],
     B =.. [trio,3,Y,Z].
-%-------------------------------------------------------- 32 issues_old_test0070
+%-------------------------------------------------------- 33 issues_old_test0070
 :- initialization(main).
 :- use_module(library(lists)).
 
@@ -873,7 +1006,7 @@ t(0, #, #, l, 1).
 t(1, 0, 1, s, halt).
 t(1, 1, 0, l, 1).
 t(1, #, 1, s, halt).
-%-------------------------------------------------------- 33 issues_old_test0074
+%-------------------------------------------------------- 34 issues_old_test0074
 % Explanation-based learning uses an explicitly represented domain theory
 % to construct an explanation of a training example, usually a proof that
 % the example logically follows from the theory. By generalizing from the
@@ -971,7 +1104,7 @@ extract_support((AProof, BProof), (A, B)) :-
 	extract_support(BProof, B).
 extract_support((_ :- Proof), B) :-
 	extract_support(Proof, B).
-%-------------------------------------------------------- 34 issues_old_test0088
+%-------------------------------------------------------- 35 issues_old_test0088
 :- initialization(main).
 
 :- op(600, xfy, ::).
@@ -985,7 +1118,7 @@ X::Y :-
 
 main :- X::Y, writeq(['X=',X,'Y=',Y]), nl, fail.
 main.
-%-------------------------------------------------------- 35 issues_old_test0091
+%-------------------------------------------------------- 36 issues_old_test0091
 :- initialization(main).
 
 foo :-
@@ -1008,7 +1141,7 @@ bar.
 main :-
 	'$l_foo',
 	writeq(ok), nl.
-%-------------------------------------------------------- 36 issues_old_test0093
+%-------------------------------------------------------- 37 issues_old_test0093
 :- initialization(main).
 
 :- multifile(foo/1).
@@ -1020,7 +1153,7 @@ main :-
 	'$bar'(xyz).
 main :-
 	write(ok), nl.
-%-------------------------------------------------------- 37 issues_old_test0094
+%-------------------------------------------------------- 38 issues_old_test0094
 :- initialization(main).
 
 '$l_foo' :-
@@ -1036,7 +1169,7 @@ main :-
 	'$l_baz',
 	'$l_foo',
 	writeq(ok), nl.
-%-------------------------------------------------------- 38 issues_old_test0108
+%-------------------------------------------------------- 39 issues_old_test0108
 %  Program 23.1  A program for solving equations from "The Art of Prolog"
 
 :- initialization(main).
@@ -1419,7 +1552,7 @@ mynonmember(X,[Y|Ys]) :- X \== Y, mynonmember(X,Ys).
 mynonmember(_,[]).
 
 compound1(Term) :- functor(Term,_,N),N > 0,!.
-%-------------------------------------------------------- 39 issues_old_test0116
+%-------------------------------------------------------- 40 issues_old_test0116
 :- initialization(main).
 
 main :-
@@ -1480,7 +1613,7 @@ inverse((X1,X2),(Y1,Y2)) :-
 divide(X,Y,Z) :-
     inverse(Y,Yp),
     times(X,Yp,Z).
-%-------------------------------------------------------- 40 issues_old_test0132
+%-------------------------------------------------------- 41 issues_old_test0132
 % Diamond Property Equality
 % DP(r) -: DP(re), i.e. the diamond property is preserved under reflexive closure
 % original version at http://www.ii.uib.no/~bezem/GL/dpe.in
@@ -1579,19 +1712,19 @@ astep((A,B)) :-
     astep(B).
 astep(A) :-
     asserta(A).
-%-------------------------------------------------------- 41 issues_old_test0246
+%-------------------------------------------------------- 42 issues_old_test0246
 :-initialization(main).
 
 main :-
 	call_nth(between(1,100,_), M), M =:= 50, write(M), nl.
-%-------------------------------------------------------- 42 issues_old_test0252
+%-------------------------------------------------------- 43 issues_old_test0252
 :-initialization(main).
 
 main :-
 	write_term(Ö-Œ = s-t, [quoted(true),variable_names(['O'=Ö, 'E'=Œ])]), nl,
 	write_term(Ö-Œ = s-t, [quoted(true),variable_names(['O'=Ö, 'E'=Œ])]), nl,
 	writeq(-'Ö'-'Œ'+(.)+'A'), nl.
-%-------------------------------------------------------- 43 issues_old_test0271
+%-------------------------------------------------------- 44 issues_old_test0271
 a(1).
 a(2).
 a(_) :- throw(e).
@@ -1610,14 +1743,14 @@ main :-
 	findall(Optional, from_generator(a(X), X, Optional), Optionals),
 	write(Optionals), nl.
 
-%-------------------------------------------------------- 44 issues_old_test0297
+%-------------------------------------------------------- 45 issues_old_test0297
 main :-
 	A=A-A,
 	term_variables([A,_X,_Y,_Z], L),
 	write_term(L, [variable_names(['X'=_X, 'Y'=_Y, 'Z'=_Z])]), nl.
 
 :- initialization(main).
-%-------------------------------------------------------- 45 issues_old_test0368
+%-------------------------------------------------------- 46 issues_old_test0368
 main :-
 	writeq((1*2)/(3*4)), nl,
 	writeq(-(-a)), nl,
@@ -1637,7 +1770,7 @@ main :-
 	true.
 
 :- initialization(main).
-%-------------------------------------------------------- 46 issues_old_test0518
+%-------------------------------------------------------- 47 issues_old_test0518
 main :-
 	V1=V1-X1, W1=V1, unify_with_occurs_check(V1,W1), write(ok1), nl, fail.
 main :-
@@ -1655,18 +1788,18 @@ main :-
 main.
 
 :- initialization(main).
-%-------------------------------------------------------- 47 issues_old_test0545
+%-------------------------------------------------------- 48 issues_old_test0545
 main :-
 	X = (:- (:- x0)),
 	write(ok), nl.
 
 :- initialization(main).
-%-------------------------------------------------------- 48 issues_old_test0547
+%-------------------------------------------------------- 49 issues_old_test0547
 a :- .. = .. .
 b :- ::.. .
 
 :- initialization(listing).
-%-------------------------------------------------------- 49 issues_old_test0601
+%-------------------------------------------------------- 50 issues_old_test0601
 main :-
 	L=['3'|L],
 	Es=['0'|L],
@@ -1674,7 +1807,7 @@ main :-
 	writeq(Es), nl.
 
 :- initialization(main).
-%-------------------------------------------------------- 50 issues_old_test0605
+%-------------------------------------------------------- 51 issues_old_test0605
 main :-
 	F=f(F),
 	L1=[L1],
@@ -1688,7 +1821,19 @@ main :-
 	true.
 
 :- initialization(main).
-%------------------------------------------------------------ 51 issues_test0066
+%-------------------------------------------------------- 52 issues_old_test0617
+:- use_module(library(charsio)).
+:- op(300,xfx,\\).
+
+main :-
+	read_from_chars("arg(1,(\\) \\\\ '', Y).", X),
+	read_from_chars("arg(1,\\ \\\\ '', Y).", X).
+
+:- initialization(main).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): Trealla grades this program by exit status alone (it prints nothing, its .expected is empty); the driver calls main/0 once more and prints whether it succeeded, failed or raised.
+:- initialization(((catch(main, E, true) -> (var(E) -> R = succeeded ; R = raised) ; R = failed), format("main ~w~n", [R]))).
+%------------------------------------------------------------ 53 issues_test0066
 :- initialization(main).
 :- use_module(library(freeze)).
 
@@ -1697,7 +1842,7 @@ main :-
 	findall(X, between(1, 20, X), Xs),
 	write(Xs), nl.
 
-%------------------------------------------------------------ 52 issues_test0078
+%------------------------------------------------------------ 54 issues_test0078
 :-initialization(main).
 
 main :-
@@ -1731,7 +1876,7 @@ main :-
 
 	true.
 
-%------------------------------------------------------------ 53 issues_test0096
+%------------------------------------------------------------ 55 issues_test0096
 :-initialization(main).
 
 main :-
@@ -1741,7 +1886,7 @@ main :-
 	write([L1,L2,L3]), nl,
 	true.
 
-%------------------------------------------------------------ 54 issues_test0114
+%------------------------------------------------------------ 56 issues_test0114
 :-initialization(main).
 
 main :-
@@ -1756,7 +1901,16 @@ main :-
 	write(L4), nl,
 	true.
 
-%------------------------------------------------------------ 55 issues_test0145
+%------------------------------------------------------------ 57 issues_test0143
+:-initialization(main).
+
+main :-
+	append([a],[b],L1) =.. L1,
+	([_] = [_|L2]) =.. L2.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): Trealla grades this program by exit status alone (it prints nothing, its .expected is empty); the driver calls main/0 once more and prints whether it succeeded, failed or raised.
+:- initialization(((catch(main, E, true) -> (var(E) -> R = succeeded ; R = raised) ; R = failed), format("main ~w~n", [R]))).
+%------------------------------------------------------------ 58 issues_test0145
 :-initialization(main).
 
 main :-
@@ -1764,13 +1918,178 @@ main :-
 	Z,
 	write(Z), nl.
 
-%------------------------------------------------------------ 56 issues_test0150
+%------------------------------------------------------------ 59 issues_test0147
+:-initialization(main).
+
+main :-
+	Y=(Y,b), Z=(Y,c), compare(<,Y,Z).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): Trealla grades this program by exit status alone (it prints nothing, its .expected is empty); the driver calls main/0 once more and prints whether it succeeded, failed or raised.
+:- initialization(((catch(main, E, true) -> (var(E) -> R = succeeded ; R = raised) ; R = failed), format("main ~w~n", [R]))).
+%------------------------------------------------------------ 60 issues_test0148
+:-initialization(main).
+
+main :-
+	[L|L] == [L|L],
+	[L|L] = [L|L].
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): Trealla grades this program by exit status alone (it prints nothing, its .expected is empty); the driver calls main/0 once more and prints whether it succeeded, failed or raised.
+:- initialization(((catch(main, E, true) -> (var(E) -> R = succeeded ; R = raised) ; R = failed), format("main ~w~n", [R]))).
+%------------------------------------------------------------ 61 issues_test0149
+% Goal driven Parallel Sequences -- Jos De Roo
+% See background paper https://arxiv.org/pdf/2010.12027.pdf
+
+% find paths in the state space from initial state to goal state within limits
+'https://josd.github.io/pop#findpath'(_SCOPE,[Goal,Path,Duration,Cost,Belief,Comfort,Limits]) :-
+    findpaths([],Goal,[],0.0,0.0,1.0,1.0,Path,Duration,Cost,Belief,Comfort,Limits).
+
+findpaths(_Maps,Goal,Path,Duration,Cost,Belief,Comfort,Path,Duration,Cost,Belief,Comfort,_Limits) :-
+    Goal,
+    !.
+findpaths(Maps_s,Goal,Path_s,Duration_s,Cost_s,Belief_s,Comfort_s,Path,Duration,Cost,Belief,Comfort,Limits) :-
+    Limits = [MaxDuration,MaxCost,MinBelief,MinComfort,MaxStagecount],
+    clause('https://josd.github.io/pop#description'(Map,[From,Transition,To,Action,Duration_n,Cost_n,Belief_n,Comfort_n]),Where),
+    From,
+    Where,
+    'https://josd.github.io/pop#description'(Map,[From,Transition,To,Action,Duration_n,Cost_n,Belief_n,Comfort_n]),
+    append(Maps_s,[Map],Maps_t),
+    stagecount(Maps_t,Stagecount),
+    Stagecount =< MaxStagecount,
+    Duration_t is Duration_s+Duration_n,
+    Duration_t =< MaxDuration,
+    Cost_t is Cost_s+Cost_n,
+    Cost_t =< MaxCost,
+    Belief_t is Belief_s*Belief_n,
+    Belief_t >= MinBelief,
+    Comfort_t is Comfort_s*Comfort_n,
+    Comfort_t >= MinComfort,
+    append(Path_s,[Action],Path_t),
+    becomes(From,To),
+    call_cleanup(findpaths(Maps_t,Goal,Path_t,Duration_t,Cost_t,Belief_t,Comfort_t,Path,Duration,Cost,Belief,Comfort,Limits),becomes(To,From)).
+
+% counting the number of stages (a stage is a sequence of steps in the same map)
+stagecount([],1).
+stagecount([C,E|_],B) :-
+    C \= E,
+    !,
+    stagecount(_,G),
+    B is G+1.
+stagecount([_|D],B) :-
+    stagecount(D,B).
+
+% linear implication
+becomes(A,B) :-
+    catch(A,_,fail),
+    conj_list(A,C),
+    forall(member(D,C),retract(D)),
+    conj_list(B,E),
+    forall(member(F,E),assertz(F)).
+
+conj_list(true,[]).
+conj_list(A,[A]) :-
+    A \= (_,_),
+    A \= false,
+    !.
+conj_list((A,B),[A|C]) :-
+    conj_list(B,C).
+
+% test data
+:- dynamic('https://josd.github.io/pop#description'/2).
+:- dynamic('https://josd.github.io/pop#location'/2).
+
+% partial map of Belgium
+'https://josd.github.io/pop#description'(
+    'http://example.org/ns#map_be',
+    [   'https://josd.github.io/pop#location'(S,'http://example.org/ns#gent'),
+        true,
+        'https://josd.github.io/pop#location'(S,'http://example.org/ns#brugge'),
+        'http://example.org/ns#drive_gent_brugge',
+        1500.0,
+        0.006,
+        0.96,
+        0.99
+    ]
+).
+'https://josd.github.io/pop#description'(
+    'http://example.org/ns#map_be',
+    [   'https://josd.github.io/pop#location'(S,'http://example.org/ns#gent'),
+        true,
+        'https://josd.github.io/pop#location'(S,'http://example.org/ns#kortrijk'),
+        'http://example.org/ns#drive_gent_kortrijk',
+        1600.0,
+        0.007,
+        0.96,
+        0.99
+    ]
+).
+'https://josd.github.io/pop#description'(
+    'http://example.org/ns#map_be',
+    [   'https://josd.github.io/pop#location'(S,'http://example.org/ns#kortrijk'),
+        true,
+        'https://josd.github.io/pop#location'(S,'http://example.org/ns#brugge'),
+        'http://example.org/ns#drive_kortrijk_brugge',
+        1600.0,
+        0.007,
+        0.96,
+        0.99
+    ]
+).
+'https://josd.github.io/pop#description'(
+    'http://example.org/ns#map_be',
+    [   'https://josd.github.io/pop#location'(S,'http://example.org/ns#brugge'),
+        true,
+        'https://josd.github.io/pop#location'(S,'http://example.org/ns#oostende'),
+        'http://example.org/ns#drive_brugge_oostende',
+        900.0,
+        0.004,
+        0.98,
+        1.0
+    ]
+).
+
+% current state
+'https://josd.github.io/pop#location'('http://example.org/ns#i1','http://example.org/ns#gent').
+
+% query
+query('https://josd.github.io/pop#findpath'(
+    'http://example.org/ns#map_be',
+    [   'https://josd.github.io/pop#location'(_SUBJECT,'http://example.org/ns#oostende'),
+        _PATH,
+        _DURATION,
+        _COST,
+        _BELIEF,
+        _COMFORT,
+        [5000.0,5.0,0.2,0.4,1]
+    ]
+)).
+
+run :-
+    query(Q),
+    Q,
+    writeq(Q),
+    write('.\n'),
+    fail;
+    true.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this program (Jos De Roo's goal-driven parallel sequences) defines run/0 and never calls it (Trealla's runner passes -g run); the driver calls it once at load.
+:- initialization(run).
+%------------------------------------------------------------ 62 issues_test0150
 :-initialization(main).
 
 main :-
 	list_to_set([1,3,2,3],Y),
 	write(Y), nl.
-%------------------------------------------------------------ 57 issues_test0156
+%------------------------------------------------------------ 63 issues_test0153
+:-initialization(main).
+
+main :-
+	[1,1,2,1,1,2|L1]=L1, [1,1,2|R1]=R1, L1=R1,
+	[1,1,2,1,1,2|L2]=L2, [1,1,2|R2]=R2, L2==R2,
+	true.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): Trealla grades this program by exit status alone (it prints nothing, its .expected is empty); the driver calls main/0 once more and prints whether it succeeded, failed or raised.
+:- initialization(((catch(main, E, true) -> (var(E) -> R = succeeded ; R = raised) ; R = failed), format("main ~w~n", [R]))).
+%------------------------------------------------------------ 64 issues_test0156
 :-initialization(main).
 
 main :-
@@ -1778,7 +2097,7 @@ main :-
 	unifiable(a,a,X2), write(here2), nl,
 	unifiable(a,A,X1), write(here1), nl,
 	true.
-%------------------------------------------------------------ 58 issues_test0160
+%------------------------------------------------------------ 65 issues_test0160
 :-initialization(main).
 :- use_module(library(when)).
 
@@ -1803,13 +2122,41 @@ main3 :-
 	NV=nv,
 	when(nonvar(NV), (write(ok3), nl)),
 	write(here3), nl.
-%------------------------------------------------------------ 59 issues_test0161
+%------------------------------------------------------------ 66 issues_test0161
 :- initialization(main).
 :- use_module(library(freeze)).
 
 main :-
 	freeze(X,integer(X)), X=1, write(X), nl.
-%------------------------------------------------------------ 60 issues_test0178
+%------------------------------------------------------------ 67 issues_test0162
+:-initialization(main).
+
+leak2 :-
+    findall(_, inner, _).
+
+leak3 :-
+    findall(_, inner2, _).
+
+% calling inner/0 from the toplevel is fine
+inner :-
+    do_something("abcdefg")
+    ; do_something("fooobarbaz").
+
+% calling inner2/0 from the toplevel seems to leak "qux" (but not the other strings)?
+inner2 :-
+    do_something_else("abcdefg")
+    ; do_something_else("fooobarbaz").
+
+do_something(_).
+
+do_something_else(X) :- X \= "qux".
+
+main :-
+	leak2.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): Trealla grades this program by exit status alone (it prints nothing, its .expected is empty); the driver calls main/0 once more and prints whether it succeeded, failed or raised.
+:- initialization(((catch(main, E, true) -> (var(E) -> R = succeeded ; R = raised) ; R = failed), format("main ~w~n", [R]))).
+%------------------------------------------------------------ 68 issues_test0178
 :-initialization(main).
 
 isl({L},N) :- L = (_ is _+N).
@@ -1841,7 +2188,7 @@ testmem(Lim) :-
 
 main :-
 	run(5000);true.
-%------------------------------------------------------------ 61 issues_test0179
+%------------------------------------------------------------ 69 issues_test0179
 :-initialization(main).
 
 main :-
@@ -1852,14 +2199,32 @@ main :-
 	A=[A].				% expected to fail
 main :-
 	write(here2), nl.
-%------------------------------------------------------------ 62 issues_test0180
+%------------------------------------------------------------ 70 issues_test0180
 :-initialization(main).
 
 main :-
 	[X|Y] = [a,b,X|X],
 	write(X), nl,
 	write(Y), nl.
-%------------------------------------------------------------ 63 issues_test0204
+%------------------------------------------------------------ 71 issues_test0200
+:-initialization(main).
+
+main :-
+	call_residue_vars((A=[A|B],B=[A,B|B],A=B, false),_Vs).
+main.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): Trealla grades this program by exit status alone (it prints nothing, its .expected is empty); the driver calls main/0 once more and prints whether it succeeded, failed or raised.
+:- initialization(((catch(main, E, true) -> (var(E) -> R = succeeded ; R = raised) ; R = failed), format("main ~w~n", [R]))).
+%------------------------------------------------------------ 72 issues_test0203
+:-initialization(main).
+
+main :-
+	B = a([B]), A = [a([B])], A = [a(A)],
+	B = a([B]), A = [a(A)], A = [a([B])].
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): Trealla grades this program by exit status alone (it prints nothing, its .expected is empty); the driver calls main/0 once more and prints whether it succeeded, failed or raised.
+:- initialization(((catch(main, E, true) -> (var(E) -> R = succeeded ; R = raised) ; R = failed), format("main ~w~n", [R]))).
+%------------------------------------------------------------ 73 issues_test0204
 :-initialization(main).
 
 f(g(a)).
@@ -1869,23 +2234,94 @@ main :-
 	f(g(X)), write(X), nl, fail.
 main.
 
-%------------------------------------------------------------ 64 issues_test0225
+%------------------------------------------------------------ 74 issues_test0205
+:-initialization(main).
+
+main :-
+	A=B*[], B=B*[]*[], A=B.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): Trealla grades this program by exit status alone (it prints nothing, its .expected is empty); the driver calls main/0 once more and prints whether it succeeded, failed or raised.
+:- initialization(((catch(main, E, true) -> (var(E) -> R = succeeded ; R = raised) ; R = failed), format("main ~w~n", [R]))).
+%------------------------------------------------------------ 75 issues_test0206
+:-initialization(main).
+
+main :-
+	A=B*A,B=B*A*B,A=B.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): Trealla grades this program by exit status alone (it prints nothing, its .expected is empty); the driver calls main/0 once more and prints whether it succeeded, failed or raised.
+:- initialization(((catch(main, E, true) -> (var(E) -> R = succeeded ; R = raised) ; R = failed), format("main ~w~n", [R]))).
+%------------------------------------------------------------ 76 issues_test0209
+:-initialization(main).
+
+ti(G_0, (A_0,B_0,C_0)) :-
+   G_0 = (C_0,A_0,B_0),
+   C_0 = unify_with_occurs_check(_,_),
+   skel(A_0),
+   skel(B_0),
+   f(G_0).
+
+f((unify_with_occurs_check(A,B),unify_with_occurs_check(A,[]*C),unify_with_occurs_check(C,B*_D))).
+
+skel(unify_with_occurs_check(_,_*_)).
+
+main :-
+	ti(G_0,_),G_0.
+
+main :-
+	ti(_,R_0),R_0.
+
+main.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): Trealla grades this program by exit status alone (it prints nothing, its .expected is empty); the driver calls main/0 once more and prints whether it succeeded, failed or raised.
+:- initialization(((catch(main, E, true) -> (var(E) -> R = succeeded ; R = raised) ; R = failed), format("main ~w~n", [R]))).
+%------------------------------------------------------------ 77 issues_test0210
+:- initialization(main).
+:- use_module(library(dif)).
+
+main :-
+	\+ (dif(A,B),A=[A|A],B=[B|B]).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): Trealla grades this program by exit status alone (it prints nothing, its .expected is empty); the driver calls main/0 once more and prints whether it succeeded, failed or raised.
+:- initialization(((catch(main, E, true) -> (var(E) -> R = succeeded ; R = raised) ; R = failed), format("main ~w~n", [R]))).
+%------------------------------------------------------------ 78 issues_test0214
+:-initialization(main).
+
+main :-
+	C=[],A=[A|C],B=[A|A],A=B.
+main :-
+	C=[],A=[A|C],B=[A|A],A==B.
+main.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): Trealla grades this program by exit status alone (it prints nothing, its .expected is empty); the driver calls main/0 once more and prints whether it succeeded, failed or raised.
+:- initialization(((catch(main, E, true) -> (var(E) -> R = succeeded ; R = raised) ; R = failed), format("main ~w~n", [R]))).
+%------------------------------------------------------------ 79 issues_test0225
 :-initialization(main).
 
 main :-
 	write_term(T,[variable_names(['Bad'=T]),variable_names(['Good'=T])]), nl.
-%------------------------------------------------------------ 65 issues_test0268
+%------------------------------------------------------------ 80 issues_test0268
 :-initialization(main).
 
 main :-
 	portray_clause(A*B),portray_clause(AA*BB).
-%------------------------------------------------------------ 66 issues_test0282
+%------------------------------------------------------------ 81 issues_test0278
+:-initialization(main).
+
+main :-
+	C = + +1, B = +B,
+	C @< B,
+	\+ (B @< C),
+	true.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): Trealla grades this program by exit status alone (it prints nothing, its .expected is empty); the driver calls main/0 once more and prints whether it succeeded, failed or raised.
+:- initialization(((catch(main, E, true) -> (var(E) -> R = succeeded ; R = raised) ; R = failed), format("main ~w~n", [R]))).
+%------------------------------------------------------------ 82 issues_test0282
 :-initialization(main).
 
 main :-
 	findall(X, (between(1,3,X) *-> true ; true), L),
 	write(L), nl.
-%------------------------------------------------------------ 67 issues_test0289
+%------------------------------------------------------------ 83 issues_test0289
 :-initialization(main).
 
 explode :-
@@ -1897,7 +2333,23 @@ something(a, b).
 
 main :-
 	explode.
-%------------------------------------------------------------ 68 issues_test0309
+%------------------------------------------------------------ 84 issues_test0302
+:-initialization(main).
+
+:- dynamic(foo/1).
+
+test :-
+    clause(foo(_), Body),
+    call(Body).
+
+foo(bar).
+
+main :-
+	test.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): Trealla grades this program by exit status alone (it prints nothing, its .expected is empty); the driver calls main/0 once more and prints whether it succeeded, failed or raised.
+:- initialization(((catch(main, E, true) -> (var(E) -> R = succeeded ; R = raised) ; R = failed), format("main ~w~n", [R]))).
+%------------------------------------------------------------ 85 issues_test0309
 :-initialization(main).
 
 main :-
@@ -1905,7 +2357,7 @@ main :-
 	\+ (A1=B1*1, B1=B1*A1*A1, A1=B1, write(oops1), nl), write(ok1), nl, fail.
 main.
 
-%------------------------------------------------------------ 69 issues_test0316
+%------------------------------------------------------------ 86 issues_test0316
 :-initialization(main).
 
 main :- A=B,A=B*1,A=1*1*1.
@@ -1917,14 +2369,14 @@ main :- B=B*A*A,A=B*1,A=B.
 main :- A=B*1,B=B*A*A,A=B.
 main :- write(ok), nl.
 
-%------------------------------------------------------------ 70 issues_test0319
+%------------------------------------------------------------ 87 issues_test0319
 :-initialization(main).
 
 main :- A=B,B=B*A*A,A=B*1,A=B.
 main :- B=B*A*A,A=B*1,A=B.
 main :- write(ok), nl.
 
-%------------------------------------------------------------ 71 issues_test0320
+%------------------------------------------------------------ 88 issues_test0320
 :-initialization(main).
 
 main :- A=B,C=A*1,A=B*A,B=B*C*A,A=B.
@@ -1932,7 +2384,7 @@ main :- C=A*1,A=B*A,B=B*C*A,A=B, A == B.
 main :- C=A*1,A=B*A,B=B*C*A, A = B.
 main :- write(ok), nl.
 
-%------------------------------------------------------------ 72 issues_test0321
+%------------------------------------------------------------ 89 issues_test0321
 :-initialization(main).
 
 main :- \+ (B=_*(A*B),A=B*B,A=B, write(ok1), nl).
@@ -1942,28 +2394,28 @@ main :- \+ (B+A+A=_*(A*B)+B*B+B, write(ok4), nl).
 main :- \+ (B=B*(A*B),A=B*B,A=B,A == B, write(ok5), nl).
 main :- write(done), nl.
 
-%------------------------------------------------------------ 73 issues_test0325
+%------------------------------------------------------------ 90 issues_test0325
 :-initialization(main).
 
 main :- A=B,A=B*1,B=B*A*B,A=B.
 main :- A=B*1,B=B*A*B,A=B.
 main :- write(ok), nl.
 
-%------------------------------------------------------------ 74 issues_test0326
+%------------------------------------------------------------ 91 issues_test0326
 :-initialization(main).
 
 main :- A=B,A=B*1,B=B*A*B,A=B.
 main :- A=B*1,B=B*A*B,A=B.
 main :- write(ok), nl.
 
-%------------------------------------------------------------ 75 issues_test0328
+%------------------------------------------------------------ 92 issues_test0328
 :-initialization(main).
 
 main :- A=B,A=A*1,B=B*B.
 main :- A=A*1,B=B*B,A=B.
 main :- write(ok), nl.
 
-%------------------------------------------------------------ 76 issues_test0338
+%------------------------------------------------------------ 93 issues_test0338
 :- use_module(library(clpb)).
 :- use_module(library(iso_ext)).
 :- initialization(main).
@@ -1974,13 +2426,13 @@ main :- write(ok), nl.
 main :-
 	forall((sat(X*Y + X*Z), labeling([X,Y,Z])),
 	       format("~w~n", [[X,Y,Z]])).
-%------------------------------------------------------------ 77 issues_test0369
+%------------------------------------------------------------ 94 issues_test0369
 :- use_module(library(clpb)).
 :- initialization(main).
 
 main :-
 	( sat(A+B), A=B -> format("A=~w B=~w~n", [A,B]) ; write('unexpected failure'), nl ).
-%------------------------------------------------------------ 78 issues_test0392
+%------------------------------------------------------------ 95 issues_test0392
 :- use_module(library(dcgs)).
 :- use_module(library(format)).
 :- use_module(library(lists)).
@@ -1994,7 +2446,7 @@ run :-
   format("~s~n",[S]).
 
 :- initialization(run).
-%------------------------------------------------------------ 79 issues_test0393
+%------------------------------------------------------------ 96 issues_test0393
 :- initialization(main).
 :- use_module(library(dif)).
 
@@ -2004,7 +2456,7 @@ main :-
 	write(ok), nl.
 main :-
 	write(nok), nl.
-%------------------------------------------------------------ 80 issues_test0394
+%------------------------------------------------------------ 97 issues_test0394
 :- use_module(library(dif)).
 
 :- initialization(main).
@@ -2026,44 +2478,44 @@ main :-
 	findall(G-Rs, ti(G=Rs), L),
 	term_variables(L, [A,B,C,D,E,F]),
 	write_term(L, [variable_names(['A'=A, 'B'=B, 'C'=C, 'D'=D, 'E'=E, 'F'=F])]), nl.
-%------------------------------------------------------------ 81 issues_test0400
+%------------------------------------------------------------ 98 issues_test0400
 :- initialization(main).
 :- use_module(library(dif)).
 
 main :- A=A*B,B=C*C,B=C,dif(A,B), write(nok1), nl.
 main :- dif(A,B),A=A*B,B=C*C,B=C, write(nok2), nl.
 main :- write(done), nl.
-%------------------------------------------------------------ 82 issues_test0402
+%------------------------------------------------------------ 99 issues_test0402
 :- initialization(main).
 :- use_module(library(dif)).
 
 main :- dif(A,B),A=B*[],B=B*[]*[], write(nok1), nl.
 main :- write(done), nl.
-%------------------------------------------------------------ 83 issues_test0403
+%----------------------------------------------------------- 100 issues_test0403
 :- initialization(main).
 :- use_module(library(dif)).
 
 main :- A=A*C,B=A*A,dif(A,B),C=1, write(ok), nl, !.
 main :- write(nok), nl.
-%------------------------------------------------------------ 84 issues_test0404
+%----------------------------------------------------------- 101 issues_test0404
 :- initialization(main).
 :- use_module(library(dif)).
 
 main :- dif([],A),A=A*_*A, write(ok), nl.
-%------------------------------------------------------------ 85 issues_test0405
+%----------------------------------------------------------- 102 issues_test0405
 :-initialization(main).
 
 main :-
 	 A=A*[],B=A*a*[], A\==B,
 	write(ok), nl.
-%------------------------------------------------------------ 86 issues_test0406
+%----------------------------------------------------------- 103 issues_test0406
 :- use_module(library(dif)).
 :- initialization(main).
 
 main :-
 	dif(A,B),A=A*B,B=C*A*C,
 	write(ok), nl.
-%------------------------------------------------------------ 87 issues_test0409
+%----------------------------------------------------------- 104 issues_test0409
 :- use_module(library(dif)).
 :- initialization(main).
 
@@ -2071,26 +2523,26 @@ main :-
 	\+ (A=[]*B,B=C*D,D=C*C,A=B),
 	\+ (A=[]*B,B=C*C*C,A=B),
 	write(ok), nl.
-%------------------------------------------------------------ 88 issues_test0410
+%----------------------------------------------------------- 105 issues_test0410
 :- use_module(library(dif)).
 :- initialization(main).
 
 main :-
 	A=A*[],B=C*[],C=C*a,dif(A,B),
 	write(ok), nl.
-%------------------------------------------------------------ 89 issues_test0419
+%----------------------------------------------------------- 106 issues_test0419
 :- use_module(library(dif)).
 :- initialization(main).
 
 main :-
 	portray_clause(c:t((dif(A,B),A=[]*C,B=[[]|D]),(A=[]*C,B=[[]|D],dif(A,B)))).
-%------------------------------------------------------------ 90 issues_test0440
+%----------------------------------------------------------- 107 issues_test0440
 :- initialization(main).
 
 main :-
 	Y =.. [x,[Head|Y]],
 	write_term(Y, [variable_names(['Head'=Head, 'Y'=Y])]), nl.
-%------------------------------------------------------------ 91 issues_test0446
+%----------------------------------------------------------- 108 issues_test0446
 :- initialization(main).
 
 main :-
@@ -2098,14 +2550,14 @@ main :-
 	{["c"|Y2],"b,a"} = {X2,Y2}, write((X2,Y2)),nl.
 
 
-%------------------------------------------------------------ 92 issues_test0447
+%----------------------------------------------------------- 109 issues_test0447
 :- initialization(main).
 
 main :-
 	[X,Y] = [x,[X|Y]],
 	write([X,Y]), nl.
 
-%------------------------------------------------------------ 93 issues_test0541
+%----------------------------------------------------------- 110 issues_test0541
 :- initialization(main).
 :- op(0,yfx,-).
 :- op(0,fy,--).
@@ -2114,7 +2566,14 @@ main :-
 	X = -(---(_A),-_B),
 	Y = -(- --(_A),-_B),
 	write_term([X,Y], [variable_names(['A'=_A, 'B'=_B])]), nl.
-%------------------------------------------------------------ 94 issues_test0554
+%----------------------------------------------------------- 111 issues_test0553
+main :-
+	arg(2,"foo",V),
+	writeq(V), nl.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this program defines main/0 and never calls it (Trealla's runner passes -g main); the driver calls it and prints whether it succeeded, failed or raised.
+:- initialization(((catch(main, E, true) -> (var(E) -> R = succeeded ; R = raised) ; R = failed), format("main ~w~n", [R]))).
+%----------------------------------------------------------- 112 issues_test0554
 :-initialization(main).
 
 :- use_module(library(freeze)).
@@ -2130,13 +2589,13 @@ highest(X) :-
     \+ foo(Higher).
 
 main :- highest(X), !, write(X), nl.
-%------------------------------------------------------------ 95 issues_test0556
+%----------------------------------------------------------- 113 issues_test0556
 :-initialization(main).
 
 main :-
 	X = (-𝒶𝒶 + 𝒶𝒶),
 	writeq(X), nl.
-%------------------------------------------------------------ 96 issues_test0571
+%----------------------------------------------------------- 114 issues_test0571
 :-initialization(main).
 
 % Traversing graph paths
@@ -2168,7 +2627,7 @@ main :-
     write('.\n'),
     fail;
     true.
-%------------------------------------------------------------ 97 issues_test0602
+%----------------------------------------------------------- 115 issues_test0602
 :- initialization(main).
 
 hello(a).
@@ -2178,13 +2637,13 @@ test(ok).
 
 main :-
 	hello(X), test(Y), write([X,Y]), nl, fail; true.
-%------------------------------------------------------------ 98 issues_test0627
+%----------------------------------------------------------- 116 issues_test0627
 :- initialization(main).
 
 main :-
 	sub_atom('не смог бы', P, _, Q, ' '),
 	write([P,Q]), nl.
-%------------------------------------------------------------ 99 issues_test0650
+%----------------------------------------------------------- 117 issues_test0650
 :- initialization(main).
 
 a(1).
@@ -2195,7 +2654,7 @@ test :- write(oops), nl.
 
 main :- test.
 main.
-%----------------------------------------------------------- 100 issues_test0651
+%----------------------------------------------------------- 118 issues_test0651
 :- initialization(main).
 
 main :-
@@ -2209,7 +2668,7 @@ main :-
      ),
      write({X}), fail.
 main :- nl.
-%----------------------------------------------------------- 101 issues_test0660
+%----------------------------------------------------------- 119 issues_test0660
 :- initialization(main).
 
 main :-
@@ -2220,50 +2679,92 @@ main :-
      ),
      write({X}), fail.
 main :- nl.
-%----------------------------------------------------------- 102 issues_test0667
+%----------------------------------------------------------- 120 issues_test0667
 :- initialization(main).
 :- op(9,yf,.>).
 
 main :-
 	write(a.> .>), nl.
-%----------------------------------------------------------- 103 issues_test0754
+%----------------------------------------------------------- 121 issues_test0754
 :- initialization(main).
 
 main :-
 	(atom_concat(A,A,aaa); true),
 	atom_concat(A,A,aaaa), A=aa, write(A), nl.
 
-%----------------------------------------------------------- 104 issues_test0766
+%----------------------------------------------------------- 122 issues_test0759
+:- initialization(main).
+
+main :-
+	A=[A|B],A=[B|A],false.
+main.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): Trealla grades this program by exit status alone (it prints nothing, its .expected is empty); the driver calls main/0 once more and prints whether it succeeded, failed or raised.
+:- initialization(((catch(main, E, true) -> (var(E) -> R = succeeded ; R = raised) ; R = failed), format("main ~w~n", [R]))).
+%----------------------------------------------------------- 123 issues_test0763
+:- initialization(main).
+
+main :-
+	number_chars(N, "0'").
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): Trealla grades this program by exit status alone (it prints nothing, its .expected is empty); the driver calls main/0 once more and prints whether it succeeded, failed or raised.
+:- initialization(((catch(main, E, true) -> (var(E) -> R = succeeded ; R = raised) ; R = failed), format("main ~w~n", [R]))).
+%----------------------------------------------------------- 124 issues_test0765
+:- initialization(main).
+
+main :-
+	number_chars(N,"0'\n").
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): Trealla grades this program by exit status alone (it prints nothing, its .expected is empty); the driver calls main/0 once more and prints whether it succeeded, failed or raised.
+:- initialization(((catch(main, E, true) -> (var(E) -> R = succeeded ; R = raised) ; R = failed), format("main ~w~n", [R]))).
+%----------------------------------------------------------- 125 issues_test0766
 :- initialization(main).
 
 main :-
 	number_chars(N0,"0'''"),
 	write(N0), nl,
 	number_chars(N1,"0''").
-%----------------------------------------------------------- 105 issues_test0779
+%----------------------------------------------------------- 126 issues_test0769
+:- initialization(main).
+
+main :-
+	A=[A|C],B=[C|B],A=B,false.
+main.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): Trealla grades this program by exit status alone (it prints nothing, its .expected is empty); the driver calls main/0 once more and prints whether it succeeded, failed or raised.
+:- initialization(((catch(main, E, true) -> (var(E) -> R = succeeded ; R = raised) ; R = failed), format("main ~w~n", [R]))).
+%----------------------------------------------------------- 127 issues_test0779
 :- initialization(main).
 
 main :-
 	number_chars(N,"0'𝄞"), write(N), nl.
-%----------------------------------------------------------- 106 issues_test0786
+%----------------------------------------------------------- 128 issues_test0786
 :- initialization(main).
 
 main :-
 	number_chars(N,"0'\\"),
 	write(N), nl.
-%----------------------------------------------------------- 107 issues_test0798
+%----------------------------------------------------------- 129 issues_test0789
+:- initialization(main).
+
+main :-
+	number_chars(N,"+9").
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): Trealla grades this program by exit status alone (it prints nothing, its .expected is empty); the driver calls main/0 once more and prints whether it succeeded, failed or raised.
+:- initialization(((catch(main, E, true) -> (var(E) -> R = succeeded ; R = raised) ; R = failed), format("main ~w~n", [R]))).
+%----------------------------------------------------------- 130 issues_test0798
 :- initialization(main).
 
 main :-
 	number_chars(X, "0''"), write(X), nl.
-%----------------------------------------------------------- 108 issues_test0805
+%----------------------------------------------------------- 131 issues_test0805
 :- initialization(main).
 
 main :-
 	\+ unify_with_occurs_check(L,[_|L]),
 	\+ unify_with_occurs_check([_|L],L),
 	write(ok), nl.
-%----------------------------------------------------------- 109 issues_test0810
+%----------------------------------------------------------- 132 issues_test0810
 :- initialization(main).
 
 main :-
@@ -2271,14 +2772,14 @@ main :-
 	catch(number_chars(N,"'\\\n-3"), Err1, writeln(err2)),
 	writeln(done).
 
-%----------------------------------------------------------- 110 issues_test0827
+%----------------------------------------------------------- 133 issues_test0827
 :- initialization(main).
 
 main :-
 	atom_concat(G,_,abcdefgh), atom_concat(A,A,G),
 	writeq([A,G]), nl,
 	fail; true.
-%----------------------------------------------------------- 111 issues_test0837
+%----------------------------------------------------------- 134 issues_test0837
 :- initialization(main).
 :- op(699,xf,>.).
 :- op(9,yf,.>).
@@ -2287,12 +2788,12 @@ main :-
 	writeq(a>. >b), nl,
 	writeq((a>.) >.), nl,
 	writeq((a.>) .>), nl.
-%----------------------------------------------------------- 112 issues_test0850
+%----------------------------------------------------------- 135 issues_test0850
 main :-
 	X = (write(Y),nl), Y=1, X.
 
 :- initialization(main).
-%----------------------------------------------------------- 113 issues_test0855
+%----------------------------------------------------------- 136 issues_test0855
 % Issue #855: unification was exponential in a shared DAG (blam/1).
 % Pair-memoization keeps L = K near-linear in N.
 % Before the fix, N=28 was ~3s; after it is microseconds.
@@ -2317,20 +2818,28 @@ main :-
 		)
 	;	write(fail_unify), nl
 	).
-%----------------------------------------------------------- 114 issues_test0879
+%----------------------------------------------------------- 137 issues_test0879
 :- initialization(main).
 
 main :-
 	Z=[Z|[a|b]],
 	write(Z), nl.
-%----------------------------------------------------------- 115 issues_test0898
+%----------------------------------------------------------- 138 issues_test0897
+:- initialization(main).
+
+main :-
+	S = s(s(A,s(B,A)),1), T = s(s(C,C),1), \+ unify_with_occurs_check(S,T).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): Trealla grades this program by exit status alone (it prints nothing, its .expected is empty); the driver calls main/0 once more and prints whether it succeeded, failed or raised.
+:- initialization(((catch(main, E, true) -> (var(E) -> R = succeeded ; R = raised) ; R = failed), format("main ~w~n", [R]))).
+%----------------------------------------------------------- 139 issues_test0898
 :- initialization(main).
 
 main :-
 	catch(call((true->false,1)), E, true), !, write(E), nl.
 main :-
 	write(nok), nl.
-%----------------------------------------------------------- 116 issues_test0903
+%----------------------------------------------------------- 140 issues_test0903
 :- initialization(main).
 
 main :-
@@ -2342,13 +2851,13 @@ main :-
 	number_chars(N6,"0_%\n6"), write(N6), nl,
 	number_chars(N7,"0_/**/\n7"), write(N7), nl.
 
-%----------------------------------------------------------- 117 issues_test0905
+%----------------------------------------------------------- 141 issues_test0905
 :- initialization(main).
 
 main :-
 	read_from_chars("%",T),
 	write(T), nl.
-%----------------------------------------------------------- 118 issues_test0910
+%----------------------------------------------------------- 142 issues_test0910
 :- initialization(main).
 
 main :-
@@ -2356,13 +2865,13 @@ main :-
 	%catch((read_from_chars("{1\"\"||_}.",_),fail),_,true),
 	catch((read_from_chars("{! (1)}.",_),fail),_,true),
 	write(ok), nl.
-%----------------------------------------------------------- 119 issues_test0918
+%----------------------------------------------------------- 143 issues_test0918
 :- initialization(main).
 
 main :-
 	N = -0'\1\ ,
 	write(N), nl.
-%----------------------------------------------------------- 120 issues_test0921
+%----------------------------------------------------------- 144 issues_test0921
 :- initialization(main).
 
 main :-
@@ -2370,7 +2879,7 @@ main :-
 	length(L, 1),
 	write(ok), nl.
 
-%----------------------------------------------------------- 121 issues_test0922
+%----------------------------------------------------------- 145 issues_test0922
 :- use_module(library(freeze)).
 :- initialization(main).
 
@@ -2379,13 +2888,13 @@ main :-
 	findall(V,L=[V],L),
 	L=[V2],
 	V2=1.
-%----------------------------------------------------------- 122 issues_test0986
+%----------------------------------------------------------- 146 issues_test0986
 :- initialization(main).
 
 main :-
 	X = (A - =<(1,2) ),
 	write_term(X, [variable_names(['A'=A])]), nl.
-%----------------------------------------------------------- 123 issues_test0989
+%----------------------------------------------------------- 147 issues_test0989
 % Issue #989: findall/3 could not represent a cyclic term in its queue -
 % the clone has no frame slots to hang a cycle from, so it emitted a
 % fresh variable where the back-edge was - and the collected term quietly
@@ -2437,20 +2946,20 @@ main :-
 	(  Cs == [x,y] -> writeln(acyclic_bagof) ; writeln('FAIL acyclic bagof') ),
 	findnsols(5, D, member(D,[p,q]), Ds),
 	(  Ds == [p,q] -> writeln(acyclic_findnsols) ; writeln('FAIL acyclic findnsols') ).
-%----------------------------------------------------------- 124 issues_test0992
+%----------------------------------------------------------- 148 issues_test0992
 :- initialization(main).
 
 main :-
 	T=f(X),write_term(T,[quoted(true),variable_names(['X'=X])]), nl,
 	true.
-%----------------------------------------------------------- 125 issues_test0993
+%----------------------------------------------------------- 149 issues_test0993
 :- initialization(main).
 
 main :-
 	between(0,5,D),Y=f(X),X=f(Z),write_term(D:Y,[max_depth(D),variable_names(['Z'=Z])]),nl,false.
 main :-
 	true.
-%----------------------------------------------------------- 126 issues_test1002
+%----------------------------------------------------------- 150 issues_test1002
 :- initialization(main).
 
 % copy_term/2 of a cyclic term is a cyclic term with as many variables
@@ -2489,7 +2998,7 @@ main :-
 	X = f(X), copy_term(X, Y),
 	( \+ acyclic_term(Y) -> write(fx-ok) ; write(fx-fail) ), nl,
 	halt.
-%----------------------------------------------------------- 127 issues_test1005
+%----------------------------------------------------------- 151 issues_test1005
 :- initialization(main).
 
 :- dynamic(foo/0).
@@ -2503,14 +3012,14 @@ main :-
 	fail.
 main.
 
-%----------------------------------------------------------- 128 issues_test1014
+%----------------------------------------------------------- 152 issues_test1014
 :- initialization(main).
 
 main :-
 	format("~`*t NICE TABLE ~`*t~61|~n", []),
 	format("*~t~d~20|~t~d~t~40|~d~t~40|~t*~61|~n", [123,45,678]),
 	true.
-%----------------------------------------------------------- 129 issues_test1015
+%----------------------------------------------------------- 153 issues_test1015
 :- initialization(main).
 
 main :-
@@ -2527,7 +3036,7 @@ main :-
 	% Column directive with no tabs
 	format('[~w~w~10|x]', [a,b]), nl,
 	true.
-%----------------------------------------------------------- 130 issues_test1032
+%----------------------------------------------------------- 154 issues_test1032
 :- use_module(library(dif)).
 :- initialization(main).
 
@@ -2543,7 +3052,7 @@ main :-
 	length(Solutions, 8),
 	write(ok), nl,
 	halt.
-%----------------------------------------------------------- 131 issues_test1071
+%----------------------------------------------------------- 155 issues_test1071
 :- initialization(main).
 
 % A quad may be labelled with a ground term identifying the query, so
@@ -2569,7 +3078,7 @@ main :-
 	nl,
 	use_module(library(quads)),
 	run_quads.
-%----------------------------------------------------------- 132 issues_test1084
+%----------------------------------------------------------- 156 issues_test1084
 :- initialization(main).
 
 % Issue #1084: outputs/1 per disjunctive answer. call_nth(N) re-runs
@@ -2588,7 +3097,7 @@ main :-
 main :-
 	use_module(library(quads)),
 	run_quads.
-%----------------------------------------------------------- 133 issues_test1091
+%----------------------------------------------------------- 157 issues_test1091
 :-initialization(main).
 
 % Issue #1091 / ISO Cor.3: when several variable_names/1 elements
@@ -2600,7 +3109,7 @@ main :-
 	write_term(T, [quoted(true), variable_names(['Z'=Z, 'Y'=Y, 'X'=X])]), nl,
 	write_term(T, [quoted(true), variable_names(['Y'=Y, 'X'=X, 'Z'=Z])]), nl,
 	halt.
-%----------------------------------------------------------- 134 issues_test1105
+%----------------------------------------------------------- 158 issues_test1105
 % Issue #1105: between/3 should handle bigints rather than throwing
 % domain_error(small_integer_range).
 %
@@ -2658,7 +3167,7 @@ main :-
 	t(err_type3,      catch((between(1,3,a),fail), error(type_error(integer,a),_), true)),
 
 	true.
-%----------------------------------------------------------- 135 issues_test1109
+%----------------------------------------------------------- 159 issues_test1109
 :- initialization(main).
 
 burn(0) :- !.
@@ -2674,7 +3183,7 @@ main :-
 	->  writeln(cpu_time_advances)
 	;   writeln(cpu_time_stalled)
 	).
-%----------------------------------------------------------- 136 issues_test1110
+%----------------------------------------------------------- 160 issues_test1110
 % Issue #1110: \+ (true;1) should raise type_error(callable,(true;1))
 % per ISO (matching scryer-prolog's
 % error(type_error(callable,(true;1)),(;)/2)), not silently fail.
@@ -2743,7 +3252,7 @@ main :-
 	t(variant_of_cyclic_term, variant(A, A2)),
 
 	true.
-%----------------------------------------------------------- 137 issues_test1112
+%----------------------------------------------------------- 161 issues_test1112
 % Issue #1112: statistics/2 should raise a domain error for an invalid key
 % rather than silently failing.
 %
@@ -2763,7 +3272,7 @@ main :-
 	        error(domain_error(statistics_key, nonsense), _), true)),
 	t(valid_key, statistics(runtime, [_Total,_SinceLast])),
 	true.
-%----------------------------------------------------------- 138 issues_test1118
+%----------------------------------------------------------- 162 issues_test1118
 :- initialization(main).
 
 % Issue #1118: a query that writes and then fails. Each attempt runs
@@ -2790,7 +3299,7 @@ main :-
    outputs("a"), instantiation_error.
 
 main :- use_module(library(quads)), run_quads.
-%----------------------------------------------------------- 139 issues_test1121
+%----------------------------------------------------------- 163 issues_test1121
 % Issue #1121: dif/2 misbehaved on cyclic (rational) terms whose cycle
 % passes through more than one variable - a tail chain reaching a slot
 % whose own head also refers back to that same slot. reinforce_goals's
@@ -2825,7 +3334,7 @@ main :-
 	), nl,
 
 	halt.
-%----------------------------------------------------------- 140 issues_test1122
+%----------------------------------------------------------- 164 issues_test1122
 % Issue #1122: printing the toplevel answer bindings for
 %     C=[[]|C],A=[C|D],D=[D|A],B=[C|A].
 % looped forever on B specifically. print_iso_list()'s spine walk only
@@ -2850,7 +3359,7 @@ main :-
 	writes_ok(D, d_ok),
 	writes_ok(B, b_ok),
 	halt.
-%----------------------------------------------------------- 141 issues_test1126
+%----------------------------------------------------------- 165 issues_test1126
 % Issue #1126: cyclic comparison used independent "seen on the left/right"
 % flags. Two unrelated cycles could therefore stop the walk early and make
 % \==/2 report equal terms, causing a valid dif/2 constraint to fail.
@@ -2891,7 +3400,7 @@ main :-
 	), nl,
 
 	halt.
-%----------------------------------------------------------- 142 issues_test1132
+%----------------------------------------------------------- 166 issues_test1132
 % Issue #1132: max_arity is unbounded, but the actual procedure/database
 % arity limit is exposed as max_procedure_arity. Exceeding it must throw
 % representation_error(max_procedure_arity), not representation_error(max_arity).
@@ -2934,7 +3443,7 @@ check(Name, Goal) :-
 	->  write(Name), write('_ok'), nl
 	;   write('FAIL: '), write(Name), nl
 	).
-%----------------------------------------------------------- 143 issues_test1136
+%----------------------------------------------------------- 167 issues_test1136
 % Issue #1136: copying a variable to an atomic term bound the source
 % variable instead of unifying a fresh copy with the destination.
 
@@ -2954,7 +3463,7 @@ check(Name, Goal) :-
 	->  write(Name), write('_ok'), nl
 	;   write('FAIL: '), write(Name), nl
 	).
-%----------------------------------------------------------- 144 issues_test1137
+%----------------------------------------------------------- 168 issues_test1137
 % Issue #1137: write_term/2 with ignore_ops(true) went through the
 % canonical writer, which also forced quoted(true).
 
@@ -2975,7 +3484,7 @@ main :-
 show(Goal) :-
 	call(Goal),
 	nl.
-%----------------------------------------------------------- 145 issues_test1139
+%----------------------------------------------------------- 169 issues_test1139
 % Issue #1139: writing a list whose chars-list tail follows a
 % non-char element (a variable, an integer, ...) spliced the string
 % suffix one element too late - eg. [a,b,c,D,e,f,g] printed as
@@ -2995,7 +3504,7 @@ main :-
 	show([a,b,c]),
 	show([a,b,c,D5,e]),
 	show([1,2,3,a,b,c]).
-%----------------------------------------------------------- 146 issues_test1140
+%----------------------------------------------------------- 170 issues_test1140
 % Issue #1140: an overflowing float literal raised a syntax error.
 %
 % 9.9e999 is syntactically perfect prolog, so 8.16.7.3 e cannot apply.
@@ -3049,7 +3558,7 @@ main :-
 			format("in_range: ~w~n", [N2]))),
 	t(bad_syntax,  number_chars(_, ['9','.','9','e','e'])),
 	t(not_a_num,   number_chars(_, [a,b,c])).
-%----------------------------------------------------------- 147 issues_test1142
+%----------------------------------------------------------- 171 issues_test1142
 % Issue #1142: a --> rule produced by term_expansion/2 was asserted raw
 % as a fact for '-->'/2 instead of being translated.
 %
@@ -3100,7 +3609,7 @@ check(Name, Goal) :-
 	->  format("~w ok~n", [Name])
 	;   format("~w FAILED~n", [Name])
 	).
-%----------------------------------------------------------- 148 issues_test1143
+%----------------------------------------------------------- 172 issues_test1143
 % Issue #1143: Name//Arity in a use_module/2 import list was ignored.
 %
 % module/2 export lists already translate a non-terminal indicator to
@@ -3138,7 +3647,7 @@ check(Name, Goal) :-
 	->  format("~w ok~n", [Name])
 	;   format("~w FAILED~n", [Name])
 	).
-%----------------------------------------------------------- 149 issues_test1149
+%----------------------------------------------------------- 173 issues_test1149
 % Issue #1149: must_be(predicate_indicator, PI) accepted anything.
 %
 % predicate_indicator was not one of the types must_be/2 knows, and an
@@ -3196,7 +3705,7 @@ show(Goal, Outcome) :-
 	copy_term(Goal-Outcome, G-O),
 	numbervars(G-O, 0, _),
 	format("~q ~q~n", [G,O]).
-%----------------------------------------------------------- 150 issues_test1150
+%----------------------------------------------------------- 174 issues_test1150
 % Issue #1150: must_be/2 and can_be/2 accepted any type.
 %
 % A type neither builtin knows fell through every check and succeeded,
@@ -3258,7 +3767,7 @@ show(Goal, Outcome) :-
 	copy_term(Goal-Outcome, G-O),
 	numbervars(G-O, 0, _),
 	format("~q ~q~n", [G,O]).
-%----------------------------------------------------------- 151 issues_test1151
+%----------------------------------------------------------- 175 issues_test1151
 % Issue #1151: check_pressure() shrank q->slots to fit only the current sp, ignoring choicepoints that still needed slots far above it.
 %
 % https://github.com/trealla-prolog/trealla-prolog/issues/1151
@@ -3273,7 +3782,7 @@ main :-
 	;   true
 	),
 	format("ok~n", []).
-%----------------------------------------------------------- 152 issues_test1152
+%----------------------------------------------------------- 176 issues_test1152
 % Issue #1152: a throw/1 ball unwinding through many nested catch/3
 % frames could be mistaken for the interpreter's own internal
 % $abort/unwind control-throw, aborting the whole query instead of
@@ -3298,7 +3807,7 @@ main :-
 	->  format("caught ~q~n", [Ball])
 	;   format("failed~n", [])
 	).
-%------------------------------------------------------- 153 misc_db_concurrency
+%------------------------------------------------------- 177 misc_db_concurrency
 % Concurrent database access across real threads.
 %
 % thread_create/3 shares the database, so two threads asserting and
@@ -3355,7 +3864,7 @@ main :-
 		), Ts),
 	forall(member(T,Ts), thread_join(T,_)),
 	format("db_concurrency: ok~n").
-%------------------------------------------------------ 154 misc_db_purge_window
+%------------------------------------------------------ 178 misc_db_purge_window
 % The lock in leave_predicate() has to span the refcount decrement, not
 % just the purge that follows it.
 %
@@ -3411,7 +3920,7 @@ main :-
 	findall(T, (between(1,4,_), thread_create(hammer, T, [])), Hs),
 	forall(member(T, [T1|Hs]), thread_join(T, _)),
 	format("db_purge_window: ok~n").
-%-------------------------------------------------------------- 155 misc_filesex
+%-------------------------------------------------------------- 179 misc_filesex
 % library(filesex). Builds a scratch tree under the working directory,
 % exercises it, and removes it again.
 %
@@ -3568,7 +4077,7 @@ main :-
 	-> format("filesex: FAILURES above~n")
 	;  format("filesex: all ok~n")
 	).
-%----------------------------------------------------------- 156 misc_http_bread
+%----------------------------------------------------------- 180 misc_http_bread
 % Regression test for a self-inflicted bug found while fixing the
 % get_char/getline family (see stream_timeout.pl, stream_buffered_read.pl):
 % making every non-task socket non-blocking (bif_net.c) exposed
@@ -3625,7 +4134,7 @@ main :-
 	->  writeln('http_bread: all ok')
 	;   format("http_bread: MISMATCH ~q~n", [Data])
 	).
-%--------------------------------------------------------- 157 misc_process_pipe
+%--------------------------------------------------------- 181 misc_process_pipe
 % process_create/3's pipe(Stream) and pipe(Stream, StreamOptions)
 % sub-options, for stdin/stdout/stderr. Needs real subprocesses, so this
 % test belongs in tests/misc.
@@ -3790,7 +4299,7 @@ main :-
 	-> format("process_pipe: FAILURES above~n")
 	;  format("process_pipe: all ok~n")
 	).
-%--------------------------------------------------------------- 158 misc_socket
+%--------------------------------------------------------------- 182 misc_socket
 % library(socket) - the SWI-compatible interface. Phases 2 to 5 of
 % docs/socket-swi-design.md: address conversion, the handle lifecycle,
 % the TCP client and server paths, unix domain sockets, and UDP.
@@ -3960,7 +4469,7 @@ main :-
     -> format("socket: FAILURES above~n")
     ;  format("socket: all ok~n")
     ).
-%------------------------------------------------- 159 misc_stream_buffered_read
+%------------------------------------------------- 183 misc_stream_buffered_read
 % Regression test for a bug introduced by an earlier (reverted) attempt at
 % the fix in stream_timeout.pl: polling the raw fd with poll() *before*
 % every read() ignores that libc's stdio buffering can already hold the
@@ -4008,7 +4517,7 @@ main :-
 	),
 
 	close(C), close(S), tcp_close_socket(Srv).
-%------------------------------------------------------------- 160 misc_test1130
+%------------------------------------------------------------- 184 misc_test1130
 % Issue #1130: advancing an engine past its final answer retried the plain
 % bottom barrier. Its saved instruction pointer predated engine execution
 % and was NULL, so start() dereferenced it instead of reporting exhaustion.
@@ -4037,7 +4546,7 @@ main :-
 	engine_destroy(E3),
 	write(threaded_tabled_engine_ok), nl,
 	halt.
-%------------------------------------------------------- 161 misc_thread_mailbox
+%------------------------------------------------------- 185 misc_thread_mailbox
 % The thread mailbox, queues, join and mutexes - pinned as they behave
 % today, before phase 1 of GUSTTO rewrites the blocking underneath them.
 %
@@ -4345,7 +4854,7 @@ main :-
 	task_receive_yields_to_siblings,
 	parked_task_still_receives,
 	concurrent_task_drain.
-%-------------------------------------------------------------- 162 misc_timeout
+%-------------------------------------------------------------- 186 misc_timeout
 :- use_module(library(iso_ext)).
 
 :- initialization((main2,main5,main6,main7)).
@@ -4401,7 +4910,7 @@ main7 :-
 	writeln('main7...'	),
 	thread_create((run7(0.1, alarm1), run7(0.1, alarm2)),T,[]),
 	thread_join(T).
-%-------------------------------------------------------------- 163 misc_uri_lib
+%-------------------------------------------------------------- 187 misc_uri_lib
 % library(uri), after SWI-Prolog's. Every case below was run against
 % SWI as well; the output agrees with it everywhere except the one
 % marked default-port case, where we additionally apply RFC-3986
@@ -4472,7 +4981,7 @@ main :-
     ed(user(bob),'http://h/p'),
     en(path,'a b'), en(query_value,'a&b'), de(path,'a%20b'), de(query_value,'a+b'),
     ii('http://x/%C3%A9').
-%----------------------------------------------------------- 164 slow_index-race
+%----------------------------------------------------------- 188 slow_index-race
 :- dynamic(p/2).
 :- initialization(main).
 
@@ -4523,7 +5032,7 @@ main :-
 	forall(between(1, Threads, _), thread_create(worker(Queue, Passes, Keys), _, [])),
 	collect(Threads, Queue, 0, Short),
 	format("short reads: ~w~n", [Short]).
-%------------------------------------------------------------- 165 slow_test0360
+%------------------------------------------------------------- 189 slow_test0360
 :- use_module(library(lists)).
 :- use_module(library(iso_ext)).
 :- use_module(library(dcgs)).
@@ -4562,7 +5071,7 @@ consistent(N) :-
 main :-
 	consistent(0), write('N=0 consistent'), nl,
 	consistent(1), write('N=1 consistent'), nl.
-%----------------------------------------------- 166 sundry_attribute_goal_order
+%----------------------------------------------- 190 sundry_attribute_goal_order
 :- initialization(main).
 
 % Goals returned by verify_attributes/3 must run in the order they were
@@ -4602,7 +5111,7 @@ main :-
 	;	write(' vetoed')
 	),
 	nl.
-%----------------------------------------------------- 167 sundry_compiled_catch
+%----------------------------------------------------- 191 sundry_compiled_catch
 % A catch/3 in a clause body is compiled inline. On an exception the
 % handler resumes at a landing just before Recovery, so Recovery's first
 % goal runs exactly once however the ball was raised. Resuming at Recovery
@@ -4652,7 +5161,7 @@ main :-
 			nl
 		)
 	).
-%---------------------------------------------------------------- 168 sundry_csv
+%---------------------------------------------------------------- 192 sundry_csv
 :- initialization(main).
 
 % CSV: parse_csv_line/2,3 and write_csv_file/3.
@@ -4879,7 +5388,7 @@ main :-
 	                  test_err_write_bad_row]),
 	       run(T)),
 	cleanup.
-%----------------------------------------------------- 169 sundry_cut_after_call
+%----------------------------------------------------- 193 sundry_cut_after_call
 % A compiled call/1, call/N, *-> or if/3 whose goal leaves choices keeps
 % its barrier for them, but a cut later in the clause must still reach
 % the clause's own alternatives. drop_barrier() used to leave the frame
@@ -4940,7 +5449,7 @@ main :-
 			write(P), write(': '), writeq(L), nl
 		)
 	).
-%------------------------------------------------- 170 sundry_cyclic_print_depth
+%------------------------------------------------- 194 sundry_cyclic_print_depth
 % Printing a cyclic term under a max_depth cutoff reaches for the name
 % of the variable it elides, in the parser's variable table. Only the
 % query that parsed the goal has one: an engine (or a thread) has a NULL
@@ -4981,7 +5490,7 @@ main :-
 	check(written, written),
 	check(thrown, thrown),
 	check(list, list).
-%-------------------------------------------------------- 171 sundry_dcg_consult
+%-------------------------------------------------------- 195 sundry_dcg_consult
 % Differential test for the CONSULT path.
 %
 % dcg_differential.pl and dcg_corpus.pl both drive '$dcg_rule'/2 - the
@@ -5168,7 +5677,7 @@ main :-
 	-> format("dcg consult: all rules agree~n")
 	;  format("dcg consult: ~w of ~w disagree~n", [NBad, N])
 	).
-%--------------------------------------------------------- 172 sundry_dcg_corpus
+%--------------------------------------------------------- 196 sundry_dcg_corpus
 % Differential test over every DCG rule actually in the tree.
 %
 % The companion test (dcg_differential.pl) uses a hand-built corpus of
@@ -5309,7 +5818,7 @@ main :-
 	;  true
 	),
 	format("dcg corpus: all rules agree~n").
-%--------------------------------------------------- 173 sundry_dcg_differential
+%--------------------------------------------------- 197 sundry_dcg_differential
 % Differential test: native '$dcg_rule'/2 against library(dcgs)'s
 % dcg_rule/2, which is still live during phases 0-2.
 %
@@ -5451,7 +5960,7 @@ main :-
 	findall(x, case(_,_), Cs), length(Cs, NC),
 	findall(x, expected_diff(_,_), Es), length(Es, NE),
 	format("dcg differential: ~w cases, ~w divergences, ~w expected diffs~n", [NC, ND, NE]).
-%-------------------------------------------------------- 174 sundry_dcg_tabling
+%-------------------------------------------------------- 198 sundry_dcg_tabling
 % Tabled DCG rules: DCG translation and library(tabling) interacting.
 %
 % Nothing else in the suite combines `:- table` with `-->`, and the
@@ -5525,7 +6034,7 @@ main :-
 	check(plain_tabled_dcg,        phrase(as, [a,a,a])),
 	check(plain_tabled_rejects,    \+ phrase(as, [a,b])),
 	check(rename_ran_on_translated_clause, renamed_worker_exists).
-%-------------------------------------------------------- 175 sundry_expand_term
+%-------------------------------------------------------- 199 sundry_expand_term
 % expand_term/2 is the expansion driver, not just a grammar-rule
 % translator: term_expansion/2 hook first, then translation of the
 % result, then identity. It used to have only the middle clause, so it
@@ -5562,7 +6071,7 @@ check(Name, Goal) :-
 	->  format("~w ok~n", [Name])
 	;   format("~w FAILED~n", [Name])
 	).
-%-------------------------------------------------------------- 176 sundry_flags
+%-------------------------------------------------------------- 200 sundry_flags
 :- initialization(main).
 
 % The flags describing the build: os names the host operating system
@@ -5671,7 +6180,7 @@ main :-
 	check(rationals_boolean, rationals_boolean),
 	check(rationals_agree, rationals_agree),
 	check(rationals_read_only, rationals_read_only).
-%----------------------------------------------------- 177 sundry_initialization
+%----------------------------------------------------- 201 sundry_initialization
 % An initialization/1 goal runs when the file that recorded it has
 % finished loading - not when some nested load finishes.
 %
@@ -5694,7 +6203,7 @@ main :-
 :- initialization((write(second), nl)).
 
 main :- write(main_ran), nl.
-%-------------------------------------------- 178 sundry_initialization_deferred
+%-------------------------------------------- 202 sundry_initialization_deferred
 % The other side of initialization.pl. A file pulled in by
 % ensure_loaded/1 records its initialization goals but deliberately
 % does not run them - it loads with init false - leaving them for the
@@ -5713,7 +6222,7 @@ main :- write(main_ran), nl.
 :- write(loading), nl.
 :- ensure_loaded(initialization_nested).
 :- write(loaded), nl.
-%---------------------------------------------- 179 sundry_initialization_nested
+%---------------------------------------------- 203 sundry_initialization_nested
 % Helper for initialization.pl, and a test in its own right: run on its
 % own the goal below belongs to this load and runs at the end of it;
 % pulled in by that file's ensure_loaded/1 it is recorded here but left
@@ -5724,7 +6233,7 @@ main :- write(main_ran), nl.
 :- initialization((write(nested_ran), nl)).
 
 nested_pred.
-%----------------------------------------------------- 180 sundry_nested_capture
+%----------------------------------------------------- 204 sundry_nested_capture
 :- initialization(main).
 
 % with_output_to/2 nests. '$capture_output' used to be a toggle on the
@@ -5812,7 +6321,7 @@ main :-
 	check(after_throw, after_throw, done),
 	check(plain, plain, [h,e,l,l,o]),
 	check(empty, empty, []).
-%---------------------------------------------------- 181 sundry_not_a_character
+%---------------------------------------------------- 205 sundry_not_a_character
 :- initialization(main).
 
 % An octet that cannot be part of a UTF-8 sequence is not a character,
@@ -5956,7 +6465,7 @@ main :-
 
 	tmpfile(F),
 	catch(delete_file(F), _, true).
-%---------------------------------------------------------- 182 sundry_peek_char
+%---------------------------------------------------------- 206 sundry_peek_char
 :- initialization(main).
 
 % A peek must not consume what it reports on, including when what it
@@ -6000,7 +6509,7 @@ main :-
 	probe(File, [0xff, 0'a]),			% the sentinel first
 	probe(File, [0'a, 0xc3]),			% truncated sequence at eof
 	( catch(delete_file(File), _, true) -> true ; true ).
-%-------------------------------------------- 183 sundry_phrase_from_file_binary
+%-------------------------------------------- 207 sundry_phrase_from_file_binary
 :- initialization(main).
 
 :- use_module(library(pio)).
@@ -6070,7 +6579,7 @@ main :-
 	chars(File, text),
 	chars(File, binary),
 	( catch(delete_file(File), _, true) -> true ; true ).
-%------------------------------------------ 184 sundry_set_prolog_flag_directive
+%------------------------------------------ 208 sundry_set_prolog_flag_directive
 % Regression: a bare `:- set_prolog_flag(Name, Value).` DIRECTIVE (as
 % opposed to a goal inside another directive's body) was silently a
 % no-op for any flag other than the five that affect parsing itself
@@ -6139,7 +6648,7 @@ main :-
 	test_tabling_directive,
 	test_integer_flag_directive,
 	test_parse_time_flag.
-%-------------------------------------------------------- 185 sundry_shift_again
+%-------------------------------------------------------- 209 sundry_shift_again
 % shift/1 returns to the nearest reset/3 that still encloses it, ie. whose
 % barrier lies ahead. It used to take the nearest reset/3 choice point
 % outright and clear its flag: so backtracking into the goal could not
@@ -6204,7 +6713,7 @@ main :-
 			write(T), write(': '), print(R1), nl
 		)
 	).
-%----------------------------------------------------- 186 sundry_shift_compiled
+%----------------------------------------------------- 210 sundry_shift_compiled
 % A control construct compiled inline, coming after a shift/1 in the same
 % clause, must run whole in the continuation. Its instructions only work
 % in place - jump offsets, a skip to the else or recovery code - but the
@@ -6255,7 +6764,7 @@ main :-
 	),
 	(	catch(w_twice(R), E, R = uncaught(E)) -> true ; R = failed ),
 	write(w_twice), write(': '), writeq(R), nl.
-%---------------------------------------------------------- 187 sundry_shift_det
+%---------------------------------------------------------- 211 sundry_shift_det
 % A successful shift/1 resumes after its reset/3 but left reset's barrier
 % behind and the frame in the barrier's cut generation. So a shifted
 % reset/3 never exited deterministically, a later cut stopped at the
@@ -6300,7 +6809,7 @@ main :-
 			write(T), write(': '), writeq(R), nl
 		)
 	).
-%----------------------------------------------------- 188 sundry_shift_no_reset
+%----------------------------------------------------- 212 sundry_shift_no_reset
 % shift/1 with no reset/3 to return to, or whose nearest reset/3 has a Ball
 % or Cont that doesn't unify, fails - as in Scryer. It used to leave its
 % ball in q->ball on the way out, and catch/3 takes a retry with q->ball
@@ -6340,7 +6849,7 @@ main :-
 			write(T), write(': '), writeq(R), nl
 		)
 	).
-%----------------------------------------------------- 189 sundry_shift_soft_cut
+%----------------------------------------------------- 213 sundry_shift_soft_cut
 % A soft-cut (*-> or if/3) whose condition succeeded marks its barrier so
 % backtracking skips the else branch. It uses the choice's reset flag for
 % that, which was also all shift/1 looked for to find its reset/3 - so a
@@ -6380,7 +6889,7 @@ main :-
 			write(T), write(': '), print(R1), nl
 		)
 	).
-%------------------------------------------------------------ 190 sundry_tabling
+%------------------------------------------------------------ 214 sundry_tabling
 % Tabling regression tests.
 %
 % Each of these was a real bug found by running third-party programs
@@ -6903,7 +7412,7 @@ main :-
 	test_threads,
 	test_abolish,
 	test_flag.
-%------------------------------------------------ 191 sundry_tabling_incremental
+%------------------------------------------------ 215 sundry_tabling_incremental
 % Incremental tabling (DESIGN-tabling-phase2.md item 3): tables survive
 % assert/retract on the dynamic predicates they consulted, instead of
 % needing a hand-written abolish_table/1.
@@ -7080,7 +7589,7 @@ main :-
 	test_untracked_pred_ignored,
 	test_invalidate_subsumptive,
 	test_no_spurious_recompute.
-%------------------------------------------------ 192 sundry_tabling_reconstruct
+%------------------------------------------------ 216 sundry_tabling_reconstruct
 % Trie-path answer reconstruction (DESIGN-tabling-phase2.md item 5).
 %
 % An answer used to be stored TWICE: as its path in the answer trie,
@@ -7234,7 +7743,7 @@ main :-
 	test_repeated_var,
 	test_subsumptive_still_exact,
 	test_stable_across_reads.
-%------------------------------------------------- 193 sundry_tabling_restraints
+%------------------------------------------------- 217 sundry_tabling_restraints
 % Tabling restraints (DESIGN-tabling-phase2.md item 1).
 %
 % A tabled predicate with an infinite answer set stores answers until
@@ -7348,7 +7857,7 @@ main :-
 	test_bounded_unaffected,
 	test_answer_size,
 	test_subgoal_size.
-%----------------------------------------------------- 194 sundry_tabling_shared
+%----------------------------------------------------- 218 sundry_tabling_shared
 % Shared completed tables (DESIGN-tabling-phase2.md item 4): threads
 % stop recomputing the same predicate. ":- table p/1 as shared".
 %
@@ -7496,7 +8005,7 @@ main :-
 	test_private_not_shared,
 	test_shared_term_integrity,
 	test_abolish_reaches_shared.
-%------------------------------------------------ 195 sundry_tabling_subsumption
+%------------------------------------------------ 219 sundry_tabling_subsumption
 % Answer subsumption (DESIGN-tabling-phase2.md item 2): ":- table
 % path(_,_,min)" aggregates at insert instead of storing every answer.
 %
@@ -7749,7 +8258,7 @@ main :-
 	test_idempotent,
 	test_restraint_counts_keys,
 	test_restraint_still_fires.
-%--------------------------------------------------- 196 sundry_tco_heap_context
+%--------------------------------------------------- 220 sundry_tco_heap_context
 % =../2 builds its list on the calling frame's heap but with the context of
 % the term taken apart, which can be an older frame. A tail call reusing the
 % frame then trimmed the list from under the callee (Logtalk's compiler hit
@@ -7780,7 +8289,7 @@ main :-
 			write(T), write(': '), writeq(R), nl
 		)
 	).
-%------------------------------------------------------ 197 sundry_tco_heap_term
+%------------------------------------------------------ 221 sundry_tco_heap_term
 % A ground term built on the heap by the calling frame (a caught ball, a
 % copy, a list) was taken for one from the clause source, so a tail call
 % could reuse the frame and trim the heap out from under it.
@@ -7811,7 +8320,7 @@ main :-
 			write(T), write(': '), writeq(R), nl
 		)
 	).
-%------------------------------------------------------ 198 sundry_tco_more_vars
+%------------------------------------------------------ 222 sundry_tco_more_vars
 % A tail call into a clause with more variables than the calling frame has
 % slots copied the new frame's slots down over themselves and released some
 % already moved, so a bigint or string passed along was freed while in use.
@@ -7840,7 +8349,7 @@ main :-
 			write(T), write(': '), writeq(R), nl
 		)
 	).
-%--------------------------------------------------- 199 sundry_tco_pinned_frame
+%--------------------------------------------------- 223 sundry_tco_pinned_frame
 % A caller's variable bound to a structure from a callee's head pinned the
 % caller's frame rather than the callee's, so the callee's frame was later
 % reused by its own tail call and the caller's term lost its bindings.
@@ -7871,7 +8380,7 @@ main :-
 			write(T), write(': '), writeq(R), nl
 		)
 	).
-%----------------------------------------------------- 200 sundry_tco_tail_calls
+%----------------------------------------------------- 224 sundry_tco_tail_calls
 % Any last call may reuse the caller's frame, not only a recursive one.
 % These are the shapes where reuse must not change the answer.
 
@@ -7980,7 +8489,7 @@ main :-
 			write(T), write(': '), writeq(R), nl
 		)
 	).
-%--------------------------------------------------------- 201 sundry_unget_char
+%--------------------------------------------------------- 225 sundry_unget_char
 :- initialization(main).
 
 % unget_char/1,2 take a character, not its code - the argument is
@@ -8083,7 +8592,7 @@ main :-
 
 	tmpfile(F),
 	catch(delete_file(F), _, true).
-%------------------------------------------------------------ 202 tests_test0000
+%------------------------------------------------------------ 226 tests_test0000
 :-initialization(main).
 
 f(1). f(2). f(3).
@@ -8091,20 +8600,20 @@ g(a). g(b).
 
 main :- f(X), write(X), nl, g(Y), write('\t'), write(Y), nl, fail.
 main.
-%------------------------------------------------------------ 203 tests_test0001
+%------------------------------------------------------------ 227 tests_test0001
 :-initialization(main).
 
 f(1). f(2). f(3).
 
 main :- f(X), write(X), nl, fail.
 main.
-%------------------------------------------------------------ 204 tests_test0002
+%------------------------------------------------------------ 228 tests_test0002
 :-initialization(main).
 
 h([H|T],L) :- L=[H|T].
 
 main :- h([a,b,c,d],L), write(L), nl, L=[a,b,c,d].
-%------------------------------------------------------------ 205 tests_test0003
+%------------------------------------------------------------ 229 tests_test0003
 :-initialization(main).
 
 xrevzap([], L, L) :- !.
@@ -8112,7 +8621,7 @@ xrevzap([H|L], L2, L3) :- xrevzap(L, [H|L2], L3).
 xreverse(L1, L2) :- xrevzap(L1, [], L2).
 
 main :- xreverse([a,b,c,d],L), write(L), nl, L=[d,c,b,a].
-%------------------------------------------------------------ 206 tests_test0004
+%------------------------------------------------------------ 230 tests_test0004
 :-initialization(main).
 
 xmember(X, X) :- var(X), !, fail.
@@ -8121,13 +8630,13 @@ xmember(X, [_|T]) :- xmember(X,T).
 
 main :- xmember(X,[a,[b,b],c]), write(X), nl, fail.
 main.
-%------------------------------------------------------------ 207 tests_test0005
+%------------------------------------------------------------ 231 tests_test0005
 :-initialization(main).
 
 f5(F) :- F=f(X,Y,Z), X=1, Y=2, Z=3.
 
 main :- f5(X), write(X), nl.
-%------------------------------------------------------------ 208 tests_test0007
+%------------------------------------------------------------ 232 tests_test0007
 :-initialization(main).
 
 g(a). g(b).
@@ -8136,28 +8645,28 @@ main :-
 	ignore((g(X),X==z)),
 	ignore((g(X),X==a)),
 	write(X), nl.
-%------------------------------------------------------------ 209 tests_test0008
+%------------------------------------------------------------ 233 tests_test0008
 :-initialization(main).
 
 g(a). g(b).
 
 main :- call(g(X)), write(X), nl, fail.
 main.
-%------------------------------------------------------------ 210 tests_test0009
+%------------------------------------------------------------ 234 tests_test0009
 :-initialization(main).
 
 g(a). g(b).
 
 main :- once(g(X)), write(X), nl, fail.
 main.
-%------------------------------------------------------------ 211 tests_test0010
+%------------------------------------------------------------ 235 tests_test0010
 :-initialization(main).
 
 upto(N,X) :- N > 0, N1 is N - 1, upto(N1,X).
 upto(N,X) :- true, N > 0, X = N.
 
 main :- \+ ( upto(3,I), upto(I,J), \+ (write([I,J]), nl) ).
-%------------------------------------------------------------ 212 tests_test0011
+%------------------------------------------------------------ 236 tests_test0011
 :-initialization(main).
 
 upto(_,N,X) :- N > 0, N2 is N - 1, upto(c,N2,X).
@@ -8165,22 +8674,30 @@ upto(_,N,X) :- N > 0, X = N.
 
 main :- upto(a,3,I), upto(b,I,J), write([I,J]), nl, fail.
 main.
-%------------------------------------------------------------ 213 tests_test0012
+%------------------------------------------------------------ 237 tests_test0012
 :-initialization(main).
 
 sum(I,I,T,T) :- !.
 sum(I,X,Tmp,T) :- NewTmp is Tmp+I, NewI is I+1, sum(NewI,X,NewTmp,T).
 
 main :- sum(1,10000,0,T), write(T), nl.
-%------------------------------------------------------------ 214 tests_test0015
+%------------------------------------------------------------ 238 tests_test0014
+:-initialization(main).
+
+main :- between(1,100000,_), X=fail, ignore(X), fail.
+main.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): Trealla grades this program by exit status alone (it prints nothing, its .expected is empty); the driver calls main/0 once more and prints whether it succeeded, failed or raised.
+:- initialization(((catch(main, E, true) -> (var(E) -> R = succeeded ; R = raised) ; R = failed), format("main ~w~n", [R]))).
+%------------------------------------------------------------ 239 tests_test0015
 :-initialization(main).
 
 main :- \+ (\+ true), write('PASSED!'), nl.
-%------------------------------------------------------------ 215 tests_test0016
+%------------------------------------------------------------ 240 tests_test0016
 :-initialization(main).
 
 main :- call((true;false)), call((false;true)), write(ok), nl.
-%------------------------------------------------------------ 216 tests_test0017
+%------------------------------------------------------------ 241 tests_test0017
 :-initialization(main).
 
 integers(Low,High,[Low|Rest]) :-
@@ -8191,13 +8708,13 @@ integers(Low,High,[Low|Rest]) :-
 integers(_,_,[]).
 
 main :- integers(1, 100000, L), L=[H|_], write(H), nl.
-%------------------------------------------------------------ 217 tests_test0018
+%------------------------------------------------------------ 242 tests_test0018
 :-initialization(main).
 
 main :- atom_concat(X, Y, abcdef),
 			write(X), write(' <==> '), write(Y), nl, fail.
 main.
-%------------------------------------------------------------ 218 tests_test0019
+%------------------------------------------------------------ 243 tests_test0019
 :-initialization(main).
 
 populate :-
@@ -8208,7 +8725,7 @@ populate :-
 
 main :- populate, clause(x24(X),B), write(' > '), write(X), write(' <==> '), write(B), nl, fail.
 main :- nl.
-%------------------------------------------------------------ 219 tests_test0020
+%------------------------------------------------------------ 244 tests_test0020
 :-initialization(main).
 
 populate :-
@@ -8218,7 +8735,7 @@ populate :-
 	assertz(x24(3)).
 
 main :- populate, retract(x24(X)), write(X), nl.
-%------------------------------------------------------------ 220 tests_test0021
+%------------------------------------------------------------ 245 tests_test0021
 :-initialization(main).
 
 populate :-
@@ -8230,26 +8747,26 @@ populate :-
 
 main :- populate, retract(x24(X)), write(X), nl, fail.
 main.
-%------------------------------------------------------------ 221 tests_test0022
+%------------------------------------------------------------ 246 tests_test0022
 :-initialization(main).
 
 :-set_prolog_flag(double_quotes,atom).
 main :- S="a b c", write(S), nl.
-%------------------------------------------------------------ 222 tests_test0023
+%------------------------------------------------------------ 247 tests_test0023
 :-initialization(main).
 :-set_prolog_flag(double_quotes,chars).
 
 main :- S="a b c", write(S), nl.
-%------------------------------------------------------------ 223 tests_test0024
+%------------------------------------------------------------ 248 tests_test0024
 :-initialization(main).
 :-set_prolog_flag(double_quotes,codes).
 
 main :- S="a b c", write(S), nl.
-%------------------------------------------------------------ 224 tests_test0025
+%------------------------------------------------------------ 249 tests_test0025
 :-initialization(main).
 
 main :- findall(integer(I),between(1,10,I),L), write(L), nl.
-%------------------------------------------------------------ 225 tests_test0026
+%------------------------------------------------------------ 250 tests_test0026
 :-initialization(main).
 
 foo(a,b,c).
@@ -8261,7 +8778,7 @@ foo(d,e,g).
 
 main :- findall(C, foo(_,_,C), Cs), write(Cs), nl, fail.
 main.
-%------------------------------------------------------------ 226 tests_test0027
+%------------------------------------------------------------ 251 tests_test0027
 :-initialization(main).
 
 foo(a,b,c).
@@ -8273,7 +8790,7 @@ foo(d,e,g).
 
 main :- bagof(C, foo(_,_,C), Cs), write(Cs), nl, fail.
 main.
-%------------------------------------------------------------ 227 tests_test0028
+%------------------------------------------------------------ 252 tests_test0028
 :-initialization(main).
 
 foo(a,b,c).
@@ -8284,7 +8801,7 @@ foo(c,c,g).
 foo(d,e,g).
 
 main :- findall(Cs, bagof(C, foo(_,_,C), Cs), L), write(L), nl.
-%------------------------------------------------------------ 228 tests_test0029
+%------------------------------------------------------------ 253 tests_test0029
 :-initialization(main).
 
 foo(a,b,c).
@@ -8296,7 +8813,7 @@ foo(d,e,g).
 
 main :- between(1,10,_),bagof(C, foo(_,_,C), Cs), write(Cs), nl, fail.
 main.
-%------------------------------------------------------------ 229 tests_test0030
+%------------------------------------------------------------ 254 tests_test0030
 :-initialization(main).
 
 foo(a,b,c).
@@ -8308,7 +8825,7 @@ foo(d,e,g).
 
 main :- bagof(C, A^B^foo(A,B,C), Cs), write(Cs), nl, fail.
 main.
-%------------------------------------------------------------ 230 tests_test0031
+%------------------------------------------------------------ 255 tests_test0031
 :-initialization(main).
 
 foo(a,b,c).
@@ -8320,7 +8837,7 @@ foo(d,e,g).
 
 main :- setof(C, A^B^foo(A,B,C), Cs), write(Cs), nl, fail.
 main.
-%------------------------------------------------------------ 231 tests_test0032
+%------------------------------------------------------------ 256 tests_test0032
 :- use_module(library(iso_ext)).
 :- initialization(main).
 
@@ -8329,7 +8846,7 @@ equal(24,6*4).
 equal(1,5 mod 2).
 
 main :- forall(equal(Left,Right), Left =:= Right), write(ok), nl.
-%------------------------------------------------------------ 232 tests_test0033
+%------------------------------------------------------------ 257 tests_test0033
 :-initialization(main).
 
 main :-
@@ -8344,7 +8861,7 @@ main :-
     Author = ('author':V),
     V == 'Philip K Dick',
     write(V), nl.
-%------------------------------------------------------------ 233 tests_test0034
+%------------------------------------------------------------ 258 tests_test0034
 :-initialization(main).
 
 main :-
@@ -8354,7 +8871,7 @@ main :-
     atom_codes('123', [49,50,51]),
     atom_codes('一二三', [19968,20108,19977]),
     write('PASSED!'), nl.
-%------------------------------------------------------------ 234 tests_test0035
+%------------------------------------------------------------ 259 tests_test0035
 :-initialization(main).
 
 main :-
@@ -8364,14 +8881,14 @@ main :-
     write(((1/2)/3)), nl,
     write((a,(b,c))), nl,
     write({a,(b,c)}), nl.
-%------------------------------------------------------------ 235 tests_test0036
+%------------------------------------------------------------ 260 tests_test0036
 :-initialization(main).
 
 main :-
     write([a]), nl,
     write('.'(a,[])), nl,
     write(.(a,[])), nl.
-%------------------------------------------------------------ 236 tests_test0037
+%------------------------------------------------------------ 261 tests_test0037
 :- initialization(main).
 
 last_element([], Out) :- Out = nil.
@@ -8381,12 +8898,12 @@ foo(A, B, Out) :- last_element([A|B], Out).
 bar(A, B) :- foo(A, [B], _Out).
 
 main :- bar(a, b), nl.
-%------------------------------------------------------------ 237 tests_test0039
+%------------------------------------------------------------ 262 tests_test0039
 :- initialization(main).
 
 main :- write('foo\
 bar'), nl.
-%------------------------------------------------------------ 238 tests_test0040
+%------------------------------------------------------------ 263 tests_test0040
 :-initialization(main).
 
 :-op(500, xfy, '').
@@ -8397,25 +8914,37 @@ main :-
 	write_canonical((1+2)*3), nl, write((1+2)*3), nl,
 	write_canonical(1*(2+3)), nl, write(1*(2+3)), nl,
 	writeq([.,.(.,.,.)]), nl.
-%------------------------------------------------------------ 239 tests_test0041
+%------------------------------------------------------------ 264 tests_test0041
 :- initialization(main).
 
 list(0,L) :- L = [].
 list(N,L) :- N1 is N - 1, list(N1,L1), L = [c|L1].
 
 main :- list(5000,L), atom_chars(A,L), write(A), nl.
-%------------------------------------------------------------ 240 tests_test0042
+%------------------------------------------------------------ 265 tests_test0042
 :- initialization(main).
 
 main :- length([1,2,3], N), write(N), nl.
-%------------------------------------------------------------ 241 tests_test0044
+%------------------------------------------------------------ 266 tests_test0043
+:- initialization(main).
+
+foo(L, _X) :- [a|L1] = L, [_Y|_L2] = L1.
+bar(L, _X) :- foo(L, _Y).
+baz(L) :- bar(L, _X).
+
+main :- baz([a]).
+main.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): Trealla grades this program by exit status alone (it prints nothing, its .expected is empty); the driver calls main/0 once more and prints whether it succeeded, failed or raised.
+:- initialization(((catch(main, E, true) -> (var(E) -> R = succeeded ; R = raised) ; R = failed), format("main ~w~n", [R]))).
+%------------------------------------------------------------ 267 tests_test0044
 :- initialization(main).
 
 foo(L) :- [a|_] = L, write('foo'), nl.
 bar([X|L]) :- foo([X|L]).
 
 main :- bar([a]).
-%------------------------------------------------------------ 242 tests_test0045
+%------------------------------------------------------------ 268 tests_test0045
 :- initialization(main).
 
 ok(N) :- write(ok), write(N).
@@ -8424,7 +8953,7 @@ ok(N) :- write(again), write(N).
 main :- (true -> ok(1) ; write(nok1)), nl, fail.
 main :- (false -> write(nok2) ; ok(2)), nl, fail.
 main.
-%------------------------------------------------------------ 243 tests_test0046
+%------------------------------------------------------------ 269 tests_test0046
 :- initialization(main).
 :- use_module(library(lists)).
 
@@ -8432,14 +8961,14 @@ main :-
 	append([a,b],[c,d],L), write(L), nl,
 	append(L1,L2,[a,b,c,d]), write(L1), write(' <==> '), write(L2), nl, fail.
 main.
-%------------------------------------------------------------ 244 tests_test0047
+%------------------------------------------------------------ 270 tests_test0047
 :- initialization(main).
 
 foo(A, B) :- A = 1, write(B), nl.
 
 main :- foo(X, X).
 
-%------------------------------------------------------------ 245 tests_test0048
+%------------------------------------------------------------ 271 tests_test0048
 :- initialization(main).
 :- use_module(library(lists)).
 
@@ -8447,7 +8976,7 @@ foo([bar(a), bar(b), bar(c), bar(d)]).
 
 main :- foo(Bars), member(bar(Bar), Bars), write(Bar), nl, fail.
 main.
-%------------------------------------------------------------ 246 tests_test0049
+%------------------------------------------------------------ 272 tests_test0049
 :-initialization(main).
 
 foo(a, b, c).
@@ -8510,7 +9039,7 @@ test4b :-
 	fail.
 test4b.
 
-%------------------------------------------------------------ 247 tests_test0050
+%------------------------------------------------------------ 273 tests_test0050
 :- initialization(main).
 :- use_module(library(lists)).
 
@@ -8550,7 +9079,7 @@ next_to(A,B,[_|Y]) :- next_to(A,B,Y).
 
 print_houses([A|B]) :- !, write(A), nl, print_houses(B).
 print_houses([]).
-%------------------------------------------------------------ 248 tests_test0051
+%------------------------------------------------------------ 274 tests_test0051
 :-initialization(main).
 
 qsort([X|L],R,R0) :-
@@ -8572,7 +9101,7 @@ main :-
 	write(X), nl.
 
 list50([27,74,17,33,94,18,46,83,65,2,32,53,28,85,99,47,28,82,6,11,55,29,39,81,90,37,10,0,66,51,7,21,85,27,31,63,75,4,95,99,11,28,61,74,18,92,40,53,59,8]).
-%------------------------------------------------------------ 249 tests_test0052
+%------------------------------------------------------------ 275 tests_test0052
 :-initialization(main).
 
 primes(Limit,Ps) :-
@@ -8604,7 +9133,7 @@ remove(P,[I|Is],[I|Nis]) :-
 main :-
     primes(100, X),
     write(X), nl.
-%------------------------------------------------------------ 250 tests_test0053
+%------------------------------------------------------------ 276 tests_test0053
 :-initialization(main).
 
 fib(0,1) :- !.
@@ -8619,7 +9148,7 @@ fib(N,R) :-
 main :-
 	fib(20,F),
 	write(F), nl.
-%------------------------------------------------------------ 251 tests_test0054
+%------------------------------------------------------------ 277 tests_test0054
 :-initialization(main).
 
 % Find all solutions of an 8 by 8 board.
@@ -8646,7 +9175,7 @@ rangeList(M,N,[M|Tail]) :- M1 is M+1, rangeList(M1,N,Tail).
 
 selectq(X,[X|Xs],Xs).
 selectq(X,[Y|Ys],[Y|Zs]) :- selectq(X,Ys,Zs).
-%------------------------------------------------------------ 252 tests_test0055
+%------------------------------------------------------------ 278 tests_test0055
 :-initialization(main).
 
 % Copyright (C) 1988,1989 Herve' Touati,Aquarius Project,UC Berkeley
@@ -8718,7 +9247,7 @@ solve(Bs,Initial,Final) :-
 
 inform([]) :- nl,nl.
 inform([M|L]) :- write(M),nl,inform(L).
-%------------------------------------------------------------ 253 tests_test0056
+%------------------------------------------------------------ 279 tests_test0056
 :- use_module(library(dcgs)).
 :- initialization(main).
 
@@ -8739,7 +9268,7 @@ det --> [a].
 
 main :- phrase(sentence, X), write(X), nl, fail.
 main.
-%------------------------------------------------------------ 254 tests_test0057
+%------------------------------------------------------------ 280 tests_test0057
 :- use_module(library(dcgs)).
 
 :-initialization(main).
@@ -8808,7 +9337,7 @@ main :-
     test([pickup,box]),             % should error
     test([paint,the,box]),          % should error
 	true.
-%------------------------------------------------------------ 255 tests_test0058
+%------------------------------------------------------------ 281 tests_test0058
 :-initialization(main).
 
 main :- sub_atom(abc,B,L,A,S),writeq([B,L,A,S]), nl, fail.
@@ -8818,7 +9347,7 @@ main :- nl, sub_atom(abc,0,L,A,S),writeq([0,L,A,S]), nl, fail.
 main :- nl, sub_atom(abc,B,L,0,S),writeq([B,L,0,S]), nl, fail.
 main :- nl, sub_atom(abc,B,2,0,S),writeq([B,2,0,S]), nl, fail.
 main.
-%------------------------------------------------------------ 256 tests_test0059
+%------------------------------------------------------------ 282 tests_test0059
 :- initialization(main).
 :- use_module(library(lists)).
 
@@ -9052,7 +9581,7 @@ test19 :-
     [a] = '.'(a,[]),
     [a] = .(a,[]),
     write('PASSED!'), nl, !.
-%------------------------------------------------------------ 257 tests_test0060
+%------------------------------------------------------------ 283 tests_test0060
 :- initialization(main).
 :- use_module(library(lists)).
 
@@ -9061,13 +9590,13 @@ main :-
 	read_term_from_atom(JsonData, Data, [double_quotes(atom)]),
 	findall(X, (member({F1:A, F2:B},Data), (F1=foo -> X = A ; (F2=foo -> X = B))), L),
 	writeq(L), nl.
-%------------------------------------------------------------ 258 tests_test0061
+%------------------------------------------------------------ 284 tests_test0061
 :- initialization(main).
 
 main :-
 	read_term_from_chars("[1,2,3]", Term, []),
 	write(Term), nl.
-%------------------------------------------------------------ 259 tests_test0062
+%------------------------------------------------------------ 285 tests_test0062
 :- use_module(library(dcgs)).
 
 :- initialization(main).
@@ -9269,7 +9798,7 @@ Concluding Remarks
 
 The regular expression package defined here in Prolog is intended to illustrate both the power of regular expressions and their semantics in logical form. It is not intended to be a practical tool. However, the built-in regular expression support provided by many scripting languages (Perl, Javascript and so on), Unix tools (emacs, ex, grep, and so on), and lexical analyzer generators (lex, flex, flex++, and so on) are indeed practical and can greatly simplify string processing. The use of regular expressions for lexical analysis is a standard technique that is widely used in symbolic computing applications.
 */
-%------------------------------------------------------------ 260 tests_test0063
+%------------------------------------------------------------ 286 tests_test0063
 :- dynamic(p/3).
 :- dynamic(p/2).
 :- dynamic(q/2).
@@ -9334,7 +9863,7 @@ cleanup :-
 	abolish(h/1).
 
 :- initialization(main).
-%------------------------------------------------------------ 261 tests_test0064
+%------------------------------------------------------------ 287 tests_test0064
 :- dynamic(p/2).
 :- dynamic(p/3).
 
@@ -9362,7 +9891,7 @@ main :-
 	retract(p(Z, h(Z, W), f(W))), write('ok16\n').
 
 :- initialization(main).
-%------------------------------------------------------------ 262 tests_test0065
+%------------------------------------------------------------ 288 tests_test0065
 :- initialization(main).
 :- use_module(library(lists)).
 
@@ -9509,14 +10038,14 @@ print_sol([]).
 print_row([X1,X2,X3,X4,X5,X6,X7,X8,X9|Rest],Rest) :-
 	maplist(write,[X1,' ',X2,' ',X3,'  ',X4,' ',X5,' ',X6,'  ',X7,' ',X8,' ',X9]),
 	nl.
-%------------------------------------------------------------ 263 tests_test0066
+%------------------------------------------------------------ 289 tests_test0066
 main :-
 	X1 is pi, write(X1), nl,
 	X2 is e, write(X2), nl,
 	X3 is 1 / 10, write(X3), nl.
 
 :- initialization(main).
-%------------------------------------------------------------ 264 tests_test0067
+%------------------------------------------------------------ 290 tests_test0067
 main :-
 	( call(writeq, 'OK here') ->
 		(nl, writeq('OK no error'), nl) ; (nl, writeq('OOPS was error'), nl)
@@ -9524,13 +10053,13 @@ main :-
 	writeq('OK done (3rd line)'), nl.
 
 :- initialization(main).
-%------------------------------------------------------------ 265 tests_test0068
+%------------------------------------------------------------ 291 tests_test0068
 main :-
 	limit(5, offset(5, between(1,20,I))), writeq(I), nl, fail.
 main.
 
 :- initialization(main).
-%------------------------------------------------------------ 266 tests_test0069
+%------------------------------------------------------------ 292 tests_test0069
 :- initialization(main).
 :- use_module(library(freeze)).
 
@@ -9567,13 +10096,13 @@ test72 :-
 	write('OK done'), nl.
 
 main :- test70, test71, test72.
-%------------------------------------------------------------ 267 tests_test0070
+%------------------------------------------------------------ 293 tests_test0070
 main :-
 	L=[aa,bb,cc],L=[_|T],copy_term(T,T2),
 	writeq(T2), nl.
 
 :- initialization(main).
-%------------------------------------------------------------ 268 tests_test0071
+%------------------------------------------------------------ 294 tests_test0071
 :- initialization(main).
 :- use_module(library(lists)).
 
@@ -9582,7 +10111,7 @@ main :-
 	L = [A1,B1,B2,A2],
 	write_term(L, [quoted(true),variable_names(['A1'=A1, 'B1'=B1, 'B2'=B2, 'A2'=A2])]), nl, fail.
 main.
-%------------------------------------------------------------ 269 tests_test0072
+%------------------------------------------------------------ 295 tests_test0072
 :- initialization(main(10)).
 :- use_module(library(lists)).
 
@@ -9777,7 +10306,7 @@ square(Size, M, Total, Frequencies, Permutation) :-
     distinct(M),
     eval_matrix(M, Frequencies),
     total(Frequencies, Total).
-%------------------------------------------------------------ 270 tests_test0073
+%------------------------------------------------------------ 296 tests_test0073
 :- initialization(main).
 
 main :-
@@ -9793,7 +10322,7 @@ main :-
 	write(B), nl.
 
 
-%------------------------------------------------------------ 271 tests_test0075
+%------------------------------------------------------------ 297 tests_test0075
 :- initialization(main).
 
 :- dynamic(legs/2).
@@ -9806,7 +10335,7 @@ main :-
 	!.
 main :-
 	write(failed), nl.
-%------------------------------------------------------------ 272 tests_test0076
+%------------------------------------------------------------ 298 tests_test0076
 :- use_module(library(dcgs)).
 
 :- initialization(main).
@@ -9817,7 +10346,7 @@ as --> [a], as.
 main :- phrase(as, Ls, []), write(Ls), nl, length(Ls, 5).
 main.
 
-%------------------------------------------------------------ 273 tests_test0077
+%------------------------------------------------------------ 299 tests_test0077
 :- initialization(main).
 :- dynamic(insect/1).
 
@@ -9838,7 +10367,7 @@ main :-
         write(here), nl,
         fail.
 main.
-%------------------------------------------------------------ 274 tests_test0078
+%------------------------------------------------------------ 300 tests_test0078
 :- initialization(main).
 
 % http://jens-otten.de/tutorial_cade19/
@@ -9915,7 +10444,7 @@ main :-
 	prove0((a | ~a), Proof),
 	write(Proof), nl.
 
-%------------------------------------------------------------ 275 tests_test0079
+%------------------------------------------------------------ 301 tests_test0079
 main :-
 	N1 is -123456789012345678901234567890,
 	N1 =:= -123456789012345678901234567890,
@@ -9946,7 +10475,7 @@ main :-
 	write(N9), nl.
 
 :- initialization(main).
-%------------------------------------------------------------ 276 tests_test0080
+%------------------------------------------------------------ 302 tests_test0080
 :- use_module(library(freeze)).
 
 
@@ -9960,7 +10489,30 @@ main :-
 main.
 
 :- initialization(main).
-%------------------------------------------------------------ 277 tests_test0082
+%------------------------------------------------------------ 303 tests_test0081
+foo([
+]).
+
+bar([
+1,2,3]).
+
+baz([ /* test */ ]).
+
+houses([
+	house(_,_,_,_,_),
+	house(_,_,_,_,_),
+	house(_,_,_,_,_),
+	house(_,_,_,_,_),
+	house(_,_,_,_,_)]).
+
+main :-
+	true.
+
+:- initialization(main).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): Trealla grades this program by exit status alone (it prints nothing, its .expected is empty); the driver calls main/0 once more and prints whether it succeeded, failed or raised.
+:- initialization(((catch(main, E, true) -> (var(E) -> R = succeeded ; R = raised) ; R = failed), format("main ~w~n", [R]))).
+%------------------------------------------------------------ 304 tests_test0082
 main :-
 	L = [A,B,C| L], copy_term_nat(L,V), V=[D,E,F|T], T == V,
 	write_term(L, [quoted(true),variable_names(['A'=A, 'B'=B, 'C'=C])]), nl,
@@ -9968,7 +10520,7 @@ main :-
 	L = V.
 
 :- initialization(main).
-%------------------------------------------------------------ 278 tests_test0083
+%------------------------------------------------------------ 305 tests_test0083
 goal_expansion(calln(F,A1), P) :-
 	P =.. [F, A1].
 
@@ -9981,7 +10533,7 @@ main :-
 	nl.
 
 :- initialization(main).
-%------------------------------------------------------------ 279 tests_test0084
+%------------------------------------------------------------ 306 tests_test0084
 :- use_module(library(dcgs)).
 
 :-initialization(main).
@@ -10003,7 +10555,7 @@ dummy((Head --> Goals), Clause, _, _) :-
 dummy(g(Goal), []) --> [{Goal}, !].
 
 main :- listing(dummy/4).
-%------------------------------------------------------------ 280 tests_test0085
+%------------------------------------------------------------ 307 tests_test0085
 % Traversing graph paths
 
 oneway(paris,orleans).
@@ -10036,27 +10588,44 @@ test :-
 test.
 
 :- initialization(test).
-%------------------------------------------------------------ 281 tests_test0087
+%------------------------------------------------------------ 308 tests_test0087
 f(N) :- !, N > 0, N1 is N - 1, f(N1).
 f(_) :- write(here), nl.
 
 main :- f(1000000); write(ok), nl.
 
 :- initialization(main).
-%------------------------------------------------------------ 282 tests_test0089
+%------------------------------------------------------------ 309 tests_test0088
+main :-
+	L1=[1|L1], L2=[1|L2], L1=L2,
+	S2=f(1,S1), S2=f(1,S2), S1=S2.
+
+:- initialization(main).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): Trealla grades this program by exit status alone (it prints nothing, its .expected is empty); the driver calls main/0 once more and prints whether it succeeded, failed or raised.
+:- initialization(((catch(main, E, true) -> (var(E) -> R = succeeded ; R = raised) ; R = failed), format("main ~w~n", [R]))).
+%------------------------------------------------------------ 310 tests_test0089
 :- use_module(library(freeze)).
 
 main :-
 	freeze(X,(write(here),nl)), X \= true.
 
 :- initialization(main).
-%------------------------------------------------------------ 283 tests_test0091
+%------------------------------------------------------------ 311 tests_test0090
+:-initialization(main).
+
+main :-
+	[A,1] \= [A,2].
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): Trealla grades this program by exit status alone (it prints nothing, its .expected is empty); the driver calls main/0 once more and prints whether it succeeded, failed or raised.
+:- initialization(((catch(main, E, true) -> (var(E) -> R = succeeded ; R = raised) ; R = failed), format("main ~w~n", [R]))).
+%------------------------------------------------------------ 312 tests_test0091
 :-initialization(main).
 
 main :-
 	X1=f(_),copy_term([123|X1],C1), C1 = [123|f(Copy1)], write_term(C1, [variable_names(['Copy1'=Copy1])]), nl,
 	X2=f(L2),L2=[123|X2],copy_term(L2,C2), write(C2), nl.
-%------------------------------------------------------------ 284 tests_test0093
+%------------------------------------------------------------ 313 tests_test0093
 :-initialization(main).
 
 main :-
@@ -10068,7 +10637,7 @@ main :-
 	write_term_to_chars([1|(A*[[]*B])],[quoted(true),max_depth(5)],K),
 	X = (A =:= -B-1), write_term(X, [variable_names(['A'=A, 'B'=B])]), nl,
 	true.
-%------------------------------------------------------------ 285 tests_test0094
+%------------------------------------------------------------ 314 tests_test0094
 :- meta_predicate(g(:)).
 
 g(Goal) :- compound(Goal), write('ok: '), write(Goal), nl.
@@ -10078,7 +10647,7 @@ run :- g(true).
 :- initialization(run).
 :- initialization(g(foo:true)).
 
-%------------------------------------------------------------ 286 tests_test0097
+%------------------------------------------------------------ 315 tests_test0097
 :- initialization(main).
 :- use_module(library(dif)).
 
@@ -10089,14 +10658,14 @@ main :-
 main :-
 	write(ok), nl.
 
-%------------------------------------------------------------ 287 tests_test0098
+%------------------------------------------------------------ 316 tests_test0098
 :- initialization(main).
 :- use_module(library(dif)).
 
 main :-
 	dif([],A), A=_*A,
 	write_term(A,[max_depth(5)]), nl.
-%------------------------------------------------------------ 288 tests_test0099
+%------------------------------------------------------------ 317 tests_test0099
 :- initialization(run).
 :- use_module(library(when)).
 
@@ -10108,13 +10677,13 @@ run :-
 	var(Run2),
 	B = 1, Run2 == true,
 	write(ok), nl.
-%------------------------------------------------------------ 289 tests_test0100
+%------------------------------------------------------------ 318 tests_test0100
 :- initialization(main).
 
 main :-
 	findall([Before,Len,After], sub_atom(banana, Before, Len, After, ana), L),
 	write(L), nl.
-%------------------------------------------------------------ 290 tests_test0101
+%------------------------------------------------------------ 319 tests_test0101
 :- initialization(main).
 
 test1(0) :- !, statistics(frames, Fs), statistics(choices, Cs), statistics(trails, Ts), statistics(slots, Ss), write([f,Fs,c,Cs,t,Ts,s,Ss]), nl, fail.
@@ -10151,7 +10720,7 @@ main :-
 	write(test6), write(': '), test6(100000);
 	true.
 
-%------------------------------------------------------------ 291 tests_test0103
+%------------------------------------------------------------ 320 tests_test0103
 :- initialization(main).
 
 main :-
@@ -10160,7 +10729,7 @@ main :-
 	cyclic_term(F1),
 	term_variables(F1,[]),
 	write(ok), nl.
-%------------------------------------------------------------ 292 tests_test0107
+%------------------------------------------------------------ 321 tests_test0107
 :- initialization(main).
 
 % A cut executed by a self-recursive activation must not escape the
@@ -10256,7 +10825,7 @@ main :-
 	report(deep_if_then, t5(1000000)),
 	report(nontail_call, nt(2)),
 	report(catch_recursive, catch(rc(1), E, (write(escaped(E)), nl))).
-%------------------------------------------------------------ 293 tests_test0109
+%------------------------------------------------------------ 322 tests_test0109
 :- initialization(main).
 
 % Clauses with a var in an indexed argument must still be found once a
@@ -10331,7 +10900,665 @@ main :-
 	findall(Y, u(7,Y), LU), write(LU), nl,
 	findall(Y, v(7,Y,hook), LV), write(LV), nl,
 	( w(shared, 7, value(7)) -> write(head_indexed) ; write(head_missing) ), nl.
-%------------------------------------------------------------ 294 tests_test0111
+%------------------------------------------------------------ 323 tests_test0110
+% Trealla first-argument indexing: clauses whose first argument contains
+% a variable can be lost once the predicate is indexed.
+%
+% small/2 and big/2 carry IDENTICAL clauses of interest, in the same
+% order. big/2 also has 600 fillers, and that is the only difference: it
+% pushes big/2 over INDEX_THRESHOLD (500, in assert_commit(), module.c)
+% so big/2 gets a skiplist index while small/2 stays a linear chain. The
+% linear chain is the oracle - whatever it answers is correct.
+%
+% Cause: index_cmpkey_() calls a var equal to anything, so the key [_]
+% compares equal to both [a] and [b] while [a] and [b] differ from each
+% other. That is not a total order, so no single position in the skiplist
+% satisfies every query, and the descent walks past the var-bearing node.
+%
+% Both list and arity-2 compound first args must be present in the
+% filler, and the var-bearing clauses must sit after them in the chain.
+%
+% The queries are chosen so that no filler clause can match, which keeps
+% findall/3 order directly comparable - no sorting, ISO only.
+%
+% Run:  tpl nested_var_bug.pl -g "main,halt"
+
+
+% ---- small/2: stays under the threshold, never indexed (oracle) ----
+small([a],   ground).
+small([_],   nested_var_tail).
+small([a|_], nested_var_arg).
+small([b],   other_ground).
+
+% ---- big/2: 600 fillers first, then the same four clauses ----
+big(f(k0,z), filler).
+big(f(k1,z), filler).
+big(f(k2,z), filler).
+big(f(k3,z), filler).
+big(f(k4,z), filler).
+big(f(k5,z), filler).
+big(f(k6,z), filler).
+big(f(k7,z), filler).
+big(f(k8,z), filler).
+big(f(k9,z), filler).
+big(f(k10,z), filler).
+big(f(k11,z), filler).
+big(f(k12,z), filler).
+big(f(k13,z), filler).
+big(f(k14,z), filler).
+big(f(k15,z), filler).
+big(f(k16,z), filler).
+big(f(k17,z), filler).
+big(f(k18,z), filler).
+big(f(k19,z), filler).
+big(f(k20,z), filler).
+big(f(k21,z), filler).
+big(f(k22,z), filler).
+big(f(k23,z), filler).
+big(f(k24,z), filler).
+big(f(k25,z), filler).
+big(f(k26,z), filler).
+big(f(k27,z), filler).
+big(f(k28,z), filler).
+big(f(k29,z), filler).
+big(f(k30,z), filler).
+big(f(k31,z), filler).
+big(f(k32,z), filler).
+big(f(k33,z), filler).
+big(f(k34,z), filler).
+big(f(k35,z), filler).
+big(f(k36,z), filler).
+big(f(k37,z), filler).
+big(f(k38,z), filler).
+big(f(k39,z), filler).
+big(f(k40,z), filler).
+big(f(k41,z), filler).
+big(f(k42,z), filler).
+big(f(k43,z), filler).
+big(f(k44,z), filler).
+big(f(k45,z), filler).
+big(f(k46,z), filler).
+big(f(k47,z), filler).
+big(f(k48,z), filler).
+big(f(k49,z), filler).
+big(f(k50,z), filler).
+big(f(k51,z), filler).
+big(f(k52,z), filler).
+big(f(k53,z), filler).
+big(f(k54,z), filler).
+big(f(k55,z), filler).
+big(f(k56,z), filler).
+big(f(k57,z), filler).
+big(f(k58,z), filler).
+big(f(k59,z), filler).
+big(f(k60,z), filler).
+big(f(k61,z), filler).
+big(f(k62,z), filler).
+big(f(k63,z), filler).
+big(f(k64,z), filler).
+big(f(k65,z), filler).
+big(f(k66,z), filler).
+big(f(k67,z), filler).
+big(f(k68,z), filler).
+big(f(k69,z), filler).
+big(f(k70,z), filler).
+big(f(k71,z), filler).
+big(f(k72,z), filler).
+big(f(k73,z), filler).
+big(f(k74,z), filler).
+big(f(k75,z), filler).
+big(f(k76,z), filler).
+big(f(k77,z), filler).
+big(f(k78,z), filler).
+big(f(k79,z), filler).
+big(f(k80,z), filler).
+big(f(k81,z), filler).
+big(f(k82,z), filler).
+big(f(k83,z), filler).
+big(f(k84,z), filler).
+big(f(k85,z), filler).
+big(f(k86,z), filler).
+big(f(k87,z), filler).
+big(f(k88,z), filler).
+big(f(k89,z), filler).
+big(f(k90,z), filler).
+big(f(k91,z), filler).
+big(f(k92,z), filler).
+big(f(k93,z), filler).
+big(f(k94,z), filler).
+big(f(k95,z), filler).
+big(f(k96,z), filler).
+big(f(k97,z), filler).
+big(f(k98,z), filler).
+big(f(k99,z), filler).
+big(f(k100,z), filler).
+big(f(k101,z), filler).
+big(f(k102,z), filler).
+big(f(k103,z), filler).
+big(f(k104,z), filler).
+big(f(k105,z), filler).
+big(f(k106,z), filler).
+big(f(k107,z), filler).
+big(f(k108,z), filler).
+big(f(k109,z), filler).
+big(f(k110,z), filler).
+big(f(k111,z), filler).
+big(f(k112,z), filler).
+big(f(k113,z), filler).
+big(f(k114,z), filler).
+big(f(k115,z), filler).
+big(f(k116,z), filler).
+big(f(k117,z), filler).
+big(f(k118,z), filler).
+big(f(k119,z), filler).
+big(f(k120,z), filler).
+big(f(k121,z), filler).
+big(f(k122,z), filler).
+big(f(k123,z), filler).
+big(f(k124,z), filler).
+big(f(k125,z), filler).
+big(f(k126,z), filler).
+big(f(k127,z), filler).
+big(f(k128,z), filler).
+big(f(k129,z), filler).
+big(f(k130,z), filler).
+big(f(k131,z), filler).
+big(f(k132,z), filler).
+big(f(k133,z), filler).
+big(f(k134,z), filler).
+big(f(k135,z), filler).
+big(f(k136,z), filler).
+big(f(k137,z), filler).
+big(f(k138,z), filler).
+big(f(k139,z), filler).
+big(f(k140,z), filler).
+big(f(k141,z), filler).
+big(f(k142,z), filler).
+big(f(k143,z), filler).
+big(f(k144,z), filler).
+big(f(k145,z), filler).
+big(f(k146,z), filler).
+big(f(k147,z), filler).
+big(f(k148,z), filler).
+big(f(k149,z), filler).
+big(f(k150,z), filler).
+big(f(k151,z), filler).
+big(f(k152,z), filler).
+big(f(k153,z), filler).
+big(f(k154,z), filler).
+big(f(k155,z), filler).
+big(f(k156,z), filler).
+big(f(k157,z), filler).
+big(f(k158,z), filler).
+big(f(k159,z), filler).
+big(f(k160,z), filler).
+big(f(k161,z), filler).
+big(f(k162,z), filler).
+big(f(k163,z), filler).
+big(f(k164,z), filler).
+big(f(k165,z), filler).
+big(f(k166,z), filler).
+big(f(k167,z), filler).
+big(f(k168,z), filler).
+big(f(k169,z), filler).
+big(f(k170,z), filler).
+big(f(k171,z), filler).
+big(f(k172,z), filler).
+big(f(k173,z), filler).
+big(f(k174,z), filler).
+big(f(k175,z), filler).
+big(f(k176,z), filler).
+big(f(k177,z), filler).
+big(f(k178,z), filler).
+big(f(k179,z), filler).
+big(f(k180,z), filler).
+big(f(k181,z), filler).
+big(f(k182,z), filler).
+big(f(k183,z), filler).
+big(f(k184,z), filler).
+big(f(k185,z), filler).
+big(f(k186,z), filler).
+big(f(k187,z), filler).
+big(f(k188,z), filler).
+big(f(k189,z), filler).
+big(f(k190,z), filler).
+big(f(k191,z), filler).
+big(f(k192,z), filler).
+big(f(k193,z), filler).
+big(f(k194,z), filler).
+big(f(k195,z), filler).
+big(f(k196,z), filler).
+big(f(k197,z), filler).
+big(f(k198,z), filler).
+big(f(k199,z), filler).
+big(f(k200,z), filler).
+big(f(k201,z), filler).
+big(f(k202,z), filler).
+big(f(k203,z), filler).
+big(f(k204,z), filler).
+big(f(k205,z), filler).
+big(f(k206,z), filler).
+big(f(k207,z), filler).
+big(f(k208,z), filler).
+big(f(k209,z), filler).
+big(f(k210,z), filler).
+big(f(k211,z), filler).
+big(f(k212,z), filler).
+big(f(k213,z), filler).
+big(f(k214,z), filler).
+big(f(k215,z), filler).
+big(f(k216,z), filler).
+big(f(k217,z), filler).
+big(f(k218,z), filler).
+big(f(k219,z), filler).
+big(f(k220,z), filler).
+big(f(k221,z), filler).
+big(f(k222,z), filler).
+big(f(k223,z), filler).
+big(f(k224,z), filler).
+big(f(k225,z), filler).
+big(f(k226,z), filler).
+big(f(k227,z), filler).
+big(f(k228,z), filler).
+big(f(k229,z), filler).
+big(f(k230,z), filler).
+big(f(k231,z), filler).
+big(f(k232,z), filler).
+big(f(k233,z), filler).
+big(f(k234,z), filler).
+big(f(k235,z), filler).
+big(f(k236,z), filler).
+big(f(k237,z), filler).
+big(f(k238,z), filler).
+big(f(k239,z), filler).
+big(f(k240,z), filler).
+big(f(k241,z), filler).
+big(f(k242,z), filler).
+big(f(k243,z), filler).
+big(f(k244,z), filler).
+big(f(k245,z), filler).
+big(f(k246,z), filler).
+big(f(k247,z), filler).
+big(f(k248,z), filler).
+big(f(k249,z), filler).
+big(f(k250,z), filler).
+big(f(k251,z), filler).
+big(f(k252,z), filler).
+big(f(k253,z), filler).
+big(f(k254,z), filler).
+big(f(k255,z), filler).
+big(f(k256,z), filler).
+big(f(k257,z), filler).
+big(f(k258,z), filler).
+big(f(k259,z), filler).
+big(f(k260,z), filler).
+big(f(k261,z), filler).
+big(f(k262,z), filler).
+big(f(k263,z), filler).
+big(f(k264,z), filler).
+big(f(k265,z), filler).
+big(f(k266,z), filler).
+big(f(k267,z), filler).
+big(f(k268,z), filler).
+big(f(k269,z), filler).
+big(f(k270,z), filler).
+big(f(k271,z), filler).
+big(f(k272,z), filler).
+big(f(k273,z), filler).
+big(f(k274,z), filler).
+big(f(k275,z), filler).
+big(f(k276,z), filler).
+big(f(k277,z), filler).
+big(f(k278,z), filler).
+big(f(k279,z), filler).
+big(f(k280,z), filler).
+big(f(k281,z), filler).
+big(f(k282,z), filler).
+big(f(k283,z), filler).
+big(f(k284,z), filler).
+big(f(k285,z), filler).
+big(f(k286,z), filler).
+big(f(k287,z), filler).
+big(f(k288,z), filler).
+big(f(k289,z), filler).
+big(f(k290,z), filler).
+big(f(k291,z), filler).
+big(f(k292,z), filler).
+big(f(k293,z), filler).
+big(f(k294,z), filler).
+big(f(k295,z), filler).
+big(f(k296,z), filler).
+big(f(k297,z), filler).
+big(f(k298,z), filler).
+big(f(k299,z), filler).
+big([q0], filler).
+big([q1], filler).
+big([q2], filler).
+big([q3], filler).
+big([q4], filler).
+big([q5], filler).
+big([q6], filler).
+big([q7], filler).
+big([q8], filler).
+big([q9], filler).
+big([q10], filler).
+big([q11], filler).
+big([q12], filler).
+big([q13], filler).
+big([q14], filler).
+big([q15], filler).
+big([q16], filler).
+big([q17], filler).
+big([q18], filler).
+big([q19], filler).
+big([q20], filler).
+big([q21], filler).
+big([q22], filler).
+big([q23], filler).
+big([q24], filler).
+big([q25], filler).
+big([q26], filler).
+big([q27], filler).
+big([q28], filler).
+big([q29], filler).
+big([q30], filler).
+big([q31], filler).
+big([q32], filler).
+big([q33], filler).
+big([q34], filler).
+big([q35], filler).
+big([q36], filler).
+big([q37], filler).
+big([q38], filler).
+big([q39], filler).
+big([q40], filler).
+big([q41], filler).
+big([q42], filler).
+big([q43], filler).
+big([q44], filler).
+big([q45], filler).
+big([q46], filler).
+big([q47], filler).
+big([q48], filler).
+big([q49], filler).
+big([q50], filler).
+big([q51], filler).
+big([q52], filler).
+big([q53], filler).
+big([q54], filler).
+big([q55], filler).
+big([q56], filler).
+big([q57], filler).
+big([q58], filler).
+big([q59], filler).
+big([q60], filler).
+big([q61], filler).
+big([q62], filler).
+big([q63], filler).
+big([q64], filler).
+big([q65], filler).
+big([q66], filler).
+big([q67], filler).
+big([q68], filler).
+big([q69], filler).
+big([q70], filler).
+big([q71], filler).
+big([q72], filler).
+big([q73], filler).
+big([q74], filler).
+big([q75], filler).
+big([q76], filler).
+big([q77], filler).
+big([q78], filler).
+big([q79], filler).
+big([q80], filler).
+big([q81], filler).
+big([q82], filler).
+big([q83], filler).
+big([q84], filler).
+big([q85], filler).
+big([q86], filler).
+big([q87], filler).
+big([q88], filler).
+big([q89], filler).
+big([q90], filler).
+big([q91], filler).
+big([q92], filler).
+big([q93], filler).
+big([q94], filler).
+big([q95], filler).
+big([q96], filler).
+big([q97], filler).
+big([q98], filler).
+big([q99], filler).
+big([q100], filler).
+big([q101], filler).
+big([q102], filler).
+big([q103], filler).
+big([q104], filler).
+big([q105], filler).
+big([q106], filler).
+big([q107], filler).
+big([q108], filler).
+big([q109], filler).
+big([q110], filler).
+big([q111], filler).
+big([q112], filler).
+big([q113], filler).
+big([q114], filler).
+big([q115], filler).
+big([q116], filler).
+big([q117], filler).
+big([q118], filler).
+big([q119], filler).
+big([q120], filler).
+big([q121], filler).
+big([q122], filler).
+big([q123], filler).
+big([q124], filler).
+big([q125], filler).
+big([q126], filler).
+big([q127], filler).
+big([q128], filler).
+big([q129], filler).
+big([q130], filler).
+big([q131], filler).
+big([q132], filler).
+big([q133], filler).
+big([q134], filler).
+big([q135], filler).
+big([q136], filler).
+big([q137], filler).
+big([q138], filler).
+big([q139], filler).
+big([q140], filler).
+big([q141], filler).
+big([q142], filler).
+big([q143], filler).
+big([q144], filler).
+big([q145], filler).
+big([q146], filler).
+big([q147], filler).
+big([q148], filler).
+big([q149], filler).
+big([q150], filler).
+big([q151], filler).
+big([q152], filler).
+big([q153], filler).
+big([q154], filler).
+big([q155], filler).
+big([q156], filler).
+big([q157], filler).
+big([q158], filler).
+big([q159], filler).
+big([q160], filler).
+big([q161], filler).
+big([q162], filler).
+big([q163], filler).
+big([q164], filler).
+big([q165], filler).
+big([q166], filler).
+big([q167], filler).
+big([q168], filler).
+big([q169], filler).
+big([q170], filler).
+big([q171], filler).
+big([q172], filler).
+big([q173], filler).
+big([q174], filler).
+big([q175], filler).
+big([q176], filler).
+big([q177], filler).
+big([q178], filler).
+big([q179], filler).
+big([q180], filler).
+big([q181], filler).
+big([q182], filler).
+big([q183], filler).
+big([q184], filler).
+big([q185], filler).
+big([q186], filler).
+big([q187], filler).
+big([q188], filler).
+big([q189], filler).
+big([q190], filler).
+big([q191], filler).
+big([q192], filler).
+big([q193], filler).
+big([q194], filler).
+big([q195], filler).
+big([q196], filler).
+big([q197], filler).
+big([q198], filler).
+big([q199], filler).
+big([q200], filler).
+big([q201], filler).
+big([q202], filler).
+big([q203], filler).
+big([q204], filler).
+big([q205], filler).
+big([q206], filler).
+big([q207], filler).
+big([q208], filler).
+big([q209], filler).
+big([q210], filler).
+big([q211], filler).
+big([q212], filler).
+big([q213], filler).
+big([q214], filler).
+big([q215], filler).
+big([q216], filler).
+big([q217], filler).
+big([q218], filler).
+big([q219], filler).
+big([q220], filler).
+big([q221], filler).
+big([q222], filler).
+big([q223], filler).
+big([q224], filler).
+big([q225], filler).
+big([q226], filler).
+big([q227], filler).
+big([q228], filler).
+big([q229], filler).
+big([q230], filler).
+big([q231], filler).
+big([q232], filler).
+big([q233], filler).
+big([q234], filler).
+big([q235], filler).
+big([q236], filler).
+big([q237], filler).
+big([q238], filler).
+big([q239], filler).
+big([q240], filler).
+big([q241], filler).
+big([q242], filler).
+big([q243], filler).
+big([q244], filler).
+big([q245], filler).
+big([q246], filler).
+big([q247], filler).
+big([q248], filler).
+big([q249], filler).
+big([q250], filler).
+big([q251], filler).
+big([q252], filler).
+big([q253], filler).
+big([q254], filler).
+big([q255], filler).
+big([q256], filler).
+big([q257], filler).
+big([q258], filler).
+big([q259], filler).
+big([q260], filler).
+big([q261], filler).
+big([q262], filler).
+big([q263], filler).
+big([q264], filler).
+big([q265], filler).
+big([q266], filler).
+big([q267], filler).
+big([q268], filler).
+big([q269], filler).
+big([q270], filler).
+big([q271], filler).
+big([q272], filler).
+big([q273], filler).
+big([q274], filler).
+big([q275], filler).
+big([q276], filler).
+big([q277], filler).
+big([q278], filler).
+big([q279], filler).
+big([q280], filler).
+big([q281], filler).
+big([q282], filler).
+big([q283], filler).
+big([q284], filler).
+big([q285], filler).
+big([q286], filler).
+big([q287], filler).
+big([q288], filler).
+big([q289], filler).
+big([q290], filler).
+big([q291], filler).
+big([q292], filler).
+big([q293], filler).
+big([q294], filler).
+big([q295], filler).
+big([q296], filler).
+big([q297], filler).
+big([q298], filler).
+big([q299], filler).
+
+big([a],   ground).
+big([_],   nested_var_tail).
+big([a|_], nested_var_arg).
+big([b],   other_ground).
+
+
+check(Query, Desc) :-
+    findall(X, small(Query,X), Want),
+    findall(X, big(Query,X), Got),
+    (   Want == Got
+    ->  write('  ok    '), write(Desc), nl,
+        write('          both gave '), write(Got), nl
+    ;   write('  FAIL  '), write(Desc), nl,
+        write('          unindexed (correct) '), write(Want), nl,
+        write('          indexed             '), write(Got), nl
+    ).
+
+main :-
+    write('nested-var indexing check'), nl,
+    check([a],   'query [a]    - expect [ground,nested_var_tail,nested_var_arg]'),
+    check([b],   'query [b]    - expect [nested_var_tail,other_ground]'),
+    check([a,c], 'query [a,c]  - expect [nested_var_arg]'),
+    check([z],   'query [z]    - expect [nested_var_tail]').
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this program defines main/0 and never calls it (Trealla's runner passes -g main); the driver calls it and prints whether it succeeded, failed or raised.
+:- initialization(((catch(main, E, true) -> (var(E) -> R = succeeded ; R = raised) ; R = failed), format("main ~w~n", [R]))).
+%------------------------------------------------------------ 324 tests_test0111
 :- initialization(main).
 
 % A unique clause head does not make a goal deterministic when another
@@ -10371,7 +11598,7 @@ main :-
 	findall(X, p(target,X), L),
 	write(L), nl,
 	halt.
-%------------------------------------------------------------ 295 tests_test0113
+%------------------------------------------------------------ 325 tests_test0113
 % atomic_list_concat/3 in split mode: with the list unbound (or only
 % partly bound) and the atom given, the atom is split on the separator.
 
@@ -10434,7 +11661,7 @@ main :-
 	show(( atomic_list_concat([a|_], '-', _) )),
 	show(( atomic_list_concat(foo, '-', _) )),
 	show(( atomic_list_concat([a|b], '-', _) )).
-%------------------------------------------------------------ 296 tests_test0114
+%------------------------------------------------------------ 326 tests_test0114
 % split_string/4 followed SWI only loosely: sep and pad were single
 % characters rather than sets, pad was stripped from the front of a
 % field but not the back, empty fields were dropped, and a nil argument
@@ -10466,7 +11693,7 @@ main :-
 	go("xxaxx", "a", "x"),
 	go("héllo·wörld", "·", ""),		% multibyte sep
 	go("  héllo  ", "", " ").
-%------------------------------------------------------------ 297 tests_test0115
+%------------------------------------------------------------ 327 tests_test0115
 % Regression test for a heap-use-after-free fixed in
 % "An if-then-else use-after-free fix": do_if_then_else()/
 % do_soft_if_then_else() (src/bif_control.c) built a barrier-protected
@@ -10512,7 +11739,7 @@ run :-
 	Total is NThreads * PerThread,
 	collector(Total, Me),
 	forall(member(Id, Ids), thread_join(Id, _)).
-%------------------------------------------------------------ 298 tests_test0116
+%------------------------------------------------------------ 328 tests_test0116
 :- initialization(main).
 
 % A tail call reuses its caller's frame and winds the heap back to that
@@ -10552,7 +11779,7 @@ main :-
 	L1 = [h(_,foo), h(_,bar)], p(L1), write(L1), nl,
 	L2 = [h(_,foo), h(_,bar)], q(L2), write(L2), nl,
 	count(200000).
-%------------------------------------------------------------ 299 tests_test0117
+%------------------------------------------------------------ 329 tests_test0117
 :- initialization(main).
 
 % float_integer_part/1 and float_fractional_part/1 truncated through a

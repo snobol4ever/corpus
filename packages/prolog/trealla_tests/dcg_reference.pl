@@ -127,3 +127,6 @@ error_goal(error(E, (=..)/2), error(E, (=..)/2)).
 error_goal(error(representation_error(dcg_body), Context),
            error(representation_error(dcg_body), Context)).
 error_goal(E, _) :- throw(E).
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this module (the DCG reference translation the sundry_dcg_ programs load) defines dcg_rule/2 and never calls it; the driver translates one rule.
+:- initialization((dcg_rule((greeting --> [hello], name), R), portray_clause(R))).

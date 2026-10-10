@@ -132,3 +132,6 @@ run :-
     write('.\n'),
     fail;
     true.
+
+% DRIVER (hq_pascal 2026-10-10, DRIVERS.tsv): this program (Jos De Roo's goal-driven parallel sequences) defines run/0 and never calls it (Trealla's runner passes -g run); the driver calls it once at load.
+:- initialization(run).

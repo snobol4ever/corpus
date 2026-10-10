@@ -1,29 +1,33 @@
-%----------------------------------------------------------------- 1 fp_test0081
+%--------------------------------------------------------------- 1 dcg_reference
+greeting(A, B) :-
+    A=[hello|C],
+    name(C, B).
+%----------------------------------------------------------------- 2 fp_test0081
 [[4.000000007450581,0.0],[2.9999999925494194,0.0],[1.9999999925494194,0.0],[1.0000000074505806,0.0]]
 [[3.0000000000000036,2.000000000000001],[5.000000000000005,0.9999999999999927],[-5.773159728050814e-15,1.0000000000000027],[0.9999999999999962,1.0000000000000036]]
-%----------------------------------------------------------------- 2 fp_test0585
+%----------------------------------------------------------------- 3 fp_test0585
 'https://josd.github.io/eye/ns#roots'([[1,0],[-10,0],[35,0],[-50,0],[24,0]],[[4.000000007450581,0.0],[2.9999999925494194,0.0],[1.9999999925494194,0.0],[1.0000000074505806,0.0]]).
 'https://josd.github.io/eye/ns#roots'([[1,0],[-9,-5],[14,33],[24,-44],[-26,0]],[[3.0000000000000036,2.000000000000001],[5.000000000000005,0.9999999999999927],[-5.773159728050814e-15,1.0000000000000027],[0.9999999999999962,1.0000000000000036]]).
-%------------------------------------------- 3 issues_occurs_check_error_restore
+%------------------------------------------- 4 issues_occurs_check_error_restore
 before:threw(occurs_check(_5292,f(_5292)))
 after_success:threw(occurs_check(_5434,f(_5434)))
 uwoc_cyclic:failed
 after_failure:threw(occurs_check(_5582,f(_5582)))
-%--------------------------------------------------------- 4 issues_old_test0008
+%--------------------------------------------------------- 5 issues_old_test0008
 abc
-%--------------------------------------------------------- 5 issues_old_test0009
+%--------------------------------------------------------- 6 issues_old_test0009
 hello
-%--------------------------------------------------------- 6 issues_old_test0018
+%--------------------------------------------------------- 7 issues_old_test0018
 []
-%--------------------------------------------------------- 7 issues_old_test0019
+%--------------------------------------------------------- 8 issues_old_test0019
 true
-%--------------------------------------------------------- 8 issues_old_test0023
+%--------------------------------------------------------- 9 issues_old_test0023
 ok
-%--------------------------------------------------------- 9 issues_old_test0025
+%-------------------------------------------------------- 10 issues_old_test0025
 "abc"
-%-------------------------------------------------------- 10 issues_old_test0027
+%-------------------------------------------------------- 11 issues_old_test0027
 ok
-%-------------------------------------------------------- 11 issues_old_test0029
+%-------------------------------------------------------- 12 issues_old_test0029
 1
 2
 4
@@ -40,13 +44,13 @@ ok
 8192
 16384
 ok
-%-------------------------------------------------------- 12 issues_old_test0031
+%-------------------------------------------------------- 13 issues_old_test0031
 f(f(f(f(f(...)))))
-%-------------------------------------------------------- 13 issues_old_test0033
+%-------------------------------------------------------- 14 issues_old_test0033
 [a]
-%-------------------------------------------------------- 14 issues_old_test0035
+%-------------------------------------------------------- 15 issues_old_test0035
 [a,b,c|"def"]
-%-------------------------------------------------------- 15 issues_old_test0042
+%-------------------------------------------------------- 16 issues_old_test0042
 0
 1
 2
@@ -62,95 +66,95 @@ f(f(f(f(f(...)))))
 12
 13
 14
-%-------------------------------------------------------- 16 issues_old_test0044
+%-------------------------------------------------------- 17 issues_old_test0044
 0
 ok
-%-------------------------------------------------------- 17 issues_old_test0046
+%-------------------------------------------------------- 18 issues_old_test0046
 [1]
 [aa]
 [[|],aa,[]]
 [[|],aa,[bb]]
 [[|],aa,[bb,cc]]
-%-------------------------------------------------------- 18 issues_old_test0048
+%-------------------------------------------------------- 19 issues_old_test0048
 '<https://josd.github.io/retina#s>'
 '<https://josd.github.io/retina#o>'
 ok
-%-------------------------------------------------------- 19 issues_old_test0049
+%-------------------------------------------------------- 20 issues_old_test0049
 [t]
 [tt]
-%-------------------------------------------------------- 20 issues_old_test0050
+%-------------------------------------------------------- 21 issues_old_test0050
 [there]
-%-------------------------------------------------------- 21 issues_old_test0051
+%-------------------------------------------------------- 22 issues_old_test0051
 false
 div
 [-10,0]
 fois([-4,0],[1,0])
 ok
-%-------------------------------------------------------- 22 issues_old_test0053
+%-------------------------------------------------------- 23 issues_old_test0053
 1
-%-------------------------------------------------------- 23 issues_old_test0058
+%-------------------------------------------------------- 24 issues_old_test0058
 ok
-%-------------------------------------------------------- 24 issues_old_test0060
+%-------------------------------------------------------- 25 issues_old_test0060
 [p([0]),p([1,0]),p([2,1,0]),p([3,2,1,0]),p([4,3,2,1,0]),p([5,4,3,2,1,0]),p([6,5,4,3,2,1,0]),p([7,6,5,4,3,2,1,0]),p([8,7,6,5,4,3,2,1,0]),p([9,8,7,6,5,4,3,2,1,0])]
-%-------------------------------------------------------- 25 issues_old_test0061
+%-------------------------------------------------------- 26 issues_old_test0061
 [[1,3],[2,4]]
 [[A,3],[2,A]]
 [[M11,M12],[M21,M22]]
 [[M11,M21],[M12,M22]]
-%-------------------------------------------------------- 26 issues_old_test0062
+%-------------------------------------------------------- 27 issues_old_test0062
 [p1-c4,p2-c3,p3-c2,p4-c1,p5-c1]
-%-------------------------------------------------------- 27 issues_old_test0063
+%-------------------------------------------------------- 28 issues_old_test0063
 a
 [X]
-%-------------------------------------------------------- 28 issues_old_test0065
+%-------------------------------------------------------- 29 issues_old_test0065
 [S1,S2]
 [B1,B2,B2,B1]
-%-------------------------------------------------------- 29 issues_old_test0066
+%-------------------------------------------------------- 30 issues_old_test0066
 [n(64,op(+,49,63)),n(63,op(*,62,52)),n(62,w^7),n(61,op(+,42,60)),n(60,op(*,47,44)),n(59,op(+,31,58)),n(58,op(*,57,38)),n(57,w^5),n(56,op(+,11,55)),n(55,op(*,24,21)),n(54,op(+,49,53)),n(53,op(*,50,52)),n(52,op(+,34,51)),n(51,op(*,47,36)),n(50,w^3),n(49,op(+,26,48)),n(48,op(*,47,29)),n(47,w^6),n(46,op(+,42,45)),n(45,op(*,27,44)),n(44,op(+,15,43)),n(43,op(*,24,19)),n(42,op(+,5,41)),n(41,op(*,24,9)),n(40,op(+,31,39)),n(39,op(*,32,38)),n(38,op(+,34,37)),n(37,op(*,27,36)),n(36,op(+,16,35)),n(35,op(*,24,17)),n(34,op(+,12,33)),n(33,op(*,24,13)),n(32,w^1),n(31,op(+,26,30)),n(30,op(*,27,29)),n(29,op(+,6,28)),n(28,op(*,24,7)),n(27,w^2),n(26,op(+,1,25)),n(25,op(*,24,3)),n(24,w^4),n(23,op(+,11,22)),n(22,op(*,2,21)),n(21,op(+,15,20)),n(20,op(*,2,19)),n(19,op(+,16,18)),n(18,op(*,2,17)),n(17,a(7)),n(16,a(3)),n(15,op(+,12,14)),n(14,op(*,2,13)),n(13,a(5)),n(12,a(1)),n(11,op(+,5,10)),n(10,op(*,2,9)),n(9,op(+,6,8)),n(8,op(*,2,7)),n(7,a(6)),n(6,a(2)),n(5,op(+,1,4)),n(4,op(*,2,3)),n(3,a(4)),n(2,w^0),n(1,a(0))]
-%-------------------------------------------------------- 30 issues_old_test0067
+%-------------------------------------------------------- 31 issues_old_test0067
 [A,B,B,A]
 [A,B]
-%-------------------------------------------------------- 31 issues_old_test0068
+%-------------------------------------------------------- 32 issues_old_test0068
 [trio(3,Y,Z),pair(2,X)]
 [pair(2,X),trio(3,Y,Z)]
-%-------------------------------------------------------- 32 issues_old_test0070
+%-------------------------------------------------------- 33 issues_old_test0070
 [[1,0,1,0,1,0,#],[1,1,0,0,0,0,#],[1,0,0,0,0,0,0,#],[1,#]]
-%-------------------------------------------------------- 33 issues_old_test0074
+%-------------------------------------------------------- 34 issues_old_test0074
 clause(cup(_5190),(liftable(_5190),holds_liquid(_5190)))
 clause(liftable(_5190),(light(_5190),part(_5190,handle)))
 clause(light(_5190),small(_5190))
 clause(holds_liquid(_5190),(part(_5190,_5494),concave(_5494),points_up(_5494)))
 clause(concave(bowl),true)
 cup(_5190):-(small(_5190),part(_5190,handle)),part(_5190,_5494),concave(_5494),points_up(_5494)
-%-------------------------------------------------------- 34 issues_old_test0088
+%-------------------------------------------------------- 35 issues_old_test0088
 ['X=',a,'Y=',b]
 ['X=',c,'Y=',d]
-%-------------------------------------------------------- 35 issues_old_test0091
+%-------------------------------------------------------- 36 issues_old_test0091
 ok
-%-------------------------------------------------------- 36 issues_old_test0093
+%-------------------------------------------------------- 37 issues_old_test0093
 ok
-%-------------------------------------------------------- 37 issues_old_test0094
+%-------------------------------------------------------- 38 issues_old_test0094
 ok
-%-------------------------------------------------------- 38 issues_old_test0108
+%-------------------------------------------------------- 39 issues_old_test0108
 log((- -10+sqrt(36))/(2*1))/log(2)
 3.0
 log((- -10-sqrt(36))/(2*1))/log(2)
 1.0
-%-------------------------------------------------------- 39 issues_old_test0116
+%-------------------------------------------------------- 40 issues_old_test0116
 [] = "PASS".
-%-------------------------------------------------------- 40 issues_old_test0132
+%-------------------------------------------------------- 41 issues_old_test0132
 true.
-%-------------------------------------------------------- 41 issues_old_test0246
+%-------------------------------------------------------- 42 issues_old_test0246
 50
-%-------------------------------------------------------- 42 issues_old_test0252
+%-------------------------------------------------------- 43 issues_old_test0252
 O-E=s-t
 O-E=s-t
 -'Ö'-'Œ'+('.')+'A'
-%-------------------------------------------------------- 43 issues_old_test0271
+%-------------------------------------------------------- 44 issues_old_test0271
 [optional(1),optional(2),empty]
-%-------------------------------------------------------- 44 issues_old_test0297
+%-------------------------------------------------------- 45 issues_old_test0297
 [X,Y,Z]
-%-------------------------------------------------------- 45 issues_old_test0368
+%-------------------------------------------------------- 46 issues_old_test0368
 1*2/(3*4)
 - -a
 - 1
@@ -166,7 +170,7 @@ O-E=s-t
 - (-)
 - (-1- +a)
 - (-1- -a)
-%-------------------------------------------------------- 46 issues_old_test0518
+%-------------------------------------------------------- 47 issues_old_test0518
 ok1
 ok2
 ok3
@@ -174,9 +178,9 @@ ok4
 ok5
 ok6
 ok7
-%-------------------------------------------------------- 47 issues_old_test0545
+%-------------------------------------------------------- 48 issues_old_test0545
 ok
-%-------------------------------------------------------- 48 issues_old_test0547
+%-------------------------------------------------------- 49 issues_old_test0547
 
 :- thread_local thread_message_hook/3.
 :- dynamic thread_message_hook/3.
@@ -333,17 +337,19 @@ b :-
 
 :- dynamic goal_expansion/2.
 :- multifile goal_expansion/2.
-%-------------------------------------------------------- 49 issues_old_test0601
+%-------------------------------------------------------- 50 issues_old_test0601
 @(S_1,[S_1=['3'|S_1]])
 @(['0'|S_1],[S_1=['3'|S_1]])
-%-------------------------------------------------------- 50 issues_old_test0605
+%-------------------------------------------------------- 51 issues_old_test0605
 @(S_1,[S_1=[S_1]])
 @(S_1,[S_1=[1|S_1]])
 @(S_1,[S_1=[S_1|1]])
 @(S_1,[S_1=[S_1|S_1]])
-%------------------------------------------------------------ 51 issues_test0066
+%-------------------------------------------------------- 52 issues_old_test0617
+main succeeded
+%------------------------------------------------------------ 53 issues_test0066
 [4]
-%------------------------------------------------------------ 52 issues_test0078
+%------------------------------------------------------------ 54 issues_test0078
 1
 2
 -1
@@ -356,19 +362,30 @@ b :-
 -1427247692705959881058285969449495136382746624
 -2854495385411919762116571938898990272765493248
 -2
-%------------------------------------------------------------ 53 issues_test0096
+%------------------------------------------------------------ 55 issues_test0096
 [[a|(b|c)],[a|(b,c)],[a|(b;c)]]
-%------------------------------------------------------------ 54 issues_test0114
+%------------------------------------------------------------ 56 issues_test0114
 []
-%------------------------------------------------------------ 55 issues_test0145
+%------------------------------------------------------------ 57 issues_test0143
+main succeeded
+%------------------------------------------------------------ 58 issues_test0145
 @(S_1,[S_1=([[a|S_1],[a|S_1]]=[[a|S_1],[a|S_1]])])
-%------------------------------------------------------------ 56 issues_test0150
+%------------------------------------------------------------ 59 issues_test0147
+main succeeded
+%------------------------------------------------------------ 60 issues_test0148
+main succeeded
+%------------------------------------------------------------ 61 issues_test0149
+'https://josd.github.io/pop#findpath'('http://example.org/ns#map_be',['https://josd.github.io/pop#location'('http://example.org/ns#i1','http://example.org/ns#oostende'),['http://example.org/ns#drive_gent_brugge','http://example.org/ns#drive_brugge_oostende'],2400.0,0.01,0.9408,0.99,[5000.0,5.0,0.2,0.4,1]]).
+'https://josd.github.io/pop#findpath'('http://example.org/ns#map_be',['https://josd.github.io/pop#location'('http://example.org/ns#i1','http://example.org/ns#oostende'),['http://example.org/ns#drive_gent_kortrijk','http://example.org/ns#drive_kortrijk_brugge','http://example.org/ns#drive_brugge_oostende'],4100.0,0.018000000000000002,0.903168,0.9801,[5000.0,5.0,0.2,0.4,1]]).
+%------------------------------------------------------------ 62 issues_test0150
 [1,3,2]
-%------------------------------------------------------------ 57 issues_test0156
+%------------------------------------------------------------ 63 issues_test0153
+main succeeded
+%------------------------------------------------------------ 64 issues_test0156
 here3
 here2
 here1
-%------------------------------------------------------------ 58 issues_test0160
+%------------------------------------------------------------ 65 issues_test0160
 ok1
 here11
 here12
@@ -377,166 +394,200 @@ ok2
 here22
 ok3
 here3
-%------------------------------------------------------------ 59 issues_test0161
+%------------------------------------------------------------ 66 issues_test0161
 1
-%------------------------------------------------------------ 60 issues_test0178
+%------------------------------------------------------------ 67 issues_test0162
+main succeeded
+%------------------------------------------------------------ 68 issues_test0178
 5000
 5000
 5000
 5000
 5000
 5000
-%------------------------------------------------------------ 61 issues_test0179
+%------------------------------------------------------------ 69 issues_test0179
 here1
 here2
-%------------------------------------------------------------ 62 issues_test0180
+%------------------------------------------------------------ 70 issues_test0180
 a
 [b,a|a]
-%------------------------------------------------------------ 63 issues_test0204
+%------------------------------------------------------------ 71 issues_test0200
+main succeeded
+%------------------------------------------------------------ 72 issues_test0203
+main succeeded
+%------------------------------------------------------------ 73 issues_test0204
 a
 b
-%------------------------------------------------------------ 64 issues_test0225
+%------------------------------------------------------------ 74 issues_test0205
+main succeeded
+%------------------------------------------------------------ 75 issues_test0206
+main succeeded
+%------------------------------------------------------------ 76 issues_test0209
+main succeeded
+%------------------------------------------------------------ 77 issues_test0210
+main succeeded
+%------------------------------------------------------------ 78 issues_test0214
+main succeeded
+%------------------------------------------------------------ 79 issues_test0225
 Good
-%------------------------------------------------------------ 65 issues_test0268
+%------------------------------------------------------------ 80 issues_test0268
 _*_.
 _*_.
-%------------------------------------------------------------ 66 issues_test0282
+%------------------------------------------------------------ 81 issues_test0278
+main succeeded
+%------------------------------------------------------------ 82 issues_test0282
 [1,2,3]
-%------------------------------------------------------------ 67 issues_test0289
+%------------------------------------------------------------ 83 issues_test0289
 [a-b]
-%------------------------------------------------------------ 68 issues_test0309
+%------------------------------------------------------------ 84 issues_test0302
+main succeeded
+%------------------------------------------------------------ 85 issues_test0309
 ok
 ok1
-%------------------------------------------------------------ 69 issues_test0316
+%------------------------------------------------------------ 86 issues_test0316
 ok
-%------------------------------------------------------------ 70 issues_test0319
+%------------------------------------------------------------ 87 issues_test0319
 ok
-%------------------------------------------------------------ 71 issues_test0320
+%------------------------------------------------------------ 88 issues_test0320
 ok
-%------------------------------------------------------------ 72 issues_test0321
+%------------------------------------------------------------ 89 issues_test0321
 ok1
 ok2
 ok3
 ok4
 ok5
 done
-%------------------------------------------------------------ 73 issues_test0325
+%------------------------------------------------------------ 90 issues_test0325
 ok
-%------------------------------------------------------------ 74 issues_test0326
+%------------------------------------------------------------ 91 issues_test0326
 ok
-%------------------------------------------------------------ 75 issues_test0328
+%------------------------------------------------------------ 92 issues_test0328
 ok
-%------------------------------------------------------------ 76 issues_test0338
+%------------------------------------------------------------ 93 issues_test0338
 [1,0,1]
 [1,1,0]
 [1,1,1]
-%------------------------------------------------------------ 77 issues_test0369
+%------------------------------------------------------------ 94 issues_test0369
 A=1 B=1
-%------------------------------------------------------------ 78 issues_test0392
+%------------------------------------------------------------ 95 issues_test0392
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaae
-%------------------------------------------------------------ 79 issues_test0393
+%------------------------------------------------------------ 96 issues_test0393
 ok
-%------------------------------------------------------------ 80 issues_test0394
+%------------------------------------------------------------ 97 issues_test0394
 [(dif(A,B),B=[]*[],A=[]*C)-[2],(D=[]*[],E=[]*F,dif(E,D))-[2]]
-%------------------------------------------------------------ 81 issues_test0400
+%------------------------------------------------------------ 98 issues_test0400
 done
-%------------------------------------------------------------ 82 issues_test0402
+%------------------------------------------------------------ 99 issues_test0402
 done
-%------------------------------------------------------------ 83 issues_test0403
+%----------------------------------------------------------- 100 issues_test0403
 ok
-%------------------------------------------------------------ 84 issues_test0404
+%----------------------------------------------------------- 101 issues_test0404
 ok
-%------------------------------------------------------------ 85 issues_test0405
+%----------------------------------------------------------- 102 issues_test0405
 ok
-%------------------------------------------------------------ 86 issues_test0406
+%----------------------------------------------------------- 103 issues_test0406
 ok
-%------------------------------------------------------------ 87 issues_test0409
+%----------------------------------------------------------- 104 issues_test0409
 ok
-%------------------------------------------------------------ 88 issues_test0410
+%----------------------------------------------------------- 105 issues_test0410
 ok
-%------------------------------------------------------------ 89 issues_test0419
+%----------------------------------------------------------- 106 issues_test0419
 c:t((dif(A, B), A=[]*C, B=[[]|D]), (A=[]*C, B=[[]|D], dif(A, B))).
-%------------------------------------------------------------ 90 issues_test0440
+%----------------------------------------------------------- 107 issues_test0440
 @(_5184,[_5184=x([Head|_5184])])
-%------------------------------------------------------------ 91 issues_test0446
+%----------------------------------------------------------- 108 issues_test0446
 {[c|(b,a)],b,a}
 [c|b,a],b,a
-%------------------------------------------------------------ 92 issues_test0447
+%----------------------------------------------------------- 109 issues_test0447
 @([x,S_1],[S_1=[x|S_1]])
-%------------------------------------------------------------ 93 issues_test0541
+%----------------------------------------------------------- 110 issues_test0541
 [-(---(A),-B),-(- --(A),-B)]
-%------------------------------------------------------------ 94 issues_test0554
+%----------------------------------------------------------- 111 issues_test0553
+main raised
+%----------------------------------------------------------- 112 issues_test0554
 1337
-%------------------------------------------------------------ 95 issues_test0556
+%----------------------------------------------------------- 113 issues_test0556
 -𝒶𝒶+𝒶𝒶
-%------------------------------------------------------------ 96 issues_test0571
+%----------------------------------------------------------- 114 issues_test0571
 'https://josd.github.io/cigol#path'('http://example.org/#angers','http://example.org/#nantes').
 'https://josd.github.io/cigol#path'('http://example.org/#paris','http://example.org/#nantes').
 'https://josd.github.io/cigol#path'('http://example.org/#chartres','http://example.org/#nantes').
 'https://josd.github.io/cigol#path'('http://example.org/#lemans','http://example.org/#nantes').
-%------------------------------------------------------------ 97 issues_test0602
+%----------------------------------------------------------- 115 issues_test0602
 [a,ok]
 [b,ok]
 [c,ok]
-%------------------------------------------------------------ 98 issues_test0627
+%----------------------------------------------------------- 116 issues_test0627
 [2,7]
-%------------------------------------------------------------ 99 issues_test0650
+%----------------------------------------------------------- 117 issues_test0650
 1
-%----------------------------------------------------------- 100 issues_test0651
+%----------------------------------------------------------- 118 issues_test0651
 here1{true}here2{\+true}here3{\+true}
-%----------------------------------------------------------- 101 issues_test0660
+%----------------------------------------------------------- 119 issues_test0660
 here1{true}here1{false}here1{false}
-%----------------------------------------------------------- 102 issues_test0667
+%----------------------------------------------------------- 120 issues_test0667
 a.> .>
-%----------------------------------------------------------- 103 issues_test0754
+%----------------------------------------------------------- 121 issues_test0754
 aa
-%----------------------------------------------------------- 104 issues_test0766
+%----------------------------------------------------------- 122 issues_test0759
+main succeeded
+%----------------------------------------------------------- 123 issues_test0763
+main succeeded
+%----------------------------------------------------------- 124 issues_test0765
+main succeeded
+%----------------------------------------------------------- 125 issues_test0766
 39
-%----------------------------------------------------------- 105 issues_test0779
+%----------------------------------------------------------- 126 issues_test0769
+main succeeded
+%----------------------------------------------------------- 127 issues_test0779
 119070
-%----------------------------------------------------------- 106 issues_test0786
+%----------------------------------------------------------- 128 issues_test0786
 92
-%----------------------------------------------------------- 107 issues_test0798
+%----------------------------------------------------------- 129 issues_test0789
+main succeeded
+%----------------------------------------------------------- 130 issues_test0798
 39
-%----------------------------------------------------------- 108 issues_test0805
+%----------------------------------------------------------- 131 issues_test0805
 ok
-%----------------------------------------------------------- 109 issues_test0810
+%----------------------------------------------------------- 132 issues_test0810
 err1
 err2
 done
-%----------------------------------------------------------- 110 issues_test0827
+%----------------------------------------------------------- 133 issues_test0827
 ['','']
-%----------------------------------------------------------- 111 issues_test0837
+%----------------------------------------------------------- 134 issues_test0837
 a>. > b
 (a>.)>.
 a.> .>
-%----------------------------------------------------------- 112 issues_test0850
+%----------------------------------------------------------- 135 issues_test0850
 1
-%----------------------------------------------------------- 113 issues_test0855
+%----------------------------------------------------------- 136 issues_test0855
 ok
-%----------------------------------------------------------- 114 issues_test0879
+%----------------------------------------------------------- 137 issues_test0879
 @(S_1,[S_1=[S_1,a|b]])
-%----------------------------------------------------------- 115 issues_test0898
+%----------------------------------------------------------- 138 issues_test0897
+main succeeded
+%----------------------------------------------------------- 139 issues_test0898
 error(type_error(callable,(true->false,1)),context(system:call/1,_5286))
-%----------------------------------------------------------- 116 issues_test0903
+%----------------------------------------------------------- 140 issues_test0903
 ok1
 ok2
 3
 4
 ok5
-%----------------------------------------------------------- 117 issues_test0905
+%----------------------------------------------------------- 141 issues_test0905
 end_of_file
-%----------------------------------------------------------- 118 issues_test0910
+%----------------------------------------------------------- 142 issues_test0910
 ok
-%----------------------------------------------------------- 119 issues_test0918
+%----------------------------------------------------------- 143 issues_test0918
 -1
-%----------------------------------------------------------- 120 issues_test0921
+%----------------------------------------------------------- 144 issues_test0921
 ok
-%----------------------------------------------------------- 121 issues_test0922
+%----------------------------------------------------------- 145 issues_test0922
 here
-%----------------------------------------------------------- 122 issues_test0986
+%----------------------------------------------------------- 146 issues_test0986
 A-(1=<2)
-%----------------------------------------------------------- 123 issues_test0989
+%----------------------------------------------------------- 147 issues_test0989
 FAIL findall_inside: no error
 FAIL findall_existing: no error
 FAIL findall_list: no error
@@ -548,46 +599,46 @@ acyclic_findall
 acyclic_compound
 acyclic_bagof
 acyclic_findnsols
-%----------------------------------------------------------- 124 issues_test0992
+%----------------------------------------------------------- 148 issues_test0992
 f(X)
-%----------------------------------------------------------- 125 issues_test0993
+%----------------------------------------------------------- 149 issues_test0993
 0:f(f(Z))
 ... : ...
 2:f(...)
 3:f(f(...))
 4:f(f(Z))
 5:f(f(Z))
-%----------------------------------------------------------- 126 issues_test1002
+%----------------------------------------------------------- 150 issues_test1002
 wrap-ok
 glist-ok
 plist-ok
 dag-ok
 fx-ok
-%----------------------------------------------------------- 127 issues_test1005
+%----------------------------------------------------------- 151 issues_test1005
 [foo,true]
 [foo,bar]
-%----------------------------------------------------------- 128 issues_test1014
+%----------------------------------------------------------- 152 issues_test1014
 ************************ NICE TABLE *************************
 *                123         45         678                    *
-%----------------------------------------------------------- 129 issues_test1015
+%----------------------------------------------------------- 153 issues_test1015
 a  b  c   d   e
 [a  b  c   d  e]
 [a   b  c   d   e]
 [a       b]
 [a b c]
 [ab       x]
-%----------------------------------------------------------- 130 issues_test1032
+%----------------------------------------------------------- 154 issues_test1032
 ok
-%----------------------------------------------------------- 131 issues_test1071
+%----------------------------------------------------------- 155 issues_test1071
 op(1200,fx)
 (?-)/2: undefined
-%----------------------------------------------------------- 132 issues_test1084
+%----------------------------------------------------------- 156 issues_test1084
 x
-%----------------------------------------------------------- 133 issues_test1091
+%----------------------------------------------------------- 157 issues_test1091
 X,X,X
 Z,Z,Z
 Y,Y,Y
-%----------------------------------------------------------- 134 issues_test1105
+%----------------------------------------------------------- 158 issues_test1105
 issue: ok
 low_gt_high: ok
 check_in: ok
@@ -606,9 +657,9 @@ small_cross: ok
 err_var: ok
 err_type1: ok
 err_type3: ok
-%----------------------------------------------------------- 135 issues_test1109
+%----------------------------------------------------------- 159 issues_test1109
 cpu_time_advances
-%----------------------------------------------------------- 136 issues_test1110
+%----------------------------------------------------------- 160 issues_test1110
 neg_true_1: ERROR error(type_error(callable,(\+ (true;1),fail)),context(system:catch/3,_10038))
 neg_true_1: FAILED
 neg_1_true: ERROR error(type_error(callable,(\+ (1;true),fail)),context(system:catch/3,_10236))
@@ -627,39 +678,39 @@ ok_exist: ok
 ok_member_neg: ok
 ok_member_pos: ok
 variant_of_cyclic_term: ok
-%----------------------------------------------------------- 137 issues_test1112
+%----------------------------------------------------------- 161 issues_test1112
 invalid_key: ok
 valid_key: ok
-%----------------------------------------------------------- 138 issues_test1118
+%----------------------------------------------------------- 162 issues_test1118
 aaaba
-%----------------------------------------------------------- 139 issues_test1121
+%----------------------------------------------------------- 163 issues_test1121
 query2_ok
 query3_ok
 equal_case_still_fails_ok
 noncyclic_ok
-%----------------------------------------------------------- 140 issues_test1122
+%----------------------------------------------------------- 164 issues_test1122
 c_ok
 a_ok
 d_ok
 b_ok
-%----------------------------------------------------------- 141 issues_test1126
+%----------------------------------------------------------- 165 issues_test1126
 dif_first_ok
 dif_last_ok
 equivalent_cycles_ok
 distinct_cycles_ok
 deep_terms_ok
-%----------------------------------------------------------- 142 issues_test1132
+%----------------------------------------------------------- 166 issues_test1132
 max_arity_flag_ok
 FAIL: max_procedure_arity_flag
 asserta_at_limit_ok
-%----------------------------------------------------------- 143 issues_test1136
+%----------------------------------------------------------- 167 issues_test1136
 copy_term_variable_ok
 copy_term_nat_variable_ok
 duplicate_term_variable_ok
 compound_source_ok
 atomic_source_ok
 compound_atomic_mismatch_ok
-%----------------------------------------------------------- 144 issues_test1137
+%----------------------------------------------------------- 168 issues_test1137
 .
 .
 '.'
@@ -670,14 +721,14 @@ a b
 +(1,*(2,3))
 [a,b|c]
 {a}
-%----------------------------------------------------------- 145 issues_test1139
+%----------------------------------------------------------- 169 issues_test1139
 [a,b,c,_7434,e,f,g]
 [_7468,e,f,g]
 [_7502,_7508,e,f]
 [a,b,c]
 [a,b,c,_7582,e]
 [1,2,3,a,b,c]
-%----------------------------------------------------------- 146 issues_test1140
+%----------------------------------------------------------- 170 issues_test1140
 chars_pos: error(syntax_error(float_overflow),context(number_chars/2,_5324))
 chars_neg: error(syntax_error(float_overflow),context(number_chars/2,_5478))
 codes_pos: error(syntax_error(float_overflow),context(number_codes/2,_5626))
@@ -693,7 +744,7 @@ in_range: 1500.0
 in_range: no error
 bad_syntax: error(syntax_error(illegal_number),context(number_chars/2,_6824))
 not_a_num: error(syntax_error(illegal_number),context(number_chars/2,_6948))
-%----------------------------------------------------------- 147 issues_test1142
+%----------------------------------------------------------- 171 issues_test1142
 scalar ok
 list_recursive ok
 list_reject ok
@@ -702,14 +753,14 @@ list_rule ok
 goal_expansion ok
 handwritten ok
 no_dcg_fact ok
-%----------------------------------------------------------- 148 issues_test1143
+%----------------------------------------------------------- 172 issues_test1143
 dcg_import ok
 dcg_call ok
 dcg_as_atom FAILED
 dcg_as_pi FAILED
 plain_import ok
 plain_as FAILED
-%----------------------------------------------------------- 149 issues_test1149
+%----------------------------------------------------------- 173 issues_test1149
 must_be(predicate_indicator,A/B) threw(error(existence_error(type,predicate_indicator),C))
 must_be(predicate_indicator,p/A) threw(error(existence_error(type,predicate_indicator),B))
 must_be(predicate_indicator,A/3) threw(error(existence_error(type,predicate_indicator),B))
@@ -729,7 +780,7 @@ can_be(predicate_indicator,foo) threw(error(existence_error(procedure,can_be/2),
 must_be(p/3,predicate_indicator,foo/1,A) threw(error(existence_error(procedure,must_be/4),context(system:catch/3,B)))
 must_be(p/ -3,predicate_indicator,foo/1,A) threw(error(existence_error(procedure,must_be/4),context(system:catch/3,B)))
 can_be(p/ -3,predicate_indicator,foo/1,A) threw(error(existence_error(procedure,can_be/4),context(system:catch/3,B)))
-%----------------------------------------------------------- 150 issues_test1150
+%----------------------------------------------------------- 174 issues_test1150
 must_be(nontype,0) threw(error(existence_error(type,nontype),A))
 can_be(nontype,0) threw(error(existence_error(procedure,can_be/2),context(system:catch/3,A)))
 must_be(nontype,A) threw(error(existence_error(type,nontype),B))
@@ -757,15 +808,15 @@ must_be(assoc,1) threw(error(existence_error(type,assoc),A))
 can_be(assoc,A) threw(error(existence_error(procedure,can_be/2),context(system:catch/3,B)))
 can_be(assoc,t) threw(error(existence_error(procedure,can_be/2),context(system:catch/3,A)))
 can_be(assoc,foo) threw(error(existence_error(procedure,can_be/2),context(system:catch/3,A)))
-%----------------------------------------------------------- 151 issues_test1151
+%----------------------------------------------------------- 175 issues_test1151
 ok
-%----------------------------------------------------------- 152 issues_test1152
+%----------------------------------------------------------- 176 issues_test1152
 caught bar
-%------------------------------------------------------- 153 misc_db_concurrency
+%------------------------------------------------------- 177 misc_db_concurrency
 db_concurrency: ok
-%------------------------------------------------------ 154 misc_db_purge_window
+%------------------------------------------------------ 178 misc_db_purge_window
 db_purge_window: ok
-%-------------------------------------------------------------- 155 misc_filesex
+%-------------------------------------------------------------- 179 misc_filesex
 FILESEX-FAIL rel_self: failed
 FILESEX-FAIL ensure: err(error(existence_error(procedure,ensure_directory/1),context(system:'<meta-call>'/1,_3434)))
 FILESEX-FAIL ensure_idem: err(error(existence_error(procedure,ensure_directory/1),context(system:catch/3,_3566)))
@@ -784,9 +835,9 @@ FILESEX-FAIL chmod_sub: err(error(existence_error(procedure,posix_file_mode/2),c
 FILESEX-FAIL chmod_bad: err(error(domain_error(posix_file_mode,nonsense),_11916))
 FILESEX-FAIL del_missing: err(error(existence_error(file,tmp_filesex_test),context(system:directory_files/2,_14596)))
 filesex: FAILURES above
-%----------------------------------------------------------- 156 misc_http_bread
+%----------------------------------------------------------- 180 misc_http_bread
 http_bread: UNEXPECTED TIMEOUT error(existence_error(procedure,http_get/3),context(time:run_alarm_goal/2,_9866))
-%--------------------------------------------------------- 157 misc_process_pipe
+%--------------------------------------------------------- 181 misc_process_pipe
 PROCESS_PIPE-FAIL stdout_pipe: err(error(existence_error(source_sink,echo),_33606))
 PROCESS_PIPE-FAIL stderr_pipe: err(error(existence_error(source_sink,sh),_33968))
 PROCESS_PIPE-FAIL stdin_pipe_eof: err(error(existence_error(source_sink,cat),_34284))
@@ -799,16 +850,16 @@ PROCESS_PIPE-FAIL pipe_2_bad_option: err(error(existence_error(source_sink,echo)
 PROCESS_PIPE-FAIL pipe_2_bad_type: err(error(existence_error(source_sink,echo),_36544))
 PROCESS_PIPE-FAIL pipe_2_roundtrip: err(error(existence_error(source_sink,tr),_36922))
 process_pipe: FAILURES above
-%--------------------------------------------------------------- 158 misc_socket
+%--------------------------------------------------------------- 182 misc_socket
 SOCKET-FAIL ip4_name: err(error(existence_error(procedure,ip_name/2),context(system:'<meta-call>'/1,_724)))
 SOCKET-FAIL name_to_ip: err(error(existence_error(procedure,ip_name/2),context(system:'<meta-call>'/1,_880)))
 SOCKET-FAIL socket_create: failed
-%------------------------------------------------- 159 misc_stream_buffered_read
+%------------------------------------------------- 183 misc_stream_buffered_read
 stream_buffered_read: all ok
-%------------------------------------------------------------- 160 misc_test1130
+%------------------------------------------------------------- 184 misc_test1130
 engine_exhaustion_ok
 threaded_tabled_engine_ok
-%------------------------------------------------------- 161 misc_thread_mailbox
+%------------------------------------------------------- 185 misc_thread_mailbox
 fifo_order: ok
 selective_receive_preserves_order: ok
 no_match_leaves_queue_intact: ok
@@ -828,7 +879,7 @@ unaliased_mutex_properties: ok
 unaliased_thread_properties: FAILED got [id(2),status(running),detached(false),debug(true),engine(false)] wanted [detached(false),status(running)]
 aliased_queue_properties: ok
 queue_property_enumerates_queues: ok
-%-------------------------------------------------------------- 162 misc_timeout
+%-------------------------------------------------------------- 186 misc_timeout
 main2...
 catch1
 	done1
@@ -843,7 +894,7 @@ alarm2
 main7...
 alarm1
 alarm2
-%-------------------------------------------------------------- 163 misc_uri_lib
+%-------------------------------------------------------------- 187 misc_uri_lib
 comp 'http://user:pw@host:8080/p/q?a=1#f' | uri_components(http,'user:pw@host:8080','/p/q','a=1',f)
 comp 'urn:isbn:0451450523' | uri_components(urn,'_','isbn:0451450523','_','_')
 comp 'mailto:bob@x.com' | uri_components(mailto,'_','bob@x.com','_','_')
@@ -914,14 +965,14 @@ enc query_value 'a&b' | 'a%26b'
 dec path 'a%20b' | 'a b'
 dec query_value 'a+b' | 'a b'
 u2i 'http://x/%C3%A9' | 'http://x/é'
-%----------------------------------------------------------- 164 slow_index-race
+%----------------------------------------------------------- 188 slow_index-race
 short reads: 0
-%------------------------------------------------------------- 165 slow_test0360
+%------------------------------------------------------------- 189 slow_test0360
 N=0 consistent
 N=1 consistent
-%----------------------------------------------- 166 sundry_attribute_goal_order
+%----------------------------------------------- 190 sundry_attribute_goal_order
 order: 
-%----------------------------------------------------- 167 sundry_compiled_catch
+%----------------------------------------------------- 191 sundry_compiled_catch
 var_goal_ite: instantiation_error
 var_goal_call: ok
 throw_call: ok
@@ -933,7 +984,7 @@ count_call_var: uncaught error(existence_error(procedure,bb_put/2),context(t/1,_
 cut_after_nondet: [1]
 nondet_recovery: [1,2,3]
 backtrack_into_goal: [x(1),inner(in)]
-%---------------------------------------------------------------- 168 sundry_csv
+%---------------------------------------------------------------- 192 sundry_csv
 test_plain: EXCEPTION error(existence_error(procedure,parse_csv_line/2),context(fields/2,_10612))
 test_empty_fields: EXCEPTION error(existence_error(procedure,parse_csv_line/2),context(fields/2,_10750))
 test_quoted_plain: EXCEPTION error(existence_error(procedure,parse_csv_line/2),context(fields/2,_10942))
@@ -952,19 +1003,19 @@ test_write_quoting: EXCEPTION error(existence_error(procedure,write_csv_file/3),
 test_write_plain: EXCEPTION error(existence_error(procedure,write_csv_file/3),context(test_write_plain/0,_13230))
 test_roundtrip: EXCEPTION error(existence_error(procedure,write_csv_file/3),context(roundtrip/1,_13590))
 err_write_bad_row: FAILED got existence_error(procedure,write_csv_file/3) want type_error(list,notalist)
-%----------------------------------------------------- 169 sundry_cut_after_call
+%----------------------------------------------------- 193 sundry_cut_after_call
 p01: [1]
 p02: [1]
 p03: [1]
 p04: [1]
-%------------------------------------------------- 170 sundry_cyclic_print_depth
+%------------------------------------------------- 194 sundry_cyclic_print_depth
 f(f(f(f(f(...)))))
 written ok
 thrown THREW @(error(type_error(text,S_1),context(system:atom_length/2,_5468)),[S_1=f(S_1)])
 thrown FAILED
 [a,a,a,a|...]
 list ok
-%-------------------------------------------------------- 171 sundry_dcg_consult
+%-------------------------------------------------------- 195 sundry_dcg_consult
 CONSULT-DIFF c01
    consulted c01(_228,_230):-_228=_230
    reference err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_282)))
@@ -1029,10 +1080,10 @@ CONSULT-DIFF c22
    consulted c22(_5282,_5284):-b(_5282,_5304),c(_5304,_5310),_5284=[p,q|_5310]
    reference err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_5456)))
 dcg consult: 21 of 24 disagree
-%--------------------------------------------------------- 172 sundry_dcg_corpus
+%--------------------------------------------------------- 196 sundry_dcg_corpus
 CORPUS-TOO-SMALL: only 0 rules found
 dcg corpus: all rules agree
-%--------------------------------------------------- 173 sundry_dcg_differential
+%--------------------------------------------------- 197 sundry_dcg_differential
 DIVERGENCE-FAILED noncallable_after_braces: wanted type_error(callable,1), got err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_10110)))
 DIVERGENCE-FAILED noncallable_first: wanted type_error(callable,1), got err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_10380)))
 DIVERGENCE-FAILED noncallable_last: wanted type_error(callable,1), got err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_10650)))
@@ -1148,13 +1199,13 @@ DIFF string_conj
    native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_10024)))
    ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_10142)))
 dcg differential: 38 cases, 3 divergences, 1 expected diffs
-%-------------------------------------------------------- 174 sundry_dcg_tabling
+%-------------------------------------------------------- 198 sundry_dcg_tabling
 dcg tabling: left_recursion_parses ok
 dcg tabling: left_recursion_rejects ok
 dcg tabling: plain_tabled_dcg ok
 dcg tabling: plain_tabled_rejects ok
 DCG-TABLING-FAIL rename_ran_on_translated_clause
-%-------------------------------------------------------- 175 sundry_expand_term
+%-------------------------------------------------------- 199 sundry_expand_term
 identity ok
 rule_identity ok
 hook ok
@@ -1162,7 +1213,7 @@ single_pass ok
 manual_fixpoint ok
 dcg FAILED
 hook_output_dcg FAILED
-%-------------------------------------------------------------- 176 sundry_flags
+%-------------------------------------------------------------- 200 sundry_flags
 named FAILED
 stable FAILED
 enumerated FAILED
@@ -1171,17 +1222,17 @@ read_only FAILED
 rationals_boolean FAILED
 rationals_agree FAILED
 rationals_read_only FAILED
-%----------------------------------------------------- 177 sundry_initialization
+%----------------------------------------------------- 201 sundry_initialization
 before
 after
 main_ran
 second
-%-------------------------------------------- 178 sundry_initialization_deferred
+%-------------------------------------------- 202 sundry_initialization_deferred
 loading
 loaded
-%---------------------------------------------- 179 sundry_initialization_nested
+%---------------------------------------------- 203 sundry_initialization_nested
 nested_ran
-%----------------------------------------------------- 180 sundry_nested_capture
+%----------------------------------------------------- 204 sundry_nested_capture
 nested ok
 deep ok
 atoms ok
@@ -1189,7 +1240,7 @@ siblings ok
 after_throw ok
 plain ok
 empty ok
-%---------------------------------------------------- 181 sundry_not_a_character
+%---------------------------------------------------- 205 sundry_not_a_character
 get_char FAILED got � wanted threw(error(representation_error(character),get_char/2))
 peek_char FAILED got � wanted threw(error(representation_error(character),peek_char/2))
 read FAILED got threw(error(syntax_error(end_of_file),file('tmp.not_a_character.txt',1,3,0))) wanted threw(error(representation_error(character),read/2))
@@ -1209,7 +1260,7 @@ read_accented ok
 read_accented_quoted ok
 read_accented_line_comment ok
 read_accented_block_comment ok
-%---------------------------------------------------------- 182 sundry_peek_char
+%---------------------------------------------------------- 206 sundry_peek_char
 peek(a)
 peek(a)
 get(a)
@@ -1234,7 +1285,7 @@ peek(a)
 peek(a)
 get(a)
 get(�)
-%-------------------------------------------- 183 sundry_phrase_from_file_binary
+%-------------------------------------------- 207 sundry_phrase_from_file_binary
 []-threw(error(existence_error(procedure,seq/3),context($dcg:call_dcg/3,_13056)))
 []-failed
 [type(binary)]-threw(error(existence_error(procedure,seq/3),context($dcg:call_dcg/3,_13290)))
@@ -1249,11 +1300,11 @@ get(�)
 []-failed
 [type(binary)]-threw(error(existence_error(procedure,seq/3),context($dcg:call_dcg/3,_14248)))
 [type(binary)]-failed
-%------------------------------------------ 184 sundry_set_prolog_flag_directive
+%------------------------------------------ 208 sundry_set_prolog_flag_directive
 tabling directive: ok
 integer flag directive: ok
 parse-time flag: ok
-%-------------------------------------------------------- 185 sundry_shift_again
+%-------------------------------------------------------- 209 sundry_shift_again
 a_again: [1-1,2-2]
 a_again3: [1,2,3]
 a_some: [1-1,2-A,3-3]
@@ -1279,7 +1330,7 @@ w_pred_after: 1-2
 w_pred_after_catch: 1-2
 w_pred_soft_then: 1
 w_pred_soft_cond: 1
-%----------------------------------------------------- 186 sundry_shift_compiled
+%----------------------------------------------------- 210 sundry_shift_compiled
 p_ite_else: [else]
 p_ite_then: [then]
 p_ite_chain: [other]
@@ -1302,7 +1353,7 @@ p_catch_throw: [caught(oops)]
 p_catch_ok: [k1,k2]
 p_catch_nested: [caught(two)]
 w_twice: 1-2-b
-%---------------------------------------------------------- 187 sundry_shift_det
+%---------------------------------------------------------- 211 sundry_shift_det
 d_shift: det
 d_no_shift: det
 d_shift_after: det
@@ -1313,7 +1364,7 @@ c_cut_later: [a-1]
 b_after: [a-1,a-2]
 b_clause_alts: [a,z]
 l_loop: det
-%----------------------------------------------------- 188 sundry_shift_no_reset
+%----------------------------------------------------- 212 sundry_shift_no_reset
 n_bare: uncaught(error(existence_error(reset,x),context(shift/1,'No matching reset/3 call')))
 n_catch: caught(error(existence_error(reset,x),context(shift/1,'No matching reset/3 call')))
 n_runtime: caught(error(existence_error(reset,x),context(shift/1,'No matching reset/3 call')))
@@ -1326,7 +1377,7 @@ m_later_catch: uncaught(error(existence_error(reset,a),context(shift/1,'No match
 m_retry: uncaught(error(existence_error(reset,a),context(shift/1,'No matching reset/3 call')))
 ok_shift: uncaught(error(uninstantiation_error(a),context(system:shift/1,_8280)))
 ok_none: 0
-%----------------------------------------------------- 189 sundry_shift_soft_cut
+%----------------------------------------------------- 213 sundry_shift_soft_cut
 s_if: uncaught(error(existence_error(procedure,if/3),context(system:reset/3,A)))
 s_soft: 1
 s_soft_member: 1
@@ -1341,7 +1392,7 @@ e_if: uncaught(error(existence_error(procedure,if/3),context('$bags':findall_loo
 e_runtime_soft: [1,2]
 e_runtime_if: uncaught(error(existence_error(procedure,if/3),context('$bags':findall_loop/4,A)))
 e_else: [none]
-%------------------------------------------------------------ 190 sundry_tabling
+%------------------------------------------------------------ 214 sundry_tabling
 findall: ok
 setof: ok
 call barrier: ok
@@ -1357,7 +1408,7 @@ generate mode: ok
 backtrack variants: ok
 many variants: ok
 threads: ok
-%------------------------------------------------ 191 sundry_tabling_incremental
+%------------------------------------------------ 215 sundry_tabling_incremental
 assert/retract: FAILED
 [b,c]-[b,c]-[b,c]
 transitive: FAILED
@@ -1367,43 +1418,43 @@ untracked pred ignored: ok
 invalidate subsumptive: FAILED
 [5]-[5]-[5]
 no spurious recompute: ok
-%------------------------------------------------ 192 sundry_tabling_reconstruct
+%------------------------------------------------ 216 sundry_tabling_reconstruct
 ground shapes: ok
 variable sharing: ok
 distinct vars: ok
 repeated var: ok
 subsumptive still exact: ok
 stable across reads: ok
-%------------------------------------------------- 193 sundry_tabling_restraints
+%------------------------------------------------- 217 sundry_tabling_restraints
 defaults: FAILED
-%----------------------------------------------------- 194 sundry_tabling_shared
+%----------------------------------------------------- 218 sundry_tabling_shared
 shared reuse: ok
 private not shared: ok
 shared term integrity: ok
 abolish reaches shared: ok
-%------------------------------------------------ 195 sundry_tabling_subsumption
+%------------------------------------------------ 219 sundry_tabling_subsumption
 min shortest path: ok
 cyclic min: ok
 max: ok
 floor fixpoint: ok
 zero markers: FAILED
-%--------------------------------------------------- 196 sundry_tco_heap_context
+%--------------------------------------------------- 220 sundry_tco_heap_context
 t_modes: uncaught(error(existence_error(procedure,t_modes/1),context(system:catch/3,_8606)))
 t_rest: [b(2),c(3)]
-%------------------------------------------------------ 197 sundry_tco_heap_term
+%------------------------------------------------------ 221 sundry_tco_heap_term
 t_ball: ok
 t_older: ok
 t_nums: ok
-%------------------------------------------------------ 198 sundry_tco_more_vars
+%------------------------------------------------------ 222 sundry_tco_more_vars
 t_small: 11
 t_big: 12351
 t_str: 45
 t_big_loop: ok
-%--------------------------------------------------- 199 sundry_tco_pinned_frame
+%--------------------------------------------------- 223 sundry_tco_pinned_frame
 own: f(1)
 older: f(1)
 number_: [A,B,C]
-%----------------------------------------------------- 200 sundry_tco_tail_calls
+%----------------------------------------------------- 224 sundry_tco_tail_calls
 r_nd: [[a,a,a],[a,a,b],[a,b,a],[a,b,b],[b,a,a],[b,a,b],[b,b,a],[b,b,b]]
 r_lu: [5,4,3,2,1]
 r_cut: [1]
@@ -1421,7 +1472,7 @@ r_string: 45
 r_unbound: shared
 r_alt: [first,second]
 r_chain: end
-%--------------------------------------------------------- 201 sundry_unget_char
+%--------------------------------------------------------- 225 sundry_unget_char
 roundtrip FAILED got threw(existence_error(procedure,unget_char/2)) wanted [a,a,b]
 arbitrary FAILED got threw(existence_error(procedure,unget_char/2)) wanted ['Z',a]
 unget_eof FAILED got threw(existence_error(procedure,unget_char/2)) wanted a
@@ -1430,7 +1481,7 @@ empty FAILED got threw(existence_error(procedure,unget_char/2)) wanted threw(typ
 current_input FAILED got threw(existence_error(procedure,unget_char/1)) wanted [a,a,b]
 multibyte FAILED got threw(existence_error(procedure,unget_char/2)) wanted [é,é,l]
 after_read FAILED got threw(existence_error(procedure,unget_char/2)) wanted [1,'Z',' ',a]
-%------------------------------------------------------------ 202 tests_test0000
+%------------------------------------------------------------ 226 tests_test0000
 1
 	a
 	b
@@ -1440,50 +1491,52 @@ after_read FAILED got threw(existence_error(procedure,unget_char/2)) wanted [1,'
 3
 	a
 	b
-%------------------------------------------------------------ 203 tests_test0001
+%------------------------------------------------------------ 227 tests_test0001
 1
 2
 3
-%------------------------------------------------------------ 204 tests_test0002
+%------------------------------------------------------------ 228 tests_test0002
 [a,b,c,d]
-%------------------------------------------------------------ 205 tests_test0003
+%------------------------------------------------------------ 229 tests_test0003
 [d,c,b,a]
-%------------------------------------------------------------ 206 tests_test0004
+%------------------------------------------------------------ 230 tests_test0004
 a
 [b,b]
 c
-%------------------------------------------------------------ 207 tests_test0005
+%------------------------------------------------------------ 231 tests_test0005
 f(1,2,3)
-%------------------------------------------------------------ 208 tests_test0007
+%------------------------------------------------------------ 232 tests_test0007
 a
-%------------------------------------------------------------ 209 tests_test0008
+%------------------------------------------------------------ 233 tests_test0008
 a
 b
-%------------------------------------------------------------ 210 tests_test0009
+%------------------------------------------------------------ 234 tests_test0009
 a
-%------------------------------------------------------------ 211 tests_test0010
+%------------------------------------------------------------ 235 tests_test0010
 [1,1]
 [2,1]
 [2,2]
 [3,1]
 [3,2]
 [3,3]
-%------------------------------------------------------------ 212 tests_test0011
+%------------------------------------------------------------ 236 tests_test0011
 [1,1]
 [2,1]
 [2,2]
 [3,1]
 [3,2]
 [3,3]
-%------------------------------------------------------------ 213 tests_test0012
+%------------------------------------------------------------ 237 tests_test0012
 49995000
-%------------------------------------------------------------ 214 tests_test0015
+%------------------------------------------------------------ 238 tests_test0014
+main succeeded
+%------------------------------------------------------------ 239 tests_test0015
 PASSED!
-%------------------------------------------------------------ 215 tests_test0016
+%------------------------------------------------------------ 240 tests_test0016
 ok
-%------------------------------------------------------------ 216 tests_test0017
+%------------------------------------------------------------ 241 tests_test0017
 1
-%------------------------------------------------------------ 217 tests_test0018
+%------------------------------------------------------------ 242 tests_test0018
  <==> abcdef
 a <==> bcdef
 ab <==> cdef
@@ -1491,36 +1544,36 @@ abc <==> def
 abcd <==> ef
 abcde <==> f
 abcdef <==> 
-%------------------------------------------------------------ 218 tests_test0019
+%------------------------------------------------------------ 243 tests_test0019
  > 0 <==> true
  > 1 <==> true
  > 2 <==> true
  > 3 <==> true
-%------------------------------------------------------------ 219 tests_test0020
+%------------------------------------------------------------ 244 tests_test0020
 0
-%------------------------------------------------------------ 220 tests_test0021
+%------------------------------------------------------------ 245 tests_test0021
 0
 1
 2
 3
-%------------------------------------------------------------ 221 tests_test0022
+%------------------------------------------------------------ 246 tests_test0022
 a b c
-%------------------------------------------------------------ 222 tests_test0023
+%------------------------------------------------------------ 247 tests_test0023
 [a, ,b, ,c]
-%------------------------------------------------------------ 223 tests_test0024
+%------------------------------------------------------------ 248 tests_test0024
 [97,32,98,32,99]
-%------------------------------------------------------------ 224 tests_test0025
+%------------------------------------------------------------ 249 tests_test0025
 [integer(1),integer(2),integer(3),integer(4),integer(5),integer(6),integer(7),integer(8),integer(9),integer(10)]
-%------------------------------------------------------------ 225 tests_test0026
+%------------------------------------------------------------ 250 tests_test0026
 [c,d,e,f,g,g]
-%------------------------------------------------------------ 226 tests_test0027
+%------------------------------------------------------------ 251 tests_test0027
 [c,d]
 [e,f]
 [g]
 [g]
-%------------------------------------------------------------ 227 tests_test0028
+%------------------------------------------------------------ 252 tests_test0028
 [[c,d],[e,f],[g],[g]]
-%------------------------------------------------------------ 228 tests_test0029
+%------------------------------------------------------------ 253 tests_test0029
 [c,d]
 [e,f]
 [g]
@@ -1561,30 +1614,30 @@ a b c
 [e,f]
 [g]
 [g]
-%------------------------------------------------------------ 229 tests_test0030
+%------------------------------------------------------------ 254 tests_test0030
 [c,d,e,f,g,g]
-%------------------------------------------------------------ 230 tests_test0031
+%------------------------------------------------------------ 255 tests_test0031
 [c,d,e,f,g]
-%------------------------------------------------------------ 231 tests_test0032
+%------------------------------------------------------------ 256 tests_test0032
 ok
-%------------------------------------------------------------ 232 tests_test0033
+%------------------------------------------------------------ 257 tests_test0033
 Philip K Dick
-%------------------------------------------------------------ 233 tests_test0034
+%------------------------------------------------------------ 258 tests_test0034
 PASSED!
-%------------------------------------------------------------ 234 tests_test0035
+%------------------------------------------------------------ 259 tests_test0035
 1/2/3
 a,b,c
 {a,b,c}
 1/2/3
 a,b,c
 {a,b,c}
-%------------------------------------------------------------ 235 tests_test0036
+%------------------------------------------------------------ 260 tests_test0036
 [a]
-%------------------------------------------------------------ 236 tests_test0037
+%------------------------------------------------------------ 261 tests_test0037
 ab
-%------------------------------------------------------------ 237 tests_test0039
+%------------------------------------------------------------ 262 tests_test0039
 foobar
-%------------------------------------------------------------ 238 tests_test0040
+%------------------------------------------------------------ 263 tests_test0040
 ''(1,2)
 1 2
 -(-,-)
@@ -1594,32 +1647,34 @@ foobar
 *(1,+(2,3))
 1*(2+3)
 ['.','.'('.','.','.')]
-%------------------------------------------------------------ 239 tests_test0041
+%------------------------------------------------------------ 264 tests_test0041
 cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
-%------------------------------------------------------------ 240 tests_test0042
+%------------------------------------------------------------ 265 tests_test0042
 3
-%------------------------------------------------------------ 241 tests_test0044
+%------------------------------------------------------------ 266 tests_test0043
+main succeeded
+%------------------------------------------------------------ 267 tests_test0044
 foo
-%------------------------------------------------------------ 242 tests_test0045
+%------------------------------------------------------------ 268 tests_test0045
 ok1
 again1
 ok2
 again2
-%------------------------------------------------------------ 243 tests_test0046
+%------------------------------------------------------------ 269 tests_test0046
 [a,b,c,d]
 [] <==> [a,b,c,d]
 [a] <==> [b,c,d]
 [a,b] <==> [c,d]
 [a,b,c] <==> [d]
 [a,b,c,d] <==> []
-%------------------------------------------------------------ 244 tests_test0047
+%------------------------------------------------------------ 270 tests_test0047
 1
-%------------------------------------------------------------ 245 tests_test0048
+%------------------------------------------------------------ 271 tests_test0048
 a
 b
 c
 d
-%------------------------------------------------------------ 246 tests_test0049
+%------------------------------------------------------------ 272 tests_test0049
 [c,d,a,a,f,e,g]
 [c,d,a,a]
 [f,e]
@@ -1632,19 +1687,19 @@ d
 [bar(g)]
 [bar(c),bar(d),bar(a),bar(a),bar(f),bar(e),bar(g)]
 [bar(a),bar(c),bar(d),bar(e),bar(f),bar(g)]
-%------------------------------------------------------------ 247 tests_test0050
+%------------------------------------------------------------ 273 tests_test0050
 house(yellow,norwegian,fox,water,kools)
 house(blue,ukrainian,horse,tea,chesterfields)
 house(red,english,snails,milk,winstons)
 house(ivory,spanish,dog,orange_juice,lucky_strikes)
 house(green,japanese,zebra,coffee,parliaments)
-%------------------------------------------------------------ 248 tests_test0051
+%------------------------------------------------------------ 274 tests_test0051
 [0,2,4,6,7,8,10,11,11,17,18,18,21,27,27,28,28,28,29,31,32,33,37,39,40,46,47,51,53,53,55,59,61,63,65,66,74,74,75,81,82,83,85,85,90,92,94,95,99,99]
-%------------------------------------------------------------ 249 tests_test0052
+%------------------------------------------------------------ 275 tests_test0052
 [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97]
-%------------------------------------------------------------ 250 tests_test0053
+%------------------------------------------------------------ 276 tests_test0053
 10946
-%------------------------------------------------------------ 251 tests_test0054
+%------------------------------------------------------------ 277 tests_test0054
 [4,2,7,3,6,8,5,1]
 [5,2,4,7,3,8,6,1]
 [3,5,2,8,6,4,7,1]
@@ -1737,7 +1792,7 @@ house(green,japanese,zebra,coffee,parliaments)
 [6,4,7,1,3,5,2,8]
 [4,7,5,2,6,1,3,8]
 [5,7,2,6,3,1,4,8]
-%------------------------------------------------------------ 252 tests_test0055
+%------------------------------------------------------------ 278 tests_test0055
 square(4,3)
 square(3,1)
 square(2,4)
@@ -1748,7 +1803,7 @@ square(4,2)
 square(3,4)
 square(2,1)
 square(1,3)
-%------------------------------------------------------------ 253 tests_test0056
+%------------------------------------------------------------ 279 tests_test0056
 [the,woman,shoots,the,woman]
 [the,woman,shoots,the,man]
 [the,woman,shoots,a,woman]
@@ -1769,14 +1824,14 @@ square(1,3)
 [a,man,shoots,a,woman]
 [a,man,shoots,a,man]
 [a,man,shoots]
-%------------------------------------------------------------ 254 tests_test0057
+%------------------------------------------------------------ 280 tests_test0057
 [pickup,the,small,white,box] 'OK!'
 [pickup,the,white,small,box] 'OK!'
 [pickup,the,small,box] 'OK!'
 [pickup,the,box] 'OK!'
 [pickup,box] '*** ERROR?'
 [paint,the,box] '*** ERROR?'
-%------------------------------------------------------------ 255 tests_test0058
+%------------------------------------------------------------ 281 tests_test0058
 [0,0,3,'']
 [0,1,2,a]
 [0,2,1,ab]
@@ -1804,7 +1859,7 @@ square(1,3)
 [3,0,0,'']
 
 [1,2,0,bc]
-%------------------------------------------------------------ 256 tests_test0059
+%------------------------------------------------------------ 282 tests_test0059
 Test1  :	PASSED!
 Test2  :	PASSED!
 Test3  :	PASSED!
@@ -1814,16 +1869,16 @@ Test5a :	PASSED!
 Test5b :	PASSED!
 Test6a :	PASSED!
 Test6b :	
-%------------------------------------------------------------ 257 tests_test0060
+%------------------------------------------------------------ 283 tests_test0060
 [1,4]
-%------------------------------------------------------------ 258 tests_test0061
+%------------------------------------------------------------ 284 tests_test0061
 [1,2,3]
-%------------------------------------------------------------ 259 tests_test0062
+%------------------------------------------------------------ 285 tests_test0062
 [12,+,4,-,29]
 [12,+,4,-,2,9]
 [1,2,+,4,-,29]
 [1,2,+,4,-,2,9]
-%------------------------------------------------------------ 260 tests_test0063
+%------------------------------------------------------------ 286 tests_test0063
 ok1
 ok2
 ok3
@@ -1866,7 +1921,7 @@ ok39
 ok40
 ok41
 done
-%------------------------------------------------------------ 261 tests_test0064
+%------------------------------------------------------------ 287 tests_test0064
 ok1
 ok2
 ok3
@@ -1883,7 +1938,7 @@ ok13
 ok14
 ok15
 ok16
-%------------------------------------------------------------ 262 tests_test0065
+%------------------------------------------------------------ 288 tests_test0065
 8 3 9  4 6 5  7 1 2
 1 4 6  7 8 2  9 5 3
 7 5 2  3 9 1  4 8 6
@@ -1893,21 +1948,21 @@ ok16
 6 2 8  5 3 7  1 9 4
 9 1 3  2 4 8  5 6 7
 4 7 5  9 1 6  2 3 8
-%------------------------------------------------------------ 263 tests_test0066
+%------------------------------------------------------------ 289 tests_test0066
 3.141592653589793
 2.718281828459045
 0.1
-%------------------------------------------------------------ 264 tests_test0067
+%------------------------------------------------------------ 290 tests_test0067
 'OK here'
 'OK no error'
 'OK done (3rd line)'
-%------------------------------------------------------------ 265 tests_test0068
+%------------------------------------------------------------ 291 tests_test0068
 6
 7
 8
 9
 10
-%------------------------------------------------------------ 266 tests_test0069
+%------------------------------------------------------------ 292 tests_test0069
 Frozen X=123, set Y=456
 Y=456
 OK done
@@ -1915,34 +1970,34 @@ Frozen X=123
 OK done
 Frozen X=123
 OK done
-%------------------------------------------------------------ 267 tests_test0070
+%------------------------------------------------------------ 293 tests_test0070
 [bb,cc]
-%------------------------------------------------------------ 268 tests_test0071
+%------------------------------------------------------------ 294 tests_test0071
 [A1,B1,B2,A2]
-%------------------------------------------------------------ 269 tests_test0072
+%------------------------------------------------------------ 295 tests_test0072
 [[2,1,4,3,6,5,8,7,10,9],[[1,1,2,3,4,5,6,7,8,9],[1,1,3,2,5,4,7,6,9,8],[3,2,10,10,11,12,13,14,15,16],[2,3,10,10,12,11,14,13,16,15],[5,4,12,11,17,17,18,19,20,21],[4,5,11,12,17,17,19,18,21,20],[7,6,14,13,19,18,22,22,23,24],[6,7,13,14,18,19,22,22,24,23],[9,8,16,15,21,20,24,23,25,25],[8,9,15,16,20,21,23,24,25,25]],1300]
-%------------------------------------------------------------ 270 tests_test0073
+%------------------------------------------------------------ 296 tests_test0073
 {a:b}
 {a:b}
 a:b
 a:b
 a:b
-%------------------------------------------------------------ 271 tests_test0075
+%------------------------------------------------------------ 297 tests_test0075
 succeeded
-%------------------------------------------------------------ 272 tests_test0076
+%------------------------------------------------------------ 298 tests_test0076
 []
 [a]
 [a,a]
 [a,a,a]
 [a,a,a,a]
 [a,a,a,a,a]
-%------------------------------------------------------------ 273 tests_test0077
+%------------------------------------------------------------ 299 tests_test0077
 ant
 here
 bee
-%------------------------------------------------------------ 274 tests_test0078
+%------------------------------------------------------------ 300 tests_test0078
 ror([]>[(a|~a)],rneg([]>[a,~a],ax([a]>[a],a)))
-%------------------------------------------------------------ 275 tests_test0079
+%------------------------------------------------------------ 301 tests_test0079
 -123456789012345678901234567890
 1.881676372353658e+78
 42
@@ -1952,15 +2007,17 @@ ror([]>[(a|~a)],rneg([]>[a,~a],ax([a]>[a],a)))
 122443787781019052100
 1234567890123456788901234657800000
 3
-%------------------------------------------------------------ 276 tests_test0080
+%------------------------------------------------------------ 302 tests_test0080
 [1,1,2,3]
 [-1,-1,2,3]
-%------------------------------------------------------------ 277 tests_test0082
+%------------------------------------------------------------ 303 tests_test0081
+main succeeded
+%------------------------------------------------------------ 304 tests_test0082
 @(_5200,[_5200=[A,B,C|_5200]])
 @(_5222,[_5222=[D,E,F|_5222]])
-%------------------------------------------------------------ 278 tests_test0083
+%------------------------------------------------------------ 305 tests_test0083
 hello
-%------------------------------------------------------------ 279 tests_test0084
+%------------------------------------------------------------ 306 tests_test0084
 :- dynamic dummy/4.
 
 dummy(A, B, C, D) :-
@@ -1974,40 +2031,44 @@ dummy((Head-->Goals), Clause, _, _) :-
     expand_term((Head-->Body), Clause).
 dummy(g(Goal), [], A, B) :-
     A=[{Goal}, !|B].
-%------------------------------------------------------------ 280 tests_test0085
+%------------------------------------------------------------ 307 tests_test0085
 path(angers,nantes).
 path(paris,nantes).
 path(chartres,nantes).
 path(lemans,nantes).
-%------------------------------------------------------------ 281 tests_test0087
+%------------------------------------------------------------ 308 tests_test0087
 ok
-%------------------------------------------------------------ 282 tests_test0089
+%------------------------------------------------------------ 309 tests_test0088
+main succeeded
+%------------------------------------------------------------ 310 tests_test0089
 here
-%------------------------------------------------------------ 283 tests_test0091
+%------------------------------------------------------------ 311 tests_test0090
+main succeeded
+%------------------------------------------------------------ 312 tests_test0091
 [123|f(Copy1)]
 @(S_1,[S_1=[123|f(S_1)]])
-%------------------------------------------------------------ 284 tests_test0093
+%------------------------------------------------------------ 313 tests_test0093
 [...|...]
 + ... - + ...
 ... - ... - + ...
 - ... * - ...
 []*[]*[]
-%------------------------------------------------------------ 285 tests_test0094
+%------------------------------------------------------------ 314 tests_test0094
 ok: user:true
 ok: foo:true
-%------------------------------------------------------------ 286 tests_test0097
+%------------------------------------------------------------ 315 tests_test0097
 ok
-%------------------------------------------------------------ 287 tests_test0098
+%------------------------------------------------------------ 316 tests_test0098
 _7502*(_7502*(_7502*(_7502*(... * ...))))
-%------------------------------------------------------------ 288 tests_test0099
+%------------------------------------------------------------ 317 tests_test0099
 ok
-%------------------------------------------------------------ 289 tests_test0100
+%------------------------------------------------------------ 318 tests_test0100
 [[1,3,2],[3,3,0]]
-%------------------------------------------------------------ 290 tests_test0101
+%------------------------------------------------------------ 319 tests_test0101
 test1: 
-%------------------------------------------------------------ 291 tests_test0103
+%------------------------------------------------------------ 320 tests_test0103
 ok
-%------------------------------------------------------------ 292 tests_test0107
+%------------------------------------------------------------ 321 tests_test0107
 disj-succeeded
 neg_of_true_disj-failed
 neg_toplevel-failed
@@ -2027,7 +2088,7 @@ after
 nontail_call-succeeded
 caught
 catch_recursive-succeeded
-%------------------------------------------------------------ 293 tests_test0109
+%------------------------------------------------------------ 322 tests_test0109
 [varclause,ground]
 [ground,varclause]
 [vc,7]
@@ -2036,9 +2097,20 @@ catch_recursive-succeeded
 [ground]
 [wildcard,value]
 head_indexed
-%------------------------------------------------------------ 294 tests_test0111
+%------------------------------------------------------------ 323 tests_test0110
+nested-var indexing check
+  ok    query [a]    - expect [ground,nested_var_tail,nested_var_arg]
+          both gave [ground,nested_var_tail,nested_var_arg]
+  ok    query [b]    - expect [nested_var_tail,other_ground]
+          both gave [nested_var_tail,other_ground]
+  ok    query [a,c]  - expect [nested_var_arg]
+          both gave [nested_var_arg]
+  ok    query [z]    - expect [nested_var_tail]
+          both gave [nested_var_tail]
+main succeeded
+%------------------------------------------------------------ 324 tests_test0111
 [found]
-%------------------------------------------------------------ 295 tests_test0113
+%------------------------------------------------------------ 325 tests_test0113
 [a,b,c]
 [a,b,c]
 [a,b,c]
@@ -2080,7 +2152,7 @@ caught(error(type_error(list,foo),context(system:atomic_list_concat/3,_9470)))
 fail
 caught(error(type_error(list,b),context(system:atomic_list_concat/3,_9586)))
 fail
-%------------------------------------------------------------ 296 tests_test0114
+%------------------------------------------------------------ 326 tests_test0114
 [[x]]
 [[a,'[',b,']',c]]
 [[]]
@@ -2094,12 +2166,12 @@ fail
 [[],[]]
 [[h,é,l,l,o],[w,ö,r,l,d]]
 [[h,é,l,l,o]]
-%------------------------------------------------------------ 297 tests_test0115
+%------------------------------------------------------------ 327 tests_test0115
 ok
-%------------------------------------------------------------ 298 tests_test0116
+%------------------------------------------------------------ 328 tests_test0116
 [h(g(foo),foo),h(g(bar),bar)]
 [h(g(foo),foo),h(g(bar),bar)]
-%------------------------------------------------------------ 299 tests_test0117
+%------------------------------------------------------------ 329 tests_test0117
 1.0e+30-1.0e+30-0.0
 -1.0e+30- -1.0e+30- -0.0
 1.0e+300-1.0e+300-0.0
