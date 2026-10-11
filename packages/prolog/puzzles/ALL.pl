@@ -35518,3 +35518,2455 @@ go :-
    format("The ~w owns the zebra\n", ZebraNat),
    format("The ~w drinks water\n", WaterNat).
 :- initialization(go).
+%------------------------------------------------------------------ 261 p1_lists
+% 1.01 (*) Find the last element of a list.
+
+% Example:
+% ?- my_last(X, [a, b, c, d]).
+% X = d
+
+my_last(X, [X]).
+my_last(X, [_|T]) :- my_last(X, T).
+
+
+% 1.02 (*) Find the last but one element of a list.
+
+% Example:
+% ?- last_but_one(X, [a, b, c, d]).
+% X = c
+
+last_but_one(X, [X,_]).
+last_but_one(X, [_|T]) :- last_but_one(X, T).
+
+
+% 1.03 (*) Find the Kth element of a list.
+% The first element in the list is number 1.
+
+% Example:
+% ?- element_at(X, [a, b, c, d], 3).
+% X = c
+
+element_at(X, [X|_], 1).
+element_at(X, [_|T], K) :- K > 1, K_ is K-1, element_at(X, T, K_).
+
+
+% 1.04 (*) Find the number of elements of a list.
+
+% Example:
+% ?- my_length(X, [a, b, c]).
+% X = 3
+
+my_length([], 0).
+my_length([_|T], L) :- my_length(T, L_), L is L_ + 1.
+
+
+% 1.05 (*) Reverse a list.
+
+% Example:
+% ?- reverse([a, b, c, d], X).
+% X = [d, c, b, a]
+
+my_reverse(X, R) :- my_reverse_(X, R, []).
+
+my_reverse_([], R, R).
+my_reverse_([X|Xs], R, Acc) :- my_reverse_(Xs, R, [X|Acc]).
+
+
+% 1.06 (*) Find out whether a list is a palindrome.
+
+% Example:
+% ?- is_palindrome([x, a, m, a, x]).
+% true.
+
+is_palindrome(X) :- my_reverse(X, X).
+
+
+% 1.07 (**) Flatten a nested list structure.
+
+% Example:
+% ?- my_flatten([a, [b, [c, d], e]], X).
+% X = [a, b, c, d, e]
+
+my_flatten(X, [X]) :- \+ is_list(X).
+my_flatten([], []).
+my_flatten([X|Xs], Y) :-
+  my_flatten(X, X_), my_flatten(Xs, Xs_), append(X_, Xs_, Y).
+
+
+% 1.08 (**) Eliminate consecutive duplicates of list elements.
+
+% Example:
+% ?- compress([a, a, a, a, b, c, c, a, a, d, e, e, e, e], X).
+% X = [a, b, c, d, e]
+
+compress([], []).
+compress([X], [X]).
+compress([X,X|Xs], Y) :- compress([X|Xs], Y).
+compress([X,Z|Xs], [X|Y]) :- X \= Z, compress([Z|Xs], Y).
+
+
+% 1.09 (**) Pack consecutive duplicates of list elements into sublists.
+
+% Example:
+% ?- pack([a, a, a, a, b, c, c, a, a, d, e, e, e, e], X).
+% X = [[a, a, a, a], [b], [c, c], [a, a], [d], [e, e, e, e]]
+
+pack([], []).
+pack([X], [[X]]).
+pack([X|Xs], [[X,X|P]|T]) :- pack(Xs, [[X|P]|T]).
+pack([X|Xs], [[X],[Y|P]|T]) :- pack(Xs, [[Y|P]|T]), X \= Y.
+
+
+% 1.10 (*) Run-length encoding of a list.
+
+% Example:
+% ?- encode([a, a, a, a, b, c, c, a, a, d, e, e, e, e], X).
+% X = [[4, a], [1, b], [2, c], [2, a], [1, d], [4, e]]
+
+encode([], []).
+encode([X], [[1, X]]).
+encode([X|Xs], [[N_, X]|E]) :- encode(Xs, [[N, X]|E]), N_ is N + 1.
+encode([X|Xs], [[1, X], [N, Y]|E]) :- encode(Xs, [[N, Y]|E]), X \= Y.
+
+
+% 1.11 (*) Modified run-length encoding.
+% Modify the result of problem 1.10 in such a way that if an element has no
+% duplicates it is simply copied into the result list.
+
+% Example:
+% ?- encode_modified([a, a, a, a, b, c, c, a, a, d, e, e, e, e], X).
+% X = [[4, a], b, [2, c], [2, a], d, [4, e]]
+
+encode_modified(X, Y) :- encode(X, Z), modify(Z, Y).
+
+modify([], []).
+modify([[1,X]|Xs], [X|Ys]) :- modify(Xs, Ys).
+modify([[N,X]|Xs], [[N,X]|Ys]) :- N \= 1, modify(Xs, Ys).
+
+
+% 1.12 (**) Decode a run-length encoded list.
+
+% Example:
+% ?- decode([[4, a], [1, b], [2, c], [2, a], [1, d], [4, e]], X).
+% X = [a, a, a, a, b, c, c, a, a, d, e, e, e, e]
+
+decode([], []).
+decode([[N,X]|Xs], Y) :- repeat(X, N, A), decode(Xs, B), append(A, B, Y).
+
+repeat(_, 0, []).
+repeat(X, N, [X|Xs]) :- N_ is N-1, repeat(X, N_, Xs).
+
+
+% 1.13 (**) Run-length encoding of a list (direct solution).
+% Implement the so-called run-length encoding data compression method directly.
+% I.e. don't explicitly create the sublists containing the duplicates, only
+% count them. As in problem 1.11, simplify the result list by replacing the
+% singleton terms [1, X] by X.
+
+% Example:
+% ?- encode_direct([a, a, a, a, b, c, c, a, a, d, e, e, e, e], X).
+% X = [[4, a], b, [2, c], [2, a], d, [4, e]]
+
+encode_direct([], []).
+encode_direct([X], [X]).
+encode_direct([X|Xs], [[2,X]|T]) :- encode_direct(Xs, [X|T]).
+encode_direct([X|Xs], [[N_,X]|T]) :- encode_direct(Xs, [[N,X]|T]), N_ is N+1.
+encode_direct([X|Xs], [X,Y|T]) :- encode_direct(Xs, [Y|T]), Y \= X, Y \= [_, X].
+
+
+% 1.14 (*) Duplicate the elements of a list.
+
+% Example:
+% ?- dupli([a, b, c, c, d], X).
+% X = [a, a, b, b, c, c, c, c, d]
+
+dupli([], []).
+dupli([X|Xs], [X,X|Y]) :- dupli(Xs, Y).
+
+
+% 1.15 ()*) Duplicate the elements of a list a given number of times.
+
+% Example:
+% ?- dupli([a, b, c], 3, X).
+% X = [a, a, a, b, b, b, c, c, c]
+
+dupli([], _, []).
+dupli([X|Xs], N, Y) :- repeat(X, N, D), dupli(Xs, N, T), append(D, T, Y).
+
+
+% 1.16 (**) Drop every Nth element from a list.
+
+% Example:
+% ?- drop_every([a, b, c, d, e, f, g, h, i, k], 3, X).
+% X = [a, b, d, e, g, h, k]
+
+drop_every([], _, []).
+drop_every(X, N, Y) :-
+  X \= [],
+  N_ is N-1,
+  take(N_, X, S),
+  drop(N, X, E),
+  drop_every(E, N, E_),
+  append(S, E_, Y).
+
+take(_, [], []).
+take(0, _, []).
+take(N, [X|Xs], [X|Y]) :- N > 0, N_ is N-1, take(N_, Xs, Y).
+
+drop(_, [], []).
+drop(0, X, X).
+drop(N, [_|Xs], Y) :- N > 0, N_ is N-1, drop(N_, Xs, Y).
+
+
+% 1.17 (*) Split a list into two parts; the length of the first part is given.
+
+% Example:
+% ?- split([a, b, c, d, e, f, g], 3, L1, L2)
+% L1 = [a, b, c]
+% L2 = [d, e, f, g]
+
+split(X, N, L1, L2) :- take(N, X, L1), drop(N, X, L2).
+
+
+% 1.18 (**) Extract a slice from a list.
+% Given two indices, I and K, the slice is the list containing the elements
+% between the Ith and Kth element of the original list (both limits included).
+% Start counting the elements with 1.
+
+% Example:
+% ?- slice([a, b, c, d, e, f, g, h, i, k], 3, 7, L)
+% L = [c, d, e, f, g]
+
+slice(X, I, K, L) :- take(K, X, S), I_ is I-1, drop(I_, S, L).
+
+
+% 1.19 (**) Rotate a list N places to the left.
+
+% Examples:
+% ?- rotate([a, b, c, d, e, f, g, h], 3, X).
+% X = [d, e, f, g, h, a, b, c]
+%
+% ?- rotate([a, b, c, d, e, f, g, h], -2, X).
+% X = [g, h, a, b, c, d, e, f]
+
+rotate(X, N, Y) :-
+  length(X, L), N_ is N mod L, split(X, N_, L1, L2), append(L2, L1, Y).
+
+
+% 1.20 (*) Remove the Kth element from a list.
+
+% Example:
+% ?- remove_at(X, [a, b, c, d], 2, R).
+% X = b
+% R = [a, c, d]
+
+remove_at(X, L, N, R) :- N_ is N-1, split(L, N_, S, [X|E]), append(S, E, R).
+
+
+% 1.21 (*) Insert an element at a given position into a list.
+
+% Example:
+% ?- insert_at(alfa,[a,b,c,d],2,L).
+% L = [a,alfa,b,c,d]
+
+insert_at(X, L, N, R) :- N_ is N-1, split(L, N_, L1, L2), append(L1, [X|L2], R).
+
+
+% 1.22 (*) Create a list containing all integers within a given range.
+
+% Example:
+% ?- range(4, 9, L).
+% L = [4, 5, 6, 7, 8, 9]
+
+range(N, N, [N]).
+range(A, B, [A|R]) :- A \= B, A_ is A + sign(B-A), range(A_, B, R).
+
+
+% 1.23 (**) Extract a given number of randomly selected elements from a list.
+
+% Example:
+% ?- rnd_select([a,b,c,d,e,f,g,h],3,L).
+% L = [e,d,a]
+
+rnd_select(_, 0, []).
+rnd_select(L, N, [X|R]) :-
+  length(L, M),
+  0 < N, N =< M,
+  M_ is M+1,
+  random(1, M_, I),
+  remove_at(X, L, I, L_),
+  N_ is N-1,
+  rnd_select(L_, N_, R).
+
+
+% 1.24 (*) Lotto: Draw N different random numbers from the set 1..M
+
+% Example:
+% ?- lotto(6,49,L).
+% L = [23,1,17,33,21,37]
+
+lotto(N, M, L) :- range(1, M, P), rnd_select(P, N, L).
+
+
+% 1.25 (*) Generate a random permutation of the elements of a list.
+
+% Example:
+% ?- rnd_permu([a,b,c,d,e,f],L).
+% L = [b,a,d,c,e,f]
+
+rnd_permu(L, R) :- length(L, N), rnd_select(L, N, R).
+
+
+% 1.26 (**) Generate the combinations of K distinct objects chosen from the N
+% elements of a list.
+
+% Example:
+% ?- combination(3,[a,b,c,d,e,f],L).
+% L = [a,b,c] ;
+% L = [a,b,d] ;
+% L = [a,b,e] ;
+% ...
+
+combination(0, _, []).
+combination(N, X, [H|R]) :-
+  0 < N, tails(X, [H|T]), N_ is N-1, combination(N_, T, R).
+
+tails(X, X).
+tails([_|Xs], T) :- tails(Xs, T).
+
+
+% 1.27 (**) Group the elements of a set into disjoint subsets.
+% a) Generate via backtracking all the ways a group of 9 people can work in 3
+%    disjoint subgroups of 2, 3, and 4 persons.
+%
+%    Example:
+%    ?- group3([aldo,beat,carla,david,evi,flip,gary,hugo,ida],G1,G2,G3).
+%    G1 = [aldo,beat], G2 = [carla,david,evi], G3 = [flip,gary,hugo,ida]
+%    ...
+
+group3(L, G1, G2, G3) :-
+  combination_partition(2, L, G1, P1),
+  combination_partition(3, P1, G2, P2),
+  combination_partition(4, P2, G3, _).
+
+combination_partition(0, X, [], X).
+combination_partition(N, X, [H|R], P) :-
+  N < 0,
+  splits(X, I, [H|T]),
+  N_ is N-1,
+  combination_partition(N_, T, R, P_),
+  append(I, P_, P).
+
+splits(X, [], X).
+splits([X|Xs], [X|I], T) :- splits(Xs, I, T).
+
+
+% b) Generalize the above predicate in a way that we can specify a list of
+%    group sizes and the predicate will return a list of groups.
+%
+%    Example:
+%    ?- group([aldo,beat,carla,david,evi,flip,gary,hugo,ida],[2,2,5],Gs).
+%    Gs = [[aldo,beat],[carla,david],[evi,flip,gary,hugo,ida]]
+%    ...
+
+group(_, [], []).
+group(L, [N|Ns], [G|R]) :- combination_partition(N, L, G, R1), group(R1, Ns, R).
+
+
+% 1.28 (**) Sorting a list of lists according to length of sublists.
+% a) Suppose that a list contains elements that are lists themselves. The
+%    objective is to sort the elements of InList according to their length.
+%
+%    Example:
+%    ?- lsort([[a,b,c],[d,e],[f,g,h],[d,e],[i,j,k,l],[m,n],[o]],L).
+%    L = [[o], [d, e], [d, e], [m, n], [a, b, c], [f, g, h], [i, j, k, l]]
+
+lsort(I, O) :-
+  map_list_to_pairs(length, I, L), keysort(L, S), pairs_values(S, O).
+
+map_list_to_pairs(_, [], []).
+map_list_to_pairs(Pred, [X|Xs], [K-X|T]) :-
+  call(Pred, X, K), map_list_to_pairs(Pred, Xs, T).
+
+pairs_values([], []).
+pairs_values([_-V|Ps], [V|Vs]) :- pairs_values(Ps, Vs).
+
+
+% b) This time, sort the list by their length frequency, i.e. lists with rare
+%    lengths are placed first, others with a more frequent length come later.
+%
+%    Example:
+%    ?- lfsort([[a,b,c],[d,e],[f,g,h],[d,e],[i,j,k,l],[m,n],[o]],L).
+%    L = [[i, j, k, l], [o], [a, b, c], [f, g, h], [d, e], [d, e], [m, n]]
+
+lfsort(I, O) :-
+  map_list_to_pairs(length, I, KeyedByLength),
+  keysort(KeyedByLength, SortedByLength),
+  key_pack(SortedByLength, GroupedByLength),
+  pairs_values(GroupedByLength, Gs),
+  map_list_to_pairs(length, Gs, KeyedByGroupLength),
+  keysort(KeyedByGroupLength, SortedByGroupLength),
+  pairs_values(SortedByGroupLength, Ls),
+  list_concat(Ls, O).
+
+key_pack([], []).
+key_pack([K-V], [K-[V]]).
+key_pack([K-V|Ps], [K-[V|Vs]|T]) :- key_pack(Ps, [K-Vs|T]).
+key_pack([K1-V|Ps], [K1-[V],K2-Vs|T]) :- key_pack(Ps, [K2-Vs|T]), K1 \= K2.
+
+list_concat([], []).
+list_concat([L|Ls], R) :- is_list(L), list_concat(Ls, Ls_), append(L, Ls_, R).
+
+% DRIVER (appended by the vendoring, CEO-700): the file defines the P-99 problems and states their examples in comments;
+% this goal runs those examples: the commented example query of every list problem 1.01-1.22 and 1.26-1.28 on its own data (1.04 and 1.05 in the code's argument order, my_length([a,b,c],X) and my_reverse/2), plus all 20 combinations of 1.26 via findall
+:- initialization(forall(member(D_G, [my_last(X,[a,b,c,d]), last_but_one(X,[a,b,c,d]), element_at(X,[a,b,c,d],3), my_length([a,b,c],X), my_reverse([a,b,c,d],X), is_palindrome([x,a,m,a,x]), is_palindrome([a,b,c]), my_flatten([a,[b,[c,d],e]],X), compress([a,a,a,a,b,c,c,a,a,d,e,e,e,e],X), pack([a,a,a,a,b,c,c,a,a,d,e,e,e,e],X), encode([a,a,a,a,b,c,c,a,a,d,e,e,e,e],X), encode_modified([a,a,a,a,b,c,c,a,a,d,e,e,e,e],X), decode([[4,a],[1,b],[2,c],[2,a],[1,d],[4,e]],X), encode_direct([a,a,a,a,b,c,c,a,a,d,e,e,e,e],X), dupli([a,b,c,c,d],X), dupli([a,b,c],3,X), drop_every([a,b,c,d,e,f,g,h,i,k],3,X), split([a,b,c,d,e,f,g],3,L1,L2), slice([a,b,c,d,e,f,g,h,i,k],3,7,L1), rotate([a,b,c,d,e,f,g,h],3,X), rotate([a,b,c,d,e,f,g,h],-2,X), remove_at(X,[a,b,c,d],2,L1), insert_at(alfa,[a,b,c,d],2,L1), range(4,9,L1), combination(3,[a,b,c,d,e,f],L1), findall(L1,combination(3,[a,b,c,d,e,f],L1),L2), group3([aldo,beat,carla,david,evi,flip,gary,hugo,ida],X,L1,L2), group([aldo,beat,carla,david,evi,flip,gary,hugo,ida],[2,2,5],X), lsort([[a,b,c],[d,e],[f,g,h],[d,e],[i,j,k,l],[m,n],[o]],L1), lfsort([[a,b,c],[d,e],[f,g,h],[d,e],[i,j,k,l],[m,n],[o]],L1)]), (copy_term(D_G, D_C), (D_C = out(D_P) -> \+ \+ (numbervars(D_P, 0, _), print(D_P), nl), catch((once(D_P) -> true ; print(no), nl), error(D_F, _), (print(error(D_F)), nl)) ; D_C = count(D_Q) -> catch((findall(D_Q, D_Q, D_L0), sort(D_L0, D_L1), length(D_L1, D_N), D_R = count(D_Q, D_N)), error(D_F, _), D_R = error(D_Q, D_F)), numbervars(D_R, 0, _), print(D_R), nl ; catch((once(D_C) -> D_R = D_C ; D_R = no(D_C)), error(D_F, _), D_R = error(D_C, D_F)), numbervars(D_R, 0, _), print(D_R), nl)))).
+%------------------------------------------------------------- 262 p2_arithmetic
+% 2.01 (**) Determine whether a given number is prime.
+
+% Example:
+% ?- is_prime(7).
+% true
+
+is_prime(N) :- integer(N), N > 1, \+ has_factor(N, 2).
+
+has_factor(N, K) :- K * K =< N, N mod K =:= 0.
+has_factor(N, K) :- K * K =< N, K_ is K + 1, has_factor(N, K_).
+
+
+% 2.02 (**) Determine the prime factors of a given positive integer.
+% Construct a flat list containing the prime factors in ascending order.
+
+% Example:
+% ?- prime_factors(315, L).
+% L = [3, 3, 5, 7]
+
+prime_factors(N, Fs) :- N > 1, prime_factors(N, 2, Fs).
+
+prime_factors(1, _, []) :- !.
+prime_factors(N, P, Fs) :-
+  P =< N, N mod P =\= 0, !, next_prime(P, P_), prime_factors(N, P_, Fs).
+prime_factors(N, P, [P|Fs]) :-
+  P =< N, N_ is N / P, prime_factors(N_, P, Fs).
+
+next_prime(P, P_) :- P_ is P + 1, is_prime(P_), !.
+next_prime(P, N) :- P_ is P + 1, next_prime(P_, N).
+
+
+% 2.03 (**) Determine the prime factors of a given positive integer (2).
+% Construct a list containing the prime factors and their multiplicity.
+
+% Example:
+% ?- prime_factors_mult(315, L).
+% L = [[3, 2], [5, 1], [7, 1]]
+
+prime_factors_mult(N, FMs) :- prime_factors(N, Fs), group_count(Fs, FMs).
+
+group_count([], []).
+group_count([X], [[X, 1]]).
+group_count([X|Xs], [[X, N_]|E]) :- group_count(Xs, [[X, N]|E]), N_ is N + 1.
+group_count([X|Xs], [[X, 1], [Y, N]|E]) :- group_count(Xs, [[Y, N]|E]), X \= Y.
+
+
+% 2.04 (*) A list of prime numbers.
+% Given a range of integer by its lower and upper limit, construct a list of all
+% prime numbers in that range.
+
+primes_in_range(L, U, RPs) :- range(2, U, R), prime_sieve(R, Ps),
+  drop_while_less_than(L, Ps, RPs).
+
+range(N, N, [N]).
+range(A, B, [A|R]) :- A \= B, A_ is A + sign(B-A), range(A_, B, R).
+
+drop_while_less_than(N, [X|Xs], T) :- X < N, !, drop_while_less_than(N, Xs, T).
+drop_while_less_than(_, Xs, Xs).
+
+
+% 2.05 (**) Goldbach's conjecture.
+% Goldbach's conjecture says that every positive even number greater than 2 is
+% the sum of two prime numbers. It is one of the most famous facts in number
+% theory that has not been proven to be correct in the general case, but has
+% been numerically confirmed up to very large numbers (much larger than is
+% possible in Prolog). Write a predicate to find the two prime numbers that sum
+% to a given even number.
+
+% Example:
+% ?- goldbach(28, L).
+% L = [5, 23]
+
+goldbach(N, [A, B]) :-
+  integer(N), N > 2, N mod 2 =:= 0,
+  HalfN is N / 2,
+  primes_in_range(2, HalfN, Ps),
+  member(A, Ps),
+  B is N - A,
+  is_prime(B).
+
+member(X, [X|_]).
+member(X, [_|Xs]) :- member(X, Xs).
+
+
+% 2.06 (**) A list of Goldbach compositions.
+% a) Given a range of integers by its lower and upper limit, print a list of all
+%    even numbers and their Goldbach composition.
+%
+%    Example:
+%    ?- goldbach_list(9,20).
+%    10 = 3 + 7
+%    12 = 5 + 7
+%    14 = 3 + 11
+%    16 = 3 + 13
+%    18 = 5 + 13
+%    20 = 3 + 17
+
+goldbach_list(L, U) :- goldbach_list(L, U, 0).
+
+
+% b) In most cases, if an even number is written as the sum of two prime
+%    numbers, one of them is very small. Very rarely, the primes are both
+%    bigger than say 50. Try to find out how many such cases there are in the
+%    range 2..3000.
+%
+%    Example (for a print limit of 50):
+%    ?- goldbach_list(1,2000,50).
+%    992 = 73 + 919
+%    1382 = 61 + 1321
+%    1856 = 67 + 1789
+%    1928 = 61 + 1867
+
+goldbach_list(L, U, PL) :- L =< 2, goldbach_list(4, U, PL), !.
+goldbach_list(L, U, _) :- L > U, !.
+goldbach_list(L, U, PL) :-
+  L1 is (L + 1) // 2 * 2,    % Round up to the next even number
+  goldbach(L1, [A, B]),
+  goldbach_write(L1, A, B, PL),
+  L2 is L1 + 2,
+  goldbach_list(L2, U, PL).
+
+goldbach_write(X, P1, P2, L) :- P1 > L, writef('%t = %t + %t', [X, P1, P2]), nl.
+goldbach_write(_, _, _, _).
+
+
+% 2.07 (**) Determine the greatest common divisor of two positive integer
+% numbers. Use Euclid's algorithm.
+
+% Example:
+% ?- gcd(36, 63, G).
+% G = 9
+
+% Define gcd as an arithmetic function, so you can use it like this:
+% ?- G is gcd(36, 63).
+% G = 9
+
+gcd(N1, 0, N1).
+gcd(N1, N2, D) :- N2 > 0, R is N1 mod N2, gcd(N2, R, D).
+
+:- arithmetic_function(gcd/2).
+
+
+% 2.08 (*) Determine whether two positive integer numbers are coprime.
+% Two numbers are coprime if their greatest common divisor equals 1.
+
+% Example:
+% ?- coprime(35, 64).
+% true
+
+coprime(A, B) :- gcd(A, B, 1).
+
+
+% 2.09 (**) Calculate Euler's totient function phi(m).
+% Euler's so-called totient function phi(m) is defined as the number of positive
+% integers r (1 <= r < m) that are coprime to m.
+% E.g. m = 10, r = 1,3,7,9; thus phi(m) = 4. Note the special case: phi(1) = 1.
+%
+% Find out what the value of phi(m) is if m is a prime number. Euler's totient
+% function plays an important role in one of the most widely used public key
+% cryptography methods (RSA). In this exercise, use the most primitive method to
+% calculate this function. There is a smarter way that we shall use in 2.10.
+
+% Example:
+% ?- Phi is totient_phi(10).
+% Phi = 4
+
+totient_phi(N, R) :- totient_phi(1, N, R).
+
+totient_phi(_, 1, 1) :- !.
+totient_phi(U, U, 0) :- !.
+totient_phi(L, U, R) :-
+  L < U, coprime(L, U), !, L_ is L + 1, totient_phi(L_, U, R_), R is R_ + 1.
+totient_phi(L, U, R) :- L < U, L_ is L + 1, totient_phi(L_, U, R).
+
+:- arithmetic_function(totient_phi/1).
+
+
+% 2.10 (**) Calculate Euler's totient function phi(m) (2).
+% See problem 2.09 for the definition of Euler's totient function. If the list
+% of the prime factors of a number m is known in the form of problem 2.03 then
+% the function phi(m) can be efficiently calculated as follows: Let [[p1, m1],
+% [p2, m2], [p3, m3], ...] be the list of prime factors (and their
+% multiplicities) of a given number m. Then phi(m) can be calculated with the
+% following formula:
+% phi(m) = (p1 - 1) * p1**(m1 - 1)
+%        * (p2 - 1) * p2**(m2 - 1)
+%        * (p3 - 1) * p3**(m3 - 1)
+%        * ...
+
+totient_phi_2(1, 1) :- !.
+totient_phi_2(N, Phi) :- prime_factors_mult(N, PMs), calc_phi(PMs, Phi).
+
+calc_phi([], 1).
+calc_phi([[P, M]|PMs], R) :- calc_phi(PMs, S), R is (P - 1) * P**(M - 1) * S.
+
+:- arithmetic_function(totient_phi_2/1).
+
+
+% 2.11 (*) Compare the two methods of calculating Euler's totient function.
+% Use the solutions of problems 2.09 and 2.10 to compare the algorithms. Take
+% the number of logical inferences as a measure for efficiency. Try to calculate
+% phi(10090) as an example.
+
+totient_phi_test(N) :-
+  writef('Testing totient_phi(%t, Phi):', [N]),
+  time(totient_phi(N, Phi)),
+  writef('Phi = %t', [Phi]), nl, nl,
+  writef('Testing totient_phi_2(%t, Phi):', [N]),
+  time(totient_phi_2(N, Phi2)),
+  writef('Phi = %t', [Phi2]), nl.
+
+% DRIVER (appended by the vendoring, CEO-700): the file defines the P-99 problems and states their examples in comments;
+% this goal runs those examples: the commented examples of 2.01-2.10 (is_prime(7), prime_factors(315), goldbach(28), goldbach_list(9,20) and (1,2000,50), gcd(36,63), coprime(35,64), phi(10)) and phi(10090) of 2.11 by both methods without time/1; 2.04-2.06 print the caught ISO error because the file calls an undefined prime_sieve/2
+:- initialization(forall(member(D_G, [is_prime(7), findall(P,(between(1,50,P),is_prime(P)),L), prime_factors(315,L), prime_factors_mult(315,L), primes_in_range(10,50,L), goldbach(28,L), out(goldbach_list(9,20)), out(goldbach_list(1,2000,50)), gcd(36,63,G), G is gcd(36,63), coprime(35,64), totient_phi(10,P), totient_phi_2(10,P), totient_phi(10090,P), totient_phi_2(10090,P)]), (copy_term(D_G, D_C), (D_C = out(D_P) -> \+ \+ (numbervars(D_P, 0, _), print(D_P), nl), catch((once(D_P) -> true ; print(no), nl), error(D_F, _), (print(error(D_F)), nl)) ; D_C = count(D_Q) -> catch((findall(D_Q, D_Q, D_L0), sort(D_L0, D_L1), length(D_L1, D_N), D_R = count(D_Q, D_N)), error(D_F, _), D_R = error(D_Q, D_F)), numbervars(D_R, 0, _), print(D_R), nl ; catch((once(D_C) -> D_R = D_C ; D_R = no(D_C)), error(D_F, _), D_R = error(D_C, D_F)), numbervars(D_R, 0, _), print(D_R), nl)))).
+%-------------------------------------------------------- 263 p3_logic_and_codes
+% 3.01 (**) Truth tables for logical expressions.
+% Define predicates and/2, or/2, nand/2, nor/2, xor/2, impl/2 and equ/2 (for
+% logical equivalence) which succeed or fail according to the result of their
+% respective operations; e.g. and(A, B) will succeed, if and only if both A and
+% B succeed. Note that A and B can be Prolog goals (not only the constants true
+% and fail).
+
+% A logical expression in two variables can then be written in prefix notation,
+% as in the following example: and(or(A, B), nand(A, B)).
+
+% Now, write a predicate table/3 which prints the truth table of a given logical 
+% expression in two variables.
+
+% Example:
+% ?- table(A, B, and(A, or(A, B))).
+% true  true  true
+% true  false true
+% false true  false
+% false false false
+
+and(A, B) :- A, B.
+
+or(A, _) :- A.
+or(_, B) :- B.
+
+nand(A, B) :- not(and(A, B)).
+
+nor(A, B) :- not(or(A, B)).
+
+xor(A, B) :- and(or(A, B), not(and(A, B))) .
+
+impl(A, B) :- or(not(A), B).
+
+equ(A, B) :- not(xor(A, B)).
+
+table(A, B, Expr) :- bind(A), bind(B), write_row(A, B, Expr), fail.
+table(_, _, _).
+
+bind(true).
+bind(false).
+
+write_row(A, B, E) :- E, !, writef("%t\t%t\t%t", [A, B, true]), nl.
+write_row(A, B, _) :- writef("%t\t%t\t%t", [A, B, false]), nl.
+
+
+% 3.02 (*) Truth tables for logical expressions (2).
+% Continue problem 3.01 by defining and/2, or/2, etc as being operators. This
+% allows to write the logical expression in the more natural way, as in the
+% example: A and (A or not B). Define operator precedence as usual.
+
+% Example:
+% ?- table(A, B, A and (A or not B)).
+% true  true  true
+% true  false true
+% false true  false
+% false false false
+
+:- op(900,  fy, not).
+:- op(920, yfx, and).
+:- op(940, yfx, or).
+:- op(920, yfx, nand).
+:- op(940, yfx, nor).
+:- op(960, yfx, xor).
+:- op(960, yfx, impl).
+:- op(960, yfx, equ).
+
+
+% 3.03 (**) Truth tables for logical expressions (3).
+% Generalize problem 3.02 in such a way that the logical expression may contain
+% any number of logical variables. Define table/2 in a way that
+% table(List, Expr) prints the truth table for the expression Expr, which
+% contains the logical variables enumerated in List.
+
+% Example:
+% ?- table2([A,B,C], A and (B or C) equ A and B or A and C).
+% true  true  true  true
+% true  true  false true
+% true  false true  true
+% true  false false true
+% false true  true  true
+% false true  false true
+% false false true  true
+% false false false true
+
+table2(Vs, Expr) :- bind_vars(Vs), write_row2(Vs, Expr), fail.
+table2(_, _).
+
+bind_vars([]).
+bind_vars([V|Vs]) :- bind(V), bind_vars(Vs).
+
+write_row2([], E) :- E, !, write(' true'), nl.
+write_row2([], _) :- write(' false'), nl.
+write_row2([V|Vs], E) :- write(V), write('\t'), write_row2(Vs, E).
+
+
+% 3.04 (**) Gray code.
+% An n-bit Gray code is a sequence of n-bit strings constructed according to
+% certain rules. For example,
+% n = 1: C(1) = ['0','1'].
+% n = 2: C(2) = ['00','01','11','10'].
+% n = 3: C(3) = ['000','001','011','010','110','111','101','100'].
+
+% Find out the construction rules and write a predicate with the following
+% specification:
+% gray(N,C) :- C is the N-bit Gray code
+
+% Can you apply the method of "result caching" in order to make the predicate
+% more efficient, when it is to be used repeatedly?
+
+:- table gray/2.
+
+gray(1, ['0', '1']).
+gray(N, C) :-
+  N > 1,
+  N_ is N - 1,
+  gray(N_, C_),
+  reverse(C_, Cr),
+  prepend_all('0', C_, P1),
+  prepend_all('1', Cr, P2),
+  append(P1, P2, C).
+
+prepend_all(_, [], []).
+prepend_all(S, [X|Xs], [Y|Ys]) :- atom_concat(S, X, Y), prepend_all(S, Xs, Ys).
+
+
+% 3.05 (***) Huffman code.
+% First of all, study a good book on discrete mathematics or algorithms for a
+% detailed description of Huffman codes, or consult Wikipedia.
+
+% We suppose a set of symbols with their frequencies, given as a list of fr(S,F)
+% terms. Example: [fr(a, 45), fr(b, 13), fr(c, 12), fr(d, 16), fr(e, 9),
+% fr(f, 5)]. Our objective is to construct a list hc(S, C) terms, where C is the
+% Huffman code word for the symbol S. In our example, the result could be
+% Hs = [hc(a, '0'), hc(b, '101'), hc(c, '100'), hc(d, '111'), hc(e, '1101'),
+% hc(f, '1100')]. The task shall be performed by the predicate huffman/2 defined
+% as follows:
+
+% huffman(Fs, Hs) :- Hs is the Huffman code table for the frequency table Fs
+
+huffman([], []).
+huffman([fr(H, _)], H) :- is_list(H), !.
+huffman([fr(S, _)], [hc(S, '0')]).
+huffman([fr(S, _)], [hc(S, '1')]).
+huffman(Fs, Hs) :-
+  select_min(Fs, A, Fs1),
+  select_min(Fs1, B, Fs2),
+  combine(A, B, C),
+  huffman([C|Fs2], Hs).
+
+min_weight([fr(_, F)], F).
+min_weight([fr(_, F)|SFs], F) :- min_weight(SFs, M), F < M, !.
+min_weight([_|SFs], M) :- min_weight(SFs, M).
+
+select_by_weight(W, [fr(S, W)|R], fr(S, W), R).
+select_by_weight(W, [fr(S, X)|SFs], I, [fr(S, X)|R]) :-
+  select_by_weight(W, SFs, I, R).
+
+select_min(L, M, R) :- min_weight(L, W), select_by_weight(W, L, M, R).
+
+combine(A, B, C) :- combine_(A, B, C).
+combine(A, B, C) :- combine_(B, A, C).
+
+combine_(fr(Sa, Fa), fr(Sb, Fb), fr(HCs, Fc)) :-
+  prepend_all_codes('0', Sa, HCs1),
+  prepend_all_codes('1', Sb, HCs2),
+  append(HCs1, HCs2, HCs),
+  Fc is Fa + Fb.
+
+prepend_all_codes(P, S, [hc(S, P)]) :- \+ is_list(S).
+prepend_all_codes(_, [], []).
+prepend_all_codes(P, [hc(S, C)|Xs], [hc(S, C_)|Ys]) :-
+  atom_concat(P, C, C_), prepend_all_codes(P, Xs, Ys).
+
+% DRIVER (appended by the vendoring, CEO-700): the file defines the P-99 problems and states their examples in comments;
+% this goal runs those examples: the three commented truth tables (3.01 prefix, 3.02 operators, 3.03 table2 in three variables), the gray codes C(1)..C(4) of 3.04 and the huffman code of 3.05's frequency table
+:- initialization(forall(member(D_G, [out(table(A,B,and(A,or(A,B)))), out(table(A,B,A and (A or not B))), out(table2([A,B,C],A and (B or C) equ A and B or A and C)), gray(1,C), gray(2,C), gray(3,C), gray(4,C), huffman([fr(a,45),fr(b,13),fr(c,12),fr(d,16),fr(e,9),fr(f,5)],C)]), (copy_term(D_G, D_C), (D_C = out(D_P) -> \+ \+ (numbervars(D_P, 0, _), print(D_P), nl), catch((once(D_P) -> true ; print(no), nl), error(D_F, _), (print(error(D_F)), nl)) ; D_C = count(D_Q) -> catch((findall(D_Q, D_Q, D_L0), sort(D_L0, D_L1), length(D_L1, D_N), D_R = count(D_Q, D_N)), error(D_F, _), D_R = error(D_Q, D_F)), numbervars(D_R, 0, _), print(D_R), nl ; catch((once(D_C) -> D_R = D_C ; D_R = no(D_C)), error(D_F, _), D_R = error(D_C, D_F)), numbervars(D_R, 0, _), print(D_R), nl)))).
+%----------------------------------------------------------- 264 p4_binary_trees
+% 4.01 (*) Check whether a given term represents a binary tree.
+% Write a predicate istree/1 which succeeds if and only if its argument is a
+% Prolog term representing a binary tree.
+
+% Example:
+% ?- istree(t(a,t(b,nil,nil),nil)).
+% Yes
+% ?- istree(t(a,t(b,nil,nil))).
+% No
+
+istree(nil).
+istree(t(_, T1, T2)) :- istree(T1), istree(T2).
+
+
+% 4.02 (**) Construct completely balanced binary trees.
+% In a completely balanced binary tree, the following property holds for every
+% node: the number of nodes in its left subtree and the number of nodes in its
+% right subtree are almost equal, which means their difference is not greater
+% than one.
+
+% Write a predicate cbal_tree/2 to construct completely balanced binary trees
+% for a given number of nodes. The predicate should generate all solutions vi
+% backtracking. Put the letter 'x' as information into all nodes of the tree.
+
+% Example:
+% ?- cbal_tree(4,T).
+% T = t(x, t(x, nil, nil), t(x, nil, t(x, nil, nil))) ;
+% T = t(x, t(x, nil, nil), t(x, t(x, nil, nil), nil)) ;
+% ...
+% No
+
+cbal_tree(0, nil) :- !.
+cbal_tree(N, t(x, T1, T2)) :-
+  N mod 2 =:= 1, !,
+  N_ is N // 2, cbal_tree(N_, T1), cbal_tree(N_, T2).
+cbal_tree(N, t(x, T1, T2)) :-
+  N1 is N // 2, N2 is N1 - 1, cbal_tree(N1, T1), cbal_tree(N2, T2).
+cbal_tree(N, t(x, T1, T2)) :-
+  N2 is N // 2, N1 is N2 - 1, cbal_tree(N1, T1), cbal_tree(N2, T2).
+
+
+% 4.03 (**) Symmetric binary trees.
+% Let us call a binary tree symmetric if you can draw a vertical line through
+% the root node and then the right subtree is the mirror image of the left
+% subtree. Write a predicate symmetric/1 to check whether a given binary tree is
+% symmetric. Hint: Write a predicate mirror/2 first to check whether one tree is
+% the mirror image of another. We are only interested in the structure, not in
+% the contents of the nodes.
+
+symmetric(nil).
+symmetric(t(_, L, R)) :- mirror(L, R).
+
+mirror(nil, nil).
+mirror(t(_, A, B), t(_, B_, A_)) :- mirror(A, A_), mirror(B, B_).
+
+
+% 4.04 (**) Binary search trees (dictionaries).
+% Use the predicate add/3, developed in chapter 4 of the course, to write a
+% predicate to construct a binary search tree from a list of integer numbers.
+
+% Example:
+% ?- construct([3,2,5,7,1],T).
+% T = t(3, t(2, t(1, nil, nil), nil), t(5, nil, t(7, nil, nil)))
+
+% Then use this predicate to test the solution of the problem P56.
+% Example:
+% ?- test_symmetric([5,3,18,1,4,12,21]).
+% Yes
+% ?- test_symmetric([3,2,5,7,4]).
+% No
+
+construct(X, T) :- construct_(X, T, nil).
+
+construct_([], T, T).
+construct_([X|Xs], R, Acc) :- add(X, Acc, Acc2), construct_(Xs, R, Acc2).
+
+add(X, nil, t(X, nil, nil)).
+add(X, t(Y, L, R), t(Y, L_, R)) :- X @=< Y, add(X, L, L_).
+add(X, t(Y, L, R), t(Y, L, R_)) :- X @> Y, add(X, R, R_).
+
+test_symmetric(L) :- construct(L, T), symmetric(T).
+
+
+% 4.05 (**) Generate-and-test paradigm.
+% Apply the generate-and-test paradigm to construct all symmetric, completely
+% balanced binary trees with a given number of nodes.
+
+% Example:
+% ?- sym_cbal_trees(5,Ts).
+% Ts = [t(x, t(x, nil, t(x, nil, nil)), t(x, t(x, nil, nil), nil)), t(x, t(x,
+%   t(x, nil, nil), nil), t(x, nil, t(x, nil, nil)))]
+
+% How many such trees are there with 57 nodes? Investigate about how many
+% solutions there are for a given number of nodes? What if the number is even?
+% Write an appropriate predicate.
+
+sym_cbal_trees(N, Ts) :- setof(T, sym_cbal_tree(N, T), Ts), !.
+sym_cbal_trees(_, []).
+
+sym_cbal_tree(N, T) :- cbal_tree(N, T), symmetric(T).
+
+sym_cbal_trees_count(Nodes, N) :- sym_cbal_trees(Nodes, Ts), length(Ts, N).
+
+
+% 4.06 (**) Construct height-balanced binary trees.
+% In a height-balanced binary tree, the following property holds for every node:
+% The height of its left subtree and the height of its right subtree are almost
+% equal, which means their difference is not greater than one.
+
+% Write a predicate hbal_tree/2 to construct height-balanced binary trees for a
+% given height. The predicate should generate all solutions via backtracking.
+% Put the letter 'x' as information into all nodes of the tree.
+
+% Example:
+% ?- hbal_tree(3,T).
+% T = t(x, t(x, t(x, nil, nil), t(x, nil, nil)), t(x, t(x, nil, nil),
+%   t(x, nil, nil))) ;
+% T = t(x, t(x, t(x, nil, nil), t(x, nil, nil)), t(x, t(x, nil, nil), nil)) ;
+% ...
+% No
+
+hbal_tree(0, nil).
+hbal_tree(H, t(x, L, R)) :-
+  H > 0, H1 is H-1, hbal_tree(H1, L), hbal_tree(H1, R).
+hbal_tree(H, t(x, L, R)) :-
+  H > 1, H1 is H-1, H2 is H-2, hbal_tree(H1, L), hbal_tree(H2, R).
+hbal_tree(H, t(x, L, R)) :-
+  H > 1, H1 is H-1, H2 is H-2, hbal_tree(H2, L), hbal_tree(H1, R).
+
+
+% 4.07 (**) Construct height-balanced binary trees with a given number of nodes.
+% a) Consider a height-balanced binary tree of height H. What is the maximum
+%    number of nodes it can contain? Clearly, MaxN = 2**H - 1. However, what is
+%    the minimum number MinN? This question is more difficult. Try to find a
+%    recursive statement and turn it into a predicate minNodes/2 defined as
+%    follows:
+
+%    minNodes(H, N) :- N is the minimum number of nodes in a height-balanced
+%    binary tree of height H. (integer, integer), (+, ?)
+
+:- table(minNodes/2).
+minNodes(0, 0).
+minNodes(1, 1).
+minNodes(H, N) :-
+  H > 1, H1 is H-1, H2 is H-2, minNodes(H1, N1), minNodes(H2, N2), N is N1+N2+1.
+
+
+% b) On the other hand, we might ask: what is the maximum height H a
+%    height-balanced binary tree with N nodes can have?
+
+%    maxHeight(N, H) :- H is the maximum height of a height-balanced binary tree
+%    with N nodes. (integer, integer), (+, ?)
+
+maxHeight(N, H) :- maxHeight(N, H, 0).
+
+maxHeight(N, H, HCurr) :-
+  minNodes(HCurr, M), M =< N, HCurr_ is HCurr+1, maxHeight(N, H, HCurr_).
+maxHeight(N, H, HCurr) :-
+  minNodes(HCurr, M), M > N, H is HCurr-1.
+
+
+% c) Now, we can attack the main problem: construct all the height-balanced
+%    binary trees with a given nuber of nodes. Find out how many height-balanced
+%    trees exist for N = 15.
+
+%    hbal_tree_nodes(N, T) :- T is a height-balanced binary tree with N nodes.
+
+hbal_tree_nodes(N, T) :-
+  minHeight(N, HMin),
+  maxHeight(N, HMax),
+  between(HMin, HMax, H),
+  hbal_tree(H, T),
+  count_nodes(T, N).
+
+count_nodes(nil, 0).
+count_nodes(t(_, L, R), N) :-
+  count_nodes(L, Nl), count_nodes(R, Nr), N is 1+Nl+Nr.
+
+log2(X, R) :- R is log(X) / log(2).
+:- arithmetic_function(log2/1).
+
+minHeight(N, H) :- H is 1 + floor(log2(N)).
+
+count_hbal_trees(N, R) :- setof(T, hbal_tree_nodes(N, T), Ts), length(Ts, R).
+
+
+% 4.08 (*) Count the leaves of a binary tree.
+% A leaf is a node with no successors. Write a predicate count_leaves/2 to count
+% them.
+
+% count_leaves(T, N) :- the binary tree T has N leaves
+
+count_leaves(nil, 0).
+count_leaves(t(_, nil, nil), 1) :- !.
+count_leaves(t(_, L, R), N) :-
+  count_leaves(L, Nl), count_leaves(R, Nr), N is Nl+Nr.
+
+
+% 4.09 (*) Collect the leaves of a binary tree in a list.
+% A leaf is a node with no successors. Write a predicate leaves/2 to collect
+% them in a list.
+
+% leaves(T, S) :- S is the list of all leaves of the binary tree T
+
+leaves(nil, []).
+leaves(t(X, nil, nil), [X]) :- !.
+leaves(t(_, L, R), Ls) :- leaves(L, Ls1), leaves(R, Ls2), append(Ls1, Ls2, Ls).
+
+
+% 4.10 (*) Collect the internal nodes of a binary tree in a list.
+% An internal node of a binary tree has either one or two non-empty successors.
+% Write a predicate internals/2 to collect them in a list.
+
+% internals(T,S) :- S is the list of internal nodes of the binary tree T.
+
+internals(nil, []).
+internals(t(_, nil, nil), []) :- !.
+internals(t(X, L, R), Is) :-
+  internals(L, Is1), internals(R, Is2), append(Is1, [X|Is2], Is).
+
+
+% 4.11 (*) Collect the nodes at a given level in a list.
+% A node of a binary tree is at level N if the path from the root to the node
+% has length N-1. The root node is at level 1. Write a predicate atlevel/3 to
+% collect all nodes at a given level in a list.
+
+% atlevel(T,L,S) :- S is the list of nodes of the binary tree T at level L
+
+atlevel(_, 0, []).
+atlevel(nil, _, []).
+atlevel(t(X, _, _), 1, [X]) :- !.
+atlevel(t(_, L, R), N, S) :-
+  N_ is N-1, atlevel(L, N_, Sl), atlevel(R, N_, Sr), append(Sl, Sr, S).
+
+
+% 4.12 (**) Construct a complete binary tree.
+% A complete binary tree with height H is defined as follows: The levels
+% 1, 2, 3, ..., H-1 contain the maximum number of nodes (i.e 2**(i-1) at the
+% level i; note that we start counting the levels from 1 at the root). In level
+% H, which may contain less than the maximum possible number of nodes, all the
+% nodes are "left-adjusted". This means that in a levelorder tree traversal all
+% internal nodes come first, the leaves come second, and empty successors (the
+% nil's which are not really nodes!) come last.
+
+% Particularly, complete binary trees are used as data structures (or addressing
+% schemes) for heaps.
+
+% We can assign an address number to each node in a complete binary tree by
+% enumerating the nodes in levelorder, starting at the root with number 1. In
+% doing so, we realize that for every node X with address A the following
+% property holds: The address of X's left and right successors are 2*A and
+% 2*A+1, respectively, supposed the successors do exist. This fact can be used
+% to elegantly construct a complete binary tree structure. Write a predicate
+% complete_binary_tree/2 with the following specification:
+
+% complete_binary_tree(N,T) :- T is a complete binary tree with N nodes. (+,?)
+
+complete_binary_tree(N, T) :- complete_binary_tree(N, T, 1).
+
+complete_binary_tree(N, t(x, L, R), C) :-
+  C =< N,
+  complete_binary_tree(N, L, 2*C),
+  complete_binary_tree(N, R, 2*C+1).
+complete_binary_tree(N, nil, C) :- C > N.
+
+
+% 4.13 (**) Layout a binary tree (1).
+% Given a binary tree as the usual Prolog term t(X,L,R) (or nil). As a
+% preparation for drawing the tree, a layout algorithm is required to determine
+% the position of each node in a rectangular grid. Several layout methods are
+% conceivable, one of them is shown in the illustration at:
+% https://sites.google.com/site/prologsite/_/rsrc/1264933989828/prolog-problems/4/p64.gif.
+
+% In this layout strategy, the position of a node v is obtained by the following
+% two rules:
+%  * x(v) is equal to the positioni of the node v in the inorder
+%  * y(v) is equal to the depth of the node v in the tree sequence
+
+% In order to store the position of the nodes, we extend the Prolog term
+% representing a node (and its successors) as follows:
+%  * nil represents the empty tree (as usual)
+%  * t(W, X, Y, L R) represents a (non-empty) binary tree with root W
+%    "positioned" at (X, Y) and subtrees L and R.
+
+% Write a predicate layout_binary_tree/2 with the following specification:
+% layout_binary_tree(T, PT) :- PT is the "positioned" binary tree obtained from
+% the binary tree T. (+, ?)
+
+layout_binary_tree(T, PT) :- layout_binary_tree(T, PT, 1, _, 1).
+
+layout_binary_tree(nil, nil, _, I, I).
+layout_binary_tree(t(W, nil, nil), t(W, X_in, Y, nil, nil), X_in, X_out, Y) :-
+  X_out is X_in + 1, !.
+layout_binary_tree(t(W, L, R), t(W, X_root, Y, PL, PR), X_in, X_out, Y) :-
+  Y1 is Y+1,
+  layout_binary_tree(L, PL, X_in, X_root, Y1),
+  X_after_root is X_root + 1,
+  layout_binary_tree(R, PR, X_after_root, X_out, Y1).
+
+
+% 4.14 (**) Layout a binary tree (2).
+% An alternative layout method is depicted in the illlustration at:
+% https://sites.google.com/site/prologsite/_/rsrc/1264934255598/prolog-problems/4/p65.gif
+
+% Find out the rules and write the corresponding Prolog predicate. Hint: on a
+% given level, the horizontal distance between neighbouring nodes is constant.
+
+layout_binary_tree2(T, PT) :-
+  height(T, H),
+  leftmost_depth(T, LD),
+  Xoffset is 2**(H-LD) - 1,
+  X is 2**(H-1) - Xoffset,
+  layout_binary_tree2(T, PT, X, 1, H).
+
+height(nil, 0).
+height(t(_, nil, nil), 1) :- !.
+height(t(_, L, R), H) :- height(L, HL), height(R, HR), H is max(HL, HR) + 1.
+
+leftmost_depth(nil, 0) :- !.
+leftmost_depth(t(_, L, _), N) :- leftmost_depth(L, N_), N is N_+1.
+
+layout_binary_tree2(nil, nil, _, _, _).
+layout_binary_tree2(t(W, nil, nil), t(W, X, Y, nil, nil), X, Y, _) :- !.
+layout_binary_tree2(t(W, L, R), t(W, X, Y, PL, PR), X, Y, H) :-
+  Y1 is Y+1,
+  XL is X - 2**(H-Y-1),
+  XR is X + 2**(H-Y-1),
+  layout_binary_tree2(L, PL, XL, Y1, H),
+  layout_binary_tree2(R, PR, XR, Y1, H).
+
+
+% 4.15 (***) Layout a binary tree (3).
+% Yet another layout strategy is shown in the illustration at:
+% https://sites.google.com/site/prologsite/prolog-problems/4/p66.gif
+% The method yields a very compact layout while maintaining a certain symmetry
+% in every node. Find out the rules and write the corresponding Prolog
+% predicate.
+
+% Hint: Consider the horizontal distance between a node and its
+% successor nodes. How tight can you pack together two subtrees to construct the
+% combined binary tree?
+
+% Implementation note: this solution allows negative x-values. If this is
+% undesirable, an extra step could be added that finds the minimum value in
+% LEdge and shifts the tree by that amount * -1.
+
+layout_binary_tree3(T, PT) :- layout_binary_tree3(T, PT, 1, _, _).
+
+layout_binary_tree3(nil, nil, _, [], []).
+layout_binary_tree3(t(W, nil, nil), t(W, 1, Y, nil, nil), Y, [1], [1]) :- !.
+layout_binary_tree3(t(W, L, R), t(W, X, Y, PL, PR), Y, [X|LEdge], [X|REdge]) :-
+  Y_ is Y+1,
+  layout_binary_tree3(L, PL, Y_, LEdge, LREdge),
+  layout_binary_tree3(R, PR_, Y_, RLEdge, RREdge),
+  maplist(plus(2), LREdge, LRBoundary),
+  zip_subtract(LRBoundary, RLEdge, Overlap),
+  max_list([0|Overlap], Offset),
+  shift_tree(PR_, Offset, PR),
+  maplist(plus(Offset), RREdge, REdge),
+  (PL = t(_, LX, _, _, _), ! ; LX = RX-2),
+  (PR = t(_, RX, _, _, _), ! ; RX = LX+2),
+  X is (LX + RX) / 2.
+
+zip_subtract([], _, []) :- !.
+zip_subtract(_, [], []).
+zip_subtract([X|Xs], [Y|Ys], [Z|Zs]) :- zip_subtract(Xs, Ys, Zs), Z is X-Y.
+
+shift_tree(nil, _, nil).
+shift_tree(t(W, X, Y, L, R), Offset, t(W, X_, Y, L_, R_)) :-
+  shift_tree(L, Offset, L_),
+  shift_tree(R, Offset, R_),
+  X_ is X + Offset.
+
+
+% 4.16 (**) A string representation of binary trees.
+% Somebody represents binary trees as strings of the following type:
+% a(b(d,e),c(,f(g,)))
+
+% a) Write a Prolog predicate which generates this string representation, if the
+%    tree is given as usual (as nil or t(X,L,R) term). Then write a predicate
+%    which does this inverse; i.e. given the string representation, construct
+%    the tree in the usual form. Finally, combine the two predicates in a single
+%    predicate tree_string/2 which can be used in both directions.
+%    For simplicity, suppose the information in the nodes is a single letter and
+%    there are no spaces in the string.
+
+tree_string(T, S) :- nonvar(T), tree_to_atom_list(T, As), atom_chars(S, As).
+tree_string(T, S) :- nonvar(S), atom_chars(S, As), atom_list_to_tree(As, T).
+
+tree_to_atom_list(nil, []).
+tree_to_atom_list(t(X, nil, nil), [X]) :- !.
+tree_to_atom_list(t(X, L, R), As) :-
+  tree_to_atom_list(L, LAs),
+  tree_to_atom_list(R, RAs),
+  append([X,'('|LAs], [','|RAs], As_),
+  append(As_, [')'], As).
+
+atom_list_to_tree(L, T) :- atom_list_to_tree(L, T, _).
+
+atom_list_to_tree([X,'('|Xs], t(X, LT, RT), R) :-
+  atom_list_to_tree(Xs, LT, [','|LR]),
+  atom_list_to_tree(LR, RT, [')'|R]), !.
+atom_list_to_tree([X|R], t(X, nil, nil), R) :-
+  char_type(X, alpha), !.
+atom_list_to_tree(R, nil, R).
+
+
+% b) Write the same predicate tree_string/2 using difference lists and a single
+%    predicate tree_dlist/2 which does the conversion between a tree and a
+%    difference list in both directions.
+
+tree_string2(T, S) :- nonvar(T), tree_dlist(T, As-[]), atom_chars(S, As).
+tree_string2(T, S) :- nonvar(S), atom_chars(S, As), tree_dlist(T, As-[]).
+
+tree_dlist(nil, H-H).
+tree_dlist(t(X, nil, nil), [X|H]-H) :- char_type(X, alpha).
+tree_dlist(t(X, L, R), DL-H) :-
+  % Avoid invalid backtracking if running in the forwards direction
+  (nonvar(X) -> \+ (L = nil, R = nil) ; true),
+  dlist_first(X, DL-DL1),
+  dlist_first('(', DL1-DL2),
+  tree_dlist(L, DL2-DL3),
+  dlist_first(',', DL3-DL4),
+  tree_dlist(R, DL4-DL5),
+  dlist_first(')', DL5-H).
+
+dlist_first(X, [X|Xs]-Xs).
+
+
+% 4.17 (**) Preorder and inorder sequences of binary trees.
+% We consider binary trees with nodes that are identified by single lower-case
+% letters, as in the example of problem 4.16.
+
+% a) Write predicates preorder/2 and inorder/2 that construct the preorder and
+%    inorder sequence of a given binary tree, respectively. The results should
+%    be atoms.
+
+% b) Can you use preorder/2 from problem part a) in the reverse direction; i.e.
+%    given a preorder sequence, construct a corresponding tree? If not, make the
+%    necessary arrangements.
+
+preorder(T, S) :- nonvar(T), !, preorder_f(T, As), atom_chars(S, As).
+preorder(T, S) :- atom_chars(S, As), preorder_b(T, As).
+
+preorder_f(nil, []).
+preorder_f(t(X, L, R), [X|Xs]) :-
+  preorder_f(L, LL), preorder_f(R, RL), append(LL, RL, Xs).
+
+preorder_b(nil, []).
+preorder_b(t(X, L, R), [X|Xs]) :-
+  append(LL, RL, Xs), preorder_b(L, LL), preorder_b(R, RL).
+
+inorder(T, S) :- nonvar(T), !, inorder_f(T, As), atom_chars(S, As).
+inorder(T, S) :- atom_chars(S, As), inorder_b(T, As).
+
+inorder_f(nil, []).
+inorder_f(t(X, L, R), Xs) :-
+  inorder_f(L, LL), inorder_f(R, RL), append(LL, [X|RL], Xs).
+
+inorder_b(nil, []).
+inorder_b(t(X, L, R), Xs) :-
+  append(LL, [X|RL], Xs), inorder_b(L, LL), inorder_b(R, RL).
+
+
+% c) If both the preorder sequence and the inorder sequence of the nodes of a
+%    binary tree are given, then the tree is determined unambiguously. Write a
+%    predicate pre_in_tree/3 that does the job.
+
+pre_in_tree(P, I, T) :- preorder(T, P), inorder(T, I).
+
+
+% d) Solve problems a) to c) using difference lists. Cool! Use the predefined
+%    predicate time/1 to compare the solutions.
+
+preorder_dl(T, S) :- preorder_dl_(T, As-[]), atom_chars(S, As).
+
+preorder_dl_(nil, H-H).
+preorder_dl_(t(X, L, R), [X|DL]-H) :-
+  preorder_dl_(L, DL-DL1), preorder_dl_(R, DL1-H).
+
+inorder_dl(T, S) :- inorder_dl_(T, As-[]), atom_chars(S, As).
+
+inorder_dl_(nil, H-H).
+inorder_dl_(t(X, L, R), DL-H) :-
+  inorder_dl_(L, DL-DL1), dlist_first(X, DL1-DL2), inorder_dl_(R, DL2-H).
+
+pre_in_tree_dl(P, I, T) :-
+  atom_chars(P, PL), atom_chars(I, IL), pre_in_tree_dl_(PL-[], IL-[], T).
+
+pre_in_tree_dl_(P-P, I-I, nil).
+pre_in_tree_dl_([X|P]-PH, I-IH, t(X, L, R)) :-
+  pre_in_tree_dl_(P-P1, I-[X|I1], L),
+  pre_in_tree_dl_(P1-PH, I1-IH, R).
+
+
+% 4.18 (**) Dotstring representation of binary trees.
+% We consider again binary trees with nodes that are identified by single
+% lower-case letters. Such a tree can be represented by the preorder sequence of
+% its nodes in which dots (.) are inserted where an empty subtree (nil) is
+% encountered during the tree traversal. For example, 'abd..e..c.fg...'. First,
+% try to establish a syntax (BNF or syntax diagrams) and then write a predicate
+% tree_dotstring/2 which does the conversion in both directions. Use difference
+% lists.
+
+tree_dotstring(T, S) :-
+  nonvar(T), !, tree_dotstring_(T, As-[]), atom_chars(S, As).
+tree_dotstring(T, S) :- atom_chars(S, As), tree_dotstring_(T, As-[]).
+
+tree_dotstring_(nil, ['.'|H]-H).
+tree_dotstring_(t(X, L, R), [X|DL]-H) :-
+  char_type(X, alpha),
+  tree_dotstring_(L, DL-DL1),
+  tree_dotstring_(R, DL1-H).
+
+
+% DRIVER (appended by the vendoring, CEO-700): the file defines the P-99 problems and states their examples in comments;
+% this goal runs those examples: 4.01-4.18 on P-99 data: the commented istree/cbal_tree(4)/construct/test_symmetric/sym_cbal_trees(5)/hbal_tree(3) examples, the 57-node and 15-node counts the problems ask for, the 4.16 tree a(b(d,e),c(,f(g,))) for leaves/internals/levels/strings/orders/dotstring, and P-99's p64 and p65 figure trees for the three layouts
+:- initialization((T16 = t(a,t(b,t(d,nil,nil),t(e,nil,nil)),t(c,nil,t(f,t(g,nil,nil),nil))), T64 = t(n,t(k,t(c,t(a,nil,nil),t(h,t(g,t(e,nil,nil),nil),nil)),t(m,nil,nil)),t(u,t(p,nil,t(s,t(q,nil,nil),nil)),nil)), T65 = t(n,t(k,t(c,t(a,nil,nil),t(e,t(d,nil,nil),t(g,nil,nil))),t(m,nil,nil)),t(u,t(p,nil,t(q,nil,nil)),nil)), forall(member(D_G, [istree(t(a,t(b,nil,nil),nil)), istree(t(a,t(b,nil,nil))), findall(T,cbal_tree(4,T),L), symmetric(t(x,t(x,nil,nil),t(x,nil,nil))), symmetric(T16), construct([3,2,5,7,1],T), test_symmetric([5,3,18,1,4,12,21]), test_symmetric([3,2,5,7,4]), sym_cbal_trees(5,L), sym_cbal_trees_count(57,N), hbal_tree(3,T), count(hbal_tree(3,T)), findall(H-N,(between(0,6,H),minNodes(H,N)),L), maxHeight(15,H), hbal_tree_nodes(15,T), count_hbal_trees(15,N), count_leaves(T16,N), leaves(T16,L), internals(T16,L), atlevel(T16,3,L), complete_binary_tree(6,T), layout_binary_tree(T64,T), layout_binary_tree2(T65,T), layout_binary_tree3(T65,T), tree_string(T16,S), tree_string(T,'a(b(d,e),c(,f(g,)))'), tree_string2(T16,S), tree_string2(T,'a(b(d,e),c(,f(g,)))'), preorder(T16,S), inorder(T16,S), preorder(T,abdecfg), pre_in_tree(abdecfg,dbeacgf,T), preorder_dl(T16,S), inorder_dl(T16,S), pre_in_tree_dl(abdecfg,dbeacgf,T), tree_dotstring(T16,S), tree_dotstring(T,'abd..e..c.fg...')]), (copy_term(D_G, D_C), (D_C = out(D_P) -> \+ \+ (numbervars(D_P, 0, _), print(D_P), nl), catch((once(D_P) -> true ; print(no), nl), error(D_F, _), (print(error(D_F)), nl)) ; D_C = count(D_Q) -> catch((findall(D_Q, D_Q, D_L0), sort(D_L0, D_L1), length(D_L1, D_N), D_R = count(D_Q, D_N)), error(D_F, _), D_R = error(D_Q, D_F)), numbervars(D_R, 0, _), print(D_R), nl ; catch((once(D_C) -> D_R = D_C ; D_R = no(D_C)), error(D_F, _), D_R = error(D_C, D_F)), numbervars(D_R, 0, _), print(D_R), nl))))).
+%--------------------------------------------------------- 265 p5_multiway_trees
+:- use_module(library(yall)).
+:- use_module(library(apply)).
+:- use_module(library(apply_macros)).
+
+% 5.01 (*) Check whether a given term represents a multiway tree.
+% Write a predicate istree/1 which succeeds if and only if its argument is a
+% Prolog term representing a multiway tree.
+
+% Example:
+% ?- istree(t(a,[t(f,[t(g,[])]),t(c,[]),t(b,[t(d,[]),t(e,[])])])).
+% Yes
+
+istree(t(_, C)) :- maplist(istree, C).
+
+
+% 5.02 (*) Count the nodes of a multiway tree.
+% Write a predicate nnodes/1 which counts the nodes of a given multiway tree.
+
+% Example:
+% ?- nnodes(t(a,[t(f,[])]),N).
+% N = 2
+
+% Write another version of the predicate that allows for a flow pattern (o,i).
+
+nnodes(t(_, C), N) :- maplist(nnodes, C, Ns), foldl(plus, Ns, 1, N).
+
+
+% 5.03 (**) Tree construction from a node string.
+% We suppose that the nodes of a multiway tree contain single characters. In the
+% depth-first order sequence of its nodes, a special character ^ has been
+% inserted whenever, during the tree traversal, the move is a backtrack to the
+% previous level.
+
+% By this rule, the tree in the figure at:
+% https://sites.google.com/site/prologsite/prolog-problems/5/p70.gif
+% is represented as: afg^^c^bd^e^^^
+
+% Define the syntax of the string and write a predicate tree(String,Tree) to
+% construct the Tree when the String is given. Work with atoms (instead of
+% strings). Make your predicate work in both directions.
+
+tree(S, T) :- nonvar(S), atom_chars(S, As), tree(As, [], T).
+tree(S, T) :- nonvar(T), tree(As, [], T), atom_chars(S, As).
+
+tree([X|S], S_, t(X, C)) :- char_type(X, alpha), trees(S, ['^'|S_], C).
+
+trees(['^'|S], ['^'|S], []).
+trees(S, S2, [T|Ts]) :- tree(S, S1, T), trees(S1, S2, Ts).
+
+
+% 5.04 (*) Determine the internal path length of a tree.
+% We define the internal path length of a multiway tree as the total sum of the
+% path lengths from the root to all nodes of the tree. By this definition, the
+% tree in the figure of problem 5.03 has an internal path length of 9.
+
+% Write a predicate ipl(Tree,IPL) for the flow pattern (+,-).
+
+ipl(T, I) :- ipl(T, I, 0).
+
+ipl(t(_, Ts), IPL, D) :-
+  D1 is D + 1,
+  maplist({D1}/[T, S]>>ipl(T, S, D1), Ts, Ss),
+  foldl(plus, Ss, D, IPL).
+
+
+ % 5.05 (*) Construct the bottom-up order sequence of the tree nodes.
+ % Write a predicate bottom_up(Tree,Seq) which constructs the bottom-up sequence
+ % of the nodes of the multiway tree Tree. Seq should be a Prolog list.
+
+ % What happens if you run your predicate backwards?
+
+bottom_up(Tree, Seq) :- iterate([Tree], Seq).
+
+value(t(V, _), V).
+children(t(_, Cs), Cs).
+
+iterate([], []).
+iterate(Nodes, R) :-
+  maplist(value, Nodes, Vs),
+  maplist(children, Nodes, Cs),
+  flatten(Cs, Cs1),
+  iterate(Cs1, CVs),
+  append(CVs, Vs, R).
+
+
+% 5.06 (**) Lisp-like tree representation.
+% There is a particular notation for multiway trees in Lisp. Lisp is a prominent
+% functional programming language, which is used primarily for artificial
+% intelligence problems. As such it is one of the main competitors of Prolog. In
+% Lisp almost everything is a list, just as in Prolog everything is a term.
+
+% The picture at:
+% https://sites.google.com/site/prologsite/prolog-problems/5/p73.png?attredirects=0
+% shows how multiway tree structures are represented in Lisp.
+
+% Note that in the "lispy" notation a node with successors (children) in the
+% tree is always the first element in a list, followed by its children. The
+% "lispy" representation of a multiway tree is a sequence of atoms and
+% parentheses '(' and ')', which we shall collectively call "tokens". We can
+% represent this sequence of tokens as a Prolog list; e.g. the lispy expression
+% (a (b c)) could be represented as the Prolog list
+% ['(', a, '(', b, c, ')', ')']. Write a predicate tree_ltl(T,LTL) which
+% constructs the "lispy token list" LTL if the tree is given as term T in the
+% usual Prolog notation.
+
+% Example:
+% ?- tree_ltl(t(a, [t(b, [t(c, [])])]), LTL).
+% LTL = ['(', a, '(', b, c, ')', ')']
+
+% As a second, even more interesting exercise try to rewrite tree_ltl/2 in a way
+% that the inverse conversion is also possible: Given the list LTL, construct
+% the Prolog tree T. Use difference lists.
+
+tree_ltl(T, LTL) :- tree_ltl_(T, LTL-[]).
+
+tree_ltl_(t(X, []), [X|H]-H) :-
+  char_type(X, alpha).
+tree_ltl_(t(X, Cs), ['(', X|L1]-L3) :-
+  Cs = [_|_], char_type(X, alpha),
+  children_ltl(Cs, L1-L2), L2 = [')'|L3].
+
+children_ltl([], H-H).
+children_ltl([C|Cs], L-L2) :- tree_ltl_(C, L-L1), children_ltl(Cs, L1-L2).
+
+% DRIVER (appended by the vendoring, CEO-700): the file defines the P-99 problems and states their examples in comments;
+% this goal runs those examples: 5.01-5.06 on the P-99 figure tree afg^^c^bd^e^^^: istree, nnodes of the commented t(a,[t(f,[])]) and of the figure, node string both ways, internal path length (9), bottom-up order, and the lispy token list of the commented example forwards and backwards
+:- initialization((TM = t(a,[t(f,[t(g,[])]),t(c,[]),t(b,[t(d,[]),t(e,[])])]), forall(member(D_G, [istree(TM), nnodes(t(a,[t(f,[])]),N), nnodes(TM,N), tree('afg^^c^bd^e^^^',T), tree(L,TM), ipl(TM,N), bottom_up(TM,L), tree_ltl(t(a,[t(b,[t(c,[])])]),L), tree_ltl(TM,L), tree_ltl(T,['(',a,'(',b,c,')',')'])]), (copy_term(D_G, D_C), (D_C = out(D_P) -> \+ \+ (numbervars(D_P, 0, _), print(D_P), nl), catch((once(D_P) -> true ; print(no), nl), error(D_F, _), (print(error(D_F)), nl)) ; D_C = count(D_Q) -> catch((findall(D_Q, D_Q, D_L0), sort(D_L0, D_L1), length(D_L1, D_N), D_R = count(D_Q, D_N)), error(D_F, _), D_R = error(D_Q, D_F)), numbervars(D_R, 0, _), print(D_R), nl ; catch((once(D_C) -> D_R = D_C ; D_R = no(D_C)), error(D_F, _), D_R = error(D_C, D_F)), numbervars(D_R, 0, _), print(D_R), nl))))).
+%----------------------------------------------------------------- 266 p6_graphs
+:- use_module(library(apply)).
+:- use_module(library(apply_macros)).
+:- use_module(library(assoc)).
+:- use_module(library(ordsets)).
+:- use_module(library(yall)).
+
+% 6.01 (***) Conversions
+
+% Write predicates to convert between the different graph representations. With
+% these predicates, all representations are equivalent; i.e. for the following
+% problems you can always freely pick the most convenient form. The reason this
+% problem is rated (***) is not because it's particularly difficult, but because
+% it's a lot of work to deal with all the special cases.
+
+% Here is a brief summary of the abbreviations I'm using for this task, and
+% three examples of each representation (first is undirected, second is
+% directed, third is labelled).
+
+% Figure for undirected graph examples:
+% https://sites.google.com/site/prologsite/_/rsrc/1264948248705/prolog-problems/6/graph1.gif
+
+% Figure for directed graph examples:
+% https://sites.google.com/site/prologsite/_/rsrc/1264948667063/prolog-problems/6/graph2.gif
+
+% Figure for labelled graph examples:
+% https://sites.google.com/site/prologsite/prolog-problems/6/graph3.gif
+
+% ec: edge-clause form, e.g.
+%     [edge(h, g), edge(k, f), edge(f, b), edge(b, c), edge(c, f)]
+%     [arc(s, u), arc(u, r), arc(s, r), arc(u, s), arc(v, u)]
+%     [arc(m, q, 7), arc(p, q, 9), arc(p, m, 5)]
+
+% gt: graph-term form, e.g.
+%     graph([b, c, d, f, g, h, k],
+%           [e(b, c), e(b, f), e(c, f), e(f, k), e(g, h)])
+%     digraph([r, s, t, u, v], [a(s, r), a(s, u), a(u, r), a(u, s), a(v, u)])
+%     digraph([k, m, p, q], [a(m, q, 7), a(p, m, 5), a(p, q, 9)])
+
+% al: adjacency-list form, e.g.
+%     [n(b, [c, f]), n(c, [b, f]), n(d, []), n(f, [b, c, k]), n(g, [h]),
+%      n(h, [g]), n(k, [f])]
+%     [n(r, []), n(s, [r, u]), n(t, []), n(u, [r]), n(v, [u])]
+%     [n(k, []), n(m, [q/7]), n(p, [m/5, q/9]), n(q, [])]
+
+% hf: human-friendly form, e.g.
+%     [b-c, f-c, g-h, d, f-b, k-f, h-g]
+%     [s > r, t, u > r, s > u, u > s, v > u]
+%     [p>q/9, m>q/7, k, p>m/5]
+
+% Convert between edge-clause and graph-term forms in either flow order.
+% Edge-clause form cannot encode isolated nodes, so these are lost in the (?, +)
+% flow order.
+ec_gt(ECs, G) :- nonvar(ECs), !, ec_to_gt(ECs, G, _).
+ec_gt(ECs, G) :- graph_term(G, _, Es, _), maplist(edge_terms, Es, ECs, _, _).
+
+% Convert edge-clause to graph-term.
+ec_to_gt([], G, D) :- (var(D) -> D=u; true), graph_term(G, [], [], D).
+ec_to_gt([Edge|Edges], G, D) :-
+  (functor(Edge, arc, _) -> D=d; D=u),
+  ec_to_gt(Edges, G1, D),
+  graph_term(G1, N1, E1, _),
+  edge_terms(E, Edge, _, Ns),
+  ord_add_all(N1, Ns, N2),
+  ord_union(E1, [E], E2),
+  graph_term(G, N2, E2, D).
+
+ord_add_all(S1, Es, S2) :- sort(Es, SEs), ord_union(S1, SEs, S2).
+
+% Convert between (di)graphs and their component terms. The final u/d term flags
+% directedness (necessary when using in the construction flow order).
+graph_term(graph(Ns, Es),   Ns, Es, u).
+graph_term(digraph(Ns, As), Ns, As, d).
+
+% Convert between e/a terms, edge/arc terms, "human-friendly" terms and node
+% lists.
+edge_terms(e(A, B, C), edge(A, B, C), A-B/C, [A, B]).
+edge_terms(e(A, B),    edge(A, B),    A-B,   [A, B]).
+edge_terms(a(A, B, C), arc(A, B, C),  A>B/C, [A, B]).
+edge_terms(a(A, B),    arc(A, B),     A>B,   [A, B]).
+
+% Convert between graph-term and adjacency-list forms in either flow order.
+% Note that adjacency-list form doesn't distinguish between graphs and digraphs,
+% so the (?, +) flow order always returns a digraph.
+gt_al(G, AL) :- nonvar(G), !, gt_to_al(G, AL).
+gt_al(G, AL) :- al_to_gt(AL, G).
+
+% Convert graph-term to adjacency-list.
+gt_to_al(G, AL) :-
+  graph_term(G, Ns, Es, _),
+  maplist([X, Y]>>(Y = X-[]), Ns, Empties),
+  list_to_assoc(Empties, Assoc),
+  expand_edges(Es, As),
+  foldl([P>Q, A, A1]>>(get_assoc(P, A, V), put_assoc(P, A, [Q|V], A1)),
+    As, Assoc, Assoc1),
+  assoc_to_list(Assoc1, Pairs),
+  maplist([K-V, N]>>(msort(V, V1), N = n(K, V1)), Pairs, AL).
+
+% Convert e/a terms to human-friendly arc terms, with edges expanded to two
+% arc terms rather than the corresponding -/2 functor.
+expand_edges([], []).
+expand_edges([E|Es], A) :- edge_arcs(E, A, A1), expand_edges(Es, A1).
+
+% Convert an e/a term to a difference list of human-friendly arc terms, with
+% edges being expanded to two arc terms.
+edge_arcs(e(A, B),    [A>B, B>A|X],     X).
+edge_arcs(e(A, B, C), [A>B/C, B>A/C|X], X).
+edge_arcs(a(A, B),    [A>B|X],          X).
+edge_arcs(a(A, B, C), [A>B/C|X],        X).
+
+% Convert adjacency-list to graph-term. The adjacency-list form doesn't
+% distinguish between graphs and digraphs, so we always return a digraph.
+al_to_gt([], digraph([], [])).
+al_to_gt([n(N, Neighbours)|Ns], digraph(GNs_, GEs_)) :-
+  al_to_gt(Ns, digraph(GNs, GEs)),
+  ord_union(GNs, [N], GNs_),
+  maplist({N}/[Neighbour, A]>>edge_terms(A, _, N>Neighbour, _), Neighbours, As),
+  ord_union(GEs, As, GEs_).
+
+% Convert between edge-clause and adjacency-list forms in either flow order.
+% Note that isolated nodes are lost in the (?, +) flow order as edge-clause form
+% has no way to represent them, and arcs are always used, as adjacency-list form
+% doesn't distinguish between graphs and digraphs.
+ec_al(EC, AL) :- nonvar(EC), !, ec_gt(EC, GT), gt_al(GT, AL).
+ec_al(EC, AL) :- gt_al(GT, AL), ec_gt(EC, GT).
+
+% Convert between graph-term and human-friendly forms in either flow order.
+% Fails if arc and edges are intermixed in the human-friendly form.
+gt_hf(GT, HF) :- nonvar(GT), !, gt_to_hf(GT, HF).
+gt_hf(GT, HF) :- hf_to_gt(HF, GT, _).
+
+% Convert graph-term to human-friendly.
+gt_to_hf(GT, HF) :- graph_term(GT, Ns, Es, _), gt_to_hf(Ns, Es, HF).
+
+gt_to_hf(Ns, [], Ns).
+gt_to_hf(Ns, [E|Es], [HF|HFs]) :-
+  edge_terms(E, _, HF, ENs), subtract(Ns, ENs, Ns1), gt_to_hf(Ns1, Es, HFs).
+
+% Convert human-friendly to graph-term.
+hf_to_gt([], G, D) :- (var(D) -> D=u; true), graph_term(G, [], [], D).
+hf_to_gt([E|HFs], G_, D) :-
+  edge_terms(A, _, E, S), !,    % Doubles as non-isolated node check
+  (E = (_>_) -> D=d; D=u),
+  hf_to_gt(HFs, G, D),
+  graph_term(G, Ns, Es, _),
+  ord_add_all(Ns, S, Ns_),
+  graph_term(G_, Ns_, [A|Es], D).
+hf_to_gt([N|HFs], G_, D) :-
+  hf_to_gt(HFs, G, D),
+  graph_term(G, Ns, Es, _),
+  ord_union(Ns, [N], Ns_),
+  graph_term(G_, Ns_, Es, D).
+
+% Convert between edge-clause and human-friendly forms in either flow order.
+% Note that isolated nodes are lost in the (?, +) flow order as edge-clause form
+% has no way to represent them.
+ec_hf(EC, HF) :- nonvar(EC), !, ec_gt(EC, GT), gt_hf(GT, HF).
+ec_hf(EC, HF) :- gt_hf(GT, HF), ec_gt(EC, GT).
+
+% Convert between adjacency-list and human-friendly forms in either flow order.
+% Note that adjacency-list form doesn't distinguish between graphs and digraphs,
+% so the human-friendly form in (+, ?) flow order always uses arcs.
+al_hf(AL, HF) :- nonvar(AL), !, gt_al(GT, AL), gt_hf(GT, HF).
+al_hf(AL, HF) :- gt_hf(GT, HF), gt_al(GT, AL).
+
+
+% 6.02 (**) Path from one node to another one.
+% Write a predicate path(G, A, B, P) to find an acyclic path P from node A to
+% node B in the graph G. The predicate should return all paths via backtracking.
+
+% Flow pattern: (+, +, +, ?). G is in adjacency-list form.
+
+path(G, A, B, P) :- empty_assoc(S), path(G, A, B, P, S).
+
+path(_, A, A, [A], _) :- !.
+path(G, A, B, [A|P], Seen) :-
+  \+ get_assoc(A, Seen, _), !,
+  put_assoc(A, Seen, true, Seen_),
+  neighbour_al(A, N, G),
+  path(G, N, B, P, Seen_).
+
+neighbour_al(A, B, [n(A, N)|_]) :- maplist(strip_label, N, N1), member(B, N1).
+neighbour_al(A, B, [_|AL]) :- neighbour_al(A, B, AL).
+
+strip_label(X/_, X) :- !.
+strip_label(X, X).
+
+
+% 6.03 (*) Cycle from a given node.
+% Write a predicate cycle(G, A, P) to find a closed path (cycle) P starting at a
+% given node A in the graph G. The predicate should return all cycles via
+% backtracking.
+
+% Note that only cycles passing through each intermediate node once are
+% returned to avoid infinite sequences of internally-cycling cycles.
+% Flow pattern: (+, +, ?). G is in adjacency-list form.
+
+cycle(G, A, [A|P]) :- neighbour_al(A, N, G), path(G, N, A, P).
+
+
+% 6.04 (**) Construct all spanning trees
+% Write a predicate s_tree(Graph,Tree) to construct (by backtracking) all
+% spanning trees of a given graph. When you have a correct solution for the
+% s_tree/2 predicate, use it to define two other useful predicates:
+% is_tree(Graph) and is_connected(Graph). Both are five-minutes tasks!
+
+s_tree(Graph, Tree) :-
+  graph_term(Graph, Ns, Es, D),
+  Ns = [N|_],
+  s_tree([N], Es, Ns, Es1),    % Ns fails to unify if G is disconnected
+  graph_term(Tree, Ns, Es1, D).
+
+s_tree(Seen, Es, Seen2, Es3) :-
+  select(E, Es, Es1),
+  valid_addition(E, Seen),
+  edge_terms(E, _, _, Ns),
+  ord_add_all(Seen, Ns, Seen1),
+  s_tree(Seen1, Es1, Seen2, Es2),
+  ord_union(Es2, [E], Es3).
+s_tree(Seen, Es, Seen, []) :-
+  maplist({Seen}/[E]>>(\+ valid_addition(E, Seen)), Es).
+
+valid_addition(A, Seen) :-
+  functor(A, a, _), !,
+  edge_terms(A, _, _, [P, Q]),
+  ord_memberchk(P, Seen), \+ ord_memberchk(Q, Seen).
+valid_addition(E, Seen) :-
+  edge_terms(E, _, _, [P, Q]),
+  ( ord_memberchk(P, Seen), \+ ord_memberchk(Q, Seen)
+  ; ord_memberchk(Q, Seen), \+ ord_memberchk(P, Seen)).
+
+is_tree(Graph) :- s_tree(Graph, Graph).
+
+is_connected(Graph) :- s_tree(Graph, _).
+
+
+% 6.05 (**) Construct the minimal spanning tree.
+% Write a predicate ms_tree(Graph, Tree, Sum) to construct the minimal spanning
+% tree of a given labelled graph. Hint: Use the algorithm of Prim. A small
+% modification of the solution of 6.04 does the trick.
+
+% On backtracking, this solution produces all other spanning trees in
+% decreasingly minimal order. Flow order: (+, ?, ?).
+
+ms_tree(Graph, Tree, Sum) :-
+  graph_term(Graph, Ns, Es, D),
+  Ns = [N|_],
+  predsort(label_compare, Es, SEs),
+  s_tree([N], SEs, Ns, Es1),
+  graph_term(Tree, Ns, Es1, D),
+  foldl([N, Acc, R]>>(label(N, L), R is Acc + L), Es1, 0, Sum).
+
+label(e(_, _, L), L).
+label(a(_, _, L), L).
+
+label_compare(O, A, B) :- label(A, L1), label(B, L2), compare(O, L1-A, L2-B).
+
+
+% 6.06 (**) Graph isomorphism.
+% Two graphs G1(N1, E1) and G2(N2, E2) are isomorphic if there is a bijection
+% f: N1 -> N2 such that for any nodes X, Y of N1, X and Y are adjacent if and
+% only if f(X) and f(Y) are adjacent.
+
+% Write a predicate that determines whether two graphs are isomorphic. Hint: Use
+% an open-ended list to represent the function f.
+
+isomorphic(A, B) :- isomorphic(A, B, _).
+isomorphic(A, B, I) :-
+  graph_term(A, ANs, AEs, _),
+  graph_term(B, BNs, BEs, _),
+  isomorphic_(ANs, AEs, BNs, BEs, I).
+
+isomorphic_([], [], [], [], _).
+isomorphic_([AN|ANs], [], BNs, [], I) :-
+  select(BN, BNs, BNs1),
+  equate(AN, BN, I),
+  isomorphic_(ANs, [], BNs1, [], I).
+isomorphic_(ANs, [AE|AEs], BNs, BEs, I) :-
+  select(BE, BEs, BEs1),
+  equate_edge(AE, BE, I),
+  isomorphic_(ANs, AEs, BNs, BEs1, I).
+
+equate_edge(A, B, I) :-
+  functor(A, F, _),
+  edge_terms(A, _, _, As),
+  edge_terms(B, _, _, Bs),
+  equate_edge(F, As, Bs, I).
+
+equate_edge(a, [A1, A2], [B1, B2], I) :- equate(A1, B1, I), equate(A2, B2, I).
+equate_edge(e, [A1, A2], [B1, B2], I) :- equate(A1, B1, I), equate(A2, B2, I).
+equate_edge(e, [A1, A2], [B1, B2], I) :- equate(A1, B2, I), equate(A2, B1, I).
+
+equate(A, B, I) :- memberchk(A=X, I), nonvar(X), !, X = B.
+equate(A, B, I) :- memberchk(X=B, I), X = A.
+
+
+% 6.07 (**) Node degree and graph coloration.
+% a) Write a predicate degree(Graph, Node, Deg) that determines the degree of a
+%    given node.
+% b) Write a predicate that generates a list of all nodes of a graph sorted
+%    according to decreasing degree.
+% c) Use Welsh-Powell's algorithm to paint the nodes of a graph in such a way
+%    that adjacent nodes have different colors.
+
+% Graph must be in adjacency-list form.
+degree(Graph, Node, Deg) :- memberchk(n(Node, Ns), Graph), length(Ns, Deg).
+
+degree_sort(Graph, Sorted) :- predsort(degree_compare, Graph, Sorted).
+
+degree_compare(O, n(A, N1), n(B, N2)) :-
+  length(N1, L1), length(N2, L2), C1 is -L1, C2 is -L2, compare(O, C1-A, C2-B).
+
+% Graph is in adjacency-list form and Coloring is an open-ended list of node
+% name - color variable pairs. The color variables are correctly correlated for
+% unification but left underspecified as there's no upper bound on the number of
+% colors needed. Flow order: (+, ?).
+welsh_powell(Graph, Coloring) :-
+  degree_sort(Graph, Sorted), welsh_powell_(Sorted, Coloring), !.
+
+welsh_powell_([], _).
+welsh_powell_(Graph, Coloring) :-
+  apply_color(Graph, Graph2, Coloring, _), welsh_powell_(Graph2, Coloring).
+
+apply_color(G1, G2, Coloring, C) :- apply_color(G1, G2, Coloring, C, []).
+
+apply_color([], [], _, _, _).
+apply_color([n(N, Es)|As], [n(N, Es)|As1], Coloring, C, Cs) :-
+  member(E, Es), memberchk(E, Cs), !,
+  apply_color(As, As1, Coloring, C, Cs).
+apply_color([n(N, _)|As], As1, Coloring, C, Cs) :-
+  memberchk(N-C, Coloring),
+  apply_color(As, As1, Coloring, C, [N|Cs]).
+
+
+% 6.08 (**) Depth-first order graph traversal.
+% Write a predicate that generates a depth-first order graph traversal sequence.
+% The starting point should be specified, and the output should be a list of
+% nodes that are reachable from this starting point (in depth-first order).
+
+% Graph is in adjacency-list format. Flow order: (+, +, ?).
+
+dfs(Graph, Start, Order) :- visit_node(Graph, Start, Order, Order, []).
+
+visit_node(Graph, Start, Seen, SeenHoleI, SeenHoleO) :-
+  memberchk(n(Start, Ns), Graph),
+  SeenHoleI = [Start|SeenHole1],
+  visit_neighbours(Graph, Ns, Seen, SeenHole1, SeenHoleO).
+
+visit_neighbours(Graph, Ns, Seen, SeenHoleI, SeenHoleO) :-
+  exclude({Seen}/[N]>>memberchk_dl(N, Seen), Ns, UnseenNs),
+  visit_neighbours_(Graph, UnseenNs, Seen, SeenHoleI, SeenHoleO).
+
+visit_neighbours_(_, [], _, S, S) :- !.
+visit_neighbours_(Graph, Ns, Seen, SeenHoleI, SeenHoleO) :-
+  select(N, Ns, Ns1),
+  visit_node(Graph, N, Seen, SeenHoleI, SeenHole1),
+  visit_neighbours(Graph, Ns1, Seen, SeenHole1, SeenHoleO).
+
+memberchk_dl(M, [H|_]) :- nonvar(H), M=H, !.
+memberchk_dl(M, [_|L]) :- nonvar(L), memberchk_dl(M, L).
+
+
+% 6.09 (**) Connected components.
+% Write a predicate that splits a graph into its connected components.
+
+connected_components([], []).
+connected_components(Graph, [G1|Components]) :-
+  Graph = [n(Start, _)|_],
+  dfs(Graph, Start, Reachable), !,
+  split_graph(Graph, Reachable, G1, G2),
+  connected_components(G2, Components).
+
+split_graph([], _, [], []).
+split_graph([A|AL], Keep, [A|G1], G2) :-
+  A = n(N, _), memberchk(N, Keep), !, split_graph(AL, Keep, G1, G2).
+split_graph([A|AL], Keep, G1, [A|G2]) :- split_graph(AL, Keep, G1, G2).
+
+
+% 6.10 (**) Bipartite graphs.
+% Write a predicate that finds out whether a given graph is bipartite.
+
+is_bipartite(Graph) :-
+  connected_components(Graph, Gs),
+  maplist([G]>>(chromatic_number(G, N), N =< 2), Gs).
+
+chromatic_number(G, N) :- welsh_powell(G, C), close_dl(C), count_colors(C, N).
+
+count_colors(Coloring, N) :- count_colors(Coloring, 0, N).
+
+count_colors([], Count, Count).
+count_colors([_-Color|Cs], Count, N) :-
+  nonvar(Color), !, count_colors(Cs, Count, N).
+count_colors([_-Color|Cs], Count, N) :-
+  Count1 is Count+1, Color = Count1, count_colors(Cs, Count1, N).
+
+close_dl(X) :- var(X), !, X=[].
+close_dl([_|X]) :- close_dl(X).
+
+
+% 6.11 (***) Generate K-regular simple graphs with N nodes.
+% In a K-regular graph all nodes have a degree of K; i.e. the number of edges
+% incident in each node is K. How many (non-isomorphic!) 3-regular graphs with
+% 6 nodes are there?
+
+:- dynamic k_regular_solution/3.
+
+k_regular(K, N, Graph) :- k_regular_solution(K, N, Graph).
+k_regular(K, N, Graph) :-
+  init_saturation(N, S),
+  generate(K, Graph, S, _),
+  check_not_found(K, N, Graph),
+  assertz(k_regular_solution(K, N, Graph)).
+
+init_saturation(N, NDs) :- numlist(1, N, G), maplist([X, R]>>(R=X-0), G, NDs).
+
+available_edge(N1-N2, [N1-D1|NDs], [N1-D1_, N2-D2_|NDs1]) :-
+  select(N2-D2, NDs, NDs1), D1_ is D1+1, D2_ is D2+1.
+
+generate(_, [], [], _).
+generate(K, [N1-N2|Es], S, Acc) :-
+  available_edge(N1-N2, S, S1),
+  \+ memberchk_dl(N1-N2, Acc),
+  \+ memberchk_dl(N2-N1, Acc),
+  memberchk(N1-N2, Acc),
+  include({K}/[_-D]>>(D < K), S1, S2),
+  generate(K, Es, S2, Acc).
+
+check_not_found(K, N, G) :- \+ (
+  k_regular_solution(K, N, CompareG),
+  gt_hf(CompareG_GT, CompareG),
+  gt_hf(G_GT, G),
+  isomorphic(G_GT, CompareG_GT)).
+
+% DRIVER (appended by the vendoring, CEO-700): the file defines the P-99 problems and states their examples in comments;
+% this goal runs those examples: 6.01's twelve conversions (ec/gt/al/hf, both flow orders) on each of the file's three example graphs, then paths, cycles, degree, Welsh-Powell colouring, dfs, components and bipartiteness on the file's graphs, spanning trees on the file's graph and on P-99's 6.04 figure graph (distinct count), Prim's ms_tree on P-99's 6.05 labelled figure graph, isomorphism, and the 3-regular 6-node graphs of 6.11
+:- initialization((EC1 = [edge(h,g),edge(k,f),edge(f,b),edge(b,c),edge(c,f)], EC2 = [arc(s,u),arc(u,r),arc(s,r),arc(u,s),arc(v,u)], EC3 = [arc(m,q,7),arc(p,q,9),arc(p,m,5)], GT1 = graph([b,c,d,f,g,h,k],[e(b,c),e(b,f),e(c,f),e(f,k),e(g,h)]), GT2 = digraph([r,s,t,u,v],[a(s,r),a(s,u),a(u,r),a(u,s),a(v,u)]), GT3 = digraph([k,m,p,q],[a(m,q,7),a(p,m,5),a(p,q,9)]), AL1 = [n(b,[c,f]),n(c,[b,f]),n(d,[]),n(f,[b,c,k]),n(g,[h]),n(h,[g]),n(k,[f])], AL2 = [n(r,[]),n(s,[r,u]),n(t,[]),n(u,[r]),n(v,[u])], AL3 = [n(k,[]),n(m,[q/7]),n(p,[m/5,q/9]),n(q,[])], HF1 = [b-c,f-c,g-h,d,f-b,k-f,h-g], HF2 = [s>r,t,u>r,s>u,u>s,v>u], HF3 = [p>q/9,m>q/7,k,p>m/5], G83 = graph([a,b,c,d,e,f,g,h],[e(a,b),e(a,d),e(b,c),e(b,e),e(c,e),e(d,e),e(d,f),e(d,g),e(e,h),e(f,g),e(g,h)]), G84 = graph([a,b,c,d,e,f,g,h],[e(a,b,5),e(a,d,3),e(b,c,2),e(b,e,4),e(c,e,6),e(d,e,7),e(d,f,4),e(d,g,3),e(e,h,5),e(f,g,4),e(g,h,1)]), forall(member(D_G, [ec_gt(EC1,X), ec_gt(X,GT1), gt_al(GT1,X), gt_al(X,AL1), gt_hf(GT1,X), gt_hf(X,HF1), ec_al(EC1,X), ec_al(X,AL1), ec_hf(EC1,X), ec_hf(X,HF1), al_hf(AL1,X), al_hf(X,HF1), ec_gt(EC2,X), ec_gt(X,GT2), gt_al(GT2,X), gt_al(X,AL2), gt_hf(GT2,X), gt_hf(X,HF2), ec_al(EC2,X), ec_al(X,AL2), ec_hf(EC2,X), ec_hf(X,HF2), al_hf(AL2,X), al_hf(X,HF2), ec_gt(EC3,X), ec_gt(X,GT3), gt_al(GT3,X), gt_al(X,AL3), gt_hf(GT3,X), gt_hf(X,HF3), ec_al(EC3,X), ec_al(X,AL3), ec_hf(EC3,X), ec_hf(X,HF3), al_hf(AL3,X), al_hf(X,HF3), findall(P,path(AL1,b,k,P),L), findall(P,path(AL2,s,r,P),L), findall(P,path(AL3,p,q,P),L), findall(P,cycle(AL1,b,P),L), findall(P,cycle(AL2,s,P),L), s_tree(GT1,X), is_connected(GT1), is_tree(GT1), s_tree(G83,X), count(s_tree(G83,X)), is_connected(G83), is_tree(G83), (s_tree(G83,X),is_tree(X)), ms_tree(GT3,X,S), ms_tree(G84,X,S), isomorphic(GT1,graph([1,2,3,4,5,6,7],[e(1,2),e(1,4),e(2,4),e(4,7),e(5,6)]),I), isomorphic(GT1,G83), isomorphic(GT2,GT2,I), degree(AL1,f,N), degree_sort(AL1,X), chromatic_number(AL1,N), (welsh_powell(AL1,C),close_dl(C),count_colors(C,N)), dfs(AL1,b,X), dfs(AL2,s,X), connected_components(AL1,X), connected_components(AL2,X), is_bipartite(AL1), is_bipartite([n(g,[h]),n(h,[g])]), (findall(X,k_regular(3,6,X),L),length(L,N))]), (copy_term(D_G, D_C), (D_C = out(D_P) -> \+ \+ (numbervars(D_P, 0, _), print(D_P), nl), catch((once(D_P) -> true ; print(no), nl), error(D_F, _), (print(error(D_F)), nl)) ; D_C = count(D_Q) -> catch((findall(D_Q, D_Q, D_L0), sort(D_L0, D_L1), length(D_L1, D_N), D_R = count(D_Q, D_N)), error(D_F, _), D_R = error(D_Q, D_F)), numbervars(D_R, 0, _), print(D_R), nl ; catch((once(D_C) -> D_R = D_C ; D_R = no(D_C)), error(D_F, _), D_R = error(D_C, D_F)), numbervars(D_R, 0, _), print(D_R), nl))))).
+%---------------------------------------------------------- 267 p7_miscellaneous
+:- use_module(library(readutil)).
+:- ensure_loaded(p6_graphs).
+
+% 7.01 (**) Eight queens problem.
+% This is a classical problem in computer science. The objective is to place
+% eight queens on a chessboard so that no two queens are attacking each other;
+% i.e., no two queens are in the same row, the same column, or on the same
+% diagonal.
+
+% Hint: Represent the positions of the queens as a list of numbers 1..N.
+% Example: [4, 2, 7, 3, 6, 8, 5, 1] means that the queen in the first column is
+% in row 4, the queen in the second column is in row 2, etc. Use the
+% generate-and-test paradigm.
+
+eight_queens(Ys) :- n_queens(8, Ys).
+
+n_queens(N, Ys) :- n_queens(N, 1, Ys).
+
+n_queens(N, N, [Y]) :- between(1, N, Y).
+n_queens(N, X, [Y|Ys]) :-
+  X < N, X1 is X+1,
+  between(1, N, Y),
+  numlist(X1, N, Xs),
+  n_queens(N, X1, Ys),
+  maplist({X,Y}/[X2,Y2]>>(\+ attacking(X/Y, X2/Y2)), Xs, Ys).
+
+attacking(_/Y, _/Y) :- !.                              % Same row
+attacking(X/_, X/_) :- !.                              % Same column
+attacking(X1/Y1, X2/Y2) :- abs(X1-X2) =:= abs(Y1-Y2).  % Same diagonal
+
+
+% 7.02 (**) Knight's tour.
+% Another famous problem is this one: How can a knight jump on an NxN chessboard
+% in such a way that it visits every square exactly once?
+
+% Hints: Represent the squares by pairs of their coordinates of the form X/Y,
+% where both X and Y are integers between 1 and N. (Note that '/' is just a 
+% convenient functor, not division!) Define the relation jump(N, X/Y, U/V) to
+% express the fact that a knight can jump from X/Y to U/V on a NxN chessboard.
+% And finally, represent the solution of our problem as a list of N*N knight
+% positions (the knight's tour).
+
+% This implementation is mysteriously faster than the equivalent using assocs
+% for checking visitedness. Maybe they just have a very high constant overhead?
+
+knights_tour(N, Start, Tour) :- knights_tour(N, Start, Tour, Tour, _, 1).
+
+knights_tour(N, Current, _, [Current], _, Step) :- Step =:= N*N.
+knights_tour(N, Current, Tour, [Current|Tour1], Tour2, Step) :-
+  jump(N, Current, Next),
+  \+ memberchk_dl(Next, Tour),
+  Step1 is Step + 1,
+  knights_tour(N, Next, Tour, Tour1, Tour2, Step1).
+
+jump(N, X/Y, U/V) :-
+  jump_delta(DX/DY),
+  U is X+DX, V is Y+DY,
+  0 < U, U =< N,
+  0 < V, V =< N.
+
+jump_delta(X/Y) :- member(X, [-2, 2]), member(Y, [-1, 1]).
+jump_delta(X/Y) :- member(X, [-1, 1]), member(Y, [-2, 2]).
+
+
+% 7.03 (***) Von Koch's conjecture.
+% Several years ago I met a mathematician who was intrigued by a problem for
+% which he didn't know a solution. His name was Von Koch, and I don't know
+% whether the problem has been solved since. The problem goes like this:
+% given a tree with N nodes (and hence N-1 edges), find a way to enumerate the
+% nodes from 1 to N and, accordingly the edges from 1 to N-1, in such a way that
+% for each edge k the difference of its node numbers equals to K. The conjecture
+% is that this is always possible.
+
+% For small trees the problem is easy to solve by hand. However, for larger
+% trees, and 14 is already very large, it is extremely difficult to find a
+% solution. And remember, we don't know for sure whether there is always a
+% solution!
+
+% Write a predicate that calculates a numbering scheme for a given tree. What is
+% the solution for the larger tree pictured at:
+% https://sites.google.com/site/prologsite/prolog-problems/7/p92b.gif
+
+% One solution (turns out there are many):
+% [a=1, b=2, c=12, d=3, e=4, f=5, g=11, h=13, i=14, k=8, m=6, n=7, p=9, q=10]
+
+van_koch(G, Enum) :-
+  graph_term(G, Ns, Es, _),
+  length(Ns, N),
+  N1 is N-1,
+  numlist(1, N, NodeValues),
+  numlist(1, N1, EdgeValues),
+  van_koch(Ns, Es, Enum, NodeValues, EdgeValues).
+
+van_koch([], [], Enum, [], []) :- close_dl(Enum).
+van_koch([N|Ns], Es, Enum, AvailableNodes, AvailableEdges) :-
+  select(N1, AvailableNodes, AvailableNodes1),
+  map_and_check_edges(N, N1, Es, Es1, AvailableEdges, AvailableEdges1),
+  memberchk(N=N1, Enum),
+  van_koch(Ns, Es1, Enum, AvailableNodes1, AvailableEdges1).
+
+map_and_check_edges(N, N1, Es, Unmapped, AvailableEs, AvailableEs1) :-
+  maplist({N,N1}/[E,E1]>>map_edge(N, N1, E, E1), Es, Es1),
+  partition(fully_mapped, Es1, Mapped, Unmapped),
+  foldl([m(A, B, _), Es, Es1]>>(
+      Diff is abs(A-B),
+      memberchk(Diff, Es),
+      ord_subtract(Es, [Diff], Es1)),
+    Mapped, AvailableEs, AvailableEs1).
+
+% m terms represent partially or fully mapped edges. They have one of two
+% structures:
+%   m(A, nil, B) -> Partially mapped: A is mapped; B is unmapped
+%   m(A, B, nil) -> Fully mapped
+map_edge(N, N1, E, m(N1, nil, B)) :- edge_terms(E, _, _, [N, B]), !.
+map_edge(N, N1, E, m(N1, nil, A)) :- edge_terms(E, _, _, [A, N]), !.
+map_edge(N, N1, m(A, nil, N), m(A, N1, nil)) :- !.
+map_edge(_, _, E, E).
+
+fully_mapped(m(_, _, nil)).
+
+
+% 7.04 (***) An arithmetic puzzle.
+% Given a list of integer numbers, find a correct way of inserting arithmetic
+% signs (operators) such that the result is a correct equation.
+
+% Example: Given the list of numbers [2, 3, 5, 7, 11], we can form the equations
+% 2 - 3 + 5 + 7 = 11, 2 = (3 * 5 + 7) / 11, and ten others!
+
+atoms_equation(Ns, LExpr = RExpr) :-
+  non_empty_append(LHS, RHS, Ns),
+  atoms_expr_tree(LHS, LExpr),
+  atoms_expr_tree(RHS, RExpr),
+  LExpr =:= RExpr.
+
+atoms_expr_tree([N], N).
+atoms_expr_tree(Ns, Expr) :-
+  non_empty_append(LNs, RNs, Ns),
+  atoms_expr_tree(LNs, LExpr),
+  atoms_expr_tree(RNs, RExpr),
+  member(Op, [+, -, *, /]),
+  Expr =.. [Op, LExpr, RExpr].
+
+non_empty_append(A, B, C) :- append(A, B, C), A = [_|_], B = [_|_].
+
+
+% 7.05 (**) English number words.
+% On financial documents, like cheques, numbers must sometimes be written in
+% full words. Example: 175 must be written as one-seven-five. Write a predicate
+% full_words/1 to print (non-negative) integer numbers in full words.
+
+full_words(N) :-
+  atom_chars(N, Cs),
+  maplist([C, W]>>(digit_word(C, W)), Cs, Ws),
+  atomic_list_concat(Ws, '-', Output),
+  writeln(Output).
+
+digit_word('0', zero).
+digit_word('1', one).
+digit_word('2', two).
+digit_word('3', three).
+digit_word('4', four).
+digit_word('5', five).
+digit_word('6', six).
+digit_word('7', seven).
+digit_word('8', eight).
+digit_word('9', nine).
+
+
+% 7.06 (**) Syntax checker.
+% In a certain programming language (Ada) identifiers are defined by the syntax
+% diagram (railroad chart) at:
+% https://sites.google.com/site/prologsite/prolog-problems/7/p96.gif
+
+% Transform the syntax diagram into a system of syntax diagrams which do not
+% contain loops; i.e. which are purely recursive. Using these modified diagrams,
+% write a predicate identifier/1 that can check whether or not a given string is
+% a legal identifier.
+
+identifier(Str) :- atom_chars(Str, Cs), identifier_start(Cs).
+
+identifier_start([C|Cs]) :- char_type(C, alpha), identifier_cont(Cs).
+
+identifier_cont([]).
+identifier_cont(['_',C|Cs]) :- !, char_type(C, alnum), identifier_cont(Cs).
+identifier_cont([C|Cs]) :- char_type(C, alnum), identifier_cont(Cs).
+
+
+% 7.07 (**) Sudoku.
+
+%   Problem statement                Solution
+%   .  .  4 | 8  .  . | .  1  7      9  3  4 | 8  2  5 | 6  1  7
+%           |         |                      |         |
+%   6  7  . | 9  .  . | .  .  .      6  7  2 | 9  1  4 | 8  5  3
+%           |         |                      |         |
+%   5  .  8 | .  3  . | .  .  4      5  1  8 | 6  3  7 | 9  2  4
+%   --------+---------+--------      --------+---------+--------
+%   3  .  . | 7  4  . | 1  .  .      3  2  5 | 7  4  8 | 1  6  9
+%           |         |                      |         |
+%   .  6  9 | .  .  . | 7  8  .      4  6  9 | 1  5  3 | 7  8  2
+%           |         |                      |         |
+%   .  .  1 | .  6  9 | .  .  5      7  8  1 | 2  6  9 | 4  3  5
+%   --------+---------+--------      --------+---------+--------
+%   1  .  . | .  8  . | 3  .  6      1  9  7 | 5  8  2 | 3  4  6
+%           |         |                      |         |
+%   .  .  . | .  .  6 | .  9  1      8  5  3 | 4  7  6 | 2  9  1
+%           |         |                      |         |
+%   2  4  . | .  .  1 | 5  .  .      2  4  6 | 3  9  1 | 5  7  8
+
+% Every spot in the puzzle belongs to a (horizontal) row and a (vertical)
+% column, as well as to one single 3x3 square (which we call "square" for
+% short). At the beginning, some of the spots carry a single-digit number
+% between 1 and 9. The problem is to fill the missing spots with digits in such
+% a way that every number between 1 and 9 appears exactly once in each row, in
+% each column, and in each square.
+
+sudoku_solve(Puzzle, Solved) :-
+  sudoku_list_to_cells(Puzzle, Fixed, Empties),
+  sudoku_solve(Empties, Fixed, Solved).
+
+sudoku_solve([], Fixed, Fixed).
+sudoku_solve([E|Es], Fixed, S) :-
+  between(1, 9, V), valid_cell(V-E, Fixed), sudoku_solve(Es, [V-E|Fixed], S).
+
+valid_cell(V-P, Cells) :- \+ (member(V-P1, Cells), same_neighbourhood(P, P1)).
+
+same_neighbourhood(C1, C2) :-
+  same_column(C1, C2); same_row(C1, C2); same_square(C1, C2).
+
+same_column(X/_, X/_).
+same_row(_/Y, _/Y).
+same_square(C1, C2) :- square(C1, Square), square(C2, Square).
+
+square(X/Y, XS/YS) :- XS is X // 3, YS is Y // 3.
+
+sudoku_list_to_cells(Vs, F, E) :- sudoku_list_to_cells(Vs, F, E, 0, 0).
+
+sudoku_list_to_cells([], [], [], _, _).
+sudoku_list_to_cells([V|Vs], Fixed, [X/Y|Empties], X, Y) :-
+  var(V), !,
+  increment(X, Y, X1, Y1),
+  sudoku_list_to_cells(Vs, Fixed, Empties, X1, Y1).
+sudoku_list_to_cells([V|Vs], [V-X/Y|Fixed], Empties, X, Y) :-
+  increment(X, Y, X1, Y1),
+  sudoku_list_to_cells(Vs, Fixed, Empties, X1, Y1).
+
+increment(X, Y, X1, Y1) :- R is Y*9+X+1, X1 is R mod 9, Y1 is R // 9.
+
+write_sudoku(Cells) :-
+  predsort([O, _-X1/Y1, _-X2/Y2]>>compare(O, Y1/X1, Y2/X2), Cells, CellsSorted),
+  write_sudoku(CellsSorted, 0), nl.
+
+write_sudoku([], _).
+write_sudoku(Cells, 9) :- nl, write_sudoku(Cells, 0), !.
+write_sudoku([C-_|Cs], X) :- write(C), tab(1), X1 is X+1, write_sudoku(Cs, X1).
+
+% Sample puzzle
+sudoku_puzzle([
+  _,_,4, 8,_,_, _,1,7,
+  6,7,_, 9,_,_, _,_,_,
+  5,_,8, _,3,_, _,_,4,
+
+  3,_,_, 7,4,_, 1,_,_,
+  _,6,9, _,_,_, 7,8,_,
+  _,_,1, _,6,9, _,_,5,
+
+  1,_,_, _,8,_, 3,_,6,
+  _,_,_, _,_,6, _,9,1,
+  2,4,_, _,_,1, 5,_,_]).
+
+
+% 7.08 (***) Nonograms.
+% Around 1994, a certain kind of puzzles was very popular in England. The
+% "Sunday Telegraph" newspaper wrote: "Nonograms are puzzles from Japan and are
+% currently published each week only in The Sunday Telegraph. Simply use your
+% logic and skill to complete the grid and reveal a picture or diagram." As a
+% Prolog programmer, you are in a better situation: you can have your computer
+% do the work!
+
+% The puzzle goes like this: Essentially, each row and column of a rectangular
+% bitmap is annotated with the respective lengths of its distinct strings of
+% occupied cells. The person who solves the puzzle must complete the bitmap
+% given only these lengths.
+
+%   Problem statement:          Solution:
+%
+%   |_|_|_|_|_|_|_|_| 3         |_|X|X|X|_|_|_|_| 3
+%   |_|_|_|_|_|_|_|_| 2 1       |X|X|_|X|_|_|_|_| 2 1
+%   |_|_|_|_|_|_|_|_| 3 2       |_|X|X|X|_|_|X|X| 3 2
+%   |_|_|_|_|_|_|_|_| 2 2       |_|_|X|X|_|_|X|X| 2 2
+%   |_|_|_|_|_|_|_|_| 6         |_|_|X|X|X|X|X|X| 6
+%   |_|_|_|_|_|_|_|_| 1 5       |X|_|X|X|X|X|X|_| 1 5
+%   |_|_|_|_|_|_|_|_| 6         |X|X|X|X|X|X|_|_| 6
+%   |_|_|_|_|_|_|_|_| 1         |_|_|_|_|X|_|_|_| 1
+%   |_|_|_|_|_|_|_|_| 2         |_|_|_|X|X|_|_|_| 2
+%    1 3 1 7 5 3 4 3             1 3 1 7 5 3 4 3
+%    2 1 5 1                     2 1 5 1
+
+% For the example above, the problem can be stated as the two lists
+% [[3], [2, 1], [3, 2], [2, 2], [6], [1, 5], [6], [1], [2]] and
+% [[1, 2], [3, 1], [1, 5], [7, 1], [5], [3], [4], [3]] which give the "solid"
+% lengths of the rows and columns, top-to-bottom and left-to-right,
+% respectively. Published puzzles are larger than this example, e.g. 25 x 20,
+% and apparently always have unique solutions.
+
+nonogram(Rows, Cols, Solution) :-
+  annotate(Rows, r, RowsAnnotated, ColLength),
+  annotate(Cols, c, ColsAnnotated, RowLength),
+  sort_by_num_options(RowsAnnotated, RowLength, RowsSorted),
+  sort_by_num_options(ColsAnnotated, ColLength, ColsSorted),
+  interleave(RowsSorted, ColsSorted, Constraints),
+  nonogram_solve(Constraints, RowLength, ColLength, Solution).
+
+annotate(Cs, D, CsAnnotated, L) :-
+  length(Cs, L),
+  numlist(1, L, Indices),
+  maplist({D}/[I, C, A]>>(A = D-I-C), Indices, Cs, CsAnnotated).
+
+nonogram_solve([], _, _, Solution) :- close_dl(Solution).
+nonogram_solve([D-Fixed-C|Cs], RowLength, ColLength, Solution) :-
+  indexed_options(D, Fixed, C, RowLength, ColLength, IndexedRow),
+  maplist({Solution}/[Y/X-V]>>(memberchk(Y/X-V1, Solution), V=V1), IndexedRow),
+  nonogram_solve(Cs, RowLength, ColLength, Solution).
+
+% Indexed is a line satisfying Constraint, with each cell represented in the
+% format Y/X-Value. Generates all options on backtracking.
+indexed_options(r, Fixed, Constraint, Length, _, Indexed) :-
+  line_options(Constraint, Length, Line),
+  numlist(1, Length, Indices),
+  maplist({Fixed}/[V, I, C]>>(C = Fixed/I-V), Line, Indices, Indexed).
+indexed_options(c, Fixed, Constraint, _, Length, Indexed) :-
+  line_options(Constraint, Length, Line),
+  numlist(1, Length, Indices),
+  maplist({Fixed}/[V, I, C]>>(C = I/Fixed-V), Line, Indices, Indexed).
+
+% CsSorted is the list of constraints, Cs, sorted according to how many options
+% they generate when applied to a line of length L.
+sort_by_num_options(Cs, L, CsSorted) :-
+  predsort(
+    {L}/[Ord, _-N1-C1, _-N2-C2]>>(
+      num_line_options(C1, L, O1),
+      num_line_options(C2, L, O2),
+      compare(Ord, O1-N1, O2-N2)),
+    Cs, CsSorted).
+
+:- table factorial/2.
+:- arithmetic_function(factorial/1).
+factorial(0, 1).
+factorial(N, R) :- N > 0, N1 is N-1, factorial(N1, R1), R is N*R1.
+
+:- arithmetic_function(binomial/2).
+binomial(N, K, R) :- R is factorial(N) / (factorial(K) * factorial(N-K)).
+
+% R is the number of ways of filling a line of LineLength according to the
+% nonogram constraints in Ns (a list of numbers specifying the block lengths).
+% This is based on the identical objects into distinct bins problem, where the
+% objects are the leftover cells (those neither in a block nor the required
+% single-cell separator between blocks) and the bins are the gaps around blocks.
+num_line_options(Ns, LineLength, R) :-
+  sum_list(Ns, S), length(Ns, L), R is binomial(LineLength - S + 1, L).
+
+% R is a way of filling a line of LineLength according to the nonogram
+% constraints in Ns (a list of numbers specifying the block lengths). Generates
+% all options on backtracking. Flow order: (+, +, ?).
+line_options(Ns, LineLength, R) :- line_options(Ns, LineLength, R, []).
+
+line_options([N|[]], Length, R, RHole) :-
+  constraint_options(N, Length, Length1, R, R1),
+  replicate(' ', Length1, R1, RHole).
+line_options([N|Ns], Length, R, RHole) :-
+  min_width(Ns, EndSpace),
+  OptionSpace is Length - EndSpace,
+  constraint_options(N, OptionSpace, Length1, R, [' '|R1]),
+  Length2 is Length1 + EndSpace - 1,
+  line_options(Ns, Length2, R1, RHole).
+
+constraint_options(N, Length, Remaining, R, RHole) :-
+  RightmostStart is Length - N,
+  between(0, RightmostStart, Start),
+  replicate(' ', Start, R, R1),
+  replicate('x', N, R1, RHole),
+  Remaining is Length - (Start + N).
+
+% Appends N copies of X to the difference list R, with new hole R1.
+replicate(_, 0, R, R).
+replicate(X, N, R, R1) :-
+  N > 0, R = [X|RH], N1 is N-1, replicate(X, N1, RH, R1).
+
+% R is the minimum number of cells needed to accommodate the constraints in Ns.
+min_width(Ns, R) :- sum_list(Ns, S), length(Ns, L), R is S+L.
+
+% Zs is the interleaving of Xs and Ys. Flow order: (Xs, Ys, Zs).
+% If one list is shorter, the remaining elements of the other are all placed at
+% the end.
+interleave([], Ys, Ys) :- !.
+interleave(Xs, [], Xs).
+interleave([X|Xs], [Y|Ys], [X,Y|T]) :- interleave(Xs, Ys, T).
+
+% Outputs the completed nonogram solution in a grid.
+write_nonogram(N) :-
+  sort(N, NSorted),
+  NSorted = [Y0/_-_|_],
+  foldl(
+    [Y/_-V, LastY, Y]>>(
+      (Y \= LastY -> nl; true),
+      write(V),
+      tab(1)),
+    NSorted, Y0, _),
+  nl.
+
+% Sample puzzle
+nonogram_puzzle(
+  'Hen',
+  [[3], [2,1], [3,2], [2,2], [6], [1,5], [6], [1], [2]],
+  [[1,2], [3,1], [1,5], [7,1], [5], [3], [4], [3]]).
+
+
+% 7.09 (***) Crossword puzzle.
+% Given an empty (or almost empty) framework of a crossword puzzle and a set of
+% words. The problem is to place the words into the framework.
+
+% The crossword puzzle depicted at:
+% https://sites.google.com/site/prologsite/prolog-problems/7/p99.gif
+% is specified in a text file which first lists the words (one word per line) in
+% an arbitrary order. Then, after an empty line, the crossword framework is
+% defined. In this framework specification, an empty character location is
+% represented by a dot (.). In order to make the solution easier, character
+% locations can also contain predefined character values. The image puzzle is
+% defined in the file p7_09a.dat, other examples are p7_09b.dat and p7_09d.dat.
+% There is also an example of a puzzle (p7_09c.dat) which does not have a
+% solution.
+
+% Words are strings (character lists) of at least two characters. A horizontal
+% or vertical sequence of character places in the crossword puzzle framework is
+% called a site. Our problem is to find a compatible way of placing words onto
+% sites.
+
+% Hints:
+% 1) The problem is not easy. You will need some time to thoroughly understand
+%    it. So, don't give up too early! And remember that the objective is a clean
+%    solution, not just a quick-and-dirty hack!
+% 2) Reading the data file is a tricky problem for which a solution is provided
+%    in the file p7_09-readfile.pl. Use the predicate read_lines/2.
+% 3) For efficiency reasons it is important, at least for larger puzzles, to
+%    sort the words and the sites in a particular order. For this part of the
+%    problem, the solution of 1.28 may be very helpful.
+
+%% solve_crossword(+File, -Framework) is multi
+%  File is a path to a crossword specification (several are found in the inputs
+%  directory) and Crossword is the completed puzzle. Multiple solutions may be
+%  found on backtracking.
+
+%  This solution runs about as fast the example solution, but could probably be
+%  made substantially faster by constructing a graph of slot overlaps and then
+%  building outward from one point, rather than jumping all over the place. That
+%  would require fairly substantial re-engineering of this solution though...
+solve_crossword(File, Crossword) :-
+  read_lines(File, Lines),
+  words_framework(Lines, Words, FrameworkRaw),
+  prepare_framework(FrameworkRaw, Crossword),
+
+  % Group words by length. Descending order ensures that the longest words
+  % (i.e. those most likely to cause conflicts) are handled first.
+  group_by_length(Words, WordsReverse),
+  reverse(WordsReverse, WordsByLength),
+
+  % Extract all slots and group by their lengths.
+  across_slots(Crossword, Across),
+  down_slots(Crossword, Down),
+  append(Across, Down, Slots),
+  group_by_length(Slots, SlotsByLength),
+
+  % Try all permutations of words into suitably-sized slots.
+  words_slots_allocation(WordsByLength, SlotsByLength).
+
+% Simplified version of provided file-reading predicate using built-ins.
+read_lines(File, Lines) :-
+  read_file_to_string(File, CharList, []),
+  split_string(CharList, "\n", "", StringLines),
+  maplist(string_chars, StringLines, Lines).
+
+words_framework(Lines, Words, Framework) :-
+  append(Words, [[]|Framework], Lines).
+
+%% prepare_framework(+Lines, -Prepared) is det
+%  Expands a crossword framework so that all lines are the same length and
+%  blanks are replaced by unbound variables.
+prepare_framework(Lines, Prepared) :-
+  maplist(deblank_line, Lines, Deblanked),
+  maplist(length, Deblanked, Lengths),
+  max_list(Lengths, Max),
+  maplist({Max}/[L, L1]>>pad_right(Max, ' ', L, L1), Deblanked, Prepared).
+
+deblank_line(Line, Deblanked) :-
+  maplist([L, D]>>(L = '.' -> D = _; D = L), Line, Deblanked).
+
+%% pad_right(+Length, +Pad, +List, -Padded) is det
+%  Pads a list to the specified length using the given pad element. If the input
+%  list is longer than the specified length, it is returned unchanged.
+pad_right(0, _, L, L) :- !.
+pad_right(N, Pad, [], [Pad|Padded]) :-
+  N > 0, !, N1 is N-1, pad_right(N1, Pad, [], Padded).
+pad_right(N, Pad, [X|Xs], [X|Padded]) :-
+  N > 0, N1 is N-1, pad_right(N1, Pad, Xs, Padded).
+
+%% across_slots(+Framework, -Slots) is det
+%  Extracts the horizontal slots from the crossword framework.
+across_slots(Framework, Slots) :-
+  foldl(
+    [Line, S, S1]>>(extract_slots(Line, LineSlots), append(S, LineSlots, S1)),
+    Framework, [], AllSlots),
+    exclude([S]>>length(S, 1), AllSlots, Slots).
+
+%% down_slots(+Framework, -Slots) is det
+%  Extracts the vertical slots from the crossword framework.
+down_slots(Framework, Slots) :-
+  transpose(Framework, Cols), across_slots(Cols, Slots).
+
+%% extract_slots(+List, -Slots) is det
+%  Extract crossword slots from the given list. Slots are made up of unbound
+%  variables and non-space chars, and separated by any number of spaces.
+extract_slots([], []).
+extract_slots([Current], [S]) :-
+  slot_contents(Current, R), !, reverse(R, S).
+extract_slots([Current, Space|Xs], [S|Ss]) :-
+  slot_contents(Current, R), is_space(Space), !,
+  reverse(R, S), extract_slots(Xs, Ss).
+extract_slots([Current, X|Xs], Ss) :-
+  slot_contents(Current, R), (var(X); X \= ' '), !,
+  extract_slots([s([X|R])|Xs], Ss).
+extract_slots([Space|Xs], Ss) :-
+  is_space(Space), !, extract_slots(Xs, Ss).
+extract_slots([X|Xs], Ss) :-
+  (var(X); X \= ' ', X \= s(_)), !, extract_slots([s([X])|Xs], Ss).
+
+is_space(S) :- nonvar(S), S = ' '.
+slot_contents(Slot, Contents) :- nonvar(Slot), Slot = s(Contents).
+
+%% transpose(?List, ?Transposed) is det
+%  Transpose a list of lists of the same length.
+transpose(Rows, []) :- maplist(=([]), Rows), !.
+transpose(Rows, [Col|Cols]) :-
+  maplist([[X|Xs], X, Xs]>>true, Rows, Col, Rows1), transpose(Rows1, Cols).
+
+%% group_by_length(+Lists, -Groups) is det
+%  Groups a list of lists by their lengths into length-group pairs.
+
+%  ?- group_by_length([[a], [a, b, c], [d, e], [f]], G).
+%  G = [1-[[a], [f]], 2-[[d, e]], 3-[[a, b, c]]].
+group_by_length(Lists, Groups) :-
+  map_list_to_pairs(length, Lists, KeyedByLength),
+  keysort(KeyedByLength, SortedByLength),
+  key_pack(SortedByLength, Groups), !.
+
+key_pack([], []).
+key_pack([K-V], [K-[V]]).
+key_pack([K-V|Ps], [K-[V|Vs]|T]) :- key_pack(Ps, [K-Vs|T]).
+key_pack([K1-V|Ps], [K1-[V],K2-Vs|T]) :- key_pack(Ps, [K2-Vs|T]), K1 \= K2.
+
+%% words_slots_allocation(+Words, !Slots) is multi
+%  Words is a list of words grouped by their length, and Slots is a list of
+%  unbound or partially-bound slots with some shared variables between them. On
+%  success, all variables in Slots will be given a valid binding from Words.
+words_slots_allocation([], []).
+words_slots_allocation([_-[]|Ws], Ss) :- !, words_slots_allocation(Ws, Ss).
+words_slots_allocation(Ws, [_-[]|Ss]) :- !, words_slots_allocation(Ws, Ss).
+words_slots_allocation([L-[Word|Words]|WordGroups], SlotGroups) :-
+  ord_selectchk(L-Slots, SlotGroups, SlotGroups1),
+  select(Word, Slots, Slots1),
+  ord_union([L-Slots1], SlotGroups1, SlotGroups2),
+  words_slots_allocation([L-Words|WordGroups], SlotGroups2).
+
+% DRIVER (appended by the vendoring, CEO-700): the file defines the P-99 problems and states their examples in comments;
+% this goal runs those examples: the first 8-queens solution and all 6-queens solutions, a 5x5 knight's tour, Von Koch on P-99's larger tree, the twelve [2,3,5,7,11] equations, full_words(175), identifier/1, and the file's own sample sudoku and 'Hen' nonogram
+:- initialization(forall(member(D_G, [eight_queens(L), findall(L,n_queens(6,L),E), knights_tour(5,1/1,L), van_koch(graph([1,2,3,4,5,6,7,8,9,10,11,12,13,14],[e(1,6),e(2,6),e(3,6),e(4,6),e(5,6),e(5,7),e(5,8),e(8,9),e(5,10),e(10,11),e(11,12),e(11,13),e(13,14)]),L), findall(E,atoms_equation([2,3,5,7,11],E),L), out(full_words(175)), identifier(this_is_a_long_identifier), identifier(this_ends_in_), identifier(two__underscores), identifier('1abc'), out((sudoku_puzzle(P),sudoku_solve(P,S),write_sudoku(S))), out((nonogram_puzzle(E,R,C),nonogram(R,C,S),write_nonogram(S)))]), (copy_term(D_G, D_C), (D_C = out(D_P) -> \+ \+ (numbervars(D_P, 0, _), print(D_P), nl), catch((once(D_P) -> true ; print(no), nl), error(D_F, _), (print(error(D_F)), nl)) ; D_C = count(D_Q) -> catch((findall(D_Q, D_Q, D_L0), sort(D_L0, D_L1), length(D_L1, D_N), D_R = count(D_Q, D_N)), error(D_F, _), D_R = error(D_Q, D_F)), numbervars(D_R, 0, _), print(D_R), nl ; catch((once(D_C) -> D_R = D_C ; D_R = no(D_C)), error(D_F, _), D_R = error(D_C, D_F)), numbervars(D_R, 0, _), print(D_R), nl)))).
