@@ -561,11 +561,29 @@ function TreeDumpScale(a, k, p, n) {
     TreeDumpScale = (GE(k, 0) a * p, a / p);
     return;
 }
-function TreeDumpRound(s, m, f) {
+/* the sign of (a * 10^k) - s for s = TreeDumpScale(a, k): the one rounded multiply (or divide) can turn a value a hair off a tie into a */
+/* tie, and printf, which rounds the exact binary value, does not (6869.955 is a hair below its tie and prints 6869.95); Dekker's exact */
+/* product gives the error of that one operation.                                                                                    */
+function TreeDumpErr(a, k, s, p, n, x, c, xh, xl, yh, yl, ph, pl) {
+    p = 1.0;
+    n = (GE(k, 0) k, -k);
+    while (GT(n, 0)) { p = p * 10.0; n = n - 1; }
+    x = (GE(k, 0) a, s);
+    c = 134217729.0 * x; xh = c - (c - x); xl = x - xh;
+    c = 134217729.0 * p; yh = c - (c - p); yl = p - yh;
+    ph = x * p;
+    pl = ((xh * yh - ph) + xh * yl + xl * yh) + xl * yl;
+    TreeDumpErr = (GE(k, 0) pl, (a - ph) - pl);
+    return;
+}
+function TreeDumpRound(s, a, k, m, f, e) {
     m = CONVERT(s, 'INTEGER');
     f = s - m;
     if (GT(f, 0.5)) { m = m + 1; }
-    else if (EQ(f, 0.5)) { m = m + REMDR(m, 2); }
+    else if (EQ(f, 0.5)) {
+        e = TreeDumpErr(a, k, s);
+        if (GT(e, 0)) { m = m + 1; } else if (EQ(e, 0)) { m = m + REMDR(m, 2); }
+    }
     TreeDumpRound = m;
     return;
 }
@@ -578,9 +596,9 @@ function TreeDumpG(r, sg, a, t, x, m, ds, ip, fp) {
     x = 0;
     while (GE(t, 10.0)) { t = t / 10.0; x = x + 1; }
     while (LT(t, 1.0)) { t = t * 10.0; x = x - 1; }
-    m = TreeDumpRound(TreeDumpScale(a, 5 - x));
-    if (GE(m, 1000000)) { x = x + 1; m = TreeDumpRound(TreeDumpScale(a, 5 - x)); }
-    if (LT(m, 100000)) { x = x - 1; m = TreeDumpRound(TreeDumpScale(a, 5 - x)); }
+    m = TreeDumpRound(TreeDumpScale(a, 5 - x), a, 5 - x);
+    if (GE(m, 1000000)) { x = x + 1; m = TreeDumpRound(TreeDumpScale(a, 5 - x), a, 5 - x); }
+    if (LT(m, 100000)) { x = x - 1; m = TreeDumpRound(TreeDumpScale(a, 5 - x), a, 5 - x); }
     ds = '' m;
     if (LT(x, -4)) { ip = SUBSTR(ds, 1, 1); fp = SUBSTR(ds, 2); }
     else if (GE(x, 6)) { ip = SUBSTR(ds, 1, 1); fp = SUBSTR(ds, 2); }
@@ -1019,7 +1037,6 @@ kw_s = SpecialNms;   while (kw_s ? (POS(0) BREAK(' ') . kw_w ' ' REM . kw_s)) { 
 Function    =  SPAN('.' '0123456789' &UCASE '_' &LCASE) $ tx *DIFFER(FunctionsT[REPLACE(tx, &LCASE, &UCASE)]);
 BuiltinVar  =  SPAN('.' '0123456789' &UCASE '_' &LCASE) $ tx *DIFFER(BuiltinVarsT[REPLACE(tx, &LCASE, &UCASE)]);
 SpecialNm   =  SPAN('.' '0123456789' &UCASE '_' &LCASE) $ tx *DIFFER(SpecialNmsT[REPLACE(tx, &LCASE, &UCASE)]);
-ProtKwd     =  SPAN(&UCASE &LCASE)                $ tx *DIFFER(ProtKwdsT[REPLACE(tx, &LCASE, &UCASE)]);
 UnprotKwd   =  SPAN(&UCASE &LCASE)                $ tx *DIFFER(UnprotKwdsT[REPLACE(tx, &LCASE, &UCASE)]);
 Integer     =  SPAN('0123456789');
 DQ          =  '"' (BREAK('"' CHAR(10))) . thx . *Shift('TT_QLIT', thx) '"';
@@ -1075,7 +1092,7 @@ $'>'        =  *$' ' '>';
 ArgTail     =  *$',' FENCE(*Expr | epsilon . *Reduce('TT_NUL', 0)) . *IncCounter() FENCE(*ArgTail | epsilon);
 ArgList     =  FENCE(*Expr . *IncCounter() FENCE(*ArgTail | epsilon) | epsilon . *Reduce('TT_NUL', 0) . *IncCounter() *ArgTail);
 Expr        =  *Expr0;
-Expr0       =  *Expr1 FENCE(*$'=' *Expr0 . *Reduce('TT_ASSIGN', 2) | *$'  ' '=' (epsilon) . thx . *Shift('TT_QLIT', thx) . *Reduce('TT_ASSIGN', 2) | epsilon);
+Expr0       =  *Expr1 FENCE(*$'=' *Expr0 . *ReduceV('TT_ASSIGN', 2) | *$'  ' '=' (epsilon) . thx . *Shift('TT_QLIT', thx) . *ReduceV('TT_ASSIGN', 2) | epsilon);
 Expr1       =  *Expr2 *Expr1t;
 Expr1t      =  FENCE(*$'?' *Expr2 . *Reduce('TT_SCAN', 2) *Expr1t | epsilon);
 Expr2       =  *Expr3 *Expr2t;
@@ -1086,27 +1103,26 @@ Expr4       =  *Expr5 *Expr4t;
 Expr4t      =  FENCE(*$'  ' *Expr5 . *Reduce('TT_SEQ', 2) *Expr4t | epsilon);
 Expr5       =  *Expr6 FENCE(*$'@' *Expr5 . *Reduce('TT_OPSYN', 2, '@') | epsilon);
 Expr6       =  *Expr7 *Expr6t;
-Expr6t      =  FENCE(*$'  ' ('+' *$'  ' *Expr7 . *Reduce('TT_ADD', 2) | '-' *$'  ' *Expr7 . *Reduce('TT_SUB', 2)) *Expr6t | epsilon);
+Expr6t      =  FENCE(*$'  ' ('+' *$'  ' *Expr7 . *ReduceV('TT_ADD', 2) | '-' *$'  ' *Expr7 . *ReduceV('TT_SUB', 2)) *Expr6t | epsilon);
 Expr7       =  *Expr8 *Expr7t;
 Expr7t      =  FENCE(*$'#' *Expr8 . *Reduce('TT_OPSYN', 2, '#') *Expr7t | epsilon);
 Expr8       =  *Expr9 *Expr8t;
-Expr8t      =  FENCE(*$'/' *Expr9 . *Reduce('TT_DIV', 2) *Expr8t | epsilon);
+Expr8t      =  FENCE(*$'/' *Expr9 . *ReduceV('TT_DIV', 2) *Expr8t | epsilon);
 Expr9       =  *Expr10 *Expr9t;
-Expr9t      =  FENCE(*$'*' *Expr10 . *Reduce('TT_MUL', 2) *Expr9t | epsilon);
+Expr9t      =  FENCE(*$'*' *Expr10 . *ReduceV('TT_MUL', 2) *Expr9t | epsilon);
 Expr10      =  *Expr11 *Expr10t;
 Expr10t     =  FENCE(*$'%' *Expr11 . *Reduce('TT_OPSYN', 2, '%') *Expr10t | epsilon);
-Expr11      =  *Expr12 FENCE(*$'  ' ('**' | '^' | '!') *$'  ' *Expr11 . *Reduce('TT_POW', 2) | epsilon);
+Expr11      =  *Expr12 FENCE(*$'  ' ('**' | '^' | '!') *$'  ' *Expr11 . *ReduceV('TT_POW', 2) | epsilon);
 Expr12      =  *Expr13 *Expr12tail;
-Expr12tail  =  FENCE(*$'  ' ('$' *$'  ' *Expr13 . *Reduce('TT_CAPT_IMMED_ASGN', 2) *Expr12tail | '.' *$'  ' *Expr13 . *Reduce('TT_CAPT_COND_ASGN', 2) *Expr12tail ) | epsilon);
+Expr12tail  =  FENCE(*$'  ' ('$' *$'  ' *Expr13 . *ReduceV('TT_CAPT_IMMED_ASGN', 2) *Expr12tail | '.' *$'  ' *Expr13 . *ReduceV('TT_CAPT_COND_ASGN', 2) *Expr12tail ) | epsilon);
 Expr13      =  *Expr14 FENCE(*$'~' *Expr13 . *Reduce('TT_OPSYN', 2, '~') | epsilon);
-Expr14      =  '@' *Expr14 . *Reduce('TT_CAPT_CURSOR', 1)
+Expr14      =  '@' *Expr14 . *ReduceV('TT_CAPT_CURSOR', 1)
             |  '~' *Expr14 . *Reduce('TT_NOT', 1)
             |  '?' *Expr14 . *Reduce('TT_INTERROGATE', 1)
-            |  '&' (*ProtKwd) . thx . *Shift('TT_KEYWORD', REPLACE(thx, SnLT[SnCase], SnUT[SnCase]))
             |  '&' (*Id) . thx . *Shift('TT_KEYWORD', REPLACE(thx, SnLT[SnCase], SnUT[SnCase]))
-            |  '&' *Expr14 . *Reduce('TT_OPSYN', 1, '&')
-            |  '+' *Expr14 . *Reduce('TT_PLS', 1)
-            |  '-' *Expr14 . *Reduce('TT_MNS', 1)
+            |  '&' *Expr14 . *ReduceV('TT_OPSYN', 1, '&')
+            |  '+' *Expr14 . *ReduceV('TT_PLS', 1)
+            |  '-' *Expr14 . *ReduceV('TT_MNS', 1)
             |  '*' *Expr14 . *Reduce('TT_DEFER', 1)
             |  '$' *Expr14 . *Reduce('TT_INDIRECT', 1)
             |  '.' *Expr14 . *Reduce('TT_NAME', 1)
@@ -1129,6 +1145,12 @@ SnoPrimT['ANY'] = 'TT_ANY'; SnoPrimT['NOTANY'] = 'TT_NOTANY'; SnoPrimT['SPAN'] =
 SnoPrimT['BREAKX'] = 'TT_BREAKX'; SnoPrimT['LEN'] = 'TT_LEN'; SnoPrimT['POS'] = 'TT_POS'; SnoPrimT['RPOS'] = 'TT_RPOS';
 SnoPrimT['TAB'] = 'TT_TAB'; SnoPrimT['RTAB'] = 'TT_RTAB'; SnoPrimT['ARBNO'] = 'TT_ARBNO'; SnoPrimT['FENCE'] = 'TT_FENCE';
 SnoPrimT['FLUSH'] = 'TT_FLUSH'; SnoPrimT['ARB'] = 'TT_ARB'; SnoPrimT['BAL'] = 'TT_BAL'; SnoPrimT['REM'] = 'TT_REM';
+FoldPatNmT  =  TABLE(7); FoldPatNmT['ARB'] = 1; FoldPatNmT['BAL'] = 1; FoldPatNmT['REM'] = 1; FoldPatNmT['FAIL'] = 1; FoldPatNmT['SUCCEED'] = 1; FoldPatNmT['ABORT'] = 1; FoldPatNmT['FENCE'] = 1;
+FoldPatNdT  =  TABLE(6); FoldPatNdT['TT_ARB'] = 1; FoldPatNdT['TT_BAL'] = 1; FoldPatNdT['TT_REM'] = 1; FoldPatNdT['TT_FAIL'] = 1; FoldPatNdT['TT_SUCCEED'] = 1; FoldPatNdT['TT_ABORT'] = 1;
+FoldBinT    =  TABLE(5); FoldBinT['TT_ADD'] = 1; FoldBinT['TT_SUB'] = 1; FoldBinT['TT_MUL'] = 1; FoldBinT['TT_DIV'] = 1; FoldBinT['TT_POW'] = 1;
+FoldCsetT   =  TABLE(5); FoldCsetT['TT_ANY'] = 'ANY'; FoldCsetT['TT_NOTANY'] = 'NOTANY'; FoldCsetT['TT_SPAN'] = 'SPAN'; FoldCsetT['TT_BREAK'] = 'BREAK'; FoldCsetT['TT_BREAKX'] = 'BREAKX';
+FoldPatFnT  =  TABLE(12); FoldPatFnT['TT_ANY'] = 1; FoldPatFnT['TT_NOTANY'] = 1; FoldPatFnT['TT_SPAN'] = 1; FoldPatFnT['TT_BREAK'] = 1; FoldPatFnT['TT_BREAKX'] = 1; FoldPatFnT['TT_LEN'] = 1;
+FoldPatFnT['TT_POS'] = 1; FoldPatFnT['TT_RPOS'] = 1; FoldPatFnT['TT_TAB'] = 1; FoldPatFnT['TT_RTAB'] = 1; FoldPatFnT['TT_ARBNO'] = 1; FoldPatFnT['TT_FENCE'] = 1;
 SnoPrimT['FAIL'] = 'TT_FAIL'; SnoPrimT['SUCCEED'] = 'TT_SUCCEED'; SnoPrimT['ABORT'] = 'TT_ABORT';
 SnoValT     =  TABLE(7);
 SnoValT['ARB'] = 'ARB'; SnoValT['BAL'] = 'BAL'; SnoValT['REM'] = 'REM'; SnoValT['FAIL'] = 'FAIL'; SnoValT['SUCCEED'] = 'SUCCEED'; SnoValT['ABORT'] = 'ABORT';
@@ -1183,12 +1205,12 @@ Comment     =  '*' BREAK(CHAR(10));
 /* or ?-separated pattern match is TT_SCAN subject pattern inside it (snobol4.y opt_subject) -- then :eq and :repl (an     */
 /* empty replacement is the null string), then the gotos present.                                                         */
 StmtLabel   =  (NOTANY(' ' CHAR(9) CHAR(10) ';') FENCE(BREAK(' ' CHAR(9) CHAR(10) ';') | REM)) $ ltx *IDENT(SnLblT[ltx]) *DIFFER((SnLblT[ltx] = 1));
-StmtRepl    =  *$'  ' '=' . *Reduce('TT_ATTR', 0, ':eq') . *IncCounter() *$' '
+StmtRepl    =  *$'  ' '=' . *ReduceEq() . *IncCounter() *$' '
                FENCE(*Expr | (epsilon) . thx . *Shift('TT_QLIT', thx)) . *Reduce('TT_ATTR', 1, ':repl') . *IncCounter();
 /* a statement-level ? chain, left to right: each ? takes its pattern (or none) and wraps what stands before it in a TT_SCAN (snobol4.y qsubject) */
 StmtQuery   =  *$'?' FENCE(*Expr3 . *Reduce('TT_SCAN', 2) | epsilon . *Reduce('TT_SCAN', 1)) FENCE(*StmtQuery | epsilon);
 /* a replacement needs a subject: a label followed by = is SPITBOL's "missing operand" and the C's syntax error (smoke_hello.sno) */
-Stmt        =  epsilon . *PushCounter()
+Stmt        =  @StmtAt *NoteStmtPos() epsilon . *PushCounter()
                FENCE((*StmtLabel) . thx . *Shift('TT_QLIT', REPLACE(thx, SnLT[SnCase], SnUT[SnCase])) . *Reduce('TT_ATTR', 1, ':lbl') . *IncCounter() | epsilon)
                FENCE(
                   FENCE(
@@ -1201,7 +1223,7 @@ Stmt        =  epsilon . *PushCounter()
                |  epsilon
                )
                FENCE(*Goto | epsilon)
-               . *Reduce('TT_STMT', nTop())
+               . *ReduceStmt(nTop())
                . *PopCounter()
                *$' ';
 /* END after the case map in force, as sbl -bf reads it: upper-case END ends the program and end or End is an ordinary label */
@@ -1293,6 +1315,174 @@ function PPFind(nm, i, t) {
     freturn;
 }
 /* ==================================================================================================================== */
+/* THE REFUSALS AT REDUCE TIME (the ceo, CEO-1649/CEO-1650): a conditional assignment runs when the whole match has succeeded, in       */
+/* recognition order, so a predicate inside the pattern sees an empty stack; the checks the C parser makes in its reduce actions are made */
+/* here by ReduceV, the Reduce that inspects the node it has just built, and a refusal prints the C parser's voice and parks the parse.   */
+/* A value (a literal or a dot-made name) is refused as the target of =, $, . and @ and as the operand of &; a constant expression is      */
+/* evaluated as SPITBOL evaluates it at compile time, the runtime doing the arithmetic under an error limit of one so the error number    */
+/* and text are the runtime's own; the kinds and lists mirror sno_pe_walk in lower_snobol4.c, which the C parser asks through            */
+/* sno_preeval_expr. A function call is never folded by a parser (the runtime is not up at parse time): the lowerer folds it.             */
+/* the positions go into an ARRAY sized once before the match: a TABLE growing during the match allocates, and a collection  */
+/* in the middle of a match with pending conditional assignments leaves a tree with a child that is not a node (CEO-1650)   */
+function NoteStmtPos() {
+    StmtPosN = StmtPosN + 1;
+    StmtPosA[StmtPosN] = StmtAt;
+    return;
+}
+/* ==================================================================================================================== */
+function ReduceStmt(n) {
+    Reduce('TT_STMT', n);
+    StmtNo = StmtNo + 1;
+    ReduceStmt = .dummy;
+    nreturn;
+}
+/* ==================================================================================================================== */
+function StmtLine(p, s, n, i) {
+    p = StmtPosA[StmtNo + 1];
+    if (IDENT(p)) { StmtLine = 0; return; }
+    if (EQ(p, 0)) { StmtLine = 1; return; }
+    s = SUBSTR(Src, 1, p);
+    n = 1;
+    while (s ? (BREAK(CHAR(10)) CHAR(10) @i)) { n = n + 1; if (~(s = SUBSTR(s, i + 1))) { break; } }
+    StmtLine = n;
+    return;
+}
+/* ==================================================================================================================== */
+function Refuse(code, text) {
+    if (EQ(RefusedStmt, StmtNo + 1)) { return; }
+    RefusedStmt = StmtNo + 1;
+    ParseRefused = 1;
+    if (IDENT(code, 0)) { TERMINAL = 'snobol4:' StmtLine() ': error: ' text; return; }
+    TERMINAL = 'scrip: error ' code ': ' text;
+    TERMINAL = '  at ' (IDENT(pf_name) '-', pf_name) ':' StmtLine();
+    return;
+}
+/* ==================================================================================================================== */
+function IsValueNode(x, t) {
+    t = t(x);
+    if (IDENT(t, 'TT_QLIT')) { return; }
+    if (IDENT(t, 'TT_ILIT')) { return; }
+    if (IDENT(t, 'TT_FLIT')) { return; }
+    if (IDENT(t, 'TT_NAME')) { return; }
+    freturn;
+}
+/* ==================================================================================================================== */
+function SpineDown(s) {
+    if (IDENT(t(s), 'TT_SCAN')) { SpineDown = c(s)[1]; return; }
+    if (IDENT(t(s), 'TT_SEQ')) { SpineDown = c(s)[1]; return; }
+    freturn;
+}
+/* ==================================================================================================================== */
+function ReduceV(t, n, v, x) {
+    Reduce(t, n, v);
+    ReduceV = .dummy;
+    x = Top();
+    if (IDENT(t, 'TT_ASSIGN')) { if (IsValueNode(c(x)[1])) { Refuse(0, 'value used where name is required'); } nreturn; }
+    if (IDENT(t, 'TT_CAPT_IMMED_ASGN')) { if (IsValueNode(c(x)[2])) { Refuse(0, 'value used where name is required'); } nreturn; }
+    if (IDENT(t, 'TT_CAPT_COND_ASGN')) { if (IsValueNode(c(x)[2])) { Refuse(0, 'value used where name is required'); } nreturn; }
+    if (IDENT(t, 'TT_CAPT_CURSOR')) { if (IsValueNode(c(x)[1])) { Refuse(0, 'value used where name is required'); } nreturn; }
+    if (IDENT(t, 'TT_OPSYN')) { if (IsValueNode(c(x)[1])) { Refuse(0, 'value used where name is required'); } nreturn; }
+    ConstVal(x);
+    nreturn;
+}
+/* ==================================================================================================================== */
+function ReduceEq(x, s) {
+    ReduceEq = .dummy;
+    x = Top();
+    s = c(x)[1];
+    while (s = SpineDown(s)) { ; }
+    if (IsValueNode(s)) { Refuse(0, 'value used where name is required'); }
+    Reduce('TT_ATTR', 0, ':eq');
+    nreturn;
+}
+/* ==================================================================================================================== */
+function FoldRefuse() {
+    if (EQ(&ERRLIMIT, 0)) { Refuse(&ERRTYPE, &ERRTEXT); }
+    &ERRLIMIT = 0;
+    return;
+}
+/* ==================================================================================================================== */
+function FoldPatLike(x, d) {
+    d = DATATYPE(x);
+    if (IDENT(d, 'PATTERN')) { return; }
+    if (IDENT(d, 'EXPRESSION')) { return; }
+    freturn;
+}
+/* ==================================================================================================================== */
+function FoldOp(t, l, r, v) {
+    &ERRLIMIT = 1;
+    if (IDENT(t, 'TT_ADD')) { if (v = l + r) { &ERRLIMIT = 0; FoldOp = v; return; } }
+    else if (IDENT(t, 'TT_SUB')) { if (v = l - r) { &ERRLIMIT = 0; FoldOp = v; return; } }
+    else if (IDENT(t, 'TT_MUL')) { if (v = l * r) { &ERRLIMIT = 0; FoldOp = v; return; } }
+    else if (IDENT(t, 'TT_DIV')) { if (v = l / r) { &ERRLIMIT = 0; FoldOp = v; return; } }
+    else if (IDENT(t, 'TT_POW')) { if (v = l ^ r) { &ERRLIMIT = 0; FoldOp = v; return; } }
+    else if (IDENT(t, 'TT_MNS')) { if (v = -l) { &ERRLIMIT = 0; FoldOp = v; return; } }
+    else if (IDENT(t, 'TT_PLS')) { if (v = +l) { &ERRLIMIT = 0; FoldOp = v; return; } }
+    else if (IDENT(t, 'TT_SEQ')) { if (v = l r) { &ERRLIMIT = 0; FoldOp = v; return; } }
+    FoldRefuse();
+    freturn;
+}
+/* ==================================================================================================================== */
+function FoldCset(nm, a) {
+    &ERRLIMIT = 1;
+    if (a = APPLY(nm, '')) { &ERRLIMIT = 0; return; }
+    FoldRefuse();
+    return;
+}
+/* ==================================================================================================================== */
+function ConstVal(y, t, l, r, i, k, a, b) {
+    t = t(y);
+    if (IDENT(t, 'TT_QLIT')) { ConstVal = v(y); return; }
+    if (IDENT(t, 'TT_ILIT')) { ConstVal = v(y) + 0; return; }
+    if (IDENT(t, 'TT_FLIT')) { ConstVal = v(y) + 0.0; return; }
+    if (IDENT(t, 'TT_VAR')) { if (DIFFER(FoldPatNmT[v(y)])) { ConstVal = ARB; return; } freturn; }
+    if (DIFFER(FoldPatNdT[t])) { ConstVal = ARB; return; }
+    if (IDENT(t, 'TT_KEYWORD')) {
+        if (DIFFER(FoldPatNmT[v(y)])) { ConstVal = ARB; return; }
+        if (IDENT(v(y), 'ALPHABET')) { ConstVal = &ALPHABET; return; }
+        if (IDENT(v(y), 'LCASE')) { ConstVal = &LCASE; return; }
+        if (IDENT(v(y), 'UCASE')) { ConstVal = &UCASE; return; }
+        freturn;
+    }
+    if (IDENT(t, 'TT_NAME')) { if (EQ(n(y), 1) IDENT(t(c(y)[1]), 'TT_VAR')) { ConstVal = .FoldDummy; return; } freturn; }
+    if (IDENT(t, 'TT_CAPT_CURSOR')) { if (EQ(n(y), 1) IDENT(t(c(y)[1]), 'TT_VAR')) { ConstVal = @FoldDummy; return; } freturn; }
+    if (IDENT(t, 'TT_DEFER')) { ConstVal = *FoldDummy; return; }
+    if (IDENT(t, 'TT_MNS')) { if (l = ConstVal(c(y)[1])) { if (a = FoldOp(t, l, l)) { ConstVal = a; return; } } freturn; }
+    if (IDENT(t, 'TT_PLS')) { if (l = ConstVal(c(y)[1])) { if (a = FoldOp(t, l, l)) { ConstVal = a; return; } } freturn; }
+    if (DIFFER(FoldBinT[t])) { if (l = ConstVal(c(y)[1])) { if (r = ConstVal(c(y)[2])) { if (a = FoldOp(t, l, r)) { ConstVal = a; return; } } } freturn; }
+    if (IDENT(t, 'TT_SEQ')) {
+        k = n(y);
+        if (EQ(k, 0)) { freturn; }
+        i = 1;
+        while (LE(i, k)) {
+            if (~(b = ConstVal(c(y)[i]))) { freturn; }
+            if (EQ(i, 1)) { a = b; }
+            else if (FoldPatLike(a)) { a = ARB; }
+            else if (FoldPatLike(b)) { a = ARB; }
+            else if (~(a = FoldOp('TT_SEQ', a, b))) { freturn; }
+            i = i + 1;
+        }
+        ConstVal = a;
+        return;
+    }
+    if (IDENT(t, 'TT_CAPT_COND_ASGN')) { if (l = ConstVal(c(y)[1])) { if (IDENT(t(c(y)[2]), 'TT_VAR')) { ConstVal = ARB; return; } } freturn; }
+    if (IDENT(t, 'TT_CAPT_IMMED_ASGN')) { if (l = ConstVal(c(y)[1])) { if (IDENT(t(c(y)[2]), 'TT_VAR')) { ConstVal = ARB; return; } } freturn; }
+    if (IDENT(t, 'TT_FNC')) { freturn; }
+    if (IDENT(t, 'TT_ALT')) { if (l = ConstVal(c(y)[1])) { if (r = ConstVal(c(y)[2])) { ConstVal = ARB; return; } } freturn; }
+    if (DIFFER(FoldPatFnT[t])) {
+        k = n(y);
+        i = 1;
+        while (LE(i, k)) { if (~(b = ConstVal(c(y)[i]))) { freturn; } i = i + 1; }
+        if (DIFFER(FoldCsetT[t]) EQ(k, 1)) {
+            if (IDENT(b)) { FoldCset(FoldCsetT[t]); freturn; }
+            if (IDENT(DATATYPE(b), 'PATTERN')) { FoldCset(FoldCsetT[t]); freturn; }
+        }
+        ConstVal = ARB;
+        return;
+    }
+    freturn;
+}
+/* ==================================================================================================================== */
 function PPErr(msg) {
     TERMINAL = 'Preprocess: ' msg;
     pp_err = 1;
@@ -1345,6 +1535,11 @@ while (LE(0, 1)) {
     pf_a = TIME();
     InitCounter();
     InitStack();
+    ParseRefused = ;
+    StmtNo = 0;
+    RefusedStmt = 0;
+    StmtPosA = ARRAY(SIZE(Src) + 2);
+    StmtPosN = 0;
     SnCaseNow = ;
     SnCase = ;
     SnLblT = TABLE(256);
@@ -1354,14 +1549,17 @@ while (LE(0, 1)) {
     } else if (Src ? *Compiland) {
         ptree = Pop();
         pf_parse = pf_parse + (TIME() - pf_a);
-        pf_i = 1;
-        pf_nk = n(ptree);
-        while (LE(pf_i, pf_nk)) {
-            pf_cmd = ITEM(c(ptree), pf_i);
-            if (t(pf_cmd) ? (POS(0) ('TT_STMT' | 'TT_END') RPOS(0))) { TreeDump(pf_cmd); }
-            pf_i = pf_i + 1;
+        if (DIFFER(ParseRefused)) { OUTPUT = 'Parse Error.'; }
+        else {
+            pf_i = 1;
+            pf_nk = n(ptree);
+            while (LE(pf_i, pf_nk)) {
+                pf_cmd = ITEM(c(ptree), pf_i);
+                if (t(pf_cmd) ? (POS(0) ('TT_STMT' | 'TT_END') RPOS(0))) { TreeDump(pf_cmd); }
+                pf_i = pf_i + 1;
+            }
+            TreeDumpEnd();
         }
-        TreeDumpEnd();
     } else {
         pf_parse = pf_parse + (TIME() - pf_a);
         OUTPUT = 'Parse Error.';
