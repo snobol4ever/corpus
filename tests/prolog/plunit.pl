@@ -29,7 +29,17 @@ end_tests(_).
  * a suite from EMPTY to PASS via the (TC>0, SF=0) rule. By bumping pj_tc only from
  * pj_inc_{pass,fail,skip}, "TC=0" correctly means "no test made it through to a
  * verdict line." */
-pj_init :- nb_setval(pj_p,0), nb_setval(pj_f,0), nb_setval(pj_s,0), nb_setval(pj_tc,0).
+pj_init :- nb_setval(pj_p,0), nb_setval(pj_f,0), nb_setval(pj_s,0), nb_setval(pj_tc,0), pj_sto_init.
+/* sto(rational_trees) (ceo CEO-1684): plunit runs such a test with occurs_check=false, both engines' default, so it is an ordinary test --
+ * but one that builds a cyclic term can loop or exhaust the stack and end its whole file (measured 2026-10-11 on 4783ee83e: core/test_arith
+ * 221 cases -> 61, core/test_term 52 -> 9). So the file's own run DEFERS each one (skip ... [sto-deferred only(Unit,Test)]) and the SWI
+ * runner runs each deferred case ALONE, in the same program, under its own timeout: a pj_sto_only.pl in the working directory holding
+ * only(Unit,Test). selects it, and every other test of the run is passed over without a line. A looping case costs that case. */
+pj_sto_init :- ( catch(pj_sto_read(T), _, fail) -> nb_setval(pj_sto, T) ; nb_setval(pj_sto, defer) ).
+pj_sto_read(only(S,N)) :- open('pj_sto_only.pl', read, St), read(St, T), close(St), T = only(S,N).
+pj_del_sto([], []).
+pj_del_sto([sto(_)|T], R) :- !, pj_del_sto(T, R).
+pj_del_sto([X|T], [X|R]) :- pj_del_sto(T, R).
 pj_inc_pass :- nb_getval(pj_p,N), N1 is N+1, nb_setval(pj_p,N1),
                nb_getval(pj_sf,SF), nb_setval(pj_sf,SF),
                nb_getval(pj_tc,TC), TC1 is TC+1, nb_setval(pj_tc,TC1).
@@ -107,6 +117,7 @@ pj_run_tests(Suite, [t(N0,O,G)|Rest]) :-
  * failed (an all(X = L) the shim had no clause for) abandoned every later test of the suite through the once/1 chain,
  * and a forall generator that raised (data/1 calling random/1) escaped and ended the whole run. plunit grades each
  * test alone and reports a raising generator as that test's error. */
+pj_run_verdict(Suite,N,_,_) :- nb_getval(pj_sto, only(S,T)), \+ (Suite == S, N == T), !.
 pj_run_verdict(Suite,N,O,G) :- once(pj_run_one(Suite,N,O,G)), !.
 pj_run_verdict(Suite,N,_,_) :- pj_inc_fail, format('  FAIL: ~w:~w  (no verdict from the shim)~n',[Suite,N]).
 pj_gen_err(Suite,Name,E) :- pj_inc_fail, pj_err_text(E, T), format('  FAIL: ~w:~w  (received error: ~w)~n',[Suite,Name,T]).
@@ -161,6 +172,11 @@ pj_cond_fails(_) :- true.    /* unknown / undefined: assume fails => skip */
 pj_run_one(Suite,Name,Opts,Goal) :- pj_has_forall(Opts,Gen), !,
     pj_del_forall(Opts,Rest),
     catch(forall(Gen, once(pj_run_one(Suite,Name,Rest,Goal))), E, pj_gen_err(Suite,Name,E)).
+pj_run_one(Suite,Name,Opts,Goal) :- memberchk(sto(rational_trees), Opts), !,
+    (   nb_getval(pj_sto, only(_,_))
+    ->  pj_del_sto(Opts, Rest), pj_run_one(Suite,Name,Rest,Goal)
+    ;   pj_inc_skip, format('  skip: ~w:~w  [sto-deferred ~q]~n',[Suite,Name,only(Suite,Name)])
+    ).
 pj_run_one(Suite,Name,Opts,_) :- pj_has_sto(Opts), !,
     pj_inc_skip, format('  skip: ~w:~w  [sto]~n',[Suite,Name]).
 pj_run_one(Suite,Name,Opts,_) :- pj_has_blocked(Opts), !,
