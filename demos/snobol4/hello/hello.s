@@ -174,17 +174,19 @@ n4_assign_α:            mov              rax, qword ptr [rsp + 0]             #
                         test             eax, eax
                         pop              rax
                                                                               je 1f
-                        sub              rsp, 16
+                        sub              rsp, 32
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
+                        mov              qword ptr [rsp + 16], r13
                         lea              rdi, [rsp + 0]
                         mov              esi, 1
-                        mov              edx, 0
-                        lea              rcx, [rsp + 16]
-                        call             rt_gc_point_arr_c@PLT
+                        lea              rdx, [rsp + 16]
+                        lea              rcx, [rsp + 32]
+                        call             rt_gc_point_arr_probe_c@PLT
 .Lgcsite_main_4:        mov              rax, qword ptr [rsp + 0]
                         mov              rdx, qword ptr [rsp + 8]
-                        add              rsp, 16
+                        mov              r13, qword ptr [rsp + 16]
+                        add              rsp, 32
 1:                                                                            jmp   n5_statement_end_α
 .Lassign_α_12_0:        .quad            .Lassign_α_12_0_s
 .Lassign_α_12_0_s:      .string          "OUTPUT"
@@ -253,17 +255,17 @@ main_ω:
                         .quad            .Lgcsite_main_3
                         .quad            274877906945
                         .quad            .Lgcsite_main_4
-                        .quad            137438953473
+                        .quad            206158430209
                         .quad            .Lgcsite_main_5
                         .quad            68719476737
                         .quad            .Lgcsite_main_6
-                        .quad            327681
+                        .quad            1
                         .quad            .Lgcsite_main_7
-                        .quad            327681
+                        .quad            1
                         .quad            .Lgcsite_main_8
-                        .quad            327681
+                        .quad            1
                         .quad            .Lgcsite_main_9
-                        .quad            327681
+                        .quad            1
                         .section         .rodata
                         .align           8
 __gc_frame_maps:        .quad            1
