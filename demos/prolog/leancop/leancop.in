@@ -1,0 +1,24 @@
+problem(pel1, ((p=>q) <=> (~q => ~p))).
+problem(pel2, (~ ~p <=> p)).
+problem(pel3, (~ (p=>q) => (q=>p))).
+problem(pel4, ((~p=>q) <=> (~q=>p))).
+problem(pel5, (((p;q)=>(p;r)) => (p;(q=>r)))).
+problem(pel6, (p ; ~p)).
+problem(pel7, (p ; ~ ~ ~p)).
+problem(pel8, (((p=>q)=>p)=>p)).
+problem(pel9, (((p;q),(~p;q),(p;~q)) => ~ (~p;~q))).
+problem(pel10, (((q=>r),(r=>(p,q)),(p=>(q;r))) => (p<=>q))).
+problem(pel11, (p<=>p)).
+problem(pel12, (((p<=>q)<=>r) <=> (p<=>(q<=>r)))).
+problem(pel17, (((p,(q=>r))=>s) <=> ((~p;q;s),(~p;~r;s)))).
+problem(pel18, (ex Y: all X: (f(Y)=>f(X)))).
+problem(pel19, (ex X: all Y: all Z: ((p(Y)=>q(Z)) => (p(X)=>q(X))))).
+problem(pel20, ((all X: all Y: ex Z: all W: ((p(X),q(Y)) => (r(Z),s(W)))) => (ex X: ex Y: ((p(X),q(Y)) => ex Z: r(Z))))).
+problem(pel21, (((ex X: (p => f(X))), (ex X: (f(X) => p))) => (ex X: (p <=> f(X))))).
+problem(pel22, ((all X: (p <=> f(X))) => (p <=> all X: f(X)))).
+problem(pel23, ((all X: (p ; f(X))) <=> (p ; all X: f(X)))).
+problem(syllogism, (((all X: (man(X) => mortal(X))), man(socrates)) => mortal(socrates))).
+problem(group_eq, (((all X: (e*X = X)), (all X: (i(X)*X = e)), (all X: all Y: all Z: ((X*Y)*Z = X*(Y*Z)))) => (all X: (i(X)*X = e)))).
+problem(non_imp, (p => q)).
+problem(non_conv, ((ex X: p(X)) => (all X: p(X)))).
+problem(non_peirce_half, ((p=>q) => (q=>p))).

@@ -1,0 +1,1493 @@
+
+pel1 is a Theorem
+Start of proof for pel1
+------------------------------------------------------
+Explanations for the proof presented below:
+- to solve unsatisfiable problems they are negated
+- equality axioms are added if required
+- terms and variables are represented by Prolog terms
+  and Prolog variables, negation is represented by -
+- I^[t1,..,tn] represents the atom P_I(t1,..,tn)
+  or the Skolem term f_I(t1,t2,..,tn) introduced
+  during the clausal form translation
+- the substitution [[X1,..,Xn],[t1,..,tn]] represents
+  the assignments X1:=t1, .., Xn:=tn
+
+Proof:
+------
+
+Translation into (disjunctive) clausal form:
+ (1)  [- (2^[]),-q,p]
+ (2)  [- (2^[]),q]
+ (3)  [- (2^[]),-p]
+ (4)  [- (1^[]),p,-q]
+ (5)  [- (1^[]),-p]
+ (6)  [- (1^[]),q]
+ (7)  [1^[],2^[]]
+
+We prove that the given clauses are valid, i.e. for
+a given substitution they evaluate to true for all
+interpretations. The proof is by contradiction:
+Assume there is an interpretation so that the given
+clauses evaluate to false. Then in each clause there
+has to be at least one literal that is false.
+
+ Then clause (7) is false if at least one of the following is false:
+ [1^[],2^[]]
+1 Assume 1^[] is false.
+  Then clause (4) is false if at least one of the following is false:
+  [p,-q]
+1.1 Assume p is false.
+    Then clause (5) is false if at least one of the following is false:
+    [- (1^[])]
+1.1.1 Assume - (1^[]) is false.
+      This is a contradiction to assumption 1.
+1.2 Assume -q is false.
+    Then clause (6) is false if at least one of the following is false:
+    [- (1^[])]
+1.2.1 Assume - (1^[]) is false.
+      This is a contradiction to assumption 1.
+2 Assume 2^[] is false.
+  Then clause (1) is false if at least one of the following is false:
+  [-q,p]
+2.1 Assume -q is false.
+    Then clause (2) is false if at least one of the following is false:
+    [- (2^[])]
+2.1.1 Assume - (2^[]) is false.
+      This is a contradiction to assumption 2.
+2.2 Assume p is false.
+    Then clause (3) is false if at least one of the following is false:
+    [- (2^[])]
+2.2.1 Assume - (2^[]) is false.
+      This is a contradiction to assumption 2.
+
+Therefore there is no interpretation that makes all
+given clauses simultaneously false. Hence the given
+clauses are valid.
+                                             q.e.d.
+------------------------------------------------------
+End of proof for pel1
+
+pel2 is a Theorem
+Start of proof for pel2
+------------------------------------------------------
+Explanations for the proof presented below:
+- to solve unsatisfiable problems they are negated
+- equality axioms are added if required
+- terms and variables are represented by Prolog terms
+  and Prolog variables, negation is represented by -
+- I^[t1,..,tn] represents the atom P_I(t1,..,tn)
+  or the Skolem term f_I(t1,t2,..,tn) introduced
+  during the clausal form translation
+- the substitution [[X1,..,Xn],[t1,..,tn]] represents
+  the assignments X1:=t1, .., Xn:=tn
+
+Proof:
+------
+
+Translation into (disjunctive) clausal form:
+ (1)  [- (2^[]),p]
+ (2)  [- (2^[]),-p]
+ (3)  [- (1^[]),p]
+ (4)  [- (1^[]),-p]
+ (5)  [1^[],2^[]]
+
+We prove that the given clauses are valid, i.e. for
+a given substitution they evaluate to true for all
+interpretations. The proof is by contradiction:
+Assume there is an interpretation so that the given
+clauses evaluate to false. Then in each clause there
+has to be at least one literal that is false.
+
+ Then clause (5) is false if at least one of the following is false:
+ [1^[],2^[]]
+1 Assume 1^[] is false.
+  Then clause (3) is false if at least one of the following is false:
+  [p]
+1.1 Assume p is false.
+    Then clause (4) is false if at least one of the following is false:
+    [- (1^[])]
+1.1.1 Assume - (1^[]) is false.
+      This is a contradiction to assumption 1.
+2 Assume 2^[] is false.
+  Then clause (1) is false if at least one of the following is false:
+  [p]
+2.1 Assume p is false.
+    Then clause (2) is false if at least one of the following is false:
+    [- (2^[])]
+2.1.1 Assume - (2^[]) is false.
+      This is a contradiction to assumption 2.
+
+Therefore there is no interpretation that makes all
+given clauses simultaneously false. Hence the given
+clauses are valid.
+                                             q.e.d.
+------------------------------------------------------
+End of proof for pel2
+
+pel3 is a Theorem
+Start of proof for pel3
+------------------------------------------------------
+Explanations for the proof presented below:
+- to solve unsatisfiable problems they are negated
+- equality axioms are added if required
+- terms and variables are represented by Prolog terms
+  and Prolog variables, negation is represented by -
+- I^[t1,..,tn] represents the atom P_I(t1,..,tn)
+  or the Skolem term f_I(t1,t2,..,tn) introduced
+  during the clausal form translation
+- the substitution [[X1,..,Xn],[t1,..,tn]] represents
+  the assignments X1:=t1, .., Xn:=tn
+
+Proof:
+------
+
+Translation into (disjunctive) clausal form:
+ (1)  [-q]
+ (2)  [p]
+ (3)  [-p]
+ (4)  [q]
+
+We prove that the given clauses are valid, i.e. for
+a given substitution they evaluate to true for all
+interpretations. The proof is by contradiction:
+Assume there is an interpretation so that the given
+clauses evaluate to false. Then in each clause there
+has to be at least one literal that is false.
+
+ Then clause (2) is false if at least one of the following is false:
+ [p]
+1 Assume p is false.
+  Then clause (3) is true.
+
+Therefore there is no interpretation that makes all
+given clauses simultaneously false. Hence the given
+clauses are valid.
+                                             q.e.d.
+------------------------------------------------------
+End of proof for pel3
+
+pel4 is a Theorem
+Start of proof for pel4
+------------------------------------------------------
+Explanations for the proof presented below:
+- to solve unsatisfiable problems they are negated
+- equality axioms are added if required
+- terms and variables are represented by Prolog terms
+  and Prolog variables, negation is represented by -
+- I^[t1,..,tn] represents the atom P_I(t1,..,tn)
+  or the Skolem term f_I(t1,t2,..,tn) introduced
+  during the clausal form translation
+- the substitution [[X1,..,Xn],[t1,..,tn]] represents
+  the assignments X1:=t1, .., Xn:=tn
+
+Proof:
+------
+
+Translation into (disjunctive) clausal form:
+ (1)  [- (2^[]),-q,-p]
+ (2)  [- (2^[]),q]
+ (3)  [- (2^[]),p]
+ (4)  [- (1^[]),-p,-q]
+ (5)  [- (1^[]),p]
+ (6)  [- (1^[]),q]
+ (7)  [1^[],2^[]]
+
+We prove that the given clauses are valid, i.e. for
+a given substitution they evaluate to true for all
+interpretations. The proof is by contradiction:
+Assume there is an interpretation so that the given
+clauses evaluate to false. Then in each clause there
+has to be at least one literal that is false.
+
+ Then clause (7) is false if at least one of the following is false:
+ [1^[],2^[]]
+1 Assume 1^[] is false.
+  Then clause (4) is false if at least one of the following is false:
+  [-p,-q]
+1.1 Assume -p is false.
+    Then clause (5) is false if at least one of the following is false:
+    [- (1^[])]
+1.1.1 Assume - (1^[]) is false.
+      This is a contradiction to assumption 1.
+1.2 Assume -q is false.
+    Then clause (6) is false if at least one of the following is false:
+    [- (1^[])]
+1.2.1 Assume - (1^[]) is false.
+      This is a contradiction to assumption 1.
+2 Assume 2^[] is false.
+  Then clause (1) is false if at least one of the following is false:
+  [-q,-p]
+2.1 Assume -q is false.
+    Then clause (2) is false if at least one of the following is false:
+    [- (2^[])]
+2.1.1 Assume - (2^[]) is false.
+      This is a contradiction to assumption 2.
+2.2 Assume -p is false.
+    Then clause (3) is false if at least one of the following is false:
+    [- (2^[])]
+2.2.1 Assume - (2^[]) is false.
+      This is a contradiction to assumption 2.
+
+Therefore there is no interpretation that makes all
+given clauses simultaneously false. Hence the given
+clauses are valid.
+                                             q.e.d.
+------------------------------------------------------
+End of proof for pel4
+
+pel5 is a Theorem
+Start of proof for pel5
+------------------------------------------------------
+Explanations for the proof presented below:
+- to solve unsatisfiable problems they are negated
+- equality axioms are added if required
+- terms and variables are represented by Prolog terms
+  and Prolog variables, negation is represented by -
+- I^[t1,..,tn] represents the atom P_I(t1,..,tn)
+  or the Skolem term f_I(t1,t2,..,tn) introduced
+  during the clausal form translation
+- the substitution [[X1,..,Xn],[t1,..,tn]] represents
+  the assignments X1:=t1, .., Xn:=tn
+
+Proof:
+------
+
+Translation into (disjunctive) clausal form:
+ (1)  [p]
+ (2)  [-q]
+ (3)  [r]
+ (4)  [q,-p,-r]
+
+We prove that the given clauses are valid, i.e. for
+a given substitution they evaluate to true for all
+interpretations. The proof is by contradiction:
+Assume there is an interpretation so that the given
+clauses evaluate to false. Then in each clause there
+has to be at least one literal that is false.
+
+ Then clause (1) is false if at least one of the following is false:
+ [p]
+1 Assume p is false.
+  Then clause (4) is false if at least one of the following is false:
+  [q,-r]
+1.1 Assume q is false.
+    Then clause (2) is true.
+1.2 Assume -r is false.
+    Then clause (3) is true.
+
+Therefore there is no interpretation that makes all
+given clauses simultaneously false. Hence the given
+clauses are valid.
+                                             q.e.d.
+------------------------------------------------------
+End of proof for pel5
+
+pel6 is a Theorem
+Start of proof for pel6
+------------------------------------------------------
+Explanations for the proof presented below:
+- to solve unsatisfiable problems they are negated
+- equality axioms are added if required
+- terms and variables are represented by Prolog terms
+  and Prolog variables, negation is represented by -
+- I^[t1,..,tn] represents the atom P_I(t1,..,tn)
+  or the Skolem term f_I(t1,t2,..,tn) introduced
+  during the clausal form translation
+- the substitution [[X1,..,Xn],[t1,..,tn]] represents
+  the assignments X1:=t1, .., Xn:=tn
+
+Proof:
+------
+
+Translation into (disjunctive) clausal form:
+ (1)  [p]
+ (2)  [-p]
+
+We prove that the given clauses are valid, i.e. for
+a given substitution they evaluate to true for all
+interpretations. The proof is by contradiction:
+Assume there is an interpretation so that the given
+clauses evaluate to false. Then in each clause there
+has to be at least one literal that is false.
+
+ Then clause (1) is false if at least one of the following is false:
+ [p]
+1 Assume p is false.
+  Then clause (2) is true.
+
+Therefore there is no interpretation that makes all
+given clauses simultaneously false. Hence the given
+clauses are valid.
+                                             q.e.d.
+------------------------------------------------------
+End of proof for pel6
+
+pel7 is a Theorem
+Start of proof for pel7
+------------------------------------------------------
+Explanations for the proof presented below:
+- to solve unsatisfiable problems they are negated
+- equality axioms are added if required
+- terms and variables are represented by Prolog terms
+  and Prolog variables, negation is represented by -
+- I^[t1,..,tn] represents the atom P_I(t1,..,tn)
+  or the Skolem term f_I(t1,t2,..,tn) introduced
+  during the clausal form translation
+- the substitution [[X1,..,Xn],[t1,..,tn]] represents
+  the assignments X1:=t1, .., Xn:=tn
+
+Proof:
+------
+
+Translation into (disjunctive) clausal form:
+ (1)  [p]
+ (2)  [-p]
+
+We prove that the given clauses are valid, i.e. for
+a given substitution they evaluate to true for all
+interpretations. The proof is by contradiction:
+Assume there is an interpretation so that the given
+clauses evaluate to false. Then in each clause there
+has to be at least one literal that is false.
+
+ Then clause (1) is false if at least one of the following is false:
+ [p]
+1 Assume p is false.
+  Then clause (2) is true.
+
+Therefore there is no interpretation that makes all
+given clauses simultaneously false. Hence the given
+clauses are valid.
+                                             q.e.d.
+------------------------------------------------------
+End of proof for pel7
+
+pel8 is a Theorem
+Start of proof for pel8
+------------------------------------------------------
+Explanations for the proof presented below:
+- to solve unsatisfiable problems they are negated
+- equality axioms are added if required
+- terms and variables are represented by Prolog terms
+  and Prolog variables, negation is represented by -
+- I^[t1,..,tn] represents the atom P_I(t1,..,tn)
+  or the Skolem term f_I(t1,t2,..,tn) introduced
+  during the clausal form translation
+- the substitution [[X1,..,Xn],[t1,..,tn]] represents
+  the assignments X1:=t1, .., Xn:=tn
+
+Proof:
+------
+
+Translation into (disjunctive) clausal form:
+ (1)  [p]
+ (2)  [-p]
+ (3)  [q,-p]
+
+We prove that the given clauses are valid, i.e. for
+a given substitution they evaluate to true for all
+interpretations. The proof is by contradiction:
+Assume there is an interpretation so that the given
+clauses evaluate to false. Then in each clause there
+has to be at least one literal that is false.
+
+ Then clause (1) is false if at least one of the following is false:
+ [p]
+1 Assume p is false.
+  Then clause (2) is true.
+
+Therefore there is no interpretation that makes all
+given clauses simultaneously false. Hence the given
+clauses are valid.
+                                             q.e.d.
+------------------------------------------------------
+End of proof for pel8
+
+pel9 is a Theorem
+Start of proof for pel9
+------------------------------------------------------
+Explanations for the proof presented below:
+- to solve unsatisfiable problems they are negated
+- equality axioms are added if required
+- terms and variables are represented by Prolog terms
+  and Prolog variables, negation is represented by -
+- I^[t1,..,tn] represents the atom P_I(t1,..,tn)
+  or the Skolem term f_I(t1,t2,..,tn) introduced
+  during the clausal form translation
+- the substitution [[X1,..,Xn],[t1,..,tn]] represents
+  the assignments X1:=t1, .., Xn:=tn
+
+Proof:
+------
+
+Translation into (disjunctive) clausal form:
+ (1)  [p,q]
+ (2)  [-p,-q]
+ (3)  [p,-q]
+ (4)  [-p,q]
+
+We prove that the given clauses are valid, i.e. for
+a given substitution they evaluate to true for all
+interpretations. The proof is by contradiction:
+Assume there is an interpretation so that the given
+clauses evaluate to false. Then in each clause there
+has to be at least one literal that is false.
+
+ Then clause (1) is false if at least one of the following is false:
+ [p,q]
+1 Assume p is false.
+  Then clause (2) is false if at least one of the following is false:
+  [-q]
+1.1 Assume -q is false.
+    Then clause (4) is false if at least one of the following is false:
+    [-p]
+1.1.1 Assume -p is false.
+      This is a contradiction to assumption 1.
+2 Assume q is false.
+  Then clause (2) is false if at least one of the following is false:
+  [-p]
+2.1 Assume -p is false.
+    Then clause (3) is false if at least one of the following is false:
+    [-q]
+2.1.1 Assume -q is false.
+      This is a contradiction to assumption 2.
+
+Therefore there is no interpretation that makes all
+given clauses simultaneously false. Hence the given
+clauses are valid.
+                                             q.e.d.
+------------------------------------------------------
+End of proof for pel9
+
+pel10 is a Theorem
+Start of proof for pel10
+------------------------------------------------------
+Explanations for the proof presented below:
+- to solve unsatisfiable problems they are negated
+- equality axioms are added if required
+- terms and variables are represented by Prolog terms
+  and Prolog variables, negation is represented by -
+- I^[t1,..,tn] represents the atom P_I(t1,..,tn)
+  or the Skolem term f_I(t1,t2,..,tn) introduced
+  during the clausal form translation
+- the substitution [[X1,..,Xn],[t1,..,tn]] represents
+  the assignments X1:=t1, .., Xn:=tn
+
+Proof:
+------
+
+Translation into (disjunctive) clausal form:
+ (1)  [- (2^[]),p]
+ (2)  [- (2^[]),-q]
+ (3)  [- (1^[]),q]
+ (4)  [- (1^[]),-p]
+ (5)  [1^[],2^[]]
+ (6)  [q,-r]
+ (7)  [r,-p]
+ (8)  [r,-q]
+ (9)  [p,-q,-r]
+
+We prove that the given clauses are valid, i.e. for
+a given substitution they evaluate to true for all
+interpretations. The proof is by contradiction:
+Assume there is an interpretation so that the given
+clauses evaluate to false. Then in each clause there
+has to be at least one literal that is false.
+
+ Then clause (5) is false if at least one of the following is false:
+ [1^[],2^[]]
+1 Assume 1^[] is false.
+  Then clause (3) is false if at least one of the following is false:
+  [q]
+1.1 Assume q is false.
+    Then clause (8) is false if at least one of the following is false:
+    [r]
+1.1.1 Assume r is false.
+      Then clause (9) is false if at least one of the following is false:
+      [p,-q]
+1.1.1.1 Assume p is false.
+        Then clause (4) is false if at least one of the following is false:
+        [- (1^[])]
+1.1.1.1.1 Assume - (1^[]) is false.
+          This is a contradiction to assumption 1.
+1.1.1.2 Assume -q is false.
+        This is a contradiction to assumption 1.1.
+2 Assume 2^[] is false.
+  Then clause (1) is false if at least one of the following is false:
+  [p]
+2.1 Assume p is false.
+    Then clause (7) is false if at least one of the following is false:
+    [r]
+2.1.1 Assume r is false.
+      Then clause (6) is false if at least one of the following is false:
+      [q]
+2.1.1.1 Assume q is false.
+        Then clause (2) is false if at least one of the following is false:
+        [- (2^[])]
+2.1.1.1.1 Assume - (2^[]) is false.
+          This is a contradiction to assumption 2.
+
+Therefore there is no interpretation that makes all
+given clauses simultaneously false. Hence the given
+clauses are valid.
+                                             q.e.d.
+------------------------------------------------------
+End of proof for pel10
+
+pel11 is a Theorem
+Start of proof for pel11
+------------------------------------------------------
+Explanations for the proof presented below:
+- to solve unsatisfiable problems they are negated
+- equality axioms are added if required
+- terms and variables are represented by Prolog terms
+  and Prolog variables, negation is represented by -
+- I^[t1,..,tn] represents the atom P_I(t1,..,tn)
+  or the Skolem term f_I(t1,t2,..,tn) introduced
+  during the clausal form translation
+- the substitution [[X1,..,Xn],[t1,..,tn]] represents
+  the assignments X1:=t1, .., Xn:=tn
+
+Proof:
+------
+
+Translation into (disjunctive) clausal form:
+ (1)  [- (2^[]),p]
+ (2)  [- (2^[]),-p]
+ (3)  [- (1^[]),p]
+ (4)  [- (1^[]),-p]
+ (5)  [1^[],2^[]]
+
+We prove that the given clauses are valid, i.e. for
+a given substitution they evaluate to true for all
+interpretations. The proof is by contradiction:
+Assume there is an interpretation so that the given
+clauses evaluate to false. Then in each clause there
+has to be at least one literal that is false.
+
+ Then clause (5) is false if at least one of the following is false:
+ [1^[],2^[]]
+1 Assume 1^[] is false.
+  Then clause (3) is false if at least one of the following is false:
+  [p]
+1.1 Assume p is false.
+    Then clause (4) is false if at least one of the following is false:
+    [- (1^[])]
+1.1.1 Assume - (1^[]) is false.
+      This is a contradiction to assumption 1.
+2 Assume 2^[] is false.
+  Then clause (1) is false if at least one of the following is false:
+  [p]
+2.1 Assume p is false.
+    Then clause (2) is false if at least one of the following is false:
+    [- (2^[])]
+2.1.1 Assume - (2^[]) is false.
+      This is a contradiction to assumption 2.
+
+Therefore there is no interpretation that makes all
+given clauses simultaneously false. Hence the given
+clauses are valid.
+                                             q.e.d.
+------------------------------------------------------
+End of proof for pel11
+
+pel12 is a Theorem
+Start of proof for pel12
+------------------------------------------------------
+Explanations for the proof presented below:
+- to solve unsatisfiable problems they are negated
+- equality axioms are added if required
+- terms and variables are represented by Prolog terms
+  and Prolog variables, negation is represented by -
+- I^[t1,..,tn] represents the atom P_I(t1,..,tn)
+  or the Skolem term f_I(t1,t2,..,tn) introduced
+  during the clausal form translation
+- the substitution [[X1,..,Xn],[t1,..,tn]] represents
+  the assignments X1:=t1, .., Xn:=tn
+
+Proof:
+------
+
+Translation into (disjunctive) clausal form:
+ (1)  [- (14^[]),p]
+ (2)  [- (14^[]),-q]
+ (3)  [- (13^[]),q]
+ (4)  [- (13^[]),-p]
+ (5)  [- (15^[]),13^[],14^[]]
+ (6)  [- (15^[]),-r]
+ (7)  [- (12^[]),-p,q]
+ (8)  [- (12^[]),p,-q]
+ (9)  [- (12^[]),r]
+ (10)  [- (11^[]),q]
+ (11)  [- (11^[]),-r]
+ (12)  [- (10^[]),r]
+ (13)  [- (10^[]),-q]
+ (14)  [- (9^[]),-q,r]
+ (15)  [- (9^[]),q,-r]
+ (16)  [- (16^[]),p,9^[]]
+ (17)  [- (16^[]),-p,10^[],11^[]]
+ (18)  [- (16^[]),15^[],12^[]]
+ (19)  [- (7^[]),-q,r]
+ (20)  [- (7^[]),q,-r]
+ (21)  [- (7^[]),p]
+ (22)  [- (5^[]),q]
+ (23)  [- (5^[]),-r]
+ (24)  [- (4^[]),r]
+ (25)  [- (4^[]),-q]
+ (26)  [- (6^[]),4^[],5^[]]
+ (27)  [- (6^[]),-p]
+ (28)  [- (3^[]),-p,q]
+ (29)  [- (3^[]),p,-q]
+ (30)  [- (2^[]),p]
+ (31)  [- (2^[]),-q]
+ (32)  [- (1^[]),q]
+ (33)  [- (1^[]),-p]
+ (34)  [- (8^[]),r,3^[]]
+ (35)  [- (8^[]),-r,1^[],2^[]]
+ (36)  [- (8^[]),6^[],7^[]]
+ (37)  [8^[],16^[]]
+
+We prove that the given clauses are valid, i.e. for
+a given substitution they evaluate to true for all
+interpretations. The proof is by contradiction:
+Assume there is an interpretation so that the given
+clauses evaluate to false. Then in each clause there
+has to be at least one literal that is false.
+
+ Then clause (37) is false if at least one of the following is false:
+ [8^[],16^[]]
+1 Assume 8^[] is false.
+  Then clause (34) is false if at least one of the following is false:
+  [r,3^[]]
+1.1 Assume r is false.
+    Then clause (20) is false if at least one of the following is false:
+    [- (7^[]),q]
+1.1.1 Assume - (7^[]) is false.
+      Then clause (36) is false if at least one of the following is false:
+      [- (8^[]),6^[]]
+1.1.1.1 Assume - (8^[]) is false.
+        This is a contradiction to assumption 1.
+1.1.1.2 Assume 6^[] is false.
+        Then clause (26) is false if at least one of the following is false:
+        [4^[],5^[]]
+1.1.1.2.1 Assume 4^[] is false.
+          Then clause (25) is false if at least one of the following is false:
+          [-q]
+1.1.1.2.1.1 Assume -q is false.
+            Then clause (32) is false if at least one of the following is false:
+            [- (1^[])]
+1.1.1.2.1.1.1 Assume - (1^[]) is false.
+              Then clause (35) is false if at least one of the following is false:
+              [- (8^[]),-r,2^[]]
+1.1.1.2.1.1.1.1 Assume - (8^[]) is false.
+                This assumption has been refuted in 1.1.1.1.
+1.1.1.2.1.1.1.2 Assume -r is false.
+                This is a contradiction to assumption 1.1.
+1.1.1.2.1.1.1.3 Assume 2^[] is false.
+                Then clause (30) is false if at least one of the following is false:
+                [p]
+1.1.1.2.1.1.1.3.1 Assume p is false.
+                  Then clause (27) is false if at least one of the following is false:
+                  [- (6^[])]
+1.1.1.2.1.1.1.3.1.1 Assume - (6^[]) is false.
+                    This is a contradiction to assumption 1.1.1.2.
+1.1.1.2.2 Assume 5^[] is false.
+          Then clause (23) is false if at least one of the following is false:
+          [-r]
+1.1.1.2.2.1 Assume -r is false.
+            This is a contradiction to assumption 1.1.
+1.1.2 Assume q is false.
+      Then clause (25) is false if at least one of the following is false:
+      [- (4^[])]
+1.1.2.1 Assume - (4^[]) is false.
+        Then clause (26) is false if at least one of the following is false:
+        [- (6^[]),5^[]]
+1.1.2.1.1 Assume - (6^[]) is false.
+          Then clause (36) is false if at least one of the following is false:
+          [- (8^[]),7^[]]
+1.1.2.1.1.1 Assume - (8^[]) is false.
+            This is a contradiction to assumption 1.
+1.1.2.1.1.2 Assume 7^[] is false.
+            Then clause (21) is false if at least one of the following is false:
+            [p]
+1.1.2.1.1.2.1 Assume p is false.
+              Then clause (33) is false if at least one of the following is false:
+              [- (1^[])]
+1.1.2.1.1.2.1.1 Assume - (1^[]) is false.
+                Then clause (35) is false if at least one of the following is false:
+                [- (8^[]),-r,2^[]]
+1.1.2.1.1.2.1.1.1 Assume - (8^[]) is false.
+                  This assumption has been refuted in 1.1.2.1.1.1.
+1.1.2.1.1.2.1.1.2 Assume -r is false.
+                  This is a contradiction to assumption 1.1.
+1.1.2.1.1.2.1.1.3 Assume 2^[] is false.
+                  Then clause (31) is false if at least one of the following is false:
+                  [-q]
+1.1.2.1.1.2.1.1.3.1 Assume -q is false.
+                    This is a contradiction to assumption 1.1.2.
+1.1.2.1.2 Assume 5^[] is false.
+          Then clause (23) is false if at least one of the following is false:
+          [-r]
+1.1.2.1.2.1 Assume -r is false.
+            This is a contradiction to assumption 1.1.
+1.2 Assume 3^[] is false.
+    Then clause (28) is false if at least one of the following is false:
+    [-p,q]
+1.2.1 Assume -p is false.
+      Then clause (21) is false if at least one of the following is false:
+      [- (7^[])]
+1.2.1.1 Assume - (7^[]) is false.
+        Then clause (36) is false if at least one of the following is false:
+        [- (8^[]),6^[]]
+1.2.1.1.1 Assume - (8^[]) is false.
+          This is a contradiction to assumption 1.
+1.2.1.1.2 Assume 6^[] is false.
+          Then clause (26) is false if at least one of the following is false:
+          [4^[],5^[]]
+1.2.1.1.2.1 Assume 4^[] is false.
+            Then clause (24) is false if at least one of the following is false:
+            [r]
+1.2.1.1.2.1.1 Assume r is false.
+              This assumption has been refuted in 1.1.
+1.2.1.1.2.2 Assume 5^[] is false.
+            Then clause (22) is false if at least one of the following is false:
+            [q]
+1.2.1.1.2.2.1 Assume q is false.
+              Then clause (29) is false if at least one of the following is false:
+              [- (3^[]),p]
+1.2.1.1.2.2.1.1 Assume - (3^[]) is false.
+                This is a contradiction to assumption 1.2.
+1.2.1.1.2.2.1.2 Assume p is false.
+                This is a contradiction to assumption 1.2.1.
+1.2.2 Assume q is false.
+      Then clause (19) is false if at least one of the following is false:
+      [- (7^[]),r]
+1.2.2.1 Assume - (7^[]) is false.
+        Then clause (36) is false if at least one of the following is false:
+        [- (8^[]),6^[]]
+1.2.2.1.1 Assume - (8^[]) is false.
+          This is a contradiction to assumption 1.
+1.2.2.1.2 Assume 6^[] is false.
+          Then clause (27) is false if at least one of the following is false:
+          [-p]
+1.2.2.1.2.1 Assume -p is false.
+            This assumption has been refuted in 1.2.1.
+1.2.2.2 Assume r is false.
+        This assumption has been refuted in 1.1.
+2 Assume 16^[] is false.
+  Then clause (16) is false if at least one of the following is false:
+  [p,9^[]]
+2.1 Assume p is false.
+    Then clause (4) is false if at least one of the following is false:
+    [- (13^[])]
+2.1.1 Assume - (13^[]) is false.
+      Then clause (5) is false if at least one of the following is false:
+      [- (15^[]),14^[]]
+2.1.1.1 Assume - (15^[]) is false.
+        Then clause (18) is false if at least one of the following is false:
+        [- (16^[]),12^[]]
+2.1.1.1.1 Assume - (16^[]) is false.
+          This is a contradiction to assumption 2.
+2.1.1.1.2 Assume 12^[] is false.
+          Then clause (7) is false if at least one of the following is false:
+          [-p,q]
+2.1.1.1.2.1 Assume -p is false.
+            This is a contradiction to assumption 2.1.
+2.1.1.1.2.2 Assume q is false.
+            Then clause (13) is false if at least one of the following is false:
+            [- (10^[])]
+2.1.1.1.2.2.1 Assume - (10^[]) is false.
+              Then clause (17) is false if at least one of the following is false:
+              [- (16^[]),-p,11^[]]
+2.1.1.1.2.2.1.1 Assume - (16^[]) is false.
+                This assumption has been refuted in 2.1.1.1.1.
+2.1.1.1.2.2.1.2 Assume -p is false.
+                This assumption has been refuted in 2.1.1.1.2.1.
+2.1.1.1.2.2.1.3 Assume 11^[] is false.
+                Then clause (11) is false if at least one of the following is false:
+                [-r]
+2.1.1.1.2.2.1.3.1 Assume -r is false.
+                  Then clause (9) is false if at least one of the following is false:
+                  [- (12^[])]
+2.1.1.1.2.2.1.3.1.1 Assume - (12^[]) is false.
+                    This is a contradiction to assumption 2.1.1.1.2.
+2.1.1.2 Assume 14^[] is false.
+        Then clause (2) is false if at least one of the following is false:
+        [-q]
+2.1.1.2.1 Assume -q is false.
+          Then clause (7) is false if at least one of the following is false:
+          [- (12^[]),-p]
+2.1.1.2.1.1 Assume - (12^[]) is false.
+            Then clause (18) is false if at least one of the following is false:
+            [- (16^[]),15^[]]
+2.1.1.2.1.1.1 Assume - (16^[]) is false.
+              This is a contradiction to assumption 2.
+2.1.1.2.1.1.2 Assume 15^[] is false.
+              Then clause (6) is false if at least one of the following is false:
+              [-r]
+2.1.1.2.1.1.2.1 Assume -r is false.
+                Then clause (12) is false if at least one of the following is false:
+                [- (10^[])]
+2.1.1.2.1.1.2.1.1 Assume - (10^[]) is false.
+                  Then clause (17) is false if at least one of the following is false:
+                  [- (16^[]),-p,11^[]]
+2.1.1.2.1.1.2.1.1.1 Assume - (16^[]) is false.
+                    This assumption has been refuted in 2.1.1.2.1.1.1.
+2.1.1.2.1.1.2.1.1.2 Assume -p is false.
+                    This is a contradiction to assumption 2.1.
+2.1.1.2.1.1.2.1.1.3 Assume 11^[] is false.
+                    Then clause (10) is false if at least one of the following is false:
+                    [q]
+2.1.1.2.1.1.2.1.1.3.1 Assume q is false.
+                      This is a contradiction to assumption 2.1.1.2.1.
+2.1.1.2.1.2 Assume -p is false.
+            This is a contradiction to assumption 2.1.
+2.2 Assume 9^[] is false.
+    Then clause (14) is false if at least one of the following is false:
+    [-q,r]
+2.2.1 Assume -q is false.
+      Then clause (3) is false if at least one of the following is false:
+      [- (13^[])]
+2.2.1.1 Assume - (13^[]) is false.
+        Then clause (5) is false if at least one of the following is false:
+        [- (15^[]),14^[]]
+2.2.1.1.1 Assume - (15^[]) is false.
+          Then clause (18) is false if at least one of the following is false:
+          [- (16^[]),12^[]]
+2.2.1.1.1.1 Assume - (16^[]) is false.
+            This is a contradiction to assumption 2.
+2.2.1.1.1.2 Assume 12^[] is false.
+            Then clause (9) is false if at least one of the following is false:
+            [r]
+2.2.1.1.1.2.1 Assume r is false.
+              Then clause (15) is false if at least one of the following is false:
+              [- (9^[]),q]
+2.2.1.1.1.2.1.1 Assume - (9^[]) is false.
+                This is a contradiction to assumption 2.2.
+2.2.1.1.1.2.1.2 Assume q is false.
+                This is a contradiction to assumption 2.2.1.
+2.2.1.1.2 Assume 14^[] is false.
+          Then clause (1) is false if at least one of the following is false:
+          [p]
+2.2.1.1.2.1 Assume p is false.
+            This assumption has been refuted in 2.1.
+2.2.2 Assume r is false.
+      Then clause (6) is false if at least one of the following is false:
+      [- (15^[])]
+2.2.2.1 Assume - (15^[]) is false.
+        Then clause (18) is false if at least one of the following is false:
+        [- (16^[]),12^[]]
+2.2.2.1.1 Assume - (16^[]) is false.
+          This is a contradiction to assumption 2.
+2.2.2.1.2 Assume 12^[] is false.
+          Then clause (7) is false if at least one of the following is false:
+          [-p,q]
+2.2.2.1.2.1 Assume -p is false.
+            Then clause (8) is false if at least one of the following is false:
+            [- (12^[]),-q]
+2.2.2.1.2.1.1 Assume - (12^[]) is false.
+              This is a contradiction to assumption 2.2.2.1.2.
+2.2.2.1.2.1.2 Assume -q is false.
+              This assumption has been refuted in 2.2.1.
+2.2.2.1.2.2 Assume q is false.
+            Then clause (8) is false if at least one of the following is false:
+            [- (12^[]),p]
+2.2.2.1.2.2.1 Assume - (12^[]) is false.
+              This is a contradiction to assumption 2.2.2.1.2.
+2.2.2.1.2.2.2 Assume p is false.
+              This assumption has been refuted in 2.1.
+
+Therefore there is no interpretation that makes all
+given clauses simultaneously false. Hence the given
+clauses are valid.
+                                             q.e.d.
+------------------------------------------------------
+End of proof for pel12
+
+pel17 is a Theorem
+Start of proof for pel17
+------------------------------------------------------
+Explanations for the proof presented below:
+- to solve unsatisfiable problems they are negated
+- equality axioms are added if required
+- terms and variables are represented by Prolog terms
+  and Prolog variables, negation is represented by -
+- I^[t1,..,tn] represents the atom P_I(t1,..,tn)
+  or the Skolem term f_I(t1,t2,..,tn) introduced
+  during the clausal form translation
+- the substitution [[X1,..,Xn],[t1,..,tn]] represents
+  the assignments X1:=t1, .., Xn:=tn
+
+Proof:
+------
+
+Translation into (disjunctive) clausal form:
+ (1)  [- (5^[]),p,r,-s]
+ (2)  [- (5^[]),p,-q,-s]
+ (3)  [- (5^[]),q,-r]
+ (4)  [- (5^[]),-p]
+ (5)  [- (5^[]),s]
+ (6)  [- (3^[]),s]
+ (7)  [- (3^[]),-r]
+ (8)  [- (3^[]),-p]
+ (9)  [- (2^[]),s]
+ (10)  [- (2^[]),q]
+ (11)  [- (2^[]),-p]
+ (12)  [- (1^[]),r]
+ (13)  [- (1^[]),-q]
+ (14)  [- (4^[]),-s,p,1^[]]
+ (15)  [- (4^[]),2^[],3^[]]
+ (16)  [4^[],5^[]]
+
+We prove that the given clauses are valid, i.e. for
+a given substitution they evaluate to true for all
+interpretations. The proof is by contradiction:
+Assume there is an interpretation so that the given
+clauses evaluate to false. Then in each clause there
+has to be at least one literal that is false.
+
+ Then clause (16) is false if at least one of the following is false:
+ [4^[],5^[]]
+1 Assume 4^[] is false.
+  Then clause (14) is false if at least one of the following is false:
+  [-s,p,1^[]]
+1.1 Assume -s is false.
+    Then clause (6) is false if at least one of the following is false:
+    [- (3^[])]
+1.1.1 Assume - (3^[]) is false.
+      Then clause (15) is false if at least one of the following is false:
+      [- (4^[]),2^[]]
+1.1.1.1 Assume - (4^[]) is false.
+        This is a contradiction to assumption 1.
+1.1.1.2 Assume 2^[] is false.
+        Then clause (9) is false if at least one of the following is false:
+        [s]
+1.1.1.2.1 Assume s is false.
+          This is a contradiction to assumption 1.1.
+1.2 Assume p is false.
+    Then clause (8) is false if at least one of the following is false:
+    [- (3^[])]
+1.2.1 Assume - (3^[]) is false.
+      Then clause (15) is false if at least one of the following is false:
+      [- (4^[]),2^[]]
+1.2.1.1 Assume - (4^[]) is false.
+        This is a contradiction to assumption 1.
+1.2.1.2 Assume 2^[] is false.
+        Then clause (11) is false if at least one of the following is false:
+        [-p]
+1.2.1.2.1 Assume -p is false.
+          This is a contradiction to assumption 1.2.
+1.3 Assume 1^[] is false.
+    Then clause (12) is false if at least one of the following is false:
+    [r]
+1.3.1 Assume r is false.
+      Then clause (7) is false if at least one of the following is false:
+      [- (3^[])]
+1.3.1.1 Assume - (3^[]) is false.
+        Then clause (15) is false if at least one of the following is false:
+        [- (4^[]),2^[]]
+1.3.1.1.1 Assume - (4^[]) is false.
+          This is a contradiction to assumption 1.
+1.3.1.1.2 Assume 2^[] is false.
+          Then clause (10) is false if at least one of the following is false:
+          [q]
+1.3.1.1.2.1 Assume q is false.
+            Then clause (13) is false if at least one of the following is false:
+            [- (1^[])]
+1.3.1.1.2.1.1 Assume - (1^[]) is false.
+              This is a contradiction to assumption 1.3.
+2 Assume 5^[] is false.
+  Then clause (1) is false if at least one of the following is false:
+  [p,r,-s]
+2.1 Assume p is false.
+    Then clause (4) is false if at least one of the following is false:
+    [- (5^[])]
+2.1.1 Assume - (5^[]) is false.
+      This is a contradiction to assumption 2.
+2.2 Assume r is false.
+    Then clause (3) is false if at least one of the following is false:
+    [- (5^[]),q]
+2.2.1 Assume - (5^[]) is false.
+      This is a contradiction to assumption 2.
+2.2.2 Assume q is false.
+      Then clause (2) is false if at least one of the following is false:
+      [- (5^[]),p,-s]
+2.2.2.1 Assume - (5^[]) is false.
+        This assumption has been refuted in 2.2.1.
+2.2.2.2 Assume p is false.
+        This assumption has been refuted in 2.1.
+2.2.2.3 Assume -s is false.
+        Then clause (5) is false if at least one of the following is false:
+        [- (5^[])]
+2.2.2.3.1 Assume - (5^[]) is false.
+          This assumption has been refuted in 2.2.2.1.
+2.3 Assume -s is false.
+    Then clause (5) is false if at least one of the following is false:
+    [- (5^[])]
+2.3.1 Assume - (5^[]) is false.
+      This is a contradiction to assumption 2.
+
+Therefore there is no interpretation that makes all
+given clauses simultaneously false. Hence the given
+clauses are valid.
+                                             q.e.d.
+------------------------------------------------------
+End of proof for pel17
+
+pel18 is a Theorem
+Start of proof for pel18
+------------------------------------------------------
+Explanations for the proof presented below:
+- to solve unsatisfiable problems they are negated
+- equality axioms are added if required
+- terms and variables are represented by Prolog terms
+  and Prolog variables, negation is represented by -
+- I^[t1,..,tn] represents the atom P_I(t1,..,tn)
+  or the Skolem term f_I(t1,t2,..,tn) introduced
+  during the clausal form translation
+- the substitution [[X1,..,Xn],[t1,..,tn]] represents
+  the assignments X1:=t1, .., Xn:=tn
+
+Proof:
+------
+
+Translation into (disjunctive) clausal form:
+ (1)  [-f(A)]
+ (2)  [f(1^[A])]
+
+We prove that the given clauses are valid, i.e. for
+a given substitution they evaluate to true for all
+interpretations. The proof is by contradiction:
+Assume there is an interpretation so that the given
+clauses evaluate to false. Then in each clause there
+has to be at least one literal that is false.
+
+ Then clause (2) under the substitution [[A],[B]]
+ is false if at least one of the following is false:
+ [f(1^[A])]
+1 Assume f(1^[A]) is false.
+  Then clause (1) under the substitution [[A],[1^[B]]]
+  is true.
+
+Therefore there is no interpretation that makes all
+given clauses simultaneously false. Hence the given
+clauses are valid.
+                                             q.e.d.
+------------------------------------------------------
+End of proof for pel18
+
+pel19 is a Theorem
+Start of proof for pel19
+------------------------------------------------------
+Explanations for the proof presented below:
+- to solve unsatisfiable problems they are negated
+- equality axioms are added if required
+- terms and variables are represented by Prolog terms
+  and Prolog variables, negation is represented by -
+- I^[t1,..,tn] represents the atom P_I(t1,..,tn)
+  or the Skolem term f_I(t1,t2,..,tn) introduced
+  during the clausal form translation
+- the substitution [[X1,..,Xn],[t1,..,tn]] represents
+  the assignments X1:=t1, .., Xn:=tn
+
+Proof:
+------
+
+Translation into (disjunctive) clausal form:
+ (1)  [-p(A)]
+ (2)  [q(A)]
+ (3)  [p(1^[A]),-q(2^[A])]
+
+We prove that the given clauses are valid, i.e. for
+a given substitution they evaluate to true for all
+interpretations. The proof is by contradiction:
+Assume there is an interpretation so that the given
+clauses evaluate to false. Then in each clause there
+has to be at least one literal that is false.
+
+ Then clause (2) under the substitution [[A],[2^[B]]]
+ is false if at least one of the following is false:
+ [q(2^[A])]
+1 Assume q(2^[A]) is false.
+  Then clause (3) under the substitution [[A],[B]]
+  is false if at least one of the following is false:
+  [p(1^[A])]
+1.1 Assume p(1^[A]) is false.
+    Then clause (1) under the substitution [[A],[1^[B]]]
+    is true.
+
+Therefore there is no interpretation that makes all
+given clauses simultaneously false. Hence the given
+clauses are valid.
+                                             q.e.d.
+------------------------------------------------------
+End of proof for pel19
+
+pel20 is a Theorem
+Start of proof for pel20
+------------------------------------------------------
+Explanations for the proof presented below:
+- to solve unsatisfiable problems they are negated
+- equality axioms are added if required
+- terms and variables are represented by Prolog terms
+  and Prolog variables, negation is represented by -
+- I^[t1,..,tn] represents the atom P_I(t1,..,tn)
+  or the Skolem term f_I(t1,t2,..,tn) introduced
+  during the clausal form translation
+- the substitution [[X1,..,Xn],[t1,..,tn]] represents
+  the assignments X1:=t1, .., Xn:=tn
+
+Proof:
+------
+
+Translation into (disjunctive) clausal form:
+ (1)  [-p(A)]
+ (2)  [-q(A)]
+ (3)  [r(A)]
+ (4)  [-r(1^[A,B]),p(B),q(A)]
+ (5)  [-s(A),p(B),q(C)]
+
+We prove that the given clauses are valid, i.e. for
+a given substitution they evaluate to true for all
+interpretations. The proof is by contradiction:
+Assume there is an interpretation so that the given
+clauses evaluate to false. Then in each clause there
+has to be at least one literal that is false.
+
+ Then clause (3) under the substitution [[A],[1^[B,C]]]
+ is false if at least one of the following is false:
+ [r(1^[A,B])]
+1 Assume r(1^[A,B]) is false.
+  Then clause (4) under the substitution [[A,B],[C,D]]
+  is false if at least one of the following is false:
+  [p(A),q(B)]
+1.1 Assume p(A) is false.
+    Then clause (1) under the substitution [[A],[B]]
+    is true.
+1.2 Assume q(A) is false.
+    Then clause (2) under the substitution [[A],[B]]
+    is true.
+
+Therefore there is no interpretation that makes all
+given clauses simultaneously false. Hence the given
+clauses are valid.
+                                             q.e.d.
+------------------------------------------------------
+End of proof for pel20
+
+pel21 is a Theorem
+Start of proof for pel21
+------------------------------------------------------
+Explanations for the proof presented below:
+- to solve unsatisfiable problems they are negated
+- equality axioms are added if required
+- terms and variables are represented by Prolog terms
+  and Prolog variables, negation is represented by -
+- I^[t1,..,tn] represents the atom P_I(t1,..,tn)
+  or the Skolem term f_I(t1,t2,..,tn) introduced
+  during the clausal form translation
+- the substitution [[X1,..,Xn],[t1,..,tn]] represents
+  the assignments X1:=t1, .., Xn:=tn
+
+Proof:
+------
+
+Translation into (disjunctive) clausal form:
+ (1)  [- (4^[A]),p]
+ (2)  [- (4^[A]),-f(A)]
+ (3)  [- (3^[A]),f(A)]
+ (4)  [- (3^[A]),-p]
+ (5)  [3^[A],4^[A]]
+ (6)  [p,-f(1^[])]
+ (7)  [f(2^[]),-p]
+
+We prove that the given clauses are valid, i.e. for
+a given substitution they evaluate to true for all
+interpretations. The proof is by contradiction:
+Assume there is an interpretation so that the given
+clauses evaluate to false. Then in each clause there
+has to be at least one literal that is false.
+
+ Then clause (5) under the substitution [[A],[1^[]]]
+ is false if at least one of the following is false:
+ [3^[1^[]],4^[1^[]]]
+1 Assume 3^[1^[]] is false.
+  Then clause (3) under the substitution [[A],[1^[]]]
+  is false if at least one of the following is false:
+  [f(1^[])]
+1.1 Assume f(1^[]) is false.
+    Then clause (6) is false if at least one of the following is false:
+    [p]
+1.1.1 Assume p is false.
+      Then clause (4) under the substitution [[A],[1^[]]]
+      is false if at least one of the following is false:
+      [- (3^[1^[]])]
+1.1.1.1 Assume - (3^[1^[]]) is false.
+        This is a contradiction to assumption 1.
+2 Assume 4^[1^[]] is false.
+  Then clause (1) under the substitution [[A],[1^[]]]
+  is false if at least one of the following is false:
+  [p]
+2.1 Assume p is false.
+    Then clause (4) under the substitution [[A],[2^[]]]
+    is false if at least one of the following is false:
+    [- (3^[2^[]])]
+2.1.1 Assume - (3^[2^[]]) is false.
+      Then clause (5) under the substitution [[A],[2^[]]]
+      is false if at least one of the following is false:
+      [4^[2^[]]]
+2.1.1.1 Assume 4^[2^[]] is false.
+        Then clause (2) under the substitution [[A],[2^[]]]
+        is false if at least one of the following is false:
+        [-f(2^[])]
+2.1.1.1.1 Assume -f(2^[]) is false.
+          Then clause (7) is false if at least one of the following is false:
+          [-p]
+2.1.1.1.1.1 Assume -p is false.
+            This is a contradiction to assumption 2.1.
+
+Therefore there is no interpretation that makes all
+given clauses simultaneously false. Hence the given
+clauses are valid.
+                                             q.e.d.
+------------------------------------------------------
+End of proof for pel21
+
+pel22 is a Theorem
+Start of proof for pel22
+------------------------------------------------------
+Explanations for the proof presented below:
+- to solve unsatisfiable problems they are negated
+- equality axioms are added if required
+- terms and variables are represented by Prolog terms
+  and Prolog variables, negation is represented by -
+- I^[t1,..,tn] represents the atom P_I(t1,..,tn)
+  or the Skolem term f_I(t1,t2,..,tn) introduced
+  during the clausal form translation
+- the substitution [[X1,..,Xn],[t1,..,tn]] represents
+  the assignments X1:=t1, .., Xn:=tn
+
+Proof:
+------
+
+Translation into (disjunctive) clausal form:
+ (1)  [- (3^[]),p]
+ (2)  [- (3^[]),-f(A)]
+ (3)  [- (2^[]),f(1^[])]
+ (4)  [- (2^[]),-p]
+ (5)  [2^[],3^[]]
+ (6)  [p,-f(A)]
+ (7)  [-p,f(A)]
+
+We prove that the given clauses are valid, i.e. for
+a given substitution they evaluate to true for all
+interpretations. The proof is by contradiction:
+Assume there is an interpretation so that the given
+clauses evaluate to false. Then in each clause there
+has to be at least one literal that is false.
+
+ Then clause (5) is false if at least one of the following is false:
+ [2^[],3^[]]
+1 Assume 2^[] is false.
+  Then clause (3) is false if at least one of the following is false:
+  [f(1^[])]
+1.1 Assume f(1^[]) is false.
+    Then clause (6) under the substitution [[A],[1^[]]]
+    is false if at least one of the following is false:
+    [p]
+1.1.1 Assume p is false.
+      Then clause (4) is false if at least one of the following is false:
+      [- (2^[])]
+1.1.1.1 Assume - (2^[]) is false.
+        This is a contradiction to assumption 1.
+2 Assume 3^[] is false.
+  Then clause (2) under the substitution [[A],[B]]
+  is false if at least one of the following is false:
+  [-f(A)]
+2.1 Assume -f(A) is false.
+    Then clause (7) under the substitution [[A],[B]]
+    is false if at least one of the following is false:
+    [-p]
+2.1.1 Assume -p is false.
+      Then clause (1) is false if at least one of the following is false:
+      [- (3^[])]
+2.1.1.1 Assume - (3^[]) is false.
+        This is a contradiction to assumption 2.
+
+Therefore there is no interpretation that makes all
+given clauses simultaneously false. Hence the given
+clauses are valid.
+                                             q.e.d.
+------------------------------------------------------
+End of proof for pel22
+
+pel23 is a Theorem
+Start of proof for pel23
+------------------------------------------------------
+Explanations for the proof presented below:
+- to solve unsatisfiable problems they are negated
+- equality axioms are added if required
+- terms and variables are represented by Prolog terms
+  and Prolog variables, negation is represented by -
+- I^[t1,..,tn] represents the atom P_I(t1,..,tn)
+  or the Skolem term f_I(t1,t2,..,tn) introduced
+  during the clausal form translation
+- the substitution [[X1,..,Xn],[t1,..,tn]] represents
+  the assignments X1:=t1, .., Xn:=tn
+
+Proof:
+------
+
+Translation into (disjunctive) clausal form:
+ (1)  [- (4^[]),-p,-f(A)]
+ (2)  [- (4^[]),f(3^[])]
+ (3)  [- (4^[]),p]
+ (4)  [- (2^[]),-p,-f(A)]
+ (5)  [- (2^[]),f(1^[])]
+ (6)  [- (2^[]),p]
+ (7)  [2^[],4^[]]
+
+We prove that the given clauses are valid, i.e. for
+a given substitution they evaluate to true for all
+interpretations. The proof is by contradiction:
+Assume there is an interpretation so that the given
+clauses evaluate to false. Then in each clause there
+has to be at least one literal that is false.
+
+ Then clause (7) is false if at least one of the following is false:
+ [2^[],4^[]]
+1 Assume 2^[] is false.
+  Then clause (4) under the substitution [[A],[1^[]]]
+  is false if at least one of the following is false:
+  [-p,-f(1^[])]
+1.1 Assume -p is false.
+    Then clause (6) is false if at least one of the following is false:
+    [- (2^[])]
+1.1.1 Assume - (2^[]) is false.
+      This is a contradiction to assumption 1.
+1.2 Assume -f(1^[]) is false.
+    Then clause (5) is false if at least one of the following is false:
+    [- (2^[])]
+1.2.1 Assume - (2^[]) is false.
+      This is a contradiction to assumption 1.
+2 Assume 4^[] is false.
+  Then clause (1) under the substitution [[A],[3^[]]]
+  is false if at least one of the following is false:
+  [-p,-f(3^[])]
+2.1 Assume -p is false.
+    Then clause (3) is false if at least one of the following is false:
+    [- (4^[])]
+2.1.1 Assume - (4^[]) is false.
+      This is a contradiction to assumption 2.
+2.2 Assume -f(3^[]) is false.
+    Then clause (2) is false if at least one of the following is false:
+    [- (4^[])]
+2.2.1 Assume - (4^[]) is false.
+      This is a contradiction to assumption 2.
+
+Therefore there is no interpretation that makes all
+given clauses simultaneously false. Hence the given
+clauses are valid.
+                                             q.e.d.
+------------------------------------------------------
+End of proof for pel23
+
+syllogism is a Theorem
+Start of proof for syllogism
+------------------------------------------------------
+Explanations for the proof presented below:
+- to solve unsatisfiable problems they are negated
+- equality axioms are added if required
+- terms and variables are represented by Prolog terms
+  and Prolog variables, negation is represented by -
+- I^[t1,..,tn] represents the atom P_I(t1,..,tn)
+  or the Skolem term f_I(t1,t2,..,tn) introduced
+  during the clausal form translation
+- the substitution [[X1,..,Xn],[t1,..,tn]] represents
+  the assignments X1:=t1, .., Xn:=tn
+
+Proof:
+------
+
+Translation into (disjunctive) clausal form:
+ (1)  [mortal(socrates)]
+ (2)  [-man(socrates)]
+ (3)  [man(A),-mortal(A)]
+
+We prove that the given clauses are valid, i.e. for
+a given substitution they evaluate to true for all
+interpretations. The proof is by contradiction:
+Assume there is an interpretation so that the given
+clauses evaluate to false. Then in each clause there
+has to be at least one literal that is false.
+
+ Then clause (1) is false if at least one of the following is false:
+ [mortal(socrates)]
+1 Assume mortal(socrates) is false.
+  Then clause (3) under the substitution [[A],[socrates]]
+  is false if at least one of the following is false:
+  [man(socrates)]
+1.1 Assume man(socrates) is false.
+    Then clause (2) is true.
+
+Therefore there is no interpretation that makes all
+given clauses simultaneously false. Hence the given
+clauses are valid.
+                                             q.e.d.
+------------------------------------------------------
+End of proof for syllogism
+
+group_eq is a Theorem
+Start of proof for group_eq
+------------------------------------------------------
+Explanations for the proof presented below:
+- to solve unsatisfiable problems they are negated
+- equality axioms are added if required
+- terms and variables are represented by Prolog terms
+  and Prolog variables, negation is represented by -
+- I^[t1,..,tn] represents the atom P_I(t1,..,tn)
+  or the Skolem term f_I(t1,t2,..,tn) introduced
+  during the clausal form translation
+- the substitution [[X1,..,Xn],[t1,..,tn]] represents
+  the assignments X1:=t1, .., Xn:=tn
+
+Proof:
+------
+
+Translation into (disjunctive) clausal form:
+ (1)  [i(1^[])*1^[]=e]
+ (2)  [- (e*A=A)]
+ (3)  [- (i(A)*A=e)]
+ (4)  [- (A*B*C=A*(B*C))]
+ (5)  [- (A=A)]
+ (6)  [A=B,- (B=A)]
+ (7)  [- (A=B),A=C,C=B]
+ (8)  [A=B,- (i(A)=i(B))]
+ (9)  [- (A*B=C*D),A=C,B=D]
+
+We prove that the given clauses are valid, i.e. for
+a given substitution they evaluate to true for all
+interpretations. The proof is by contradiction:
+Assume there is an interpretation so that the given
+clauses evaluate to false. Then in each clause there
+has to be at least one literal that is false.
+
+ Then clause (1) is false if at least one of the following is false:
+ [i(1^[])*1^[]=e]
+1 Assume i(1^[])*1^[]=e is false.
+  Then clause (3) under the substitution [[A],[1^[]]]
+  is true.
+
+Therefore there is no interpretation that makes all
+given clauses simultaneously false. Hence the given
+clauses are valid.
+                                             q.e.d.
+------------------------------------------------------
+End of proof for group_eq
+
+non_imp is a Non-Theorem
+
+non_conv is a Non-Theorem
+
+non_peirce_half is a Non-Theorem

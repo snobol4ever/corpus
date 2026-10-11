@@ -1,0 +1,3 @@
+stdin	leancop.in
+scale	20
+why	the workhorse run (CEO-1313): the 24 problems twenty times, 480 proofs and refutations, 29,860 lines; measured by hq_prolog 2026-10-10 on SCRIP 8b52014cd: GNU Prolog 1.6.0 (gplc --no-top-level) 0.63 s / 0.59 s, SCRIP m3 15.1 s / 15.3 s, m4 14.4 s / 15.7 s at -s8192k, all three byte-equal
