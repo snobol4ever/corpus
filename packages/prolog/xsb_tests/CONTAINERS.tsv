@@ -5,3 +5,7 @@ basic_tests_acyl.pl	LOADED_BY	basic_tests_testsg.pl -- its load directive loads 
 basic_tests_empty.pl	NO_DEFINITION	no clause and no load directive -- defines nothing a program can call, links nothing, and nothing shipped includes it (util_container_or_library.py, CEO-1272)
 basic_tests_empty2.pl	NO_DEFINITION	no clause and no load directive -- defines nothing a program can call, links nothing, and nothing shipped includes it (util_container_or_library.py, CEO-1272)
 basic_tests_tcyl_24_24_2.pl	LOADED_BY	basic_tests_tcyl11.pl -- its load directive loads this module, which is graded through it and is not a program on its own (util_container_or_library.py, CEO-1272)
+benches_xmc_comp2.pl	NO_DEFINITION	no clause and no load directive -- defines nothing a program can call, links nothing, and nothing shipped includes it (util_container_or_library.py, CEO-1272)
+foreign_tests_compile_xeddis.pl	NO_DEFINITION	no clause and no load directive -- defines nothing a program can call, links nothing, and nothing shipped includes it (util_container_or_library.py, CEO-1272)
+sub_table_tests_makefile.pl	NO_DEFINITION	no clause and no load directive -- defines nothing a program can call, links nothing, and nothing shipped includes it (util_container_or_library.py, CEO-1272)
+table_tests_makefile.pl	NO_DEFINITION	no clause and no load directive -- defines nothing a program can call, links nothing, and nothing shipped includes it (util_container_or_library.py, CEO-1272)

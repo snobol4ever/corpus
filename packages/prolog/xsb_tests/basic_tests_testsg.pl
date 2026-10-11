@@ -12,7 +12,7 @@ sg(X,Y) :- cyl(X,X1), sg(X1,Y1), acyl(Y1,Y).
 sg(X,X).
 
 
-% DRIVER (appended by the vendoring, CEO-700): XSB basic_tests/test.sh runs ../gentest.sh testsg "[acyl,'tcyl-24-24-2'],tw."
+% DRIVER (appended by the vendoring, CEO-700): XSB basic_tests/test.sh runs gentest.sh testsg "[acyl,'tcyl-24-24-2'],tw."
 :- consult(basic_tests_acyl).
 :- consult(basic_tests_tcyl_24_24_2).
 xsb_nonempty_line(L) :- string_length(L, N), N > 0.

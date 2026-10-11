@@ -1,0 +1,27 @@
+%
+% The well-founded model is two valued {~t(1), t(2), ~t(3), ~t(4), ~t(5)}
+%
+
+:- table t/1.
+
+t(Z) :- t0(Z).
+t(Z) :- g(X,Y,Z), t(X), tnot(t(Y)).
+
+t0(2).
+
+g(5,1,3).
+g(1,2,4).
+g(3,4,5).
+
+%------------------------------------------------------
+
+test :- t(X), writeln(t(X)), fail.
+test :- ( tnot(t(1)), t(2), tnot(t(3)), tnot(t(4)), tnot(t(5)) ->
+		writeln('Success')
+	; writeln('Failure')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700): XSB neg_tests/test.sh runs gentest.sh ullman2 "test."
+xsb_nonempty_line(L) :- string_length(L, N), N > 0.
+xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
+:- initialization(xsb_sorted_output((test))).

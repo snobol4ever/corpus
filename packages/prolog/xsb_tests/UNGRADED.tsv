@@ -1,6 +1,11 @@
 # UNGRADED.tsv -- xsb_tests: the shipped programs owed work before they are graded -- NEEDS_DRIVER (XSB drives it nowhere),
 # NEEDS_RUNNER_WIRING (it loads a sibling by its upstream name) or TIMEOUT. name<TAB>CLASS<TAB>evidence.
 # In the published denominator (CEO-1286).
+ai_tests_can_mono.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 24 clause(s), no initialization(main))
+ai_tests_set_basics_mono.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 15 clause(s), no initialization(main))
+ai_tests_set_unify.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 11 clause(s), no initialization(main))
+attv_tests_fd.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 7 clause(s), no initialization(main))
+attv_tests_fd1.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: attv_tests_fd1.pl:3: ERROR: source_sink `fd' does not exist
 basic_tests_hirc.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 9 clause(s), no initialization(main))
 basic_tests_index_t2.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 9 clause(s), no initialization(main))
 basic_tests_index_test.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 9 clause(s), no initialization(main))
@@ -11,4 +16,390 @@ basic_tests_preproc_opt_progr.pl	NEEDS_DRIVER	defines clauses and has no entry p
 basic_tests_tcyl.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 1104 clause(s), no initialization(main))
 basic_tests_tstr131.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 66 clause(s), no initialization(main))
 basic_tests_tstr231.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 6 clause(s), no initialization(main))
-basic_tests_xpp_on_test.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 1 clause(s), no initialization(main))
+benches_get_variance.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 2 clause(s), no initialization(main))
+benches_prolog_benches_compiler.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 1 clause(s), no initialization(main))
+benches_prolog_benches_deriv.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 32 clause(s), no initialization(main))
+benches_prolog_benches_nreverse.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 13 clause(s), no initialization(main))
+benches_prolog_benches_qsort.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 14 clause(s), no initialization(main))
+benches_prolog_benches_query.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 59 clause(s), no initialization(main))
+benches_prolog_benches_serialise.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 21 clause(s), no initialization(main))
+benches_prolog_benches_tak.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 7 clause(s), no initialization(main))
+benches_prolog_benches_top_down.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 222 clause(s), no initialization(main))
+benches_synth_benches_anc.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 15 clause(s), no initialization(main))
+benches_synth_benches_bench.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 395 clause(s), no initialization(main))
+benches_synth_benches_chain.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 4083 clause(s), no initialization(main))
+benches_synth_benches_cycle.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 3072 clause(s), no initialization(main))
+benches_synth_benches_win.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 28 clause(s), no initialization(main))
+benches_xmc_calculus2.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 26 clause(s), no initialization(main))
+benches_xmc_leader5.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 24 clause(s), no initialization(main))
+benches_xmc_lform.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 6 clause(s), no initialization(main))
+benches_xmc_main.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 22 clause(s), no initialization(main))
+benches_xmc_modelcheck1.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 29 clause(s), no initialization(main))
+benches_xmc_sieve4.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 27 clause(s), no initialization(main))
+cdf_tests_cdftp_test.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 14 clause(s), no initialization(main))
+cdf_tests_cdftp_testdir_cdf_extensional.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 63 clause(s), no initialization(main))
+cdf_tests_cdftp_testdir_cdf_intensional.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 1 clause(s), no initialization(main))
+cdf_tests_ce_test.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 7 clause(s), no initialization(main))
+cdf_tests_ce_testdir_cdf_extensional.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 8 clause(s), no initialization(main))
+cdf_tests_ce_values.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 173 clause(s), no initialization(main))
+cdf_tests_check_testdir_cdf_extensional.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 7 clause(s), no initialization(main))
+cdf_tests_check_testdir_cdf_intensional.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 7 clause(s), no initialization(main))
+cdf_tests_check_testdir_initialization_file.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 69 clause(s), no initialization(main))
+cdf_tests_checks.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: cdf_tests_checks.pl:5: ERROR: source_sink `altcdf' does not exist
+cdf_tests_compSecCpy.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 2 clause(s), no initialization(main))
+cdf_tests_compUpd1.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 2 clause(s), no initialization(main))
+cdf_tests_compUpd2.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 2 clause(s), no initialization(main))
+cdf_tests_compUpd3.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 2 clause(s), no initialization(main))
+cdf_tests_comp_testdir2_test_cdf_extensional.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 63 clause(s), no initialization(main))
+cdf_tests_comp_testdir2_test_cdf_intensional.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 1 clause(s), no initialization(main))
+cdf_tests_comp_testdir2_testo1_cdf_extensional.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 10 clause(s), no initialization(main))
+cdf_tests_comp_testdir2_testo1_cdf_intensional.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 1 clause(s), no initialization(main))
+cdf_tests_comp_testdir_cdf_extensional.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 59 clause(s), no initialization(main))
+cdf_tests_comp_testdir_cdf_intensional.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 8 clause(s), no initialization(main))
+cdf_tests_comp_testdir_test_0_cdf_extensional.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 62 clause(s), no initialization(main))
+cdf_tests_comp_testdir_test_0_cdf_intensional.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 1 clause(s), no initialization(main))
+cdf_tests_comp_testdir_test_cdf_extensional.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 63 clause(s), no initialization(main))
+cdf_tests_comp_testdir_test_cdf_intensional.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 1 clause(s), no initialization(main))
+cdf_tests_comp_testdir_test_int_cdf_extensional.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 8 clause(s), no initialization(main))
+cdf_tests_comp_testdir_test_int_cdf_intensional.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 1 clause(s), no initialization(main))
+cdf_tests_comp_testdir_testo1_0_cdf_extensional.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 9 clause(s), no initialization(main))
+cdf_tests_comp_testdir_testo1_0_cdf_intensional.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 1 clause(s), no initialization(main))
+cdf_tests_comp_testdir_testo1_cdf_extensional.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 10 clause(s), no initialization(main))
+cdf_tests_comp_testdir_testo1_cdf_intensional.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 1 clause(s), no initialization(main))
+cdf_tests_comptest.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 15 clause(s), no initialization(main))
+cdf_tests_dlQuery.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: cdf_tests_dlQuery.pl:2: ERROR: source_sink `altcdf' does not exist
+cdf_tests_dl_testdir_cdf_extensional.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 13 clause(s), no initialization(main))
+cdf_tests_dl_testdir_cdf_intensional.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 3 clause(s), no initialization(main))
+cdf_tests_ioExt.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 2 clause(s), no initialization(main))
+cdf_tests_ioInt.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 2 clause(s), no initialization(main))
+cdf_tests_io_testdir_cdf_extensional.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 60 clause(s), no initialization(main))
+cdf_tests_io_testdir_cdf_intensional.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 7 clause(s), no initialization(main))
+cdf_tests_io_testdir_initialization_file.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 69 clause(s), no initialization(main))
+cdf_tests_test_utils.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 2 clause(s), no initialization(main))
+cdf_tests_type0QueryExt.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: cdf_tests_type0QueryExt.pl:2: ERROR: source_sink `altcdf' does not exist
+cdf_tests_type0QueryInt.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: cdf_tests_type0QueryInt.pl:2: ERROR: source_sink `altcdf' does not exist
+cdf_tests_type0_testdir_cdf_extensional.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 61 clause(s), no initialization(main))
+cdf_tests_type0_testdir_cdf_intensional.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 7 clause(s), no initialization(main))
+cdf_tests_type0_testdir_initialization_file.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 69 clause(s), no initialization(main))
+cdf_tests_updateDL.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: cdf_tests_updateDL.pl:2: ERROR: source_sink `altcdf' does not exist
+cdf_tests_updateExt.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: cdf_tests_updateExt.pl:5: ERROR: source_sink `altcdf' does not exist
+cdf_tests_updateInt.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: cdf_tests_updateInt.pl:5: ERROR: source_sink `altcdf' does not exist
+constraint_tests_chr_TimeMachine.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 56 clause(s), no initialization(main))
+constraint_tests_gctest.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: constraint_tests_gctest.pl:2: ERROR: source_sink `chr' does not exist
+constraint_tests_test_bounds.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: constraint_tests_test_bounds.pl:22: ERROR: source_sink `bounds' does not exist
+constraint_tests_time.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 228 clause(s), no initialization(main))
+constraint_tests_timeConstraints.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 80 clause(s), no initialization(main))
+constraint_tests_timetest.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: constraint_tests_timetest.pl:2: ERROR: source_sink `chr' does not exist
+delay_tests_interp16.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 8 clause(s), no initialization(main))
+delay_tests_pot_pouri.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 20 clause(s), no initialization(main))
+delay_tests_q6.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 12 clause(s), no initialization(main))
+delay_tests_weidong1.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 7 clause(s), no initialization(main))
+float_tests_read_test.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: float_tests_read_test.pl:1:10: Syntax error: Operator expected ERROR: see/1: source_sink `read_test_old' does not exist (No such file or directory)
+flora_tests_pending_bugs_clobbered_heap.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 190 clause(s), no initialization(main))
+flora_tests_pending_bugs_pps.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 183 clause(s), no initialization(main))
+flora_tests_pending_bugs_tst.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 5581 clause(s), no initialization(main))
+foreign_tests_c_calls_xsb.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 5 clause(s), no initialization(main))
+foreign_tests_cinter3.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 11 clause(s), no initialization(main))
+foreign_tests_clprtest.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 111 clause(s), no initialization(main))
+foreign_tests_edb.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 7 clause(s), no initialization(main))
+incremental_tests_inc_atc_single_gc_deps.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 57 clause(s), no initialization(main))
+incremental_tests_inc_trie_alt.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `inc_trie_alt_1' does not exist
+incremental_tests_inc_trie_alt_1.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 18 clause(s), no initialization(main))
+incremental_tests_incremental1.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `incremental1_1' does not exist
+incremental_tests_incremental1_1.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 38 clause(s), no initialization(main))
+incremental_tests_incremental_trie.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `incremental_trie_1' does not exist
+incremental_tests_incremental_trie_1.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 18 clause(s), no initialization(main))
+incremental_tests_s_inc_trie_alt.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `s_inc_trie_alt_1' does not exist
+incremental_tests_s_inc_trie_alt_1.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 18 clause(s), no initialization(main))
+incremental_tests_s_incremental1.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `incremental1_1' does not exist
+incremental_tests_s_incremental1_1.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 38 clause(s), no initialization(main))
+incremental_tests_s_incremental_trie.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `s_incremental_trie_1' does not exist
+incremental_tests_s_incremental_trie_1.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 18 clause(s), no initialization(main))
+incremental_tests_test_trip_susp_reset.pl	TIMEOUT	no answer from swipl -q under the builder's timeout: oracle timed out -- non-terminating or too slow for the grading timeout
+incremental_tests_verbose_attr.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 9 clause(s), no initialization(main))
+io_tests_pf_prolog.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 214 clause(s), no initialization(main))
+janus_tests_jns_callbacks.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 7 clause(s), no initialization(main))
+janus_tests_jns_plg_benches.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 32 clause(s), no initialization(main))
+janus_tests_px_clpr.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 3 clause(s), no initialization(main))
+janus_tests_stressTest.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 1 clause(s), no initialization(main))
+janus_tests_test_janus_plg.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 141 clause(s), no initialization(main))
+janus_tests_test_janus_py.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 1 clause(s), no initialization(main))
+janus_tests_test_py_pp.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 5 clause(s), no initialization(main))
+janus_tests_test_returnval_py.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 3 clause(s), no initialization(main))
+neg_tests_genome.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 5384 clause(s), no initialization(main))
+neg_tests_mod2.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 7 clause(s), no initialization(main))
+neg_tests_ullman3.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 10 clause(s), no initialization(main))
+nonmt_tests_inc_atc_single_gc_deps.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 57 clause(s), no initialization(main))
+nonmt_tests_test_dynopq.pl	TIMEOUT	no answer from swipl -q under the builder's timeout: oracle timed out -- non-terminating or too slow for the grading timeout
+nonmt_tests_test_trip_susp_reset.pl	TIMEOUT	no answer from swipl -q under the builder's timeout: oracle timed out -- non-terminating or too slow for the grading timeout
+nonmt_tests_verbose_attr.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 9 clause(s), no initialization(main))
+prolog_tests_bad_syntax.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 4 clause(s), no initialization(main))
+prolog_tests_c_calls_xsb.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 5 clause(s), no initialization(main))
+prolog_tests_dealloc_mem_exp.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 2 clause(s), no initialization(main))
+prolog_tests_edb.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 7 clause(s), no initialization(main))
+prolog_tests_format_tests_test_harness_iso.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 41 clause(s), no initialization(main))
+prolog_tests_immut.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 1 clause(s), no initialization(main))
+prolog_tests_immut_a.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 1 clause(s), no initialization(main))
+prolog_tests_immut_b.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 1 clause(s), no initialization(main))
+prolog_tests_include_test.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: Prolog initialisation failed: ERROR: source_sink `inctest1' does not exist
+prolog_tests_inctest1.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 1 clause(s), no initialization(main))
+prolog_tests_inctest2.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 1 clause(s), no initialization(main))
+prolog_tests_index_t2.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 9 clause(s), no initialization(main))
+prolog_tests_load_dyn_tables.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 5 clause(s), no initialization(main))
+prolog_tests_load_dyn_xform.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 5 clause(s), no initialization(main))
+prolog_tests_longatom.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 4 clause(s), no initialization(main))
+prolog_tests_m1.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 9 clause(s), no initialization(main))
+prolog_tests_m2.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 5 clause(s), no initialization(main))
+prolog_tests_mf_file1.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 5 clause(s), no initialization(main))
+prolog_tests_mf_file2.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 6 clause(s), no initialization(main))
+prolog_tests_mf_file3.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 2 clause(s), no initialization(main))
+prolog_tests_mf_file4.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 2 clause(s), no initialization(main))
+prolog_tests_mf_file5.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 4 clause(s), no initialization(main))
+prolog_tests_mf_file6.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 4 clause(s), no initialization(main))
+prolog_tests_mf_hilog1.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 2 clause(s), no initialization(main))
+prolog_tests_mf_hilog2.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 3 clause(s), no initialization(main))
+prolog_tests_mod_dyn_tests_modp_file.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 5 clause(s), no initialization(main))
+prolog_tests_mod_dyn_tests_modp_filec.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 4 clause(s), no initialization(main))
+prolog_tests_mod_file_tests_father_file.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 8 clause(s), no initialization(main))
+prolog_tests_mod_file_tests_modp_file.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 5 clause(s), no initialization(main))
+prolog_tests_mod_file_tests_modq_file.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 5 clause(s), no initialization(main))
+prolog_tests_mod_file_tests_modr_file.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 4 clause(s), no initialization(main))
+prolog_tests_mod_file_tests_mother_us_file.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 6 clause(s), no initialization(main))
+prolog_tests_mod_file_tests_parent_file.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 1 clause(s), no initialization(main))
+prolog_tests_mod_file_tests_parmodtst_file.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 1 clause(s), no initialization(main))
+prolog_tests_mod_file_tests_union_file.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 2 clause(s), no initialization(main))
+prolog_tests_non_canon.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 60 clause(s), no initialization(main))
+prolog_tests_nonimmut_b.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 1 clause(s), no initialization(main))
+prolog_tests_parmod_tests_QParMod.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 1 clause(s), no initialization(main))
+prolog_tests_parmod_tests_TESTQUOTE.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 3 clause(s), no initialization(main))
+prolog_tests_parmod_tests_TTSTUSRMD.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 3 clause(s), no initialization(main))
+prolog_tests_parmod_tests_TTSTUSRMD2.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 2 clause(s), no initialization(main))
+prolog_tests_parmod_tests_afile.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 3 clause(s), no initialization(main))
+prolog_tests_parmod_tests_bfile.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 3 clause(s), no initialization(main))
+prolog_tests_parmod_tests_born_in.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 7 clause(s), no initialization(main))
+prolog_tests_parmod_tests_callQParMod.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 1 clause(s), no initialization(main))
+prolog_tests_parmod_tests_call_testquote.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 1 clause(s), no initialization(main))
+prolog_tests_parmod_tests_docim.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 1 clause(s), no initialization(main))
+prolog_tests_parmod_tests_father.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 8 clause(s), no initialization(main))
+prolog_tests_parmod_tests_join.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 1 clause(s), no initialization(main))
+prolog_tests_parmod_tests_mother_dsw.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 4 clause(s), no initialization(main))
+prolog_tests_parmod_tests_mother_pap.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 4 clause(s), no initialization(main))
+prolog_tests_parmod_tests_mother_us.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 6 clause(s), no initialization(main))
+prolog_tests_parmod_tests_parent.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 1 clause(s), no initialization(main))
+prolog_tests_parmod_tests_parmodtst.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 1 clause(s), no initialization(main))
+prolog_tests_parmod_tests_pm_subdir_ttstusrmduc.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 3 clause(s), no initialization(main))
+prolog_tests_parmod_tests_pm_subdir_umod_p.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 3 clause(s), no initialization(main))
+prolog_tests_parmod_tests_test_mod.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 3 clause(s), no initialization(main))
+prolog_tests_parmod_tests_trans_close.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 2 clause(s), no initialization(main))
+prolog_tests_parmod_tests_union.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 2 clause(s), no initialization(main))
+prolog_tests_parmod_tests_usrmd.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 7 clause(s), no initialization(main))
+prolog_tests_pip_0110_format_test.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: prolog_tests_pip_0110_format_test.pl:2: ERROR: source_sink `format' does not exist
+prolog_tests_prolog_db_tests2.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 2 clause(s), no initialization(main))
+prolog_tests_test_ascii_atom_1.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 25 clause(s), no initialization(main))
+prolog_tests_test_ascii_getput.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `test_ascii_getput_1' does not exist
+prolog_tests_test_ascii_getput_1.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 18 clause(s), no initialization(main))
+prolog_tests_test_ascii_readwrite_1.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 8 clause(s), no initialization(main))
+prolog_tests_test_ground_cyc.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 15 clause(s), no initialization(main))
+prolog_tests_test_utf8_atom.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `test_utf8_atom_1' does not exist
+prolog_tests_test_utf8_atom_1.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 34 clause(s), no initialization(main))
+prolog_tests_test_utf8_getput.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `test_utf8_getput_1' does not exist
+prolog_tests_test_utf8_getput_1.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 18 clause(s), no initialization(main))
+prolog_tests_test_utf8_readwrite.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `test_utf8_readwrite_1' does not exist
+prolog_tests_test_utf8_readwrite_1.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 8 clause(s), no initialization(main))
+prolog_tests_unicode_facts.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 2 clause(s), no initialization(main))
+prolog_tests_unicode_facts_c.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 2 clause(s), no initialization(main))
+prolog_tests_war.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 3 clause(s), no initialization(main))
+ptq_parser.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 69 clause(s), no initialization(main))
+ptq_ptq.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 113 clause(s), no initialization(main))
+ptq_ptq_out.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 3 clause(s), no initialization(main))
+ptq_ptqlred.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 113 clause(s), no initialization(main))
+python_tests_px_callbacks.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 6 clause(s), no initialization(main))
+python_tests_px_clpr.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 3 clause(s), no initialization(main))
+python_tests_test_xsb_callbacks.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 6 clause(s), no initialization(main))
+regmatch_tests_perltest.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: regmatch_tests_perltest.pl:3: ERROR: source_sink `perlmatch' does not exist
+regmatch_tests_regtest.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: regmatch_tests_regtest.pl:3: ERROR: source_sink `regmatch' does not exist
+regmatch_tests_wildtest.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: regmatch_tests_wildtest.pl:3: ERROR: source_sink `wildmatch' does not exist
+retract_tests_backsuite.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 3 clause(s), no initialization(main))
+retract_tests_load_backsuite.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `backsuite' does not exist
+retract_tests_testretract.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: retract_tests_testretract.pl:1: ERROR: source_sink `testretract1' does not exist
+retract_tests_testretract1.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 12 clause(s), no initialization(main))
+retract_tests_testretract2.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 10 clause(s), no initialization(main))
+retract_tests_testretract3.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 5 clause(s), no initialization(main))
+retract_tests_testretract4.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 3 clause(s), no initialization(main))
+retract_tests_testretract5.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 21 clause(s), no initialization(main))
+sem_tests_sem_dnf.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 24 clause(s), no initialization(main))
+sem_tests_sem_eval.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 16 clause(s), no initialization(main))
+sem_tests_sem_incl.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 16 clause(s), no initialization(main))
+sem_tests_sem_lex.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 19 clause(s), no initialization(main))
+sem_tests_sem_parse.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 102 clause(s), no initialization(main))
+sem_tests_sem_pe.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 70 clause(s), no initialization(main))
+sem_tests_sem_pretty.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 33 clause(s), no initialization(main))
+sem_tests_semantica.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 30 clause(s), no initialization(main))
+socket_tests_auxiliary_auxdefs.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 3 clause(s), no initialization(main))
+socket_tests_auxiliary_msgClient.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 6 clause(s), no initialization(main))
+socket_tests_auxiliary_msgServer.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 15 clause(s), no initialization(main))
+socket_tests_auxiliary_putClient.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 7 clause(s), no initialization(main))
+socket_tests_auxiliary_putServer.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 6 clause(s), no initialization(main))
+socket_tests_auxiliary_streamClient.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 6 clause(s), no initialization(main))
+socket_tests_auxiliary_streamServer.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 16 clause(s), no initialization(main))
+sub_table_tests_abol_test2_module.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 2 clause(s), no initialization(main))
+sub_table_tests_abolish_cascade_pred.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 56 clause(s), no initialization(main))
+sub_table_tests_aggregs1_test.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 130 clause(s), no initialization(main))
+sub_table_tests_bug.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 2 clause(s), no initialization(main))
+sub_table_tests_bugtest.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 12 clause(s), no initialization(main))
+sub_table_tests_cantrdat.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 2 clause(s), no initialization(main))
+sub_table_tests_correct.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 49 clause(s), no initialization(main))
+sub_table_tests_cycle.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 2047 clause(s), no initialization(main))
+sub_table_tests_edge_dag.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 496 clause(s), no initialization(main))
+sub_table_tests_exec.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 64 clause(s), no initialization(main))
+sub_table_tests_expand.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: sub_table_tests_expand.pl:1: ERROR: source_sink `exec' does not exist
+sub_table_tests_float1.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 6 clause(s), no initialization(main))
+sub_table_tests_kalah_ox.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 178 clause(s), no initialization(main))
+sub_table_tests_lists.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 2 clause(s), no initialization(main))
+sub_table_tests_sets.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 13 clause(s), no initialization(main))
+sub_table_tests_trdat.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 2 clause(s), no initialization(main))
+sub_table_tests_utils.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 24 clause(s), no initialization(main))
+sub_tests_Data_chain.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 7 clause(s), no initialization(main))
+sub_tests_Data_cycles.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 15 clause(s), no initialization(main))
+sub_tests_Data_decker_facts.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 2092 clause(s), no initialization(main))
+sub_tests_Data_tree.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 14 clause(s), no initialization(main))
+sub_tests_Driver.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 29 clause(s), no initialization(main))
+sub_tests_Programs_decker_rules.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 125 clause(s), no initialization(main))
+sub_tests_Programs_flora.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 582 clause(s), no initialization(main))
+sub_tests_Programs_traversal.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 9 clause(s), no initialization(main))
+sub_tests_decker.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `'Driver'' does not exist
+sub_tests_drtc1.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `'Driver'' does not exist
+sub_tests_drtc2.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `'Driver'' does not exist
+sub_tests_drtc3.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `'Driver'' does not exist
+sub_tests_drtc4.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `'Driver'' does not exist
+sub_tests_drtc5.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `'Driver'' does not exist
+sub_tests_drtc6.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `'Driver'' does not exist
+sub_tests_drtc7.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `'Driver'' does not exist
+sub_tests_drtc8.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `'Driver'' does not exist
+sub_tests_floratest.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `'Driver'' does not exist
+sub_tests_genome1.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `'Driver'' does not exist
+sub_tests_genome2.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `'Driver'' does not exist
+sub_tests_genome3.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `'Driver'' does not exist
+sub_tests_lrtc1.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `'Driver'' does not exist
+sub_tests_lrtc2.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `'Driver'' does not exist
+sub_tests_lrtc3.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `'Driver'' does not exist
+sub_tests_lrtc4.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `'Driver'' does not exist
+sub_tests_lrtc5.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `'Driver'' does not exist
+sub_tests_lrtc6.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `'Driver'' does not exist
+sub_tests_lrtc7.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `'Driver'' does not exist
+sub_tests_lrtc8.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `'Driver'' does not exist
+sub_tests_rrtc1.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `'Driver'' does not exist
+sub_tests_rrtc2.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `'Driver'' does not exist
+sub_tests_rrtc3.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `'Driver'' does not exist
+sub_tests_rrtc4.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `'Driver'' does not exist
+sub_tests_rrtc5.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `'Driver'' does not exist
+sub_tests_rrtc6.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `'Driver'' does not exist
+sub_tests_rrtc7.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `'Driver'' does not exist
+sub_tests_rrtc8.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `'Driver'' does not exist
+sub_tests_sg1.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `'Driver'' does not exist
+sub_tests_sg2.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `'Driver'' does not exist
+sub_tests_sg3.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `'Driver'' does not exist
+sub_tests_sg4.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `'Driver'' does not exist
+sub_tests_sg5.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `'Driver'' does not exist
+sub_tests_sg6.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `'Driver'' does not exist
+sub_tests_sg7.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `'Driver'' does not exist
+sub_tests_sg8.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `'Driver'' does not exist
+table_tests_a.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 6 clause(s), no initialization(main))
+table_tests_abol_test2_module.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 2 clause(s), no initialization(main))
+table_tests_actions.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 27 clause(s), no initialization(main))
+table_tests_as_mod.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 8 clause(s), no initialization(main))
+table_tests_cantrdat.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 2 clause(s), no initialization(main))
+table_tests_correct.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 49 clause(s), no initialization(main))
+table_tests_cycle.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 2047 clause(s), no initialization(main))
+table_tests_edge_dag.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 496 clause(s), no initialization(main))
+table_tests_exec.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 64 clause(s), no initialization(main))
+table_tests_expand.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: table_tests_expand.pl:1: ERROR: source_sink `exec' does not exist
+table_tests_float1.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 6 clause(s), no initialization(main))
+table_tests_kalah_ox.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 178 clause(s), no initialization(main))
+table_tests_lists.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 2 clause(s), no initialization(main))
+table_tests_not_exists_test_mod.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 3 clause(s), no initialization(main))
+table_tests_sets.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 13 clause(s), no initialization(main))
+table_tests_test_as_mod.pl	NEEDS_RUNNER_WIRING	loads a sibling by its upstream name, which the flat package prefixes with its directory: ERROR: source_sink `as_mod' does not exist
+table_tests_test_forest_view.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 54 clause(s), no initialization(main))
+table_tests_test_forest_view_turnoff.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 19 clause(s), no initialization(main))
+table_tests_test_table_index_1.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 1 clause(s), no initialization(main))
+table_tests_test_wcs_1.pl	TIMEOUT	no answer from swipl -q under the builder's timeout: oracle timed out -- non-terminating or too slow for the grading timeout
+table_tests_tfv_1.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 3 clause(s), no initialization(main))
+table_tests_trdat.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 2 clause(s), no initialization(main))
+table_tests_utils.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 24 clause(s), no initialization(main))
+table_tests_write_canonical_fv.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 8 clause(s), no initialization(main))
+wfs_tests_gen.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 14 clause(s), no initialization(main))
+wfs_tests_p06.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p06), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p07.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p07), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p08.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p08), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p09.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p09), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p10.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p10), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p11.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p11), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p12.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p12), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p13.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p13), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p14.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p14), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p15.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p15), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p16.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p16), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p17.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p17), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p18.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p18), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p19.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p19), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p20.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p20), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p21.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p21), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p22.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p22), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p23.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p23), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p24.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p24), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p25.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p25), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p26.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p26), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p27.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p27), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p29.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p29), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p30.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p30), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p31.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p31), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p32.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p32), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p33.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p33), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p34.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p34), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p35.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p35), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p36.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p36), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p37.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p37), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p39.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p39), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p40.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p40), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p42.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p42), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p43.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p43), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p44.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p44), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p45.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p45), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p46.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p46), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p47.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p47), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p48.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p48), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p49.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p49), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p50.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p50), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p51.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p51), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p52.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p52), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p52a.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p52a), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p53.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p53), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p54.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p54), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p55.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p55), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p56.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p56), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p57.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p57), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p58.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p58), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p59.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p59), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p60.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p60), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p62.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p62), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p63.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p63), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p64.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p64), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p65.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p65), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p66.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p66), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p67.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p67), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p77.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p77), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p78.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p78), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p79.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p79), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p80.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p80), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p81.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p81), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p82.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p82), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p83.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p83), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p84.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p84), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p85.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p85), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p86.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p86), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p89.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p89), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p90.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p90), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_p91.pl	NEEDS_RUNNER_WIRING	driven by wfs_tests/test.sh's loop over p*.P through wfs_tests/gentest.sh: it consults the harness wfs_test and calls test(p91), which loads the program by its upstream name and writes the answer to the file temp
+wfs_tests_wfs_test.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 9 clause(s), no initialization(main))
+wfs_tests_wfsexs.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 563 clause(s), no initialization(main))

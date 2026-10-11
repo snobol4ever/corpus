@@ -1,0 +1,30 @@
+%------------------------------------------------------------------------
+% Program that used to give wrong results.
+%
+% Model T = {}, F = {r}, U = {p,q}.
+%------------------------------------------------------------------------
+
+:- table p/0, q/0, r/0.
+
+p :- tnot(p), q.
+p :- tnot(q), r.
+q :- tnot(p).
+r :- fail.
+
+%------------------------------------------------------------------------
+
+test :- p, fail.
+test :- ( p ->	( tnot(p) -> writeln('p is undefined (OK)')
+		; writeln('p is true') )
+	; writeln('p is false') ),
+        ( q ->  ( tnot(q) -> writeln('q is undefined (OK)')
+		; writeln('q is true') )
+	; writeln('q is false') ),
+	( r ->  ( tnot(r) -> writeln('r  is undefined')
+		; writeln('r is true') )
+	; writeln('r  is false (OK)') ).
+
+% DRIVER (appended by the vendoring, CEO-700): XSB delay_tests/test.sh runs gentest.sh fr4 "test."
+xsb_nonempty_line(L) :- string_length(L, N), N > 0.
+xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
+:- initialization(xsb_sorted_output((test))).

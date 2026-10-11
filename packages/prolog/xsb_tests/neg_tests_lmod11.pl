@@ -1,0 +1,50 @@
+test :- a(_), fail.
+test :-
+	( a(_) -> writeln('1. a(X) is true') ; writeln('1. a(X) is false') ),
+	( b(_) -> writeln('1. b(X) is true') ; writeln('1. b(X) is false') ),
+	( c(_) -> writeln('1. c(X) is true') ; writeln('1. c(X) is false') ),
+	( d(_) -> writeln('1. d(X) is true') ; writeln('1. d(X) is false') ),
+	( e(_) -> writeln('1. e(X) is true') ; writeln('1. e(X) is false') ),
+	( f(_) -> writeln('1. f(X) is true') ; writeln('1. f(X) is false') ),
+	( g(_) -> writeln('1. g(X) is true') ; writeln('1. g(X) is false') ),
+	fail.
+test :- a(1), fail.
+test :-
+	( a(1) -> writeln('2. a(1) is true') ; writeln('2. a(1) is false') ),
+	( b(1) -> writeln('2. b(1) is true') ; writeln('2. b(1) is false') ),
+	( c(1) -> writeln('2. c(1) is true') ; writeln('2. c(1) is false') ),
+	( d(1) -> writeln('2. d(1) is true') ; writeln('2. d(1) is false') ),
+	( e(1) -> writeln('2. e(1) is true') ; writeln('2. e(1) is false') ),
+	( f(1) -> writeln('2. f(1) is true') ; writeln('2. f(1) is false') ),
+	( g(1) -> writeln('2. g(1) is true') ; writeln('2. g(1) is false') ).
+
+%--------------------------------------------------------------
+
+%
+% The non-propositional version of lmod10.P
+%
+
+:- table a/1, b/1, c/1, d/1, e/1, f/1, g/1.
+
+a(X) :- b(X), d(X).
+
+b(X) :- c(X).
+b(_).
+b(X) :- sk_not(e(X)).
+
+c(X) :- b(X), fail.
+
+d(X) :- e(X), f(X), sk_not(g(X)).
+
+e(_).
+
+f(X) :- sk_not(c(X)), e(X).
+f(X) :- sk_not(e(X)).
+f(X) :- g(X).
+
+g(X) :- f(X).
+
+% DRIVER (appended by the vendoring, CEO-700): XSB neg_tests/test.sh runs gentest.sh lmod11 "test."
+xsb_nonempty_line(L) :- string_length(L, N), N > 0.
+xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
+:- initialization(xsb_sorted_output((test))).

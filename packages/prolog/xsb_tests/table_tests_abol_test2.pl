@@ -1,0 +1,32 @@
+
+arc(1,2).
+arc(2,3).
+arc(2,4).
+arc(4,1).
+
+:- table upath/2.
+
+upath(X,Y) :- arc(X,Y).
+upath(X,Y) :- upath(X,Z), arc(Z,Y).
+
+:- import mpath/2 from abol_test2_module.
+:- import abolish_module_tables/1 from tables.
+
+test:- upath(1,_),fail.
+test:- mpath(1,_),fail.
+test:- get_residual(upath(1,Y),_),writeln(answer(u(a,Y))),fail.
+test:- get_residual(mpath(1,Y),_),writeln(answer(m(a,Y))),fail.
+test:- writeln('-------'),fail.
+test:- abolish_module_tables(abol_test2_module),fail.
+test:- get_residual(upath(1,Y),_),writeln(answer(u(b,Y))),fail.
+test:- get_residual(mpath(1,Y),_),writeln(answer(m(b,Y))),fail.
+test:- abolish_module_tables(usermod),fail.
+test:- writeln('-------'),fail.
+test:- get_residual(upath(1,Y),_),writeln(answer(u(c,Y))),fail.
+test:- get_residual(mpath(1,Y),_),writeln(answer(m(c,Y))),fail.
+test:- gc_tables(N),writeln(remaining(N)).
+
+% DRIVER (appended by the vendoring, CEO-700): XSB table_tests/test.sh runs gentest.sh abol_test2 "test."
+xsb_nonempty_line(L) :- string_length(L, N), N > 0.
+xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
+:- initialization(xsb_sorted_output((test))).
