@@ -748,7 +748,7 @@ n13_match_end_α:        mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
 .Lmatch_end_α_44_61:    lea              rdi, [rsp + 112]
                         call             rt_trace_pend_run@PLT
 .Lgcsite_main_15:       mov              r9,  qword ptr [rip + rtccb+48]
-                        push             rax                                  # gc_poll bb_glue_flat.cpp:227
+                        push             rax                                  # gc_poll bb_glue_flat.cpp:292
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -760,7 +760,7 @@ n13_match_end_α:        mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
 .Lmatch_end_α_44_62:    lea              rdi, [rsp + 112]
                         call             rt_trace_pend_close@PLT
 .Lgcsite_main_13:       mov              r9,  qword ptr [rip + rtccb+48]
-                        push             rax                                  # gc_poll bb_glue_flat.cpp:231
+                        push             rax                                  # gc_poll bb_glue_flat.cpp:296
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -961,7 +961,7 @@ main_β:
 #-----------------------------------------------------------------------------------------------------------------------
 main_γ:
                         call             sno_setexit_fire_on_end@PLT
-.Lgcsite_main_46:       push             rax                                  # gc_poll bb_glue_flat.cpp:45
+.Lgcsite_main_46:       push             rax                                  # gc_poll bb_glue_flat.cpp:51
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
