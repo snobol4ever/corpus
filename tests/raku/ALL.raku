@@ -5196,7 +5196,18 @@ sub main() {
     in_loop();
 }
 main();
-#- 979 ladder__rung02_arithmetic_rat_in_the_builtins_index_range_x_floor_abs_sqrt_sprintf_int_and_caret
+#- 979 ladder__rung10_given_a_when_arm_is_its_own_node_a_given_binds_the_topic_and_a_matched_when_leaves_the_block
+given 7 { my $z = .Str; say $z }
+given 8 { when 8 { say "w" }; say "x" }
+given 9 { say "pre"; when 9 { say "nine" }; say "post" }
+given 5 { when 1 { say "one" }; default { say "dflt $_" } }
+for 1..3 { when 2 { say "two" }; say $_ }
+for <a b c> { when "b" { say "bee" }; default { say "other $_" } }
+given "ab" { my $z = .uc; say $z }
+sub cls($n) { given $n { when 0 { return "zero" }; when 1 { return "one" }; default { return "many" } } }
+say cls(0), cls(1), cls(5);
+try { die "x"; CATCH { when X::AdHoc { say "caught ", .message } } }
+#- 980 ladder__rung02_arithmetic_rat_in_the_builtins_index_range_x_floor_abs_sqrt_sprintf_int_and_caret
 my @a = (10, 20, 30, 40);
 say @a[7/4];
 say @a[1.5];
@@ -5289,7 +5300,7 @@ say 1.23456789 * 1000;
 say 100 * 1.1;
 say 1.15 * 100;
 say 33.333333 * 3;
-#------------------ 980 ladder__rung09_regex_engine_captures_1_agree_with_rakudo
+#------------------ 981 ladder__rung09_regex_engine_captures_1_agree_with_rakudo
 sub esc($s) { $s.subst("\n", '\n', :g).subst("\t", '\t', :g) }
 sub fmt($x) { $x ~~ Positional ?? "[" ~ $x.map({fmt($_)}).join(",") ~ "]" !! "<" ~ esc($x.Str) ~ ">" }
 sub show($m) { my @o = "M {$m.from} {$m.to} <{esc($m.Str)}>"; my @l = $m.list; for ^@l.elems -> $i { @o.push: "$i=" ~ (@l[$i].defined ?? fmt(@l[$i]) !! "-") }; my %h = $m.hash; for %h.keys.sort -> $k { @o.push: "$k=" ~ fmt(%h{$k}) }; say @o.join(" ") }
@@ -5339,7 +5350,7 @@ if '12' ~~ /<alpha>* <digit>+/ { show($/) } else { say "NO" }
 if '1,2,3' ~~ /<digit>+ % ','/ { show($/) } else { say "NO" }
 if '1,2,3' ~~ /(<digit>)+ % ','/ { show($/) } else { say "NO" }
 if '1,2,3' ~~ /$<d>=<digit>+ % ','/ { show($/) } else { say "NO" }
-#--------------- 981 ladder__rung09_regex_engine_quantifiers_1_agree_with_rakudo
+#--------------- 982 ladder__rung09_regex_engine_quantifiers_1_agree_with_rakudo
 sub esc($s) { $s.subst("\n", '\n', :g).subst("\t", '\t', :g) }
 sub fmt($x) { $x ~~ Positional ?? "[" ~ $x.map({fmt($_)}).join(",") ~ "]" !! "<" ~ esc($x.Str) ~ ">" }
 sub show($m) { my @o = "M {$m.from} {$m.to} <{esc($m.Str)}>"; my @l = $m.list; for ^@l.elems -> $i { @o.push: "$i=" ~ (@l[$i].defined ?? fmt(@l[$i]) !! "-") }; my %h = $m.hash; for %h.keys.sort -> $k { @o.push: "$k=" ~ fmt(%h{$k}) }; say @o.join(" ") }
@@ -5370,7 +5381,7 @@ if 'aaa' ~~ /a:/ { show($/) } else { say "NO" }
 if 'aab' ~~ /a: b/ { show($/) } else { say "NO" }
 if 'ab' ~~ /a: | b/ { show($/) } else { say "NO" }
 if 'ab' ~~ /[a: | ab]/ { show($/) } else { say "NO" }
-#-------------------- 982 ladder__rung09_regex_engine_sigspace_agree_with_rakudo
+#-------------------- 983 ladder__rung09_regex_engine_sigspace_agree_with_rakudo
 sub esc($s) { $s.subst("\n", '\n', :g).subst("\t", '\t', :g) }
 sub fmt($x) { $x ~~ Positional ?? "[" ~ $x.map({fmt($_)}).join(",") ~ "]" !! "<" ~ esc($x.Str) ~ ">" }
 sub show($m) { my @o = "M {$m.from} {$m.to} <{esc($m.Str)}>"; my @l = $m.list; for ^@l.elems -> $i { @o.push: "$i=" ~ (@l[$i].defined ?? fmt(@l[$i]) !! "-") }; my %h = $m.hash; for %h.keys.sort -> $k { @o.push: "$k=" ~ fmt(%h{$k}) }; say @o.join(" ") }
@@ -5409,7 +5420,7 @@ if 'Ab' ~~ /(:i a) b/ { show($/) } else { say "NO" }
 if 'AB' ~~ /(:i a) b/ { show($/) } else { say "NO" }
 if 'aBc' ~~ /a [:i b] c/ { show($/) } else { say "NO" }
 if 'aBC' ~~ /a [:i b] c/ { show($/) } else { say "NO" }
-#---------------------- 983 ladder__rung09_regex_engine_batch2_agree_with_rakudo
+#---------------------- 984 ladder__rung09_regex_engine_batch2_agree_with_rakudo
 sub esc($s) { $s.subst("\n", '\n', :g).subst("\t", '\t', :g) }
 sub fmt($x) { $x ~~ Positional ?? "[" ~ $x.map({fmt($_)}).join(",") ~ "]" !! "<" ~ esc($x.Str) ~ ">" }
 sub show($m) { my @o = "M {$m.from} {$m.to} <{esc($m.Str)}>"; my @l = $m.list; for ^@l.elems -> $i { @o.push: "$i=" ~ (@l[$i].defined ?? fmt(@l[$i]) !! "-") }; my %h = $m.hash; for %h.keys.sort -> $k { @o.push: "$k=" ~ fmt(%h{$k}) }; say @o.join(" ") }
@@ -5454,7 +5465,7 @@ if 'bc' ~~ /[a | b] c/ { show($/) } else { say "NO" }
 if 'ab' ~~ /'a' | 'ab'/ { show($/) } else { say "NO" }
 if 'ab' ~~ /<alpha>*?/ { show($/) } else { say "NO" }
 if 'ab1' ~~ /<alpha>+?<digit>/ { show($/) } else { say "NO" }
-#-------------------- 984 ladder__rung09_regex_engine_basics_1_agree_with_rakudo
+#-------------------- 985 ladder__rung09_regex_engine_basics_1_agree_with_rakudo
 sub esc($s) { $s.subst("\n", '\n', :g).subst("\t", '\t', :g) }
 sub fmt($x) { $x ~~ Positional ?? "[" ~ $x.map({fmt($_)}).join(",") ~ "]" !! "<" ~ esc($x.Str) ~ ">" }
 sub show($m) { my @o = "M {$m.from} {$m.to} <{esc($m.Str)}>"; my @l = $m.list; for ^@l.elems -> $i { @o.push: "$i=" ~ (@l[$i].defined ?? fmt(@l[$i]) !! "-") }; my %h = $m.hash; for %h.keys.sort -> $k { @o.push: "$k=" ~ fmt(%h{$k}) }; say @o.join(" ") }
@@ -5507,7 +5518,7 @@ if 'ab1' ~~ /<x=alpha>+/ { show($/) } else { say "NO" }
 if 'a1b2' ~~ /[<alpha>|<digit>]+/ { show($/) } else { say "NO" }
 if 'FOO' ~~ /:i foo/ { show($/) } else { say "NO" }
 if 'fOo' ~~ /:i f.o/ { show($/) } else { say "NO" }
-#-------------------- 985 ladder__rung09_regex_engine_basics_2_agree_with_rakudo
+#-------------------- 986 ladder__rung09_regex_engine_basics_2_agree_with_rakudo
 sub esc($s) { $s.subst("\n", '\n', :g).subst("\t", '\t', :g) }
 sub fmt($x) { $x ~~ Positional ?? "[" ~ $x.map({fmt($_)}).join(",") ~ "]" !! "<" ~ esc($x.Str) ~ ">" }
 sub show($m) { my @o = "M {$m.from} {$m.to} <{esc($m.Str)}>"; my @l = $m.list; for ^@l.elems -> $i { @o.push: "$i=" ~ (@l[$i].defined ?? fmt(@l[$i]) !! "-") }; my %h = $m.hash; for %h.keys.sort -> $k { @o.push: "$k=" ~ fmt(%h{$k}) }; say @o.join(" ") }
@@ -5560,7 +5571,7 @@ if 'a1' ~~ /<alpha> <digit>/ { show($/) } else { say "NO" }
 if 'abcd' ~~ /'ab' 'cd'/ { show($/) } else { say "NO" }
 if 'a b' ~~ /:s (a) (b)/ { show($/) } else { say "NO" }
 if 'a b' ~~ /:s  a b / { show($/) } else { say "NO" }
-#-------------------- 986 ladder__rung09_regex_engine_basics_3_agree_with_rakudo
+#-------------------- 987 ladder__rung09_regex_engine_basics_3_agree_with_rakudo
 sub esc($s) { $s.subst("\n", '\n', :g).subst("\t", '\t', :g) }
 sub fmt($x) { $x ~~ Positional ?? "[" ~ $x.map({fmt($_)}).join(",") ~ "]" !! "<" ~ esc($x.Str) ~ ">" }
 sub show($m) { my @o = "M {$m.from} {$m.to} <{esc($m.Str)}>"; my @l = $m.list; for ^@l.elems -> $i { @o.push: "$i=" ~ (@l[$i].defined ?? fmt(@l[$i]) !! "-") }; my %h = $m.hash; for %h.keys.sort -> $k { @o.push: "$k=" ~ fmt(%h{$k}) }; say @o.join(" ") }
@@ -5613,7 +5624,7 @@ if '.abc' ~~ /\. abc/ { show($/) } else { say "NO" }
 if '^abc' ~~ /\^ abc/ { show($/) } else { say "NO" }
 if '(abc)' ~~ /\( abc \)/ { show($/) } else { say "NO" }
 if '[abc]' ~~ /\[ abc \]/ { show($/) } else { say "NO" }
-#------------------- 987 ladder__rung09_regex_engine_classes_1_agree_with_rakudo
+#------------------- 988 ladder__rung09_regex_engine_classes_1_agree_with_rakudo
 sub esc($s) { $s.subst("\n", '\n', :g).subst("\t", '\t', :g) }
 sub fmt($x) { $x ~~ Positional ?? "[" ~ $x.map({fmt($_)}).join(",") ~ "]" !! "<" ~ esc($x.Str) ~ ">" }
 sub show($m) { my @o = "M {$m.from} {$m.to} <{esc($m.Str)}>"; my @l = $m.list; for ^@l.elems -> $i { @o.push: "$i=" ~ (@l[$i].defined ?? fmt(@l[$i]) !! "-") }; my %h = $m.hash; for %h.keys.sort -> $k { @o.push: "$k=" ~ fmt(%h{$k}) }; say @o.join(" ") }
@@ -5666,13 +5677,13 @@ if "\n" ~~ /./ { show($/) } else { say "NO" }
 if "a\nb" ~~ /^^a/ { show($/) } else { say "NO" }
 if "a\nb" ~~ /a$$/ { show($/) } else { say "NO" }
 if 'a' ~~ /./ { show($/) } else { say "NO" }
-#----------------------------------------------------------- 988 sub_say_9 XFAIL
+#----------------------------------------------------------- 989 sub_say_9 XFAIL
 sub f(Int $x) { say($x); }
  f(7); f("x"); say("after"); 
-#----------------------------------------------------------- 989 sub_say_8 XFAIL
+#----------------------------------------------------------- 990 sub_say_8 XFAIL
 sub want(Str:U $x) { say("ok"); }
  my $u; want($u); want("v"); say("after"); 
-#----------------------------------------------------- 990 multi_sub_say_3 XFAIL
+#----------------------------------------------------- 991 multi_sub_say_3 XFAIL
 multi sub init(Str:U $x) { say("uninitialized"); }
 multi sub init(Str $x) { say("has value: " ~ $x); }
  my $u; init($u); 
