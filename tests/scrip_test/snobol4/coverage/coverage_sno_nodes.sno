@@ -39,7 +39,7 @@
 
 * AST_ASGN — pattern = assignment capture
         S = 'hello world'
-        S ('hello' = CAPT)
+        S (CAPT = 'hello')
         OUTPUT = CAPT
 
 * AST_SEQ — pattern sequence (CAT)

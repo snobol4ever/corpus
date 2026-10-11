@@ -39,7 +39,7 @@
 
 * E_ASGN — pattern = assignment capture
         S = 'hello world'
-        S ('hello' = CAPT)
+        S (CAPT = 'hello')
         OUTPUT = CAPT
 
 * E_SEQ — pattern sequence (CAT)
