@@ -19,7 +19,9 @@ and their subdirectories (basic_tests landed first with the smoke, corpus bd610c
 
 Flat (the container runner counts the `*.pl` at depth 1). Each program keeps its upstream path as a prefix, any character that is not
 a letter, digit or underscore spelled `_` (`basic_tests/preproc-opt/progr.P` is `basic_tests_preproc_opt_progr.pl`), because test
-directories repeat stems and the harness stages a companion only under a plain atom name. Each file is otherwise byte for byte.
+directories repeat stems and the harness stages a companion only under a plain atom name. Each file is otherwise byte for byte, but for
+the 32 XSB shipped with CR-LF line endings (prolog_tests' parmod_tests and kin): their CRs at end of line are stripped, Lon's "just say
+no to CR-LF" as CEO-1414 applied it to the earlier packages (none of them tests a carriage return; every ref re-cut identical).
 
 XSB's runners (`gentest.sh`, and `sgentest.sh` / `agentest.sh`, the same contract under subsumptive tabling and call abstraction)
 consult a test file, run the goal a directory script names (`test.sh`, `stest.sh`, `atest.sh`, following its `cd`s into
