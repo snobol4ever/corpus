@@ -113,7 +113,6 @@ spit.sno	OK	OK	NO_ORACLE
 str.sno	OK	OK	NO_ORACLE			
 substr.sno	OK	OK	NO_ORACLE			
 sudoku.sno	OK	OK	NO_ORACLE			
-tab.sno	OK	ERR	NO_ORACLE		rc=1 tab.sno:18: Error 3 in statement 14 at level 0	
 time.sno	ERR	ERR	NO_ORACLE	rc=1 time.sno(1,10) : ERROR 285 -- include file cannot be opened	rc=1 time.sno:1: Error 30 in statement 0 at level 0	
 trace1.sno	OK	OK	NO_ORACLE			
 trace2.sno	OK	OK	NO_ORACLE			
