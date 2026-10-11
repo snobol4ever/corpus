@@ -1,0 +1,7 @@
+# OUTSIDE.tsv -- RakBench kernels outside the published denominator, one row per kernel: kernel<TAB>CLASS<TAB>evidence.
+# A kernel here stays vendored with its Rakudo-cut ref and its sidecars (the gates that use it as a witness and the publish-cadence bench grid still reach it), is NOT generated, built or run by the suite pass, is named on the board on its own line, and leaves total/all_n (shipped = total + excluded); it is never dropped.
+# OUTSIDE_SLOW is Lon's class (2026-10-10, in-chat to the cto, verbatim: "Fix RakBench not to take 1 hour." then "Well then, just remove the four slow ones and keep the rest."), on the cto's measurement of the process angle once per kernel per mode at load about 8, SCRIP_DIAG=0, declared sizes: the four below are 341 s of the 399 s the 84 kernels take; the other 80 together are 58 s.
+send-more-money-subs	OUTSIDE_SLOW	raku-bench whole program; 48.1 s in mode 3 and 51.9 s in mode 4 for one run (CEO-1564 read 20.5 s at load 2); under three angles about seven runs a mode, the largest single share of the 3293 s pass
+point_class_add2	OUTSIDE_SLOW	raku-bench's port of the LuaJIT-wiki point-class benchmark; 48.1 s in mode 3 and 50.6 s in mode 4 for one run (CEO-1564 read 17.1 s at load 2)
+point_class_add1	OUTSIDE_SLOW	the same family; 39.8 s in mode 3 and 34.4 s in mode 4 for one run (CEO-1564 read 11.6 s at load 2)
+point_class_add	OUTSIDE_SLOW	the same family; 38.5 s in mode 3 and 29.3 s in mode 4 for one run (CEO-1564 read 12.2 s at load 2)
