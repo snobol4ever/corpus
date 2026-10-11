@@ -531,7 +531,17 @@ n25_assign_var_α:       sub              rsp, 16
                         mov              rsi, qword ptr [rsp + 72]
                         mov              rdx, qword ptr [rsp + 80]            # var
                         mov              rcx, qword ptr [rsp + 88]
-                        cmp              dil, 24;                             je    .Lassign_var_α_127_1
+                        cmp              dil, 40;                             jne   .Lassign_var_α_127_5
+                        mov              rax, rdi
+                        shr              rax, 32
+                        cmp              eax, 1;                              jne   .Lassign_var_α_127_0
+                        test             rsi, rsi;                            je    .Lassign_var_α_127_0
+                        mov              rax, qword ptr [rsi + 0]
+                        mov              r10, qword ptr [rsi + 8]
+                        cmp              al, 24;                              jne   .Lassign_var_α_127_0
+                        mov              rdi, rax
+                        mov              rsi, r10;                            jmp   .Lassign_var_α_127_1
+.Lassign_var_α_127_5:   cmp              dil, 24;                             je    .Lassign_var_α_127_1
                         cmp              dil, 16;                             jne   .Lassign_var_α_127_0
 .Lassign_var_α_127_1:   test             rsi, rsi;                            je    .Lassign_var_α_127_0
                         mov              r8, qword ptr [rsp + 16]             # binop
@@ -541,7 +551,7 @@ n25_assign_var_α:       sub              rsp, 16
                         add              rsp, 16;                             jmp   n24_binop_β
 .Lassign_var_α_127_238: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_assign_var_sub.cpp:55
+                        push             rax                                  # gc_poll bb_assign_var_sub.cpp:76
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -580,7 +590,7 @@ n25_assign_var_α:       sub              rsp, 16
                         add              rsp, 16;                             jmp   n24_binop_β
 .Lassign_var_α_127_240: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_assign_var_sub.cpp:75
+                        push             rax                                  # gc_poll bb_assign_var_sub.cpp:96
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1001,7 +1011,7 @@ n54_subscript_α:        sub              rsp, 16
                         add              rsp, 16;                             jmp   n53_var_β
 .Lsubscript_α_167_240:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:81
+                        push             rax                                  # gc_poll bb_subscript.cpp:78
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1682,7 +1692,7 @@ main_β:
 #-----------------------------------------------------------------------------------------------------------------------
 main_γ:
                         call             sno_setexit_fire_on_end@PLT
-.Lgcsite_main_47:       push             rax                                  # gc_poll bb_glue_flat.cpp:45
+.Lgcsite_main_47:       push             rax                                  # gc_poll bb_glue_flat.cpp:51
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax

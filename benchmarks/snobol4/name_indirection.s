@@ -530,7 +530,7 @@ n25_assign_var_α:       sub              rsp, 16
                         add              rsp, 16;                             jmp   n24_binop_β
 .Lassign_var_α_82_240:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_assign_var.cpp:69
+                        push             rax                                  # gc_poll bb_assign_var.cpp:31
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -975,7 +975,7 @@ main_β:
 #-----------------------------------------------------------------------------------------------------------------------
 main_γ:
                         call             sno_setexit_fire_on_end@PLT
-.Lgcsite_main_31:       push             rax                                  # gc_poll bb_glue_flat.cpp:45
+.Lgcsite_main_31:       push             rax                                  # gc_poll bb_glue_flat.cpp:51
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
