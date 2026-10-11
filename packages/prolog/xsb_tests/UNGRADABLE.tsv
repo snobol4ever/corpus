@@ -1,0 +1,5 @@
+# UNGRADABLE.tsv -- xsb_tests: the shipped programs the oracle (swipl -q) gives no one ground truth for -- it refuses them
+# (an ERROR or a failed goal on load, quoted) or answers differently on two runs. name<TAB>CLASS<TAB>evidence; classes from
+# lib_inventory.sh's closed vocabulary. In the published denominator (CEO-1286).
+basic_tests_ensure_loaded_tst.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: test/0: Unknown procedure: ensure_loaded_aux:p/1
+basic_tests_preproc_opt_preproc_test.pl	ORACLE_REFUSES	swipl -q prints nothing and reports: ERROR: basic_tests_preproc_opt_preproc_test.pl:1: ERROR: catch/3: Unknown procedure: compiler_options/1

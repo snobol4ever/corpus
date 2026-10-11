@@ -1,0 +1,14 @@
+# UNGRADED.tsv -- xsb_tests: the shipped programs owed work before they are graded -- NEEDS_DRIVER (XSB drives it nowhere),
+# NEEDS_RUNNER_WIRING (it loads a sibling by its upstream name) or TIMEOUT. name<TAB>CLASS<TAB>evidence.
+# In the published denominator (CEO-1286).
+basic_tests_hirc.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 9 clause(s), no initialization(main))
+basic_tests_index_t2.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 9 clause(s), no initialization(main))
+basic_tests_index_test.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 9 clause(s), no initialization(main))
+basic_tests_interp2.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 46 clause(s), no initialization(main))
+basic_tests_preproc_opt_optcompile.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 8 clause(s), no initialization(main))
+basic_tests_preproc_opt_optstructures.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 146 clause(s), no initialization(main))
+basic_tests_preproc_opt_progr.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 3 clause(s), no initialization(main))
+basic_tests_tcyl.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 1104 clause(s), no initialization(main))
+basic_tests_tstr131.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 66 clause(s), no initialization(main))
+basic_tests_tstr231.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 6 clause(s), no initialization(main))
+basic_tests_xpp_on_test.pl	NEEDS_DRIVER	defines clauses and has no entry point, and XSB's test.sh drives it nowhere (util_container_or_library.py: 1 clause(s), no initialization(main))

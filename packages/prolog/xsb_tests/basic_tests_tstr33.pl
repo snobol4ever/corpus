@@ -1,0 +1,50 @@
+:- table a/2.
+
+tw :- a(X,Y), write(X), write(' '), write(Y), nl, fail.
+tw.
+
+ts :- statistics,a(_X,_Y),fail.
+ts :- statistics.
+
+a(X,Y):-p(X,Y).
+a(X,Y):-p(X,Z),a(Z,Y).
+
+p(1,2).
+p(2,3).
+p(3,4).
+p(4,5).
+p(5,6).
+p(6,7).
+p(7,8).
+p(8,9).
+p(9,10).
+p(10,11).
+p(11,12).
+p(12,13).
+p(13,14).
+p(14,15).
+p(15,16).
+p(16,17).
+p(17,18).
+p(18,19).
+p(19,20).
+p(20,21).
+p(21,22).
+p(22,23).
+p(23,24).
+p(24,25).
+p(25,26).
+p(26,27).
+p(27,28).
+p(28,29).
+p(29,30).
+p(30,31).
+p(31,32).
+p(32,33).
+p(33,34).
+p(34,1).
+
+% DRIVER (appended by the vendoring, CEO-700): XSB basic_tests/test.sh runs ../gentest.sh tstr33 "tw."
+xsb_nonempty_line(L) :- string_length(L, N), N > 0.
+xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
+:- initialization(xsb_sorted_output((tw))).

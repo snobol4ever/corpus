@@ -1,0 +1,17 @@
+basic_tests_acyl: oracle produced EMPTY output -- refusing to mint a vacuous ref
+basic_tests_empty: oracle produced EMPTY output -- refusing to mint a vacuous ref
+basic_tests_empty2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+basic_tests_ensure_loaded_tst: oracle produced EMPTY output -- refusing to mint a vacuous ref
+basic_tests_hirc: oracle produced EMPTY output -- refusing to mint a vacuous ref
+basic_tests_index_t2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+basic_tests_index_test: oracle produced EMPTY output -- refusing to mint a vacuous ref
+basic_tests_interp2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+basic_tests_preproc_opt_optcompile: oracle produced EMPTY output -- refusing to mint a vacuous ref
+basic_tests_preproc_opt_optstructures: oracle produced EMPTY output -- refusing to mint a vacuous ref
+basic_tests_preproc_opt_preproc_test: oracle produced EMPTY output -- refusing to mint a vacuous ref
+basic_tests_preproc_opt_progr: oracle produced EMPTY output -- refusing to mint a vacuous ref
+basic_tests_tcyl: oracle produced EMPTY output -- refusing to mint a vacuous ref
+basic_tests_tcyl_24_24_2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+basic_tests_tstr131: oracle produced EMPTY output -- refusing to mint a vacuous ref
+basic_tests_tstr231: oracle produced EMPTY output -- refusing to mint a vacuous ref
+basic_tests_xpp_on_test: oracle produced EMPTY output -- refusing to mint a vacuous ref
