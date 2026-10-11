@@ -1,0 +1,4 @@
+# ALL.prelude -- the text corpus_suite_harness.py prefixes to the first line of every rosetta-prolog entry (SCRIP c0286d9d9).
+# The package's contract with the oracle that cut its refs (hq_prolog, on the ceo's Prolog dialect ruling CEO-1632): swipl read
+# a double-quoted text as a string, and these programs carry no SWI marker of their own, so they run under that flag.
+:- set_prolog_flag(double_quotes, string).
