@@ -1,3 +1,4 @@
 # OUTSIDE.tsv -- ProBench kernels outside the published denominator, one row per kernel: kernel<TAB>CLASS<TAB>evidence.
 # A kernel here is vendored with its oracle-cut ref (it grades the day its feature is in the baseline) and named, never dropped.
-queens_clpfd	OUTSIDE_CLPFD	the kernel loads library(clpfd) and posts #=/#\\= constraints: SCRIP reads queens_clpfd.pl:24 and :35 as parse errors (no CLP(FD) operators or solver in the baseline; Lon, CEO-579: "Do not count the FD as failures for us."); swipl 9.0.4 answers ok (queens_clpfd.ref), measured 2026-10-10 on SCRIP 72edfe304
+# queens_clpfd left 2026-10-11 (ceo CEO-1666): it grades green in both modes on all three angles on SCRIP 765ce1154 (the coo's ProBench
+# reading), so it is in the baseline and back in the denominator -- an outside entry is debt, never a category (Lon, CEO-1518).
