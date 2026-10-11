@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by scripts/util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=85 features=37 ubiquitous=1(package) distinctive=36 core=21 clusters=34 chunks=1 sizes=64
+# shape: entries=86 features=37 ubiquitous=1(package) distinctive=36 core=20 clusters=37 chunks=1 sizes=66
 entry	part	cluster	shells
 100func	chunk:01	feat:DEFINE	DEFINE
 8bit	core	core	BREAK DEFINE LEN POS TAB cond_assign keyword_ref
@@ -8,7 +8,7 @@ a	chunk:01	feat:keyword_ref	keyword_ref
 alis	core	core	DEFINE DUPL OPSYN REM RTAB SIZE cond_assign goto_fail goto_success keyword_ref want_rc
 alph	chunk:01	feat:SIZE	SIZE keyword_ref
 alt1	core	core	BREAK POS RPOS SPAN TRIM alternation deferred_eval goto_fail imm_assign keyword_ref
-alt2	chunk:01	feat:SPAN	SPAN alternation goto_fail imm_assign
+alt2	chunk:01	feat:alternation	SPAN alternation goto_fail imm_assign
 any	core	core	ANY NOTANY imm_assign keyword_ref
 bal	core	core	BAL DEFINE capture_plus_defer cond_assign deferred_eval goto_fail keyword_ref
 breakx	core	core	ARBNO BREAK LEN imm_assign keyword_ref
@@ -25,7 +25,7 @@ diag2	core	core	alternation capture_plus_defer cond_assign deferred_eval imm_ass
 dump	chunk:01	feat:keyword_ref	keyword_ref
 err	chunk:01	feat:keyword_ref	keyword_ref
 fact	chunk:01	feat:goto_success	DEFINE goto_success
-factor	core	core	ARRAY SIZE TABLE deferred_eval goto_fail goto_success
+factor	chunk:01	feat:ARRAY	ARRAY SIZE TABLE deferred_eval goto_fail goto_success
 float	chunk:01	family:float	
 ftrace	chunk:01	feat:DEFINE	DEFINE keyword_ref
 fun1	chunk:01	feat:DATATYPE	DATATYPE DEFINE
@@ -64,8 +64,8 @@ trace2	chunk:01	feat:keyword_ref	keyword_ref
 trfunc	chunk:01	feat:DEFINE	DEFINE keyword_ref
 uneval	chunk:01	feat:deferred_eval	deferred_eval goto_fail keyword_ref
 unsc	chunk:01	feat:SPAN	SPAN deferred_eval imm_assign
-words	core	core	BREAK SPAN TRIM goto_fail keyword_ref
-words1	chunk:01	feat:SPAN	BREAK SPAN TRIM goto_fail keyword_ref
+words	chunk:01	feat:TRIM	BREAK SPAN TRIM goto_fail keyword_ref
+words1	chunk:01	feat:TRIM	BREAK SPAN TRIM goto_fail keyword_ref
 atn	chunk:01	family:atn	
 collect	chunk:01	family:collect	
 end	chunk:01	family:end	
@@ -87,3 +87,4 @@ ord	chunk:01	feat:DEFINE	DEFINE keyword_ref
 space	chunk:01	feat:CONVERT	CONVERT
 space2	chunk:01	feat:CONVERT	CONVERT
 rewind1	chunk:01	family:rewind	
+tab	core	core	ARRAY CONVERT REPLACE SPAN TABLE cond_assign keyword_ref
