@@ -25,6 +25,12 @@ run twice, byte-identical both times. A file named in a program heading (Pascal-
 and `OUTPUTFILE`) binds under `fpc -Miso` to the command-line argument of its position and, with none, to the console, so each
 demo reads its sample from standard input and writes standard output (FPCSource `rtl/inc/text.inc`, `fpc_textinit_iso`).
 
+The prettyprinter carries ONE REPAIR, two lines, measured 2026-10-11. Its keyword and single-character searches test
+`PRED(THISKEY) = UNTILSYM` and `PRED(THISCHAR) = PERIOD` before their first step. That takes the predecessor of an enumeration's
+first value, an error under ISO 7185 6.6.6.4 that `fpc -Miso` does not check (it computes -1) and SCRIP refuses at run time. The
+two tests read `THISKEY > UNTILSYM` and `THISCHAR > PERIOD`, the same loop exits. `fpc -Miso`'s output of the repaired program is
+byte-identical to the ref cut from the original, so the ref stands.
+
 PL/0 (Wirth, 1976, from the same page) is not a demo: its main program's `for ch := chr(0) to chr(255)` uses a control variable
 that the procedure `getch` assigns, a violation of ISO 7185 6.8.3.9 that `fpc -Miso` does not check and SCRIP refuses at compile
 time, as the PAT rejection tests require (CEO-1269).
