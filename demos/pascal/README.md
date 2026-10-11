@@ -10,6 +10,7 @@ input `<name>.ref`, and its declared heap and stack (`<name>.heap`, `<name>.stac
 | `basics` | Basic-S, S. A. Moore's tiny BASIC interpreter | P5 sample program (`basics.pas`) | P5's `basics.inp`, a BASIC program then `run` |
 | `pascals` | Pascal-S, Wirth's compiler-interpreter for a Pascal subset | standardpascaline.org/source.html, "freely available programs in ISO 7185 Pascal standard form" | P5's `pascals.inp`, a Pascal-S program printing roman numerals |
 | `prettyp` | the Hueras and Ledgard Pascal prettyprinter | standardpascaline.org/source.html, as above | P5's `qsort.pas`, a Pascal program to reformat |
+| `scheme` | a Scheme interpreter: reader, macro expander (`define-macro`), tail-calling evaluator and its own prelude | an ISO 7185 port of Bob Appleyard's pascal-lisp (github.com/bobappleyard/pascal-lisp, Delphi, GPL-3.0-or-later; `/home/resources/pascal-demos/pascal-lisp`) | `scheme.in`, a 90-line session |
 | `p4/int` | Pascal-P4's P-code interpreter running the P4 COMPILER as P-code, compiling a sample program | `corpus/packages/pascal/p4/int.pas` (the vendored, patched P4 kit, `PATCHES.md`) | `int.in`, a 27-line program (sieve, Fibonacci, gcd); `prd` the compiler's P-code |
 | `p5/pcom` | Pascal-P5's compiler compiling a sample program | P5's `source/pcom.pas` after P5's own preprocessing step | `prd`, P5's sample `qsort.pas` |
 | `p5/pint` | Pascal-P5's P-code interpreter running the PAT | P5's `source/pint.pas` after P5's own preprocessing step | `prd` the PAT's P-code; `pint.in` the PAT's `iso7185pat.inp` |
@@ -49,3 +50,28 @@ ships beside the program; `prr`, the P-code a compiler writes, is not graded. Ev
 THE WORKHORSE INPUTS, not yet declared as `.workhorse` sidecars: P4's compiler compiling itself (`comp_detab.p`, the self-host's
 generation 2) and P5's compiler compiling the PAT (87 s in mode 3 on 2026-10-10, past a demo's 60 s sample budget).
 
+## The Scheme demo: an ISO 7185 port of pascal-lisp (Lon 2026-10-09, CEO-1579; hq_pascal 2026-10-10)
+
+`scheme/scheme.pas` is Bob Appleyard's pascal-lisp, a small Scheme written in the Delphi dialect (`fpc -Mdelphi`, classes,
+exceptions, method pointers, the Boehm collector), translated to ISO 7185 so that the ruled oracle `fpc -Miso` builds it. The
+interpreter is the original's: the s-expression reader, the macro expander, the evaluator over association-list environments with
+proper tail calls, its thirty-four primitives, and its prelude (`source/prelude.scm`, byte for byte), which builds `define`,
+`quasiquote`, `let`, `cond`, `do`, `case`, `case-lambda` and the arithmetic. What the port changes, each forced by ISO 7185 and named
+in the program's head comment: a Lisp value is one variant record; strings and symbol names live in one character pool; an error is a
+non-local `goto` to the nearest active `protect` activation, so `call-with-exception` (a recursive `protect`) catches as the original's
+`try` does; a primitive is a code `exec` dispatches; storage comes from `new`; the prelude is a table of lines read through a port; the
+interpreter is created fully loaded (the original's `lispi.pas` passes `False` and registers nothing); `load` raises an error, having no
+named file to open; a real prints with fifteen significant digits and a gensym its sequence number. Licence: GPL-3.0-or-later, the
+original's (`source/COPYING`).
+
+`scheme.pas` is GENERATED: `python3 source/gen.py source/scheme.pas.in source/prelude.scm scheme.pas` writes the fixed-width string
+literals ISO requires (the prelude's 390 lines, the primitive names, the error messages) into the hand-written `source/scheme.pas.in`;
+the generator reproduces the committed `scheme.pas` byte for byte. `scheme.in` is a session written for the demo (recursion, closures,
+named `let` and `do` loops, `define-macro` with gensyms, quasiquote, reals, errors caught and reported, multiple values, `apply`,
+`eval`, `expand`); the ref was cut twice, byte-identical, by `fpc -Miso` in a scratch copy, with no argument.
+
+DECLARED SIZE, MEASURED 2026-10-10: the demo declares a 262144 KB heap (`scheme.heap`) and the demos' 16384 KB stack. At 131072 KB SCRIP
+stops with `error 204: memory overflow` in both modes; at 262144 KB both modes read SAME, two readings each (peak RSS 236 MB; the prelude
+alone 100 MB, where the fpc build peaks at 25 MB for the whole session and 8.7 MB for the prelude). The factor is SCRIP's record: a
+variant record holds a slot for every field of every arm (twenty here), where fpc overlays the arms. Run time on 2026-10-10 at load 10:
+43 to 49 s per mode, the fpc build 0.56 s.

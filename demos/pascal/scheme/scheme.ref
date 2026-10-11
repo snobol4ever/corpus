@@ -1,0 +1,63 @@
+> > 3628800
+> > 8
+> #<closure fact (n)>
+> #<primitive car>
+> (1 4 9 16 25 36 49 64 81 100)
+> 15
+> (1 2 3)
+> (1 2 3 4 5)
+> 4
+> c
+> (c d)
+> (4 (2 3) 1)
+> #t
+> (#t #t #f #t #f)
+> proper
+> improper
+> > (1 2 3 4 5 6 7 8 9 10 11 12)
+> > 78
+> > > 1
+> 2
+> 3
+> > 42
+> (1 2 30 40 50)
+> > > > > (2 1)
+> > ran
+> (if #t ((lambda () 1 2)) #v)
+> (2 6)
+> (#t #t)
+> two
+> middle
+> 3
+> found
+> 0.333333333333333
+> 2.5
+> 3.75
+> 6
+> -10
+> (3 2 2)
+> 7
+> "a string"
+> #\a
+> (#t #f #v)
+> #<closure (x . rest)>
+> #f
+> #t
+> #f
+> 1
+2
+3
+> 3
+> 10
+> 42
+> 99
+> error: not a pair: ()
+> error: unknown variable: undefined-thing
+> error: something bad: (1 2)
+> (caught "bad thing: 42")
+> "not a pair: 5"
+> no-error
+> error: arguments must be unique: (lambda (a a) a)
+> error: load needs a named file: "prelude.scm"
+> done
+> 
