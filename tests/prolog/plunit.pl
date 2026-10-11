@@ -228,14 +228,22 @@ pj_do_true(Suite,Name,Goal,Expr) :-
 pj_do_true(Suite,Name,_,_) :-
     pj_inc_fail, format('  FAIL: ~w:~w  (true check failed)~n',[Suite,Name]).
 
-pj_do_all(Suite,Name,Goal,(Var==Expected)) :-
+/* all(Template Cmp Expected) takes each of plunit's comparisons, ==, =:=, = and =@=, and compares the answers element by element
+ * as swipl's plunit.pl does (cmp/4, then cmp_list/3: call(Op, Expected_i, Answer_i) over two lists of one length). Until 2026-10-11
+ * only == had a clause, so an all(X = L) read "no verdict from the shim" whatever the program did (hq_prolog's report:
+ * library/test_yall.pl disjunction and free; the coo). */
+pj_do_all(Suite,Name,Goal,Cmp) :-
+    Cmp =.. [Op,Var,Expected], pj_all_op(Op), !,
     catch((findall(Var,Goal,Actual), R = ok), E, R = err(E)),
-    pj_do_all_r(Suite,Name,R,Actual,Expected).
-pj_do_all_r(Suite,Name,ok,Actual,Expected) :-
-    ( Actual == Expected -> pj_inc_pass, format('  pass: ~w:~w~n',[Suite,Name])
-    ;                       pj_inc_fail, format('  FAIL: ~w:~w  (all mismatch)~n',[Suite,Name])
+    pj_do_all_r(Suite,Name,R,Op,Actual,Expected).
+pj_all_op('==').  pj_all_op('=:=').  pj_all_op('=').  pj_all_op('=@=').
+pj_all_cmp([], [], _).
+pj_all_cmp([E|ET], [V|VT], Op) :- G =.. [Op,E,V], G, pj_all_cmp(ET, VT, Op).
+pj_do_all_r(Suite,Name,ok,Op,Actual,Expected) :-
+    ( catch(pj_all_cmp(Expected,Actual,Op), _, fail) -> pj_inc_pass, format('  pass: ~w:~w~n',[Suite,Name])
+    ;                                                  pj_inc_fail, format('  FAIL: ~w:~w  (all mismatch)~n',[Suite,Name])
     ).
-pj_do_all_r(Suite,Name,err(E),_,_) :-
+pj_do_all_r(Suite,Name,err(E),_,_,_) :-
     pj_inc_fail, pj_err_text(E, T), format('  FAIL: ~w:~w  (received error: ~w)~n',[Suite,Name,T]).
 
 /* stdlib */
