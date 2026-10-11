@@ -80,7 +80,7 @@ n0_call_α:              lea              rdi, [rbp + 288]
                         call             rt_quit_trap_300@PLT
 .Lgcsite_main_0:        mov              qword ptr [rbp + 272], rax
                         mov              qword ptr [rbp + 280], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:259
+                        push             rax                                  # gc_poll bb_call_fn.cpp:280
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -307,7 +307,7 @@ n15_call_icon_α:        mov              rax, qword ptr [rbp + 48]
                         call             rt_call_arr_bl_strict@PLT
 .Lgcsite_main_12:       mov              qword ptr [rbp + 0], rax
                         mov              qword ptr [rbp + 8], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:323
+                        push             rax                                  # gc_poll bb_call_fn.cpp:350
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
