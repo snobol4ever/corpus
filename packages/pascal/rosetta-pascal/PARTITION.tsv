@@ -1,0 +1,323 @@
+# PARTITION.tsv -- built by scripts/util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
+# shape: entries=319 features=51 ubiquitous=12(package program function var const array for writeln write assign nested_proc for_with_array) distinctive=39 core=36 clusters=56 chunks=3 sizes=100,100,83
+entry	part	cluster	shells
+100-doors-1	chunk:03	feat:while	set_literal subrange while
+100-doors-2	chunk:01	feat:sqrt	sqrt
+4-rings-or-4-squares-puzzle	chunk:01	feat:set	downto in procedure record repeat set set_literal subrange type with with_record
+a_b-3	chunk:02	feat:abs	abs readln repeat want_rc while
+abelian-sandpile-model	core	core	chr div downto procedure record repeat set_literal sqr sqrt subrange trunc type want_rc while with with_record
+ackermann-function	chunk:03	family:ackermann-function	
+additive-primes	core	core	div downto in mod pointer procedure record repeat set_literal subrange trunc type while with with_record
+aks-test-for-primes	chunk:01	feat:case	case div downto mod procedure set_literal subrange type while
+align-columns	chunk:03	feat:file	case div downto file in procedure
+amicable-pairs-2	core	core	dispose div new pointer pointer_with_new procedure readln record repeat set_literal sqr subrange type with with_record
+amicable-pairs-3	chunk:02	feat:pointer	div in pointer procedure readln record repeat set_literal subrange type while with with_record
+anonymous-recursion	chunk:01	feat:readln	readln
+anti-primes	chunk:01	feat:sqrt	div repeat sqrt trunc while
+arbitrary-precision-integers-included-	chunk:02	feat:nil	nil
+arena-storage-pool-2	chunk:03	feat:dispose	dispose new pointer pointer_with_new type
+arithmetic-geometric-mean-calculate-pi	core	core	procedure sqr sqrt succ while
+arithmetic-numbers	chunk:01	feat:case	case div mod procedure readln repeat while
+arrays	core	core	in pred readln set_literal subrange succ
+ascending-primes	chunk:01	feat:sqrt	mod set_literal sqrt subrange trunc while
+averages-arithmetic-mean-1	chunk:01	feat:set_literal	set_literal subrange
+averages-arithmetic-mean-2	chunk:01	feat:set_literal	set_literal subrange
+averages-mean-angle	chunk:01	feat:downto	downto procedure type
+averages-median	chunk:01	feat:odd	div downto odd procedure type
+averages-simple-moving-average	chunk:03	feat:with_record	downto procedure record type with with_record
+b-zier-curves-intersections	core	core	abs case downto in new procedure record set set_literal subrange type while with with_record
+babbage-problem	chunk:01	feat:mod	mod repeat with
+benfords-law	chunk:02	feat:round	div in ord procedure round set_literal subrange trunc type while
+best-shuffle	chunk:01	feat:set_literal	set_literal subrange
+binary-digits-1	chunk:01	feat:set	procedure set
+bioinformatics-base-count-1	chunk:03	feat:new	new procedure while
+bioinformatics-global-alignment	chunk:02	feat:chr	chr downto ord pointer procedure repeat set_literal subrange type while with
+bitwise-operations	chunk:03	family:bitwise-operations	
+box-the-compass	chunk:02	feat:round	case mod round set_literal subrange
+burrows-wheeler-transform	core	core	div in mod procedure record repeat set set_literal subrange type while with with_record
+caesar-cipher	chunk:02	feat:chr	case chr mod ord procedure readln subrange
+calculating-the-value-of-e	chunk:01	feat:readln	readln repeat
+calkin-wilf-sequence-1	core	core	div in mod odd procedure read record type while with with_record
+calkin-wilf-sequence-2	chunk:03	feat:read	in read while
+catalan-numbers	chunk:02	feat:round	round with
+catamorphism	chunk:03	feat:with	in set_literal subrange type with
+chinese-remainder-theorem	chunk:02	feat:abs	abs div in mod procedure subrange type while with
+cholesky-decomposition	chunk:01	feat:sqrt	procedure set_literal sqrt subrange type
+code-golf	chunk:03	family:code-golf	
+collections-6	chunk:02	feat:pointer	pointer
+color-difference-cie-e2000	core	core	abs in record set_literal sqr sqrt subrange type while with with_record
+combinations	chunk:01	feat:set_literal	procedure set_literal subrange
+comma-quibbling	chunk:03	feat:read	in pointer procedure read set_literal subrange type while
+continued-fraction	chunk:02	feat:abs	abs procedure repeat sqrt type with
+convex-hull	chunk:01	feat:downto	downto in procedure record set_literal subrange type while
+conways-game-of-life	chunk:02	feat:pointer	downto in mod pointer procedure repeat set_literal subrange type
+count-how-many-vowels-and-consonants-occur-in-a-string	core	core	eof in ord pointer set while
+count-in-factors	chunk:01	feat:mod	div mod type while
+count-the-coins-0-1	chunk:03	feat:type	procedure set_literal subrange type
+count-the-coins	chunk:03	family:count-the-coins	
+cousin-primes	chunk:01	feat:odd	div mod odd ord procedure repeat trunc type with
+create-an-object-at-a-given-address	chunk:03	feat:in	in set_literal subrange type
+cumulative-standard-deviation	chunk:01	feat:sqrt	set_literal sqrt subrange
+damm-algorithm	chunk:02	feat:ord	ord procedure readln set_literal subrange type while
+date-format	chunk:01	feat:case	case with
+de-bruijn-sequences	chunk:02	feat:pointer	in mod pointer procedure repeat subrange while with
+determine-if-a-string-has-all-the-same-characters	chunk:02	feat:ord	ord procedure set_literal subrange while
+determine-if-two-triangles-overlap	chunk:02	feat:abs	abs case in procedure record type
+digital-root	chunk:01	feat:readln	div in mod procedure readln repeat while
+dijkstras-algorithm-1	core	core	in new nil pointer pointer_with_new procedure record type while with with_record
+dijkstras-algorithm-2	chunk:01	feat:set	in record repeat set set_literal subrange type while with with_record
+discordian-date	chunk:01	feat:set	in mod procedure repeat set set_literal subrange while with
+distribution-of-0-digits-in-factorial-series	core	core	case div downto in mod ord procedure repeat set_literal subrange trunc type while with
+draw-a-cuboid	chunk:01	feat:downto	downto procedure type
+dynamic-variable-names	chunk:01	feat:readln	readln repeat subrange type
+entropy	chunk:03	feat:in	in type
+equilibrium-index-1	chunk:01	feat:set_literal	procedure set_literal subrange
+equilibrium-index-2	chunk:02	feat:pointer	pointer procedure repeat set_literal subrange type
+esthetic-numbers	chunk:02	feat:sqr	div in pointer procedure repeat set_literal sqr subrange type with
+euler-method	chunk:02	feat:trunc	mod procedure repeat set_literal subrange trunc type with
+eulers-sum-of-powers-conjecture	chunk:01	feat:set	set set_literal subrange type while
+evolutionary-algorithm	chunk:02	feat:chr	chr in mod ord procedure set_literal subrange type while with
+executable-library-1	core	core	div nil odd procedure record repeat set_literal subrange succ type with with_record
+execute-a-markov-algorithm	core	core	file in new nil record repeat set_literal subrange type while with with_record
+execute-brain-	core	core	case chr forward nil ord pointer procedure repeat set set_literal subrange while
+exponentiation-operator	chunk:03	family:exponentiation-operator	
+factorial-3	chunk:02	feat:nil	nil
+factors-of-a-mersenne-number	chunk:01	feat:readln	div downto mod readln while
+factors-of-an-integer-1	chunk:02	feat:round	div mod readln round sqrt want_rc
+farey-sequence	chunk:02	feat:trunc	in procedure record repeat trunc type with with_record
+faulhabers-formula	core	core	abs case div downto in mod odd pointer procedure record round type while with with_record
+fibonacci-n-step-number-sequences-1	chunk:03	feat:while	procedure set_literal subrange type while
+fibonacci-n-step-number-sequences-2	chunk:02	feat:pointer	pointer record set_literal subrange type with with_record
+fibonacci-sequence-7	chunk:01	feat:case	case while with
+fibonacci-word	chunk:03	feat:with_record	procedure record type with with_record
+find-the-missing-permutation	chunk:02	feat:ord	in ord subrange type
+first-power-of-2-that-has-leading-decimal-digits-of-12-2	chunk:02	feat:sqr	div repeat sqr subrange trunc while with
+floyds-triangle	chunk:02	feat:trunc	div procedure repeat subrange trunc with
+forward-difference	chunk:01	feat:set_literal	procedure set_literal subrange
+fusc-sequence	chunk:03	feat:new	div in new odd pointer procedure readln repeat type while with
+gapful-numbers-2	chunk:02	feat:sqr	div in mod procedure repeat set_literal sqr subrange while
+generic-swap-1	chunk:03	feat:type	procedure type
+generic-swap-2	chunk:03	feat:procedure	procedure
+greatest-common-divisor-1	chunk:01	feat:mod	mod
+greatest-common-divisor	chunk:03	feat:read	mod read want_rc while
+greatest-subsequential-sum	chunk:03	feat:with	set_literal subrange with
+guess-the-number	chunk:02	feat:want_rc	new readln want_rc while
+hailstone-sequence	chunk:01	feat:odd	in odd pointer procedure record repeat set_literal subrange type while with with_record
+hamming-numbers-1	chunk:01	feat:odd	div odd procedure repeat set_literal subrange type while
+happy-numbers-1	chunk:01	feat:mod	div mod repeat while
+hash-from-two-arrays	chunk:01	feat:set_literal	set_literal subrange
+haversine-formula	chunk:01	feat:sqrt	sqrt
+hello-world-newline-omission	chunk:03	family:hello-world-newline-omission	
+hello-world-text	chunk:03	family:hello-world-text	
+heronian-triangles	core	core	mod new nil pointer pointer_with_new procedure record repeat set_literal sqrt subrange trunc type with with_record
+higher-order-functions-1	chunk:03	family:higher-order-functions	
+higher-order-functions-2	chunk:03	feat:type	type
+hofstadter-conway-_10-000-sequence	chunk:03	feat:new	new pointer procedure record repeat set_literal subrange type while with with_record
+hofstadter-q-sequence	chunk:01	feat:set_literal	set_literal subrange
+hopcroft-karp-algorithm	chunk:02	feat:nil	case in nil procedure record type while
+horizontal-sundial-calculations	chunk:03	feat:read	chr read want_rc
+horners-rule-for-polynomial-evaluation	chunk:01	feat:downto	downto set_literal subrange
+host-introspection	chunk:03	family:host-introspection	
+hostname	chunk:03	family:hostname	
+http-1	chunk:02	feat:nil	nil
+identity-matrix	chunk:02	feat:want_rc	readln want_rc
+integer-comparison	chunk:02	feat:want_rc	readln want_rc
+iterated-digits-squaring	chunk:02	feat:sqr	div downto in mod procedure repeat set_literal sqr subrange type while
+jaro-similarity	chunk:01	feat:set	div readln set set_literal subrange while
+jensens-device	chunk:01	feat:readln	readln type while
+json	core	core	case in nil pred
+knapsack-problem-bounded	chunk:01	feat:case	case downto record set_literal subrange type while
+knapsack-problem-continuous	chunk:03	feat:record	record repeat type
+knapsack-problem-unbounded	chunk:02	feat:round	record round set_literal subrange type
+knuth-shuffle	chunk:01	feat:downto	downto procedure set_literal subrange type
+kosaraju	chunk:02	feat:nil	in nil procedure type
+langtons-ant	chunk:02	feat:chr	case chr div in mod new procedure record set_literal subrange while with with_record
+largest-five-adjacent-number	chunk:02	feat:chr	chr downto ord
+largest-int-from-concatenated-ints-1	chunk:02	feat:ord	downto ord procedure record set_literal subrange type while with with_record
+largest-int-from-concatenated-ints-2	chunk:02	feat:pointer	downto pointer procedure record repeat set_literal subrange type with with_record
+largest-proper-divisor-of-n-1	chunk:02	feat:sqrt	div mod repeat sqrt subrange
+largest-proper-divisor-of-n-2	chunk:01	feat:set	div in repeat set subrange while with
+last-friday-of-each-month	chunk:02	feat:ord	case div in mod ord readln set_literal subrange type
+launch-rocket-with-countdown-and-acceleration-in-stdout	chunk:02	feat:round	downto in procedure round subrange type while
+least-common-multiple	chunk:01	feat:mod	mod while
+legendre-prime-counting-function	core	core	div in record repeat set_literal sqrt subrange trunc type while with with_record
+lempel-ziv-complexity	chunk:03	feat:new	new record repeat set_literal subrange type while with with_record
+linear-congruential-generator	chunk:01	feat:mod	div mod
+long-multiplication	core	core	case div downto goto in label mod new odd procedure record repeat set_literal subrange type with with_record
+long-year	chunk:01	feat:mod	div mod
+longest-common-subsequence	chunk:03	family:longest-common-subsequence	
+longest-increasing-subsequence	chunk:02	feat:nil	downto nil procedure while
+look-and-say-sequence-1	chunk:03	feat:eof	eof pointer readln while
+look-and-say-sequence-2	chunk:02	feat:round	downto pointer round set_literal subrange
+loops-do-while	chunk:01	feat:mod	mod repeat
+loops-for	chunk:03	family:loops-for	
+loops-n-plus-one-half	chunk:03	family:loops-n-plus-one-half	
+loops-nested	core	core	goto label set_literal subrange
+loops-while	chunk:02	feat:div	div while
+lucas-lehmer-test-1	chunk:01	feat:mod	mod
+ludic-numbers-1	core	core	case pointer procedure read record repeat set_literal subrange type with with_record
+machine-code	chunk:02	feat:nil	nil set_literal subrange type
+magic-squares-of-odd-order-1	chunk:01	feat:odd	div mod odd
+magic-squares-of-odd-order-2	chunk:01	feat:odd	div downto mod odd set_literal subrange type
+man-or-boy-test	chunk:03	family:man-or-boy-test	
+matrix-transposition	chunk:01	feat:set_literal	set_literal subrange
+matrix-with-two-diagonals	chunk:03	feat:type	subrange type
+maximum-triangle-path-sum	core	core	div eof read readln round set_literal sqrt subrange type want_rc while
+mcnuggets-problem	chunk:03	feat:repeat	repeat
+middle-three-digits	chunk:02	feat:abs	abs div odd ord set_literal subrange trunc
+minimum-number-of-cells-after-before-above-and-below-nxn-squares	chunk:02	feat:div	div procedure repeat type while with
+minimum-positive-multiple-in-base-10-using-only-0-and-1	chunk:02	feat:sqr	div in mod procedure repeat set set_literal sqr subrange
+monty-hall-problem	chunk:02	feat:trunc	trunc with
+mosaic-matrix	chunk:01	feat:odd	in odd ord procedure
+munchausen-numbers	chunk:01	feat:set	case div pointer procedure repeat set set_literal subrange type
+mutual-recursion	core	core	forward
+n-queens-problem-1	chunk:03	feat:in	in procedure set_literal subrange
+non-decimal-radices-convert	chunk:01	feat:downto	div downto mod
+nonoblock	chunk:01	feat:case	case in procedure repeat while with
+nth	chunk:01	feat:case	case mod procedure
+number-names	chunk:01	feat:mod	div mod set_literal subrange while
+number-reversal-game	chunk:03	feat:read	in procedure read set_literal subrange want_rc while
+numbers-with-prime-digits-whose-sum-is-13-1	chunk:01	feat:mod	div mod procedure repeat set_literal subrange type while
+numbers-with-same-digit-set-in-base-10-and-base-16	chunk:01	feat:set	div mod procedure repeat set set_literal subrange trunc type
+numerical-integration-adaptive-simpsons-method	chunk:02	feat:abs	abs procedure type
+numerical-integration-gauss-legendre-quadrature	chunk:02	feat:abs	abs downto procedure repeat set_literal subrange
+numerical-integration-romberg-integration	chunk:02	feat:abs	abs new pointer repeat set_literal subrange with
+one-dimensional-cellular-automata	core	core	downto goto in ord procedure set_literal subrange type while
+one-of-n-lines-in-a-file-1	chunk:01	feat:set_literal	set_literal subrange
+palindrome-detection-3	chunk:01	feat:readln	readln
+palindromic-gapful-numbers	chunk:01	feat:odd	div downto mod odd procedure record repeat set_literal subrange type while with with_record
+paraffins-2	chunk:01	feat:odd	div in mod odd pointer repeat set_literal subrange type
+pascal-matrix-generation	chunk:01	feat:readln	procedure readln set_literal subrange type
+pascals-triangle	chunk:02	feat:div	div procedure
+penneys-game	core	core	case in new procedure read readln record repeat round set_literal subrange type want_rc while with with_record
+perceptron	chunk:01	feat:set	downto procedure set set_literal subrange with
+perlin-noise	chunk:02	feat:trunc	case set_literal subrange trunc type
+permutations-1	chunk:02	feat:want_rc	procedure readln repeat set_literal subrange want_rc while
+permutations-derangements	chunk:01	feat:odd	in odd repeat while
+permutations-with-repetitions	chunk:02	feat:pointer	pointer procedure record repeat type with with_record
+permutations-with-some-identical-elements	core	core	chr div downto in ord packed pointer procedure record repeat set set_literal subrange type while with with_record
+pernicious-numbers	chunk:02	feat:want_rc	div in repeat set set_literal subrange type want_rc
+pi	chunk:01	feat:mod	div mod repeat set_literal subrange with
+pick-random-element	chunk:01	feat:set_literal	set_literal subrange
+pointers-and-references-3	chunk:03	feat:procedure	procedure
+positive-decimal-integers-with-the-digit-1-occurring-exactly-twice	chunk:02	feat:ord	div mod ord
+price-fraction	chunk:03	feat:while	set_literal subrange while
+primality-by-trial-division-1	chunk:02	feat:sqrt	mod sqrt subrange while
+primality-by-wilsons-theorem	chunk:02	feat:round	in mod procedure round sqrt subrange type while with
+prime-conspiracy	chunk:02	feat:chr	chr div odd ord pointer procedure record repeat set_literal subrange type while with with_record
+priority-queue-1	core	core	dispose new pointer pointer_with_new procedure record type while
+proper-divisors	chunk:03	feat:with_record	div mod procedure record repeat set_literal subrange type while with with_record
+pythagorean-quadruples-2	chunk:02	feat:sqrt	downto procedure set_literal sqrt subrange trunc type with
+pythagorean-triples	chunk:02	feat:div	div procedure while
+queue-definition	core	core	dispose new nil pointer pointer_with_new procedure record type
+quine-1	chunk:03	family:quine	
+quine-2	chunk:03	family:quine	
+quine-3	core	core	packed set_literal subrange type
+random-latin-squares	chunk:01	feat:downto	downto mod procedure repeat type while
+range-extraction	chunk:01	feat:case	case procedure readln while
+read-a-specific-line-from-a-file	core	core	eof file read readln repeat
+regular-expressions	chunk:03	family:regular-expressions	
+remove-duplicate-elements	chunk:03	feat:while	set_literal subrange while
+repeat	chunk:03	feat:type	procedure type
+reverse-words-in-a-string-1	chunk:02	feat:chr	case chr in readln with
+reverse-words-in-a-string-2	chunk:03	feat:with	in while with
+riordan-numbers-1	chunk:01	feat:odd	div in mod odd procedure set_literal subrange type with
+riordan-numbers-2	chunk:01	feat:downto	downto in mod procedure set_literal subrange type with
+roots-of-a-function	chunk:02	feat:abs	abs while
+roots-of-a-quadratic-function	chunk:02	feat:sqrt	sqrt
+roots-of-unity	chunk:03	feat:record	record type
+round-robin-tournament-schedule	chunk:02	feat:round	div in odd procedure round with
+run-length-encoding	chunk:03	feat:procedure	procedure
+runge-kutta-method	chunk:02	feat:sqr	abs mod procedure set_literal sqr sqrt subrange type
+sedols	chunk:01	feat:mod	mod set_literal subrange
+self-describing-numbers	chunk:02	feat:ord	ord set_literal subrange while
+send-an-unknown-method-call	chunk:03	feat:read	nil procedure read type
+sequence-of-non-squares-1	chunk:02	feat:round	round sqrt
+sequence-of-non-squares-2	chunk:02	feat:sqrt	procedure sqrt trunc
+sha-1	chunk:03	family:sha	
+sieve-of-pritchard	chunk:02	feat:nil	div downto mod nil repeat sqrt subrange while with
+smallest-multiple-1	chunk:02	feat:pointer	in pointer readln repeat set_literal subrange while
+smallest-multiple-2	chunk:02	feat:trunc	div in procedure readln repeat set_literal subrange trunc type while
+smith-numbers	chunk:02	feat:pointer	div downto pointer procedure record repeat set_literal subrange type while with with_record
+sockets-1	chunk:02	feat:want_rc	in new record want_rc while with with_record
+sort-disjoint-sublist	chunk:01	feat:readln	procedure readln set_literal subrange
+sort-using-a-custom-comparator	chunk:01	feat:readln	readln with
+sorting-algorithms-bead-sort	chunk:03	feat:read	downto procedure read readln record set set_literal subrange type want_rc while
+sorting-algorithms-bogosort	chunk:01	feat:downto	downto procedure set_literal subrange type while
+sorting-algorithms-circle-sort	core	core	file in procedure set_literal subrange trunc while
+sorting-algorithms-comb-sort-1	chunk:02	feat:trunc	procedure set_literal subrange trunc type while
+sorting-algorithms-comb-sort-2	chunk:02	feat:trunc	procedure set_literal subrange trunc type while
+sorting-algorithms-counting-sort	chunk:01	feat:set_literal	procedure set_literal subrange
+sorting-algorithms-heapsort	chunk:01	feat:downto	div downto procedure set_literal subrange while
+sorting-algorithms-insertion-sort	chunk:03	feat:repeat	procedure repeat set_literal subrange
+sorting-algorithms-merge-sort-1	chunk:03	feat:succ	procedure set_literal subrange succ
+sorting-algorithms-pancake-sort	chunk:01	feat:downto	div downto in procedure
+sorting-algorithms-quicksort	chunk:03	feat:repeat	procedure repeat set_literal subrange while
+sorting-algorithms-stooge-sort	chunk:02	feat:div	div procedure type
+sorting-algorithms-strand-sort	chunk:03	feat:repeat	repeat type while
+soundex	chunk:02	feat:ord	in ord readln set_literal subrange type with
+spiral-matrix	chunk:03	feat:record	record repeat set_literal subrange type while
+split-a-character-string-based-on-change-of-character	chunk:03	family:split-a-character-string-based-on-change-of-character	
+square-but-not-cube	chunk:02	feat:sqrt	repeat sqrt
+stern-brocot-sequence	chunk:02	feat:abs	abs in mod repeat set type while
+strange-numbers	chunk:01	feat:set	in mod procedure set set_literal subrange type
+strange-unique-prime-triplets	chunk:02	feat:trunc	pointer procedure repeat set_literal subrange trunc type while with
+string-append	chunk:01	feat:readln	readln
+string-case	chunk:02	feat:chr	case chr in ord set_literal subrange
+string-concatenation	chunk:03	feat:with	with
+string-length	chunk:03	family:string-length	
+strong-and-weak-primes	chunk:01	feat:odd	div odd pointer procedure record repeat subrange type while with with_record
+sum-multiples-of-3-and-5-1	chunk:03	feat:pred	mod pred
+sum-multiples-of-3-and-5-2	chunk:02	feat:div	div
+sum-of-a-series	chunk:02	feat:sqr	downto sqr type
+sum-of-first-n-cubes	chunk:02	feat:sqr	in sqr
+sum-to-100	chunk:01	feat:case	case div downto mod procedure while
+symmetric-difference-1	chunk:01	feat:set	in procedure readln set type
+symmetric-difference-2	chunk:01	feat:set	in set type
+take-notes-on-the-command-line	chunk:03	feat:with	with
+taxicab-numbers	chunk:03	feat:new	new pointer procedure record repeat set_literal subrange type with with_record
+temperature-conversion	chunk:03	feat:want_rc	case in readln type want_rc
+terminal-control-coloured-text	chunk:03	feat:subrange	subrange
+terminal-control-cursor-positioning	chunk:03	family:terminal-control-cursor-positioning	
+terminal-control-display-an-extended-character	chunk:02	feat:chr	chr
+ternary-logic	chunk:01	feat:case	case type
+the-isaac-cipher	chunk:02	feat:chr	case chr in mod ord procedure repeat set set_literal subrange type with
+the-twelve-days-of-christmas-1	chunk:01	feat:downto	downto in set_literal subrange
+the-twelve-days-of-christmas-2	chunk:01	feat:downto	downto in set_literal subrange
+thue-morse	chunk:02	feat:ord	ord readln repeat
+tic-tac-toe	chunk:03	feat:want_rc	div in mod procedure readln repeat set_literal subrange type want_rc while
+tokenize-a-string	chunk:03	family:tokenize-a-string	
+top-rank-per-group	chunk:02	feat:pointer	pointer readln record set_literal subrange type
+topological-sort-1	core	core	in nil pred procedure type while with
+topological-sort-2	chunk:02	feat:nil	in nil procedure repeat set type with
+topological-sort-extracted-top-item	chunk:02	feat:nil	in nil procedure type with
+towers-of-hanoi-1	chunk:03	feat:type	procedure type
+towers-of-hanoi-2	chunk:03	feat:type	procedure type
+triangular-numbers	chunk:02	feat:sqr	div pointer procedure set_literal sqr sqrt subrange type
+trigonometric-functions	chunk:03	feat:in	in
+truncate-a-file	chunk:03	feat:file	file readln
+truth-table	chunk:01	feat:case	case in pointer procedure readln record set_literal subrange type while with with_record
+twelve-statements	chunk:01	feat:set	div downto in mod procedure readln set set_literal subrange type with
+two-identical-strings	chunk:03	feat:while	procedure while
+ulam-numbers	chunk:01	feat:downto	div downto in procedure repeat type while
+ulam-spiral-for-primes--1	core	core	case div downto file goto in label mod odd procedure readln repeat set_literal subrange while with
+ulam-spiral-for-primes--2	core	core	abs div mod odd ord procedure set_literal sqrt subrange trunc type while
+ulam-spiral-for-primes--3	chunk:01	feat:odd	downto mod odd ord procedure sqrt trunc
+unix-ls	chunk:03	feat:file	file in while
+unprimeable-numbers-1	chunk:01	feat:odd	div downto mod odd procedure readln record repeat set_literal subrange type while with with_record
+unprimeable-numbers-2	core	core	chr div downto new odd ord procedure record repeat set_literal subrange trunc type while with with_record
+user-input-text	chunk:01	feat:readln	readln
+van-der-corput-sequence	chunk:01	feat:case	case div in procedure repeat type while
+van-eck-sequence	chunk:03	feat:new	new procedure repeat set_literal subrange
+vector-products	chunk:03	feat:record	procedure record type
+vigen-re-cipher	chunk:02	feat:chr	chr in mod ord set_literal subrange
+walk-a-directory-non-recursively	chunk:03	feat:file	file readln repeat with
+water-collected-between-towers	chunk:01	feat:downto	downto in procedure type
+word-wheel	chunk:03	feat:eof	eof file procedure readln while
+write-language-name-in-3d-ascii	chunk:01	feat:mod	div mod set_literal subrange
+yin-and-yang	chunk:02	feat:round	div readln round type while with
+zeckendorf-number-representation	chunk:01	feat:case	case in while
+zero-to-the-zero-power	chunk:03	family:zero-to-the-zero-power	
+zig-zag-matrix-1	chunk:02	feat:div	div set_literal subrange while
+zig-zag-matrix-2	chunk:02	feat:div	div set_literal subrange

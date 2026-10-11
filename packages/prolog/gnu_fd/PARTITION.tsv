@@ -1,0 +1,34 @@
+# PARTITION.tsv -- built by scripts/util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
+# shape: entries=30 features=1 ubiquitous=1(package) distinctive=0 core=3 clusters=25 chunks=1 sizes=27
+entry	part	cluster	shells
+alpha	core	core	
+array	core	core	
+bdiag	core	core	
+bdonald	chunk:01	family:bdonald	
+bpigeon	chunk:01	family:bpigeon	
+bqueens	chunk:01	family:bqueens	
+bramsey	chunk:01	family:bramsey	
+bridge	chunk:01	family:bridge	
+bridge1	chunk:01	family:bridge	
+bschur	chunk:01	family:bschur	
+bsend	chunk:01	family:bsend	
+cars	chunk:01	family:cars	
+crypta	chunk:01	family:crypta	
+digit8	chunk:01	family:digit	
+donald	chunk:01	family:donald	
+eq10	chunk:01	family:eq	
+eq20	chunk:01	family:eq	
+five	chunk:01	family:five	
+gardner	chunk:01	family:gardner	
+interval	chunk:01	family:interval	
+langford	chunk:01	family:langford	
+magic	chunk:01	family:magic	
+magsq	chunk:01	family:magsq	
+multipl	chunk:01	family:multipl	
+partit	chunk:01	family:partit	
+qg5	chunk:01	family:qg	
+queens	chunk:01	family:queens	
+send	chunk:01	family:send	
+square	chunk:01	family:square	
+srq	chunk:01	family:srq	

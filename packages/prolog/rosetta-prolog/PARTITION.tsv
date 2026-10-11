@@ -1,0 +1,516 @@
+# PARTITION.tsv -- built by scripts/util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
+# shape: entries=512 features=37 ubiquitous=4(package format unify directive) distinctive=33 core=41 clusters=87 chunks=5 sizes=100,100,100,100,71
+entry	part	cluster	shells
+100-doors-1	chunk:02	feat:between	between forall
+100-doors-2	chunk:02	feat:between	between cut forall if_then_else list_cons
+100-doors-3	core	core	assert_then_retract asserta between clause findall findall_with_var_goal forall if_then_else nl retract write
+100-doors-4	chunk:02	feat:between	between forall
+10001th-prime	chunk:02	feat:between	between cut forall nl
+15-puzzle-game	chunk:01	feat:write	cut if_then_else list_cons nl write
+24-game-solve-1	chunk:04	feat:atom	atom forall if_then_else list_cons
+4-rings-or-4-squares-puzzle	chunk:04	feat:setof	if_then_else nl setof
+a-search-algorithm	core	core	between findall findall_with_var_goal if_then_else list_cons nl write
+a_b-1	chunk:01	feat:write	nl write
+abbreviations-automatic	chunk:04	feat:nl	cut list_cons nl
+abbreviations-easy	chunk:04	feat:nl	cut forall nl
+abc-problem-1	chunk:03	feat:if_then_else	if_then_else list_cons
+abundant-deficient-and-perfect-number-classifications	chunk:02	feat:between	between cut if_then_else list_cons
+ackermann-function-1	chunk:02	feat:between	between forall nl
+ackermann-function-2	chunk:02	feat:forall	forall
+aks-test-for-primes-4	chunk:01	feat:findall	between findall forall list_cons
+aks-test-for-primes-7	chunk:03	feat:succ	cut forall if_then_else list_cons nl succ
+align-columns	chunk:03	feat:dcg	dcg if_then_else list_cons nl write
+aliquot-sequence-classifications	chunk:02	feat:between	between cut list_cons nl
+almost-prime-1	chunk:02	feat:between	between forall
+amb	chunk:03	feat:if_then_else	if_then_else list_cons
+amicable-pairs-1	chunk:01	feat:findall	between findall forall
+anti-primes	chunk:03	feat:succ	cut if_then_else list_cons nl succ write
+append-numbers-at-same-position-in-strings	chunk:01	feat:write	list_cons write
+arbitrary-precision-integers-included--1	chunk:05	family:arbitrary-precision-integers-included	
+arithmetic-evaluation	core	core	atom dcg if_then_else list_cons number succ
+arithmetic-integer-1	chunk:05	feat:univ	univ
+arrays-1	core	core	arg functor if_then_else list_cons nl
+arrays-2	core	core	arg functor nl
+arrays-3	chunk:04	feat:nl	nl
+ascending-primes	chunk:01	feat:findall	between findall forall list_cons nl
+assertions	chunk:04	feat:catch	catch
+associative-array-iteration-1	core	core	assert assertz clause forall
+attractive-numbers	chunk:03	feat:negation	cut if_then_else list_cons negation nl
+averages-arithmetic-mean	chunk:02	feat:forall	forall
+averages-median	chunk:02	feat:forall	forall
+averages-root-mean-square	chunk:04	feat:bagof	bagof between list_cons
+babbage-problem-1	chunk:05	family:babbage-problem	
+babbage-problem-2	chunk:02	feat:between	between cut
+balanced-brackets	chunk:03	feat:dcg	dcg if_then_else write
+balanced-ternary-2	core	core	cut dcg forall if_then_else list_cons nonvar op var
+bell-numbers	chunk:02	feat:cut	cut list_cons
+benfords-law	chunk:03	feat:succ	between cut findall if_then_else list_cons succ
+binary-digits	chunk:05	family:binary-digits	
+bitmap-write-a-ppm-file-1	chunk:04	family:bitmap-write-a-ppm-file	
+bitmap	chunk:02	feat:between	between if_then_else
+box-the-compass-2	chunk:01	feat:write	cut list_cons nl write
+brace-expansion-1	chunk:03	feat:dcg	cut dcg findall forall if_then_else list_cons
+brilliant-numbers	chunk:01	feat:findall	between cut findall forall list_cons nl
+bulls-and-cows-player-2	core	core	assert assert_then_retract if_then_else nl retract write
+caesar-cipher	chunk:02	feat:cut	cut
+calculating-the-value-of-e-1	chunk:04	feat:list_cons	list_cons
+calculating-the-value-of-e-2	chunk:03	feat:if_then_else	if_then_else list_cons
+calendar	chunk:04	feat:atom	atom cut if_then_else list_cons succ
+calkin-wilf-sequence	chunk:01	feat:findall	cut findall list_cons
+carmichael-3-strong-pseudoprimes	chunk:02	feat:between	between cut forall list_cons
+cartesian-product-of-two-or-more-lists	chunk:01	feat:findall	findall forall list_cons
+case-sensitivity-of-identifiers	chunk:05	family:case-sensitivity-of-identifiers	
+catalan-numbers	chunk:04	feat:list_cons	list_cons
+catamorphism-6	chunk:02	feat:forall	forall if_then_else
+chemical-calculator-1	chunk:03	feat:dcg	cut dcg
+chernicks-carmichael-numbers-2	chunk:03	feat:succ	cut forall list_cons negation succ
+chinese-remainder-theorem-1	chunk:02	feat:cut	cut
+chinese-zodiac	chunk:01	feat:write	forall if_then_else nl write
+church-numerals	chunk:03	feat:succ	cut nl succ
+closest-pair-problem-2	chunk:02	feat:forall	forall
+combinations-1	chunk:02	feat:forall	forall
+combinations-2	chunk:02	feat:between	between forall list_cons
+combinations-with-repetitions	chunk:02	feat:forall	forall list_cons
+comma-quibbling-1	chunk:02	feat:forall	cut forall
+command-line-arguments-1	chunk:01	feat:write	write
+command-line-arguments-2	chunk:01	feat:write	write
+compare-a-list-of-strings	chunk:01	feat:write	forall if_then_else list_cons nl write
+compile-time-calculation	chunk:05	family:compile-time-calculation	
+compiler-lexical-analyzer	core	core	atom cut dcg functor if_then_else list_cons nl succ throw univ
+compound-data-type-1	chunk:05	family:compound-data-type	
+compound-data-type-3	chunk:04	feat:nl	nl
+conditional-structures-1	chunk:01	feat:write	nl write
+conditional-structures-2	chunk:03	feat:if_then_else	if_then_else
+conditional-structures-3	chunk:03	feat:if_then_else	if_then_else
+conditional-structures-4	chunk:01	feat:write	if_then_else nl write
+continued-fraction	chunk:04	feat:call	call
+convert-seconds-to-compound-duration	chunk:01	feat:findall	findall forall list_cons
+conways-game-of-life	chunk:04	feat:atom	atom cut forall list_cons nl write
+count-how-many-vowels-and-consonants-occur-in-a-string	chunk:05	family:count-how-many-vowels-and-consonants-occur-in-a-string	
+count-in-octal	chunk:04	feat:nl	forall list_cons nl
+count-occurrences-of-a-substring-1	chunk:03	feat:succ	forall if_then_else succ
+count-occurrences-of-a-substring-3	chunk:03	feat:dcg	cut dcg forall if_then_else
+count-the-coins	chunk:05	family:count-the-coins	
+countdown	chunk:03	feat:negation	list_cons negation nl write
+cramers-rule	chunk:04	feat:list_cons	list_cons
+create-a-two-dimensional-array-at-runtime	chunk:04	feat:assert	assert write
+csv-data-manipulation	chunk:05	feat:univ	forall if_then_else list_cons univ
+csv-to-html-translation-1	chunk:03	feat:dcg	dcg if_then_else list_cons
+csv-to-html-translation-3	chunk:03	feat:dcg	dcg if_then_else list_cons
+damm-algorithm	chunk:01	feat:write	if_then_else nl write
+day-of-the-week	chunk:05	family:day-of-the-week	
+deceptive-numbers	chunk:03	feat:negation	cut list_cons negation
+decision-tables-1	chunk:01	feat:findall	findall forall
+decorate-sort-undecorate-idiom-1	chunk:05	family:decorate-sort-undecorate-idiom	
+department-numbers	chunk:01	feat:write	between forall nl write
+descending-primes	chunk:01	feat:findall	between findall forall list_cons nl
+detect-division-by-zero	core	core	catch forall if_then_else var
+determine-if-a-string-has-all-the-same-characters	chunk:02	feat:cut	cut list_cons
+determine-if-a-string-has-all-unique-characters	chunk:03	feat:succ	list_cons negation nl succ
+determine-if-a-string-is-collapsible	chunk:02	feat:forall	forall list_cons
+determine-if-a-string-is-numeric-2	chunk:02	feat:forall	forall if_then_else
+determine-if-a-string-is-squeezable	chunk:02	feat:forall	forall list_cons
+determine-sentence-type	chunk:02	feat:cut	cut if_then_else list_cons
+digital-root	chunk:02	feat:cut	cut
+dijkstras-algorithm	chunk:05	feat:assert_then_retract	assert assert_then_retract cut if_then_else list_cons retract
+dinesmans-multiple-dwelling-problem-1	chunk:04	feat:bagof	assert bagof
+dinesmans-multiple-dwelling-problem-2	chunk:04	feat:bagof	bagof if_then_else list_cons nl write
+dinesmans-multiple-dwelling-problem-3	chunk:02	feat:forall	forall
+discordian-date	chunk:02	feat:cut	cut if_then_else
+dot-product	chunk:05	family:dot-product	
+dutch-national-flag-problem-1	chunk:03	feat:negation	if_then_else list_cons negation nl write
+dynamic-variable-names-1	chunk:05	family:dynamic-variable-names	
+egyptian-division	chunk:02	feat:cut	cut list_cons
+elementary-cellular-automaton	chunk:03	feat:succ	cut list_cons nl succ write
+empty-directory	chunk:03	feat:if_then_else	if_then_else
+empty-string	chunk:03	feat:if_then_else	if_then_else
+entropy	chunk:01	feat:findall	cut findall list_cons
+enumerations	chunk:02	feat:forall	forall
+equilibrium-index-1	chunk:01	feat:findall	findall list_cons
+esthetic-numbers	chunk:01	feat:write	between cut forall if_then_else nl write
+ethiopian-multiplication-1	chunk:03	feat:negation	list_cons negation
+ethiopian-multiplication-3	chunk:03	feat:negation	cut negation
+ethiopian-multiplication-4	chunk:03	feat:negation	negation
+eulers-identity	chunk:02	feat:cut	cut if_then_else
+eulers-sum-of-powers-conjecture	chunk:04	feat:assert	assert between succ
+evaluate-binomial-coefficients	chunk:02	feat:forall	cut forall
+even-or-odd-1	chunk:02	feat:between	between forall if_then_else
+even-or-odd-2	chunk:02	feat:between	between forall if_then_else
+exceptions	core	core	atom between catch catch_with_throw cut negation throw
+execute-brain-	core	core	cut dcg if_then_else list_cons negation nl succ write
+exponentiation-operator-4	chunk:02	feat:forall	forall
+factorial-1	chunk:02	feat:between	between forall
+factorial-2	chunk:02	feat:between	between cut forall
+factors-of-a-mersenne-number	chunk:03	feat:between	between cut list_cons
+factors-of-an-integer-1	chunk:04	feat:setof	between forall setof
+factors-of-an-integer-2	chunk:04	feat:setof	between forall setof
+farey-sequence	core	core	bagof between cut forall list_cons nl write
+fast-fourier-transform	core	core	assert cut findall findall_with_var_goal list_cons nl write
+faulhabers-triangle	chunk:01	feat:write	cut forall list_cons nl write
+fibonacci-sequence-1	chunk:01	feat:findall	between cut findall
+fibonacci-sequence-10	chunk:03	feat:succ	between cut findall succ
+fibonacci-sequence-11	chunk:01	feat:findall	between cut findall if_then_else list_cons
+fibonacci-sequence-3	chunk:05	feat:asserta	asserta between cut findall
+fibonacci-sequence-7	chunk:04	feat:list_cons	list_cons
+fibonacci-sequence-9	chunk:02	feat:cut	cut list_cons
+filter-1	chunk:01	feat:findall	findall
+find-common-directory-path	chunk:04	feat:findall_with_var_goal	cut findall findall_with_var_goal if_then_else list_cons
+find-the-intersection-of-a-line-with-a-plane	chunk:05	family:find-the-intersection-of-a-line-with-a-plane	
+finite-state-machine	chunk:05	family:finite-state-machine	
+five-weekends	chunk:04	feat:findall_with_var_goal	findall findall_with_var_goal
+fizzbuzz-1	chunk:01	feat:write	between forall if_then_else nl write
+fizzbuzz-2	chunk:01	feat:write	between cut nl write
+fizzbuzz-3	chunk:01	feat:write	nl write
+flatten-a-list	chunk:05	feat:var	cut list_cons var
+floyd-warshall-algorithm	chunk:04	feat:findall_with_var_goal	between findall findall_with_var_goal forall if_then_else list_cons
+floyds-triangle	chunk:03	feat:between	between forall nl
+four-bit-adder	chunk:02	feat:cut	cut
+fractran	chunk:02	feat:cut	cut if_then_else list_cons
+function-definition-2	chunk:03	feat:if_then_else	if_then_else
+function-definition-4	chunk:04	family:function-definition	
+function-definition-5	chunk:04	family:function-definition	
+fusc-sequence	chunk:04	feat:assertz	assertz cut if_then_else nl
+gamma-function	chunk:03	feat:between	between cut forall list_cons
+general-fizzbuzz-4	chunk:01	feat:findall	findall nl
+generate-chess960-starting-position-1	chunk:01	feat:findall	findall if_then_else
+generate-lower-case-ascii-alphabet	chunk:04	feat:bagof	bagof between
+golden-ratio-convergence	chunk:01	feat:write	if_then_else write
+gray-code-1	chunk:03	feat:between	between forall if_then_else
+gray-code-2	chunk:04	feat:setof	between if_then_else setof
+greatest-common-divisor-1	chunk:02	feat:forall	cut forall
+greatest-common-divisor-2	chunk:02	feat:forall	cut forall
+greatest-element-of-a-list-2	chunk:03	feat:negation	negation
+greatest-subsequential-sum-1	chunk:03	feat:between	between forall if_then_else list_cons
+greedy-algorithm-for-egyptian-fractions	chunk:01	feat:write	cut if_then_else list_cons nl write
+guess-the-number-with-feedback-player--1	chunk:04	feat:nl	if_then_else nl
+hailstone-sequence-3	chunk:04	feat:list_cons	list_cons
+hailstone-sequence-6	chunk:01	feat:findall	findall if_then_else list_cons
+hamming-numbers-1	chunk:01	feat:write	cut if_then_else list_cons nl write
+hamming-numbers-2	chunk:03	feat:if_then_else	if_then_else list_cons
+happy-numbers-1	chunk:03	feat:negation	cut if_then_else list_cons negation
+harmonic-series	chunk:04	feat:nl	cut if_then_else nl
+hash-join	chunk:02	feat:forall	forall
+hello-world-newline-omission	chunk:01	feat:write	write
+hello-world-text	chunk:01	feat:write	nl write
+higher-order-functions	chunk:04	feat:call	call write
+hofstadter-figure-figure-sequences-1	chunk:01	feat:findall	findall if_then_else
+horners-rule-for-polynomial-evaluation-1	chunk:04	feat:list_cons	list_cons
+huffman-coding	chunk:01	feat:write	cut forall if_then_else list_cons nl write
+identity-matrix	chunk:03	feat:succ	succ
+idiomatically-determine-all-the-lowercase-and-uppercase-letters	chunk:01	feat:findall	findall nl
+increment-a-numerical-string-1	chunk:02	feat:forall	forall if_then_else
+input-output-for-lines-of-text	chunk:05	family:input-output-for-lines-of-text	
+integer-comparison-2	chunk:02	feat:forall	forall
+integer-sequence-1	chunk:05	family:integer-sequence	
+inverted-syntax	chunk:02	feat:forall	forall
+isbn13-check-digit-1	chunk:03	feat:dcg	dcg forall if_then_else
+isqrt-integer-square-root-of-x	chunk:01	feat:write	cut if_then_else write
+iterated-digits-squaring	chunk:03	feat:between	between if_then_else
+jaccard-index	chunk:01	feat:findall	findall forall if_then_else list_cons nl write
+jewels-and-stones-1	chunk:01	feat:findall	findall forall
+jewels-and-stones-2	chunk:02	feat:forall	cut forall list_cons
+josephus-problem-1	chunk:01	feat:findall	findall if_then_else
+json-pointer-1	chunk:03	feat:dcg	cut dcg forall if_then_else list_cons
+kernighans-large-earthquake-problem	chunk:01	feat:write	cut write
+knapsack-problem-0-1-1	core	core	arg if_then_else list_cons
+knapsack-problem-0-1-2	chunk:03	feat:if_then_else	if_then_else list_cons
+knapsack-problem-bounded-1	chunk:02	feat:cut	cut if_then_else list_cons
+knapsack-problem-bounded-2	chunk:03	feat:if_then_else	if_then_else list_cons
+knapsack-problem-continuous	chunk:03	feat:if_then_else	if_then_else list_cons
+knapsack-problem-unbounded	chunk:03	feat:if_then_else	if_then_else list_cons
+knights-tour-1	core	core	cut if_then_else list_cons negation nl var
+knights-tour-2	core	core	asserta between findall if_then_else list_cons negation nl succ
+koch-curve	chunk:01	feat:write	cut write
+lah-numbers	chunk:04	feat:assertz	assertz between cut nl
+largest-int-from-concatenated-ints-1	chunk:02	feat:forall	forall
+largest-int-from-concatenated-ints-2	chunk:02	feat:forall	forall list_cons
+largest-number-divisible-by-its-digits	core	core	asserta between cut if_then_else list_cons succ
+largest-prime-factor	chunk:02	feat:cut	cut list_cons
+last-list-item-1	chunk:02	feat:cut	cut list_cons
+last-list-item-3	chunk:03	feat:if_then_else	if_then_else
+law-of-cosines---triples	chunk:04	feat:nl	cut list_cons nl
+leap-year-1	chunk:05	family:leap-year	
+least-common-multiple	chunk:02	feat:forall	forall
+left-factorials	chunk:02	feat:cut	cut if_then_else
+letter-frequency	chunk:02	feat:cut	cut list_cons
+levenshtein-distance	chunk:02	feat:forall	cut forall list_cons
+list-comprehensions	core	core	between findall list_cons op
+long-primes-1	chunk:01	feat:findall	cut findall list_cons nl
+long-primes-3	chunk:03	feat:between	between cut forall if_then_else list_cons
+long-year	chunk:01	feat:write	cut if_then_else nl write
+longest-common-prefix	chunk:02	feat:cut	cut list_cons
+longest-common-subsequence-1	chunk:04	feat:nl	cut if_then_else list_cons nl
+longest-common-subsequence-2	chunk:04	feat:assert	assert cut if_then_else list_cons nl
+longest-common-substring	chunk:01	feat:findall	findall forall if_then_else list_cons
+longest-increasing-subsequence	chunk:02	feat:forall	forall list_cons
+look-and-say-sequence	chunk:03	feat:dcg	cut dcg if_then_else list_cons nl
+loop-over-multiple-arrays-simultaneously	chunk:05	family:loop-over-multiple-arrays-simultaneously	
+loops-continue	chunk:01	feat:write	if_then_else nl write
+loops-do-while	chunk:01	feat:write	cut if_then_else nl write
+loops-downward-for	chunk:01	feat:write	cut nl write
+loops-for-with-a-specified-step-1	chunk:01	feat:write	cut write
+loops-for-with-a-specified-step-2	chunk:01	feat:write	cut forall nl write
+loops-for	chunk:01	feat:write	between nl write
+loops-foreach	chunk:05	family:loops-foreach	
+loops-n-plus-one-half	chunk:01	feat:write	between write
+loops-while-1	chunk:02	feat:cut	cut
+loops-with-multiple-ranges	chunk:04	feat:number	cut findall if_then_else list_cons number
+lucas-lehmer-test	chunk:01	feat:findall	between cut findall forall list_cons nl write
+ludic-numbers	chunk:01	feat:findall	cut findall list_cons nl write
+lunar-arithmetic	chunk:03	feat:succ	between cut findall if_then_else list_cons succ
+lychrel-numbers	chunk:02	feat:cut	cut if_then_else list_cons
+magic-constant	chunk:01	feat:write	between forall if_then_else nl write
+map-range	chunk:03	feat:between	between forall
+mastermind	chunk:03	feat:negation	between cut if_then_else list_cons negation nl write
+matrix-multiplication	chunk:05	family:matrix-multiplication	
+maximum-triangle-path-sum	chunk:02	feat:forall	forall list_cons
+menu-1	chunk:04	feat:number	cut nl number
+merge-and-aggregate-datasets-1	chunk:04	feat:atom	atom
+mersenne-primes	chunk:03	feat:between	between cut forall list_cons
+mertens-function	core	core	assertz cut if_then_else nl write
+metaprogramming-1	core	core	clause
+middle-three-digits-2	chunk:04	feat:catch	catch forall
+miller-rabin-primality-test	chunk:01	feat:findall	between cut findall forall if_then_else list_cons
+minesweeper-game	core	core	call cut dcg findall findall_with_var_goal if_then_else list_cons negation succ
+minimum-multiple-of-m-where-digital-sum-equals-m	chunk:03	feat:between	between cut if_then_else nl
+modular-exponentiation	chunk:05	family:modular-exponentiation	
+modular-inverse	chunk:02	feat:cut	cut
+morse-code-2	chunk:05	feat:nonvar	nonvar
+multiplication-tables	chunk:01	feat:write	between forall nl write
+multisplit	chunk:03	feat:dcg	dcg if_then_else list_cons
+mutex-2	chunk:04	feat:call	call forall
+mutual-recursion-1	chunk:03	feat:between	between forall nl
+n-queens-problem-1	chunk:01	feat:findall	findall forall list_cons
+n-queens-problem-2	chunk:01	feat:findall	findall forall list_cons
+n-queens-problem-3	chunk:01	feat:findall	findall forall list_cons
+n-queens-problem-4	core	core	bagof between findall if_then_else list_cons nl write
+n-queens-problem-5	chunk:01	feat:findall	between cut findall list_cons
+n-queens-problem-6	chunk:01	feat:findall	findall forall
+n-queens-problem-8	chunk:01	feat:findall	findall if_then_else list_cons nl write
+named-parameters	chunk:04	feat:list_cons	list_cons
+narcissistic-decimal-number	chunk:01	feat:findall	between findall if_then_else list_cons
+neighbour-primes	chunk:01	feat:findall	between findall forall list_cons nl
+nim-game	chunk:04	feat:nl	cut if_then_else nl
+nimber-arithmetic	core	core	between cut forall if_then_else nl univ
+non-continuous-subsequences-1	core	core	between forall list_cons setof
+nonogram-solver-2	chunk:04	feat:nl	cut forall list_cons nl
+nth-root	chunk:02	feat:forall	cut forall if_then_else
+nth	chunk:03	feat:between	between forall if_then_else nl
+number-names	chunk:03	feat:between	between cut forall
+number-reversal-game	chunk:03	feat:succ	between cut if_then_else list_cons succ
+numbers-with-prime-digits-whose-sum-is-13	chunk:01	feat:findall	cut findall if_then_else
+numerical-integration-adaptive-simpsons-method	chunk:04	feat:call	call if_then_else write
+odd-squarefree-semiprimes	chunk:01	feat:findall	between cut findall forall list_cons nl
+odd-word-problem	chunk:04	feat:dcg	between dcg forall if_then_else list_cons
+old-russian-measure-of-length-1	core	core	cut dcg functor univ
+orbital-elements	chunk:05	family:orbital-elements	
+order-by-pair-comparisons-1	chunk:03	feat:if_then_else	if_then_else
+palindrome-detection-1	chunk:02	feat:forall	forall if_then_else
+palindrome-detection-2	chunk:02	feat:forall	forall if_then_else
+palindrome-detection-3	chunk:02	feat:forall	forall if_then_else
+palindromic-gapful-numbers	chunk:04	feat:nl	cut if_then_else list_cons nl
+pangram-checker	chunk:04	feat:dcg	dcg forall if_then_else
+parametric-polymorphism	chunk:04	feat:call	call write
+parse-command-line-arguments-1	chunk:01	feat:write	if_then_else write
+parsing-rpn-calculator-algorithm	chunk:04	feat:atom	atom dcg if_then_else list_cons
+partial-function-application	chunk:04	feat:call	call
+partition-an-integer-x-into-n-primes-1	chunk:02	feat:cut	cut list_cons
+pascals-triangle-3	chunk:03	feat:succ	cut list_cons nl succ write
+pascals-triangle-puzzle	chunk:02	feat:forall	forall if_then_else list_cons
+peano-curve	chunk:01	feat:write	cut list_cons write
+perfect-numbers-1	chunk:03	feat:if_then_else	if_then_else
+perfect-numbers-2	chunk:01	feat:findall	between cut findall forall if_then_else list_cons
+permutations-1	chunk:02	feat:forall	forall
+permutations-3	chunk:02	feat:forall	forall list_cons
+permutations-5	chunk:02	feat:forall	forall list_cons
+phrase-reversals	chunk:05	family:phrase-reversals	
+pi	chunk:01	feat:write	forall if_then_else list_cons nl write
+pierpont-primes	core	core	call cut forall list_cons negation nl succ write
+playing-cards	core	core	between findall list_cons setof
+polymorphism	chunk:04	feat:number	nl number var
+population-count	chunk:05	family:population-count	
+power-set-1	chunk:04	feat:bagof	bagof list_cons
+power-set-2	chunk:04	feat:list_cons	list_cons
+power-set-3	chunk:01	feat:findall	findall list_cons
+primality-by-trial-division	chunk:01	feat:findall	between findall forall
+prime-conspiracy	chunk:03	feat:succ	cut forall if_then_else list_cons succ
+prime-decomposition-1	chunk:02	feat:forall	cut forall if_then_else list_cons
+prime-decomposition-3	chunk:02	feat:forall	forall if_then_else list_cons
+prime-decomposition-4	chunk:03	feat:succ	cut forall list_cons succ
+prime-numbers-p-for-which-the-sum-of-primes-less-than-or-equal-to-p-is-prime	chunk:01	feat:findall	between findall forall nl
+priority-queue	chunk:04	feat:nl	nl
+program-name-1	chunk:03	feat:negation	negation
+proper-divisors-1	chunk:04	feat:setof	between findall setof
+pythagorean-triples	chunk:03	feat:succ	between cut findall forall succ
+quaternion-2	chunk:05	family:quaternion	
+queue-definition	chunk:03	feat:negation	if_then_else list_cons negation
+queue-usage	core	core	copy_term if_then_else list_cons negation nl write
+quine-1	chunk:05	family:quine	
+quine-2	chunk:05	feat:asserta	asserta write
+quine-3	chunk:01	feat:write	list_cons write
+quine-4	chunk:05	family:quine	
+rainbow-1	chunk:01	feat:write	nl write
+rainbow-2	chunk:05	family:rainbow	
+range-consolidation	chunk:01	feat:write	cut forall if_then_else list_cons nl write
+range-expansion	core	core	catch cut list_cons
+range-extraction	chunk:04	feat:catch	catch cut list_cons
+read-entire-file	chunk:03	feat:if_then_else	if_then_else list_cons
+remove-duplicate-elements-1	chunk:05	family:remove-duplicate-elements	
+remove-duplicate-elements-3	chunk:02	feat:cut	cut list_cons
+remove-vowels-from-a-string	chunk:04	feat:dcg	cut dcg if_then_else list_cons
+repeat-a-string-1	chunk:05	family:repeat-a-string	
+repeat-a-string-2	chunk:04	feat:dcg	cut dcg if_then_else
+repeat	chunk:03	feat:succ	nl succ write
+reverse-a-string-2	chunk:04	feat:list_cons	list_cons
+reverse-the-order-of-lines-in-a-text-file-while-preserving-the-contents-of-each-line	chunk:04	feat:dcg	dcg
+rock-paper-scissors	chunk:01	feat:findall	cut findall forall list_cons write
+roman-numerals-decode	chunk:02	feat:forall	forall list_cons
+roots-of-unity	core	core	between cut forall if_then_else number succ
+rot-13-1	chunk:03	feat:if_then_else	if_then_else
+rot-13-2	chunk:03	feat:if_then_else	if_then_else
+run-length-encoding	chunk:04	feat:dcg	cut dcg if_then_else list_cons nl
+search-a-list	chunk:01	feat:write	if_then_else nl write
+sedols-1	chunk:04	feat:dcg	dcg
+self-describing-numbers	core	core	between cut findall forall list_cons number
+semiprime	chunk:01	feat:findall	between cut findall list_cons
+sequence-of-primes-by-trial-division	chunk:02	feat:cut	cut list_cons
+set-1	chunk:03	feat:if_then_else	if_then_else list_cons
+set-puzzle	core	core	cut list_cons nl setof
+sexy-primes-1	chunk:03	feat:negation	cut findall list_cons negation
+sha-1-1	chunk:05	family:sha	
+short-circuit-evaluation-1	chunk:04	feat:nl	if_then_else nl
+show-ascii-table	chunk:01	feat:write	between cut forall nl write
+sierpinski-arrowhead-curve	chunk:01	feat:write	cut if_then_else write
+sierpinski-carpet	chunk:01	feat:write	cut write
+sierpinski-pentagon	chunk:01	feat:write	cut write
+sierpinski-triangle	chunk:02	feat:cut	cut if_then_else
+sieve-of-eratosthenes-1	chunk:03	feat:if_then_else	if_then_else list_cons
+sieve-of-eratosthenes-10	chunk:04	feat:assert	assert cut if_then_else list_cons
+sieve-of-eratosthenes-12	chunk:03	feat:negation	negation
+sieve-of-eratosthenes-3	chunk:02	feat:cut	cut list_cons
+sieve-of-eratosthenes-4	chunk:02	feat:cut	cut list_cons
+sieve-of-eratosthenes-5	chunk:02	feat:cut	cut if_then_else list_cons
+sieve-of-eratosthenes-7	chunk:03	feat:if_then_else	if_then_else list_cons
+sieve-of-eratosthenes-8	core	core	assertz between forall if_then_else list_cons
+sleep	chunk:05	family:sleep	
+smallest-square-that-begins-with-n	chunk:04	feat:findall_with_var_goal	between cut findall findall_with_var_goal if_then_else nl
+solve-a-hopido-puzzle-2	chunk:05	family:solve-a-hopido-puzzle	
+solve-a-numbrix-puzzle	chunk:03	feat:succ	between cut findall if_then_else list_cons nl succ
+solve-the-no-connection-puzzle	chunk:04	feat:bagof	bagof list_cons negation
+sort-a-list-of-object-identifiers	chunk:04	feat:list_cons	list_cons
+sort-disjoint-sublist-2	chunk:04	feat:dcg	dcg if_then_else list_cons
+sort-disjoint-sublist-3	chunk:03	feat:if_then_else	if_then_else
+sort-numbers-lexicographically	chunk:02	feat:cut	cut if_then_else list_cons
+sort-using-a-custom-comparator	chunk:04	feat:nl	if_then_else nl
+sorting-algorithms-bogosort	chunk:02	feat:cut	cut list_cons
+sorting-algorithms-bubble-sort-1	chunk:02	feat:cut	cut if_then_else list_cons
+sorting-algorithms-bubble-sort-2	chunk:01	feat:write	cut if_then_else list_cons nl write
+sorting-algorithms-cocktail-sort	chunk:01	feat:write	cut if_then_else list_cons nl write
+sorting-algorithms-insertion-sort-1	chunk:02	feat:cut	cut list_cons
+sorting-algorithms-insertion-sort-2	chunk:04	feat:call	call cut list_cons
+sorting-algorithms-merge-sort	chunk:04	feat:list_cons	list_cons
+sorting-algorithms-patience-sort	chunk:04	feat:list_cons	list_cons
+sorting-algorithms-permutation-sort	chunk:04	feat:list_cons	list_cons
+sorting-algorithms-quicksort	chunk:04	feat:list_cons	list_cons
+sorting-algorithms-selection-sort	chunk:03	feat:if_then_else	if_then_else list_cons
+soundex	chunk:03	feat:between	between cut forall list_cons
+spelling-of-ordinal-numbers-1	chunk:05	family:spelling-of-ordinal-numbers	
+spiral-matrix	chunk:03	feat:succ	cut findall forall if_then_else list_cons succ
+stable-marriage-problem-2	core	core	assert assert_then_retract bagof forall if_then_else list_cons nl retract
+stack	chunk:03	feat:if_then_else	if_then_else list_cons
+state-name-puzzle	chunk:03	feat:if_then_else	if_then_else list_cons
+steady-squares	chunk:02	feat:cut	cut list_cons
+stem-and-leaf-plot	chunk:03	feat:negation	dcg findall if_then_else negation
+stirling-numbers-of-the-first-kind	chunk:04	feat:assertz	assertz between cut nl
+stirling-numbers-of-the-second-kind	chunk:04	feat:assertz	assertz between cut nl
+strange-unique-prime-triplets	chunk:01	feat:findall	between findall forall if_then_else list_cons
+string-concatenation	chunk:01	feat:write	list_cons write
+string-matching	chunk:02	feat:findall	cut findall forall if_then_else
+string-prepend-1	chunk:05	feat:op	list_cons op
+strip-a-set-of-characters-from-a-string-2	chunk:03	feat:negation	cut dcg if_then_else list_cons negation
+strip-block-comments	chunk:04	feat:call	call cut dcg if_then_else list_cons negation
+strip-comments-from-a-string-1	chunk:03	feat:negation	list_cons negation
+strip-comments-from-a-string-2	chunk:03	feat:negation	forall if_then_else list_cons negation
+strip-whitespace-from-a-string-top-and-tail-1	chunk:03	feat:negation	dcg if_then_else list_cons negation
+strip-whitespace-from-a-string-top-and-tail-2	chunk:03	feat:negation	cut dcg if_then_else list_cons negation
+substitution-cipher	core	core	cut list_cons nonvar var
+substring-1	chunk:05	family:substring	
+substring-top-and-tail	chunk:04	feat:list_cons	list_cons
+successive-prime-differences	chunk:03	feat:between	between cut forall list_cons nl
+sudoku-1	chunk:02	feat:forall	forall list_cons
+sum-and-product-of-an-array-1	chunk:04	feat:list_cons	list_cons
+sum-digits-of-an-integer	chunk:02	feat:cut	cut
+sum-multiples-of-3-and-5-1	chunk:03	feat:if_then_else	if_then_else
+sum-multiples-of-3-and-5-2	chunk:02	feat:forall	forall if_then_else
+sum-of-a-series	chunk:02	feat:findall	between findall
+sum-of-first-n-cubes	chunk:04	feat:list_cons	list_cons
+summarize-primes	chunk:03	feat:between	between cut forall list_cons nl
+sylvesters-sequence	chunk:02	feat:forall	cut forall list_cons
+symmetric-difference	chunk:05	family:symmetric-difference	
+tau-number	chunk:02	feat:findall	between findall forall
+temperature-conversion	chunk:04	feat:nl	nl
+test-a-function	chunk:02	feat:forall	forall if_then_else
+the-name-game	chunk:03	feat:negation	list_cons negation
+the-twelve-days-of-christmas	chunk:01	feat:write	cut list_cons write
+thue-morse	chunk:01	feat:write	list_cons write
+tokenize-a-string-1	chunk:03	feat:negation	dcg if_then_else list_cons negation
+top-rank-per-group	chunk:04	feat:findall_with_var_goal	cut findall findall_with_var_goal list_cons
+towers-of-hanoi-1	chunk:01	feat:write	cut nl write
+towers-of-hanoi-2	chunk:03	feat:succ	cut dcg if_then_else succ
+trabb-pardo-knuth-algorithm	chunk:03	feat:if_then_else	if_then_else
+tree-traversal	chunk:01	feat:write	list_cons nl write
+truncatable-primes-1	chunk:02	feat:cut	cut
+truth-table	core	core	cut dcg if_then_else list_cons negation nl op
+two-identical-strings	chunk:02	feat:cut	cut
+twos-complement	chunk:03	feat:if_then_else	if_then_else list_cons
+unicode-variable-names-1	chunk:03	feat:negation	if_then_else negation
+universal-lambda-machine	chunk:04	feat:call	call cut dcg if_then_else list_cons
+universal-turing-machine-2	core	core	forall if_then_else nonvar
+van-der-corput-sequence-1	chunk:01	feat:write	list_cons nl write
+van-der-corput-sequence-2	chunk:02	feat:findall	between findall forall list_cons
+van-eck-sequence	chunk:04	feat:nl	cut if_then_else list_cons nl
+variables-2	chunk:03	feat:if_then_else	if_then_else
+variables-5	chunk:02	feat:forall	forall if_then_else
+variadic-function-1	chunk:01	feat:write	forall nl write
+variadic-function-2	core	core	forall list_cons nl univ write
+vector-products	chunk:05	family:vector-products	
+wilson-primes-of-order-n-1	chunk:04	feat:assert	assert cut nl
+wilson-primes-of-order-n-2	core	core	assert_then_retract assertz cut findall retract
+wireworld	core	core	between call cut dcg if_then_else nl succ
+word-wrap	chunk:04	feat:nl	if_then_else list_cons nl
+zebra-puzzle-2	chunk:04	feat:call	call cut forall list_cons
+zebra-puzzle-4	chunk:04	feat:call	call findall list_cons nl write
+zebra-puzzle-5	chunk:05	family:zebra-puzzle	
+zero-to-the-zero-power	chunk:05	family:zero-to-the-zero-power	
+zig-zag-matrix	chunk:04	feat:nl	nl
+aks-test-for-primes-2	chunk:05	family:aks-test-for-primes	
+bitmap-bresenhams-line-algorithm	chunk:05	family:bitmap-bresenhams-line-algorithm	
+bitmap-write-a-ppm-file-2	chunk:04	family:bitmap-write-a-ppm-file	
+box-the-compass-1	chunk:05	family:box-the-compass	
+bulls-and-cows-player-1	chunk:05	family:bulls-and-cows-player	
+catamorphism-3	chunk:04	family:catamorphism	
+catamorphism-4	chunk:04	family:catamorphism	
+catamorphism-5	chunk:04	family:catamorphism	
+closest-pair-problem-1	chunk:05	family:closest-pair-problem	
+concurrent-computing	chunk:05	family:concurrent-computing	
+determine-if-a-string-is-numeric-1	chunk:05	family:determine-if-a-string-is-numeric	
+function-definition-1	chunk:04	family:function-definition	
+general-fizzbuzz-2	chunk:05	family:general-fizzbuzz	
+hailstone-sequence-1	chunk:04	family:hailstone-sequence	
+hailstone-sequence-5	chunk:05	family:hailstone-sequence	
+integer-comparison-1	chunk:05	family:integer-comparison	
+middle-three-digits-1	chunk:05	family:middle-three-digits	
+morse-code-1	chunk:05	family:morse-code	
+nonogram-solver-1	chunk:05	family:nonogram-solver	
+partition-an-integer-x-into-n-primes-2	chunk:05	family:partition-an-integer-x-into-n-primes	
+quaternion-1	chunk:05	family:quaternion	
+sexy-primes-2	chunk:05	family:sexy-primes	
+sieve-of-eratosthenes-2	chunk:05	family:sieve-of-eratosthenes	
+sieve-of-eratosthenes-6	chunk:05	family:sieve-of-eratosthenes	
+solve-a-hopido-puzzle-1	chunk:05	family:solve-a-hopido-puzzle	
+sort-disjoint-sublist-1	chunk:05	family:sort-disjoint-sublist	
+spelling-of-ordinal-numbers-2	chunk:05	family:spelling-of-ordinal-numbers	
+truncatable-primes-2	chunk:05	family:truncatable-primes	
+universal-turing-machine-1	chunk:05	family:universal-turing-machine	
+variables-1	chunk:05	family:variables	

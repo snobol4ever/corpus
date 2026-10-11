@@ -1,0 +1,139 @@
+# PARTITION.tsv -- built by scripts/util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
+# shape: entries=135 features=64 ubiquitous=9(package stderr write every procedure local alternation assign gen_with_alternation) distinctive=55 core=26 clusters=42 chunks=2 sizes=100,9
+entry	part	cluster	shells
+general/args	chunk:01	feat:put	element_gen fail limitation put return while writes
+general/arith	chunk:01	feat:static	fail integer return static to_by type writes
+general/augment	chunk:01	feat:global	aug_assign global image record
+general/btrees	chunk:01	feat:bal	bal every_with_suspend limitation move read record return scan scan_with_tab suspend tab upto while
+general/case	chunk:01	feat:create	case create element_gen image keyword_ref put record
+general/center	chunk:01	dir:general	
+general/checkc	core	core	coexpr_activate element_gen every_with_suspend fail image integer keyword_ref limitation list record repl return suspend table to_by want_rc
+general/checkfpc	core	core	aug_assign image integer move repl return scan scan_with_tab tab to_by trim type upto
+general/ck	chunk:01	feat:move	aug_assign image integer move return scan scan_with_tab tab to_by type upto
+general/coerce	chunk:01	feat:move	element_gen image limitation move return scan to_by writes
+general/coexpr	core	core	coexpr_activate create element_gen every_with_suspend image keyword_ref record return sort stop suspend table to_by while
+general/collate	core	core	element_gen every_with_suspend image insert keyword_ref map repl return set sort static suspend to_by
+general/concord	core	core	aug_assign get insert keyword_ref many map next read set sort table to_by upto while
+general/convert_driver	chunk:01	feat:image	image
+general/core_driver	chunk:02	feat:set	aug_assign element_gen record set table to_by
+general/cset	chunk:01	feat:coexpr_activate	aug_assign coexpr_activate element_gen fail image keyword_ref limitation return scan to_by writes
+general/cxprimes	chunk:01	feat:create	coexpr_activate create get integer suspend to_by while
+general/datetime_driver	chunk:01	feat:image	image keyword_ref to_by
+general/diffwrds	chunk:01	feat:many	element_gen insert keyword_ref many read scan scan_with_tab set sort tab upto while
+general/echo_driver	chunk:01	feat:global	global scan
+general/endetab	core	core	aug_assign case element_gen image integer keyword_ref limitation many map move pos put read return scan scan_with_tab stop tab to_by upto while writes
+general/env	chunk:01	feat:read	keyword_ref read
+general/equiv_driver	chunk:01	feat:case	case keyword_ref put record set table
+general/errkwds	chunk:01	feat:fail	fail image keyword_ref
+general/errors	core	core	aug_assign bal element_gen fail image keyword_ref limitation list member move pos put read reads record repl return scan scan_with_tab seq set sort stop swap tab to_by trim type want_rc while
+general/evalx	core	core	break case element_gen fail image keyword_ref limitation record repeat scan swap table to_by until while
+general/every	chunk:01	feat:every_with_suspend	element_gen every_with_suspend suspend to_by
+general/factors_driver	chunk:01	feat:break	aug_assign break element_gen image limitation return to_by
+general/features	chunk:01	feat:global	global image keyword_ref limitation return
+general/fncs	core	core	element_gen global image keyword_ref limitation list record repl seq set sort table to_by trim type writes
+general/fncs1	core	core	element_gen global image keyword_ref list map put read reads record sort table to_by while writes
+general/gc1	chunk:01	feat:list	keyword_ref list repl set table to_by
+general/gc2	core	core	aug_assign break case coexpr_activate element_gen every_with_suspend fail find get global integer keyword_ref limitation many move next pos push put read record repeat return scan scan_with_tab sort static stop suspend tab table to_by type upto while writes
+general/gener	core	core	aug_assign case delete element_gen global insert keyword_ref limitation list member put return scan set sort table to_by until while writes
+general/genqueen	chunk:01	feat:next	every_with_suspend fail global integer list next repl suspend to_by
+general/hello	chunk:01	feat:get	get limitation to_by
+general/hexcvt_driver	chunk:01	feat:image	image
+general/ilib	core	core	aug_assign break element_gen get image insert keyword_ref limitation member put return seq set sort table to_by while writes
+general/image	core	core	coexpr_activate create image insert integer keyword_ref limitation record return set table to_by type writes
+general/indices_driver	chunk:01	feat:aug_assign	aug_assign element_gen image return
+general/io	core	core	break case element_gen fail image keyword_ref limitation many map pos read reads return scan scan_with_tab sort stop tab to_by type upto while writes
+general/iobig	chunk:01	feat:create	aug_assign coexpr_activate create element_gen image keyword_ref limitation repl stop suspend to_by while
+general/kross	chunk:02	feat:upto	read to_by upto while
+general/kwds	chunk:01	feat:map	case delete fail image insert keyword_ref limitation map member return set static type
+general/large	chunk:01	feat:stop	image keyword_ref stop
+general/left	chunk:01	feat:keyword_ref	keyword_ref
+general/level	chunk:01	feat:every_with_suspend	every_with_suspend keyword_ref suspend to_by
+general/levensht_driver	chunk:01	feat:image	image
+general/lexcmp	chunk:02	feat:writes	image keyword_ref limitation return writes
+general/lgint	chunk:01	feat:seq	aug_assign element_gen image integer keyword_ref limitation repl return seq stop to_by while
+general/lists	core	core	aug_assign element_gen fail get image keyword_ref limitation list pop push put return scan to_by writes
+general/map	chunk:01	feat:map	coexpr_activate map
+general/math_driver	chunk:01	dir:general	
+general/mathfunc	chunk:01	feat:integer	image integer keyword_ref limitation return to_by
+general/meander	chunk:01	feat:find	aug_assign find integer move read repl return scan scan_with_tab stop tab upto while
+general/mega	core	core	element_gen find global integer keyword_ref limitation move pos return scan scan_with_tab seq stop tab to_by until while writes
+general/mffsol	core	core	any aug_assign element_gen global integer keyword_ref many move put read repeat return scan scan_with_tab stop tab table to_by until upto while writes
+general/mindfa	core	core	aug_assign element_gen fail get global limitation next put read record return scan sort table to_by while writes
+general/misc	chunk:01	feat:seq	aug_assign coexpr_activate element_gen every_with_suspend image keyword_ref limitation record repl return seq suspend table to_by while writes
+general/nargs	chunk:02	feat:return	return
+general/numbers_driver	chunk:01	feat:put	aug_assign element_gen image put return
+general/numeric	chunk:01	feat:integer	image integer record
+general/options_driver	chunk:01	feat:type	element_gen image sort type writes
+general/others	core	core	aug_assign delete element_gen fail find image insert integer keyword_ref many member move read return scan scan_with_tab set sort static stop tab table to_by upto while
+general/over	chunk:01	feat:stop	aug_assign keyword_ref stop
+general/overflow	chunk:01	feat:image	image keyword_ref
+general/parse	chunk:02	feat:scan_with_tab	fail image return scan scan_with_tab tab to_by
+general/pdco	core	core	aug_assign break case coexpr_activate element_gen every_with_suspend fail image keyword_ref limitation list repeat return scan stop suspend to_by while
+general/prefix	chunk:01	feat:bal	bal limitation move pos read return scan scan_with_tab tab to_by while
+general/prepro	chunk:01	feat:record	keyword_ref limitation record to_by
+general/primes	chunk:01	feat:next	next to_by
+general/printf_driver	chunk:01	feat:limitation	keyword_ref limitation
+general/queens	chunk:01	feat:next	aug_assign element_gen global integer list next record repl static stop to_by
+general/radix	chunk:01	feat:integer	image integer to_by
+general/random	chunk:01	feat:static	integer keyword_ref put record return scan set static table to_by
+general/rational_driver	chunk:01	dir:general	
+general/recent	core	core	case delete element_gen fail get global image insert keyword_ref limitation list member put read reads record return set sort stop table to_by type while writes
+general/recogn	chunk:01	feat:pos	pos read return scan suspend while
+general/record	chunk:01	feat:record	aug_assign element_gen limitation record scan to_by writes
+general/records_driver	chunk:01	feat:record	image record to_by
+general/right	chunk:01	feat:keyword_ref	keyword_ref
+general/roman	chunk:01	feat:find	element_gen fail find integer map read return static to_by while
+general/scan	chunk:01	feat:swap	find image keyword_ref move pos record scan scan_with_tab swap tab to_by upto while
+general/scan1	core	core	any bal fail find keyword_ref limitation many match move pos scan scan_with_tab tab upto writes
+general/scan2	chunk:02	feat:repeat	break every_with_suspend keyword_ref move next repeat scan scan_with_tab suspend tab upto
+general/sets	chunk:01	feat:delete	delete element_gen fail image insert keyword_ref member return scan set to_by type writes
+general/sieve	chunk:01	feat:delete	delete element_gen insert member set sort to_by
+general/sort_driver	chunk:01	feat:type	aug_assign element_gen image put record return set table type
+general/sorting	core	core	case create delete element_gen fail image insert keyword_ref limitation list push put record return set sort stop table to_by type while writes
+general/spellnum	chunk:01	feat:put	element_gen integer keyword_ref put to_by
+general/statics	chunk:01	feat:static	aug_assign image static
+general/string	core	core	any aug_assign bal find global image integer keyword_ref many match record repl swap to_by upto
+general/string1	chunk:01	feat:type	element_gen image limitation scan to_by type writes
+general/strings_driver	chunk:02	feat:repl	aug_assign image limitation repl return to_by
+general/struct	core	core	aug_assign delete element_gen get global image insert keyword_ref limitation list member pop push put record set sort swap table to_by type writes
+general/subjpos	chunk:01	feat:swap	image keyword_ref return scan swap to_by writes
+general/substring	chunk:01	feat:fail	element_gen fail to_by writes
+general/table	chunk:01	feat:delete	aug_assign delete element_gen fail image insert keyword_ref limitation member return scan table to_by writes
+general/tables_driver	chunk:01	feat:type	aug_assign element_gen image put return sort table type
+general/techo	chunk:01	feat:next	global keyword_ref next scan to_by
+general/tprintf	chunk:01	feat:every_with_suspend	element_gen every_with_suspend keyword_ref limitation suspend to_by
+general/tracer	chunk:01	feat:every_with_suspend	every_with_suspend global keyword_ref return static suspend
+general/transmit	chunk:01	feat:create	coexpr_activate create global keyword_ref many read scan scan_with_tab static stop tab upto while
+general/traps	chunk:02	feat:until	delete insert keyword_ref limitation return table to_by until
+general/trim	chunk:02	feat:trim	image trim
+general/var	chunk:01	feat:push	image keyword_ref list push record repl return static table to_by
+general/wordcnt	chunk:01	feat:many	aug_assign keyword_ref many read scan scan_with_tab sort static tab table to_by upto while
+general/cfunc	chunk:01	dir:general	
+general/cfuncs	chunk:01	dir:general	
+general/convert	chunk:01	dir:general	
+general/core	chunk:01	dir:general	
+general/datetime	chunk:01	dir:general	
+general/echo	chunk:01	dir:general	
+general/equiv	chunk:01	dir:general	
+general/extlvals	chunk:01	dir:general	
+general/factors	chunk:01	dir:general	
+general/hexcvt	chunk:01	dir:general	
+general/indices	chunk:01	dir:general	
+general/io_lib	chunk:01	dir:general	
+general/levensht	chunk:01	dir:general	
+general/lists_lib	chunk:01	dir:general	
+general/math	chunk:01	dir:general	
+general/numbers	chunk:01	dir:general	
+general/options	chunk:01	dir:general	
+general/printf	chunk:01	dir:general	
+general/proto	chunk:01	dir:general	
+general/random_lib	chunk:01	dir:general	
+general/rational	chunk:01	dir:general	
+general/records	chunk:01	dir:general	
+general/scan_lib	chunk:01	dir:general	
+general/sets_lib	chunk:01	dir:general	
+general/sort	chunk:01	dir:general	
+general/strings	chunk:01	dir:general	
+general/tables	chunk:01	dir:general	
+special/keyboard	chunk:01	dir:special	

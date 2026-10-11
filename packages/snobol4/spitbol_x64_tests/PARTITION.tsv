@@ -1,0 +1,40 @@
+# PARTITION.tsv -- built by scripts/util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
+# shape: entries=36 features=1 ubiquitous=1(package) distinctive=0 core=3 clusters=30 chunks=1 sizes=33
+entry	part	cluster	shells
+arcget	core	core	
+arcput	core	core	
+cfreq	core	core	
+def	chunk:01	family:def	
+float	chunk:01	family:float	
+gcbuster	chunk:01	family:gcbuster	
+hello	chunk:01	family:hello	
+host	chunk:01	family:host	
+lower	chunk:01	family:lower	
+map-x64	chunk:01	family:map-x	
+math_atan	chunk:01	family:math_atan	
+math_chop	chunk:01	family:math_chop	
+math_cos	chunk:01	family:math_cos	
+math_diff	chunk:01	family:math_diff	
+math_div	chunk:01	family:math_div	
+math_exp	chunk:01	family:math_exp	
+math_limits1	chunk:01	family:math_limits	
+math_limits2	chunk:01	family:math_limits	
+math_limits3	chunk:01	family:math_limits	
+math_limits4	chunk:01	family:math_limits	
+math_ln	chunk:01	family:math_ln	
+math_minus	chunk:01	family:math_minus	
+math_plus	chunk:01	family:math_plus	
+math_pow	chunk:01	family:math_pow	
+math_prod	chunk:01	family:math_prod	
+math_read	chunk:01	family:math_read	
+math_remdr	chunk:01	family:math_remdr	
+math_sin	chunk:01	family:math_sin	
+math_sqrt	chunk:01	family:math_sqrt	
+math_sum	chunk:01	family:math_sum	
+math_tan	chunk:01	family:math_tan	
+module	chunk:01	family:module	
+save	chunk:01	family:save	
+setexit	chunk:01	family:setexit	
+sv	chunk:01	family:sv	
+trim	chunk:01	family:trim	

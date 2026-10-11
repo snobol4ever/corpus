@@ -1,0 +1,449 @@
+# PARTITION.tsv -- built by scripts/util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
+# shape: entries=445 features=74 ubiquitous=4(package section conj var_goal) distinctive=70 core=117 clusters=49 chunks=4 sizes=100,100,100,28
+entry	part	cluster	shells
+abolish#0	core	core	abolish err err_arg fdiv
+abolish#1	chunk:03	feat:abolish	abolish err err_arg fdiv
+abolish#2	core	core	abolish err err_arg fdiv neg_num
+abolish#3	core	core	abolish add current_prolog_flag err err_arg fdiv flag_max_arity is
+abolish#4	chunk:04	feat:abolish	abolish err err_arg fdiv
+and#5	core	core	anon_var quoted_atom unify var
+and#6	core	core	anon_var quoted_atom unify var
+and#7	chunk:03	feat:call	anon_var call fail quoted_atom
+and#8	core	core	anon_var call err err_arg quoted_atom
+and#9	core	core	anon_var call quoted_atom true unify
+arg#10	chunk:02	feat:arg	arg
+arg#11	chunk:02	feat:arg	arg
+arg#12	chunk:02	feat:arg	arg
+arg#13	chunk:02	feat:arg	arg
+arg#14	chunk:02	feat:arg	arg
+arg#15	chunk:02	feat:arg	arg
+arg#16	chunk:02	feat:arg	arg
+arg#17	chunk:02	feat:arg	arg
+arg#18	chunk:02	feat:arg	arg err
+arg#19	chunk:02	feat:arg	arg err
+arg#20	core	core	arg err err_arg
+arg#21	core	core	arg err err_arg
+arg#22	core	core	arg err err_arg neg_num
+arg#23	chunk:02	feat:arg	arg err err_arg
+arith_diff#24	chunk:01	feat:esc_seq	anon_var esc_seq quoted_atom
+arith_diff#25	core	core	anon_var esc_seq float_lit quoted_atom
+arith_diff#26	core	core	anon_var esc_seq mul neg_num quoted_atom sub
+arith_diff#27	chunk:01	feat:esc_seq	anon_var err esc_seq quoted_atom
+arith_diff#28	core	core	anon_var err err_arg esc_seq quoted_atom
+arith_eq#29	chunk:01	feat:quoted_atom	anon_var quoted_atom
+arith_eq#30	chunk:02	feat:float_lit	anon_var float_lit quoted_atom
+arith_eq#31	core	core	anon_var mul neg_num quoted_atom sub
+arith_eq#32	chunk:03	feat:err	anon_var err quoted_atom
+arith_eq#33	chunk:03	feat:err_arg	anon_var err err_arg quoted_atom
+arith_eq#34	core	core	arith_eq fdiv float_lit
+arith_gt#35	chunk:01	feat:quoted_atom	anon_var quoted_atom
+arith_gt#36	chunk:02	feat:float_lit	anon_var float_lit quoted_atom
+arith_gt#37	core	core	anon_var mul quoted_atom sub
+arith_gt#38	chunk:03	feat:err	anon_var err quoted_atom
+arith_gt#39	chunk:03	feat:add	add anon_var err err_arg quoted_atom
+arith_gt=#40	chunk:01	feat:quoted_atom	anon_var quoted_atom
+arith_gt=#41	chunk:02	feat:float_lit	anon_var float_lit quoted_atom
+arith_gt=#42	chunk:03	feat:sub	anon_var mul quoted_atom sub
+arith_gt=#43	chunk:03	feat:err	anon_var err quoted_atom
+arith_gt=#44	chunk:03	feat:add	add anon_var err err_arg quoted_atom
+arith_lt#45	chunk:01	feat:quoted_atom	anon_var quoted_atom
+arith_lt#46	chunk:02	feat:float_lit	anon_var float_lit quoted_atom
+arith_lt#47	chunk:03	feat:sub	anon_var mul quoted_atom sub
+arith_lt#48	chunk:03	feat:err	anon_var err quoted_atom
+arith_lt#49	chunk:03	feat:add	add anon_var err err_arg quoted_atom
+arith_lt=#50	chunk:01	feat:quoted_atom	anon_var quoted_atom
+arith_lt=#51	chunk:02	feat:float_lit	anon_var float_lit quoted_atom
+arith_lt=#52	chunk:03	feat:sub	anon_var mul quoted_atom sub
+arith_lt=#53	chunk:03	feat:err	anon_var err quoted_atom
+arith_lt=#54	chunk:03	feat:add	add anon_var err err_arg quoted_atom
+asserta#55	chunk:04	feat:asserta	asserta clause
+asserta#56	core	core	anon_var asserta err
+asserta#57	chunk:04	feat:asserta	asserta err err_arg
+asserta#58	core	core	asserta err err_arg neg_num
+asserta#59	core	core	anon_var asserta atom err err_arg true
+assertz#60	core	core	assertz call ite
+assertz#61	chunk:04	feat:assertz	anon_var assertz err
+assertz#62	chunk:04	feat:assertz	assertz err err_arg
+assertz#63	core	core	assertz err err_arg neg_num
+assertz#64	core	core	anon_var assertz atom err err_arg true
+atom#65	chunk:03	feat:atom	atom
+atom#66	chunk:03	feat:atom	anon_var atom quoted_atom
+atom#67	chunk:03	feat:atom	atom
+atom#68	chunk:03	feat:atom	atom
+atom#69	chunk:03	feat:atom	atom list
+atom#70	chunk:03	feat:atom	atom
+atom#71	chunk:03	feat:atom	atom float_lit
+atom_chars#72	chunk:02	feat:atom_chars	anon_var atom_chars quoted_atom
+atom_chars#73	chunk:02	feat:atom_chars	atom_chars list
+atom_chars#74	chunk:02	feat:atom_chars	anon_var atom_chars quoted_atom
+atom_chars#75	chunk:02	feat:atom_chars	anon_var atom_chars quoted_atom
+atom_chars#76	core	core	anon_var atom_chars list quoted_atom
+atom_chars#77	core	core	anon_var atom_chars list partial_list quoted_atom
+atom_chars#78	chunk:02	feat:atom_chars	anon_var atom_chars list quoted_atom
+atom_chars#79	chunk:02	feat:atom_chars	atom_chars err
+atom_chars#80	chunk:02	feat:atom_chars	atom_chars err list
+atom_chars#81	chunk:04	feat:partial_list	atom_chars err list partial_list
+atom_chars#82	chunk:02	feat:atom_chars	atom_chars err err_arg
+atom_chars#83	chunk:02	feat:atom_chars	atom_chars err err_arg
+atom_chars#84	chunk:02	feat:atom_chars	atom_chars err err_arg list
+atom_chars#85	core	core	add anon_var atom_chars err err_arg is list quoted_atom
+atom_codes#86	chunk:02	feat:atom_codes	anon_var atom_codes quoted_atom
+atom_codes#87	chunk:02	feat:atom_codes	atom_codes list
+atom_codes#88	chunk:02	feat:atom_codes	anon_var atom_codes quoted_atom
+atom_codes#89	chunk:02	feat:atom_codes	anon_var atom_codes quoted_atom
+atom_codes#90	core	core	anon_var atom_codes char_lit list quoted_atom
+atom_codes#91	core	core	anon_var atom_codes char_lit list partial_list quoted_atom
+atom_codes#92	chunk:02	feat:atom_codes	anon_var atom_codes char_lit list quoted_atom
+atom_codes#93	chunk:03	feat:atom_codes	atom_codes err
+atom_codes#94	chunk:03	feat:atom_codes	atom_codes err err_arg
+atom_codes#95	chunk:03	feat:atom_codes	anon_var atom_codes char_lit err err_arg
+atom_codes#96	core	core	anon_var atom_codes char_lit err err_arg list quoted_atom
+atom_concat#97	chunk:03	feat:atom_concat	anon_var atom_concat quoted_atom
+atom_concat#98	chunk:03	feat:atom_concat	anon_var atom_concat quoted_atom
+atom_concat#99	chunk:03	feat:atom_concat	anon_var atom_concat quoted_atom
+atom_concat#100	chunk:03	feat:atom_concat	anon_var atom_concat quoted_atom
+atom_concat#101	core	core	anon_var atom_concat err quoted_atom
+atom_concat#102	chunk:03	feat:atom_concat	anon_var atom_concat err quoted_atom
+atom_concat#103	core	core	anon_var atom_concat err err_arg quoted_atom
+atom_concat#104	core	core	anon_var atom_concat err err_arg quoted_atom
+atom_concat#105	chunk:03	feat:atom_concat	atom_concat err err_arg
+atom_length#106	core	core	anon_var atom_length quoted_atom
+atom_length#107	chunk:03	feat:atom_length	anon_var atom_length quoted_atom
+atom_length#108	chunk:03	feat:atom_length	anon_var atom_length quoted_atom
+atom_length#109	chunk:03	feat:atom_length	atom_length err
+atom_length#110	core	core	atom_length err err_arg float_lit
+atom_length#111	core	core	anon_var atom_length err err_arg quoted_atom
+atomic#112	core	core	atomic
+atomic#113	chunk:03	feat:atomic	atomic
+atomic#114	chunk:03	feat:atomic	atomic
+atomic#115	core	core	atomic list
+atomic#116	chunk:03	feat:atomic	atomic
+atomic#117	core	core	atomic float_lit
+bagof#118	chunk:02	feat:bagof	bagof disj unify
+bagof#119	chunk:02	feat:bagof	bagof disj unify
+bagof#120	chunk:02	feat:bagof	bagof disj unify
+bagof#121	chunk:02	feat:bagof	bagof fail
+bagof#122	chunk:02	feat:bagof	bagof disj unify
+bagof#123	chunk:02	feat:bagof	bagof disj unify
+bagof#124	core	core	bagof disj intpower unify
+bagof#125	core	core	bagof disj intpower unify
+bagof#126	core	core	bagof disj flag_unknown intpower set_prolog_flag unify
+bagof#127	chunk:02	feat:bagof	bagof disj unify
+bagof#128	chunk:03	feat:intpower	bagof err intpower
+bagof#129	chunk:02	feat:bagof	bagof err err_arg
+bagof#130	core	core	call err err_arg findall nested_call
+call#131	chunk:03	feat:cut	call cut
+call#132	chunk:03	feat:call	call fail
+call#133	chunk:03	feat:call	call fail
+call#134	chunk:03	feat:call	call fail
+call#135	chunk:04	feat:write	call err write
+call#136	core	core	call err err_arg write
+call#137	chunk:03	feat:call	call err
+call#138	chunk:03	feat:call	call err err_arg
+call#139	chunk:03	feat:call	call err err_arg fail
+call#140	core	core	call err err_arg write
+call#141	chunk:03	feat:call	call disj err err_arg true
+catch-and-throw#142	core	core	anon_var catch err quoted_atom throw true write
+catch-and-throw#143	core	core	anon_var catch fail number_chars
+char_code#144	chunk:03	feat:char_code	char_code
+char_code#145	chunk:03	feat:char_code	char_code
+char_code#146	core	core	anon_var char_code char_lit
+char_code#147	chunk:03	feat:char_code	char_code
+char_code#148	chunk:03	feat:char_code	char_code
+char_code#149	chunk:03	feat:char_code	char_code
+char_code#150	core	core	anon_var char_code err err_arg quoted_atom
+char_code#151	chunk:03	feat:char_code	char_code err err_arg
+char_code#152	chunk:03	feat:char_code	char_code err
+char_code#153	core	core	char_code err err_arg neg_num
+clause#154	chunk:04	feat:clause	clause
+clause#155	core	core	anon_var clause err
+clause#156	chunk:04	feat:clause	clause err err_arg
+clause#157	core	core	anon_var clause err err_arg
+clause#158	core	core	anon_var atom clause err err_arg
+compound#159	core	core	compound float_lit
+compound#160	core	core	compound float_lit neg_num
+compound#161	chunk:03	feat:compound	compound
+compound#162	core	core	anon_var compound
+compound#163	chunk:03	feat:compound	compound
+compound#164	chunk:03	feat:compound	compound
+compound#165	chunk:03	feat:compound	compound list
+copy_term#166	chunk:03	feat:copy_term	copy_term
+copy_term#167	chunk:03	feat:copy_term	copy_term
+copy_term#168	core	core	anon_var copy_term
+copy_term#169	core	core	add copy_term
+copy_term#170	core	core	anon_var copy_term
+copy_term#171	chunk:03	feat:copy_term	add copy_term
+copy_term#172	chunk:03	feat:copy_term	copy_term
+copy_term#173	chunk:03	feat:copy_term	copy_term
+copy_term#174	chunk:03	feat:copy_term	copy_term
+copy_term#175	chunk:03	feat:copy_term	add copy_term
+current_input#176	chunk:04	feat:fdiv	fdiv
+current_output#177	chunk:04	feat:fdiv	fdiv
+current_predicate#178	chunk:04	feat:current_predicate	current_predicate fdiv
+current_predicate#179	chunk:04	feat:current_predicate	current_predicate fdiv
+current_predicate#180	core	core	current_predicate err err_arg
+current_predicate#181	core	core	current_predicate err err_arg
+current_predicate#182	core	core	current_predicate err err_arg fdiv
+current_prolog_flag#183	core	core	current_prolog_flag flag_debug
+current_prolog_flag#184	chunk:03	feat:flag_unknown	current_prolog_flag flag_unknown set_prolog_flag
+current_prolog_flag#185	chunk:03	feat:flag_unknown	current_prolog_flag flag_unknown set_prolog_flag
+current_prolog_flag#186	core	core	current_prolog_flag flag_debug
+current_prolog_flag#187	chunk:04	feat:current_prolog_flag	current_prolog_flag err err_arg
+current_prolog_flag#188	chunk:04	feat:current_prolog_flag	current_prolog_flag err err_arg
+cut#189	chunk:03	feat:cut	cut
+cut#190	chunk:03	feat:cut	cut disj fail true
+cut#191	core	core	call cut disj fail true
+fail#192	chunk:04	feat:fail	fail
+fail#193	chunk:03	feat:err_arg	err err_arg
+fail#194	chunk:03	feat:flag_unknown	fail flag_unknown set_prolog_flag
+fail#195	chunk:03	feat:flag_unknown	flag_unknown set_prolog_flag
+file_manip#196	chunk:03	feat:err_arg	err err_arg
+file_manip#197	chunk:03	feat:err_arg	err err_arg
+file_manip#198	core	core	err err_arg get_char
+findall#199	chunk:03	feat:findall	disj findall unify
+findall#200	chunk:03	feat:findall	add findall unify
+findall#201	chunk:03	feat:findall	fail findall
+findall#202	chunk:03	feat:findall	disj findall unify
+findall#203	core	core	disj findall findall_4 list unify
+findall#204	core	core	disj findall findall_4 list unify
+findall#205	chunk:03	feat:findall	err findall
+findall#206	chunk:03	feat:findall	err err_arg findall
+findall#207	core	core	call err err_arg findall nested_call
+float#208	core	core	float float_lit
+float#209	core	core	float float_lit neg_num
+float#210	chunk:03	feat:float	float
+float#211	chunk:03	feat:float	float
+float#212	chunk:03	feat:float	float
+functor#213	chunk:01	feat:functor	functor
+functor#214	chunk:01	feat:functor	functor
+functor#215	chunk:01	feat:functor	functor
+functor#216	chunk:01	feat:functor	functor
+functor#217	chunk:01	feat:functor	functor
+functor#218	chunk:01	feat:functor	functor
+functor#219	chunk:01	feat:functor	functor
+functor#220	chunk:01	feat:functor	functor
+functor#221	chunk:02	feat:float_lit	float_lit functor
+functor#222	core	core	anon_var functor list partial_list quoted_atom
+functor#223	chunk:01	feat:functor	functor list
+functor#224	chunk:01	feat:functor	err functor
+functor#225	chunk:01	feat:functor	err functor
+functor#226	chunk:01	feat:functor	err err_arg functor
+functor#227	chunk:02	feat:float_lit	err err_arg float_lit functor
+functor#228	chunk:01	feat:functor	err err_arg functor
+functor#229	core	core	add current_prolog_flag err err_arg flag_max_arity functor is
+functor#230	chunk:04	feat:neg_num	err err_arg functor neg_num
+functor-bis#231	chunk:01	feat:functor	functor
+functor-bis#232	chunk:01	feat:functor	functor
+functor-bis#233	chunk:01	feat:functor	functor
+functor-bis#234	chunk:01	feat:functor	functor
+functor-bis#235	chunk:01	feat:functor	functor
+functor-bis#236	chunk:01	feat:functor	functor
+functor-bis#237	chunk:01	feat:functor	functor
+functor-bis#238	chunk:01	feat:functor	functor
+functor-bis#239	chunk:02	feat:float_lit	float_lit functor
+functor-bis#240	chunk:04	feat:partial_list	anon_var functor list partial_list quoted_atom
+functor-bis#241	chunk:01	feat:functor	functor list
+functor-bis#242	chunk:01	feat:functor	err functor
+functor-bis#243	chunk:01	feat:functor	err functor
+functor-bis#244	chunk:01	feat:functor	functor
+functor-bis#245	chunk:02	feat:float_lit	err err_arg float_lit functor
+functor-bis#246	chunk:01	feat:functor	err err_arg functor
+functor-bis#247	core	core	add current_prolog_flag err err_arg flag_max_arity functor is
+functor-bis#248	chunk:04	feat:neg_num	err err_arg functor neg_num
+halt#249	core	core	halt
+halt#250	core	core	halt
+halt#251	core	core	err err_arg halt
+if-then#252	chunk:01	feat:true	anon_var quoted_atom true
+if-then#253	chunk:01	feat:true	anon_var fail quoted_atom true
+if-then#254	chunk:01	feat:true	anon_var fail quoted_atom true
+if-then#255	chunk:01	feat:true	anon_var quoted_atom true unify
+if-then#256	chunk:01	feat:true	anon_var quoted_atom true unify
+if-then#257	chunk:01	feat:true	anon_var quoted_atom true unify
+if-then-else#258	chunk:02	feat:true	anon_var fail quoted_atom true
+if-then-else#259	chunk:02	feat:true	anon_var fail quoted_atom true
+if-then-else#260	chunk:02	feat:true	anon_var fail quoted_atom true
+if-then-else#261	chunk:02	feat:true	anon_var fail quoted_atom true
+if-then-else#262	chunk:02	feat:true	anon_var quoted_atom true unify
+if-then-else#263	chunk:04	feat:fail	anon_var fail quoted_atom unify
+if-then-else#264	chunk:02	feat:true	anon_var quoted_atom true unify
+if-then-else#265	chunk:02	feat:true	anon_var quoted_atom true unify
+integer#266	core	core	integer
+integer#267	core	core	integer neg_num
+integer#268	core	core	float_lit integer
+integer#269	chunk:04	feat:integer	integer
+integer#270	chunk:04	feat:integer	integer
+is#271	chunk:03	feat:add	add anon_var float_lit quoted_atom
+is#272	core	core	add anon_var mul quoted_atom unify
+is#273	chunk:01	feat:quoted_atom	anon_var quoted_atom
+is#274	chunk:03	feat:err	anon_var err quoted_atom
+is#275	chunk:03	feat:err_arg	anon_var err err_arg quoted_atom
+is#276	core	core	anon_var float quoted_atom
+nonvar#277	core	core	float_lit nonvar
+nonvar#278	chunk:03	feat:nonvar	nonvar
+nonvar#279	chunk:03	feat:nonvar	nonvar
+nonvar#280	core	core	nonvar unify
+nonvar#281	core	core	anon_var nonvar
+nonvar#282	chunk:03	feat:nonvar	nonvar
+not_provable#283	chunk:03	feat:negation	negation true
+not_provable#284	chunk:03	feat:negation	cut negation
+not_provable#285	core	core	cut fail negation
+not_provable#286	core	core	cut disj fail negation unify
+not_provable#287	chunk:03	feat:negation	negation unify
+not_provable#288	core	core	err err_arg negation
+not_provable#289	chunk:03	feat:negation	err negation
+not_unify#290	chunk:01	feat:esc_seq	anon_var esc_seq quoted_atom
+not_unify#291	chunk:01	feat:esc_seq	anon_var esc_seq quoted_atom
+not_unify#292	chunk:01	feat:esc_seq	anon_var esc_seq quoted_atom
+not_unify#293	chunk:01	feat:esc_seq	anon_var esc_seq quoted_atom
+not_unify#294	chunk:01	feat:esc_seq	anon_var esc_seq quoted_atom
+not_unify#295	chunk:01	feat:esc_seq	anon_var esc_seq quoted_atom
+not_unify#296	chunk:01	feat:esc_seq	anon_var esc_seq float_lit quoted_atom
+not_unify#297	chunk:01	feat:esc_seq	anon_var esc_seq quoted_atom
+not_unify#298	chunk:01	feat:esc_seq	anon_var esc_seq quoted_atom
+not_unify#299	chunk:01	feat:esc_seq	anon_var esc_seq quoted_atom
+number#300	core	core	number
+number#301	core	core	float_lit number
+number#302	core	core	neg_num number
+number#303	chunk:04	feat:number	number
+number#304	chunk:04	feat:number	number
+number_chars#305	chunk:02	feat:number_chars	number_chars
+number_chars#306	chunk:02	feat:number_chars	anon_var list number_chars quoted_atom
+number_chars#307	chunk:02	feat:number_chars	float_lit number_chars
+number_chars#308	chunk:02	feat:number_chars	anon_var char_lit list number_chars quoted_atom
+number_chars#309	core	core	anon_var char_lit float_lit list number_chars quoted_atom
+number_chars#310	chunk:02	feat:number_chars	anon_var list number_chars quoted_atom
+number_chars#311	core	core	anon_var esc_seq list number_chars quoted_atom
+number_chars#312	core	core	anon_var err err_arg list number_chars quoted_atom
+number_chars#313	chunk:02	feat:number_chars	anon_var char_lit list number_chars quoted_atom
+number_chars#314	chunk:02	feat:number_chars	anon_var char_lit list number_chars quoted_atom
+number_chars#315	chunk:02	feat:number_chars	anon_var list number_chars quoted_atom
+number_chars#316	chunk:02	feat:number_chars	anon_var char_lit list number_chars quoted_atom
+number_chars#317	chunk:02	feat:number_chars	err number_chars
+number_chars#318	chunk:02	feat:number_chars	err err_arg number_chars
+number_chars#319	chunk:02	feat:number_chars	err err_arg number_chars
+number_chars#320	core	core	anon_var err err_arg list number_chars quoted_atom
+number_codes#321	chunk:02	feat:number_codes	number_codes
+number_codes#322	core	core	anon_var char_lit list number_codes quoted_atom
+number_codes#323	chunk:02	feat:number_codes	float_lit number_codes
+number_codes#324	core	core	anon_var char_lit float_lit list number_codes quoted_atom
+number_codes#325	chunk:02	feat:number_codes	anon_var char_lit list number_codes quoted_atom
+number_codes#326	chunk:02	feat:number_codes	anon_var char_lit list number_codes quoted_atom
+number_codes#327	chunk:02	feat:number_codes	anon_var char_lit list number_codes quoted_atom
+number_codes#328	chunk:02	feat:number_codes	anon_var char_lit list number_codes quoted_atom
+number_codes#329	chunk:02	feat:number_codes	anon_var char_lit list number_codes quoted_atom
+number_codes#330	chunk:02	feat:number_codes	anon_var char_lit list number_codes quoted_atom
+number_codes#331	chunk:02	feat:number_codes	err number_codes
+number_codes#332	chunk:02	feat:number_codes	err err_arg number_codes
+number_codes#333	chunk:02	feat:number_codes	err err_arg number_codes
+number_codes#334	core	core	anon_var char_lit err err_arg list number_codes quoted_atom
+once#335	core	core	cut once
+once#336	core	core	cut disj once unify
+once#337	core	core	once repeat
+once#338	chunk:04	feat:once	fail once
+once#339	core	core	err err_arg once
+once#340	chunk:04	feat:once	err once
+or#341	chunk:02	feat:true	anon_var fail quoted_atom true
+or#342	core	core	anon_var cut fail quoted_atom true
+or#343	chunk:03	feat:cut	anon_var call cut quoted_atom
+or#344	chunk:03	feat:cut	anon_var cut quoted_atom unify
+or#345	chunk:04	feat:unify	anon_var quoted_atom unify
+repeat#346	core	core	cut fail repeat
+retract#347	core	core	err err_arg retract
+retract#348	core	core	anon_var atom eq err err_arg quoted_atom retract
+set_prolog_flag#349	chunk:03	feat:flag_unknown	current_prolog_flag fail flag_unknown set_prolog_flag
+set_prolog_flag#350	chunk:03	feat:set_prolog_flag	err set_prolog_flag
+set_prolog_flag#351	chunk:03	feat:set_prolog_flag	err err_arg set_prolog_flag
+set_prolog_flag#352	chunk:03	feat:set_prolog_flag	anon_var err err_arg quoted_atom set_prolog_flag
+set_prolog_flag#353	core	core	err err_arg flag_debug set_prolog_flag
+set_prolog_flag#354	chunk:04	feat:flag_max_arity	err err_arg flag_max_arity set_prolog_flag
+set_prolog_flag#355	core	core	flag_double_quotes set_prolog_flag
+set_prolog_flag#356	core	core	anon_var dq_string unify
+set_prolog_flag#357	core	core	flag_double_quotes set_prolog_flag
+set_prolog_flag#358	core	core	anon_var dq_string unify
+set_prolog_flag#359	core	core	flag_double_quotes set_prolog_flag
+set_prolog_flag#360	core	core	anon_var dq_string unify
+setof#361	chunk:02	feat:setof	disj setof unify
+setof#362	chunk:02	feat:setof	disj setof unify
+setof#363	chunk:02	feat:setof	disj setof unify
+setof#364	chunk:02	feat:setof	disj setof unify
+setof#365	chunk:02	feat:setof	fail setof
+setof#366	chunk:02	feat:setof	disj setof unify
+setof#367	chunk:02	feat:setof	disj setof unify
+setof#368	chunk:03	feat:intpower	disj intpower setof unify
+setof#369	chunk:03	feat:intpower	disj intpower setof unify
+setof#370	core	core	disj flag_unknown intpower set_prolog_flag setof unify
+setof#371	core	core	disj flag_unknown intpower set_prolog_flag setof unify
+setof#372	chunk:02	feat:setof	disj setof unify
+setof#373	core	core	disj err err_arg intpower setof true
+setof#374	chunk:02	feat:setof	err err_arg setof
+sub_atom#375	chunk:02	feat:sub_atom	anon_var sub_atom
+sub_atom#376	chunk:02	feat:sub_atom	anon_var sub_atom
+sub_atom#377	chunk:02	feat:sub_atom	sub_atom
+sub_atom#378	chunk:02	feat:sub_atom	sub_atom
+sub_atom#379	chunk:02	feat:sub_atom	anon_var quoted_atom sub_atom
+sub_atom#380	chunk:02	feat:sub_atom	anon_var quoted_atom sub_atom
+sub_atom#381	chunk:02	feat:sub_atom	anon_var quoted_atom sub_atom
+sub_atom#382	chunk:02	feat:sub_atom	anon_var err sub_atom
+sub_atom#383	chunk:02	feat:sub_atom	anon_var err err_arg sub_atom
+sub_atom#384	core	core	anon_var err err_arg quoted_atom sub_atom
+sub_atom#385	core	core	anon_var err err_arg quoted_atom sub_atom
+sub_atom#386	core	core	anon_var err err_arg quoted_atom sub_atom
+sub_atom#387	chunk:02	feat:sub_atom	anon_var err err_arg quoted_atom sub_atom
+t#388	chunk:02	feat:bagof	bagof err list
+term_diff#389	chunk:01	feat:esc_seq	anon_var esc_seq quoted_atom
+term_diff#390	chunk:01	feat:esc_seq	anon_var esc_seq quoted_atom
+term_diff#391	chunk:01	feat:esc_seq	anon_var esc_seq quoted_atom
+term_diff#392	chunk:01	feat:esc_seq	anon_var esc_seq quoted_atom
+term_diff#393	chunk:01	feat:esc_seq	anon_var esc_seq quoted_atom
+term_diff#394	chunk:01	feat:esc_seq	anon_var esc_seq quoted_atom
+term_diff#395	chunk:01	feat:esc_seq	anon_var esc_seq quoted_atom
+term_diff#396	chunk:01	feat:esc_seq	anon_var esc_seq quoted_atom
+term_eq#397	chunk:01	feat:quoted_atom	anon_var quoted_atom
+term_eq#398	chunk:01	feat:quoted_atom	anon_var quoted_atom
+term_eq#399	chunk:01	feat:quoted_atom	anon_var quoted_atom
+term_eq#400	chunk:01	feat:quoted_atom	anon_var quoted_atom
+term_eq#401	chunk:01	feat:quoted_atom	anon_var quoted_atom
+term_eq#402	chunk:01	feat:quoted_atom	anon_var quoted_atom
+term_eq#403	chunk:01	feat:quoted_atom	anon_var quoted_atom
+term_eq#404	chunk:01	feat:quoted_atom	anon_var quoted_atom
+term_gt#405	chunk:02	feat:float_lit	anon_var float_lit quoted_atom
+term_gt#406	chunk:01	feat:quoted_atom	anon_var quoted_atom
+term_gt#407	chunk:01	feat:quoted_atom	anon_var quoted_atom
+term_gt#408	chunk:01	feat:quoted_atom	anon_var quoted_atom
+term_gt#409	chunk:01	feat:quoted_atom	anon_var quoted_atom
+term_gt#410	chunk:01	feat:quoted_atom	anon_var quoted_atom
+term_gt#411	chunk:01	feat:quoted_atom	anon_var quoted_atom
+term_gt=#412	chunk:02	feat:float_lit	anon_var float_lit quoted_atom
+term_gt=#413	chunk:01	feat:quoted_atom	anon_var quoted_atom
+term_gt=#414	chunk:01	feat:quoted_atom	anon_var quoted_atom
+term_gt=#415	chunk:01	feat:quoted_atom	anon_var quoted_atom
+term_gt=#416	chunk:01	feat:quoted_atom	anon_var quoted_atom
+term_gt=#417	chunk:01	feat:quoted_atom	anon_var quoted_atom
+term_gt=#418	chunk:01	feat:quoted_atom	anon_var quoted_atom
+term_lt#419	chunk:02	feat:float_lit	anon_var float_lit quoted_atom
+term_lt#420	chunk:01	feat:quoted_atom	anon_var quoted_atom
+term_lt#421	chunk:01	feat:quoted_atom	anon_var quoted_atom
+term_lt#422	chunk:01	feat:quoted_atom	anon_var quoted_atom
+term_lt#423	chunk:01	feat:quoted_atom	anon_var quoted_atom
+term_lt#424	chunk:01	feat:quoted_atom	anon_var quoted_atom
+term_lt#425	chunk:01	feat:quoted_atom	anon_var quoted_atom
+term_lt=#426	chunk:02	feat:float_lit	anon_var float_lit quoted_atom
+term_lt=#427	chunk:01	feat:quoted_atom	anon_var quoted_atom
+term_lt=#428	chunk:01	feat:quoted_atom	anon_var quoted_atom
+term_lt=#429	chunk:01	feat:quoted_atom	anon_var quoted_atom
+term_lt=#430	chunk:01	feat:quoted_atom	anon_var quoted_atom
+term_lt=#431	chunk:01	feat:quoted_atom	anon_var quoted_atom
+term_lt=#432	chunk:01	feat:quoted_atom	anon_var quoted_atom
+true#433	chunk:02	feat:true	true
+unify#434	chunk:01	feat:quoted_atom	anon_var quoted_atom
+unify#435	chunk:01	feat:quoted_atom	anon_var quoted_atom
+unify#436	chunk:01	feat:quoted_atom	anon_var quoted_atom
+unify#437	chunk:01	feat:quoted_atom	anon_var quoted_atom
+unify#438	chunk:01	feat:quoted_atom	anon_var quoted_atom
+unify#439	chunk:01	feat:quoted_atom	anon_var quoted_atom
+unify#440	chunk:02	feat:float_lit	anon_var float_lit quoted_atom
+unify#441	chunk:01	feat:quoted_atom	anon_var quoted_atom
+unify#442	chunk:01	feat:quoted_atom	anon_var quoted_atom
+unify#443	chunk:01	feat:quoted_atom	anon_var quoted_atom
+unify#444	chunk:01	feat:quoted_atom	anon_var quoted_atom

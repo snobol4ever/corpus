@@ -1,0 +1,149 @@
+# PARTITION.tsv -- built by scripts/util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
+# shape: entries=145 features=29 ubiquitous=1(package) distinctive=28 core=35 clusters=59 chunks=2 sizes=100,10
+entry	part	cluster	shells
+agt_driver	chunk:01	feat:goto_success	DEFINE goto_success
+ai_driver	chunk:01	feat:ARRAY	ARRAY
+aopa_driver	chunk:01	feat:ARRAY	ARRAY
+arc_driver	chunk:01	feat:DEFINE	DEFINE
+asm360_driver	chunk:01	feat:goto_fail	DEFINE goto_fail
+asm_driver	core	core	TABLE
+balrev_driver	chunk:01	family:balrev_driver	
+balx_driver	core	core	BREAK DATATYPE DEFINE POS RPOS cond_assign goto_fail
+base10_driver	chunk:01	family:base_driver	
+baseb_driver	chunk:01	family:baseb_driver	
+bcd_ebcd_driver	core	core	REPLACE
+blanks_driver	chunk:01	family:blanks_driver	
+blend_driver	chunk:01	family:blend_driver	
+bnorm_driver	core	core	DEFINE REPLACE
+breakx_driver	chunk:02	feat:cond_assign	DEFINE cond_assign goto_fail
+brkrem_driver	core	core	BREAK LEN REM cond_assign goto_fail
+bsort_driver	core	core	ARRAY DEFINE TRIM goto_fail
+cardpak_driver	chunk:01	feat:goto_success	goto_success
+cata_driver	core	core	ARRAY DEFINE goto_success
+ch_driver	chunk:01	family:ch_driver	
+comb_driver	chunk:01	family:comb_driver	
+copyl_driver	core	core	DEFINE TRIM goto_fail goto_success
+count_driver	chunk:01	feat:DEFINE	DEFINE
+crack_driver	chunk:01	feat:goto_success	DEFINE goto_success
+day_driver	chunk:01	family:day_driver	
+decomb_driver	chunk:01	feat:DEFINE	DEFINE
+dexp_driver	chunk:01	family:dexp_driver	
+diff_driver	chunk:01	family:diff_driver	
+fastbal_driver	core	core	BREAK DEFINE POS cond_assign goto_fail
+find_driver	chunk:01	feat:ARRAY	ARRAY
+fld_driver	core	core	goto_success indirect_ref
+floor_driver	chunk:01	feat:DEFINE	DEFINE
+floorcei_driver	chunk:01	feat:DATATYPE	DATATYPE DEFINE
+fortput_driver	chunk:01	family:fortput_driver	
+fortread_driver	chunk:01	feat:goto_fail	goto_fail
+fprofile_driver	core	core	goto_fail goto_success keyword_ref
+frsort_driver	chunk:01	family:frsort_driver	
+ftrace_driver	core	core	DEFINE OPSYN
+gpm_driver	core	core	BAL
+hex_driver	core	core	REPLACE
+hsort_driver	chunk:01	feat:ARRAY	ARRAY DEFINE goto_success
+hyphenat_driver	chunk:01	feat:goto_fail	DEFINE goto_fail
+image_driver	chunk:01	feat:goto_fail	DEFINE goto_fail
+infinip_driver	chunk:01	family:infinip_driver	
+infinip_lib_driver	chunk:01	feat:goto_fail	goto_fail goto_success
+inorm_driver	chunk:01	feat:DEFINE	DEFINE
+insert_driver	chunk:01	feat:goto_success	DEFINE goto_success
+insertb_driver	chunk:01	feat:goto_success	DEFINE goto_success
+insulate_driver	core	core	DEFINE OPSYN goto_fail keyword_ref
+ip_driver	core	core	ARRAY DEFINE TRIM goto_fail
+l_one_driver	chunk:01	family:l_one_driver	
+l_two_driver	chunk:01	feat:DEFINE	DEFINE
+last_driver	chunk:02	feat:TRIM	DEFINE TRIM goto_success
+lexgt_driver	chunk:01	feat:goto_success	DEFINE goto_success
+like_driver	core	core	BREAK LEN POS RPOS cond_assign goto_fail goto_success
+line_driver	core	core	DEFINE alternation goto_fail
+lineariz_driver	core	core	BREAK LEN cond_assign goto_fail goto_success
+log_driver	chunk:01	family:log_driver	
+lpad_driver	chunk:01	family:lpad_driver	
+lperm_driver	chunk:01	feat:goto_success	goto_success
+lprog_driver	chunk:01	feat:DATATYPE	DATATYPE
+lsort_driver	core	core	BREAK DATATYPE DEFINE LEN cond_assign goto_fail goto_success
+mdy_driver	chunk:01	feat:goto_success	goto_success
+mfread_driver	core	core	ARB POS goto_success
+minp_driver	chunk:01	feat:DEFINE	DEFINE
+msort_driver	chunk:01	feat:ARRAY	ARRAY
+not_driver	core	core	LEN POS RPOS SPAN goto_fail
+once_driver	core	core	FENCE alternation goto_success
+oneway_driver	chunk:01	family:oneway_driver	
+or_driver	core	core	ANY POS RPOS goto_fail
+orbreak_driver	core	core	ANY goto_success
+order_driver	chunk:01	family:order_driver	
+orsort_driver	core	core	POS RPOS alternation goto_fail
+orvisual_driver	core	core	ANY EVAL POS RPOS goto_fail
+pad_driver	chunk:01	family:pad_driver	
+paragrap_driver	chunk:02	feat:POS	POS goto_fail
+peel_driver	core	core	BAL goto_fail
+perm_driver	chunk:01	feat:ARRAY	ARRAY goto_success
+perms_driver	chunk:01	feat:goto_success	goto_success
+permutat_driver	chunk:01	feat:goto_success	goto_success
+phrase_driver	chunk:01	family:phrase_driver	
+physical_driver	chunk:01	feat:DEFINE	DEFINE
+pli_stmt_driver	chunk:01	feat:goto_fail	DEFINE goto_fail
+poker_driver	chunk:01	family:poker_driver	
+pokev_driver	chunk:01	feat:DEFINE	DEFINE
+pol_driver	chunk:01	feat:goto_fail	goto_fail
+push_driver	chunk:01	feat:goto_success	goto_success
+put_driver	chunk:01	family:put_driver	
+quest_driver	chunk:01	feat:alternation	alternation goto_fail
+quote_driver	chunk:01	family:quote_driver	
+raise_driver	chunk:01	family:raise_driver	
+ramm_driver	chunk:01	family:ramm_driver	
+random_driver	chunk:01	feat:DATATYPE	DATATYPE goto_success
+rchar_driver	chunk:01	feat:goto_fail	goto_fail
+read_driver	core	core	ARB POS goto_success
+readl_driver	chunk:01	feat:DATATYPE	DATATYPE DEFINE POS goto_success
+readrl_driver	chunk:01	feat:DATATYPE	DATATYPE DEFINE POS goto_success
+redefine_driver	chunk:01	feat:DEFINE	DEFINE
+reorder_driver	chunk:01	feat:goto_success	goto_success
+repl_driver	chunk:01	family:repl_driver	
+resoluti_driver	chunk:01	feat:DATATYPE	DATATYPE
+reverse_driver	chunk:01	family:reverse_driver	
+revl_driver	chunk:01	feat:DATATYPE	DATATYPE DEFINE goto_success
+roman_driver	chunk:01	family:roman_driver	
+rotater_driver	chunk:01	family:rotater_driver	
+rpad_driver	chunk:01	family:rpad_driver	
+rpermute_driver	core	core	SIZE
+rpoem_driver	chunk:01	family:rpoem_driver	
+rseason_driver	chunk:01	family:rseason_driver	
+rseason_lib_driver	chunk:01	family:rseason_lib_driver	
+rselect_driver	chunk:01	feat:alternation	alternation
+rsentenc_driver	chunk:01	feat:alternation	alternation
+rstory_driver	chunk:01	family:rstory_driver	
+rword_driver	chunk:01	family:rword_driver	
+seq_driver	chunk:01	feat:ARRAY	ARRAY goto_fail
+skim_driver	chunk:01	family:skim_driver	
+snoput_driver	chunk:01	feat:goto_success	goto_success
+snoread_driver	chunk:01	feat:goto_fail	goto_fail
+spacing_driver	chunk:01	family:spacing_driver	
+spell_driver	chunk:01	family:spell_driver	
+sqrt_driver	chunk:01	family:sqrt_driver	
+ssort_driver	chunk:01	family:ssort_driver	
+stack_driver	chunk:01	family:stack_driver	
+statef_driver	chunk:01	family:statef_driver	
+stone_driver	chunk:02	family:stone_driver	
+stringou_driver	chunk:01	feat:alternation	ARRAY alternation
+substr_driver	chunk:01	feat:goto_success	goto_success
+swap_driver	chunk:02	family:swap_driver	
+system_driver	chunk:02	family:system_driver	
+temp_driver	core	core	indirect_ref
+test_driver	core	core	DATATYPE LEN POS SPAN capture_plus_defer cond_assign deferred_eval goto_fail
+tictacto_driver	chunk:01	feat:goto_fail	goto_fail
+timegc_driver	chunk:01	feat:DATATYPE	DATATYPE DEFINE
+timer_driver	core	core	CODE DATATYPE goto_success
+tprofile_driver	chunk:01	feat:goto_success	goto_success
+tr_driver	chunk:02	family:tr_driver	
+tree_driver	chunk:02	feat:BREAK	BREAK POS RPOS cond_assign goto_fail
+treeread_driver	chunk:01	feat:goto_success	goto_success
+trig_driver	chunk:02	family:trig_driver	
+trunc_driver	chunk:01	feat:ARRAY	ARRAY
+tsort_driver	core	core	ARRAY TABLE
+tuple_driver	chunk:01	feat:DEFINE	DEFINE
+uplo_driver	chunk:02	family:uplo_driver	
+visit_driver	core	core	DATATYPE DEFINE OPSYN
+dextern_driver	chunk:01	family:dextern_driver	

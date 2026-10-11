@@ -1,0 +1,272 @@
+# PARTITION.tsv -- built by scripts/util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
+# shape: entries=268 features=26 ubiquitous=5(package findall nl unify directive) distinctive=21 core=18 clusters=73 chunks=3 sizes=100,100,50
+entry	part	cluster	shells
+hakank_sicstus_clique	core	core	cut format if_then_else list_cons write
+hakank_sicstus_diet1	chunk:02	feat:write	write
+hakank_sicstus_general_store	chunk:02	feat:write	write
+hakank_sicstus_langford	chunk:02	feat:write	findall_with_var_goal write
+hakank_sicstus_rabbits	chunk:02	feat:write	write
+hakank_sicstus_set_covering2	chunk:02	feat:cut	cut format if_then_else list_cons write
+hakank_sicstus_set_covering3	chunk:02	feat:cut	cut format if_then_else list_cons write
+hakank_sicstus_set_covering4	chunk:02	feat:cut	cut format if_then_else list_cons write
+hakank_sicstus_set_covering_deployment	chunk:02	feat:cut	cut format if_then_else list_cons write
+hakank_sicstus_set_covering_skiena	chunk:02	feat:cut	cut format if_then_else list_cons write
+hakank_sicstus_sudoku	chunk:02	feat:write	format if_then_else list_cons write
+hakank_sicstus_tsp	chunk:02	feat:cut	cut format list_cons write
+hakank_swi_1d_rubiks_cube	core	core	assertz between findall_with_var_goal if_then_else
+hakank_swi_3_jugs	chunk:01	feat:list_cons	between format list_cons
+hakank_swi_3_jugs_regular	chunk:01	feat:findall_with_var_goal	findall_with_var_goal format list_cons
+hakank_swi_K4P2GracefulGraph2	chunk:01	feat:format	format
+hakank_swi_a_puzzle	core	core	call findall_with_var_goal format list_cons
+hakank_swi_a_round_of_golf	chunk:01	feat:format	format
+hakank_swi_abbots_puzzle	chunk:02	family:hakank_swi_abbots_puzzle	
+hakank_swi_ackermann	chunk:01	feat:between	between
+hakank_swi_added_corner	chunk:01	feat:format	format
+hakank_swi_all_differ_from_at_least_k_pos	chunk:02	family:hakank_swi_all_differ_from_at_least_k_pos	
+hakank_swi_all_equal	chunk:02	family:hakank_swi_all_equal	
+hakank_swi_all_min_dist	chunk:02	family:hakank_swi_all_min_dist	
+hakank_swi_alldiffer_on_intersection	chunk:02	family:hakank_swi_alldiffer_on_intersection	
+hakank_swi_alldifferent_cst	chunk:02	feat:write	findall_with_var_goal write
+hakank_swi_alldifferent_except_0	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal
+hakank_swi_alldifferent_modulo	chunk:01	feat:findall_with_var_goal	findall_with_var_goal
+hakank_swi_allpartitions	chunk:02	feat:if_then_else	if_then_else
+hakank_swi_alphametic	chunk:01	feat:list_cons	list_cons
+hakank_swi_alphametic3	chunk:01	feat:list_cons	list_cons
+hakank_swi_among	chunk:02	family:hakank_swi_among	
+hakank_swi_among_seq	chunk:02	family:hakank_swi_among_seq	
+hakank_swi_arch_friends	chunk:03	family:hakank_swi_arch_friends	
+hakank_swi_assignment	core	core	between format if_then_else list_cons var
+hakank_swi_averbach_1_2	chunk:03	family:hakank_swi_averbach	
+hakank_swi_averbach_1_3	chunk:02	feat:write	write
+hakank_swi_babysitting	chunk:01	feat:format	between format
+hakank_swi_bales_of_hay	chunk:03	family:hakank_swi_bales_of_hay	
+hakank_swi_bin_packing2	chunk:01	feat:list_cons	list_cons
+hakank_swi_breaking_news	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal format
+hakank_swi_broken_weights	chunk:02	feat:cut	between cut format if_then_else
+hakank_swi_bus_schedule	chunk:01	feat:list_cons	list_cons
+hakank_swi_calculs_d_enfer	chunk:03	family:hakank_swi_calculs_d_enfer	
+hakank_swi_changes	chunk:02	feat:write	between write
+hakank_swi_circling_squares	chunk:01	feat:format	format
+hakank_swi_circuit	chunk:02	feat:if_then_else	between format if_then_else
+hakank_swi_clock_triplets	core	core	format list_cons number
+hakank_swi_coins3	chunk:03	family:hakank_swi_coins	
+hakank_swi_coins_grid	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal list_cons
+hakank_swi_combinatorial_auction	chunk:01	feat:between	between
+hakank_swi_contracting_costs	chunk:03	family:hakank_swi_contracting_costs	
+hakank_swi_costas_array	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal if_then_else
+hakank_swi_countdown	chunk:02	feat:forall	between forall format list_cons write
+hakank_swi_covering_opl	chunk:01	feat:between	between
+hakank_swi_crossbar	chunk:03	family:hakank_swi_crossbar	
+hakank_swi_crossword2	chunk:01	feat:format	format
+hakank_swi_crypta	chunk:03	family:hakank_swi_crypta	
+hakank_swi_crypto	chunk:01	feat:format	format
+hakank_swi_cur_num	chunk:03	family:hakank_swi_cur_num	
+hakank_swi_de_bruijn	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal if_then_else
+hakank_swi_devils_word	chunk:01	feat:findall_with_var_goal	findall_with_var_goal format
+hakank_swi_diet	chunk:02	feat:var	format if_then_else list_cons var
+hakank_swi_dinner	chunk:03	family:hakank_swi_dinner	
+hakank_swi_discrete_tomography	chunk:01	feat:list_cons	between format list_cons
+hakank_swi_distribute	chunk:03	family:hakank_swi_distribute	
+hakank_swi_divisible_by_9_through_1	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal if_then_else list_cons
+hakank_swi_donald_gerald	chunk:03	family:hakank_swi_donald_gerald	
+hakank_swi_dudeney_numbers	chunk:03	family:hakank_swi_dudeney_numbers	
+hakank_swi_eq10	chunk:02	family:hakank_swi_eq	
+hakank_swi_eq20	chunk:02	family:hakank_swi_eq	
+hakank_swi_euler1	core	core	between setof
+hakank_swi_euler10	chunk:02	feat:if_then_else	between if_then_else
+hakank_swi_euler11	chunk:01	feat:between	between
+hakank_swi_euler12	chunk:02	family:hakank_swi_euler	
+hakank_swi_euler13	chunk:02	family:hakank_swi_euler	
+hakank_swi_euler14	chunk:02	feat:cut	between cut if_then_else list_cons
+hakank_swi_euler15	chunk:02	family:hakank_swi_euler	
+hakank_swi_euler16	chunk:02	family:hakank_swi_euler	
+hakank_swi_euler17	chunk:02	feat:cut	between cut if_then_else
+hakank_swi_euler18	chunk:02	feat:if_then_else	between if_then_else
+hakank_swi_euler19	chunk:01	feat:list_cons	between if_then_else list_cons
+hakank_swi_euler2	chunk:01	feat:list_cons	if_then_else list_cons
+hakank_swi_euler20	chunk:02	family:hakank_swi_euler	
+hakank_swi_euler21	chunk:02	feat:cut	between cut
+hakank_swi_euler22	chunk:01	feat:between	between
+hakank_swi_euler23	chunk:02	feat:cut	cut if_then_else
+hakank_swi_euler24	chunk:01	feat:list_cons	list_cons
+hakank_swi_euler25	chunk:01	feat:list_cons	if_then_else list_cons
+hakank_swi_euler26	chunk:02	feat:nonvar	if_then_else nonvar var
+hakank_swi_euler27	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal
+hakank_swi_euler28	chunk:01	feat:between	between
+hakank_swi_euler29	chunk:01	feat:between	between
+hakank_swi_euler3	chunk:02	family:hakank_swi_euler	
+hakank_swi_euler30	chunk:02	feat:if_then_else	between if_then_else
+hakank_swi_euler31	chunk:02	family:hakank_swi_euler	
+hakank_swi_euler32	chunk:02	family:hakank_swi_euler	
+hakank_swi_euler33	chunk:02	feat:if_then_else	if_then_else
+hakank_swi_euler34	chunk:01	feat:between	between
+hakank_swi_euler35	chunk:01	feat:between	between
+hakank_swi_euler36	chunk:01	feat:list_cons	between list_cons
+hakank_swi_euler37	chunk:01	feat:list_cons	if_then_else list_cons
+hakank_swi_euler38	chunk:02	feat:negation	between negation
+hakank_swi_euler39	chunk:01	feat:between	between
+hakank_swi_euler4	chunk:02	feat:if_then_else	between if_then_else
+hakank_swi_euler40	chunk:01	feat:between	between
+hakank_swi_euler41	chunk:01	feat:between	between
+hakank_swi_euler42	chunk:02	family:hakank_swi_euler	
+hakank_swi_euler43	chunk:02	family:hakank_swi_euler	
+hakank_swi_euler44	chunk:02	family:hakank_swi_euler	
+hakank_swi_euler45	chunk:02	family:hakank_swi_euler	
+hakank_swi_euler46	chunk:02	feat:negation	between negation
+hakank_swi_euler47	chunk:01	feat:list_cons	between if_then_else list_cons
+hakank_swi_euler48	chunk:01	feat:between	between
+hakank_swi_euler49	chunk:02	family:hakank_swi_euler	
+hakank_swi_euler5	chunk:02	family:hakank_swi_euler	
+hakank_swi_euler50	chunk:01	feat:list_cons	between if_then_else list_cons
+hakank_swi_euler6	chunk:02	family:hakank_swi_euler	
+hakank_swi_euler7	chunk:02	family:hakank_swi_euler	
+hakank_swi_euler8	chunk:01	feat:between	between
+hakank_swi_euler9	chunk:01	feat:between	between
+hakank_swi_exactly	chunk:03	family:hakank_swi_exactly	
+hakank_swi_exodus	chunk:01	feat:format	between format
+hakank_swi_extract_from_indices	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal
+hakank_swi_fancy	chunk:03	family:hakank_swi_fancy	
+hakank_swi_farmer	chunk:02	feat:negation	negation
+hakank_swi_farmer2	chunk:02	feat:negation	list_cons negation
+hakank_swi_fib	chunk:02	feat:cut	between cut
+hakank_swi_fill_a_pix	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal format list_cons
+hakank_swi_fill_in_the_squares	chunk:03	family:hakank_swi_fill_in_the_squares	
+hakank_swi_finding_celebrities	chunk:01	feat:list_cons	between if_then_else list_cons
+hakank_swi_five_brigands	chunk:03	family:hakank_swi_five_brigands	
+hakank_swi_four_islands	chunk:03	family:hakank_swi_four_islands	
+hakank_swi_fractions	chunk:03	family:hakank_swi_fractions	
+hakank_swi_friends_at_different_floors	chunk:01	feat:format	format
+hakank_swi_furniture_moving	chunk:01	feat:findall_with_var_goal	findall_with_var_goal
+hakank_swi_futoshiki	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal format
+hakank_swi_general_store	chunk:02	feat:write	write
+hakank_swi_global_contiguity	chunk:03	family:hakank_swi_global_contiguity	
+hakank_swi_global_contiguity_regular	chunk:03	family:hakank_swi_global_contiguity_regular	
+hakank_swi_golomb_ruler	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal list_cons
+hakank_swi_grocery	chunk:03	family:hakank_swi_grocery	
+hakank_swi_hamming_distance	chunk:01	feat:list_cons	list_cons
+hakank_swi_handshaking	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal format if_then_else list_cons
+hakank_swi_hanging_weights	chunk:03	family:hakank_swi_hanging_weights	
+hakank_swi_heterosquare	chunk:03	family:hakank_swi_heterosquare	
+hakank_swi_hidato	core	core	between catch findall_with_var_goal format number
+hakank_swi_huey_dewey_louie	chunk:03	family:hakank_swi_huey_dewey_louie	
+hakank_swi_inverse	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal
+hakank_swi_isbn	chunk:02	feat:if_then_else	if_then_else
+hakank_swi_jobs_puzzle	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal format
+hakank_swi_just_forgotten	chunk:01	feat:list_cons	list_cons
+hakank_swi_kakuro	chunk:01	feat:list_cons	format list_cons
+hakank_swi_kenken2	chunk:02	feat:if_then_else	if_then_else
+hakank_swi_killer_sudoku	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal list_cons
+hakank_swi_knapsack	chunk:03	family:hakank_swi_knapsack	
+hakank_swi_knapsack_investments	chunk:02	feat:write	between write
+hakank_swi_knapsack_rosetta_code_01	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal format
+hakank_swi_knapsack_rosetta_code_bounded	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal format
+hakank_swi_knapsack_rosetta_code_unbounded	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal
+hakank_swi_knight_tour_circuit	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal format if_then_else
+hakank_swi_labeled_dice	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal format
+hakank_swi_langford	chunk:02	feat:nonvar	between format if_then_else negation nonvar
+hakank_swi_latin_squares_diagonals	chunk:03	family:hakank_swi_latin_squares_diagonals	
+hakank_swi_least_diff	chunk:01	feat:between	between
+hakank_swi_lecture_series	chunk:02	feat:format	between format
+hakank_swi_lectures	chunk:03	family:hakank_swi_lectures	
+hakank_swi_light_meal	chunk:02	feat:if_then_else	if_then_else
+hakank_swi_magic_hexagon	chunk:03	family:hakank_swi_magic_hexagon	
+hakank_swi_magic_sequence	chunk:01	feat:list_cons	between format if_then_else list_cons
+hakank_swi_magic_square	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal format
+hakank_swi_magic_square_and_cards	chunk:01	feat:between	between
+hakank_swi_mamas_age	chunk:03	family:hakank_swi_mamas_age	
+hakank_swi_mankell	core	core	dcg
+hakank_swi_map_coloring	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal format
+hakank_swi_marathon2	chunk:02	feat:format	between format
+hakank_swi_max_flow_winston1	chunk:02	feat:if_then_else	if_then_else
+hakank_swi_minesweeper	chunk:02	feat:var	between findall_with_var_goal if_then_else var
+hakank_swi_monks_and_doors	chunk:01	feat:between	between
+hakank_swi_mortgage	chunk:03	family:hakank_swi_mortgage	
+hakank_swi_mr_smith	chunk:02	feat:format	between format
+hakank_swi_music_men	chunk:02	feat:format	format
+hakank_swi_nadel	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal format
+hakank_swi_number_lock2	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal if_then_else
+hakank_swi_number_of_days	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal
+hakank_swi_nvalue	chunk:03	family:hakank_swi_nvalue	
+hakank_swi_nvalues	chunk:03	family:hakank_swi_nvalues	
+hakank_swi_olympic	chunk:02	feat:format	format
+hakank_swi_organize_day	chunk:02	feat:forall	between findall_with_var_goal forall format
+hakank_swi_p_median	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal format
+hakank_swi_pair_divides_the_sum	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal if_then_else
+hakank_swi_pandigital_numbers	chunk:01	feat:findall_with_var_goal	findall_with_var_goal format
+hakank_swi_pert	chunk:03	family:hakank_swi_pert	
+hakank_swi_photo_problem	chunk:02	feat:var	between format if_then_else var
+hakank_swi_pigeon_hole	chunk:02	feat:format	format
+hakank_swi_place_number_puzzle	chunk:03	family:hakank_swi_place_number_puzzle	
+hakank_swi_pythagoras	chunk:03	family:hakank_swi_pythagoras	
+hakank_swi_quasigroup_completion	chunk:01	feat:list_cons	between list_cons
+hakank_swi_queens	core	core	between call findall_with_var_goal format list_cons
+hakank_swi_rabbits	chunk:03	family:hakank_swi_rabbits	
+hakank_swi_regular	chunk:02	feat:if_then_else	between if_then_else
+hakank_swi_remainders	chunk:03	family:hakank_swi_remainders	
+hakank_swi_remarkable_sequence	chunk:01	feat:between	between
+hakank_swi_safe_cracking	chunk:03	family:hakank_swi_safe_cracking	
+hakank_swi_schedule1	chunk:02	family:hakank_swi_schedule	
+hakank_swi_schedule2	chunk:02	family:hakank_swi_schedule	
+hakank_swi_scheduling_speakers	chunk:03	family:hakank_swi_scheduling_speakers	
+hakank_swi_schoolgirls	core	core	op
+hakank_swi_scrabble_contest	chunk:01	feat:list_cons	format list_cons
+hakank_swi_secret_santa	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal format
+hakank_swi_secret_santa2	chunk:03	family:hakank_swi_secret_santa	
+hakank_swi_send_more_money	chunk:01	feat:list_cons	between list_cons
+hakank_swi_send_more_money_any_base	chunk:03	family:hakank_swi_send_more_money_any_base	
+hakank_swi_send_most_money	chunk:03	family:hakank_swi_send_most_money	
+hakank_swi_sequence_problem	chunk:01	feat:list_cons	list_cons
+hakank_swi_seseman	chunk:02	feat:format	format
+hakank_swi_set_covering	chunk:01	feat:between	between
+hakank_swi_set_covering2	chunk:02	feat:if_then_else	format if_then_else
+hakank_swi_set_covering3	chunk:02	feat:if_then_else	between format if_then_else
+hakank_swi_set_covering4	chunk:02	feat:if_then_else	between format if_then_else
+hakank_swi_set_covering_deployment	chunk:01	feat:list_cons	between format if_then_else list_cons
+hakank_swi_set_covering_skiena	chunk:02	feat:if_then_else	format if_then_else
+hakank_swi_sicherman_dice	chunk:02	feat:format	format
+hakank_swi_ski_assignment	chunk:01	feat:list_cons	list_cons
+hakank_swi_sliding_sum	chunk:03	family:hakank_swi_sliding_sum	
+hakank_swi_smugglers_knapsack	chunk:02	feat:write	between write
+hakank_swi_sonet	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal if_then_else
+hakank_swi_spreadsheet	chunk:03	family:hakank_swi_spreadsheet	
+hakank_swi_square_root_of_wonderful	chunk:03	family:hakank_swi_square_root_of_wonderful	
+hakank_swi_stable_marriage	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal format
+hakank_swi_steiner	core	core	between format if_then_else list_cons negation nonvar
+hakank_swi_strimko2	chunk:02	feat:format	between format
+hakank_swi_stuckey_seesaw	chunk:02	feat:write	write
+hakank_swi_subset_sum	chunk:02	feat:format	between format
+hakank_swi_subset_sum2	chunk:02	feat:format	between format
+hakank_swi_sudoku	core	core	between catch findall_with_var_goal format if_then_else list_cons nonvar write
+hakank_swi_survo_puzzle	chunk:01	feat:list_cons	between list_cons
+hakank_swi_telephone_number	chunk:01	feat:list_cons	between list_cons
+hakank_swi_the_family_puzzle	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal
+hakank_swi_timpkin	chunk:03	family:hakank_swi_timpkin	
+hakank_swi_to_num	chunk:01	feat:findall_with_var_goal	findall_with_var_goal list_cons
+hakank_swi_torn_numbers	chunk:01	feat:findall_with_var_goal	findall_with_var_goal
+hakank_swi_tourist_site_competition	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal format if_then_else list_cons
+hakank_swi_traffic_lights	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal
+hakank_swi_tsp	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal format if_then_else
+hakank_swi_tunapalooza	chunk:03	family:hakank_swi_tunapalooza	
+hakank_swi_twin_letters	chunk:01	feat:between	between
+hakank_swi_volsay1	chunk:02	family:hakank_swi_volsay	
+hakank_swi_volsay2	chunk:02	family:hakank_swi_volsay	
+hakank_swi_volsay3	chunk:02	family:hakank_swi_volsay	
+hakank_swi_war_or_peace	chunk:02	feat:var	between if_then_else list_cons var
+hakank_swi_warehouse	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal format list_cons
+hakank_swi_water	chunk:02	feat:if_then_else	if_then_else
+hakank_swi_who_killed_agatha	chunk:01	feat:findall_with_var_goal	findall_with_var_goal list_cons
+hakank_swi_who_killed_the_bosmer	chunk:02	feat:if_then_else	format if_then_else
+hakank_swi_wordle	chunk:02	feat:negation	if_then_else list_cons negation
+hakank_swi_wordle_dcg	core	core	dcg if_then_else list_cons negation
+hakank_swi_xkcd	chunk:03	family:hakank_swi_xkcd	
+hakank_swi_young_tableaux	chunk:02	feat:write	between format if_then_else list_cons write
+hakank_swi_zebra	chunk:02	feat:format	format
+p1_lists	core	core	call catch copy_term findall_with_var_goal forall if_then_else list_cons negation
+p2_arithmetic	chunk:02	feat:copy_term	between catch copy_term cut findall_with_var_goal forall if_then_else list_cons negation
+p3_logic_and_codes	core	core	catch copy_term cut findall_with_var_goal forall if_then_else list_cons negation op write
+p4_binary_trees	core	core	between catch copy_term cut findall_with_var_goal forall if_then_else list_cons negation nonvar setof
+p5_multiway_trees	chunk:02	feat:copy_term	catch copy_term findall_with_var_goal forall if_then_else list_cons negation nonvar
+p6_graphs	core	core	assertz between catch copy_term cut findall_with_var_goal forall functor if_then_else list_cons negation nonvar var
+p7_miscellaneous	core	core	between catch copy_term cut findall_with_var_goal forall if_then_else list_cons negation nonvar univ var write
+hakank_swi_shifted_division	chunk:03	family:hakank_swi_shifted_division	

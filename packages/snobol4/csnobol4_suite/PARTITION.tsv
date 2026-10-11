@@ -1,0 +1,89 @@
+# PARTITION.tsv -- built by scripts/util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
+# shape: entries=85 features=37 ubiquitous=1(package) distinctive=36 core=21 clusters=34 chunks=1 sizes=64
+entry	part	cluster	shells
+100func	chunk:01	feat:DEFINE	DEFINE
+8bit	core	core	BREAK DEFINE LEN POS TAB cond_assign keyword_ref
+a	chunk:01	feat:keyword_ref	keyword_ref
+alis	core	core	DEFINE DUPL OPSYN REM RTAB SIZE cond_assign goto_fail goto_success keyword_ref want_rc
+alph	chunk:01	feat:SIZE	SIZE keyword_ref
+alt1	core	core	BREAK POS RPOS SPAN TRIM alternation deferred_eval goto_fail imm_assign keyword_ref
+alt2	chunk:01	feat:SPAN	SPAN alternation goto_fail imm_assign
+any	core	core	ANY NOTANY imm_assign keyword_ref
+bal	core	core	BAL DEFINE capture_plus_defer cond_assign deferred_eval goto_fail keyword_ref
+breakx	core	core	ARBNO BREAK LEN imm_assign keyword_ref
+case1	chunk:01	feat:DEFINE	DEFINE keyword_ref
+case2	chunk:01	feat:DEFINE	DEFINE
+cat	chunk:01	family:cat	
+char	chunk:01	family:char	
+collect2	chunk:01	family:collect	
+comment	core	core	DEFINE POS RPOS SPAN alternation goto_fail indirect_ref
+contin	chunk:01	feat:keyword_ref	keyword_ref
+convert	core	core	ARRAY CONVERT DATATYPE TABLE goto_fail
+crlf	chunk:01	feat:want_rc	want_rc
+diag2	core	core	alternation capture_plus_defer cond_assign deferred_eval imm_assign want_rc
+dump	chunk:01	feat:keyword_ref	keyword_ref
+err	chunk:01	feat:keyword_ref	keyword_ref
+fact	chunk:01	feat:goto_success	DEFINE goto_success
+factor	core	core	ARRAY SIZE TABLE deferred_eval goto_fail goto_success
+float	chunk:01	family:float	
+ftrace	chunk:01	feat:DEFINE	DEFINE keyword_ref
+fun1	chunk:01	feat:DATATYPE	DATATYPE DEFINE
+fun2	chunk:01	feat:DEFINE	DEFINE
+hello	chunk:01	family:hello	
+include	chunk:01	feat:keyword_ref	keyword_ref
+ind	core	core	indirect_ref
+intval	chunk:01	feat:DUPL	DUPL TRIM keyword_ref
+keytrace	chunk:01	feat:want_rc	DEFINE LEN goto_success keyword_ref want_rc
+lexcmp	core	core	APPLY DATATYPE DEFINE
+lgt	chunk:01	family:lgt	
+line	chunk:01	feat:keyword_ref	keyword_ref
+local	chunk:01	feat:DEFINE	DEFINE
+longline	chunk:01	feat:SIZE	SIZE
+match	chunk:01	feat:LEN	LEN cond_assign
+match2	chunk:01	feat:LEN	LEN imm_assign
+match3	chunk:01	family:match	
+match4	chunk:01	feat:goto_success	goto_success
+nqueens	core	core	ARBNO BREAK DEFINE DUPL LEN SIZE alternation arbno_with_alt cond_assign goto_fail goto_success keyword_ref
+ops	chunk:01	family:ops	
+pad	chunk:01	family:pad	
+pow	chunk:01	feat:goto_success	DEFINE goto_success
+reverse	chunk:01	feat:keyword_ref	keyword_ref
+roman	core	core	BREAK DEFINE LEN REPLACE RPOS cond_assign goto_fail goto_success
+scanerr	core	core	ANY LEN REM TAB capture_plus_defer cond_assign deferred_eval goto_success imm_assign keyword_ref want_rc
+setexit	core	core	ABORT keyword_ref want_rc
+setexit3	chunk:01	family:setexit	
+setexit5	chunk:01	feat:want_rc	keyword_ref want_rc
+setexit6	core	core	ABORT DEFINE keyword_ref want_rc
+spit	core	core	CONVERT DATATYPE DEFINE TABLE cond_assign imm_assign keyword_ref
+str	chunk:01	family:str	
+substr	chunk:01	feat:SIZE	SIZE goto_success
+sudoku	core	core	ARRAY DEFINE LEN NOTANY SIZE TRIM capture_plus_defer cond_assign deferred_eval goto_fail goto_success keyword_ref
+trace1	chunk:01	feat:keyword_ref	keyword_ref
+trace2	chunk:01	feat:keyword_ref	keyword_ref
+trfunc	chunk:01	feat:DEFINE	DEFINE keyword_ref
+uneval	chunk:01	feat:deferred_eval	deferred_eval goto_fail keyword_ref
+unsc	chunk:01	feat:SPAN	SPAN deferred_eval imm_assign
+words	core	core	BREAK SPAN TRIM goto_fail keyword_ref
+words1	chunk:01	feat:SPAN	BREAK SPAN TRIM goto_fail keyword_ref
+atn	chunk:01	family:atn	
+collect	chunk:01	family:collect	
+end	chunk:01	family:end	
+len	chunk:01	family:len	
+longrec	chunk:01	family:longrec	
+loop	chunk:01	family:loop	
+matchloop	chunk:01	family:matchloop	
+preload1	chunk:01	family:preload	
+preload2	chunk:01	family:preload	
+punch	chunk:01	family:punch	
+repl	chunk:01	family:repl	
+setexit2	chunk:01	family:setexit	
+trim0	chunk:01	family:trim	
+trim1	chunk:01	family:trim	
+uneval2	chunk:01	family:uneval	
+conv2	chunk:01	feat:CONVERT	CONVERT
+diag1	core	core	APPLY ARRAY BAL CONVERT DATATYPE DEFINE DUPL EVAL OPSYN REPLACE SIZE TABLE TRIM alternation capture_plus_defer cond_assign deferred_eval keyword_ref
+ord	chunk:01	feat:DEFINE	DEFINE keyword_ref
+space	chunk:01	feat:CONVERT	CONVERT
+space2	chunk:01	feat:CONVERT	CONVERT
+rewind1	chunk:01	family:rewind	

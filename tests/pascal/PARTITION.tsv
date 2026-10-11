@@ -1,0 +1,256 @@
+# PARTITION.tsv -- built by scripts/util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
+# shape: entries=252 features=47 ubiquitous=4(program var writeln assign) distinctive=43 core=34 clusters=33 chunks=3 sizes=100,100,18
+entry	part	cluster	shells
+ladder__rung00_hello	chunk:01	family:ladder	
+ladder__rung00_hello_multi	chunk:01	family:ladder	
+ladder__rung00_hello_paramlist	chunk:01	family:ladder	
+ladder__rung02_arithmetic_mixed_type	chunk:01	family:ladder	
+ladder__rung02_arithmetic_real_div	chunk:01	family:ladder	
+program_writeln_12	chunk:02	family:crosscheck_misc	
+program_writeln_9	chunk:02	family:crosscheck_misc	
+ladder__rung00_hello_width	chunk:01	family:ladder	
+ladder__rung00_hello_blank	chunk:01	family:ladder	
+ladder__rung05_proc_func_multi_param	chunk:01	feat:procedure	procedure
+program_writeln_11	chunk:02	family:crosscheck_misc	
+ladder__rung01_var_assign	chunk:01	family:ladder	
+ladder__rung01_var_assign_widen	chunk:01	family:ladder	
+ladder__rung02_arithmetic_unary	chunk:01	family:ladder	
+program_writeln_15	chunk:03	family:boolmix	
+program_writeln_3	chunk:03	family:boolmix	
+ladder__rung01_var_assign_multi_group	chunk:01	family:ladder	
+program_writeln_10	chunk:02	family:crosscheck_misc	
+ladder__rung01_var_assign_multi_ident	chunk:01	family:ladder	
+ladder__rung03_if_while_if_no_else	chunk:01	family:ladder	
+ladder__rung03_if_while_dangling_else	chunk:01	family:ladder	
+ladder__rung03_if_while_if_compound	chunk:01	family:ladder	
+program_writeln_1	chunk:03	family:boolassign	
+program_writeln_13	chunk:03	family:boolassign	
+program_writeln_16	chunk:03	family:boolnot	
+program_writeln_4	chunk:03	family:boolnot	
+program_writeln_14	chunk:03	family:boolchain	
+program_writeln_2	chunk:03	family:boolchain	
+program_function_writeln_3	chunk:01	feat:function	function
+program_function_writeln_4	chunk:01	feat:function	function
+ladder__rung02_arithmetic_div_neg	chunk:02	feat:div	div
+ladder__rung02_arithmetic_mod_neg	chunk:03	feat:mod	mod
+ladder__rung04_for_repeat_for_zero	chunk:02	feat:for	for
+ladder__rung04_for_repeat_repeat_once	chunk:02	feat:repeat	repeat
+program_function_writeln_1	chunk:01	feat:function	function
+program_function_writeln_5	chunk:01	feat:function	function
+program_record_writeln_4	chunk:01	feat:record	record
+ladder__rung03_if_while_while_zero	chunk:03	feat:while	while
+ladder__rung04_for_repeat_for_compound	chunk:02	feat:for	for
+program_procedure_writeln_10	chunk:01	feat:procedure	procedure
+program_procedure_writeln_4	chunk:01	feat:procedure	procedure
+program_procedure_writeln_6	chunk:01	feat:procedure	procedure
+program_repeat_writeln_1	chunk:02	feat:repeat	repeat
+ladder__rung05_proc_func_forward	core	core	forward nested_proc procedure
+program_for_writeln_1	chunk:02	feat:for	for
+program_function_writeln_2	chunk:01	feat:function	function
+program_procedure_writeln_1	chunk:01	feat:procedure	procedure
+program_procedure_writeln_2	chunk:01	feat:procedure	procedure
+program_procedure_writeln_3	chunk:01	feat:procedure	procedure
+program_procedure_writeln_7	chunk:01	feat:procedure	procedure
+program_procedure_writeln_8	chunk:01	feat:procedure	procedure
+program_procedure_writeln_9	chunk:01	feat:procedure	procedure
+program_writeln_6	chunk:02	feat:ord	ord
+program_writeln_sqrt_1	core	core	sqrt
+program_procedure_writeln_replace_1	chunk:01	feat:procedure	procedure
+program_procedure_writeln_replace_2	chunk:01	feat:procedure	procedure
+ladder__rung03_if_while	chunk:03	feat:while	while
+program_writeln_8	chunk:03	feat:const	const
+program_writeln_sqrt_2	core	core	sqrt
+program_procedure_writeln_5	chunk:01	feat:procedure	procedure
+ladder__rung04_for_repeat_for_downto	core	core	downto for
+program_for_writeln_3	chunk:03	feat:in	for in
+program_for_downto_1	core	core	downto for
+program_for_downto_3	chunk:02	feat:downto	downto for
+program_for_writeln_2	chunk:03	feat:in	for in
+program_for_writeln_replace_1	chunk:02	feat:write	for write
+program_writeln_7	chunk:02	feat:chr	chr ord
+program_for_downto_2	chunk:02	feat:downto	downto for
+program_for_downto_4	chunk:02	feat:downto	downto for
+program_procedure_nested_19	chunk:01	feat:nested_proc	nested_proc procedure
+program_procedure_nested_5	chunk:01	feat:nested_proc	nested_proc procedure
+ladder__rung02_arithmetic	chunk:02	feat:div	div mod
+ladder__rung04_for_repeat	chunk:02	feat:repeat	for repeat
+ladder__rung07_records	chunk:01	feat:record	record type
+program_for_writeln_4	core	core	for read readln
+program_procedure_nested_13	chunk:01	feat:nested_proc	nested_proc procedure
+program_set_subrange_1	chunk:02	feat:set	set subrange
+program_writeln_5	chunk:02	feat:chr	chr ord
+program_record_writeln_3	chunk:01	feat:record	record type
+program_with_for_replace_1	chunk:03	feat:with	for with
+program_case_for_1	chunk:02	feat:case	case for
+program_goto_label_1	chunk:02	feat:goto	goto label
+program_writeln_sqrt_3	core	core	sqrt trunc
+program_function_nested_1	chunk:01	feat:function	function nested_proc
+program_function_nested_2	chunk:01	feat:function	function nested_proc
+program_procedure_nested_22	chunk:01	feat:nested_proc	nested_proc procedure
+program_procedure_nested_8	chunk:01	feat:nested_proc	nested_proc procedure
+program_record_writeln_2	chunk:01	feat:record	record type
+ladder__rung05_proc_func_no_params	chunk:01	feat:function	function nested_proc procedure
+program_procedure_nested_11	chunk:01	feat:nested_proc	nested_proc procedure
+program_procedure_nested_12	chunk:01	feat:nested_proc	nested_proc procedure
+program_procedure_nested_18	chunk:01	feat:nested_proc	nested_proc procedure
+program_procedure_nested_25	chunk:01	feat:nested_proc	nested_proc procedure
+program_procedure_nested_26	chunk:01	feat:nested_proc	nested_proc procedure
+program_procedure_nested_4	chunk:01	feat:nested_proc	nested_proc procedure
+program_repeat_writeln_2	chunk:02	feat:write	repeat write
+program_procedure_nested_20	chunk:01	feat:nested_proc	nested_proc procedure
+program_procedure_nested_6	chunk:01	feat:nested_proc	nested_proc procedure
+program_procedure_nested_17	chunk:01	feat:nested_proc	nested_proc procedure
+program_procedure_nested_3	chunk:01	feat:nested_proc	nested_proc procedure
+program_record_writeln_1	chunk:01	feat:record	record type
+program_procedure_nested_23	chunk:01	feat:nested_proc	nested_proc procedure
+program_procedure_nested_9	chunk:01	feat:nested_proc	nested_proc procedure
+program_procedure_nested_10	chunk:01	feat:nested_proc	nested_proc procedure
+program_procedure_nested_24	chunk:01	feat:nested_proc	nested_proc procedure
+program_procedure_nested_21	chunk:01	feat:nested_proc	nested_proc procedure
+program_procedure_nested_7	chunk:01	feat:nested_proc	nested_proc procedure
+program_procedure_nested_16	chunk:01	feat:nested_proc	nested_proc procedure
+program_procedure_nested_2	chunk:01	feat:nested_proc	nested_proc procedure
+program_procedure_nested_1	chunk:01	feat:nested_proc	nested_proc procedure
+program_procedure_nested_15	chunk:01	feat:nested_proc	nested_proc procedure
+program_procedure_nested_14	chunk:01	feat:nested_proc	nested_proc procedure
+program_procedure_record_11	chunk:01	feat:record	procedure record type
+program_procedure_record_4	chunk:01	feat:record	procedure record type
+program_array_setlit_2	chunk:02	feat:set_literal	array set_literal subrange
+program_record_case_replace_2	chunk:02	feat:case	case record type
+program_function_record_1	chunk:01	feat:function	function record type
+program_procedure_record_7	chunk:01	feat:record	procedure record type
+program_function_record_2	chunk:01	feat:function	function record type
+program_procedure_record_10	chunk:01	feat:record	procedure record type
+program_procedure_record_3	chunk:01	feat:record	procedure record type
+program_array_setlit_1	chunk:02	feat:set_literal	array set_literal subrange
+program_array_setlit_3	chunk:02	feat:set_literal	array set_literal subrange
+program_record_case_replace_4	chunk:02	feat:case	case record type
+program_function_case_1	chunk:02	feat:div	case div function
+program_procedure_forward_1	chunk:03	feat:forward	forward nested_proc procedure
+program_procedure_forward_2	chunk:03	feat:forward	forward nested_proc procedure
+program_procedure_record_1	chunk:01	feat:record	procedure record type
+program_procedure_record_8	chunk:01	feat:record	procedure record type
+program_array_writeln_1	chunk:02	feat:ord	array ord type
+program_record_case_replace_3	chunk:02	feat:case	case record type
+program_record_case_replace_1	chunk:02	feat:case	case record type
+ladder__rung05_proc_func	chunk:01	feat:function	function nested_proc procedure
+benchmark_uplevel3	chunk:01	feat:nested_proc	for nested_proc procedure
+program_while_goto_replace_1	chunk:02	feat:goto	goto label while
+program_while_goto_replace_2	chunk:02	feat:goto	goto label while
+ladder__rung11_case	chunk:02	feat:case	case for procedure
+program_record_for_1	chunk:01	feat:record	for record type
+benchmark_uplevel2	chunk:01	feat:nested_proc	for nested_proc procedure
+program_function_for_replace_1	chunk:01	feat:function	for function nested_proc
+program_function_for_replace_2	chunk:01	feat:function	for function nested_proc
+program_array_for_4	chunk:02	feat:for_with_array	array for for_with_array type
+program_array_packed_2	chunk:02	feat:packed	array packed set_literal subrange
+program_set_for_2	chunk:02	feat:set	for in set subrange
+program_set_for_3	chunk:02	feat:set	for in set subrange
+program_set_for_4	chunk:02	feat:set	for in set subrange
+program_procedure_array_2	chunk:02	feat:set_literal	array procedure set_literal subrange
+program_procedure_array_5	chunk:02	feat:set_literal	array procedure set_literal subrange
+program_pointer_writeln_1	chunk:01	feat:new	new pointer pointer_with_new type
+program_pointer_writeln_2	chunk:01	feat:new	new pointer pointer_with_new type
+program_pointer_writeln_5	chunk:01	feat:new	new pointer pointer_with_new type
+program_pointer_writeln_4	chunk:01	feat:new	new pointer pointer_with_new type
+program_set_for_1	chunk:02	feat:set	for in set subrange
+program_procedure_record_2	chunk:01	feat:record	nested_proc procedure record type
+program_procedure_record_9	chunk:01	feat:record	nested_proc procedure record type
+ladder__rung08_sets	chunk:02	feat:set	in set subrange type
+program_record_with_1	chunk:02	feat:with_record	record type with with_record
+program_record_with_2	chunk:02	feat:with_record	record type with with_record
+program_case_repeat_replace_1	chunk:02	feat:case	case for in repeat
+program_case_repeat_replace_2	chunk:02	feat:case	case for in repeat
+program_case_for_2	chunk:02	feat:ord	case for ord type
+program_function_procedure_replace_1	chunk:01	feat:function	for function nested_proc procedure
+program_array_for_7	chunk:02	feat:for_with_array	array for for_with_array subrange type
+program_array_packed_1	chunk:02	feat:packed	array packed set_literal subrange type
+program_pointer_writeln_3	chunk:02	feat:nil	new nil pointer pointer_with_new type
+program_record_array_5	chunk:01	feat:record	array record set_literal subrange type
+program_record_array_6	chunk:01	feat:record	array record set_literal subrange type
+program_record_pointer_1	chunk:01	feat:new	new pointer pointer_with_new record type
+program_record_pointer_11	chunk:01	feat:new	new pointer pointer_with_new record type
+ladder__rung06_arrays	chunk:02	feat:for_with_array	array for for_with_array set_literal subrange
+program_record_pointer_2	chunk:01	feat:new	new pointer pointer_with_new record type
+ladder__rung09_strings	chunk:02	feat:packed	array packed set_literal subrange type
+program_array_packed_replace_3	chunk:02	feat:packed	array packed set_literal subrange type
+program_writeln_trunc_1	core	core	abs odd pred succ trunc
+program_array_for_1	chunk:02	feat:for_with_array	array for for_with_array set_literal subrange
+program_array_for_8	chunk:02	feat:for_with_array	array for for_with_array set_literal subrange
+program_record_pointer_6	chunk:01	feat:new	new pointer pointer_with_new record type
+program_array_packed_replace_2	chunk:02	feat:packed	array packed set_literal subrange type
+program_array_for_5	chunk:02	feat:for_with_array	array for for_with_array subrange type
+program_record_pointer_3	chunk:02	feat:new	new pointer pointer_with_new record type
+program_record_pointer_7	chunk:02	feat:new	new pointer pointer_with_new record type
+program_array_packed_5	chunk:02	feat:packed	array packed set_literal subrange type
+program_function_procedure_5	core	core	function goto label nested_proc procedure
+program_procedure_record_12	chunk:02	feat:new	new pointer pointer_with_new procedure record type
+program_procedure_record_5	chunk:02	feat:new	new pointer pointer_with_new procedure record type
+program_record_array_4	chunk:02	feat:packed	array packed record set_literal subrange type
+program_record_pointer_5	chunk:02	feat:case	case new pointer pointer_with_new record type
+program_array_for_2	chunk:02	feat:write	array for for_with_array set_literal subrange write
+program_array_for_3	chunk:02	feat:write	array for for_with_array set_literal subrange write
+program_array_for_6	chunk:02	feat:write	array for for_with_array set_literal subrange write
+program_array_packed_replace_1	chunk:02	feat:readln	array packed readln set_literal subrange type
+program_procedure_array_1	chunk:02	feat:packed	array nested_proc packed procedure set_literal subrange
+program_procedure_array_4	chunk:02	feat:packed	array nested_proc packed procedure set_literal subrange
+program_record_array_3	chunk:02	feat:case	array case record set_literal subrange type
+program_record_pointer_8	chunk:02	feat:nil	new nil pointer pointer_with_new record type
+program_function_procedure_3	core	core	case chr function nested_proc ord procedure
+program_function_procedure_8	core	core	case chr function nested_proc ord procedure
+benchmark_towers	chunk:02	feat:readln	const for pointer procedure readln repeat
+program_array_for_replace_1	chunk:02	feat:chr	array chr const for for_with_array type
+program_array_for_replace_2	chunk:02	feat:chr	array chr const for for_with_array type
+program_function_procedure_4	chunk:02	feat:ord	for function nested_proc ord procedure type
+program_function_procedure_9	chunk:02	feat:ord	for function nested_proc ord procedure type
+program_record_array_2	chunk:02	feat:with_record	array record set_literal subrange type with with_record
+program_record_array_1	chunk:02	feat:for_with_array	array for for_with_array record set_literal subrange type
+program_array_packed_3	chunk:02	feat:write	array for for_with_array packed set_literal subrange write
+program_function_array_1	chunk:01	feat:function	array for for_with_array function set_literal subrange type
+program_function_array_3	chunk:01	feat:function	array for for_with_array function set_literal subrange type
+program_record_array_replace_4	chunk:02	feat:packed	array case packed record set_literal subrange type
+program_record_array_replace_3	chunk:02	feat:packed	array case packed record set_literal subrange type
+program_function_array_2	chunk:01	feat:function	array for for_with_array function set_literal subrange type
+program_function_procedure_2	chunk:01	feat:function	array function nested_proc procedure set_literal subrange type
+program_function_procedure_7	chunk:01	feat:function	array function nested_proc procedure set_literal subrange type
+program_record_pointer_4	chunk:02	feat:with_record	new pointer pointer_with_new record type with with_record
+program_record_pointer_10	chunk:02	feat:with_record	new pointer pointer_with_new record type with with_record
+program_record_pointer_replace_1	chunk:02	feat:nil	in new nil pointer pointer_with_new record type
+program_record_array_replace_2	chunk:02	feat:packed	array case packed record set_literal subrange type
+ladder__rung10_pointers	core	core	dispose new nil pointer pointer_with_new record type
+program_array_packed_4	core	core	array for for_with_array packed set_literal subrange type write
+program_array_packed_6	core	core	array for for_with_array packed read repeat set_literal subrange
+program_record_pointer_9	chunk:02	feat:nil	for new nil pointer pointer_with_new record type while
+program_record_pointer_replace_2	chunk:02	feat:with_record	case new pointer pointer_with_new record type with with_record
+program_array_while_replace_1	core	core	array const for for_with_array set_literal sqr subrange while
+program_array_while_replace_2	core	core	array const for for_with_array set_literal sqr subrange while
+program_procedure_set_replace_1	chunk:02	feat:set	for in nested_proc procedure repeat set subrange while
+program_procedure_set_replace_2	chunk:02	feat:set	for in nested_proc procedure repeat set subrange while
+benchmark_queens	chunk:02	feat:readln	array for for_with_array procedure readln repeat set_literal subrange
+program_function_procedure_replace_3	chunk:03	feat:mod	for function in mod nested_proc procedure while with
+program_record_array_replace_1	chunk:02	feat:write	array case for for_with_array record set_literal subrange type write
+program_function_procedure_1	core	core	array for for_with_array function nested_proc procedure set_literal subrange type
+program_function_procedure_6	core	core	array for for_with_array function nested_proc procedure set_literal subrange type
+benchmark_sieve	chunk:02	feat:readln	array const for for_with_array readln repeat set_literal subrange while
+program_procedure_record_6	chunk:02	feat:nil	nested_proc new nil pointer pointer_with_new procedure record type while
+program_function_procedure_replace_2	core	core	for function goto label nested_proc procedure repeat while with
+program_procedure_record_replace_1	core	core	case new nil pointer pointer_with_new procedure record type with with_record
+program_procedure_record_replace_2	core	core	case new nil pointer pointer_with_new procedure record type with with_record
+program_procedure_array_3	core	core	array for for_with_array goto label packed procedure set_literal subrange type
+benchmark_intmm	core	core	array const div for for_with_array mod readln repeat set_literal subrange
+program_procedure_array_replace_1	core	core	array for for_with_array forward in nested_proc procedure type with write
+program_procedure_array_replace_6	core	core	array for for_with_array forward in nested_proc procedure type with write
+program_record_packed_replace_1	core	core	case new nil ord packed pointer pointer_with_new record type with with_record
+benchmark_perm	core	core	array const downto for for_with_array nested_proc procedure readln repeat set_literal subrange
+benchmark_bubble	core	core	array const div for for_with_array mod readln repeat set_literal subrange while
+program_procedure_array_replace_3	core	core	array for for_with_array in nested_proc procedure repeat set set_literal subrange while
+program_procedure_array_replace_8	core	core	array for for_with_array in nested_proc procedure repeat set set_literal subrange while
+program_procedure_array_replace_10	core	core	array eof in nested_proc procedure repeat set set_literal subrange while with
+program_procedure_array_replace_5	core	core	array eof in nested_proc procedure repeat set set_literal subrange while with
+program_procedure_array_replace_4	chunk:02	feat:set	array for for_with_array in nested_proc procedure repeat set set_literal subrange while
+program_procedure_array_replace_9	chunk:02	feat:set	array for for_with_array in nested_proc procedure repeat set set_literal subrange while
+program_procedure_array_replace_2	chunk:02	feat:set	array for for_with_array in nested_proc procedure repeat set set_literal subrange while
+program_procedure_array_replace_7	chunk:02	feat:set	array for for_with_array in nested_proc procedure repeat set set_literal subrange while
+benchmark_quick	core	core	array const div for for_with_array mod procedure readln repeat set_literal subrange while
+program_array_case_replace_1	core	core	array case chr const for for_with_array in label ord set_literal subrange succ type write
