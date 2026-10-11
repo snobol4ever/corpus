@@ -5714,3 +5714,81 @@ sub want(Str:U $x) { say("ok"); }
 multi sub init(Str:U $x) { say("uninitialized"); }
 multi sub init(Str $x) { say("has value: " ~ $x); }
  my $u; init($u); 
+#- 994 ladder__rung04_arrays_a_non_literal_left_of_xx_is_a_thunk_evaluated_once_per_repetition
+my $n = 0;
+say ($n++) xx 3;
+my @rows = [ $n++, $n++ ] xx 2;
+say @rows;
+@rows[0][0] = 99;
+say @rows;
+my $seed = 1;
+sub draw { $seed = ($seed * 7 + 3) % 11; $seed }
+say (draw() < 6 ?? 'lo' !! 'hi') xx 5;
+say 7 xx 3;
+my @e = [] xx 2;
+@e[0].push(1);
+say @e;
+#- 995 ladder__rung04_arrays_an_array_literal_of_one_iterable_argument_spreads_it_the_single_argument_rule
+my @r = 1, 2;
+say [ @r ];
+say [ [1, 2] ];
+say [ (1, 2) ];
+my $x = (1, 2);
+say [ $x ];
+sub f { my @a = 3, 4; @a }
+say [ f() ];
+say [ 7 ];
+say [ (^3).map({ $_ * 2 }) ];
+say [ flat (1, 2), (3, 4) ];
+say [ "a" ].elems;
+#- 996 ladder__rung04_arrays_join_flattens_its_list_arguments_as_a_slurpy_and_keeps_array_elements_itemized
+my @s = <a b c>;
+say join '', gather for ^2 -> $i { take @s[0, 1], "\n" };
+say join('-', (1, 2), (3, (4, 5)));
+say join '-', [1, 2], 3;
+my @a = (1, 2), (3, 4);
+say join '|', @a;
+say ((1, 2), (3, 4)).join('|');
+say join ',', (1..3), 4;
+#- 997 ladder__rung13_classes_an_enum_value_named_like_a_builtin_term_shadows_it
+enum Cell <Empty Tree Burning>;
+my @g = Empty, Tree, Empty, Burning;
+say @g.elems;
+say +@g[0], +@g[1], +@g[3];
+say Empty == 0;
+say (Empty, Tree).elems;
+my @row = [ flat (Tree, Empty) xx 2 ];
+say @row.elems;
+#- 998 ladder__rung13_classes_an_attribute_array_element_is_assigned_in_place_inside_a_method_and_its_loops
+class F {
+    has @!nb;
+    has @!g;
+    method go {
+        @!nb[0] = 5;
+        @!nb[2] = 7;
+        say @!nb;
+        my $c = 0;
+        for 1, 2 { $c++; @!nb[1] = $c; }
+        say $c;
+        say @!nb;
+        @!g = [1, 2], [3, 4];
+        @!g[1][0] = 30;
+        say @!g;
+        for ^2 -> $i { @!g[$i][1] = $i * 10 }
+        say @!g;
+        say "done";
+    }
+}
+F.new.go;
+#-------------------- 999 ladder__rung16_bool_bool_pick_and_bool_roll_are_a_coin
+my %s;
+%s{Bool.pick}++ for ^200;
+say %s.keys.sort;
+say Bool.pick ~~ Bool;
+say Bool.pick(2).sort;
+say Bool.pick(5).elems;
+say Bool.roll ~~ Bool;
+say Bool.roll(5).elems;
+my %r;
+%r{$_}++ for Bool.roll(200);
+say %r.keys.sort;

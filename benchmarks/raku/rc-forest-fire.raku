@@ -1,5 +1,6 @@
-# *BENCH kernel=rc-forest-fire -- raku-bench whole program 'rc-forest-fire' (japhb/raku-bench; GFDL 1.2 via Rosetta Code; srand(42) prepended and the mini table's arguments 16 16 8 baked as MAIN defaults, as insertion-sort and merge-sort were seeded on import); imported 2026-09-26 (ceo CEO-1283)
-srand(42);
+# *BENCH kernel=rc-forest-fire -- raku-bench whole program 'rc-forest-fire' (japhb/raku-bench; GFDL 1.2 via Rosetta Code; the mini table's arguments 16 16 8 baked as MAIN defaults); imported 2026-09-26 (ceo CEO-1283); re-cut 2026-10-11 (CEO-1641): srand/rand/Bool.pick replaced by the deterministic draw prand, a 31-bit LCG seeded 42, so the ref is the simulation's, not MoarVM's PRNG's
+my $seed = 42;
+sub prand { $seed = ($seed * 1103515245 + 12345) % 2147483648; $seed / 2147483648 }
 my $RED   = "\e[1;31m";
 my $GREEN = "\e[0;32m";
 my $CLEAR = "\e[0m";
@@ -23,7 +24,7 @@ class Forest {
     }
 
     method !init-grid {
-        @!grid = [ flat (Bool.pick ?? Tree !! Empty) xx $!width ] xx $!height;
+        @!grid = [ flat (prand() < 1/2 ?? Tree !! Empty) xx $!width ] xx $!height;
     }
 
     method !init-neighbors {
@@ -46,9 +47,9 @@ class Forest {
         @new = [] xx $!height;   # XXX rakudo doesn't autoviv yet
         for flat (^$!height X ^$!width) -> $i, $j {
             given @!grid[$i][$j] {
-                when Empty   { @new[$i][$j] = rand < $!p ?? Tree !! Empty }
+                when Empty   { @new[$i][$j] = prand() < $!p ?? Tree !! Empty }
                 when Tree    { @new[$i][$j] =
-                     (@!neighbors[$i][$j].any === Burning or rand < $!f) ?? Burning !! Tree;
+                     (@!neighbors[$i][$j].any === Burning or prand() < $!f) ?? Burning !! Tree;
                 }
                 when Burning { @new[$i][$j] = Empty }
             }

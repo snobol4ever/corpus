@@ -3782,3 +3782,50 @@ M 0 1 <a>
 #----------------------------------------------------------- 991 sub_say_9 XFAIL
 #----------------------------------------------------------- 992 sub_say_8 XFAIL
 #----------------------------------------------------- 993 multi_sub_say_3 XFAIL
+#- 994 ladder__rung04_arrays_a_non_literal_left_of_xx_is_a_thunk_evaluated_once_per_repetition
+(0 1 2)
+[[3 4] [5 6]]
+[[99 4] [5 6]]
+(hi hi hi lo hi)
+(7 7 7)
+[[1] []]
+#- 995 ladder__rung04_arrays_an_array_literal_of_one_iterable_argument_spreads_it_the_single_argument_rule
+[1 2]
+[1 2]
+[1 2]
+[(1 2)]
+[3 4]
+[7]
+[0 2 4]
+[1 2 3 4]
+1
+#- 996 ladder__rung04_arrays_join_flattens_its_list_arguments_as_a_slurpy_and_keeps_array_elements_itemized
+ab
+ab
+
+1-2-3-4-5
+1-2-3
+1 2|3 4
+1 2|3 4
+1,2,3,4
+#- 997 ladder__rung13_classes_an_enum_value_named_like_a_builtin_term_shadows_it
+4
+012
+True
+2
+4
+#- 998 ladder__rung13_classes_an_attribute_array_element_is_assigned_in_place_inside_a_method_and_its_loops
+[5 (Any) 7]
+2
+[5 2 7]
+[[1 2] [30 4]]
+[[1 0] [30 10]]
+done
+#-------------------- 999 ladder__rung16_bool_bool_pick_and_bool_roll_are_a_coin
+(False True)
+True
+(False True)
+2
+True
+5
+(False True)

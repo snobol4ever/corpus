@@ -175,6 +175,11 @@ benchmark the two sources hold, 83 kernels:
   `MAIN` defaults), `send-more-money-subs` (`srand(42)` prepended; two runs now agree), `parse-json` and `parse-json-no-obj-creation` (the
   data file `panda-projects.json` copied beside them and resolved from the program's own directory, count 8 as the `MAIN` default, and a
   trailing `say "parsed $i"` since the programs print nothing of their own).
+- **`rc-forest-fire` re-cut 2026-10-11 (CEO-1641, the ceo to hq_raku):** MoarVM's pseudo-random sequence is not the language -- Raku fixes
+  that `srand` makes a run repeatable, not which numbers come -- so `srand(42)`, both `rand` draws and `Bool.pick` are replaced by
+  `prand`, a 31-bit LCG seeded 42 written in the kernel (`$seed = ($seed * 1103515245 + 12345) % 2147483648; $seed / 2147483648`); the
+  simulation's arithmetic (`rand < $!p`, `rand < $!f`, the half-and-half initial forest) is unchanged, and the `.ref` is rakudo-local
+  2026.05 on the re-cut kernel, cut twice and compared byte for byte. The kernel now grades the simulation, not the generator.
 - **`minibenchmarks.pl`** is raku-bench's driver table for its whole programs (arguments and scale per program), not a third population.
 
 Every `.ref` was cut from Rakudo twice and the two runs compared byte for byte; every kernel declares its heap and stack in `.heap`/`.stack`
