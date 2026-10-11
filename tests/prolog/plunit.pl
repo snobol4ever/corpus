@@ -131,7 +131,12 @@ pj_has_error([error(E)|_],E). pj_has_error([_|T],E) :- pj_has_error(T,E). pj_has
    expand_option(error(F,C), throws(error(F,C))) -- so it is graded on the throws road, the whole ball unified */
 pj_has_throws([throws(T)|_],T). pj_has_throws([error(F,C)|_],error(F,C)). pj_has_throws([_|T2],T) :- pj_has_throws(T2,T).
 pj_has_throws(throws(T),T). pj_has_throws(error(F,C),error(F,C)).
-pj_has_true([true(E)|_],E). pj_has_true([_|T],E) :- pj_has_true(T,E).
+/* plunit's shorthand test(Name, A Cmp B) means true(A Cmp B) for each of ==, =, =@= and =:= -- swipl's own plunit.pl, expand_option/2.
+ * Until 2026-10-11 a bare comparison option had no clause here, fell through to pj_do_succeed and PASSED whenever the body succeeded,
+ * whatever the value (hq_prolog's report: 733 test heads in 76 swi_tests files; core/test_arith float_compare:max_nan/min_nan). */
+pj_has_true([true(E)|_],E).
+pj_has_true([C|_],C) :- compound(C), functor(C,Op,2), pj_all_op(Op).
+pj_has_true([_|T],E) :- pj_has_true(T,E).
 pj_has_all([all(E)|_],E).   pj_has_all([_|T],E) :- pj_has_all(T,E).
 pj_has_forall([forall(G)|_],G). pj_has_forall([_|T],G) :- pj_has_forall(T,G).
 pj_del_forall([],[]).
@@ -222,9 +227,14 @@ pj_do_throw(Suite,Name,Goal,Exp) :-
 pj_do_throw(Suite,Name,_,_) :-
     pj_inc_fail, format('  FAIL: ~w:~w  (no throw)~n',[Suite,Name]).
 
+/* the check is an if-then-else after the body's first answer: with the cut it had, a body that succeeded and a check that failed left
+ * this predicate failing, so the test read "no verdict from the shim" instead of plunit's wrong answer (the coo, 2026-10-11) */
 pj_do_true(Suite,Name,Goal,Expr) :-
-    catch(Goal,_,fail), !, catch(Expr,_,fail), !,
-    pj_inc_pass, format('  pass: ~w:~w~n',[Suite,Name]).
+    catch(Goal,_,fail), !,
+    (   catch(Expr,_,fail)
+    ->  pj_inc_pass, format('  pass: ~w:~w~n',[Suite,Name])
+    ;   pj_inc_fail, format('  FAIL: ~w:~w  (true check failed)~n',[Suite,Name])
+    ).
 pj_do_true(Suite,Name,_,_) :-
     pj_inc_fail, format('  FAIL: ~w:~w  (true check failed)~n',[Suite,Name]).
 
