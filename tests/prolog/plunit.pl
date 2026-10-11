@@ -1,7 +1,6 @@
 /* PATCHED:v4 SWI-5 EMPTY verdict */
 /* plunit.pl — scrip shim. No -> operator; uses nb_setval state machine only. */
 
-module(_, _). use_module(_). use_module(_, _). ensure_loaded(_).
 
 :- dynamic pj_suite/2.
 :- dynamic pj_test/4.
@@ -256,152 +255,18 @@ pj_do_all_r(Suite,Name,ok,Op,Actual,Expected) :-
 pj_do_all_r(Suite,Name,err(E),_,_,_) :-
     pj_inc_fail, pj_err_text(E, T), format('  FAIL: ~w:~w  (received error: ~w)~n',[Suite,Name,T]).
 
-/* stdlib */
-append([],L,L). append([H|T],L,[H|R]) :- append(T,L,R).
-member(X,[X|_]). member(X,[_|T]) :- member(X,T).
-is_list([]). is_list([_|T]) :- is_list(T).
-forall(C,A) :- \+ (C, \+ A).
-last([X],X). last([_|T],X) :- last(T,X).
-msort([],[]). msort([H|T],S) :- msort(T,ST), pj_insert(H,ST,S).
-pj_insert(X,[],[X]). pj_insert(X,[H|T],[X,H|T]) :- X @=< H, !. pj_insert(X,[H|T],[H|R]) :- pj_insert(X,T,R).
-X =@= Y :- copy_term(X, X1), copy_term(Y, Y1), numbervars(X1,0,N), numbervars(Y1,0,N), X1 == Y1.
-succ_or_zero(0,0) :- !. succ_or_zero(X,Y) :- Y is X-1.
-
-set_prolog_flag(_,_).
-set_test_options(_). acyclic_term(_). cyclic_term(_) :- fail.
-ground(X) :- \+ \+ (numbervars(X,0,_),true).
-
-/* PL-12 session #7: SWI-suite stdlib gap fill (paired with Fix #2 v3 bridge).
- * Naive Prolog impls — sufficient to make plunit-driven tests reach their
- * actual goal logic without tripping "undefined predicate". */
-
-memberchk(X, L) :- member(X, L), !.
-length([], 0). length([_|T], N) :- length(T, N0), N is N0 + 1.
-between(L, H, X) :- integer(X), !, X >= L, X =< H.
-between(L, H, L) :- L =< H.
-between(L, H, X) :- L < H, L1 is L+1, between(L1, H, X).
-false :- fail.
-call(G) :- G.
-call(G, A) :- G =.. L0, append(L0, [A], L1), G1 =.. L1, G1.
-call(G, A, B) :- G =.. L0, append(L0, [A,B], L1), G1 =.. L1, G1.
-call(G, A, B, C) :- G =.. L0, append(L0, [A,B,C], L1), G1 =.. L1, G1.
-apply(G, Args) :- G =.. L0, append(L0, Args, L1), G1 =.. L1, G1.
-
-/* term_variables/2 — collect unique vars in a Term (preserve order). */
-term_variables(T, Vs) :- pj_tv(T, [], Vs0), pj_reverse(Vs0, Vs).
-pj_tv(T, Acc, Acc) :- ground(T), !.
-pj_tv(T, Acc, [T|Acc]) :- var(T), !, pj_not_member(T, Acc), !.
-pj_tv(T, Acc, Acc) :- var(T), !.
-pj_tv(T, Acc, R) :- compound(T), T =.. [_|Args], pj_tv_list(Args, Acc, R).
-pj_tv(_, Acc, Acc).
-pj_tv_list([], Acc, Acc).
-pj_tv_list([H|T], Acc, R) :- pj_tv(H, Acc, Acc1), pj_tv_list(T, Acc1, R).
-pj_not_member(X, [Y|_]) :- X == Y, !, fail.
-pj_not_member(X, [_|T]) :- !, pj_not_member(X, T).
-pj_not_member(_, []).
+/* THE SHIM IS THE HARNESS AND NOTHING ELSE (ceo CEO-1678, 2026-10-11; hq_prolog's finding of 13:2x): it defines no predicate SCRIP
+   defines and no builtin SCRIP lacks. A user-file definition overrides SCRIP's own, so the ~30 builtin stubs that stood here (append/3,
+   member/2, is_list/1, forall/2, last/2, msort/2, =@=/2, set_prolog_flag/2, acyclic_term/1, cyclic_term/1, ground/1, memberchk/2,
+   length/2, between/3, false/0, call/1..4, apply/2, term_variables/2, numbervars/4, compound_name_arity/3, compound_name_arguments/3,
+   is_most_general_term/1, op/3, setof/3, setup_call_cleanup/3, split_string/4, string_bytes/3, atom_to_term/3, stream_property/2,
+   '$current_prolog_flag'/5, the directive-goal stubs module/2, use_module/1,2 and ensure_loaded/1 -- SCRIP reads those directives itself --
+   and the non-SWI succ_or_zero/2 and user/0) graded every SWI file against the stub, not SCRIP: under the shim
+   findall(K-L, setof(X, p(X,K), L), R) answered [_G0-[1,2,3]] where SCRIP and swipl answer [a-[1,3],b-[2]]. A builtin SCRIP still
+   lacks (apply/2, is_most_general_term/1, '$current_prolog_flag'/5, and module/2, use_module/1,2, ensure_loaded/1 called as goals, on 4783ee83e) is a SCRIP row for hq_prolog, never shim code. */
+set_test_options(_).
 pj_reverse(L, R) :- pj_rev(L, [], R).
 pj_rev([], R, R). pj_rev([H|T], A, R) :- pj_rev(T, [H|A], R).
-
-/* numbervars/4 — like /3, plus options list (ignored: singletons/etc).
- * Runtime provides /3 builtin; this defines the /4 form by delegation. */
-numbervars(T, S, E, _Opts) :- numbervars(T, S, E).
-
-/* compound/term identity helpers. */
-compound_name_arity(T, N, A) :- compound(T), !, functor(T, N, A).
-compound_name_arity(T, N, 0) :- atom(T), !, N = T.
-compound_name_arguments(T, N, Args) :- compound(T), !, T =.. [N|Args].
-compound_name_arguments(T, T, []) :- atom(T).
-
-/* is_most_general_term/1 — compound where all args are distinct unbound vars. */
-is_most_general_term(T) :- compound(T), T =.. [_|Args], pj_all_unique_vars(Args, []).
-is_most_general_term(T) :- atom(T).
-pj_all_unique_vars([], _).
-pj_all_unique_vars([V|T], Seen) :- var(V), pj_not_member(V, Seen), pj_all_unique_vars(T, [V|Seen]).
-
-/* clause/2 is SCRIP's own builtin (static and dynamic procedures alike, as swipl's). The stub `clause(_, _) :- fail.` that
-   stood here shadowed it and failed every clause/2 call in the package -- core/test_call's two clause tests read
-   "goal failed" through this shim while the same goals answered in a plain program (hq_prolog 2026-10-01). */
-
-/* op/3, user/0 — silent stubs. */
-op(_, _, _).
-user.
-
-/* setof/3 — sort+dedup over findall. */
-setof(T, G, S) :- findall(T, G, L), L \== [], sort(L, S).
-
-/* setup_call_cleanup/3 — naive: setup, call, cleanup unconditionally. */
-setup_call_cleanup(Setup, Goal, Cleanup) :-
-    Setup, ( catch(Goal, E, (Cleanup, throw(E))) -> Cleanup ; Cleanup, fail ).
-
-/* format/3 is SCRIP's own builtin (a stream, alias or atom/string/codes/chars sink as its first argument), so the shim defines
- * none. The stub that stood here ignored the stream and delegated to format/2: once a meta-called format/3 ran at all (SCRIP
- * 8c91eb5d6), every format(atom(A), ...) in a test body printed its text on stdout, ahead of the verdict line, and left A
- * unbound (CEO-1308: core/test_format.pl format:atom#2 and format:gmp#1). */
-
-/* expand_term/2, expand_goal/2: none. SCRIP's prelude carries both as SWI defines them (the program's term_expansion/2, then DCG,
- * then goal_expansion/2 to a fixpoint over clause bodies), so the identity stub that stood here hid the expansion SWI's tests check. */
-
-/* string predicates: SCRIP carries them as builtins (string_chars, string_codes, string_lower, string_upper, string_length,
- * number_string), reading any text -- an atom, a number, a code or char list -- as SWI's do; the shim's atom_* rows that stood
- * here overrode them with ISO's atom-only guards, so string_codes("a", C) raised type_error(atom, [97]) under double_quotes=codes
- * (2026-09-28, library/test_utf8.pl: 28 cases). */
-
-/* split_string/4 — naive single-separator-char splitter; pad chars stripped from
- * each part. Sufficient to define the predicate so the bridge can dispatch
- * through it without existence_error; passes simple cases like
- * split_string("a.b.c.d", ".", "", L) → L = [a,b,c,d]. */
-split_string(S, Sep, Pad, Parts) :-
-    atom_codes(S, Codes), atom_codes(Sep, SepCodes), atom_codes(Pad, PadCodes),
-    pj_split_codes(Codes, SepCodes, [], RawParts),
-    pj_strip_pad_each(RawParts, PadCodes, Parts).
-pj_split_codes([], _, AccCodes, [Part]) :-
-    pj_reverse_codes(AccCodes, PartCodes), atom_codes(Part, PartCodes).
-pj_split_codes([C|Rest], SepCodes, AccCodes, [Part|MoreParts]) :-
-    member(C, SepCodes), !,
-    pj_reverse_codes(AccCodes, PartCodes), atom_codes(Part, PartCodes),
-    pj_split_codes(Rest, SepCodes, [], MoreParts).
-pj_split_codes([C|Rest], SepCodes, AccCodes, Parts) :-
-    pj_split_codes(Rest, SepCodes, [C|AccCodes], Parts).
-pj_reverse_codes(L, R) :- pj_rev(L, [], R).
-pj_strip_pad_each([], _, []).
-pj_strip_pad_each([P|T], PadCodes, [Stripped|TT]) :-
-    atom_codes(P, Cs), pj_strip_pad_lr(Cs, PadCodes, Cs2),
-    atom_codes(Stripped, Cs2), pj_strip_pad_each(T, PadCodes, TT).
-pj_strip_pad_lr(Cs, PadCodes, Out) :-
-    pj_strip_pad_left(Cs, PadCodes, Mid),
-    pj_reverse_codes(Mid, RMid),
-    pj_strip_pad_left(RMid, PadCodes, RStripped),
-    pj_reverse_codes(RStripped, Out).
-pj_strip_pad_left([C|T], PadCodes, Out) :- member(C, PadCodes), !, pj_strip_pad_left(T, PadCodes, Out).
-pj_strip_pad_left(L, _, L).
-
-/* string_bytes/3 — encode atom as byte list under given encoding.
- * ASCII-only is sufficient: utf8 = atom_codes; utf16be/le interleave 0-bytes.
- * Non-ASCII source is excluded by lexer constraints; non-ASCII tests are
- * already commented out in test_string.pl. */
-string_bytes(S, Bytes, utf8) :- atom(S), !, atom_codes(S, Bytes).
-string_bytes(S, Bytes, utf8) :- atom_codes(S, Bytes).
-string_bytes(S, Bytes, utf16be) :- atom(S), !, atom_codes(S, Cs), pj_interleave_be(Cs, Bytes).
-string_bytes(S, Bytes, utf16be) :- pj_uninterleave_be(Bytes, Cs), atom_codes(S, Cs).
-string_bytes(S, Bytes, utf16le) :- atom(S), !, atom_codes(S, Cs), pj_interleave_le(Cs, Bytes).
-string_bytes(S, Bytes, utf16le) :- pj_uninterleave_le(Bytes, Cs), atom_codes(S, Cs).
-pj_interleave_be([], []).
-pj_interleave_be([C|T], [0,C|TT]) :- pj_interleave_be(T, TT).
-pj_interleave_le([], []).
-pj_interleave_le([C|T], [C,0|TT]) :- pj_interleave_le(T, TT).
-pj_uninterleave_be([], []).
-pj_uninterleave_be([0,C|T], [C|TT]) :- pj_uninterleave_be(T, TT).
-pj_uninterleave_le([], []).
-pj_uninterleave_le([C,0|T], [C|TT]) :- pj_uninterleave_le(T, TT).
-
-/* atom_to_term/3 — naive: only succeeds if Atom parses as a literal. */
-atom_to_term(A, A, []).
-
-/* stream_property/2 — silent-fail stub (no real stream concept here). */
-stream_property(_, _) :- fail.
-
-/* $current_prolog_flag/5 — internal SWI shim, fail silently. */
-'$current_prolog_flag'(_, _, _, _, _) :- fail.
 
 run_suite(S) :- pj_run_suite(S).
 
