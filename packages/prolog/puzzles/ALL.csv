@@ -264,6 +264,6 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 263,p3_logic_and_codes,puzzles__p3_logic_and_codes,puzzles,176,0,0,131072,4096,,,1,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,1,1,0,1,1,1,0,1,1,1,0,0
 264,p4_binary_trees,puzzles__p4_binary_trees,puzzles,518,0,0,131072,4096,,,1,0,1,1,0,0,0,0,0,1,0,1,0,0,1,0,0,1,0,0,0,0,0,0,1,0,0,0,1,0,1,1,1,0,1,1,1,0,0
 265,p5_multiway_trees,puzzles__p5_multiway_trees,puzzles,127,0,0,131072,4096,,,1,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,1,1,1,0,1,1,1,0,0
-266,p6_graphs,puzzles__p6_graphs,puzzles,435,0,0,131072,49152,,,1,0,0,1,0,0,1,0,0,1,0,1,1,0,1,0,1,1,0,0,0,0,0,0,1,0,0,0,1,0,1,1,1,0,1,1,1,0,0
-267,p7_miscellaneous,puzzles__p7_miscellaneous,puzzles,574,0,0,131072,49152,,,1,0,0,1,0,0,0,0,0,1,0,1,0,0,1,0,1,1,0,0,1,0,0,0,1,0,0,0,1,0,1,1,1,1,1,1,1,0,0
+266,p6_graphs,puzzles__p6_graphs,puzzles,435,0,0,131072,4096,,,1,0,0,1,0,0,1,0,0,1,0,1,1,0,1,0,1,1,0,0,0,0,0,0,1,0,0,0,1,0,1,1,1,0,1,1,1,0,0
+267,p7_miscellaneous,puzzles__p7_miscellaneous,puzzles,574,0,0,131072,4096,,,1,0,0,1,0,0,0,0,0,1,0,1,0,0,1,0,1,1,0,0,1,0,0,0,1,0,0,0,1,0,1,1,1,1,1,1,1,0,0
 268,hakank_swi_shifted_division,puzzles__hakank_swi_shifted_division,puzzles,254,0,0,131072,4096,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

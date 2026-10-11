@@ -27,8 +27,10 @@ comments, with no entry point. Each carries one appended driver (DRIVERS.tsv): `
 examples in order and prints each result (a binding, `no`, or the error), measured twice identical under swipl. Left out of the drivers,
 with the reason in the appended comment and the row's ledger: P-99 1.23-1.25 (random numbers), the time/1 wrapper of 2.11 (its report
 is timing), and 7.09's crossword solver (it reads `inputs/p7_09*.dat`, not vendored). `p7_miscellaneous.pl` loads `p6_graphs` by name,
-so p6's driver output appears inside p7's, deterministically. Under SCRIP p6 and p7 need a 49152 KB stack (they overflow at 32768 KB;
-swipl runs them at its default), declared on their ALL.csv rows (clause 8 (g)).
+so p6's driver output appears inside p7's, deterministically. Both declare the package's 4096 KB stack, as every other row does.
+MEASURED 2026-10-11: swipl runs p6 in about 1 s under --stack-limit=8m. Under SCRIP, p6's 6.08 dfs/3 never ends: yall's
+{Seen}/[N]>>Goal loses the variable it shares, so exclude/3 keeps every neighbour. SCRIP overflows at every stack from 24 to 96 MB
+after the same line 58 of 65. That is a Prolog defect, not a stack need, and the 49152 KB first declared here was a misreading.
 
 ## Layout
 
