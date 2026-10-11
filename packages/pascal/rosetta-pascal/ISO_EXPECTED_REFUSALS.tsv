@@ -6,9 +6,9 @@
 # never listed here. corpus_suite_harness.py run reads this file beside ALL.pas (LANG_CONFIGS pascal expected_refusal_re).
 # MEASURED 2026-10-11 by hq_pascal, every row: fpc 3.2.2 -Miso compiles it rc=0 from a scratch copy; scrip refuses it rc=1 in m3 (--run) and
 # m4 (--compile) naming the clause in column 3 (the first diagnostic). Columns: entry <TAB> fpc -Miso <TAB> ISO 7185 clause <TAB> measured on.
+# 2026-10-11 hq_pascal: amicable-pairs-2 and -3 LEFT this list -- their {$MODE DELPHI} under {$ifdef fpc} made fpc compile them as delphi on the -Miso
+# rung, so ALL.dialect read iso by the rung's name; ALL.dialect now names the mode fpc obeyed (util_build_package_suite.py), and they are delphi debt.
 ackermann-function	compiles rc=0 under fpc 3.2.2 -Miso	ISO 7185 6.2.1 violation: a block's variable-declaration-part shall precede its procedure-and-function-declaration-part	m3 rc=1, m4 --compile rc=1, both with the diagnostic, SCRIP c9b94450c+CEO-1657
-amicable-pairs-2	compiles rc=0 under fpc 3.2.2 -Miso	ISO 7185 6.2.2.1 violation: the identifier 'time' has no defining-point -- it is declared nowhere in a region enclosing this use	m3 rc=1, m4 --compile rc=1, both with the diagnostic, SCRIP c9b94450c+CEO-1657
-amicable-pairs-3	compiles rc=0 under fpc 3.2.2 -Miso	ISO 7185 6.2.2.1 violation: the identifier 'time' has no defining-point -- it is declared nowhere in a region enclosing this use	m3 rc=1, m4 --compile rc=1, both with the diagnostic, SCRIP c9b94450c+CEO-1657
 anonymous-recursion	compiles rc=0 under fpc 3.2.2 -Miso	ISO 7185 6.2.1 violation: a block's variable-declaration-part shall precede its procedure-and-function-declaration-part	m3 rc=1, m4 --compile rc=1, both with the diagnostic, SCRIP c9b94450c+CEO-1657
 arithmetic-numbers	compiles rc=0 under fpc 3.2.2 -Miso	ISO 7185 6.2.1 violation: a block has more than one variable-declaration-part	m3 rc=1, m4 --compile rc=1, both with the diagnostic, SCRIP c9b94450c+CEO-1657
 averages-arithmetic-mean-1	compiles rc=0 under fpc 3.2.2 -Miso	ISO 7185 6.2.1 violation: a block's constant-definition-part shall precede its procedure-and-function-declaration-part	m3 rc=1, m4 --compile rc=1, both with the diagnostic, SCRIP c9b94450c+CEO-1657
