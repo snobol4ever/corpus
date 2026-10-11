@@ -80,7 +80,7 @@ n0_call_α:              lea              rdi, [rbp + 288]
                         call             rt_quit_trap_300@PLT
 .Lgcsite_main_0:        mov              qword ptr [rbp + 272], rax
                         mov              qword ptr [rbp + 280], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:280
+                        push             rax                                  # gc_poll bb_call_fn.cpp:281
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -265,9 +265,12 @@ n13_unop_bx:
 n13_unop_α:             mov              rdi, qword ptr [rbp + 288]
                         mov              rsi, qword ptr [rbp + 296]
                         call             qword ptr [rip + rt_size_d@GOTPCREL]
-.Lgcsite_main_11:       mov              qword ptr [rbp + 48], rax
+.Lgcsite_main_12:       cmp              al, 255;                             jne   .Lvd0
+                        call             c_rt_size_d@PLT
+.Lgcsite_main_11:
+.Lvd0:                  mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        push             rax                                  # gc_poll bb_unop.cpp:116
+                        push             rax                                  # gc_poll bb_unop.cpp:117
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -305,7 +308,7 @@ n15_call_icon_α:        mov              rax, qword ptr [rbp + 48]
                         mov              edx, 1
                         mov              ecx, 327852
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_main_12:       mov              qword ptr [rbp + 0], rax
+.Lgcsite_main_13:       mov              qword ptr [rbp + 0], rax
                         mov              qword ptr [rbp + 8], rdx
                         push             rax                                  # gc_poll bb_call_fn.cpp:350
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
@@ -314,7 +317,7 @@ n15_call_icon_α:        mov              rax, qword ptr [rbp + 48]
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_13:
+.Lgcsite_main_14:
 1:                      cmp              al, 104;                             je    main_ω
                                                                               jmp   main_ω
 n15_call_icon_β:                                                              jmp   main_ω
@@ -367,7 +370,7 @@ main_ω:
                         .quad            17596481011904
                         .quad            123145302311120
 .Lgcmap_main_s:         .string          "main"
-.Lgcsites_main_0:       .quad            14
+.Lgcsites_main_0:       .quad            15
                         .quad            .Lgcmap_main
                         .quad            9223653477471748512
                         .quad            .Lgccode_main_0
@@ -398,6 +401,8 @@ main_ω:
                         .quad            .Lgcsite_main_12
                         .quad            65537
                         .quad            .Lgcsite_main_13
+                        .quad            65537
+                        .quad            .Lgcsite_main_14
                         .quad            65537
 module_init:
                         sub              rsp, 8
