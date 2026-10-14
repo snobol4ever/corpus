@@ -1,0 +1,4 @@
+# EXCLUDED_CASES.tsv -- one SWI case out of the denominator by ruling (ceo CEO-1710; CEO-1696), read by scripts/test_prolog_swi_suite.sh.
+# file<TAB>case<TAB>class<TAB>measurement -- file as the board prints it (db/test_db.pl); case the board label, unit:test#k for one instance or
+# unit:test for every instance; class SCRIP_EXCEEDS_ORACLE (the oracle answer comes from a fixed limit SCRIP grows past, or from an oracle
+# defect its own upstream has fixed) or NO_ORACLE_ANSWER; measurement the reading that shows it. A row naming a case no graded file declares reds the run.
