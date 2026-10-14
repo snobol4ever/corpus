@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by scripts/util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1008 features=37 ubiquitous=2(my sigil_scalar) distinctive=35 core=43 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,65
+# shape: entries=1009 features=37 ubiquitous=2(my sigil_scalar) distinctive=35 core=43 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,66
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:08	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:08	family:ladder	
@@ -117,7 +117,7 @@ say_replace_22	chunk:03	feat:say	say
 simple_program_14	chunk:05	feat:if	if
 simple_program_15	chunk:05	feat:if	if
 simple_program_16	chunk:05	feat:if	if
-simple_program_17	chunk:09	feat:unless	unless
+simple_program_17	chunk:10	feat:unless	unless
 simple_program_2	chunk:05	feat:if	if
 simple_program_21	chunk:05	feat:if	if
 simple_program_3	chunk:05	feat:if	if
@@ -134,7 +134,7 @@ simple_program_64	chunk:06	feat:regex	regex
 simple_program_65	chunk:06	feat:regex	regex
 simple_program_68	chunk:06	feat:string_concat	string_concat
 simple_program_71	chunk:06	feat:string_concat	string_concat
-simple_program_73	chunk:06	feat:string_concat	string_concat
+simple_program_73	chunk:07	feat:string_concat	string_concat
 simple_program_74	chunk:07	feat:string_concat	string_concat
 simple_program_76	chunk:07	feat:string_concat	string_concat
 test_stmt_pfx_BEGIN	chunk:03	feat:say	say
@@ -499,7 +499,7 @@ simple_assign_83	chunk:05	feat:if	if
 simple_assign_84	chunk:10	feat:unless	unless
 simple_assign_88	chunk:05	feat:if	if
 simple_assign_91	chunk:05	feat:if	if
-simple_assign_93	chunk:05	feat:if	if
+simple_assign_93	chunk:06	feat:if	if
 simple_assign_95	chunk:06	feat:if	if
 simple_assign_96	chunk:10	feat:unless	unless
 sub_14	chunk:07	feat:string_concat	string_concat sub
@@ -580,7 +580,7 @@ ladder__rung03_strings_an_escaped_sigil_in_a_double_quoted_string_is_a_literal_d
 scrip_test_rk_join	chunk:07	feat:join	join say sub
 ladder__rung09_string_methods_sub_forms_and_chomp_crlf	chunk:07	feat:string_concat	string_concat
 say_19	chunk:03	feat:say	say
-ladder__rung02_arithmetic_rat_counts_and_tolerances_in_the_test_module_plan_skip_is_approx	chunk:08	feat:range_op	range_op sigil_array
+ladder__rung02_arithmetic_rat_counts_and_tolerances_in_the_test_module_plan_skip_is_approx	chunk:09	feat:range_op	range_op sigil_array
 benchmark_string-escape	chunk:07	feat:string_concat	string_concat
 simple_assign_24	chunk:07	feat:string_concat	string_concat
 hash_say_replace_2	chunk:06	feat:sigil_hash	say sigil_hash
@@ -693,6 +693,7 @@ sort_array_say_1	chunk:10	feat:sort	say sigil_array sort
 while_6	chunk:09	feat:while	if while
 while_7	chunk:09	feat:while	if while
 ladder__rung13_classes_public_attribute	chunk:02	feat:has	has
+ladder__rung04_arrays_an_empty_array_is_an_array_a_sub_can_push_onto_and_its_max_is_minus_inf	chunk:05	feat:sub	sigil_array sub
 ladder__rung16_bool_relops_logical_or_and_answer_an_operand	chunk:10	feat:grep	grep say
 array_say_4	chunk:04	feat:sigil_array	say sigil_array
 ladder__rung04_arrays_scalar_container_subscripts	chunk:06	feat:sigil_hash	if sigil_hash
@@ -849,7 +850,7 @@ class_method_say_replace_31	chunk:07	feat:method	method return say
 class_method_say_replace_33	chunk:07	feat:method	method return say
 class_method_say_replace_34	chunk:07	feat:method	method return say
 class_method_say_replace_47	chunk:07	feat:method	method return say
-class_method_say_replace_48	chunk:07	feat:method	method return say
+class_method_say_replace_48	chunk:08	feat:method	method return say
 class_method_say_replace_49	chunk:08	feat:method	method return say
 class_method_say_replace_52	chunk:08	feat:method	method return say
 class_sub_say_replace_1	chunk:02	feat:has	has say sub
