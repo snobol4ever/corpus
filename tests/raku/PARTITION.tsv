@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by scripts/util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1019 features=37 ubiquitous=2(my sigil_scalar) distinctive=35 core=44 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,75
+# shape: entries=1020 features=37 ubiquitous=2(my sigil_scalar) distinctive=35 core=44 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,76
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:08	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:08	family:ladder	
@@ -824,6 +824,7 @@ benchmark_spinner	chunk:10	feat:for	for sigil_array sub
 ladder__rung02_arithmetic_rat_smartmatch_truthiness_function_forms_and_type_checks	chunk:09	feat:smartmatch	say smartmatch string_concat
 sub_range_say_replace_1	chunk:09	feat:range_op	range_op say sub
 benchmark_rc-dragon-curve	chunk:05	feat:for_with_say	for for_with_say range_op
+ladder__rung07_subs_a_multi_family_constrained_by_subsets_and_where_clauses_dispatches	chunk:10	feat:try	multi say sub try
 sub_array_say_replace_1	chunk:05	feat:sub	say sigil_array sub
 scrip_test_rk_str22	chunk:06	feat:if	if say sub
 class_array_say_replace_1	chunk:02	feat:has	has say sigil_array

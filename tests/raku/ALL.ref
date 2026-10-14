@@ -2478,7 +2478,20 @@ xmlns='http://www.w3.org/2000/svg'>
 <line x1='83.33333333333405' y1='250.00000000000017' x2='83.33333333333407' y2='333.3333333333335' style='stroke:rgb(0,0,0);stroke-width:1'/>
 <line x1='83.33333333333407' y1='333.3333333333335' x2='166.66666666666737' y2='333.3333333333335' style='stroke:rgb(0,0,0);stroke-width:1'/>
 </svg>
-#--------------------------------------------------- 823 sub_array_say_replace_1
+#- 823 ladder__rung07_subs_a_multi_family_constrained_by_subsets_and_where_clauses_dispatches
+Odd
+Even
+Even
+Int
+foo
+died
+neg
+pos
+zero
+even-odd
+odd-even
+other
+#--------------------------------------------------- 824 sub_array_say_replace_1
 3
 1
 3
@@ -2488,7 +2501,7 @@ xmlns='http://www.w3.org/2000/svg'>
 hello
 world
 2
-#------------------------------------------------------- 824 scrip_test_rk_str22
+#------------------------------------------------------- 825 scrip_test_rk_str22
 Hello
 World
 World!
@@ -2501,116 +2514,116 @@ HELLO
 world
 hello
 5
-#------------------------------------------------- 825 class_array_say_replace_1
+#------------------------------------------------- 826 class_array_say_replace_1
 0
-#------------------------------------------------- 826 class_array_say_replace_3
+#------------------------------------------------- 827 class_array_say_replace_3
 3
 20
-#-------------------------------------------------- 827 class_hash_say_replace_1
+#-------------------------------------------------- 828 class_hash_say_replace_1
 Raku
-#----------------------------------------------- 828 class_method_say_replace_10
+#----------------------------------------------- 829 class_method_say_replace_10
 7
 8
-#----------------------------------------------- 829 class_method_say_replace_55
+#----------------------------------------------- 830 class_method_say_replace_55
 25
-#----------------------------------------------- 830 class_method_say_replace_56
+#----------------------------------------------- 831 class_method_say_replace_56
 tweaked
 done
-#------------------------------------------------------ 831 class_say_replace_11
+#------------------------------------------------------ 832 class_say_replace_11
 1
 []
-#----------------------------------------------------------- 832 for_array_say_3
+#----------------------------------------------------------- 833 for_array_say_3
 10
 20
 30
-#----------------------------------------------------------- 833 for_array_say_5
+#----------------------------------------------------------- 834 for_array_say_5
 7
 8
 9
-#------------------------------------------------- 834 class_array_say_replace_2
+#------------------------------------------------- 835 class_array_say_replace_2
 0
-#----------------------------------------------- 835 class_method_grep_replace_1
+#----------------------------------------------- 836 class_method_grep_replace_1
 8
-#------------------------------------------------ 836 class_method_map_replace_1
+#------------------------------------------------ 837 class_method_map_replace_1
 5
-#---------------------------------------------- 837 class_method_range_replace_6
-#--------------------------------------------------- 838 class_method_replace_18
+#---------------------------------------------- 838 class_method_range_replace_6
+#--------------------------------------------------- 839 class_method_replace_18
 done
-#--------------------------------------------------- 839 class_method_replace_19
+#--------------------------------------------------- 840 class_method_replace_19
 3
-#----------------------------------------------- 840 class_method_say_replace_20
+#----------------------------------------------- 841 class_method_say_replace_20
 20
-#----------------------------------------------- 841 class_method_say_replace_29
+#----------------------------------------------- 842 class_method_say_replace_29
 (fetch hello POPULATE)
-#----------------------------------------------- 842 class_method_say_replace_51
+#----------------------------------------------- 843 class_method_say_replace_51
 class
-#------------------------------------------------ 843 class_method_say_replace_9
+#------------------------------------------------ 844 class_method_say_replace_9
 buildA
 buildB
 tweakB
 1
 2
-#----------------------------------------------- 844 class_method_sort_replace_2
+#----------------------------------------------- 845 class_method_sort_replace_2
 99
-#--------------------------------------------------------- 845 for_range_array_1
+#--------------------------------------------------------- 846 for_range_array_1
 0
 10
 20
-#---------------------------------------------------------- 846 for_range_hash_1
+#---------------------------------------------------------- 847 for_range_hash_1
 100
 200
-#----------------------------------------------------------- 847 multi_sub_say_2
+#----------------------------------------------------------- 848 multi_sub_say_2
 defined int: 42
 other
-#------------------------------------------------------------- 848 say_try_die_6
+#------------------------------------------------------------- 849 say_try_die_6
 after
-#--------------------------------------------------------------- 849 sub_array_9
+#--------------------------------------------------------------- 850 sub_array_9
 3|3
-#----------------------------------------------- 850 class_method_say_replace_31
+#----------------------------------------------- 851 class_method_say_replace_31
 hi
 bye
-#----------------------------------------------- 851 class_method_say_replace_33
+#----------------------------------------------- 852 class_method_say_replace_33
 A
-#----------------------------------------------- 852 class_method_say_replace_34
+#----------------------------------------------- 853 class_method_say_replace_34
 B
-#----------------------------------------------- 853 class_method_say_replace_47
+#----------------------------------------------- 854 class_method_say_replace_47
 role
-#----------------------------------------------- 854 class_method_say_replace_48
+#----------------------------------------------- 855 class_method_say_replace_48
 C
-#----------------------------------------------- 855 class_method_say_replace_49
-#----------------------------------------------- 856 class_method_say_replace_52
+#----------------------------------------------- 856 class_method_say_replace_49
+#----------------------------------------------- 857 class_method_say_replace_52
 f
 b
-#--------------------------------------------------- 857 class_sub_say_replace_1
+#--------------------------------------------------- 858 class_sub_say_replace_1
 5
-#----------------------------------------------------------- 858 for_array_say_4
+#----------------------------------------------------------- 859 for_array_say_4
 6
-#----------------------------------------------- 859 class_method_say_replace_17
+#----------------------------------------------- 860 class_method_say_replace_17
 B
-#------------------------------------------------- 860 class_multi_sub_replace_1
+#------------------------------------------------- 861 class_multi_sub_replace_1
 a dog
-#------------------------------------------------------ 861 class_say_replace_17
+#------------------------------------------------------ 862 class_say_replace_17
 XY
-#------------------------------------------------- 862 for_range_array_replace_1
+#------------------------------------------------- 863 for_range_array_replace_1
 1
 2
 3
 (Any)
 (Any)
 done
-#------------------------------------------------------- 863 token_say_replace_1
+#------------------------------------------------------- 864 token_say_replace_1
 nomatch
-#----------------------------------------------- 864 class_method_sort_replace_1
+#----------------------------------------------- 865 class_method_sort_replace_1
 custom-sort
 custom-rev
-#-- 865 ladder__rung04_arrays_a_seq_over_an_infinite_range_is_lazy_and_says_dots
+#-- 866 ladder__rung04_arrays_a_seq_over_an_infinite_range_is_lazy_and_says_dots
 True
 (2 4 6 8)
 12
 (0 (...))
 False
 (...)
-#- 866 ladder__rung04_arrays_an_array_is_one_mutable_object_an_element_store_writes_it_in_place_for_every_name_that_holds_it
+#- 867 ladder__rung04_arrays_an_array_is_one_mutable_object_an_element_store_writes_it_in_place_for_every_name_that_holds_it
 [5 2 3]
 [5 7 3]
 [5 7 3]
@@ -2620,19 +2633,19 @@ False
 [[50 2] [3 4]]
 4
 [99 7 3 4]
-#- 867 ladder__rung15_blocks_a_list_holding_a_lazy_gather_renders_after_its_seq_is_reified_not_during
+#- 868 ladder__rung15_blocks_a_list_holding_a_lazy_gather_renders_after_its_seq_is_reified_not_during
 136490
 784
 cell-3-59
-#---------------------------------------------- 868 benchmark_divide-and-conquer
+#---------------------------------------------- 869 benchmark_divide-and-conquer
 1
-#- 869 ladder__rung08_for_a_rw_loop_variable_and_the_topic_write_back_to_the_array_and_is_copy_does_not
+#- 870 ladder__rung08_for_a_rw_loop_variable_and_the_topic_write_back_to_the_array_and_is_copy_does_not
 [10 20 30 40]
 [11 20 31 41]
 [12 21 32 42]
 [12 21 64 84]
 [12 21 64 84]
-#------------- 870 ladder__rung04_arrays_in_numeric_context_count_their_elements
+#------------- 871 ladder__rung04_arrays_in_numeric_context_count_their_elements
 3
 4
 7
@@ -2640,17 +2653,17 @@ cell-3-59
 -3
 True
 abca
-#- 871 ladder__rung07_subs_an_is_rw_parameter_writes_back_to_a_scalar_or_an_element_argument
+#- 872 ladder__rung07_subs_an_is_rw_parameter_writes_back_to_a_scalar_or_an_element_argument
 3
 [10 21 30]
 right left
-#--------------------------------------------------------- 872 sub_say_replace_2
+#--------------------------------------------------------- 873 sub_say_replace_2
 hello world
 eq literal ok
 ne vars ok
 helloworld
 concat eq ok
-#-------- 873 ladder__rung01_variables_compound_assignment_and_element_increment
+#-------- 874 ladder__rung01_variables_compound_assignment_and_element_increment
 5
 2
 abab
@@ -2665,7 +2678,7 @@ abab
 5 6
 7
 1,1,2
-#--------------------------------------------------- 874 sub_while_say_replace_1
+#--------------------------------------------------- 875 sub_while_say_replace_1
 three
 not five
 1
@@ -2674,10 +2687,10 @@ not five
 4
 gt one
 lt ten
-#---------------------------- 875 ladder__rung13_classes_nqp_create_and_bindattr
+#---------------------------- 876 ladder__rung13_classes_nqp_create_and_bindattr
 3.75
 p1.5
-#- 876 ladder__rung05_hashes_a_colon_pair_used_as_a_value_is_a_pair_in_a_hash_a_list_and_a_scalar
+#- 877 ladder__rung05_hashes_a_colon_pair_used_as_a_value_is_a_pair_in_a_hash_a_list_and_a_scalar
 {v => 3}
 {w => x}
 {b => True}
@@ -2687,21 +2700,21 @@ q 5
 4 True
 True
 1
-#------------------------------------------------ 877 sub_junction_say_replace_1
+#------------------------------------------------ 878 sub_junction_say_replace_1
 unparen-any
 unparen-all
 var-roundtrip
 str-collapse
 mixed-nest
 none-nest
-#------------------------------------------------------ 878 when_while_replace_1
+#------------------------------------------------------ 879 when_while_replace_1
 not ten
 five
 0
 1
 2
 done
-#------------ 879 ladder__rung02_arithmetic_power_assigned_and_compound_assigned
+#------------ 880 ladder__rung02_arithmetic_power_assigned_and_compound_assigned
 27
 9
 -8
@@ -2713,7 +2726,7 @@ done
 125
 144
 49
-#----------------------------------------------------- 880 sub_for_say_replace_1
+#----------------------------------------------------- 881 sub_for_say_replace_1
 line one
 line two
 line three
@@ -2721,20 +2734,20 @@ line three
 slurp fh ok
 /tmp/rk38_test.txt
 rk_fileio38 ok
-#----------------------------------------------------- 881 sub_say_try_replace_1
+#----------------------------------------------------- 882 sub_say_try_replace_1
 42
 after swallowed die
 caught in handler
 7
 outer catch ok
-#------------------------------------------------------- 882 scrip_test_rk_given
+#------------------------------------------------------- 883 scrip_test_rk_given
 Mon: weekday
 Sat: weekend
 weekday
 hot
 cold
 unknown
-#------------------------ 883 ladder__rung02_arithmetic_fatrat_keeps_every_digit
+#------------------------ 884 ladder__rung02_arithmetic_fatrat_keeps_every_digit
 FatRat.new(2078178381193813, 485721041551200)
 4.278543038936375986517
 (FatRat)
@@ -2766,103 +2779,103 @@ FatRat.new(5, 1)
 (FatRat)
 0.25
 (Num)
-#----------------------------------------------- 884 class_method_say_replace_19
+#----------------------------------------------- 885 class_method_say_replace_19
 15
-#------------------------------------------------ 885 class_method_say_replace_3
+#------------------------------------------------ 886 class_method_say_replace_3
 105
-#----------------------------------------------- 886 class_method_say_replace_30
+#----------------------------------------------- 887 class_method_say_replace_30
 37
-#----------------------------------------------- 887 class_method_say_replace_37
-#----------------------------------------------- 888 class_method_say_replace_38
-#----------------------------------------------- 889 class_method_say_replace_39
-#----------------------------------------------- 890 class_method_say_replace_42
+#----------------------------------------------- 888 class_method_say_replace_37
+#----------------------------------------------- 889 class_method_say_replace_38
+#----------------------------------------------- 890 class_method_say_replace_39
+#----------------------------------------------- 891 class_method_say_replace_42
 (Any)
-#----------------------------------------------- 891 class_method_say_replace_45
-#------------------------------------------------ 892 class_method_say_replace_5
+#----------------------------------------------- 892 class_method_say_replace_45
+#------------------------------------------------ 893 class_method_say_replace_5
 3
-#----------------------------------------------- 893 class_method_say_replace_57
+#----------------------------------------------- 894 class_method_say_replace_57
 9
-#------------------------------------------------ 894 class_method_say_replace_8
+#------------------------------------------------ 895 class_method_say_replace_8
 9
-#----------------------------------------------------------- 895 for_range_say_8
+#----------------------------------------------------------- 896 for_range_say_8
 1
 after
-#----------------------------------------------------------- 896 sub_for_array_2
+#----------------------------------------------------------- 897 sub_for_array_2
 a b
-#------------------------------------------------ 897 class_method_for_replace_1
+#------------------------------------------------ 898 class_method_for_replace_1
 g
 g
-#---------------------------------------------- 898 class_method_multi_replace_1
+#---------------------------------------------- 899 class_method_multi_replace_1
 40
-#---------------------------------------------- 899 class_method_range_replace_4
+#---------------------------------------------- 900 class_method_range_replace_4
 7
-#----------------------------------------------- 900 class_method_say_replace_11
+#----------------------------------------------- 901 class_method_say_replace_11
 B+A
-#----------------------------------------------- 901 class_method_say_replace_13
+#----------------------------------------------- 902 class_method_say_replace_13
 B:5/A:99
-#----------------------------------------------- 902 class_method_say_replace_14
+#----------------------------------------------- 903 class_method_say_replace_14
 B:5/A:15
-#------------------------------------------------ 903 class_method_say_replace_2
+#------------------------------------------------ 904 class_method_say_replace_2
 Rex
-#----------------------------------------------- 904 class_method_say_replace_23
+#----------------------------------------------- 905 class_method_say_replace_23
 vroom
 halt
 tesla
-#----------------------------------------------- 905 class_method_say_replace_26
+#----------------------------------------------- 906 class_method_say_replace_26
 105
-#----------------------------------------------- 906 class_method_say_replace_27
+#----------------------------------------------- 907 class_method_say_replace_27
 Rex
-#----------------------------------------------- 907 class_method_say_replace_28
+#----------------------------------------------- 908 class_method_say_replace_28
 4
-#----------------------------------------------- 908 class_method_say_replace_36
+#----------------------------------------------- 909 class_method_say_replace_36
 A:7
-#------------------------------------------------ 909 class_method_say_replace_4
+#------------------------------------------------ 910 class_method_say_replace_4
 4
-#----------------------------------------------- 910 class_method_say_replace_40
-#----------------------------------------------- 911 class_method_say_replace_41
+#----------------------------------------------- 911 class_method_say_replace_40
+#----------------------------------------------- 912 class_method_say_replace_41
 (Any)
-#----------------------------------------------- 912 class_method_say_replace_50
+#----------------------------------------------- 913 class_method_say_replace_50
 hi
-#------------------------------------------------ 913 class_method_say_replace_6
+#------------------------------------------------ 914 class_method_say_replace_6
 
-#------------------------------------------------ 914 class_method_say_replace_7
+#------------------------------------------------ 915 class_method_say_replace_7
 5
-#------------------------------------------------ 915 class_method_sub_replace_1
+#------------------------------------------------ 916 class_method_sub_replace_1
 base-tweak
 sub-tweak
-#--------------------------------------------------------- 916 multi_sub_array_1
+#--------------------------------------------------------- 917 multi_sub_array_1
 S|V:2
-#----------------------------------------------------------- 917 multi_sub_say_3
-#---------------------------------------------- 918 class_method_range_replace_5
+#----------------------------------------------------------- 918 multi_sub_say_3
+#---------------------------------------------- 919 class_method_range_replace_5
 ok
-#----------------------------------------------- 919 class_method_say_replace_12
+#----------------------------------------------- 920 class_method_say_replace_12
 C+B+A
-#----------------------------------------------- 920 class_method_say_replace_24
+#----------------------------------------------- 921 class_method_say_replace_24
 GO
-#----------------------------------------------- 921 class_method_say_replace_25
+#----------------------------------------------- 922 class_method_say_replace_25
 LL
 RR
-#----------------------------------------------- 922 class_method_say_replace_32
+#----------------------------------------------- 923 class_method_say_replace_32
 Rex
-#---------------------------------------------- 923 class_method_multi_replace_2
+#---------------------------------------------- 924 class_method_multi_replace_2
 5
 7
-#----------------------------------------------- 924 class_method_say_replace_16
+#----------------------------------------------- 925 class_method_say_replace_16
 B>C>A
-#----------------------------------------------------------- 925 while_say_try_1
+#----------------------------------------------------------- 926 while_say_try_1
 1
 2
 after
-#------------------------ 926 ladder__rung19_block_methcall_grep_and_map_listops
+#------------------------ 927 ladder__rung19_block_methcall_grep_and_map_listops
 3
 4
 5
 [2 4 6 8]
 (4 6)
 3
-#---------------------------------------------- 927 class_method_multi_replace_4
+#---------------------------------------------- 928 class_method_multi_replace_4
 a dog
-#------------------------ 928 ladder__rung04_arrays_cross_zip_flat_and_unpacking
+#------------------------ 929 ladder__rung04_arrays_cross_zip_flat_and_unpacking
 1 1
 1 2
 2 1
@@ -2883,17 +2896,17 @@ c 2 3
 c 2 4
 q 1 7
 q 2 7
-#--------- 929 ladder__rung15_blocks_map_grep_first_named_sub_and_n_arity_blocks
+#--------- 930 ladder__rung15_blocks_map_grep_first_named_sub_and_n_arity_blocks
 (2 4 6 8 10 12)
 (1 3 5)
 1
 (3 7 11)
 (2 12 30)
 123,456
-#---------------------------------------- 930 ladder__rung13_classes_inheritance
+#---------------------------------------- 931 ladder__rung13_classes_inheritance
 Woof
 I say Woof
-#-------------------- 931 ladder__rung16_bool_bool_pick_and_bool_roll_are_a_coin
+#-------------------- 932 ladder__rung16_bool_bool_pick_and_bool_roll_are_a_coin
 (False True)
 True
 (False True)
@@ -2901,14 +2914,14 @@ True
 True
 5
 (False True)
-#--------------------------------------------------- 932 sub_for_range_replace_2
+#--------------------------------------------------- 933 sub_for_range_replace_2
 1
 2
 3
 4
 5
 15
-#-------------------------------------------------- 933 scrip_test_rk_unique_sum
+#-------------------------------------------------- 934 scrip_test_rk_unique_sum
 1
 2
 3
@@ -2917,14 +2930,14 @@ b
 c
 15
 7
-#- 934 ladder__rung13_classes_a_typed_declaration_with_dot_assign_calls_the_type_and_a_colon_variable_pair_is_a_named_pair
+#- 935 ladder__rung13_classes_a_typed_declaration_with_dot_assign_calls_the_type_and_a_colon_variable_pair_is_a_named_pair
 3
 7
 C
 3
 {v => 3}
 kk => 9
-#----------------------------------------------------------- 935 sub_for_array_1
+#----------------------------------------------------------- 936 sub_for_array_1
 7
 5
 3
@@ -2936,7 +2949,7 @@ kk => 9
 cherry
 banana
 apple
-#--------------- 936 ladder__rung03_strings_the_q_family_quotes_build_their_text
+#--------------- 937 ladder__rung03_strings_the_q_family_quotes_build_their_text
 abc
 "
 nested [brackets] stay
@@ -2952,14 +2965,14 @@ a7c
 x-y-z
 p q 
 "
-#- 937 ladder__rung13_classes_a_dollar_bang_or_dollar_dot_attribute_interpolates_in_a_string
+#- 938 ladder__rung13_classes_a_dollar_bang_or_dollar_dot_attribute_interpolates_in_a_string
 5
 5
 count=5 step=2;
 total: 5 by 2
 $!count is 5
 error variable: oops
-#--- 938 ladder__rung09_regex_substitution_and_transliteration_agree_with_rakudo
+#--- 939 ladder__rung09_regex_substitution_and_transliteration_agree_with_rakudo
 hello there
 a-bXc
 a-b-c
@@ -2978,30 +2991,30 @@ XellX
 abc
 hexxx
 heLLo
-#- 939 ladder__rung13_classes_an_attribute_array_element_is_assigned_in_place_inside_a_method_and_its_loops
+#- 940 ladder__rung13_classes_an_attribute_array_element_is_assigned_in_place_inside_a_method_and_its_loops
 [5 (Any) 7]
 2
 [5 2 7]
 [[1 2] [30 4]]
 [[1 0] [30 10]]
 done
-#- 940 ladder__rung04_arrays_a_bound_scalar_and_a_bound_element_share_one_container_with_what_they_bind
+#- 941 ladder__rung04_arrays_a_bound_scalar_and_a_bound_element_share_one_container_with_what_they_bind
 4
 7
 30
 [31 4]
 40 60 3
 bound
-#---------------------------------------- 941 benchmark_rc-forest-fire-stringify
+#---------------------------------------- 942 benchmark_rc-forest-fire-stringify
 52100
-#---------------------------------------------------- 942 class_method_replace_1
+#---------------------------------------------------- 943 class_method_replace_1
 3
 4
 7
 14
 Rex
 Woof from Rex
-#--------------------------------------------------- 943 sub_for_array_replace_1
+#--------------------------------------------------- 944 sub_for_array_replace_1
 
 10
 20
@@ -3011,7 +3024,7 @@ Woof from Rex
 alpha
 beta
 gamma
-#- 944 ladder__rung04_arrays_a_caret_range_keeps_its_endpoints_numifies_and_smartmatches_as_rakudo_does
+#- 945 ladder__rung04_arrays_a_caret_range_keeps_its_endpoints_numifies_and_smartmatches_as_rakudo_does
 1
 1..^5.5
 4
@@ -3039,50 +3052,50 @@ False
 (20 30)
 (20 30)
 10
-#------------------------------------------------ 945 benchmark_point_class_add2
+#------------------------------------------------ 946 benchmark_point_class_add2
 6500001.5 9500002.5
-#------------------------------------------- 946 benchmark_send-more-money-loops
+#------------------------------------------- 947 benchmark_send-more-money-loops
 9567 + 1085 == 10652
-#---------------------------------------------------------- 947 smartmatch_say_4
+#---------------------------------------------------------- 948 smartmatch_say_4
 ｢hello｣
-#---------------------------------------------- 948 class_method_array_replace_1
+#---------------------------------------------- 949 class_method_array_replace_1
 4
-#----------------------------------------------- 949 class_method_say_replace_22
+#----------------------------------------------- 950 class_method_say_replace_22
 Point(3, 4)
-#----------------------------------------------- 950 class_method_say_replace_43
+#----------------------------------------------- 951 class_method_say_replace_43
 A-
-#----------------------------------------------- 951 class_method_say_replace_44
+#----------------------------------------------- 952 class_method_say_replace_44
 A
-#----------------------------------------------- 952 class_method_say_replace_46
+#----------------------------------------------- 953 class_method_say_replace_46
 G7
 S7
 R7
-#----------------------------------------------- 953 class_method_say_replace_53
+#----------------------------------------------- 954 class_method_say_replace_53
 STR:3!
-#----------------------------------------------- 954 class_method_say_replace_54
+#----------------------------------------------- 955 class_method_say_replace_54
 val=S9
-#------------------------------------------------ 955 class_method_for_replace_2
+#------------------------------------------------ 956 class_method_for_replace_2
 1
 2
 3
-#------------------------------------------------ 956 class_method_for_replace_3
+#------------------------------------------------ 957 class_method_for_replace_3
 7
 7
-#------------------------------------------------ 957 class_method_for_replace_4
+#------------------------------------------------ 958 class_method_for_replace_4
 9
 9
-#---------------------------------------------- 958 class_method_range_replace_1
+#---------------------------------------------- 959 class_method_range_replace_1
 Woof
-#---------------------------------------------- 959 class_method_range_replace_2
+#---------------------------------------------- 960 class_method_range_replace_2
 (Mu $!breed Mu $!name)
-#---------------------------------------------- 960 class_method_range_replace_3
+#---------------------------------------------- 961 class_method_range_replace_3
 (bark breed POPULATE speak eat name POPULATE POPULATE)
-#----------------------------------------------- 961 class_method_say_replace_21
+#----------------------------------------------- 962 class_method_say_replace_21
 DOG:Rex
-#---------------------------------------------- 962 class_method_multi_replace_5
+#---------------------------------------------- 963 class_method_multi_replace_5
 int:42
 str:hi
-#- 963 ladder__rung04_arrays_join_flattens_its_list_arguments_as_a_slurpy_and_keeps_array_elements_itemized
+#- 964 ladder__rung04_arrays_join_flattens_its_list_arguments_as_a_slurpy_and_keeps_array_elements_itemized
 ab
 ab
 
@@ -3091,7 +3104,7 @@ ab
 1 2|3 4
 1 2|3 4
 1,2,3,4
-#------- 964 ladder__rung18_two_arg_block_do_for_collects_and_await_is_its_value
+#------- 965 ladder__rung18_two_arg_block_do_for_collects_and_await_is_its_value
 15
 60
 10,20,30
@@ -3099,20 +3112,20 @@ ab
 42
 42
 7,8
-#---------------------------------------------------- 965 sub_when_for_replace_1
+#---------------------------------------------------- 966 sub_when_for_replace_1
 
 10
 20
 30
-#- 966 ladder__rung14_roles_a_role_declares_regexes_and_attributes_beside_methods
+#- 967 ladder__rung14_roles_a_role_declares_regexes_and_attributes_beside_methods
 hello from the role
 hello
-#- 967 ladder__rung15_blocks_a_closure_in_a_sub_reads_an_enum_value_and_a_constant_that_sub_declares
+#- 968 ladder__rung15_blocks_a_closure_in_a_sub_reads_an_enum_value_and_a_constant_that_sub_declares
 12
 101,102,103
 2
 1
-#- 968 ladder__rung19_block_methcall_sort_by_a_one_arg_key_block_past_64_elements
+#- 969 ladder__rung19_block_methcall_sort_by_a_one_arg_key_block_past_64_elements
 (9 6 5 4 3 2 1 1)
 (3 9 6 1 4 1 5 2)
 (fig pear kiwi date apple banana)
@@ -3121,20 +3134,20 @@ hello
 200
 ()
 (9 6 5 4 3 2 1 1)
-#--------------------------------------------------- 969 sub_for_while_replace_1
+#--------------------------------------------------- 970 sub_for_while_replace_1
 1
 2
 3
 4
 5
 15
-#---------------------------------------------------- 970 sub_for_loop_replace_1
+#---------------------------------------------------- 971 sub_for_loop_replace_1
 
 0
 2
 4
 6
-#--------------------------------------------------- 971 sub_for_range_replace_1
+#--------------------------------------------------- 972 sub_for_range_replace_1
 1
 2
 3
@@ -3142,14 +3155,14 @@ hello
 3
 15
 42
-#----------------------------------------------- 972 class_method_say_replace_15
+#----------------------------------------------- 973 class_method_say_replace_15
 3
 4
 7
 14
 Rex
 Woof from Rex
-#------------------------------------------- 973 scrip_test_rk_seq_consumers_arr
+#------------------------------------------- 974 scrip_test_rk_seq_consumers_arr
 1
 2
 1
@@ -3161,16 +3174,16 @@ Woof from Rex
 2
 7
 -3-1-2-1
-#---------------------------------------------- 974 benchmark_rc-9-billion-names
+#---------------------------------------------- 975 benchmark_rc-9-billion-names
 15	176
-#-------------------------------------------------------- 975 scrip_test_rk_subs
+#-------------------------------------------------------- 976 scrip_test_rk_subs
 14
 hello raku
 7
 positive
 zero
 negative
-#-------------------------------------------------- 976 method_sub_for_replace_1
+#-------------------------------------------------- 977 method_sub_for_replace_1
 3
 2
 1
@@ -3191,7 +3204,7 @@ negative
 3
 3
 1
-#--------- 977 ladder__rung02_arithmetic_power_in_every_right_hand_side_position
+#--------- 978 ladder__rung02_arithmetic_power_in_every_right_hand_side_position
 27
 10
 81
@@ -3202,7 +3215,7 @@ negative
 25
 15
 -9
-#------------------------------------------------- 978 sub_junction_smartmatch_1
+#------------------------------------------------- 979 sub_junction_smartmatch_1
 digit match ok
 no digit ok
 lower match ok
@@ -3215,7 +3228,7 @@ anchor ok
 anchor long ok
 anchor empty ok
 rk_re33 ok
-#-------------------------------------------- 979 multi_sub_smartmatch_replace_1
+#-------------------------------------------- 980 multi_sub_smartmatch_replace_1
 nondigit ok
 digits not \D ok
 nonspace ok
@@ -3237,7 +3250,7 @@ full anchor ok
 anchor mismatch ok
 empty anchor ok
 rk_re38 ok
-#- 980 ladder__rung04_arrays_binding_an_array_to_an_element_aliases_it_and_pop_shift_a_zen_slice_and_an_element_store_value_agree_with_rakudo
+#- 981 ladder__rung04_arrays_binding_an_array_to_an_element_aliases_it_and_pop_shift_a_zen_slice_and_an_element_store_value_agree_with_rakudo
 [[1, 2, 9], [3, 4]]
 3 [[1, 2, 9], [4]]
 [1, 2, 3]
@@ -3248,23 +3261,23 @@ rk_re38 ok
 210
 15
 22
-#------------------------------------------------- 981 class_multi_sub_replace_2
+#------------------------------------------------- 982 class_multi_sub_replace_2
 11
 22
-#------------------------------------------------- 982 class_multi_sub_replace_3
+#------------------------------------------------- 983 class_multi_sub_replace_3
 12
 2
 35
-#------------------------------------------------- 983 class_multi_sub_replace_5
+#------------------------------------------------- 984 class_multi_sub_replace_5
 True
-#------------------------------------------------- 984 class_multi_sub_replace_4
+#------------------------------------------------- 985 class_multi_sub_replace_4
 500
 450
-#------------------------------------------------- 985 class_multi_sub_replace_6
+#------------------------------------------------- 986 class_multi_sub_replace_6
 30
-#------------------------------------------------- 986 class_multi_sub_replace_7
+#------------------------------------------------- 987 class_multi_sub_replace_7
 30
-#---------------------- 987 ladder__rung09_regex_match_methods_agree_with_rakudo
+#---------------------- 988 ladder__rung09_regex_match_methods_agree_with_rakudo
 0:a b c d
 0:a b c d
 wc:a|0:b|wc:c
@@ -3276,9 +3289,9 @@ wc:a|~: |0:b|~: |wc:c
 ｢bar｣
 ｢aa｣
 ｢abab｣
-#---------------------------------------------- 988 benchmark_rc-perfect-shuffle
+#---------------------------------------------- 989 benchmark_rc-perfect-shuffle
 8
-#----------------------------------------------- 989 scrip_test_rk_array_literal
+#----------------------------------------------- 990 scrip_test_rk_array_literal
 10
 20
 30
@@ -3291,14 +3304,14 @@ wc:a|~: |0:b|~: |wc:c
 a
 b
 c
-#---------------------------------------------- 990 sub_smartmatch_say_replace_1
+#---------------------------------------------- 991 sub_smartmatch_say_replace_1
 ｢John｣
 ｢John｣
 ｢Smith｣
 ｢99｣
 no match ok
 rk_re34 ok
-#---- 991 ladder__rung09_regex_quote_adverbs_and_interpolation_agree_with_rakudo
+#---- 992 ladder__rung09_regex_quote_adverbs_and_interpolation_agree_with_rakudo
 ｢ABC｣
 ｢ABC｣
 ｢ABC｣
@@ -3322,7 +3335,7 @@ topic match
 True
 ｢abbc｣
 ｢abbc｣
-#---------------------------------------------- 992 sub_smartmatch_say_replace_2
+#---------------------------------------------- 993 sub_smartmatch_say_replace_2
 ｢John｣
 ｢John｣
 ｢Smith｣
@@ -3330,7 +3343,7 @@ True
 ｢John｣
 ｢Smith｣
 rk_re35 ok
-#-------------------------------------------- 993 sub_regex_smartmatch_replace_1
+#-------------------------------------------- 994 sub_regex_smartmatch_replace_1
 match World ok
 match Hello ok
 no match xyz ok
@@ -3339,10 +3352,10 @@ empty no match ok
 start match ok
 end match ok
 5
-#---------------------------------------------- 994 class_method_multi_replace_3
+#---------------------------------------------- 995 class_method_multi_replace_3
 base-int:7
 sub-str:yo
-#- 995 ladder__rung11_junctions_a_junction_in_boolean_context_collapses_and_star_smartmatch_against_a_type_is_a_whatevercode
+#- 996 ladder__rung11_junctions_a_junction_in_boolean_context_collapses_and_star_smartmatch_against_a_type_is_a_whatevercode
 (True False)
 (1)
 False
@@ -3356,10 +3369,10 @@ True
 no
 yes
 False
-#-------------------------------------- 996 benchmark_rc-self-describing-numbers
+#-------------------------------------- 997 benchmark_rc-self-describing-numbers
 1210
 2020
-#- 997 ladder__rung08_for_a_for_loop_over_the_topic_restores_the_outer_topic_when_it_ends_by_exhaustion_last_or_return
+#- 998 ladder__rung08_for_a_for_loop_over_the_topic_restores_the_outer_topic_when_it_ends_by_exhaustion_last_or_return
 False
 ab
 outer
@@ -3370,7 +3383,7 @@ outer
 outer
 12
 outer
-#- 998 ladder__rung04_arrays_xx_repeats_its_left_side_unflattened_and_a_range_in_a_comma_list_is_one_range_element
+#- 999 ladder__rung04_arrays_xx_repeats_its_left_side_unflattened_and_a_range_in_a_comma_list_is_one_range_element
 ((1 a) (1 a))
 ([1 2] [1 2])
 (1 2 1 2)
@@ -3391,16 +3404,16 @@ outer
 1..2
 5
 (2 2)
-#-------------------------------------------------- 999 benchmark_insertion-sort
+#------------------------------------------------- 1000 benchmark_insertion-sort
 0
-#---------------------------------------------- 1000 sub_when_junction_replace_1
+#---------------------------------------------- 1001 sub_when_junction_replace_1
 any-hit
 all-hit
 none-hit
 one-hit
 pipe-hit
 amp-hit
-#-------------------------------------------------- 1001 benchmark_rc-mandelbrot
+#-------------------------------------------------- 1002 benchmark_rc-mandelbrot
 . , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @           . , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @
 . , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @          . , ; * $ # @. , ; * $ # @ . , ; * $ # @ . , ; * $ # @. , ; * $ # @  . , ; * $ # @. , ; * $ # @. , ; * $ # @
 . , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @         . , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @ . , ; * $ # @   . , ; * $ # @. , ; * $ # @. , ; * $ # @  . , ; * $ # @
@@ -3422,9 +3435,9 @@ amp-hit
 . , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @         . , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @ . , ; * $ # @   . , ; * $ # @. , ; * $ # @. , ; * $ # @  . , ; * $ # @
 . , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @          . , ; * $ # @. , ; * $ # @ . , ; * $ # @ . , ; * $ # @. , ; * $ # @  . , ; * $ # @. , ; * $ # @. , ; * $ # @
 . , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @           . , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @
-#------------------------------------------------ 1002 benchmark_point_class_add
+#------------------------------------------------ 1003 benchmark_point_class_add
 6500001.5 9500002.5
-#- 1003 ladder__rung09_regex_grammars_protos_actions_and_lexical_regexes_agree_with_rakudo
+#- 1004 ladder__rung09_regex_grammars_protos_actions_and_lexical_regexes_agree_with_rakudo
 ｢aaa｣
 ｢bb｣
 ｢cc｣
@@ -3455,11 +3468,11 @@ no
 ｢ab｣
  x => ｢ab｣
   y => ｢b｣
-#----------------------------------------------------- 1004 benchmark_merge-sort
+#----------------------------------------------------- 1005 benchmark_merge-sort
 0
-#----------------------------------------------- 1005 benchmark_point_class_add1
+#----------------------------------------------- 1006 benchmark_point_class_add1
 6500001.5 9500002.5
-#- 1006 ladder__rung02_arithmetic_rat_as_an_argument_a_receiver_and_a_container_element_agrees_with_rakudo
+#- 1007 ladder__rung02_arithmetic_rat_as_an_argument_a_receiver_and_a_container_element_agrees_with_rakudo
 (13 14 15 16 17 18 19 10 11 12)
 (13 14 15 16 17 18 19)
 ((10 11 12) (13 14 15) (16 17 18))
@@ -3505,7 +3518,7 @@ True
 1.5
 (1.5)
 1.5
-#- 1007 ladder__rung07_subs_a_subset_is_a_type_and_a_where_clause_checks_a_parameter
+#- 1008 ladder__rung07_subs_a_subset_is_a_type_and_a_where_clause_checks_a_parameter
 True
 False
 True
@@ -3538,7 +3551,7 @@ True
 False
 True
 False
-#---------------------------------------------------- 1008 scrip_test_rk_given18
+#---------------------------------------------------- 1009 scrip_test_rk_given18
 zero
 one
 many
@@ -3552,7 +3565,7 @@ got-one
 got-two
 got-other
 got-other
-#- 1009 ladder__rung10_given_a_when_arm_is_its_own_node_a_given_binds_the_topic_and_a_matched_when_leaves_the_block
+#- 1010 ladder__rung10_given_a_when_arm_is_its_own_node_a_given_binds_the_topic_and_a_matched_when_leaves_the_block
 7
 w
 pre
@@ -3567,7 +3580,7 @@ other c
 AB
 zeroonemany
 caught x
-#- 1010 ladder__rung04_arrays_an_infinite_or_whatever_ended_range_is_lazy_where_it_is_iterated_and_a_range_value_where_it_is_held
+#- 1011 ladder__rung04_arrays_an_infinite_or_whatever_ended_range_is_lazy_where_it_is_iterated_and_a_range_value_where_it_is_held
 (1 2 3)
 (1 2 3)
 1
@@ -3591,7 +3604,7 @@ True
 (1 1)
 (0 0 0 0)
 [(a 0) (b 0)]
-#- 1011 ladder__rung02_arithmetic_rat_in_the_builtins_index_range_x_floor_abs_sqrt_sprintf_int_and_caret
+#- 1012 ladder__rung02_arithmetic_rat_in_the_builtins_index_range_x_floor_abs_sqrt_sprintf_int_and_caret
 20
 20
 abab
@@ -3675,7 +3688,7 @@ True
 110
 115
 99.999999
-#----------------- 1012 ladder__rung09_regex_engine_captures_1_agree_with_rakudo
+#----------------- 1013 ladder__rung09_regex_engine_captures_1_agree_with_rakudo
 M 0 2 <ab> 0=<b> x=<a>
 M 0 3 <abc> 0=<b> 1=<c> x=<abc>
 M 0 1 <a> x=<a>
@@ -3722,7 +3735,7 @@ M 0 2 <12> alpha=[] digit=[<1>,<2>]
 M 0 5 <1,2,3> digit=[<1>,<2>,<3>]
 M 0 5 <1,2,3> 0=[<1>,<2>,<3>]
 M 0 5 <1,2,3> d=[<1>,<2>,<3>] digit=[<1>,<2>,<3>]
-#-------------- 1013 ladder__rung09_regex_engine_quantifiers_1_agree_with_rakudo
+#-------------- 1014 ladder__rung09_regex_engine_quantifiers_1_agree_with_rakudo
 M 0 3 <aaa>
 M 0 4 <aaab>
 M 0 3 <aaa>
@@ -3750,7 +3763,7 @@ M 0 1 <a>
 M 1 3 <ab>
 M 0 1 <a>
 M 0 2 <ab>
-#------------------- 1014 ladder__rung09_regex_engine_sigspace_agree_with_rakudo
+#------------------- 1015 ladder__rung09_regex_engine_sigspace_agree_with_rakudo
 M 0 3 <a b>
 NO
 M 0 5 <a   b>
@@ -3786,7 +3799,7 @@ M 0 2 <Ab> 0=<A>
 NO
 M 0 3 <aBc>
 NO
-#--------------------- 1015 ladder__rung09_regex_engine_batch2_agree_with_rakudo
+#--------------------- 1016 ladder__rung09_regex_engine_batch2_agree_with_rakudo
 NO
 M 0 1 <a> alpha=<a>
 M 2 3 <c> alpha=<c> ident=<c>
@@ -3828,7 +3841,7 @@ M 0 2 <bc>
 M 0 2 <ab>
 M 0 0 <> alpha=[]
 M 0 3 <ab1> alpha=[<a>,<b>] digit=<1>
-#------------------- 1016 ladder__rung09_regex_engine_basics_1_agree_with_rakudo
+#------------------- 1017 ladder__rung09_regex_engine_basics_1_agree_with_rakudo
 M 2 5 <abc>
 M 1 4 <aaa>
 M 0 4 <aaab>
@@ -3878,7 +3891,7 @@ M 0 2 <ab> alpha=[<a>,<b>] x=[<a>,<b>]
 M 0 4 <a1b2> alpha=[<a>,<b>] digit=[<1>,<2>]
 M 0 3 <FOO>
 M 0 3 <fOo>
-#------------------- 1017 ladder__rung09_regex_engine_basics_2_agree_with_rakudo
+#------------------- 1018 ladder__rung09_regex_engine_basics_2_agree_with_rakudo
 NO
 M 0 5 <a   b>
 M 1 5 <   b>
@@ -3928,7 +3941,7 @@ M 0 2 <a1> alpha=<a> digit=<1>
 M 0 4 <abcd>
 M 0 3 <a b> 0=<a> 1=<b>
 M 0 3 <a b>
-#------------------- 1018 ladder__rung09_regex_engine_basics_3_agree_with_rakudo
+#------------------- 1019 ladder__rung09_regex_engine_basics_3_agree_with_rakudo
 M 0 3 <  a> ws=<  >
 M 0 1 <a>
 M 0 3 <123>
@@ -3978,7 +3991,7 @@ M 0 4 <.abc>
 M 0 4 <^abc>
 M 0 5 <(abc)>
 M 0 5 <[abc]>
-#------------------ 1019 ladder__rung09_regex_engine_classes_1_agree_with_rakudo
+#------------------ 1020 ladder__rung09_regex_engine_classes_1_agree_with_rakudo
 M 0 2 <a->
 M 0 2 <a->
 M 1 2 <->
