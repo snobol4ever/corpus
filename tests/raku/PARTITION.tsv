@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by scripts/util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1012 features=37 ubiquitous=2(my sigil_scalar) distinctive=35 core=43 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,69
+# shape: entries=1011 features=37 ubiquitous=2(my sigil_scalar) distinctive=35 core=43 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,68
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:08	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:08	family:ladder	
@@ -862,7 +862,6 @@ class_say_replace_17	chunk:02	feat:has	has say string_concat
 for_range_array_replace_1	chunk:05	feat:for_with_say	for for_with_say range_op sigil_array
 token_say_replace_1	chunk:10	feat:token	if regex say token
 class_method_sort_replace_1	chunk:10	feat:sort	method return sort
-ladder__rung04_arrays_a_seq_over_an_infinite_range_is_lazy_and_says_dots	chunk:10	feat:grep	grep map range_op say
 ladder__rung04_arrays_an_array_is_one_mutable_object_an_element_store_writes_it_in_place_for_every_name_that_holds_it	chunk:05	feat:for_with_say	for for_with_say sigil_array sub
 ladder__rung15_blocks_a_list_holding_a_lazy_gather_renders_after_its_seq_is_reified_not_during	chunk:05	feat:for_with_say	for for_with_say string_concat sub
 benchmark_divide-and-conquer	chunk:05	feat:for_with_say	for for_with_say if sub
