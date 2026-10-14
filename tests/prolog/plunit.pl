@@ -10,17 +10,23 @@
  * instead of assertz(pj_suite(Suite, Opts)).  Runtime assertz (PL-RT-ASSERTZ) is not yet
  * implemented in scrip — runtime calls fall silently — but nb_setval/getval are real
  * builtins, so the registry works there.  pj_suites_init seeds the list to [] from
- * :- initialization(pj_suites_init) so that subsequent begin_tests calls see a real list. */
+ * :- pj_suites_init, a plain directive, so that subsequent begin_tests calls see a real list (CEO-1700: a directive runs
+ * where the consult reaches it, as swipl and gprolog run it; an initialization(pj_suites_init) ran after the file's
+ * begin_tests directives and emptied the list they had built). */
 pj_suites_init :- nb_setval(pj_suites, []).
-:- initialization(pj_suites_init).
+:- pj_suites_init.
 
 pj_suites_add(Suite, Opts) :-
     nb_getval(pj_suites, Old),
     nb_setval(pj_suites, [Suite-Opts|Old]).
 
-begin_tests(Suite) :- pj_suites_add(Suite, []).
-begin_tests(Suite, Opts) :- pj_suites_add(Suite, Opts).
-end_tests(_).
+/* begin_tests(Unit) opens plunit's module plunit_<Unit> as the source module of the unit's clauses and directives, so
+ * prolog_load_context(module, M) answers it there as swipl does (library/test_record point#11); end_tests(Unit) returns
+ * to user. Both run in place, in source order (CEO-1700). */
+begin_tests(Suite) :- pj_unit_open(Suite), pj_suites_add(Suite, []).
+begin_tests(Suite, Opts) :- pj_unit_open(Suite), pj_suites_add(Suite, Opts).
+end_tests(_) :- '$set_source_module'(user).
+pj_unit_open(Suite) :- atom_concat(plunit_, Suite, M), '$set_source_module'(M).
 
 /* SWI-5 (Opus 4.7, 2026-05-28): pj_tc counts tests that actually produced a verdict
  * (pass / fail / skip). Incrementing it on enqueue would over-count: pj_run_one can
