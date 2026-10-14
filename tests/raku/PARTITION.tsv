@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by scripts/util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1012 features=37 ubiquitous=2(my sigil_scalar) distinctive=35 core=43 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,69
+# shape: entries=1013 features=37 ubiquitous=2(my sigil_scalar) distinctive=35 core=43 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,70
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:08	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:08	family:ladder	
@@ -395,6 +395,7 @@ simple_assign_90	chunk:02	family:smoke
 simple_assign_94	chunk:02	family:smoke	
 ladder__rung02_arithmetic	chunk:08	family:ladder	
 ladder__rung02_int_promotes_past_int64	chunk:08	family:ladder	
+ladder__rung07_subs_a_named_placeholder_is_a_named_parameter	chunk:07	feat:string_concat	string_concat sub
 token_1	chunk:10	feat:token	regex token
 sub_say_4	chunk:05	feat:sub	say sub
 token_regex_1	chunk:10	feat:token	regex token
@@ -470,7 +471,7 @@ range_array_4	chunk:08	feat:range_op	range_op sigil_array
 range_array_5	chunk:08	feat:range_op	range_op sigil_array
 range_array_6	chunk:08	feat:range_op	range_op sigil_array
 range_array_7	chunk:08	feat:range_op	range_op sigil_array
-range_array_8	chunk:08	feat:range_op	range_op sigil_array
+range_array_8	chunk:09	feat:range_op	range_op sigil_array
 range_array_9	chunk:09	feat:range_op	range_op sigil_array
 range_array_replace_1	chunk:09	feat:range_op	range_op sigil_array
 say_13	chunk:03	feat:say	say
@@ -560,7 +561,7 @@ while_9	chunk:09	feat:while	while
 array_say_5	chunk:04	feat:sigil_array	say sigil_array
 ladder__rung07_subs_tail_if_false_returns_to_the_caller	chunk:06	feat:if	if sub
 ladder__rung07_subs_user_circumfix_with_constant_delimiters_and_unicode_brackets	chunk:05	feat:sub	sub
-ladder__rung10_given_when_when_with_range	chunk:09	feat:given	given range_op when
+ladder__rung10_given_when_when_with_range	chunk:10	feat:given	given range_op when
 ladder__rung12_exceptions_fail	chunk:05	feat:sub	sub
 ladder__rung13_classes_semicolon_between_members	chunk:02	feat:has	has method
 token_say_1	chunk:10	feat:token	regex say token
@@ -848,7 +849,7 @@ multi_sub_say_2	chunk:08	feat:multi	multi say string_concat sub
 say_try_die_6	chunk:09	feat:die	die if say try
 sub_array_9	chunk:08	feat:sub_with_return	return sigil_array string_concat sub sub_with_return
 class_method_say_replace_31	chunk:07	feat:method	method return say
-class_method_say_replace_33	chunk:07	feat:method	method return say
+class_method_say_replace_33	chunk:08	feat:method	method return say
 class_method_say_replace_34	chunk:08	feat:method	method return say
 class_method_say_replace_47	chunk:08	feat:method	method return say
 class_method_say_replace_48	chunk:08	feat:method	method return say
