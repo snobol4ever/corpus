@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by scripts/util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1006 features=37 ubiquitous=2(my sigil_scalar) distinctive=35 core=43 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,63
+# shape: entries=1008 features=37 ubiquitous=2(my sigil_scalar) distinctive=35 core=43 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,65
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:08	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:08	family:ladder	
@@ -135,8 +135,8 @@ simple_program_65	chunk:06	feat:regex	regex
 simple_program_68	chunk:06	feat:string_concat	string_concat
 simple_program_71	chunk:06	feat:string_concat	string_concat
 simple_program_73	chunk:06	feat:string_concat	string_concat
-simple_program_74	chunk:06	feat:string_concat	string_concat
-simple_program_76	chunk:06	feat:string_concat	string_concat
+simple_program_74	chunk:07	feat:string_concat	string_concat
+simple_program_76	chunk:07	feat:string_concat	string_concat
 test_stmt_pfx_BEGIN	chunk:03	feat:say	say
 test_stmt_pfx_CHECK	chunk:03	feat:say	say
 test_stmt_pfx_END	chunk:03	feat:say	say
@@ -453,7 +453,7 @@ join_hash_1	chunk:06	feat:sigil_hash	join sigil_hash
 join_hash_2	chunk:06	feat:sigil_hash	join sigil_hash
 join_hash_3	chunk:06	feat:sigil_hash	join sigil_hash
 ladder__rung04_arrays_slice	chunk:08	feat:range_op	range_op sigil_array
-ladder__rung06_control_unless	chunk:09	feat:unless	unless
+ladder__rung06_control_unless	chunk:10	feat:unless	unless
 ladder__rung15_blocks_anon_sub	chunk:05	feat:sub	sub
 ladder__rung15_blocks_anon_sub_with_arg	chunk:05	feat:sub	sub
 ladder__rung18_two_arg_block	chunk:10	feat:sort	sigil_array sort
@@ -480,7 +480,7 @@ say_replace_21	chunk:03	feat:say	say
 say_try_die_1	chunk:09	feat:die	die say try
 say_try_die_4	chunk:09	feat:die	die say try
 simple_assign_120	chunk:05	feat:if	if
-simple_assign_121	chunk:09	feat:unless	unless
+simple_assign_121	chunk:10	feat:unless	unless
 simple_assign_122	chunk:10	feat:unless	unless
 simple_assign_30	chunk:05	feat:if	if
 simple_assign_31	chunk:05	feat:if	if
@@ -500,7 +500,7 @@ simple_assign_84	chunk:10	feat:unless	unless
 simple_assign_88	chunk:05	feat:if	if
 simple_assign_91	chunk:05	feat:if	if
 simple_assign_93	chunk:05	feat:if	if
-simple_assign_95	chunk:05	feat:if	if
+simple_assign_95	chunk:06	feat:if	if
 simple_assign_96	chunk:10	feat:unless	unless
 sub_14	chunk:07	feat:string_concat	string_concat sub
 sub_23	chunk:08	feat:sub_with_return	return sub sub_with_return
@@ -508,7 +508,7 @@ sub_25	chunk:08	feat:sub_with_return	return sub sub_with_return
 sub_28	chunk:05	feat:sub	sub
 sub_31	chunk:08	feat:sub_with_return	return sub sub_with_return
 sub_35	chunk:08	feat:sub_with_return	return sub sub_with_return
-sub_37	chunk:05	feat:if	if sub
+sub_37	chunk:06	feat:if	if sub
 sub_7	chunk:05	feat:sub	sub
 sub_8	chunk:05	feat:sub	sub
 sub_array_15	chunk:05	feat:sub	sigil_array sub
@@ -683,7 +683,7 @@ for_say_10	chunk:04	feat:for_with_say	for for_with_say say
 for_say_11	chunk:04	feat:for_with_say	for for_with_say say
 for_say_9	chunk:04	feat:for_with_say	for for_with_say say
 ladder__rung06_control	chunk:09	feat:while	if while
-range_array_10	chunk:08	feat:range_op	range_op sigil_array
+range_array_10	chunk:09	feat:range_op	range_op sigil_array
 say_53	chunk:06	feat:if	if say
 sub_18	chunk:08	feat:sub_with_return	return sub sub_with_return
 while_say_1	chunk:09	feat:while	say while
@@ -816,7 +816,7 @@ ladder__rung19_block_methcall_sort_by_a_two_arg_comparator_block_past_64_element
 sub_say_5	chunk:07	feat:string_concat	say string_concat sub
 benchmark_spinner	chunk:10	feat:for	for sigil_array sub
 ladder__rung02_arithmetic_rat_smartmatch_truthiness_function_forms_and_type_checks	chunk:09	feat:smartmatch	say smartmatch string_concat
-sub_range_say_replace_1	chunk:08	feat:range_op	range_op say sub
+sub_range_say_replace_1	chunk:09	feat:range_op	range_op say sub
 benchmark_rc-dragon-curve	chunk:05	feat:for_with_say	for for_with_say range_op
 sub_array_say_replace_1	chunk:05	feat:sub	say sigil_array sub
 scrip_test_rk_str22	chunk:06	feat:if	if say sub
@@ -850,8 +850,8 @@ class_method_say_replace_33	chunk:07	feat:method	method return say
 class_method_say_replace_34	chunk:07	feat:method	method return say
 class_method_say_replace_47	chunk:07	feat:method	method return say
 class_method_say_replace_48	chunk:07	feat:method	method return say
-class_method_say_replace_49	chunk:07	feat:method	method return say
-class_method_say_replace_52	chunk:07	feat:method	method return say
+class_method_say_replace_49	chunk:08	feat:method	method return say
+class_method_say_replace_52	chunk:08	feat:method	method return say
 class_sub_say_replace_1	chunk:02	feat:has	has say sub
 for_array_say_4	chunk:05	feat:for_with_say	for for_with_say say sigil_array
 class_method_say_replace_17	chunk:08	feat:method	method return say
@@ -862,7 +862,9 @@ token_say_replace_1	chunk:10	feat:token	if regex say token
 class_method_sort_replace_1	chunk:10	feat:sort	method return sort
 ladder__rung04_arrays_an_array_is_one_mutable_object_an_element_store_writes_it_in_place_for_every_name_that_holds_it	chunk:05	feat:for_with_say	for for_with_say sigil_array sub
 benchmark_divide-and-conquer	chunk:05	feat:for_with_say	for for_with_say if sub
+ladder__rung08_for_a_rw_loop_variable_and_the_topic_write_back_to_the_array_and_is_copy_does_not	chunk:05	feat:for_with_say	for for_with_say if sigil_array
 ladder__rung04_arrays_in_numeric_context_count_their_elements	chunk:09	feat:while	for for_with_say sigil_array while
+ladder__rung07_subs_an_is_rw_parameter_writes_back_to_a_scalar_or_an_element_argument	chunk:05	feat:for_with_say	for for_with_say sigil_array sub
 sub_say_replace_2	chunk:07	feat:string_concat	if say string_concat sub
 ladder__rung01_variables_compound_assignment_and_element_increment	chunk:06	feat:sigil_hash	join sigil_array sigil_hash string_concat
 sub_while_say_replace_1	chunk:09	feat:while	if say sub while
