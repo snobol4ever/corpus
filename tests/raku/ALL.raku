@@ -2435,7 +2435,19 @@ say @n.^name;
 say @n.defined;
 say @n // "default";
 say @n.max, " ", @n.min;
-#--------------- 693 ladder__rung16_bool_relops_logical_or_and_answer_an_operand
+#- 693 ladder__rung07_subs_a_sigilless_parameter_is_assignable_and_writes_back_to_its_argument
+sub set-to-eight(\x) { x = 8 }
+my $w = 1;
+set-to-eight($w);
+say $w;
+sub twice(\c) { c++; c++ }
+my $k = 5;
+twice($k);
+say $k;
+my @a = 1, 2;
+set-to-eight(@a[1]);
+say @a;
+#--------------- 694 ladder__rung16_bool_relops_logical_or_and_answer_an_operand
 my $x = 0 || 5;
 say $x;
 my $y = 7 || 5;
@@ -2447,7 +2459,7 @@ my $b = { $_ == 1 || $_ == 3 };
 say $b(3);
 say $b(2);
 say (1, 2, 3, 4, 5).grep({ $_ > 1 && $_ < 4 });
-#--------------------------------------------------------------- 694 array_say_4
+#--------------------------------------------------------------- 695 array_say_4
     my @nums;
     push(@nums, 1);
     push(@nums, 2);
@@ -2461,7 +2473,7 @@ say (1, 2, 3, 4, 5).grep({ $_ > 1 && $_ < 4 });
     my $p = pop(@nums);
     say($p);
     say(elems(@nums));
-#------------------------- 695 ladder__rung04_arrays_scalar_container_subscripts
+#------------------------- 696 ladder__rung04_arrays_scalar_container_subscripts
 my $r = [1, 2, 3];
 say $r[1];
 $r[0] = 9;
@@ -2477,7 +2489,7 @@ my $i = 1;
 my $n = 5;
 say $i < $n;
 if $i { say "block" }
-#----------------------------------------- 696 benchmark_pi-sequential-iteration
+#----------------------------------------- 697 benchmark_pi-sequential-iteration
 # pi_sequential_iteration.rb port
 
 use v6;
@@ -2503,7 +2515,7 @@ my $pi = 4.0 * $delta * $sum;
 say $pi;
 
 # vim: set ft=perl6
-#-------------------------------------------------------- 697 hash_say_replace_3
+#-------------------------------------------------------- 698 hash_say_replace_3
 # RK-15: Hash operations — set/get/exists/keys/values, sigil syntax
 
 # Basic set and get
@@ -2532,7 +2544,7 @@ say(%h2<lang>);
 say(%h2<vers>);
 my $k = 'lang';
 say(%h2{$k});
-#- 698 ladder__rung02_arithmetic_rat_rounding_comparison_sums_and_mixed_operands
+#- 699 ladder__rung02_arithmetic_rat_rounding_comparison_sums_and_mixed_operands
 say 0.5 ** 0;
 say 1.5 ** 2;
 say (-1/2) ** 3;
@@ -2611,349 +2623,349 @@ say 1 / 1000000007;
 say 123456789 / 1000;
 say 100 / 3;
 say 2 / 3;
-#--------------------------------------------------------------- 699 for_range_3
+#--------------------------------------------------------------- 700 for_range_3
 for 1..2 -> $i { if ($i == 1) { say "one" } else { say "two" } }
-#--------------------------------------------------------------- 700 for_range_4
+#--------------------------------------------------------------- 701 for_range_4
 for 1..2 { my $x = 5; say $x }
-#----------------------------------------------------------- 701 for_range_say_3
+#----------------------------------------------------------- 702 for_range_say_3
 for 1..3 -> $v { say($v) }
-#----------------------------------------------------------- 702 for_range_say_4
+#----------------------------------------------------------- 703 for_range_say_4
  for 1..3 -> $v { say($v); }; say('done'); 
-#-------------------------------------------------------- 703 join_split_array_1
+#-------------------------------------------------------- 704 join_split_array_1
  my @a = "x,y,z".split(","); say(@a.join("|")); 
-#---------------------------------------------------------- 704 smartmatch_say_2
+#---------------------------------------------------------- 705 smartmatch_say_2
  if ('abc' ~~ /^\d+$/) { say("match"); } else { say("nomatch"); } 
-#---------------------------------------------------------- 705 smartmatch_say_3
+#---------------------------------------------------------- 706 smartmatch_say_3
  if ('abc123' ~~ /\d+/) { say("match"); } else { say("nomatch"); } 
-#--------------------------------------------------------------------- 706 sub_5
+#--------------------------------------------------------------------- 707 sub_5
  my $s = sub { return 4; }; say $s(); 
-#------------------------------------------------------- 707 class_say_replace_1
+#------------------------------------------------------- 708 class_say_replace_1
 class Point { has $.x; has $.y; }
  my $p = Point.new(x => 3, y => 4); say($p.x()); 
-#------------------------------------------------------ 708 class_say_replace_10
+#------------------------------------------------------ 709 class_say_replace_10
 class Cfg { has Int $.limit = 100; }
  my $c = Cfg.new(); say($c.limit); 
-#------------------------------------------------------ 709 class_say_replace_12
+#------------------------------------------------------ 710 class_say_replace_12
 class Point { has $.x; has $.y; submethod BUILD(:$x, :$y) { $!x = $x * 2; $!y = $y; } }
  my $p = Point.new(x => 5, y => 10); say($p.x); say($p.y); 
-#------------------------------------------------------ 710 class_say_replace_13
+#------------------------------------------------------ 711 class_say_replace_13
 class R { has $.id is required; submethod BUILD(:$id) { $!id = $id; } }
  my $r = R.new(id => 42); say($r.id); 
-#------------------------------------------------------ 711 class_say_replace_14
+#------------------------------------------------------ 712 class_say_replace_14
 class Point { has $.x; has $.y; }
  my $p = Point.new(x => 3, y => 4); my $q = $p.clone(); say($q.x); say($q.y); 
-#------------------------------------------------------ 712 class_say_replace_16
+#------------------------------------------------------ 713 class_say_replace_16
 class Point { has $.x; has $.y; }
  my $p = Point.new(x => 3, y => 4); my $r = $p.clone(y => 99); say($r.x); say($r.y); say($p.y); 
-#------------------------------------------------------ 713 class_say_replace_18
+#------------------------------------------------------ 714 class_say_replace_18
 class Q { has $.x; }
  my $q = Q.new(x => 1); $q.x = 5; say("unreached"); 
-#------------------------------------------------------ 714 class_say_replace_19
+#------------------------------------------------------ 715 class_say_replace_19
 class P { has $.x is rw; }
  my $p = P.new(x => 1); $p.x = 5; say($p.x); 
-#------------------------------------------------------- 715 class_say_replace_2
+#------------------------------------------------------- 716 class_say_replace_2
 class Box { has $.v = 42; }
  my $b = Box.new(); say($b.v); 
-#------------------------------------------------------ 716 class_say_replace_20
+#------------------------------------------------------ 717 class_say_replace_20
 class Box { has Int $.v is rw; }
  my $b = Box.new(v => 1); $b.v = 99; say($b.v); 
-#------------------------------------------------------ 717 class_say_replace_21
+#------------------------------------------------------ 718 class_say_replace_21
 class Empty { has $.x; }
  my $e = Empty.new(x => 1); say($e); 
-#------------------------------------------------------ 718 class_say_replace_24
+#------------------------------------------------------ 719 class_say_replace_24
 class Dog { has $.name; }
  my $d = Dog.new(name => "Rex"); say($d.^name); 
-#------------------------------------------------------ 719 class_say_replace_28
+#------------------------------------------------------ 720 class_say_replace_28
 class Point { has $.x; }
  my $p = Point.new(x => 1); say($p.WHAT); 
-#------------------------------------------------------- 720 class_say_replace_3
+#------------------------------------------------------- 721 class_say_replace_3
 class Box { has $.v = 42; }
  my $b = Box.new(v => 7); say($b.v); 
-#------------------------------------------------------- 721 class_say_replace_4
+#------------------------------------------------------- 722 class_say_replace_4
 class Greeter { has $.greeting = "hello"; }
  my $g = Greeter.new(); say($g.greeting); 
-#------------------------------------------------------- 722 class_say_replace_5
+#------------------------------------------------------- 723 class_say_replace_5
 class Config { has %.opts; }
  my $c = Config.new(); my $h = $c.opts; say($h{'x'}:exists); 
-#------------------------------------------------------- 723 class_say_replace_6
+#------------------------------------------------------- 724 class_say_replace_6
 class Point { has $.x is required; has $.y; }
  my $p = Point.new(y => 9); say("unreached"); 
-#------------------------------------------------------- 724 class_say_replace_7
+#------------------------------------------------------- 725 class_say_replace_7
 class Point { has $.x is required; has $.y; }
  my $p = Point.new(x => 7, y => 9); say($p.x); 
-#------------------------------------------------------- 725 class_say_replace_8
+#------------------------------------------------------- 726 class_say_replace_8
 class Box { has Int $.w is required; }
  my $b = Box.new(w => 12); say($b.w); 
-#------------------------------------------------------- 726 class_say_replace_9
+#------------------------------------------------------- 727 class_say_replace_9
 class Point { has Int $.x; has Int $.y; }
  my $p = Point.new(x => 3, y => 4); say($p.x); 
-#-------------------------------------------------------------- 727 for_range_10
+#-------------------------------------------------------------- 728 for_range_10
 my $n = 3;
 for 0 ..^ $n -> $i { say $i }
-#----------------------------------------------------------- 728 for_range_say_5
+#----------------------------------------------------------- 729 for_range_say_5
 for 1..3 -> $v { say($v); }
 say('done');
-#------------------------------------------------------------ 729 junction_say_5
+#------------------------------------------------------------ 730 junction_say_5
     my $s = 'b';
     if ($s eq any('a', 'b')) { say('str-hit'); }
-#------------------------------------------ 730 ladder__rung07_subs_named_params
+#------------------------------------------ 731 ladder__rung07_subs_named_params
 sub greet(:$name) { return "hi " ~ $name; }
 say greet(name => "Bob");
-#------------------------------------ 731 ladder__rung08_for_loop_for_over_array
+#------------------------------------ 732 ladder__rung08_for_loop_for_over_array
 my @a = (10, 20, 30);
 for @a -> $x { say $x; }
-#------------------------------------ 732 ladder__rung08_for_loop_for_with_index
+#------------------------------------ 733 ladder__rung08_for_loop_for_with_index
 my @a = ("a", "b");
 for @a.kv -> $i, $v { say "$i:$v"; }
-#- 733 ladder__rung09_a_quantified_captures_list_responds_to_builtin_list_methods
+#- 734 ladder__rung09_a_quantified_captures_list_responds_to_builtin_list_methods
 my $m = "aaa" ~~ /$<x>=(a)+/;
 say $<x>.elems;
-#------ 734 ladder__rung09_a_quantified_named_bracket_group_stays_a_single_match
+#------ 735 ladder__rung09_a_quantified_named_bracket_group_stays_a_single_match
 my $m = "aaa" ~~ /$<x>=[a]+/;
 say $<x>;
-#--------------- 735 ladder__rung09_named_bracket_group_binds_to_the_whole_group
+#--------------- 736 ladder__rung09_named_bracket_group_binds_to_the_whole_group
 my $m = "a" ~~ /$<x>=[a]/;
 say $<x>;
-#-------------- 736 ladder__rung09_quantified_named_capture_pluralizes_to_a_list
+#-------------- 737 ladder__rung09_quantified_named_capture_pluralizes_to_a_list
 my $m = "aaa" ~~ /$<x>=(a)+/;
 say $<x>;
-#------------------------------------------------------ 737 method_say_replace_1
+#------------------------------------------------------ 738 method_say_replace_1
 role Speaks { method talk() { return "hello"; } }
  my $s = Speaks.new(); say($s.talk()); 
-#--------------------------------------------------------- 738 multi_sub_array_3
+#--------------------------------------------------------- 739 multi_sub_array_3
 multi sub f($a, **@r) { say "L:" ~ @r.elems; }
 f(1,2,3,4);
-#--------------------------------------------------------- 739 multi_sub_array_4
+#--------------------------------------------------------- 740 multi_sub_array_4
 multi sub f($a, *@r) { say "V:" ~ @r.elems; }
 f(1,2,3);
-#------------------------------------------------------------ 740 say_replace_10
+#------------------------------------------------------------ 741 say_replace_10
 grammar G { rule TOP { "abc" } }
  my $r = G.parse("abcd"); if ($r) { say("Y"); } else { say("N"); } 
-#------------------------------------------------------------ 741 say_replace_11
+#------------------------------------------------------------ 742 say_replace_11
 grammar G { rule TOP { <digit> <alpha> } }
  my $r = G.parse("xx"); if ($r) { say("Y"); } else { say("N"); } 
-#------------------------------------------------------------ 742 say_replace_12
+#------------------------------------------------------------ 743 say_replace_12
 grammar G { rule TOP { <digit> <alpha> } }
  my $r = G.parse("55"); if ($r) { say("Y"); } else { say("N"); } 
-#------------------------------------------------------------ 743 say_replace_13
+#------------------------------------------------------------ 744 say_replace_13
 grammar G { rule TOP { <digit> <alpha> } }
  my $r = G.parse("5"); if ($r) { say("Y"); } else { say("N"); } 
-#------------------------------------------------------------ 744 say_replace_14
+#------------------------------------------------------------ 745 say_replace_14
 grammar G { rule TOP { <digit> <lower> <upper> } }
  my $r = G.parse("3XB"); if ($r) { say("Y"); } else { say("N"); } 
-#------------------------------------------------------------ 745 say_replace_15
+#------------------------------------------------------------ 746 say_replace_15
 grammar G { rule TOP { <digit>+ } }
  my $r = G.parse("abc"); if ($r) { say("Y"); } else { say("N"); } 
-#------------------------------------------------------------ 746 say_replace_16
+#------------------------------------------------------------ 747 say_replace_16
 grammar G { rule TOP { "a.b" } }
  my $r = G.parse("axb"); if ($r) { say("BAD"); } else { say("OK"); } 
-#------------------------------------------------------------ 747 say_replace_17
+#------------------------------------------------------------ 748 say_replace_17
 grammar G { rule TOP { "hello" } }
  my $r = G.parse("world"); if ($r) { say("Y"); } else { say("N"); } 
-#------------------------------------------------------------- 748 say_replace_3
+#------------------------------------------------------------- 749 say_replace_3
 grammar G { rule TOP { "a" | "b" } }
  my $r = G.parse("c"); if ($r) { say("Y"); } else { say("N"); } 
-#------------------------------------------------------------- 749 say_replace_4
+#------------------------------------------------------------- 750 say_replace_4
 grammar G { rule TOP { <alpha> } }
  my $r = G.parse("1"); if ($r) { say("Y"); } else { say("N"); } 
-#------------------------------------------------------------- 750 say_replace_5
+#------------------------------------------------------------- 751 say_replace_5
 grammar G { rule TOP { <digit> } }
  my $r = G.parse("x"); if ($r) { say("Y"); } else { say("N"); } 
-#------------------------------------------------------------- 751 say_replace_6
+#------------------------------------------------------------- 752 say_replace_6
 grammar G { rule TOP { <space> } }
  my $r = G.parse(" "); if ($r) { say("Y"); } else { say("N"); } 
-#------------------------------------------------------------- 752 say_replace_7
+#------------------------------------------------------------- 753 say_replace_7
 grammar G { rule TOP { <digit> } }
  my $r = G.parse("55"); if ($r) { say("Y"); } else { say("N"); } 
-#------------------------------------------------------------- 753 say_replace_8
+#------------------------------------------------------------- 754 say_replace_8
 grammar G { rule TOP { <upper> } }
  my $r = G.parse("a"); if ($r) { say("Y"); } else { say("N"); } 
-#------------------------------------------------------------- 754 say_replace_9
+#------------------------------------------------------------- 755 say_replace_9
 grammar G { rule TOP { <xdigit> } }
  my $r = G.parse("g"); if ($r) { say("Y"); } else { say("N"); } 
-#-------------------------------------------------------------------- 755 sub_11
+#-------------------------------------------------------------------- 756 sub_11
 my sub sq($x) { return $x * $x; }
 say sq(5);
-#----------------------------------------------------------------- 756 sub_say_6
+#----------------------------------------------------------------- 757 sub_say_6
 sub greet(Str:D $name) { say("hi " ~ $name); }
  greet("Tom"); my $u; greet($u); say("after"); 
-#--------------------------------------------------- 757 class_method_replace_12
+#--------------------------------------------------- 758 class_method_replace_12
 class Point { has $.x; has $.y; method sum { $!x + $!y } }
 my $p = Point.new(x => 3, y => 4);
 say $p.sum;
-#--------------------------------------------------- 758 class_method_replace_13
+#--------------------------------------------------- 759 class_method_replace_13
 class C { method greet { return "hi"; } }
 my $o = C.new;
 say $o.greet();
-#--------------------------------------------------- 759 class_method_replace_15
+#--------------------------------------------------- 760 class_method_replace_15
 class C { has $.v; method show() { say $.v } }
 my $o = C.new(v => 7);
 $o.show();
-#--------------------------------------------------- 760 class_method_replace_17
+#--------------------------------------------------- 761 class_method_replace_17
 class C { method g() { return 7 } }
 my $o = C.new;
 say $o.g();
-#---------------------------------------------------- 761 class_method_replace_2
+#---------------------------------------------------- 762 class_method_replace_2
 class Cfg { method keys() { return "custom-keys"; } }
 my $c = Cfg.new;
 say $c.keys;
-#--------------------------------------------------- 762 class_method_replace_20
+#--------------------------------------------------- 763 class_method_replace_20
 class Dog { method speak() { return "woof"; } }
 my $d = Dog.new;
 say $d.speak();
-#---------------------------------------------------- 763 class_method_replace_3
+#---------------------------------------------------- 764 class_method_replace_3
 class C { method go() { say "g" } }
 my $o = C.new;
 $o.go() if 1;
-#---------------------------------------------------- 764 class_method_replace_4
+#---------------------------------------------------- 765 class_method_replace_4
 class C { method n($x) { say $x } }
 my $o = C.new;
 $o.n(9) if 1;
-#---------------------------------------------------- 765 class_method_replace_5
+#---------------------------------------------------- 766 class_method_replace_5
 class C { method answer() { return 42; } }
 my $o = C.new;
 say $o.answer;
-#---------------------------------------------------- 766 class_method_replace_8
+#---------------------------------------------------- 767 class_method_replace_8
 class C { method return() { return 3 } }
 my $o = C.new;
 say $o.return();
-#---------------------------------------------------- 767 class_method_replace_9
+#---------------------------------------------------- 768 class_method_replace_9
 class C { method take() { return 5 } }
 my $o = C.new;
 say $o.take;
-#----------------------------------------------- 768 class_method_say_replace_18
+#----------------------------------------------- 769 class_method_say_replace_18
 role Barker { method bark() { say("woof"); } }
 class Dog does Barker { }
  my $d = Dog.new(); say($d.does(Barker)); say($d.isa(Dog)); 
-#------------------------------------------------------ 769 class_say_replace_15
+#------------------------------------------------------ 770 class_say_replace_15
 class Animal { has $.name; has $.legs; }
 class Dog is Animal { has $.breed; }
  my $d = Dog.new(name => "Rex", legs => 4, breed => "Lab"); my $c = $d.clone(breed => "Pug"); say($c.name); say($c.legs); say($c.breed); 
-#------------------------------------------------------ 770 class_say_replace_26
+#------------------------------------------------------ 771 class_say_replace_26
 class Animal { has $.name; }
 class Dog is Animal { }
  my $d = Dog.new(name => "Rex"); say($d.name); 
-#------------------------------------------------------ 771 class_say_replace_27
+#------------------------------------------------------ 772 class_say_replace_27
 role HasId { has $.id; }
 class Widget does HasId { }
  my $w = Widget.new(id => 42); say($w.id); 
-#------------------------------------------------------ 772 class_say_replace_29
+#------------------------------------------------------ 773 class_say_replace_29
 class Animal { has $.name; }
 class Dog is Animal { }
  my $d = Dog.new(name => "Rex"); say($d.WHAT); 
-#--------------------------------------------------------------- 773 for_range_1
+#--------------------------------------------------------------- 774 for_range_1
 my $x = 0;
 for 1..3 -> $v { $x = $x + $v }
 say $x;
-#-------------------------------------------------------------- 774 for_range_11
+#-------------------------------------------------------------- 775 for_range_11
 my $t = 0;
 for 1..3 -> $x { $t = $t + $x; }
 say $t;
-#------------------------------------------------------------ 775 junction_say_1
+#------------------------------------------------------------ 776 junction_say_1
     my $x = 3;
     if ($x == all(3, 3, 3)) { say('all-hit'); }
     if ($x == all(3, 3, 4)) { say('all-miss-BAD'); }
-#------------------------------------------------------------ 776 junction_say_2
+#------------------------------------------------------------ 777 junction_say_2
     my $x = 3;
     if ($x == any(1, 2, 3)) { say('any-hit'); }
     if ($x == any(7, 8, 9)) { say('any-miss-BAD'); }
-#------------------------------------------------------------ 777 junction_say_3
+#------------------------------------------------------------ 778 junction_say_3
     my $x = 3;
     if ($x == none(7, 8, 9)) { say('none-hit'); }
     if ($x == none(1, 3, 5)) { say('none-miss-BAD'); }
-#------------------------------------------------------------ 778 junction_say_4
+#------------------------------------------------------------ 779 junction_say_4
     my $x = 3;
     if ($x == one(1, 3, 5)) { say('one-hit'); }
     if ($x == one(3, 3, 5)) { say('one-miss-BAD'); }
-#--------------------------------------------------------- 779 multi_sub_array_2
+#--------------------------------------------------------- 780 multi_sub_array_2
 multi sub f($a, *@r) { say "V:" ~ @r.elems; }
 multi sub f($a) { say "S"; }
 f(1);
-#----------------------------------------------------------- 780 multi_sub_say_1
+#----------------------------------------------------------- 781 multi_sub_say_1
 multi sub greet($a) { say("one: " ~ $a); }
 multi sub greet($a, $b) { say("two: " ~ $a ~ "," ~ $b); }
  greet("x"); greet("y", "z"); 
-#----------------------------------------------------------- 781 multi_sub_say_5
+#----------------------------------------------------------- 782 multi_sub_say_5
 multi sub describe(Int $x) { say("integer " ~ $x); }
 multi sub describe(Str $x) { say("string " ~ $x); }
  describe(42); describe("hello"); 
-#-------------------------------------------------------------------- 782 sub_24
+#-------------------------------------------------------------------- 783 sub_24
 sub f($x) { if $x { return 1 } else { return 2 } }
 say f(0);
 say f(1);
-#-------------------------------------------------------------------- 783 sub_36
+#-------------------------------------------------------------------- 784 sub_36
 sub boom() { say "BOOM"; return 9; }
 sub safe() { return 5; }
 my $x = 1 ?? safe() !! boom(); say $x;
-#--------------------------------------------------- 784 class_method_replace_16
+#--------------------------------------------------- 785 class_method_replace_16
 class C { method m($v = 42) { return $v } }
 my $o = C.new;
 say $o.m();
 say $o.m(8);
-#----------------------------------------------- 785 class_method_say_replace_35
+#----------------------------------------------- 786 class_method_say_replace_35
 class A { method TWEAK() { say("A"); } }
 class B is A { method TWEAK() { say("B"); } }
 class C is B { method TWEAK() { say("C"); } }
  my $c = C.new(); 
-#----------------------------------------------------------- 786 for_range_say_6
+#----------------------------------------------------------- 787 for_range_say_6
     for grep { $_ > 2 }, 1..5 -> $v {
         say($v);
     }
     say('done');
-#----------------------------------------------------------- 787 for_range_say_7
+#----------------------------------------------------------- 788 for_range_say_7
     for map { $_ * 2 }, 1..3 -> $v {
         say($v);
     }
     say('done');
-#------------------------------------------------------- 788 join_range_array_10
+#------------------------------------------------------- 789 join_range_array_10
 my @a = 1,2,3,4,5;
 my $lo = 1;
 my $hi = 3;
 say @a[$lo..$hi].join(",");
-#---------------------------------------- 789 ladder__rung07_subs_multi_dispatch
+#---------------------------------------- 790 ladder__rung07_subs_multi_dispatch
 multi sub area($side) { return $side * $side; }
 multi sub area($w, $h) { return $w * $h; }
 say area(4);
 say area(3, 5);
-#------------------------------------------------------------- 790 sub_say_try_1
+#------------------------------------------------------------- 791 sub_say_try_1
 sub boomer() { die('deep'); say('sub-after'); };
 
     try { boomer(); say('body-after'); }; CATCH { say($_); };
     say('after');
-#------------------------------------------------------- 791 test_stmt_pfx_FIRST
+#------------------------------------------------------- 792 test_stmt_pfx_FIRST
 for 1..3 -> $i {
     FIRST { say("first"); }
     say($i);
 }
-#-------------------------------------------------------- 792 test_stmt_pfx_LAST
+#-------------------------------------------------------- 793 test_stmt_pfx_LAST
 for 1..3 -> $i {
     LAST { say("last"); }
     say($i);
 }
-#-------------------------------------------------------- 793 test_stmt_pfx_NEXT
+#-------------------------------------------------------- 794 test_stmt_pfx_NEXT
 for 1..3 -> $i {
     NEXT { say("next"); }
     say($i);
 }
-#---------------------------------- 794 ladder__rung19_block_methcall_on_a_range
+#---------------------------------- 795 ladder__rung19_block_methcall_on_a_range
 say (1..9).grep({ $_ %% 3 });
 say (1..4).map({ $_ * 2 });
 say (1..4).elems;
 say (^4).sum;
 say [+] (1..999).grep({ $_ % 3 == 0 || $_ % 5 == 0 });
-#------------------------------------------------------------- 795 say_try_die_5
+#------------------------------------------------------------- 796 say_try_die_5
     try {
         try { die('a'); }; CATCH { die('b'); };
         say('unreached');
     }; CATCH { say('outer:' ~ $_); };
     say('after');
-#------------------------------------------------------ 796 test_nested_if_while
+#------------------------------------------------------ 797 test_nested_if_while
 my $i = 0;
 if ($i == 0) {
     while ($i < 3) { $i = $i + 1; }
 }
 say($i);
-#---------------------------------------------------- 797 ladder__rung13_classes
+#---------------------------------------------------- 798 ladder__rung13_classes
 class Greeter {
     method greet {
         return "hello";
@@ -2961,7 +2973,7 @@ class Greeter {
 }
 my $g = Greeter.new;
 say $g.greet;
-#------------------------------ 798 ladder__rung13_classes_named_arg_constructor
+#------------------------------ 799 ladder__rung13_classes_named_arg_constructor
 class Sum {
     has $.a;
     has $.b;
@@ -2969,7 +2981,7 @@ class Sum {
 }
 my $s = Sum.new(:a(39), :b(3));
 say $s.total;
-#------------------------------------------- 799 ladder__rung14_roles_smartmatch
+#------------------------------------------- 800 ladder__rung14_roles_smartmatch
 role Flyer { }
 class Bird does Flyer { }
 class Fish { }
@@ -2977,7 +2989,7 @@ my $b = Bird.new;
 my $f = Fish.new;
 say $b ~~ Flyer;
 say $f ~~ Flyer;
-#------------------------------------------------------------- 800 say_try_die_7
+#------------------------------------------------------------- 801 say_try_die_7
     try {
         try { die('inner'); CATCH { default { say('in:' ~ $_); } } }
         say('mid');
@@ -2985,7 +2997,7 @@ say $f ~~ Flyer;
         CATCH { default { say('out:' ~ $_); } }
     }
     say('after');
-#------------------------------------------------------ 801 ladder__rung14_roles
+#------------------------------------------------------ 802 ladder__rung14_roles
 role Greeter {
     method greet {
         return "hi from role";
@@ -2994,7 +3006,7 @@ role Greeter {
 class Widget does Greeter { }
 my $w = Widget.new;
 say $w.greet;
-#--------------------------------------------- 802 ladder__rung14_roles_override
+#--------------------------------------------- 803 ladder__rung14_roles_override
 role Greeter {
     method greet { return "role hello" }
 }
@@ -3003,7 +3015,7 @@ class Special does Greeter {
 }
 my $s = Special.new;
 say $s.greet;
-#------------------------------------------------------------- 803 sub_for_say_1
+#------------------------------------------------------------- 804 sub_for_say_1
 # rk_gather.raku — RK-21: gather/take as BB_PUMP coroutine
 sub main() {
     for gather { take(10); take(20); take(30); } -> $v {
@@ -3012,7 +3024,7 @@ sub main() {
     say('done');
 }
 main();
-#------------------------------------------- 804 ladder__rung14_roles_attributes
+#------------------------------------------- 805 ladder__rung14_roles_attributes
 role Counter {
     has $.count is rw = 0;
     method inc { $!count++ }
@@ -3023,7 +3035,7 @@ $t.inc;
 $t.inc;
 $t.inc;
 say $t.count;
-#------------------------------------------ 805 ladder__rung14_roles_composition
+#------------------------------------------ 806 ladder__rung14_roles_composition
 role Flyer {
     method fly { return "flying" }
 }
@@ -3034,7 +3046,7 @@ class Duck does Flyer does Swimmer { }
 my $d = Duck.new;
 say $d.fly;
 say $d.swim;
-#- 806 ladder__rung02_arithmetic_a_division_by_zero_builds_a_zero_denominator_rat_as_rakudo_does
+#- 807 ladder__rung02_arithmetic_a_division_by_zero_builds_a_zero_denominator_rat_as_rakudo_does
 my $r = 1/0;
 say $r.^name;
 say $r.nude;
@@ -3046,7 +3058,7 @@ say (try { ~$r } // "died");
 say (1/0 == Inf);
 say (5/0 > 10**30);
 say (-7/0).nude;
-#---------------------------------- 807 ladder__rung13_classes_private_attribute
+#---------------------------------- 808 ladder__rung13_classes_private_attribute
 class Counter {
     has $!count;
     method init { $!count = 0 }
@@ -3058,7 +3070,7 @@ $c.init;
 $c.inc;
 $c.inc;
 say $c.get;
-#- 808 ladder__rung04_arrays_an_array_literal_of_one_iterable_argument_spreads_it_the_single_argument_rule
+#- 809 ladder__rung04_arrays_an_array_literal_of_one_iterable_argument_spreads_it_the_single_argument_rule
 my @r = 1, 2;
 say [ @r ];
 say [ [1, 2] ];
@@ -3071,7 +3083,7 @@ say [ 7 ];
 say [ (^3).map({ $_ * 2 }) ];
 say [ flat (1, 2), (3, 4) ];
 say [ "a" ].elems;
-#------------- 809 ladder__rung09_string_methods_raku_regex_classes_and_captures
+#------------- 810 ladder__rung09_string_methods_raku_regex_classes_and_captures
 say "hello" ~~ /<[a..z]>+/ ?? "lower" !! "none";
 say "999" ~~ /<-[0..9]>/ ?? "nondigit" !! "all digits";
 if "John Smith, 42" ~~ /$<first>=(<[A..Z]><[a..z]>+) ' ' (<[A..Za..z]>+) ',' \s* (\d+)/ {
@@ -3084,7 +3096,7 @@ if "ab12" ~~ /[a | b]+ (\d+)   # a group that captures nothing
              / {
     say $0;
 }
-#--------------------------------------------------------- 810 sub_say_replace_1
+#--------------------------------------------------------- 811 sub_say_replace_1
 # rk_junction_nest.raku — RK-BB-4d part 1: mixed-flavor NESTED junctions.
 # Self-delimiting EOT terminator lets the collapse skip a nested junction as
 # one opaque span instead of truncating at its first SOH (the old SOH-leak).
@@ -3097,7 +3109,7 @@ sub main() {
     if ($x == ((50 | 60) & 50))      { say('any-first-in-all'); } # ⇒ any-first-in-all
 }
 main();
-#- 811 ladder__rung04_arrays_a_non_literal_left_of_xx_is_a_thunk_evaluated_once_per_repetition
+#- 812 ladder__rung04_arrays_a_non_literal_left_of_xx_is_a_thunk_evaluated_once_per_repetition
 my $n = 0;
 say ($n++) xx 3;
 my @rows = [ $n++, $n++ ] xx 2;
@@ -3111,7 +3123,7 @@ say 7 xx 3;
 my @e = [] xx 2;
 @e[0].push(1);
 say @e;
-#- 812 ladder__rung19_block_methcall_sort_by_a_two_arg_comparator_block_past_64_elements
+#- 813 ladder__rung19_block_methcall_sort_by_a_two_arg_comparator_block_past_64_elements
 my @a = (1..70).reverse.Array;
 my @s = @a.sort({ $^x <=> $^y });
 say @s.elems;
@@ -3125,7 +3137,7 @@ say @t.sort({ $^y <=> $^x });
 say ().sort({ $^x <=> $^y });
 my @b = (5,);
 say @b.sort({ $^x <=> $^y });
-#----------------------------------------------------------------- 813 sub_say_5
+#----------------------------------------------------------------- 814 sub_say_5
 # rk_vars.raku — my declarations, assignment, re-assignment
 sub main() {
     my $x = 10;
@@ -3139,7 +3151,7 @@ sub main() {
     say($s);
 }
 main();
-#--------------------------------------------------------- 814 benchmark_spinner
+#--------------------------------------------------------- 815 benchmark_spinner
 sub MAIN(Int $h = 64, Int $w = 64, Int $spins = 64) {
     my @spinner = < | / - \\ >;
 
@@ -3154,7 +3166,7 @@ sub MAIN(Int $h = 64, Int $w = 64, Int $spins = 64) {
         print ".\n";
     }
 }
-#- 815 ladder__rung02_arithmetic_rat_smartmatch_truthiness_function_forms_and_type_checks
+#- 816 ladder__rung02_arithmetic_rat_smartmatch_truthiness_function_forms_and_type_checks
 my $r = 1/3;
 say abs(-$r);
 say sqrt(1/4);
@@ -3175,7 +3187,7 @@ say 1.5 ~~ Numeric;
 say 1.5 ~~ Real;
 say 1.5 ~~ Int;
 say 1.5.isa(Rat);
-#--------------------------------------------------- 816 sub_range_say_replace_1
+#--------------------------------------------------- 817 sub_range_say_replace_1
 # rk_interp.raku — RK-12: string interpolation in double-quoted strings
 # $var inside "..." is expanded to the variable's value at runtime.
 # The lexer emits LIT_INTERP_STR; the lowerer splits on $ident boundaries
@@ -3198,7 +3210,7 @@ sub main() {
     say("prefix $lang suffix");
 }
 main();
-#------------------------------------------------- 817 benchmark_rc-dragon-curve
+#------------------------------------------------- 818 benchmark_rc-dragon-curve
 say "<?xml version='1.0' encoding='utf-8' standalone='no'?>
 <!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN'
 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
@@ -3223,7 +3235,7 @@ for 0..2**$order-1 -> $i {
 }
 
 say "</svg>";
-#--------------------------------------------------- 818 sub_array_say_replace_1
+#--------------------------------------------------- 819 sub_array_say_replace_1
 # rk_arrays.raku — RK-14: array operations
 # Arrays stored as \x01-separated strings in normal DESCR_t slots.
 # push/pop/elems/arr_get as builtins; @arr[$i] = val via arr_set builtin.
@@ -3250,7 +3262,7 @@ sub main() {
     say(elems(@words));
 }
 main();
-#------------------------------------------------------- 819 scrip_test_rk_str22
+#------------------------------------------------------- 820 scrip_test_rk_str22
 # rk_str22.raku — RK-22: substr/index/rindex/uc/lc/trim/chars
 sub main() {
     my $s = 'Hello, World!';
@@ -3281,174 +3293,174 @@ sub main() {
     say(chars('hello'));
 }
 main();
-#------------------------------------------------- 820 class_array_say_replace_1
+#------------------------------------------------- 821 class_array_say_replace_1
 class Stack { has @.items; }
  my $s = Stack.new(); my @e = $s.items; say(@e.elems); 
-#------------------------------------------------- 821 class_array_say_replace_3
+#------------------------------------------------- 822 class_array_say_replace_3
 class Stack { has @.items; }
  my @v = 10, 20, 30; my $t = Stack.new(items => @v); my @i = $t.items; say(@i.elems); say(arr_get(@i, 1)); 
-#-------------------------------------------------- 822 class_hash_say_replace_1
+#-------------------------------------------------- 823 class_hash_say_replace_1
 class Config { has %.opts; }
  my %seed = ''; hash_set(%seed, 'lang', 'Raku'); my $d = Config.new(opts => %seed); my $h2 = $d.opts; say(hash_get($h2, 'lang')); 
-#----------------------------------------------- 823 class_method_say_replace_10
+#----------------------------------------------- 824 class_method_say_replace_10
 class Q { has $.m; has $.n; method BUILD(:$m, :$n) { $!m = $m; $!n = $n; } }
  my $q = Q.new(m => 7, n => 8); say($q.m); say($q.n); 
-#----------------------------------------------- 824 class_method_say_replace_55
+#----------------------------------------------- 825 class_method_say_replace_55
 class Box { has $.w; has $.area; method TWEAK() { $!area = $!w * $!w; } }
  my $b = Box.new(w => 5); say($b.area); 
-#----------------------------------------------- 825 class_method_say_replace_56
+#----------------------------------------------- 826 class_method_say_replace_56
 class Widget { has $.id; method TWEAK() { say("tweaked"); } }
  my $w = Widget.new(id => 1); say("done"); 
-#------------------------------------------------------ 826 class_say_replace_11
+#------------------------------------------------------ 827 class_say_replace_11
 class C { has $.x; has $.y; submethod BUILD(:$x) { $!x = $x; } }
  my $c = C.new(x => 1, y => 99); say($c.x); say("[" ~ $c.y ~ "]"); 
-#----------------------------------------------------------- 827 for_array_say_3
+#----------------------------------------------------------- 828 for_array_say_3
 my @a = 10,20,30;
 for @a -> $v { say($v); }
-#----------------------------------------------------------- 828 for_array_say_5
+#----------------------------------------------------------- 829 for_array_say_5
 my @a = 7,8,9;
 for @a { say($_); }
-#------------------------------------------------- 829 class_array_say_replace_2
+#------------------------------------------------- 830 class_array_say_replace_2
 class Base { has @.log; }
 class Derived is Base { has $.id; }
  my $d = Derived.new(id => 7); my @l = $d.log; say(@l.elems); 
-#----------------------------------------------- 830 class_method_grep_replace_1
+#----------------------------------------------- 831 class_method_grep_replace_1
 class C { method grep() { return 8 } }
 my $o = C.new;
 say $o.grep();
-#------------------------------------------------ 831 class_method_map_replace_1
+#------------------------------------------------ 832 class_method_map_replace_1
 class C { method map($x) { return $x + 1 } }
 my $o = C.new;
 say $o.map(4);
-#---------------------------------------------- 832 class_method_range_replace_6
+#---------------------------------------------- 833 class_method_range_replace_6
 role R { method needed() {...} }
 class C does R { }
  my $c = C.new(); say("made"); 
-#--------------------------------------------------- 833 class_method_replace_18
+#--------------------------------------------------- 834 class_method_replace_18
 class Sayer { has $.t; method go() { say $!t } }
 my $s = Sayer.new(t => "done");
 if True { $s.go() }
-#--------------------------------------------------- 834 class_method_replace_19
+#--------------------------------------------------- 835 class_method_replace_19
 class C { has $.x; method greet() { return 3; } }
 my $o = C.new;
 say $o.greet();
-#----------------------------------------------- 835 class_method_say_replace_20
+#----------------------------------------------- 836 class_method_say_replace_20
 class Base { has $.x is rw; }
 class Sub is Base { method bump() { self.x = self.x + 5; } }
  my $s = Sub.new(x => 10); $s.x = 20; say($s.x);
-#----------------------------------------------- 836 class_method_say_replace_29
+#----------------------------------------------- 837 class_method_say_replace_29
 role Greet { method hello() { return "hi"; } }
 class Svc does Greet { method fetch() { return "ok"; } }
  my $s = Svc.new(); say($s.^methods); 
-#----------------------------------------------- 837 class_method_say_replace_51
+#----------------------------------------------- 838 class_method_say_replace_51
 role R { method who() { return "role"; } }
 class C does R { method who() { return "class"; } }
  my $c = C.new(); say($c.who()); 
-#------------------------------------------------ 838 class_method_say_replace_9
+#------------------------------------------------ 839 class_method_say_replace_9
 class A { has $.a; submethod BUILD(:$a) { say("buildA"); $!a = $a; } }
 class B is A { has $.b; submethod BUILD(:$b) { say("buildB"); $!b = $b; }; method TWEAK() { say("tweakB"); } }
  my $o = B.new(a => 1, b => 2); say($o.a); say($o.b); 
-#----------------------------------------------- 839 class_method_sort_replace_2
+#----------------------------------------------- 840 class_method_sort_replace_2
 class C { method sort() { return 99 } }
 my $o = C.new;
 say $o.sort;
-#--------------------------------------------------------- 840 for_range_array_1
+#--------------------------------------------------------- 841 for_range_array_1
 my @a = 0 xx 3;
 for 0..2 -> $i { @a[$i] = $i * 10 }
 say @a[0]; say @a[1]; say @a[2];
-#---------------------------------------------------------- 841 for_range_hash_1
+#---------------------------------------------------------- 842 for_range_hash_1
 my %h;
 for 1..2 -> $i { %h{$i} = $i * 100 }
 say %h{1}; say %h{2};
-#----------------------------------------------------------- 842 multi_sub_say_2
+#----------------------------------------------------------- 843 multi_sub_say_2
 multi sub process(Int:D $x) { say("defined int: " ~ $x); }
 multi sub process($x) { say("other"); }
  process(42); my $u; process($u); 
-#------------------------------------------------------------- 843 say_try_die_6
+#------------------------------------------------------------- 844 say_try_die_6
     my $n = 2;
     try { if ($n > 1) { die('cond'); }; say('no'); }; CATCH { say($_); };
     say('after');
-#--------------------------------------------------------------- 844 sub_array_9
+#--------------------------------------------------------------- 845 sub_array_9
 sub a($x, *@r)  { return @r.elems; }
 sub b($x, **@r) { return @r.elems; }
 say a(0,1,2,3) ~ "|" ~ b(0,1,2,3);
-#----------------------------------------------- 845 class_method_say_replace_31
+#----------------------------------------------- 846 class_method_say_replace_31
 class Greeter { method hello() { return "hi"; } }
 class Farewell { method bye() { return "bye"; } }
 class Both is Greeter is Farewell { }
  my $b = Both.new(); say($b.hello()); say($b.bye()); 
-#----------------------------------------------- 846 class_method_say_replace_33
+#----------------------------------------------- 847 class_method_say_replace_33
 class A { method who() { return "A"; } }
 class B is A { }
 class C is B { }
  my $c = C.new(); say($c.who()); 
-#----------------------------------------------- 847 class_method_say_replace_34
+#----------------------------------------------- 848 class_method_say_replace_34
 class A { method who() { return "A"; } }
 class B is A { method who() { return "B"; } }
 class C is B { }
  my $c = C.new(); say($c.who()); 
-#----------------------------------------------- 848 class_method_say_replace_47
+#----------------------------------------------- 849 class_method_say_replace_47
 class Base { method who() { return "base"; } }
 role R { method who() { return "role"; } }
 class C is Base does R { }
  my $c = C.new(); say($c.who()); 
-#----------------------------------------------- 849 class_method_say_replace_48
+#----------------------------------------------- 850 class_method_say_replace_48
 role A { method m() { return "a"; } }
 role B { method m() { return "b"; } }
 class C does A does B { method m() { return "C"; } }
  my $c = C.new(); say($c.m()); 
-#----------------------------------------------- 850 class_method_say_replace_49
+#----------------------------------------------- 851 class_method_say_replace_49
 role A { method m() { return "a"; } }
 role B { method m() { return "b"; } }
 class C does A does B { }
  my $c = C.new(); say($c.m()); 
-#----------------------------------------------- 851 class_method_say_replace_52
+#----------------------------------------------- 852 class_method_say_replace_52
 role A { method foo() { return "f"; } }
 role B { method bar() { return "b"; } }
 class C does A does B { }
  my $c = C.new(); say($c.foo()); say($c.bar()); 
-#--------------------------------------------------- 852 class_sub_say_replace_1
+#--------------------------------------------------- 853 class_sub_say_replace_1
 class Animal { has $.n; }
 class Dog is Animal { }
 sub describe(Animal $a) { say($a.n); }
  my $d = Dog.new(n => 5); describe($d); 
-#----------------------------------------------------------- 853 for_array_say_4
+#----------------------------------------------------------- 854 for_array_say_4
 my @a = 1,2,3;
 my $s = 0;
 for @a -> $v { $s = $s + $v; }
 say($s);
-#----------------------------------------------- 854 class_method_say_replace_17
+#----------------------------------------------- 855 class_method_say_replace_17
 class A { method greet() { return "A"; } }
 class B is A { method greet() { return "B"; } }
 class C is A { method greet() { return "C"; } }
 class D is B is C { }
  my $d = D.new(); say($d.greet()); 
-#------------------------------------------------- 855 class_multi_sub_replace_1
+#------------------------------------------------- 856 class_multi_sub_replace_1
 class Animal { }
 class Dog is Animal { }
 multi sub describe(Animal $a) { say("an animal"); }
 multi sub describe(Dog $d) { say("a dog"); }
  my $d = Dog.new(); describe($d); 
-#------------------------------------------------------ 856 class_say_replace_17
+#------------------------------------------------------ 857 class_say_replace_17
 class A { has $.base; }
 class B is A { }
 class C is A { has $.mid; }
 class D is B is C { }
  my $d = D.new(base => "X", mid => "Y"); say($d.base ~ $d.mid); 
-#------------------------------------------------- 857 for_range_array_replace_1
+#------------------------------------------------- 858 for_range_array_replace_1
 my @a = (1,2,3);
 for 0..4 -> $i {
     say @a[$i];
 }
 say "done";
-#------------------------------------------------------- 858 token_say_replace_1
+#------------------------------------------------------- 859 token_say_replace_1
 grammar G {
     token TOP { \d+ }
 }
 
     my $r = G.parse("abc");
     if ($r) { say("matched"); } else { say("nomatch"); }
-#----------------------------------------------- 859 class_method_sort_replace_1
+#----------------------------------------------- 860 class_method_sort_replace_1
 class Widget {
     method sort() { return "custom-sort"; }
     method reverse() { return "custom-rev"; }
@@ -3456,7 +3468,7 @@ class Widget {
 my $w = Widget.new;
 say $w.sort;
 say $w.reverse;
-#- 860 ladder__rung04_arrays_an_array_is_one_mutable_object_an_element_store_writes_it_in_place_for_every_name_that_holds_it
+#- 861 ladder__rung04_arrays_an_array_is_one_mutable_object_an_element_store_writes_it_in_place_for_every_name_that_holds_it
 my @a = 1,2,3; my @b := @a; @a[0] = 5; say @b;
 my $r = @a; $r[1] = 7; say @a;
 my @c = @a; @c[2] = 0; say @a;
@@ -3464,7 +3476,7 @@ sub f(@x) { @x[0] = 99 }; f(@a); say @a;
 for ^2 { my @l = 1,2; @l[0]++; say @l }
 my @n = [1,2],[3,4]; my @o = @n; @o[0][0] = 50; say @n;
 my @p; @p[3] = 1; say @p.elems; @a.push(4); say @b;
-#---------------------------------------------- 861 benchmark_divide-and-conquer
+#---------------------------------------------- 862 benchmark_divide-and-conquer
 my \SCALE = 10;
 my \FANOUT = 2;
 
@@ -3476,7 +3488,7 @@ sub divide-and-conquer($n, $depth) {
 }
 
 say divide-and-conquer(1.0, SCALE);
-#- 862 ladder__rung08_for_a_rw_loop_variable_and_the_topic_write_back_to_the_array_and_is_copy_does_not
+#- 863 ladder__rung08_for_a_rw_loop_variable_and_the_topic_write_back_to_the_array_and_is_copy_does_not
 my @a = 1, 2, 3, 4;
 for @a -> $x is rw { $x *= 10 }
 say @a;
@@ -3488,7 +3500,7 @@ for @a { $_ = $_ * 2 if $_ > 30 }
 say @a;
 for @a -> $x is copy { $x = 0 }
 say @a;
-#------------- 863 ladder__rung04_arrays_in_numeric_context_count_their_elements
+#------------- 864 ladder__rung04_arrays_in_numeric_context_count_their_elements
 my @a = 7, 8, 9;
 my $i = 0;
 while $i < @a { $i++ }
@@ -3501,7 +3513,7 @@ say @a == 3;
 my @s = <a b c>;
 for ^4 { print "@s[$_ % @s]" }
 print "\n";
-#- 864 ladder__rung07_subs_an_is_rw_parameter_writes_back_to_a_scalar_or_an_element_argument
+#- 865 ladder__rung07_subs_an_is_rw_parameter_writes_back_to_a_scalar_or_an_element_argument
 sub bump($n is rw) { $n += 1 }
 my $c = 0;
 bump($c) for ^3;
@@ -3514,7 +3526,7 @@ my $p = "left";
 my $q = "right";
 swap($p, $q);
 say "$p $q";
-#--------------------------------------------------------- 865 sub_say_replace_2
+#--------------------------------------------------------- 866 sub_say_replace_2
 # rk_strings.raku — string concat, eq/ne, single/double quoted literals
 sub main() {
     my $a = 'hello';
@@ -3527,7 +3539,7 @@ sub main() {
     if ($c eq 'helloworld') { say('concat eq ok'); }
 }
 main();
-#-------- 866 ladder__rung01_variables_compound_assignment_and_element_increment
+#-------- 867 ladder__rung01_variables_compound_assignment_and_element_increment
 my $x; $x //= 5; say $x;
 my $z = 10; $z %= 4; say $z;
 my $w = "ab"; $w x= 2; say $w;
@@ -3541,7 +3553,7 @@ my @d; @d[1] //= 7; @d[0] = 3; @d[0] //= 9; say @d.join(",");
 my %h; %h<a> += 2; %h<a>++; ++%h<b>; say %h<a>, " ", %h<b>;
 my @e = 5; my $old = @e[0]++; say $old, " ", @e[0]; my $new = ++@e[0]; say $new;
 my @f = 1,2,3; @f[1] -= 1; @f[2]--; say @f.join(",");
-#--------------------------------------------------- 867 sub_while_say_replace_1
+#--------------------------------------------------- 868 sub_while_say_replace_1
 # rk_control.raku — if/else, while, nested conditions
 sub main() {
     my $x = 3;
@@ -3556,7 +3568,7 @@ sub main() {
     if ($x < 10) { say('lt ten'); }
 }
 main();
-#---------------------------- 868 ladder__rung13_classes_nqp_create_and_bindattr
+#---------------------------- 869 ladder__rung13_classes_nqp_create_and_bindattr
 use nqp;
 class P {
     has num $.x;
@@ -3572,7 +3584,7 @@ my $p = P.new(1.5e0);
 my $q = P.new(2.25e0);
 say $q.x + $p.x;
 say $p.tag;
-#- 869 ladder__rung05_hashes_a_colon_pair_used_as_a_value_is_a_pair_in_a_hash_a_list_and_a_scalar
+#- 870 ladder__rung05_hashes_a_colon_pair_used_as_a_value_is_a_pair_in_a_hash_a_list_and_a_scalar
 my %h = :v(3);
 say %h;
 my %g = :w<x>;
@@ -3590,7 +3602,7 @@ f(:v(4), :b);
 my %m = a => 1;
 say %m<a>:exists;
 say (1,2,3).first(* > 1, :k);
-#------------------------------------------------ 870 sub_junction_say_replace_1
+#------------------------------------------------ 871 sub_junction_say_replace_1
 # rk_junction_prec.raku — RK-BB-4d junction precedence + edges.
 # Junction infix |/& binds TIGHTER than comparison (real Raku semantics),
 # so `$x == 1|2|5` parses as `$x == any(1,2,5)`. Also exercises var
@@ -3609,7 +3621,7 @@ sub main() {
     if ($y == none(1, (2 | 3))) { say('none-nest'); }   # ⇒ none-nest
 }
 main();
-#------------------------------------------------------ 871 when_while_replace_1
+#------------------------------------------------------ 872 when_while_replace_1
 # rk_unless_until.raku — RK-20: unless, until
 # repeat deferred to when 'last' is available
 
@@ -3634,7 +3646,7 @@ until ($i >= 3) {
 }
 
 say "done";
-#------------ 872 ladder__rung02_arithmetic_power_assigned_and_compound_assigned
+#------------ 873 ladder__rung02_arithmetic_power_assigned_and_compound_assigned
 my $x = 3;
 my $y = $x ** 3;
 say $y;
@@ -3661,7 +3673,7 @@ say $w;
 sub sq($v) { my $r = $v ** 2; return $r; }
 say sq(12);
 say sq(-7);
-#----------------------------------------------------- 873 sub_for_say_replace_1
+#----------------------------------------------------- 874 sub_for_say_replace_1
 # rk_fileio38.raku — RK-38/RK-56: open/close/slurp/lines + spurt
 
 sub main() {
@@ -3688,7 +3700,7 @@ sub main() {
     say('rk_fileio38 ok');
 }
 main();
-#----------------------------------------------------- 874 sub_say_try_replace_1
+#----------------------------------------------------- 875 sub_say_try_replace_1
 # rk_try_catch25.raku — RK-25: try/CATCH/die exception handling
 sub might_die($x) {
     if ($x == 0) { die('zero error'); }
@@ -3720,7 +3732,7 @@ sub main() {
     say('outer catch ok');
 }
 main();
-#------------------------------------------------------- 875 scrip_test_rk_given
+#------------------------------------------------------- 876 scrip_test_rk_given
 # rk_given.raku — RK-13: given/when scalar smart-match
 # given $x { when val { } ... default { } } lowers to nested AST_IF chain.
 # Numeric when: AST_EQ comparison. String when: AST_LEQ comparison.
@@ -3754,7 +3766,7 @@ sub main() {
     season('monsoon');
 }
 main();
-#------------------------ 876 ladder__rung02_arithmetic_fatrat_keeps_every_digit
+#------------------------ 877 ladder__rung02_arithmetic_fatrat_keeps_every_digit
 my $r = FatRat.new(0, 1);
 for 1 .. 40 { $r += 1 / $_ }
 say $r.raku;
@@ -3790,180 +3802,180 @@ say 1/3 + FatRat.new(1, 3);
 say (1/3 + FatRat.new(1, 3)).WHAT;
 say 1e0 * FatRat.new(1, 4);
 say (1e0 * FatRat.new(1, 4)).WHAT;
-#----------------------------------------------- 877 class_method_say_replace_19
+#----------------------------------------------- 878 class_method_say_replace_19
 class Counter { has $.n; method add($k) { return Counter.new(n => $.n + $k); } }
  my $c = Counter.new(n => 10); $c .= add(5); say($c.n); 
-#------------------------------------------------ 878 class_method_say_replace_3
+#------------------------------------------------ 879 class_method_say_replace_3
 class Box { has $.v; method v() { return $!v + 100; } }
  my $b = Box.new(v => 5); say($b.v()); 
-#----------------------------------------------- 879 class_method_say_replace_30
+#----------------------------------------------- 880 class_method_say_replace_30
 class Temperature { has $.celsius; method new($c) { return self.bless(celsius => $c); } }
  my $t = Temperature.new(37); say($t.celsius); 
-#----------------------------------------------- 880 class_method_say_replace_37
+#----------------------------------------------- 881 class_method_say_replace_37
 class Stack { has @!items; method size() { return 1; } }
  my $s = Stack.new(); say($s.items); 
-#----------------------------------------------- 881 class_method_say_replace_38
+#----------------------------------------------- 882 class_method_say_replace_38
 class Secret { has $!code; method reveal() { return $!code; } }
  my $s = Secret.new(code => 42); say($s.code()); 
-#----------------------------------------------- 882 class_method_say_replace_39
+#----------------------------------------------- 883 class_method_say_replace_39
 class Secret { has $!code; method reveal() { return $!code; } }
  my $s = Secret.new(code => 42); say($s.code); 
-#----------------------------------------------- 883 class_method_say_replace_42
+#----------------------------------------------- 884 class_method_say_replace_42
 class Secret { has $!code; method reveal() { return $!code; } }
  my $s = Secret.new(code => 42); say($s.reveal()); 
-#----------------------------------------------- 884 class_method_say_replace_45
+#----------------------------------------------- 885 class_method_say_replace_45
 class Cfg { has %!opts; method ok() { return 1; } }
  my $c = Cfg.new(); say($c.opts); 
-#------------------------------------------------ 885 class_method_say_replace_5
+#------------------------------------------------ 886 class_method_say_replace_5
 class Counter { has $.n; method bump() { $!n = $!n + 1; }; method val() { return $!n; } }
  my $c = Counter.new(n => 0); $c.bump(); $c.bump(); $c.bump(); say($c.val()); 
-#----------------------------------------------- 886 class_method_say_replace_57
+#----------------------------------------------- 887 class_method_say_replace_57
 class C { has $.x; method make($v) { return self.bless(x => $v); } }
  my $o = C.make(9); say($o.x); 
-#------------------------------------------------ 887 class_method_say_replace_8
+#------------------------------------------------ 888 class_method_say_replace_8
 class T { has $.c; method mk() { return self.bless(c => 9); } }
  my $t = T.mk(); say($t.c); 
-#----------------------------------------------------------- 888 for_range_say_8
+#----------------------------------------------------------- 889 for_range_say_8
     try { for 1..3 -> $i { say($i); die('lp'); } }; CATCH { say($_); };
     say('after');
-#----------------------------------------------------------- 889 sub_for_array_2
+#----------------------------------------------------------- 890 sub_for_array_2
 sub f(*@r) { my $o = ""; for @r -> $x { $o = $o ~ $x ~ " "; }; say $o.trim; };
 f("a","b");
-#------------------------------------------------ 890 class_method_for_replace_1
+#------------------------------------------------ 891 class_method_for_replace_1
 class C { method go() { say "g" } }
 my $o = C.new;
 $o.go() for 1..2;
-#---------------------------------------------- 891 class_method_multi_replace_1
+#---------------------------------------------- 892 class_method_multi_replace_1
 class C { multi method sort(Int $x) { return $x * 10 } }
 my $o = C.new;
 say $o.sort(4);
-#---------------------------------------------- 892 class_method_range_replace_4
+#---------------------------------------------- 893 class_method_range_replace_4
 role R { method needed() {...} }
 class C does R { method needed() { return 7; } }
  my $c = C.new(); say($c.needed()); 
-#----------------------------------------------- 893 class_method_say_replace_11
+#----------------------------------------------- 894 class_method_say_replace_11
 class A { method g() { return "A"; } }
 class B is A { method g() { return "B+" ~ callsame(); } }
  my $b = B.new(); say($b.g()); 
-#----------------------------------------------- 894 class_method_say_replace_13
+#----------------------------------------------- 895 class_method_say_replace_13
 class A { method g($n) { return "A:" ~ $n; } }
 class B is A { method g($n) { return "B:" ~ $n ~ "/" ~ callwith(99); } }
  my $b = B.new(); say($b.g(5)); 
-#----------------------------------------------- 895 class_method_say_replace_14
+#----------------------------------------------- 896 class_method_say_replace_14
 class A { method g($n) { return "A:" ~ $n; } }
 class B is A { method g($n) { my $m = $n + 10; return "B:" ~ $n ~ "/" ~ callwith($m); } }
  my $b = B.new(); say($b.g(5)); 
-#------------------------------------------------ 896 class_method_say_replace_2
+#------------------------------------------------ 897 class_method_say_replace_2
 class Animal { has $.name; }
 class Dog is Animal { method bark() { return "woof"; } }
  my $d = Dog.new(name => "Rex"); say($d.name()); 
-#----------------------------------------------- 897 class_method_say_replace_23
+#----------------------------------------------- 898 class_method_say_replace_23
 class Engine { method start() { return "vroom"; }; method stop() { return "halt"; } }
 class Car { has $.engine handles <start stop>; has $.name; }
  my $e = Engine.new(); my $c = Car.new(engine => $e, name => "tesla"); say($c.start()); say($c.stop()); say($c.name); 
-#----------------------------------------------- 898 class_method_say_replace_26
+#----------------------------------------------- 899 class_method_say_replace_26
 class Adder { method add($n) { return $n + 100; } }
 class Wrap { has $.impl handles <add>; }
  my $a = Adder.new(); my $w = Wrap.new(impl => $a); say($w.add(5)); 
-#----------------------------------------------- 899 class_method_say_replace_27
+#----------------------------------------------- 900 class_method_say_replace_27
 class Animal { has $.name; }
 class Dog is Animal { method bark() { return "woof"; } }
  my $d = Dog.new(name => "Rex"); say($d.name); 
-#----------------------------------------------- 900 class_method_say_replace_28
+#----------------------------------------------- 901 class_method_say_replace_28
 class Animal { has $.name; method legs() { return 4; } }
 class Dog is Animal { }
  my $d = Dog.new(name => "Rex"); say($d.legs()); 
-#----------------------------------------------- 901 class_method_say_replace_36
+#----------------------------------------------- 902 class_method_say_replace_36
 class A { method g($n) { return "A:" ~ $n; } }
 class B is A { method g($n) { return "B+" ~ nextsame(); } }
  my $b = B.new(); say($b.g(7)); 
-#------------------------------------------------ 902 class_method_say_replace_4
+#------------------------------------------------ 903 class_method_say_replace_4
 class Animal { has $.legs = 4; }
 class Dog is Animal { method describe() { return $.legs; } }
  my $d = Dog.new(); say($d.describe());
-#----------------------------------------------- 903 class_method_say_replace_40
+#----------------------------------------------- 904 class_method_say_replace_40
 class Base { has $!secret; method peek() { return $!secret; } }
 class Derived is Base { }
  my $d = Derived.new(secret => 5); say($d.secret()); 
-#----------------------------------------------- 904 class_method_say_replace_41
+#----------------------------------------------- 905 class_method_say_replace_41
 class Base { has $!secret; method peek() { return $!secret; } }
 class Derived is Base { }
  my $d = Derived.new(secret => 5); say($d.peek()); 
-#----------------------------------------------- 905 class_method_say_replace_50
+#----------------------------------------------- 906 class_method_say_replace_50
 role Greet { method hello() { return "hi"; } }
 class Dog does Greet { has $.name; }
  my $d = Dog.new(name => "Rex"); say($d.hello()); 
-#------------------------------------------------ 906 class_method_say_replace_6
+#------------------------------------------------ 907 class_method_say_replace_6
 class Base { has $.id is required; }
 class Sub is Base { method who() { return $.id; } }
  my $s = Sub.new(); say($s.who());
-#------------------------------------------------ 907 class_method_say_replace_7
+#------------------------------------------------ 908 class_method_say_replace_7
 class Base { has $.id is required; }
 class Sub is Base { method who() { return $.id; } }
  my $s = Sub.new(id => 5); say($s.who());
-#------------------------------------------------ 908 class_method_sub_replace_1
+#------------------------------------------------ 909 class_method_sub_replace_1
 class Base { has $.x; method TWEAK() { say("base-tweak"); } }
 class Sub is Base { has $.y; method TWEAK() { say("sub-tweak"); } }
  my $s = Sub.new(x => 1, y => 2); 
-#--------------------------------------------------------- 909 multi_sub_array_1
+#--------------------------------------------------------- 910 multi_sub_array_1
 multi sub f($a, *@r) { return "V:" ~ @r.elems; }
 multi sub f($a) { return "S"; }
 say f(1) ~ "|" ~ f(1,2,3);
-#----------------------------------------------------------- 910 multi_sub_say_3
+#----------------------------------------------------------- 911 multi_sub_say_3
 multi sub init(Str:U $x) { say("uninitialized"); }
 multi sub init(Str $x) { say("has value: " ~ $x); }
  my $u; init($u); 
-#---------------------------------------------- 911 class_method_range_replace_5
+#---------------------------------------------- 912 class_method_range_replace_5
 role Need { method act() {...} }
 role Give { method act() { return "ok"; } }
 class C does Need does Give { }
  my $c = C.new(); say($c.act()); 
-#----------------------------------------------- 912 class_method_say_replace_12
+#----------------------------------------------- 913 class_method_say_replace_12
 class A { method g() { return "A"; } }
 class B is A { method g() { return "B+" ~ callsame(); } }
 class C is B { method g() { return "C+" ~ callsame(); } }
  my $c = C.new(); say($c.g()); 
-#----------------------------------------------- 913 class_method_say_replace_24
+#----------------------------------------------- 914 class_method_say_replace_24
 class Engine { method go() { return "GO"; } }
 class Vehicle { has $.engine handles <go>; }
 class Truck is Vehicle { }
  my $e = Engine.new(); my $t = Truck.new(engine => $e); say($t.go()); 
-#----------------------------------------------- 914 class_method_say_replace_25
+#----------------------------------------------- 915 class_method_say_replace_25
 class L { method left() { return "LL"; } }
 class R { method right() { return "RR"; } }
 class Pair { has $.l handles <left>; has $.r handles <right>; }
  my $ll = L.new(); my $rr = R.new(); my $p = Pair.new(l => $ll, r => $rr); say($p.left()); say($p.right()); 
-#----------------------------------------------- 915 class_method_say_replace_32
+#----------------------------------------------- 916 class_method_say_replace_32
 class A { has $.name; }
 class B is A { }
 class C is B { method tag() { return "C"; } }
  my $c = C.new(name => "Rex"); say($c.name); 
-#---------------------------------------------- 916 class_method_multi_replace_2
+#---------------------------------------------- 917 class_method_multi_replace_2
 class Calc {
     multi method add(Int $a) { return $a; }
     multi method add(Int $a, Int $b) { return $a + $b; }
 }
  my $c = Calc.new(); say($c.add(5)); say($c.add(3, 4)); 
-#----------------------------------------------- 917 class_method_say_replace_16
+#----------------------------------------------- 918 class_method_say_replace_16
 class A { method greet() { return "A"; } }
 class B is A { method greet() { return "B>" ~ callsame(); } }
 class C is A { method greet() { return "C>" ~ callsame(); } }
 class D is B is C { }
  my $d = D.new(); say($d.greet()); 
-#----------------------------------------------------------- 918 while_say_try_1
+#----------------------------------------------------------- 919 while_say_try_1
     my $i = 0;
     try {
         while ($i < 5) { $i = $i + 1; say($i); if ($i == 2) { die('w'); } }
     }; CATCH { say($_); };
     say('after');
-#------------------------ 919 ladder__rung19_block_methcall_grep_and_map_listops
+#------------------------ 920 ladder__rung19_block_methcall_grep_and_map_listops
 for grep { $_ > 2 }, 1..5 -> $v { say $v }
 my @g = grep { $_ %% 2 }, 1..8;
 say @g;
 my @a = 4, 5, 6;
 say grep { $_ != 5 }, @a;
 say (map { $_ * 10 }, @a).elems;
-#---------------------------------------------- 920 class_method_multi_replace_4
+#---------------------------------------------- 921 class_method_multi_replace_4
 class Animal { }
 class Dog is Animal { }
 class Handler {
@@ -3971,7 +3983,7 @@ class Handler {
     multi method greet(Dog $d) { return "a dog"; }
 }
  my $h = Handler.new(); my $d = Dog.new(); say($h.greet($d)); 
-#------------------------ 921 ladder__rung04_arrays_cross_zip_flat_and_unpacking
+#------------------------ 922 ladder__rung04_arrays_cross_zip_flat_and_unpacking
 my $k = 0;
 for flat(1 .. 3 X 1 .. 2) -> $i, $j { $k += $i * 10 + $j; say "$i $j" }
 say $k;
@@ -3981,7 +3993,7 @@ my @z = flat((1,2) Z (3,4));
 say @z.join(",");
 for (1,2 X 3,4) -> ($a, $b) { say "c $a $b" }
 for 1 .. 2 X 7 -> ($a, $b) { say "q $a $b" }
-#--------- 922 ladder__rung15_blocks_map_grep_first_named_sub_and_n_arity_blocks
+#--------- 923 ladder__rung15_blocks_map_grep_first_named_sub_and_n_arity_blocks
 sub dbl($x) { $x * 2 }
 sub odd($x) { $x % 2 }
 my @a = 1, 2, 3, 4, 5, 6;
@@ -3991,7 +4003,7 @@ say @a.first(&dbl);
 say @a.map(-> $x, $y { $x + $y });
 say @a.map({ $^a * $^b });
 say @a.map(-> $x, $y, $z { "$x$y$z" }).join(",");
-#---------------------------------------- 923 ladder__rung13_classes_inheritance
+#---------------------------------------- 924 ladder__rung13_classes_inheritance
 class Animal {
     method speak { return "..." }
     method describe { return "I say " ~ self.speak }
@@ -4002,7 +4014,7 @@ class Dog is Animal {
 my $d = Dog.new;
 say $d.speak;
 say $d.describe;
-#-------------------- 924 ladder__rung16_bool_bool_pick_and_bool_roll_are_a_coin
+#-------------------- 925 ladder__rung16_bool_bool_pick_and_bool_roll_are_a_coin
 my %s;
 %s{Bool.pick}++ for ^200;
 say %s.keys.sort;
@@ -4014,7 +4026,7 @@ say Bool.roll(5).elems;
 my %r;
 %r{$_}++ for Bool.roll(200);
 say %r.keys.sort;
-#--------------------------------------------------- 925 sub_for_range_replace_2
+#--------------------------------------------------- 926 sub_for_range_replace_2
 # rk_range_for.raku — RAKU-BB RK-BB-1: lazy inclusive range `for 1..5 -> $i`
 # Drives the shared BB_TO_BY generator via SM_BB_SWITCH(SM_BBSW_RK_GEN).
 sub main() {
@@ -4026,7 +4038,7 @@ sub main() {
     say($sum);
 }
 main();
-#-------------------------------------------------- 926 scrip_test_rk_unique_sum
+#-------------------------------------------------- 927 scrip_test_rk_unique_sum
 # rk_unique_sum.raku — RK-BB-5.1: unique() and sum() as list Seq consumers
 sub main() {
     # unique: dedup preserving first occurrence
@@ -4043,7 +4055,7 @@ sub main() {
     say(sum(1.5, 2.5, 3));
 }
 main();
-#- 927 ladder__rung13_classes_a_typed_declaration_with_dot_assign_calls_the_type_and_a_colon_variable_pair_is_a_named_pair
+#- 928 ladder__rung13_classes_a_typed_declaration_with_dot_assign_calls_the_type_and_a_colon_variable_pair_is_a_named_pair
 class A { has $.x }
 my A $a .= new(x => 3);
 say $a.x;
@@ -4061,7 +4073,7 @@ say %h;
 my $kk = 9;
 my $p = :$kk;
 say $p;
-#----------------------------------------------------------- 928 sub_for_array_1
+#----------------------------------------------------------- 929 sub_for_array_1
 # rk_reverse.raku — RK-BB-5.0: reverse() as an eager-drain Seq consumer
 sub main() {
     # reverse a literal list, iterated directly
@@ -4079,7 +4091,7 @@ sub main() {
     for @w -> $s { say($s); }
 }
 main();
-#--- 929 ladder__rung09_regex_substitution_and_transliteration_agree_with_rakudo
+#--- 930 ladder__rung09_regex_substitution_and_transliteration_agree_with_rakudo
 my $s = "hello world";
 $s ~~ s/world/there/;
 say $s;
@@ -4100,7 +4112,7 @@ $_ = "hello"; say TR:c/el/X/;
 $_ = "aabbcc"; say TR:s/a..c/a..c/;
 $_ = "hello"; my $n = TR/lo/x/; say $n;
 my $v = "hello"; $v ~~ tr/l/L/; say $v;
-#- 930 ladder__rung13_classes_an_attribute_array_element_is_assigned_in_place_inside_a_method_and_its_loops
+#- 931 ladder__rung13_classes_an_attribute_array_element_is_assigned_in_place_inside_a_method_and_its_loops
 class F {
     has @!nb;
     has @!g;
@@ -4121,7 +4133,7 @@ class F {
     }
 }
 F.new.go;
-#- 931 ladder__rung04_arrays_a_bound_scalar_and_a_bound_element_share_one_container_with_what_they_bind
+#- 932 ladder__rung04_arrays_a_bound_scalar_and_a_bound_element_share_one_container_with_what_they_bind
 my $a = 1;
 my $b := $a;
 $b = 4;
@@ -4143,7 +4155,7 @@ for ^3 -> $i {
 @g[1][1] = 40;
 say @nb[1], " ", @nb[2], " ", @nb.elems;
 say (@nb.any === 40) ?? "bound" !! "copied";
-#---------------------------------------- 932 benchmark_rc-forest-fire-stringify
+#---------------------------------------- 933 benchmark_rc-forest-fire-stringify
 sub MAIN($w = 20, $h = 20, $steps = 5) {
     my $RED   = "\e[1;31m";
     my $GREEN = "\e[0;32m";
@@ -4166,7 +4178,7 @@ sub MAIN($w = 20, $h = 20, $steps = 5) {
     }
     say $chars;
 }
-#---------------------------------------------------- 933 class_method_replace_1
+#---------------------------------------------------- 934 class_method_replace_1
 # RK-26: basic OO — class / method / new / field access
 
 class Point {
@@ -4191,7 +4203,7 @@ class Dog {
 my $d = Dog.new(name => "Rex", age => 5);
 say $d.name;
 say $d.greet();
-#--------------------------------------------------- 934 sub_for_array_replace_1
+#--------------------------------------------------- 935 sub_for_array_replace_1
 # rk_for_array.raku — RK-16: for @arr -> $x real array iteration
 sub main() {
     my @nums = '';
@@ -4218,7 +4230,7 @@ sub main() {
     }
 }
 main();
-#- 935 ladder__rung04_arrays_a_caret_range_keeps_its_endpoints_numifies_and_smartmatches_as_rakudo_does
+#- 936 ladder__rung04_arrays_a_caret_range_keeps_its_endpoints_numifies_and_smartmatches_as_rakudo_does
 say +(6..^6.1);
 say (1..^5.5).raku;
 say +(1..^5);
@@ -4248,7 +4260,7 @@ my @a = 10, 20, 30, 40;
 say @a[1..^3];
 say @a[0^..2];
 say [+] 1..^5;
-#------------------------------------------------ 936 benchmark_point_class_add2
+#------------------------------------------------ 937 benchmark_point_class_add2
 # Point Class Benchmarks
 
 # Here's the runtime for the point class in seconds (YMMV). Lower is better:
@@ -4288,7 +4300,7 @@ while $i < 1000000 {
 }
 
 print $a.x, ' ', $a.y;
-#------------------------------------------- 937 benchmark_send-more-money-loops
+#------------------------------------------- 938 benchmark_send-more-money-loops
 # ⛔⭐ SELF-TIMED ON THE TWO-NUMBER BASIS (Lon 2026-08-30, RULES.md § THE TWO-NUMBER BENCHMARK BASIS).
 # The bracket encloses the loop nest -- the WORK. The single `say` that fires once inside it is left where
 # upstream put it (moving it would change the algorithm); one line of output inside a 10^8-comparison
@@ -4369,64 +4381,64 @@ while ++$s <= 9 {
 }
 my $t1 = wall_us(); my $m1 = wall_ms();
 note("BENCH kernel=send-more-money-loops work_us=" ~ ($t1 - $t0) ~ " work_ms=" ~ ($m1 - $m0));
-#---------------------------------------------------------- 938 smartmatch_say_4
+#---------------------------------------------------------- 939 smartmatch_say_4
  my $s = "hello"; if ($s ~~ /$<word>=(<[a..z]>+)/) { say($<word>); } 
-#---------------------------------------------- 939 class_method_array_replace_1
+#---------------------------------------------- 940 class_method_array_replace_1
 class Bag { has @.items; method count() { my @c = @.items; return @c.elems; } }
  my @v = 1, 2, 3, 4; my $b = Bag.new(items => @v); say($b.count()); 
-#----------------------------------------------- 940 class_method_say_replace_22
+#----------------------------------------------- 941 class_method_say_replace_22
 class Point { has $.x; has $.y; method gist() { return "Point(" ~ $.x ~ ", " ~ $.y ~ ")"; } }
  my $p = Point.new(x => 3, y => 4); say($p); 
-#----------------------------------------------- 941 class_method_say_replace_43
+#----------------------------------------------- 942 class_method_say_replace_43
 class Mix { has $.pub; has $!prv; method both() { return $.pub ~ "-" ~ $!prv; } }
  my $m = Mix.new(pub => "A", prv => "B"); say($m.both()); 
-#----------------------------------------------- 942 class_method_say_replace_44
+#----------------------------------------------- 943 class_method_say_replace_44
 class Mix { has $.pub; has $!prv; method both() { return $.pub ~ "-" ~ $!prv; } }
  my $m = Mix.new(pub => "A", prv => "B"); say($m.pub); 
-#----------------------------------------------- 943 class_method_say_replace_46
+#----------------------------------------------- 944 class_method_say_replace_46
 class P { has $.x; method gist() { return "G" ~ $.x; }; method Str() { return "S" ~ $.x; }; method raku() { return "R" ~ $.x; } }
  my $p = P.new(x => 7); say($p.gist()); say($p.Str()); say($p.raku()); 
-#----------------------------------------------- 944 class_method_say_replace_53
+#----------------------------------------------- 945 class_method_say_replace_53
 class Point { has $.x; method Str() { return "STR:" ~ $.x; } }
  my $p = Point.new(x => 3); say($p ~ "!"); 
-#----------------------------------------------- 945 class_method_say_replace_54
+#----------------------------------------------- 946 class_method_say_replace_54
 class P { has $.x; method Str() { return "S" ~ $.x; } }
  my $p = P.new(x => 9); say("val=$p"); 
-#------------------------------------------------ 946 class_method_for_replace_2
+#------------------------------------------------ 947 class_method_for_replace_2
 class Ctr { has $.n; method emit($x) { say $x } }
 my $c = Ctr.new(n => 0);
 for 1..3 -> $i { $c.emit($i) }
-#------------------------------------------------ 947 class_method_for_replace_3
+#------------------------------------------------ 948 class_method_for_replace_3
 class Box { has $.v; method show() { say $!v } }
 my $b = Box.new(v => 7);
 for 1..2 { $b.show() }
-#------------------------------------------------ 948 class_method_for_replace_4
+#------------------------------------------------ 949 class_method_for_replace_4
 class Box2 { has $.v; method show() { say $!v } }
 my $b = Box2.new(v => 9);
 for 1..2 { $b.show(); }
-#---------------------------------------------- 949 class_method_range_replace_1
+#---------------------------------------------- 950 class_method_range_replace_1
 class Animal { has $.name; method speak() { return "..."; } }
 class Dog is Animal { method speak() { return "Woof"; } }
  my $d = Dog.new(name => "Rex"); say($d.speak()); 
-#---------------------------------------------- 950 class_method_range_replace_2
+#---------------------------------------------- 951 class_method_range_replace_2
 class Animal { has $.name; method speak() { return "..."; } }
 class Dog is Animal { has $.breed; }
  my $d = Dog.new(name => "Rex", breed => "Lab"); say($d.^attributes); 
-#---------------------------------------------- 951 class_method_range_replace_3
+#---------------------------------------------- 952 class_method_range_replace_3
 class Animal { has $.name; method speak() { return "..."; }; method eat() { return "om"; } }
 class Dog is Animal { has $.breed; method bark() { return "woof"; } }
  my $d = Dog.new(name => "Rex", breed => "Lab"); say($d.^methods); 
-#----------------------------------------------- 952 class_method_say_replace_21
+#----------------------------------------------- 953 class_method_say_replace_21
 class Animal { has $.name; method gist() { return "DOG:" ~ $.name; } }
 class Dog is Animal { }
  my $d = Dog.new(name => "Rex"); say($d); 
-#---------------------------------------------- 953 class_method_multi_replace_5
+#---------------------------------------------- 954 class_method_multi_replace_5
 class Printer {
     multi method show(Int $x) { return "int:" ~ $x; }
     multi method show(Str $s) { return "str:" ~ $s; }
 }
  my $p = Printer.new(); say($p.show(42)); say($p.show("hi")); 
-#- 954 ladder__rung04_arrays_join_flattens_its_list_arguments_as_a_slurpy_and_keeps_array_elements_itemized
+#- 955 ladder__rung04_arrays_join_flattens_its_list_arguments_as_a_slurpy_and_keeps_array_elements_itemized
 my @s = <a b c>;
 say join '', gather for ^2 -> $i { take @s[0, 1], "\n" };
 say join('-', (1, 2), (3, (4, 5)));
@@ -4435,7 +4447,7 @@ my @a = (1, 2), (3, 4);
 say join '|', @a;
 say ((1, 2), (3, 4)).join('|');
 say join ',', (1..3), 4;
-#------- 955 ladder__rung18_two_arg_block_do_for_collects_and_await_is_its_value
+#------- 956 ladder__rung18_two_arg_block_do_for_collects_and_await_is_its_value
 say [+] do for ^3 { 5 };
 say [+] do for 1..3 { $_ * 10 };
 my @r = do for 1..3 { $_ * 10 };
@@ -4445,7 +4457,7 @@ my $p = start { 42 };
 say await $p;
 say [+] await do for ^2 { start { 21 } };
 say await(start { 7 }, start { 8 }).join(",");
-#---------------------------------------------------- 956 sub_when_for_replace_1
+#---------------------------------------------------- 957 sub_when_for_replace_1
 # rk_for_array_simple.raku — RK-BB-3a probe: iterate Icon-list (DT_DATA) via `for @arr -> $v`.
 # Stripped-down precursor to rk_map_grep_sort24; flips green when the BB_ITERATE
 # polymorphic substrate (DT_DATA-list branch) lands.
@@ -4455,7 +4467,7 @@ sub main() {
     for @x -> $v { say($v); }
 }
 main();
-#- 957 ladder__rung14_roles_a_role_declares_regexes_and_attributes_beside_methods
+#- 958 ladder__rung14_roles_a_role_declares_regexes_and_attributes_beside_methods
 role Greeter {
     has $.greeting = 'hello';
     rule shout { <.ws> 'hey' }
@@ -4466,7 +4478,7 @@ class Bar does Greeter { }
 my $b = Bar.new;
 say $b.hi;
 say $b.greeting;
-#- 958 ladder__rung15_blocks_a_closure_in_a_sub_reads_an_enum_value_and_a_constant_that_sub_declares
+#- 959 ladder__rung15_blocks_a_closure_in_a_sub_reads_an_enum_value_and_a_constant_that_sub_declares
 sub cells() {
     enum State <Empty Tree Burning>;
     constant K = 10;
@@ -4479,7 +4491,7 @@ sub cells() {
     say (^2).grep({ $_ == Tree }).elems;
 }
 cells();
-#- 959 ladder__rung19_block_methcall_sort_by_a_one_arg_key_block_past_64_elements
+#- 960 ladder__rung19_block_methcall_sort_by_a_one_arg_key_block_past_64_elements
 my @a = 3, 1, 4, 1, 5, 9, 2, 6;
 say @a.sort({ -$_ });
 say @a.sort({ $_ % 3 });
@@ -4492,7 +4504,7 @@ my @b = (1..200).map({ ($_ * 37) % 101 });
 say @b.sort({ -$_ }).elems;
 say ().sort({ $_ });
 say @a.sort({ $^b <=> $^a });
-#--------------------------------------------------- 960 sub_for_while_replace_1
+#--------------------------------------------------- 961 sub_for_while_replace_1
 # rk_forloop.raku — for RANGE -> $var loop
 sub main() {
     my $sum = 0;
@@ -4505,7 +4517,7 @@ sub main() {
     say($sum);
 }
 main();
-#---------------------------------------------------- 961 sub_for_loop_replace_1
+#---------------------------------------------------- 962 sub_for_loop_replace_1
 # rk_for_array_underscore.raku — RK-BB-3b/c diagnostic probe.
 # Hand-desugared map-equivalent: does $_ bind correctly under `for @arr -> $_`?
 # If this passes, the bug is isolated to lower_raku_map_or_grep's divergence
@@ -4519,7 +4531,7 @@ sub main() {
     for @r -> $x { say($x); }
 }
 main();
-#--------------------------------------------------- 962 sub_for_range_replace_1
+#--------------------------------------------------- 963 sub_for_range_replace_1
 # rk_paren_array.raku — RK-BB-5.4b: parenthesized array literal `my @a = (e1, e2, ...)`
 # Initializer-only paren-list (mirrors the 5.3 bare comma-list): net-zero new conflicts.
 # Single-element paren stays scalar; bare comma-list still works alongside.
@@ -4535,7 +4547,7 @@ sub main() {
     say($s);
 }
 main();
-#----------------------------------------------- 963 class_method_say_replace_15
+#----------------------------------------------- 964 class_method_say_replace_15
 class Point {
     has $.x;
     has $.y;
@@ -4556,7 +4568,7 @@ class Dog {
     my $d = Dog.new(name => "Rex", age => 5);
     say($d.name);
     say($d.greet());
-#------------------------------------------- 964 scrip_test_rk_seq_consumers_arr
+#------------------------------------------- 965 scrip_test_rk_seq_consumers_arr
 # rk_seq_consumers_arr.raku — RK-BB-5.x: reverse/unique/sum/join on @array args
 sub main() {
     my @a = "";
@@ -4577,7 +4589,7 @@ sub main() {
     say(join("-", @a));
 }
 main();
-#---------------------------------------------- 965 benchmark_rc-9-billion-names
+#---------------------------------------------- 966 benchmark_rc-9-billion-names
 my @todo = $[1];
 my @sums = 0;
 sub nextrow($n) {
@@ -4601,7 +4613,7 @@ sub nextrow($n) {
 
 my $n = 15;
 say $n, "\t", [+] nextrow($n)[];
-#-------------------------------------------------------- 966 scrip_test_rk_subs
+#-------------------------------------------------------- 967 scrip_test_rk_subs
 # rk_subs.raku — sub definitions, single/multi params, return values
 sub double($n) {
     return $n * 2;
@@ -4626,7 +4638,7 @@ sub main() {
     say(classify(-1));
 }
 main();
-#-------------------------------------------------- 967 method_sub_for_replace_1
+#-------------------------------------------------- 968 method_sub_for_replace_1
 # rk_listmeth.raku — RK-BB-5.4a: list-method postfix forms .reverse/.unique/.sum/.elems/.head(N)/.tail(N)
 # Scalar-returning methods (.elems/.sum) print directly; list-returning methods are assigned to an
 # array then iterated, giving stable one-element-per-line output the .expected file can encode.
@@ -4652,7 +4664,7 @@ sub main() {
     for @a.head(2) -> $hh { say($hh); }
 }
 main();
-#--------- 968 ladder__rung02_arithmetic_power_in_every_right_hand_side_position
+#--------- 969 ladder__rung02_arithmetic_power_in_every_right_hand_side_position
 my $x = 3;
 my $y;
 $y = $x ** 3;
@@ -4679,7 +4691,7 @@ while $i < 4 { $acc = $acc + 2 ** $i; $i++ }
 say $acc;
 my $neg = -$x ** 2;
 say $neg;
-#------------------------------------------------- 969 sub_junction_smartmatch_1
+#------------------------------------------------- 970 sub_junction_smartmatch_1
 # rk_re33.raku — RK-33: NFA simulation / matching gate
 
 sub main() {
@@ -4707,7 +4719,7 @@ sub main() {
     say('rk_re33 ok');
 }
 main();
-#-------------------------------------------- 970 multi_sub_smartmatch_replace_1
+#-------------------------------------------- 971 multi_sub_smartmatch_replace_1
 # rk_re38.raku — RK-NFA-2: cset/anchor edge-case verdicts (negated shorthands, enumerated
 #   ranges + negation, mixed shorthands inside [...], BOL/EOL anchors). The IR_NFA_* graph walk
 #   (RK_NFA_BB=1) and the parallel-NFA oracle (RK_NFA_BB=0) agree on every line here; proven
@@ -4750,7 +4762,7 @@ sub main() {
     say('rk_re38 ok');
 }
 main();
-#- 971 ladder__rung04_arrays_binding_an_array_to_an_element_aliases_it_and_pop_shift_a_zen_slice_and_an_element_store_value_agree_with_rakudo
+#- 972 ladder__rung04_arrays_binding_an_array_to_an_element_aliases_it_and_pop_shift_a_zen_slice_and_an_element_store_value_agree_with_rakudo
 my @u = [1, 2], [3, 4];
 my @x := @u[0];
 @x.push(9);
@@ -4794,34 +4806,34 @@ sub nextrow($n) {
     @todo[$n];
 }
 say [+] nextrow(8)[];
-#------------------------------------------------- 972 class_multi_sub_replace_2
+#------------------------------------------------- 973 class_multi_sub_replace_2
 class Vec { has $.x; has $.y; }
 multi sub infix:<+>(Vec $a, Vec $b) { return Vec.new(x => $a.x + $b.x, y => $a.y + $b.y); }
  my $p = Vec.new(x => 1, y => 2); my $q = Vec.new(x => 10, y => 20); my $r = $p + $q; say($r.x); say($r.y); 
-#------------------------------------------------- 973 class_multi_sub_replace_3
+#------------------------------------------------- 974 class_multi_sub_replace_3
 class Vec { has $.x; }
 multi sub infix:<+>(Vec $a, Vec $b) { return Vec.new(x => $a.x + $b.x); }
  my $a = 7; my $b = 5; say($a + $b); say($a - $b); say($a * $b); 
-#------------------------------------------------- 974 class_multi_sub_replace_5
+#------------------------------------------------- 975 class_multi_sub_replace_5
 class Box { has $.n; }
 multi sub infix:«<»(Box $a, Box $b) { return $a.n < $b.n; }
  my $a = Box.new(n => 3); my $b = Box.new(n => 7); say($a < $b); 
-#------------------------------------------------- 975 class_multi_sub_replace_4
+#------------------------------------------------- 976 class_multi_sub_replace_4
 class Money { has $.cents; }
 multi sub infix:<+>(Money $a, Money $b) { return Money.new(cents => $a.cents + $b.cents); }
 multi sub infix:<*>(Money $a, $n) { return Money.new(cents => $a.cents * $n); }
  my $a = Money.new(cents => 150); my $b = Money.new(cents => 350); my $s = $a + $b; say($s.cents); my $t = $a * 3; say($t.cents); 
-#------------------------------------------------- 976 class_multi_sub_replace_6
+#------------------------------------------------- 977 class_multi_sub_replace_6
 class Animal { has $.size; }
 class Dog is Animal { }
 multi sub infix:«<»(Animal $a, Animal $b) { return $a.size + $b.size; }
  my $d1 = Dog.new(size => 10); my $d2 = Dog.new(size => 20); say($d1 < $d2); 
-#------------------------------------------------- 977 class_multi_sub_replace_7
+#------------------------------------------------- 978 class_multi_sub_replace_7
 class Animal { has $.size; }
 class Dog is Animal { }
 multi sub infix:<+>(Animal $a, Animal $b) { return Animal.new(size => $a.size + $b.size); }
  my $d1 = Dog.new(size => 10); my $d2 = Dog.new(size => 20); my $r = $d1 + $d2; say($r.size); 
-#---------------------- 978 ladder__rung09_regex_match_methods_agree_with_rakudo
+#---------------------- 979 ladder__rung09_regex_match_methods_agree_with_rakudo
 my $m = "a b c d" ~~ /(.*)/;
 say $m.caps.map({ .key ~ ":" ~ .value }).join("|");
 say $m.chunks.map({ .key ~ ":" ~ .value }).join("|");
@@ -4837,7 +4849,7 @@ say "ab" ~~ /a <( b )> /;
 say "foobar" ~~ /foo <( bar )>/;
 say "aaa" ~~ /a ** 2/;
 say "abab" ~~ /[a b]+/;
-#---------------------------------------------- 979 benchmark_rc-perfect-shuffle
+#---------------------------------------------- 980 benchmark_rc-perfect-shuffle
 use v6;
 
 sub perfect-shuffle (@deck) {
@@ -4854,7 +4866,7 @@ sub shuffles_needed ($decksize) {
 }
 
 say shuffles_needed(52);
-#----------------------------------------------- 980 scrip_test_rk_array_literal
+#----------------------------------------------- 981 scrip_test_rk_array_literal
 # rk_array_literal.raku — comma-list array initializer `my @a = e1, e2, ...`
 sub main() {
     # bare comma-list init, then iterate
@@ -4876,7 +4888,7 @@ sub main() {
     for @d -> $s { say($s); }
 }
 main();
-#---------------------------------------------- 981 sub_smartmatch_say_replace_1
+#---------------------------------------------- 982 sub_smartmatch_say_replace_1
 # rk_re34.raku — RK-34: positional captures $0, $1
 
 sub main() {
@@ -4902,7 +4914,7 @@ sub main() {
     say('rk_re34 ok');
 }
 main();
-#---- 982 ladder__rung09_regex_quote_adverbs_and_interpolation_agree_with_rakudo
+#---- 983 ladder__rung09_regex_quote_adverbs_and_interpolation_agree_with_rakudo
 say "ABC" ~~ m:i/abc/;
 say "ABC" ~~ /:i abc/;
 say "ABC" ~~ rx:i/abc/;
@@ -4930,7 +4942,7 @@ say so "ab" !~~ m/c/;
 my $r = rx/b+/;
 say "abbc" ~~ /a $r c/;
 say "abbc" ~~ /a <$r> c/;
-#---------------------------------------------- 983 sub_smartmatch_say_replace_2
+#---------------------------------------------- 984 sub_smartmatch_say_replace_2
 # rk_re35.raku — RK-35: named captures <n> and $<n>
 
 sub main() {
@@ -4958,7 +4970,7 @@ sub main() {
     say('rk_re35 ok');
 }
 main();
-#-------------------------------------------- 984 sub_regex_smartmatch_replace_1
+#-------------------------------------------- 985 sub_regex_smartmatch_replace_1
 # rk_regex23.raku — RK-23: $s ~~ /pattern/ basic regex match
 sub main() {
     my $s = 'Hello, World!';
@@ -4988,11 +5000,11 @@ sub main() {
     say($x / $y);
 }
 main();
-#---------------------------------------------- 985 class_method_multi_replace_3
+#---------------------------------------------- 986 class_method_multi_replace_3
 class Base { multi method describe(Int $x) { return "base-int:" ~ $x; } }
 class Sub is Base { multi method describe(Str $s) { return "sub-str:" ~ $s; } }
  my $o = Sub.new(); say($o.describe(7)); say($o.describe("yo")); 
-#- 986 ladder__rung11_junctions_a_junction_in_boolean_context_collapses_and_star_smartmatch_against_a_type_is_a_whatevercode
+#- 987 ladder__rung11_junctions_a_junction_in_boolean_context_collapses_and_star_smartmatch_against_a_type_is_a_whatevercode
 say (True, 3).map(* ~~ Bool);
 say (1, "a", 2.5).grep(* ~~ Int);
 say so all (True, 3).map(* ~~ Bool);
@@ -5007,7 +5019,7 @@ if all(1, 0) { say "yes" } else { say "no" }
 if any(1, 0) { say "yes" } else { say "no" }
 my @m = (1, 0).map({ $_ > 0 });
 say so all @m;
-#-------------------------------------- 987 benchmark_rc-self-describing-numbers
+#-------------------------------------- 988 benchmark_rc-self-describing-numbers
 sub is_selfdesc($n) {
     my $s = $n.Str;
     my $chars = $s.chars;
@@ -5023,7 +5035,7 @@ sub is_selfdesc($n) {
 
 # check all numbers from 0 to SCALE
 .say if is_selfdesc($_) for 0 .. 5000;
-#- 988 ladder__rung08_for_a_for_loop_over_the_topic_restores_the_outer_topic_when_it_ends_by_exhaustion_last_or_return
+#- 989 ladder__rung08_for_a_for_loop_over_the_topic_restores_the_outer_topic_when_it_ends_by_exhaustion_last_or_return
 for 1..3 { }
 say $_.defined;
 $_ = "outer";
@@ -5041,7 +5053,7 @@ say $_;
 for 1..2 -> $x { print $x }
 say "";
 say $_;
-#- 989 ladder__rung04_arrays_xx_repeats_its_left_side_unflattened_and_a_range_in_a_comma_list_is_one_range_element
+#- 990 ladder__rung04_arrays_xx_repeats_its_left_side_unflattened_and_a_range_in_a_comma_list_is_one_range_element
 say (1, "a") xx 2;
 my @a = 1, 2;
 say @a xx 2;
@@ -5061,7 +5073,7 @@ say flat (1..2, 3..4);
 say (1..2, 5).map({ $_ ~~ Range });
 for 1..2, 5 { say $_ }
 say ((1, 2) xx 2).map(*.elems);
-#-------------------------------------------------- 990 benchmark_insertion-sort
+#-------------------------------------------------- 991 benchmark_insertion-sort
 use v6;
 # SCRIP corpus import: input made deterministic IN-PROGRAM (fixed-seed LCG below) rather than via
 # the runtime's rand()/srand() -- output must be comparable across implementations with different
@@ -5088,7 +5100,7 @@ for 1..SCALE -> $i { $lcg = ($lcg * 75 + 74) % 65537; @ints[$i-1] = $lcg % 500; 
 @ints = 0 unless SCALE;
 insertion-sort @ints;
 say @ints[0];
-#----------------------------------------------- 991 sub_when_junction_replace_1
+#----------------------------------------------- 992 sub_when_junction_replace_1
 # rk_junctions.raku — RK-BB-4 junction probe.
 # Tests `any`/`all`/`one`/`none` constructors and infix `|`/`&`
 # autothreading semantics. Bool-collapse on ω/γ per goal spec.
@@ -5115,7 +5127,7 @@ sub main() {
     if ($x == (3 & 3 & 3))   { say('amp-hit');  }   # ⇒ amp-hit
 }
 main();
-#--------------------------------------------------- 992 benchmark_rc-mandelbrot
+#--------------------------------------------------- 993 benchmark_rc-mandelbrot
 constant SQUISH = 1.5;
 
 sub MAIN(Int $w = 31, Int $max_iterations = 50) {
@@ -5149,7 +5161,7 @@ sub MAIN(Int $w = 31, Int $max_iterations = 50) {
         print "\n"
     }
 }
-#------------------------------------------------- 993 benchmark_point_class_add
+#------------------------------------------------- 994 benchmark_point_class_add
 # Point Class Benchmarks
 
 # Here's the runtime for the point class in seconds (YMMV). Lower is better:
@@ -5189,7 +5201,7 @@ while $i < 1000000 {
 my $t1 = wall_us(); my $m1 = wall_ms();
 print $a.x, ' ', $a.y;
 note("BENCH kernel=point_class_add work_us=" ~ ($t1 - $t0) ~ " work_ms=" ~ ($m1 - $m0));
-#- 994 ladder__rung09_regex_grammars_protos_actions_and_lexical_regexes_agree_with_rakudo
+#- 995 ladder__rung09_regex_grammars_protos_actions_and_lexical_regexes_agree_with_rakudo
 {
     grammar G { token TOP { a+ } }
     say G.parse("aaa");
@@ -5230,7 +5242,7 @@ say $m.made;
 say $m<num>[1].made;
 say "abc" ~~ /(a(b(c)))/;
 say "ab" ~~ /$<x>=(a $<y>=(b))/;
-#------------------------------------------------------ 995 benchmark_merge-sort
+#------------------------------------------------------ 996 benchmark_merge-sort
 use v6;
 # SCRIP corpus import: input made deterministic IN-PROGRAM (fixed-seed LCG below) rather than via
 # the runtime's rand()/srand() -- output must be comparable across implementations with different
@@ -5273,7 +5285,7 @@ for 1..SCALE -> $i { $lcg = ($lcg * 75 + 74) % 65537; @a[$i-1] = $lcg % 500; }
 @a = 0 unless SCALE;
 merge-sort @a;
 say @a[0];
-#------------------------------------------------ 996 benchmark_point_class_add1
+#------------------------------------------------ 997 benchmark_point_class_add1
 # Point Class Benchmarks
 
 # Here's the runtime for the point class in seconds (YMMV). Lower is better:
@@ -5318,7 +5330,7 @@ while $i < 1000000 {
 my $t1 = wall_us(); my $m1 = wall_ms();
 print $a.x, ' ', $a.y;
 note("BENCH kernel=point_class_add1 work_us=" ~ ($t1 - $t0) ~ " work_ms=" ~ ($m1 - $m0));
-#- 997 ladder__rung02_arithmetic_rat_as_an_argument_a_receiver_and_a_container_element_agrees_with_rakudo
+#- 998 ladder__rung02_arithmetic_rat_as_an_argument_a_receiver_and_a_container_element_agrees_with_rakudo
 my $s = "abcdefghij";
 my @a = 10..19;
 my $n = 6;
@@ -5372,7 +5384,7 @@ say 3.14.comb(1);
 say 1.5.join(",");
 say 1.5.sort;
 say 1.5.sum;
-#----------------------------------------------------- 998 scrip_test_rk_given18
+#----------------------------------------------------- 999 scrip_test_rk_given18
 # rk_given18.raku — RK-18: given/when extended coverage
 # Tests: nested given/when, given in a loop, default fallthrough,
 # mixed numeric and string when-arms.
@@ -5434,7 +5446,7 @@ sub main() {
     in_loop();
 }
 main();
-#- 999 ladder__rung10_given_a_when_arm_is_its_own_node_a_given_binds_the_topic_and_a_matched_when_leaves_the_block
+#- 1000 ladder__rung10_given_a_when_arm_is_its_own_node_a_given_binds_the_topic_and_a_matched_when_leaves_the_block
 given 7 { my $z = .Str; say $z }
 given 8 { when 8 { say "w" }; say "x" }
 given 9 { say "pre"; when 9 { say "nine" }; say "post" }
@@ -5445,7 +5457,7 @@ given "ab" { my $z = .uc; say $z }
 sub cls($n) { given $n { when 0 { return "zero" }; when 1 { return "one" }; default { return "many" } } }
 say cls(0), cls(1), cls(5);
 try { die "x"; CATCH { when X::AdHoc { say "caught ", .message } } }
-#- 1000 ladder__rung04_arrays_an_infinite_or_whatever_ended_range_is_lazy_where_it_is_iterated_and_a_range_value_where_it_is_held
+#- 1001 ladder__rung04_arrays_an_infinite_or_whatever_ended_range_is_lazy_where_it_is_iterated_and_a_range_value_where_it_is_held
 say (1..Inf).head(3);
 say (1..*).head(3);
 for 1..Inf { last if $_ > 3; say $_ }
@@ -5469,7 +5481,7 @@ say (1 xx *).head(2);
 say (0 xx *)[^4];
 my @z = ('a', 'b') Z (0 xx *);
 say @z;
-#- 1001 ladder__rung02_arithmetic_rat_in_the_builtins_index_range_x_floor_abs_sqrt_sprintf_int_and_caret
+#- 1002 ladder__rung02_arithmetic_rat_in_the_builtins_index_range_x_floor_abs_sqrt_sprintf_int_and_caret
 my @a = (10, 20, 30, 40);
 say @a[7/4];
 say @a[1.5];
@@ -5562,7 +5574,7 @@ say 1.23456789 * 1000;
 say 100 * 1.1;
 say 1.15 * 100;
 say 33.333333 * 3;
-#----------------- 1002 ladder__rung09_regex_engine_captures_1_agree_with_rakudo
+#----------------- 1003 ladder__rung09_regex_engine_captures_1_agree_with_rakudo
 sub esc($s) { $s.subst("\n", '\n', :g).subst("\t", '\t', :g) }
 sub fmt($x) { $x ~~ Positional ?? "[" ~ $x.map({fmt($_)}).join(",") ~ "]" !! "<" ~ esc($x.Str) ~ ">" }
 sub show($m) { my @o = "M {$m.from} {$m.to} <{esc($m.Str)}>"; my @l = $m.list; for ^@l.elems -> $i { @o.push: "$i=" ~ (@l[$i].defined ?? fmt(@l[$i]) !! "-") }; my %h = $m.hash; for %h.keys.sort -> $k { @o.push: "$k=" ~ fmt(%h{$k}) }; say @o.join(" ") }
@@ -5612,7 +5624,7 @@ if '12' ~~ /<alpha>* <digit>+/ { show($/) } else { say "NO" }
 if '1,2,3' ~~ /<digit>+ % ','/ { show($/) } else { say "NO" }
 if '1,2,3' ~~ /(<digit>)+ % ','/ { show($/) } else { say "NO" }
 if '1,2,3' ~~ /$<d>=<digit>+ % ','/ { show($/) } else { say "NO" }
-#-------------- 1003 ladder__rung09_regex_engine_quantifiers_1_agree_with_rakudo
+#-------------- 1004 ladder__rung09_regex_engine_quantifiers_1_agree_with_rakudo
 sub esc($s) { $s.subst("\n", '\n', :g).subst("\t", '\t', :g) }
 sub fmt($x) { $x ~~ Positional ?? "[" ~ $x.map({fmt($_)}).join(",") ~ "]" !! "<" ~ esc($x.Str) ~ ">" }
 sub show($m) { my @o = "M {$m.from} {$m.to} <{esc($m.Str)}>"; my @l = $m.list; for ^@l.elems -> $i { @o.push: "$i=" ~ (@l[$i].defined ?? fmt(@l[$i]) !! "-") }; my %h = $m.hash; for %h.keys.sort -> $k { @o.push: "$k=" ~ fmt(%h{$k}) }; say @o.join(" ") }
@@ -5643,7 +5655,7 @@ if 'aaa' ~~ /a:/ { show($/) } else { say "NO" }
 if 'aab' ~~ /a: b/ { show($/) } else { say "NO" }
 if 'ab' ~~ /a: | b/ { show($/) } else { say "NO" }
 if 'ab' ~~ /[a: | ab]/ { show($/) } else { say "NO" }
-#------------------- 1004 ladder__rung09_regex_engine_sigspace_agree_with_rakudo
+#------------------- 1005 ladder__rung09_regex_engine_sigspace_agree_with_rakudo
 sub esc($s) { $s.subst("\n", '\n', :g).subst("\t", '\t', :g) }
 sub fmt($x) { $x ~~ Positional ?? "[" ~ $x.map({fmt($_)}).join(",") ~ "]" !! "<" ~ esc($x.Str) ~ ">" }
 sub show($m) { my @o = "M {$m.from} {$m.to} <{esc($m.Str)}>"; my @l = $m.list; for ^@l.elems -> $i { @o.push: "$i=" ~ (@l[$i].defined ?? fmt(@l[$i]) !! "-") }; my %h = $m.hash; for %h.keys.sort -> $k { @o.push: "$k=" ~ fmt(%h{$k}) }; say @o.join(" ") }
@@ -5682,7 +5694,7 @@ if 'Ab' ~~ /(:i a) b/ { show($/) } else { say "NO" }
 if 'AB' ~~ /(:i a) b/ { show($/) } else { say "NO" }
 if 'aBc' ~~ /a [:i b] c/ { show($/) } else { say "NO" }
 if 'aBC' ~~ /a [:i b] c/ { show($/) } else { say "NO" }
-#--------------------- 1005 ladder__rung09_regex_engine_batch2_agree_with_rakudo
+#--------------------- 1006 ladder__rung09_regex_engine_batch2_agree_with_rakudo
 sub esc($s) { $s.subst("\n", '\n', :g).subst("\t", '\t', :g) }
 sub fmt($x) { $x ~~ Positional ?? "[" ~ $x.map({fmt($_)}).join(",") ~ "]" !! "<" ~ esc($x.Str) ~ ">" }
 sub show($m) { my @o = "M {$m.from} {$m.to} <{esc($m.Str)}>"; my @l = $m.list; for ^@l.elems -> $i { @o.push: "$i=" ~ (@l[$i].defined ?? fmt(@l[$i]) !! "-") }; my %h = $m.hash; for %h.keys.sort -> $k { @o.push: "$k=" ~ fmt(%h{$k}) }; say @o.join(" ") }
@@ -5727,7 +5739,7 @@ if 'bc' ~~ /[a | b] c/ { show($/) } else { say "NO" }
 if 'ab' ~~ /'a' | 'ab'/ { show($/) } else { say "NO" }
 if 'ab' ~~ /<alpha>*?/ { show($/) } else { say "NO" }
 if 'ab1' ~~ /<alpha>+?<digit>/ { show($/) } else { say "NO" }
-#------------------- 1006 ladder__rung09_regex_engine_basics_1_agree_with_rakudo
+#------------------- 1007 ladder__rung09_regex_engine_basics_1_agree_with_rakudo
 sub esc($s) { $s.subst("\n", '\n', :g).subst("\t", '\t', :g) }
 sub fmt($x) { $x ~~ Positional ?? "[" ~ $x.map({fmt($_)}).join(",") ~ "]" !! "<" ~ esc($x.Str) ~ ">" }
 sub show($m) { my @o = "M {$m.from} {$m.to} <{esc($m.Str)}>"; my @l = $m.list; for ^@l.elems -> $i { @o.push: "$i=" ~ (@l[$i].defined ?? fmt(@l[$i]) !! "-") }; my %h = $m.hash; for %h.keys.sort -> $k { @o.push: "$k=" ~ fmt(%h{$k}) }; say @o.join(" ") }
@@ -5780,7 +5792,7 @@ if 'ab1' ~~ /<x=alpha>+/ { show($/) } else { say "NO" }
 if 'a1b2' ~~ /[<alpha>|<digit>]+/ { show($/) } else { say "NO" }
 if 'FOO' ~~ /:i foo/ { show($/) } else { say "NO" }
 if 'fOo' ~~ /:i f.o/ { show($/) } else { say "NO" }
-#------------------- 1007 ladder__rung09_regex_engine_basics_2_agree_with_rakudo
+#------------------- 1008 ladder__rung09_regex_engine_basics_2_agree_with_rakudo
 sub esc($s) { $s.subst("\n", '\n', :g).subst("\t", '\t', :g) }
 sub fmt($x) { $x ~~ Positional ?? "[" ~ $x.map({fmt($_)}).join(",") ~ "]" !! "<" ~ esc($x.Str) ~ ">" }
 sub show($m) { my @o = "M {$m.from} {$m.to} <{esc($m.Str)}>"; my @l = $m.list; for ^@l.elems -> $i { @o.push: "$i=" ~ (@l[$i].defined ?? fmt(@l[$i]) !! "-") }; my %h = $m.hash; for %h.keys.sort -> $k { @o.push: "$k=" ~ fmt(%h{$k}) }; say @o.join(" ") }
@@ -5833,7 +5845,7 @@ if 'a1' ~~ /<alpha> <digit>/ { show($/) } else { say "NO" }
 if 'abcd' ~~ /'ab' 'cd'/ { show($/) } else { say "NO" }
 if 'a b' ~~ /:s (a) (b)/ { show($/) } else { say "NO" }
 if 'a b' ~~ /:s  a b / { show($/) } else { say "NO" }
-#------------------- 1008 ladder__rung09_regex_engine_basics_3_agree_with_rakudo
+#------------------- 1009 ladder__rung09_regex_engine_basics_3_agree_with_rakudo
 sub esc($s) { $s.subst("\n", '\n', :g).subst("\t", '\t', :g) }
 sub fmt($x) { $x ~~ Positional ?? "[" ~ $x.map({fmt($_)}).join(",") ~ "]" !! "<" ~ esc($x.Str) ~ ">" }
 sub show($m) { my @o = "M {$m.from} {$m.to} <{esc($m.Str)}>"; my @l = $m.list; for ^@l.elems -> $i { @o.push: "$i=" ~ (@l[$i].defined ?? fmt(@l[$i]) !! "-") }; my %h = $m.hash; for %h.keys.sort -> $k { @o.push: "$k=" ~ fmt(%h{$k}) }; say @o.join(" ") }
@@ -5886,7 +5898,7 @@ if '.abc' ~~ /\. abc/ { show($/) } else { say "NO" }
 if '^abc' ~~ /\^ abc/ { show($/) } else { say "NO" }
 if '(abc)' ~~ /\( abc \)/ { show($/) } else { say "NO" }
 if '[abc]' ~~ /\[ abc \]/ { show($/) } else { say "NO" }
-#------------------ 1009 ladder__rung09_regex_engine_classes_1_agree_with_rakudo
+#------------------ 1010 ladder__rung09_regex_engine_classes_1_agree_with_rakudo
 sub esc($s) { $s.subst("\n", '\n', :g).subst("\t", '\t', :g) }
 sub fmt($x) { $x ~~ Positional ?? "[" ~ $x.map({fmt($_)}).join(",") ~ "]" !! "<" ~ esc($x.Str) ~ ">" }
 sub show($m) { my @o = "M {$m.from} {$m.to} <{esc($m.Str)}>"; my @l = $m.list; for ^@l.elems -> $i { @o.push: "$i=" ~ (@l[$i].defined ?? fmt(@l[$i]) !! "-") }; my %h = $m.hash; for %h.keys.sort -> $k { @o.push: "$k=" ~ fmt(%h{$k}) }; say @o.join(" ") }

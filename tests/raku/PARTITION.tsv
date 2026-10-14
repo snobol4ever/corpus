@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by scripts/util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1009 features=37 ubiquitous=2(my sigil_scalar) distinctive=35 core=43 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,66
+# shape: entries=1010 features=37 ubiquitous=2(my sigil_scalar) distinctive=35 core=43 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,67
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:08	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:08	family:ladder	
@@ -133,7 +133,7 @@ simple_program_63	chunk:06	feat:regex	regex
 simple_program_64	chunk:06	feat:regex	regex
 simple_program_65	chunk:06	feat:regex	regex
 simple_program_68	chunk:06	feat:string_concat	string_concat
-simple_program_71	chunk:06	feat:string_concat	string_concat
+simple_program_71	chunk:07	feat:string_concat	string_concat
 simple_program_73	chunk:07	feat:string_concat	string_concat
 simple_program_74	chunk:07	feat:string_concat	string_concat
 simple_program_76	chunk:07	feat:string_concat	string_concat
@@ -472,7 +472,7 @@ range_array_6	chunk:08	feat:range_op	range_op sigil_array
 range_array_7	chunk:08	feat:range_op	range_op sigil_array
 range_array_8	chunk:08	feat:range_op	range_op sigil_array
 range_array_9	chunk:08	feat:range_op	range_op sigil_array
-range_array_replace_1	chunk:08	feat:range_op	range_op sigil_array
+range_array_replace_1	chunk:09	feat:range_op	range_op sigil_array
 say_13	chunk:03	feat:say	say
 say_66	chunk:03	feat:say	say
 say_91	chunk:03	feat:say	say
@@ -498,7 +498,7 @@ simple_assign_82	chunk:05	feat:if	if
 simple_assign_83	chunk:05	feat:if	if
 simple_assign_84	chunk:10	feat:unless	unless
 simple_assign_88	chunk:05	feat:if	if
-simple_assign_91	chunk:05	feat:if	if
+simple_assign_91	chunk:06	feat:if	if
 simple_assign_93	chunk:06	feat:if	if
 simple_assign_95	chunk:06	feat:if	if
 simple_assign_96	chunk:10	feat:unless	unless
@@ -665,7 +665,7 @@ class_method_replace_7	chunk:07	feat:method	method
 class_replace_1	chunk:02	feat:has	has
 class_replace_2	chunk:02	feat:has	has
 class_say_replace_23	chunk:03	feat:say	say
-given_2	chunk:09	feat:given	given string_concat
+given_2	chunk:10	feat:given	given string_concat
 join_array_13	chunk:07	feat:join	join sigil_array
 join_range_array_1	chunk:07	feat:join	join range_op sigil_array
 ladder__rung07_subs_optional_params	chunk:08	feat:sub_with_return	return sub sub_with_return
@@ -694,6 +694,7 @@ while_6	chunk:09	feat:while	if while
 while_7	chunk:09	feat:while	if while
 ladder__rung13_classes_public_attribute	chunk:02	feat:has	has
 ladder__rung04_arrays_an_empty_array_is_an_array_a_sub_can_push_onto_and_its_max_is_minus_inf	chunk:05	feat:sub	sigil_array sub
+ladder__rung07_subs_a_sigilless_parameter_is_assignable_and_writes_back_to_its_argument	chunk:05	feat:sub	sigil_array sub
 ladder__rung16_bool_relops_logical_or_and_answer_an_operand	chunk:10	feat:grep	grep say
 array_say_4	chunk:04	feat:sigil_array	say sigil_array
 ladder__rung04_arrays_scalar_container_subscripts	chunk:06	feat:sigil_hash	if sigil_hash
@@ -849,7 +850,7 @@ sub_array_9	chunk:08	feat:sub_with_return	return sigil_array string_concat sub s
 class_method_say_replace_31	chunk:07	feat:method	method return say
 class_method_say_replace_33	chunk:07	feat:method	method return say
 class_method_say_replace_34	chunk:07	feat:method	method return say
-class_method_say_replace_47	chunk:07	feat:method	method return say
+class_method_say_replace_47	chunk:08	feat:method	method return say
 class_method_say_replace_48	chunk:08	feat:method	method return say
 class_method_say_replace_49	chunk:08	feat:method	method return say
 class_method_say_replace_52	chunk:08	feat:method	method return say
