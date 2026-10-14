@@ -1,0 +1,75 @@
+# ROAST-PARSE-CLASSES.tsv -- hq_raku 2026-10-14, CEO-1713 (the ceo's grant): Roast's mode-3 REJECT population (71 files, results.tsv
+# lap of 2026-10-11) censused PARSE-ONLY the way raku_roast_scoreboard.sh stages a file: copy to case.raku, cd to the file's own
+# directory, `scrip --syntax`. rakudo_c = rakudo-local 2026.05 `raku -c` on the file (OK accepts, REJ refuses). A file Rakudo refuses
+# is NO_ORACLE_ANSWER (CEO-1696: excluded, never debt); PARSE_DEBT:* is SCRIP's to cure. Columns: class rel rakudo_c scrip_rc first_error
+NO_ORACLE_ANSWER	6.c/S02-names/pseudo-6c	REJ	1	rakudo -c: /home/resources/roast-master/6.c/S02-names/pseudo-6c.t "::=" not yet implemented. Sor
+NO_ORACLE_ANSWER	S02-literals/format	REJ	1	rakudo -c: ===SORRY!=== Unrecognized adverb: :o at /home/resources/roast-master/S02-literals/format.t:8 
+NO_ORACLE_ANSWER	S02-literals/pod	REJ	1	rakudo -c: /home/resources/roast-master/S02-literals/pod.t Pod variable $=DATA not yet implement
+NO_ORACLE_ANSWER	S02-literals/radix	REJ	1	rakudo -c: /home/resources/roast-master/S02-literals/radix.t Malformed radix number at /home/res
+NO_ORACLE_ANSWER	S02-literals/version	REJ	1	rakudo -c: /home/resources/roast-master/S02-literals/version.t Malformed postfix call at /home/r
+NO_ORACLE_ANSWER	S02-magicals/DISTRO	REJ	1	rakudo -c: /home/resources/roast-master/S02-magicals/DISTRO.t Variable '$?DISTRO' is not declare
+NO_ORACLE_ANSWER	S02-magicals/KERNEL	REJ	1	rakudo -c: /home/resources/roast-master/S02-magicals/KERNEL.t Variable '$?KERNEL' is not declare
+NO_ORACLE_ANSWER	S02-magicals/PERL	REJ	1	rakudo -c: /home/resources/roast-master/S02-magicals/PERL.t Variable '$?PERL' is not declared. P
+NO_ORACLE_ANSWER	S02-magicals/RAKU	REJ	1	rakudo -c: /home/resources/roast-master/S02-magicals/RAKU.t Variable '$?RAKU' is not declared. P
+NO_ORACLE_ANSWER	S02-magicals/VM	REJ	1	rakudo -c: /home/resources/roast-master/S02-magicals/VM.t Variable '$?VM' is not declared. Perha
+NO_ORACLE_ANSWER	S02-names-vars/names	REJ	1	rakudo -c: /home/resources/roast-master/S02-names-vars/names.t Variable '$' is not declared. Per
+NO_ORACLE_ANSWER	S02-names/caller	REJ	1	rakudo -c: /home/resources/roast-master/S02-names/caller.t "::=" not yet implemented. Sorry. at 
+NO_ORACLE_ANSWER	S02-names/pseudo-6d	REJ	1	rakudo -c: /home/resources/roast-master/S02-names/pseudo-6d.t "::=" not yet implemented. Sorry. 
+NO_ORACLE_ANSWER	S02-names/pseudo-6e	REJ	1	rakudo -c: /home/resources/roast-master/S02-names/pseudo-6e.t Constants with a '?' twigil not ye
+NO_ORACLE_ANSWER	S02-types/declare	REJ	1	rakudo -c: ===SORRY!=== Type 'Bit' is not declared at /home/resources/roast-master/S02-types/declare.t:39 
+NO_ORACLE_ANSWER	S03-binding/closure	REJ	1	rakudo -c: /home/resources/roast-master/S03-binding/closure.t "::=" not yet implemented. Sorry. 
+NO_ORACLE_ANSWER	S03-binding/ro	REJ	1	rakudo -c: /home/resources/roast-master/S03-binding/ro.t "::=" not yet implemented. Sorry. at /h
+NO_ORACLE_ANSWER	S03-binding/scalars	REJ	1	rakudo -c: /home/resources/roast-master/S03-binding/scalars.t Cannot use bind operator with this
+NO_ORACLE_ANSWER	S03-feeds/basic	REJ	1	rakudo -c: /home/resources/roast-master/S03-feeds/basic.t ==>> feed operator not yet implemented
+NO_ORACLE_ANSWER	S03-operators/precedence	REJ	1	rakudo -c: /home/resources/roast-master/S03-operators/precedence.t Operators '++' and '²' are n
+NO_ORACLE_ANSWER	S04-declarations/will	REJ	1	rakudo -c: 1..19 /home/resources/roast-master/S04-declarations/will.t Variable trait 'will init 
+NO_ORACLE_ANSWER	S05-capture/hash	REJ	1	rakudo -c: /home/resources/roast-master/S05-capture/hash.t The use of hash variables in regexes 
+NO_ORACLE_ANSWER	S05-mass/rx	REJ	1	rakudo -c: /home/resources/roast-master/S05-mass/rx.t :: not yet implemented at /home/resources/
+NO_ORACLE_ANSWER	S05-metasyntax/angle-brackets	REJ	1	rakudo -c: ===SORRY!=== Unrecognized regex metacharacter < (must be quoted to match literally) at /home/resources/roast-m
+NO_ORACLE_ANSWER	S05-metasyntax/longest-alternative	REJ	1	rakudo -c: /home/resources/roast-master/S05-metasyntax/longest-alternative.t :: not yet implemen
+NO_ORACLE_ANSWER	S05-modifier/Perl_8	REJ	1	rakudo -c: /home/resources/roast-master/S05-modifier/Perl_8.t Illegal range endpoint in regex: a
+NO_ORACLE_ANSWER	S05-syntactic-categories/new-symbols	REJ	1	rakudo -c: /home/resources/roast-master/S05-syntactic-categories/new-symbols.t Unrecognized back
+NO_ORACLE_ANSWER	S06-advanced/return_function	REJ	1	rakudo -c: /home/resources/roast-master/S06-advanced/return_function.t Cannot use bind operator 
+NO_ORACLE_ANSWER	S06-advanced/stub	REJ	1	rakudo -c: 1..13 ok 1 - sub foo {...} works # Subtest: old Perl "sub foo;" syntax is dead 
+NO_ORACLE_ANSWER	S06-operator-overloading/infix	REJ	1	rakudo -c: /home/resources/roast-master/S06-operator-overloading/infix.t Cannot bind to '&infix:
+NO_ORACLE_ANSWER	S06-operator-overloading/sub	REJ	1	rakudo -c: /home/resources/roast-master/S06-operator-overloading/sub.t Whitespace required after
+NO_ORACLE_ANSWER	S06-parameters/smiley	REJ	1	rakudo -c: /home/resources/roast-master/S06-parameters/smiley.t use parameters not yet implement
+NO_ORACLE_ANSWER	S06-signature/definite-return	REJ	1	rakudo -c: /home/resources/roast-master/S06-signature/definite-return.t Malformed return value a
+NO_ORACLE_ANSWER	S06-signature/multiple-signatures	REJ	1	rakudo -c: /home/resources/roast-master/S06-signature/multiple-signatures.t Missing block at /ho
+NO_ORACLE_ANSWER	S06-signature/named-parameters	REJ	1	rakudo -c: /home/resources/roast-master/S06-signature/named-parameters.t Malformed parameter at 
+NO_ORACLE_ANSWER	S06-signature/outside-subroutine	REJ	1	rakudo -c: ===SORRY!=== Internal error: find_var_decl could not find $_ 
+NO_ORACLE_ANSWER	S06-signature/slurpy-blocks	REJ	1	rakudo -c: /home/resources/roast-master/S06-signature/slurpy-blocks.t You can't adverb :{ "foo" 
+NO_ORACLE_ANSWER	S06-traits/is-assoc	REJ	1	rakudo -c: ===SORRY!=== MVMArray: Can't pop from an empty array 
+NO_ORACLE_ANSWER	S09-typed-arrays/arrays	REJ	1	rakudo -c: /home/resources/roast-master/S09-typed-arrays/arrays.t Cannot put a type constraint o
+NO_ORACLE_ANSWER	S11-modules/import	REJ	1	rakudo -c: /home/resources/roast-master/S11-modules/import.t Undeclared names:     Bfoo used at 
+NO_ORACLE_ANSWER	S11-modules/import-multi	REJ	1	rakudo -c: /home/resources/roast-master/S11-modules/import-multi.t A symbol '&Gfoo' has already 
+NO_ORACLE_ANSWER	S12-attributes/trusts	REJ	1	rakudo -c: /home/resources/roast-master/S12-attributes/trusts.t Type 'B' is not declared at /hom
+NO_ORACLE_ANSWER	S12-class/augment-supersede	REJ	1	rakudo -c: /home/resources/roast-master/S12-class/augment-supersede.t Redeclaration of symbol 'B
+NO_ORACLE_ANSWER	S12-class/open_closed	REJ	1	rakudo -c: /home/resources/roast-master/S12-class/open_closed.t Could not find oo in:     /home/
+NO_ORACLE_ANSWER	S12-class/parent_attributes	REJ	1	rakudo -c: /home/resources/roast-master/S12-class/parent_attributes.t Autovivifying object closu
+NO_ORACLE_ANSWER	S12-construction/new	REJ	1	rakudo -c: /home/resources/roast-master/S12-construction/new.t Autovivifying object closures not
+NO_ORACLE_ANSWER	S12-methods/indirect_notation	REJ	1	rakudo -c: /home/resources/roast-master/S12-methods/indirect_notation.t Redeclaration of method 
+NO_ORACLE_ANSWER	S12-traits/basic	REJ	1	rakudo -c: /home/resources/roast-master/S12-traits/basic.t Cannot add tokens of category 'trait_
+NO_ORACLE_ANSWER	S12-traits/parameterized	REJ	1	rakudo -c: /home/resources/roast-master/S12-traits/parameterized.t Cannot add tokens of category
+NO_ORACLE_ANSWER	S13-overloading/multiple-signatures	REJ	1	rakudo -c: /home/resources/roast-master/S13-overloading/multiple-signatures.t Missing block at /
+NO_ORACLE_ANSWER	S13-syntax/aliasing	REJ	1	rakudo -c: /home/resources/roast-master/S13-syntax/aliasing.t "::=" not yet implemented. Sorry. 
+NO_ORACLE_ANSWER	S15-string-types/NF-types	REJ	1	rakudo -c: ===SORRY!=== Unrecognized adverb: :nfc at /home/resources/roast-master/S15-string-types/NF-types.t:12 
+NO_ORACLE_ANSWER	S15-string-types/NFK-types	REJ	1	rakudo -c: ===SORRY!=== Unrecognized adverb: :nfkc at /home/resources/roast-master/S15-string-types/NFK-types.t:12 
+NO_ORACLE_ANSWER	S15-string-types/Str	REJ	1	rakudo -c: /home/resources/roast-master/S15-string-types/Str.t Unrecognized adverb: :nfg at /hom
+NO_ORACLE_ANSWER	S32-list/classify	REJ	1	rakudo -c: /home/resources/roast-master/S32-list/classify.t Cannot use bind operator with this l
+NO_ORACLE_ANSWER	S32-list/first	REJ	1	rakudo -c: /home/resources/roast-master/S32-list/first.t You can't adverb :{ ($^a == 4) } at /ho
+NO_ORACLE_ANSWER	S32-list/first-end-k	REJ	1	rakudo -c: /home/resources/roast-master/S32-list/first-end-k.t You can't adverb :{ $^a == 4 } at
+NO_ORACLE_ANSWER	S32-list/first-k	REJ	1	rakudo -c: /home/resources/roast-master/S32-list/first-k.t You can't adverb :{ $^a == 4 } at /ho
+NO_ORACLE_ANSWER	S32-list/grep	REJ	1	rakudo -c: /home/resources/roast-master/S32-list/grep.t You can't adverb :{ ($_ % 2) } at /home/
+NO_ORACLE_ANSWER	S32-list/grep-k	REJ	1	rakudo -c: /home/resources/roast-master/S32-list/grep-k.t You can't adverb :{ ($_ % 2) } at /hom
+NO_ORACLE_ANSWER	S32-list/map	REJ	1	rakudo -c: /home/resources/roast-master/S32-list/map.t You can't adverb :{ $_ * 2 } at /home/res
+NO_ORACLE_ANSWER	t/fudge	REJ	1	rakudo -c: /home/resources/roast-master/t/fudge.t Could not find warnings in:     /home/satirica
+NO_ORACLE_ANSWER	t/fudgeandrun	REJ	1	rakudo -c: /home/resources/roast-master/t/fudgeandrun.t Could not find warnings in:     /home/sa
+PARSES:REJECT_IS_AT_RUN	integration/advent2012-day06	OK	0	
+PARSE_DEBT:ATTRIBUTE_DEFAULT_PRAGMA	S02-names/is_default	OK	1	Attribute definition of type Mu (implicit : by pragma) needs to be marked as required or given an in
+PARSE_DEBT:GENERIC_TYPE_TOO_COMPLEX	S02-types/generics	OK	1	Type too complex to form a definite type
+PARSE_DEBT:MODULE_IMPORTED_NAMES	S11-modules/export	OK	1	Preceding context expects a term, but found infix & instead
+PARSE_DEBT:MODULE_IMPORTED_NAMES	S11-modules/lexical	OK	1	Undeclared type 'EmptyClass'
+PARSE_DEBT:MODULE_IMPORTED_NAMES	S12-meta/exporthow	OK	1	Expected a term, but found either infix ~~ or redundant prefix ~
+PARSE_DEBT:MODULE_IMPORTED_NAMES	S14-roles/typecheck	OK	1	Invalid typename 'R1'
+PARSE_DEBT:NAMED_PLACEHOLDER	S06-signature/named-placeholders	OK	1	Unsupported use of $:F variable
