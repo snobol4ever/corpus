@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by scripts/util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1020 features=37 ubiquitous=2(my sigil_scalar) distinctive=35 core=44 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,76
+# shape: entries=1021 features=37 ubiquitous=2(my sigil_scalar) distinctive=35 core=44 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,77
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:08	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:08	family:ladder	
@@ -348,7 +348,7 @@ ladder__rung01_variables_no_initializer	chunk:08	family:ladder
 ladder__rung05_hashes	chunk:06	feat:sigil_hash	sigil_hash
 ladder__rung05_hashes_keys_values	chunk:06	feat:sigil_hash	sigil_hash
 ladder__rung09_string_methods	chunk:08	family:ladder	
-ladder__rung10_given_when_basic_match	chunk:09	feat:given	given when
+ladder__rung10_given_when_basic_match	chunk:10	feat:given	given when
 ladder__rung16_bool_relops_interpolated	chunk:08	family:ladder	
 simple_assign_103	chunk:01	family:smoke	
 simple_assign_104	chunk:01	family:smoke	
@@ -466,7 +466,7 @@ range_array_1	chunk:08	feat:range_op	range_op sigil_array
 range_array_11	chunk:08	feat:range_op	range_op sigil_array
 range_array_12	chunk:08	feat:range_op	range_op sigil_array
 range_array_2	chunk:08	feat:range_op	range_op sigil_array
-range_array_3	chunk:08	feat:range_op	range_op sigil_array
+range_array_3	chunk:09	feat:range_op	range_op sigil_array
 range_array_4	chunk:09	feat:range_op	range_op sigil_array
 range_array_5	chunk:09	feat:range_op	range_op sigil_array
 range_array_6	chunk:09	feat:range_op	range_op sigil_array
@@ -809,9 +809,10 @@ ladder__rung14_roles	chunk:07	feat:method	method return
 ladder__rung14_roles_override	chunk:07	feat:method	method return
 sub_for_say_1	chunk:05	feat:for_with_say	for for_with_say say sub
 ladder__rung06_control_with_orwith_and_without_test_definedness_and_bind_the_topic	chunk:08	feat:sub_with_return	return sub sub_with_return
+ladder__rung07_subs_an_array_parameter_assigned_to_a_scalar_or_chosen_by_a_ternary	chunk:07	feat:join	join sigil_array sub
 ladder__rung08_for_a_destructuring_signature_takes_types_smileys_and_traits	chunk:06	feat:sigil_hash	for for_with_say sigil_hash
 ladder__rung14_roles_attributes	chunk:02	feat:has	has method
-ladder__rung14_roles_composition	chunk:07	feat:method	method return
+ladder__rung14_roles_composition	chunk:08	feat:method	method return
 ladder__rung02_arithmetic_a_division_by_zero_builds_a_zero_denominator_rat_as_rakudo_does	chunk:10	feat:try	say string_concat try
 ladder__rung13_classes_private_attribute	chunk:02	feat:has	has method
 ladder__rung04_arrays_an_array_literal_of_one_iterable_argument_spreads_it_the_single_argument_rule	chunk:09	feat:map	map sigil_array sub
