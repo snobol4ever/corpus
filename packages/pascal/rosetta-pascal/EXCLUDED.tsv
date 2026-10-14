@@ -1,0 +1,263 @@
+# NO_ORACLE_ANSWER (Lon 2026-10-11 16:0x CDT, in-chat to the ceo, verbatim: "Exclude any program in which we have no way to get output from an
+# oracle, or in which we do not know the answer."; ceo CEO-1696, RULES.md FACT RULE A PROGRAM WITH NO ORACLE ANSWER IS EXCLUDED, NEVER DEBT):
+# every program UNGRADABLE.tsv names -- the oracle refuses it, crashes, aborts, hangs or cannot run it, or answers differently on two runs -- leaves
+# the denominator, named here with UNGRADABLE.tsv's own class and measurement verbatim; UNGRADABLE.tsv keeps the measurement (the coo 2026-10-14).
+100-prisoners-1.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+100-prisoners-2.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+15-puzzle-solver-1.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+15-puzzle-solver-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+21-game.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+abc-problem.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+add-a-variable-to-a-class-instance-at-runtime-1.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+add-a-variable-to-a-class-instance-at-runtime-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+almost-prime.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+animation.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+append-a-record-to-the-end-of-a-text-file.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+append-numbers-at-same-position-in-strings.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+approximate-equality.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+arena-storage-pool-1.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+arithmetic-complex.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+arithmetic-integer.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+array-length.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+bernoulli-numbers.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+binary-digits-2.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+binary-search-1.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+binary-search-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+binary-strings.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+bioinformatics-base-count-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+bitmap-flood-fill.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+bitmap.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+boyer-moore-string-search-1.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+boyer-moore-string-search-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+bulls-and-cows.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+call-a-function-1.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+call-a-function-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+catalan-numbers-pascals-triangle.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+chaocipher.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+chaos-game.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+character-codes.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+chinese-zodiac.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+closest-pair-problem.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+collections-1.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+collections-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+collections-3.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+collections-4.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+collections-5.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+collections-7.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+combinations-with-repetitions.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+comments.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+compare-length-of-two-strings.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+compile-time-calculation.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+compound-data-type.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+concurrent-computing.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+conditional-structures-1.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+conditional-structures-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+conditional-structures-3.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+convert-seconds-to-compound-duration.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+copy-a-string.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+count-in-octal-1.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+create-a-file.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+create-a-two-dimensional-array-at-runtime.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+cuban-primes.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+cyclops-numbers.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+date-manipulation.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+define-a-primitive-data-type.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+digit-fifth-powers.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+dining-philosophers-1.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+dining-philosophers-2.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+dining-philosophers-3.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+dining-philosophers-4.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+doubly-linked-list-element-definition.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+doubly-linked-list-element-insertion-1.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+doubly-linked-list-element-insertion-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+dragon-curve-1.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+dragon-curve-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+elementary-cellular-automaton-random-number-generator.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+emirp-primes.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+empty-directory.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+empty-string.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+enumerations.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+even-or-odd-1.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+even-or-odd-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+even-or-odd-3.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+even-or-odd-4.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+executable-library-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+executable-library-3.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+execute-a-system-command.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+exponentiation-with-infix-operators-in-or-operating-on-the-base.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+extensible-prime-generator-1.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+extensible-prime-generator-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+factorial-1.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+factorial-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+factorial-4.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+factors-of-an-integer-2.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+fast-fourier-transform.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+faulhabers-triangle.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+fibonacci-matrix-exponentiation.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+fibonacci-sequence-1.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+fibonacci-sequence-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+fibonacci-sequence-3.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+fibonacci-sequence-4.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+fibonacci-sequence-5.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+fibonacci-sequence-6.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+filter.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+first-class-functions-use-numbers-analogously.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+first-perfect-square-in-base-n-with-n-unique-digits-1.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+first-perfect-square-in-base-n-with-n-unique-digits-2.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+flow-control-structures-1.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+flow-control-structures-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+flow-control-structures-3.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+flow-control-structures-4.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+formatted-numeric-output.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+function-definition.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+greatest-common-divisor-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+greatest-common-divisor-3.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+greatest-common-divisor-4.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+greatest-element-of-a-list.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+hamming-numbers-2.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+hamming-numbers-3.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+happy-numbers-2.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+hello-world-line-printer.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+hexapawn.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+higher-order-functions-3.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+http-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+humble-numbers.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+implicit-type-conversion-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+increment-a-numerical-string.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+input-loop.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+isbn13-check-digit.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+isqrt-integer-square-root-of-x.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+letter-frequency.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+literals-integer.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+logical-operations.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+long-primes.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+longest-common-substring.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+loops-downward-for.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+loops-infinite-1.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+loops-infinite-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+luhn-test-of-credit-card-numbers.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+magnanimous-numbers.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+maximum-difference-between-adjacent-elements-of-list.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+memory-allocation-1.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+memory-allocation-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+mian-chowla-sequence.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+modular-inverse.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+modulinos-1.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+modulinos-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+modulinos-3.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+modulinos-4.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+monte-carlo-methods.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+morse-code.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+multi-base-primes.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+n-body-problem-1.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+n-body-problem-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+n-queens-problem-3.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+next-special-primes.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+numbers-whose-count-of-divisors-is-prime.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+numbers-with-prime-digits-whose-sum-is-13-2.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+numeric-separator-syntax.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+numerical-integration.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+palindrome-detection-1.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+palindrome-detection-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+parameterized-sql-statement.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+password-generator-1.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+password-generator-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+pells-equation.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+percolation-mean-run-density.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+perfect-totient-numbers.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+permutations-2.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+permuted-multiples.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+population-count-1.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+population-count-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+population-count-3.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+practical-numbers.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+primality-by-trial-division-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+primes-whose-sum-of-digits-is-25.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+primorial-numbers-1.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+priority-queue-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+priority-queue-3.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+priority-queue-4.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+program-name.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+program-termination.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+pythagorean-quadruples-1.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+random-number-generator-device-.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+random-numbers.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+read-a-configuration-file.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+real-constants-and-functions-1.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+real-constants-and-functions-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+remove-lines-from-a-file.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+remove-vowels-from-a-string-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+rename-a-file.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+reverse-a-string-1.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+reverse-a-string-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+reverse-a-string-3.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+reverse-a-string-4.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+rpg-attributes-generator.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+safe-primes-and-unsafe-primes.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sattolo-cycle.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+scope-modifiers.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+self-numbers.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+semiprime.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sequence-of-primes-by-trial-division.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sequence_-smallest-number-greater-than-previous-term-with-exactly-n-divisors.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+set.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+seven-sided-dice-from-five-sided-dice.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sexy-primes.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+short-circuit-evaluation-1.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+short-circuit-evaluation-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+short-circuit-evaluation-3.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+show-the-epoch.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+sierpinski-carpet.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sierpinski-triangle-1.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sierpinski-triangle-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sierpinski-triangle-3.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sieve-of-eratosthenes.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+singly-linked-list-element-definition.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+singly-linked-list-element-insertion-1.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+singly-linked-list-element-insertion-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+smallest-numbers-1.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+smallest-numbers-2.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+smarandache-prime-digital-sequence.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sockets-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): oracle crashed (signal 13)
+sort-the-letters-of-string-in-alphabetical-order.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sort-three-variables.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sorting-algorithms-bubble-sort-1.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sorting-algorithms-bubble-sort-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sorting-algorithms-gnome-sort.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sorting-algorithms-merge-sort-2.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+sorting-algorithms-patience-sort.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sorting-algorithms-shell-sort.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sorting-algorithms-sleep-sort.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+square-form-factorization.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+stack.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+stair-climbing-puzzle.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+statistics-normal-distribution.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+string-prepend.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+strip-control-codes-and-extended-characters-from-a-string.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+substring-1.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+substring-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+substring-3.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+substring-4.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+substring-top-and-tail.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sudoku.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+sum-data-type.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sum-of-squares.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+summation-of-primes.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sylvesters-sequence.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+system-time-1.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+system-time-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+tau-function.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+terminal-control-clear-the-screen-1.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+terminal-control-clear-the-screen-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+test-integerness.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+totient-function-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+transportation-problem.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+unique-characters-in-each-string.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+unique-characters.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+untouchable-numbers.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+variable-size-set.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+words-containing-the-substring.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+write-entire-file-1.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+write-entire-file-2.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+xiaolin-wus-line-algorithm.pas	NO_ORACLE_ANSWER	UNGRADABLE ORACLE_REFUSES: fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+zumkeller-numbers.pas	NO_ORACLE_ANSWER	UNGRADABLE NONDETERMINISTIC: fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
