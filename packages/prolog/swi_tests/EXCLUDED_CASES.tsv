@@ -2,3 +2,4 @@
 # file<TAB>case<TAB>class<TAB>measurement -- file as the board prints it (db/test_db.pl); case the board label, unit:test#k for one instance or
 # unit:test for every instance; class SCRIP_EXCEEDS_ORACLE (the oracle answer comes from a fixed limit SCRIP grows past, or from an oracle
 # defect its own upstream has fixed) or NO_ORACLE_ANSWER; measurement the reading that shows it. A row naming a case no graded file declares reds the run.
+db/test_db.pl	assert:max_procedure_arity	SCRIP_EXCEEDS_ORACLE	swipl 9.0.4 answers current_prolog_flag(max_procedure_arity, 1024) and raises representation_error(max_procedure_arity) asserting a clause of arity 2048; SCRIP has no arity limit and asserts it (Lon 2026-10-14 13:3x, CEO-1710: dynamic growing everything)
