@@ -178,7 +178,7 @@ pj_cond_fails(fail) :- !.
 pj_cond_fails(false) :- !.
 pj_cond_fails(true) :- !, fail.
 pj_cond_fails(current_prolog_flag(F,V)) :- !, \+ current_prolog_flag(F,V).
-pj_cond_fails(_) :- true.    /* unknown / undefined: assume fails => skip */
+pj_cond_fails(C) :- \+ catch(C, _, fail).    /* any other condition is CALLED, as plunit calls it; one that fails or raises skips */
 
 
 pj_run_one(Suite,Name,Opts,Goal) :- pj_has_forall(Opts,Gen), !,
