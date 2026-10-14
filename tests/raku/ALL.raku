@@ -5860,10 +5860,10 @@ if "\n" ~~ /./ { show($/) } else { say "NO" }
 if "a\nb" ~~ /^^a/ { show($/) } else { say "NO" }
 if "a\nb" ~~ /a$$/ { show($/) } else { say "NO" }
 if 'a' ~~ /./ { show($/) } else { say "NO" }
-#---------------------------------------------------------- 1003 sub_say_8 XFAIL
+#---------------------------------------------------------------- 1003 sub_say_8
 sub want(Str:U $x) { say("ok"); }
  my $u; want($u); want("v"); say("after"); 
-#---------------------------------------------------- 1004 multi_sub_say_3 XFAIL
+#---------------------------------------------------------- 1004 multi_sub_say_3
 multi sub init(Str:U $x) { say("uninitialized"); }
 multi sub init(Str $x) { say("has value: " ~ $x); }
  my $u; init($u); 

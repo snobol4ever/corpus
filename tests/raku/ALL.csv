@@ -1001,5 +1001,5 @@ rank,entry,origin,family,kind,xfail,n_lines,heap_kb,stack_kb,compile_args,run_ar
 1000,ladder__rung09_regex_engine_basics_2_agree_with_rakudo,ladder__rung09_regex_engine_basics_2_agree_with_rakudo,ladder,block,0,52,131072,4096,,,1,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,1,0,0,1,0,1,0,0,0,0,1,1,1,0,1,0,1,1,0,1,0
 1001,ladder__rung09_regex_engine_basics_3_agree_with_rakudo,ladder__rung09_regex_engine_basics_3_agree_with_rakudo,ladder,block,0,52,131072,4096,,,1,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,1,0,0,1,0,1,0,0,0,0,1,1,1,0,1,0,1,1,0,1,0
 1002,ladder__rung09_regex_engine_classes_1_agree_with_rakudo,ladder__rung09_regex_engine_classes_1_agree_with_rakudo,ladder,block,0,52,131072,4096,,,1,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,1,0,0,1,0,1,0,0,0,0,1,1,1,0,1,0,1,1,0,1,0
-1003,sub_say_8,smoke__param_colon_u_dies__smoke__param_colon_u_dies,smoke,block,1,2,131072,4096,,,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
-1004,multi_sub_say_3,smoke__multi_colon_u_dispatch__smoke__multi_colon_u_dispatch,smoke,block,1,3,131072,4096,,,1,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0
+1003,sub_say_8,smoke__param_colon_u_dies__smoke__param_colon_u_dies,smoke,block,0,2,131072,4096,,,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+1004,multi_sub_say_3,smoke__multi_colon_u_dispatch__smoke__multi_colon_u_dispatch,smoke,block,0,3,131072,4096,,,1,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0
