@@ -254,7 +254,7 @@ function Top() {
     OUTPUT = GT(xTrace, 4) 'Top() = ' t(Top);
     nreturn;
 }
-struct tree { t, v, n, c }
+struct tree { t, v, n, c, p }
 /* ==================================================================================================================== */
 function Append(x, y) {
     Append = Insert(x, y, n(x) + 1);
@@ -360,6 +360,7 @@ function Visit(x, fnc, i) {
 function Shift(t, v, s) {
     v ? (POS(0) *whitespace) = ;
     s = tree(t, v);
+    p(s) = MATCHAT();
     Push(s);
     OUTPUT = GT(xTrace, 3) 'Shift(' t ', ' v ')';
     if (Shift = IDENT(v) .v(s)) { nreturn; }
@@ -378,6 +379,7 @@ function Reduce(t, n, v, c, i, r) {
     OUTPUT = GT(xTrace, 3) 'Reduce(' t ', ' n ')';
     if (IDENT(n, 0)) {
         r = tree(t, v, 0);
+        p(r) = MATCHAT();
         Push(r);
         nreturn;
     }
@@ -387,6 +389,7 @@ function Reduce(t, n, v, c, i, r) {
         c[i] = Pop();
     }
     r = tree(t, v, n, c);
+    p(r) = MATCHAT();
     Push(r);
     nreturn;
 }
