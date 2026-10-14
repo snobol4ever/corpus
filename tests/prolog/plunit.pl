@@ -149,6 +149,12 @@ pj_has_true([C|_],C) :- compound(C), functor(C,Op,2), pj_all_op(Op).
 pj_has_true([_|T],E) :- pj_has_true(T,E).
 pj_has_all([all(E)|_],E).   pj_has_all([_|T],E) :- pj_has_all(T,E).
 pj_has_forall([forall(G)|_],G). pj_has_forall([_|T],G) :- pj_has_forall(T,G).
+pj_take_setup(Opts0, S, C, Rest) :- ( is_list(Opts0) -> Opts = Opts0 ; Opts = [Opts0] ), ( memberchk(setup(_), Opts) ; memberchk(cleanup(_), Opts) ), !,
+    ( memberchk(setup(S0), Opts) -> S = S0 ; S = true ), ( memberchk(cleanup(C0), Opts) -> C = C0 ; C = true ), pj_del_setup(Opts, Rest).
+pj_del_setup([], []).
+pj_del_setup([setup(_)|T], R) :- !, pj_del_setup(T, R).
+pj_del_setup([cleanup(_)|T], R) :- !, pj_del_setup(T, R).
+pj_del_setup([H|T], [H|R]) :- pj_del_setup(T, R).
 pj_del_forall([],[]).
 pj_del_forall([forall(_)|T],R) :- !, pj_del_forall(T,R).
 pj_del_forall([H|T],[H|R]) :- pj_del_forall(T,R).
@@ -183,6 +189,23 @@ pj_run_one(Suite,Name,Opts,_) :- pj_has_blocked(Opts), !,
     pj_inc_skip, format('  skip: ~w:~w  [blocked]~n',[Suite,Name]).
 pj_run_one(Suite,Name,Opts,_) :- pj_skip_cond(Opts), !,
     pj_inc_skip, format('  skip: ~w:~w  [cond]~n',[Suite,Name]).
+/* A case's own setup(S) and cleanup(C) run as plunit runs them (cfo 2026-10-14, the coo's ruling on CEO-1698): once(S) before the
+ * body, in the same clause instance so their variables are shared -- test(n, [setup(mk(F)), cleanup(rm(F))]) :- use(F) -- and a setup
+ * that fails or raises is that case's FAIL ("setup failed"), as plunit reports it; C runs after, whatever the verdict, under
+ * ignore/catch. Until this clause the shim ran neither, so a body that takes its state from setup ran with it unbound (library/test_pio:
+ * every phrase_from_file case read instantiation_error from open/4 on the unbound file name). After the condition, blocked and sto
+ * skips, so a skipped case never runs its setup; the sto-deferred case's alone run comes back through here with its setup intact. */
+pj_run_one(Suite,Name,Opts,Goal) :- pj_take_setup(Opts, S, C, Rest), !,
+    catch((once(S) -> R = ok ; R = failed), E, R = raised(E)),
+    (   R == ok
+    ->  pj_run_one(Suite,Name,Rest,Goal)
+    ;   pj_inc_fail,
+        (   R = raised(E1)
+        ->  pj_err_text(E1, T), format('  FAIL: ~w:~w  (setup failed: received error: ~w)~n',[Suite,Name,T])
+        ;   format('  FAIL: ~w:~w  (setup failed)~n',[Suite,Name])
+        )
+    ),
+    ignore(catch(C, _, true)).
 pj_run_one(Suite,Name,Opts,Goal) :- pj_has_error(Opts,E), !,
     pj_do_error(Suite,Name,Goal,E).
 pj_run_one(Suite,Name,Opts,Goal) :- pj_has_throws(Opts,T), !,
