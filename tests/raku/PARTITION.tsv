@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by scripts/util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1018 features=37 ubiquitous=2(my sigil_scalar) distinctive=35 core=43 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,75
+# shape: entries=1019 features=37 ubiquitous=2(my sigil_scalar) distinctive=35 core=44 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,75
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:08	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:08	family:ladder	
@@ -1008,6 +1008,7 @@ ladder__rung09_regex_grammars_protos_actions_and_lexical_regexes_agree_with_raku
 benchmark_merge-sort	core	core	for for_with_say if range_op sigil_array sort sub unless
 benchmark_point_class_add1	core	core	for has loop method return string_concat while
 ladder__rung02_arithmetic_rat_as_an_argument_a_receiver_and_a_container_element_agrees_with_rakudo	core	core	join range_op say sigil_array sigil_hash smartmatch split string_concat
+ladder__rung07_subs_a_subset_is_a_type_and_a_where_clause_checks_a_parameter	core	core	has method say smartmatch string_concat sub try
 scrip_test_rk_given18	core	core	for for_with_say given loop say sigil_array sub when
 ladder__rung10_given_a_when_arm_is_its_own_node_a_given_binds_the_topic_and_a_matched_when_leaves_the_block	core	core	for for_with_say given range_op return sub sub_with_return try when
 ladder__rung04_arrays_an_infinite_or_whatever_ended_range_is_lazy_where_it_is_iterated_and_a_range_value_where_it_is_held	core	core	for for_with_say if map range_op say sigil_array smartmatch string_concat
