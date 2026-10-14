@@ -2,3 +2,6 @@
 # The package's contract with the oracle that cut its refs (hq_prolog, on the ceo's Prolog dialect ruling CEO-1632): swipl read
 # a double-quoted text as a string, and these programs carry no SWI marker of their own, so they run under that flag.
 :- set_prolog_flag(double_quotes, string).
+# CEO-1712 (2026-10-14): and in SCRIP's SWI dialect, selected by the compile-time marker the SWI arms read (a use_module directive,
+# prolog_lower.c pl_dialect_marker), as the swi_tests shim selects it.
+:- use_module(library(lists)).

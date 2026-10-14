@@ -1,0 +1,7 @@
+# ALL.prelude -- the text corpus_suite_harness.py prefixes to the first line of every entry of this package (SCRIP c0286d9d9).
+# CEO-1712 (the ceo on hq_prolog's two asks, 2026-10-14): this package's refs are cut from swipl, so its programs run in SCRIP's SWI
+# dialect, selected the way the swi_tests shim selects it -- the COMPILE-TIME marker the SWI arms read (a use_module directive:
+# prolog_lower.c pl_dialect_marker), not the run-time flag alone -- and with swipl's double_quotes string. It is the program's own
+# declaration of the oracle that answers it, not a compatibility switch.
+:- use_module(library(lists)).
+:- set_prolog_flag(double_quotes, string).
