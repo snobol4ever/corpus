@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by scripts/util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1014 features=37 ubiquitous=2(my sigil_scalar) distinctive=35 core=43 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,71
+# shape: entries=1015 features=37 ubiquitous=2(my sigil_scalar) distinctive=35 core=43 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,72
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:08	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:08	family:ladder	
@@ -385,7 +385,7 @@ simple_assign_75	chunk:02	family:smoke
 simple_assign_79	chunk:02	family:smoke	
 simple_assign_86	chunk:02	family:smoke	
 ladder__rung04_arrays_push_pop	chunk:04	feat:sigil_array	sigil_array
-ladder__rung10_given_when_multiple_when	chunk:09	feat:given	given when
+ladder__rung10_given_when_multiple_when	chunk:10	feat:given	given when
 ladder__rung11_junctions	chunk:09	feat:junction	if junction
 ladder__rung11_junctions_all	chunk:09	feat:junction	if junction
 ladder__rung11_junctions_none	chunk:09	feat:junction	if junction
@@ -469,7 +469,7 @@ range_array_2	chunk:08	feat:range_op	range_op sigil_array
 range_array_3	chunk:08	feat:range_op	range_op sigil_array
 range_array_4	chunk:08	feat:range_op	range_op sigil_array
 range_array_5	chunk:08	feat:range_op	range_op sigil_array
-range_array_6	chunk:08	feat:range_op	range_op sigil_array
+range_array_6	chunk:09	feat:range_op	range_op sigil_array
 range_array_7	chunk:09	feat:range_op	range_op sigil_array
 range_array_8	chunk:09	feat:range_op	range_op sigil_array
 range_array_9	chunk:09	feat:range_op	range_op sigil_array
@@ -646,7 +646,7 @@ sub_array_10	chunk:07	feat:string_concat	sigil_array string_concat sub
 sub_array_11	chunk:07	feat:string_concat	sigil_array string_concat sub
 sub_array_5	chunk:07	feat:string_concat	sigil_array string_concat sub
 sub_hash_1	chunk:07	feat:sigil_hash	sigil_hash string_concat sub
-sub_hash_3	chunk:07	feat:sigil_hash	sigil_hash string_concat sub
+sub_hash_3	chunk:08	feat:sigil_hash	sigil_hash string_concat sub
 sub_hash_4	chunk:08	feat:sigil_hash	sigil_hash string_concat sub
 sub_say_12	chunk:07	feat:string_concat	say string_concat sub
 sub_say_7	chunk:07	feat:string_concat	say string_concat sub
@@ -699,6 +699,7 @@ ladder__rung07_subs_a_sigilless_parameter_is_assignable_and_writes_back_to_its_a
 ladder__rung16_bool_relops_logical_or_and_answer_an_operand	chunk:10	feat:grep	grep say
 array_say_4	chunk:04	feat:sigil_array	say sigil_array
 ladder__rung04_arrays_scalar_container_subscripts	chunk:08	feat:sigil_hash	if sigil_hash
+ladder__rung14_roles_a_parametric_role_binds_its_parameters_in_its_methods	chunk:07	feat:string_concat	method string_concat
 benchmark_pi-sequential-iteration	chunk:09	feat:while	if while
 hash_say_replace_3	chunk:08	feat:sigil_hash	say sigil_hash
 ladder__rung02_arithmetic_rat_rounding_comparison_sums_and_mixed_operands	chunk:09	feat:map	map range_op say
