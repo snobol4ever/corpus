@@ -193,8 +193,10 @@ pj_run_one(Suite,Name,Opts,_) :- pj_has_sto(Opts), !,
     pj_inc_skip, format('  skip: ~w:~w  [sto]~n',[Suite,Name]).
 pj_run_one(Suite,Name,Opts,_) :- pj_has_blocked(Opts), !,
     pj_inc_skip, format('  skip: ~w:~w  [blocked]~n',[Suite,Name]).
-pj_run_one(Suite,Name,Opts,_) :- pj_skip_cond(Opts), !,
-    pj_inc_skip, format('  skip: ~w:~w  [cond]~n',[Suite,Name]).
+/* a test whose condition fails prints NOTHING, as swipl's plunit prints nothing for it (hq_prolog 2026-10-14: a printed skip took an
+ * instance number, so tabling_clpfd's two fib_error tests -- #1 condition false, #2 run -- paired the oracle's one PASS with the skip) */
+pj_run_one(_,_,Opts,_) :- pj_skip_cond(Opts), !,
+    pj_inc_skip.
 /* A case's own setup(S) and cleanup(C) run as plunit runs them (cfo 2026-10-14, the coo's ruling on CEO-1698): once(S) before the
  * body, in the same clause instance so their variables are shared -- test(n, [setup(mk(F)), cleanup(rm(F))]) :- use(F) -- and a setup
  * that fails or raises is that case's FAIL ("setup failed"), as plunit reports it; C runs after, whatever the verdict, under
