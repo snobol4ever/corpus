@@ -126,7 +126,7 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 125,tabling/test_reeval,swi_tests__tabling/test_reeval,swi_tests,278,0,0,131072,4096,,
 126,tabling/test_shared_units,swi_tests__tabling/test_shared_units,swi_tests,84,0,0,131072,4096,,
 127,tabling/test_tabled_shortest_path,swi_tests__tabling/test_tabled_shortest_path,swi_tests,78,0,0,131072,4096,,
-128,tabling/test_tabling,swi_tests__tabling/test_tabling,swi_tests,1385,0,0,131072,32768,,
+128,tabling/test_tabling,swi_tests__tabling/test_tabling,swi_tests,1385,0,0,131072,65536,,
 129,tabling/test_transact_incr,swi_tests__tabling/test_transact_incr,swi_tests,194,0,0,131072,4096,,
 130,tabling/test_transact_mono,swi_tests__tabling/test_transact_mono,swi_tests,221,0,0,131072,4096,,
 131,tabling/test_transact_mono_lazy,swi_tests__tabling/test_transact_mono_lazy,swi_tests,334,0,0,131072,4096,,
