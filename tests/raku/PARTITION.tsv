@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by scripts/util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1005 features=37 ubiquitous=2(my sigil_scalar) distinctive=35 core=43 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,62
+# shape: entries=1006 features=37 ubiquitous=2(my sigil_scalar) distinctive=35 core=43 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,63
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:08	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:08	family:ladder	
@@ -157,7 +157,7 @@ ladder__rung17_compare_ops	chunk:03	feat:say	say
 ladder__rung17_compare_ops_cmp	chunk:03	feat:say	say
 ladder__rung17_compare_ops_leg	chunk:03	feat:say	say
 ladder__rung17_compare_ops_numeric	chunk:03	feat:say	say
-simple_assign_49	chunk:06	feat:string_concat	string_concat
+simple_assign_49	chunk:07	feat:string_concat	string_concat
 ladder__rung02_arithmetic_e_and_tau_terms	chunk:03	feat:say	say
 ladder__rung12_exceptions_no_catch	chunk:10	feat:try	try
 ladder__rung16_bool_relops	chunk:03	feat:say	say
@@ -481,7 +481,7 @@ say_try_die_1	chunk:09	feat:die	die say try
 say_try_die_4	chunk:09	feat:die	die say try
 simple_assign_120	chunk:05	feat:if	if
 simple_assign_121	chunk:09	feat:unless	unless
-simple_assign_122	chunk:09	feat:unless	unless
+simple_assign_122	chunk:10	feat:unless	unless
 simple_assign_30	chunk:05	feat:if	if
 simple_assign_31	chunk:05	feat:if	if
 simple_assign_32	chunk:05	feat:if	if
@@ -539,7 +539,7 @@ multi_1	chunk:08	feat:multi	multi return
 multi_sub_1	chunk:08	feat:multi	multi sub
 say_54	chunk:03	feat:say	say
 say_try_die_3	chunk:09	feat:die	die say try
-simple_assign_107	chunk:05	feat:if	if
+simple_assign_107	chunk:06	feat:if	if
 simple_assign_119	chunk:06	feat:if	if
 simple_assign_40	chunk:07	feat:string_concat	string_concat
 simple_assign_80	chunk:06	feat:if	if
@@ -832,7 +832,7 @@ for_array_say_5	chunk:05	feat:for_with_say	for for_with_say say sigil_array
 class_array_say_replace_2	chunk:02	feat:has	has say sigil_array
 class_method_grep_replace_1	chunk:10	feat:grep	grep method return
 class_method_map_replace_1	chunk:09	feat:map	map method return
-class_method_range_replace_6	chunk:08	feat:range_op	method range_op say
+class_method_range_replace_6	chunk:09	feat:range_op	method range_op say
 class_method_replace_18	chunk:02	feat:has	has if method
 class_method_replace_19	chunk:02	feat:has	has method return
 class_method_say_replace_20	chunk:02	feat:has	has method say
@@ -854,7 +854,7 @@ class_method_say_replace_49	chunk:07	feat:method	method return say
 class_method_say_replace_52	chunk:07	feat:method	method return say
 class_sub_say_replace_1	chunk:02	feat:has	has say sub
 for_array_say_4	chunk:05	feat:for_with_say	for for_with_say say sigil_array
-class_method_say_replace_17	chunk:07	feat:method	method return say
+class_method_say_replace_17	chunk:08	feat:method	method return say
 class_multi_sub_replace_1	chunk:08	feat:multi	multi say sub
 class_say_replace_17	chunk:02	feat:has	has say string_concat
 for_range_array_replace_1	chunk:05	feat:for_with_say	for for_with_say range_op sigil_array
@@ -929,6 +929,7 @@ ladder__rung13_classes_a_typed_declaration_with_dot_assign_calls_the_type_and_a_
 sub_for_array_1	chunk:05	feat:for_with_say	for for_with_say say sigil_array sub
 ladder__rung09_regex_substitution_and_transliteration_agree_with_rakudo	chunk:09	feat:smartmatch	if range_op regex smartmatch string_concat
 ladder__rung13_classes_an_attribute_array_element_is_assigned_in_place_inside_a_method_and_its_loops	chunk:05	feat:for_with_say	for for_with_say has method
+ladder__rung04_arrays_a_bound_scalar_and_a_bound_element_share_one_container_with_what_they_bind	chunk:05	feat:for_with_say	for for_with_say if say sigil_array
 benchmark_rc-forest-fire-stringify	chunk:05	feat:for_with_say	for for_with_say sigil_array string_concat sub
 class_method_replace_1	chunk:02	feat:has	has method return string_concat
 sub_for_array_replace_1	chunk:05	feat:for_with_say	for for_with_say say sigil_array sub
