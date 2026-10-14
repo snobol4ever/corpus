@@ -254,14 +254,19 @@ pj_err_text(error(F,_), T) :- !, T = F.
 pj_err_text(E, E).
 
 pj_do_error(Suite,Name,Goal,Exp) :-
-    catch(Goal, error(Act,_), pj_match_err(Suite,Name,Exp,Act)), !.
+    catch(Goal, B, pj_err_ball(Suite,Name,Exp,B)), !.
 pj_do_error(Suite,Name,_,_) :-
     pj_inc_fail, format('  FAIL: ~w:~w  (no exception)~n',[Suite,Name]).
 
+/* a ball that is not error(_,_) is that case's FAIL, as plunit records a wrong exception; it never escapes the file's run */
+pj_err_ball(Suite,Name,Exp,B) :-
+    (   nonvar(B), B = error(Act,_) -> pj_match_err(Suite,Name,Exp,Act)
+    ;   pj_inc_fail, format('  FAIL: ~w:~w  (received ~q)~n',[Suite,Name,B])
+    ).
+
 pj_match_err(Suite,Name,Exp,Act) :-
     copy_term(Exp,ExpC),
-    ( ExpC = Act -> pj_inc_pass, format('  pass: ~w:~w~n',[Suite,Name])
-    ; functor(ExpC,F,_), functor(Act,F,_) -> pj_inc_pass, format('  pass: ~w:~w~n',[Suite,Name])
+    ( subsumes_term(ExpC, Act) -> pj_inc_pass, format('  pass: ~w:~w~n',[Suite,Name])   /* plunit passes error(E) only when E subsumes the formal */
     ; pj_inc_fail, format('  FAIL: ~w:~w  (err mismatch ~w vs ~w)~n',[Suite,Name,Exp,Act])
     ).
 
