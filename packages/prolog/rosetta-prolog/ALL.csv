@@ -1,6 +1,6 @@
 rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,run_args,findall,bagof,setof,forall,assert,asserta,assertz,retract,abolish,catch,throw,between,functor,arg,copy_term,call,var,nonvar,atom,number,write,writeq,write_canonical,format,nl,clause,succ,op,cut,dcg,if_then_else,negation,unify,univ,list_cons,directive,findall_with_var_goal,catch_with_throw,assert_then_retract
 1,100-doors-1,rosetta-prolog__100-doors-1,rosetta-prolog,24,0,0,131072,4096,,,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
-2,100-doors-2,rosetta-prolog__100-doors-2,rosetta-prolog,37,0,0,131072,4096,,,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,1,0,1,0,1,1,0,0,0
+2,100-doors-2,rosetta-prolog__100-doors-2,rosetta-prolog,37,0,0,131072,16384,,,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,1,0,1,0,1,1,0,0,0
 3,100-doors-3,rosetta-prolog__100-doors-3,rosetta-prolog,34,0,0,131072,4096,,,1,0,0,1,0,1,0,1,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,1,0,1,0,0,1,1,0,1
 4,100-doors-4,rosetta-prolog__100-doors-4,rosetta-prolog,7,0,0,131072,4096,,,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 5,10001th-prime,rosetta-prolog__10001th-prime,rosetta-prolog,15,0,0,131072,4096,,,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,1,0,0,0,0,0,0,1,0,0,0
@@ -37,7 +37,7 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 36,averages-arithmetic-mean,rosetta-prolog__averages-arithmetic-mean,rosetta-prolog,7,0,0,131072,4096,,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 37,averages-median,rosetta-prolog__averages-median,rosetta-prolog,12,0,0,131072,4096,,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 38,averages-root-mean-square,rosetta-prolog__averages-root-mean-square,rosetta-prolog,17,0,0,131072,4096,,,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0
-39,babbage-problem-1,rosetta-prolog__babbage-problem-1,rosetta-prolog,16,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0
+39,babbage-problem-1,rosetta-prolog__babbage-problem-1,rosetta-prolog,16,0,0,131072,262144,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0
 40,babbage-problem-2,rosetta-prolog__babbage-problem-2,rosetta-prolog,10,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,1,0,0,1,0,0,0
 41,balanced-brackets,rosetta-prolog__balanced-brackets,rosetta-prolog,55,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,1,0,1,0,0,1,0,0,0
 42,balanced-ternary-2,rosetta-prolog__balanced-ternary-2,rosetta-prolog,126,0,0,131072,4096,,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,0,1,1,1,1,0,1,0,1,1,0,0,0
@@ -50,7 +50,7 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 49,brace-expansion-1,rosetta-prolog__brace-expansion-1,rosetta-prolog,24,0,0,131072,4096,,,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,1,1,0,1,0,1,1,0,0,0
 50,brilliant-numbers,rosetta-prolog__brilliant-numbers,rosetta-prolog,60,0,0,131072,4096,,,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,1,1,0,0,0
 51,bulls-and-cows-player-2,rosetta-prolog__bulls-and-cows-player-2,rosetta-prolog,25,1,0,131072,4096,,,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,1,0,1,0,0,1,0,0,1
-52,caesar-cipher,rosetta-prolog__caesar-cipher,rosetta-prolog,39,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,0
+52,caesar-cipher,rosetta-prolog__caesar-cipher,rosetta-prolog,39,0,0,131072,32768,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,0
 53,calculating-the-value-of-e-1,rosetta-prolog__calculating-the-value-of-e-1,rosetta-prolog,21,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0
 54,calculating-the-value-of-e-2,rosetta-prolog__calculating-the-value-of-e-2,rosetta-prolog,24,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,1,0,1,1,0,0,0
 55,calendar,rosetta-prolog__calendar,rosetta-prolog,97,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,1,0,1,0,1,0,1,0,1,1,0,0,0
@@ -210,9 +210,9 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 209,josephus-problem-1,rosetta-prolog__josephus-problem-1,rosetta-prolog,18,0,0,131072,4096,,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,1,0,0,1,0,0,0
 210,json-pointer-1,rosetta-prolog__json-pointer-1,rosetta-prolog,78,0,0,131072,4096,,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,1,1,0,1,0,1,1,0,0,0
 211,kernighans-large-earthquake-problem,rosetta-prolog__kernighans-large-earthquake-problem,rosetta-prolog,32,1,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0
-212,knapsack-problem-0-1-1,rosetta-prolog__knapsack-problem-0-1-1,rosetta-prolog,73,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,1,0,1,1,0,0,0
+212,knapsack-problem-0-1-1,rosetta-prolog__knapsack-problem-0-1-1,rosetta-prolog,73,0,0,131072,131072,,,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,1,0,1,1,0,0,0
 213,knapsack-problem-0-1-2,rosetta-prolog__knapsack-problem-0-1-2,rosetta-prolog,81,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,1,0,1,1,0,0,0
-214,knapsack-problem-bounded-1,rosetta-prolog__knapsack-problem-bounded-1,rosetta-prolog,79,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,1,0,1,0,1,1,0,0,0
+214,knapsack-problem-bounded-1,rosetta-prolog__knapsack-problem-bounded-1,rosetta-prolog,79,0,0,131072,16384,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,1,0,1,0,1,1,0,0,0
 215,knapsack-problem-bounded-2,rosetta-prolog__knapsack-problem-bounded-2,rosetta-prolog,83,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,1,0,1,1,0,0,0
 216,knapsack-problem-continuous,rosetta-prolog__knapsack-problem-continuous,rosetta-prolog,68,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,1,0,1,1,0,0,0
 217,knapsack-problem-unbounded,rosetta-prolog__knapsack-problem-unbounded,rosetta-prolog,89,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,1,0,1,1,0,0,0
@@ -230,7 +230,7 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 229,leap-year-1,rosetta-prolog__leap-year-1,rosetta-prolog,13,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0
 230,least-common-multiple,rosetta-prolog__least-common-multiple,rosetta-prolog,5,0,0,131072,4096,,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0
 231,left-factorials,rosetta-prolog__left-factorials,rosetta-prolog,25,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,1,0,0,1,0,0,0
-232,letter-frequency,rosetta-prolog__letter-frequency,rosetta-prolog,56,1,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,1,1,0,0,0
+232,letter-frequency,rosetta-prolog__letter-frequency,rosetta-prolog,56,1,0,131072,16384,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,1,1,0,0,0
 233,levenshtein-distance,rosetta-prolog__levenshtein-distance,rosetta-prolog,64,0,0,131072,4096,,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,1,1,0,0,0
 234,list-comprehensions,rosetta-prolog__list-comprehensions,rosetta-prolog,35,0,0,131072,4096,,,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,1,0,1,1,0,0,0
 235,long-primes-1,rosetta-prolog__long-primes-1,rosetta-prolog,80,0,0,131072,4096,,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,1,0,0,0
@@ -254,14 +254,14 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 253,loops-while-1,rosetta-prolog__loops-while-1,rosetta-prolog,8,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0
 254,loops-with-multiple-ranges,rosetta-prolog__loops-with-multiple-ranges,rosetta-prolog,43,0,0,131072,4096,,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,1,0,1,0,1,0,1,1,0,0,0
 255,lucas-lehmer-test,rosetta-prolog__lucas-lehmer-test,rosetta-prolog,40,0,0,131072,4096,,,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,1,1,0,0,0
-256,ludic-numbers,rosetta-prolog__ludic-numbers,rosetta-prolog,28,0,0,131072,4096,,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,1,1,0,0,0
+256,ludic-numbers,rosetta-prolog__ludic-numbers,rosetta-prolog,28,0,0,131072,16384,,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,1,1,0,0,0
 257,lunar-arithmetic,rosetta-prolog__lunar-arithmetic,rosetta-prolog,134,0,0,131072,4096,,,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,1,0,1,0,1,1,0,0,0
 258,lychrel-numbers,rosetta-prolog__lychrel-numbers,rosetta-prolog,60,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,1,0,1,1,0,0,0
 259,magic-constant,rosetta-prolog__magic-constant,rosetta-prolog,13,0,0,131072,4096,,,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0
 260,map-range,rosetta-prolog__map-range,rosetta-prolog,13,0,0,131072,4096,,,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 261,mastermind,rosetta-prolog__mastermind,rosetta-prolog,104,1,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,1,0,1,1,1,0,1,1,0,0,0
 262,matrix-multiplication,rosetta-prolog__matrix-multiplication,rosetta-prolog,14,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
-263,maximum-triangle-path-sum,rosetta-prolog__maximum-triangle-path-sum,rosetta-prolog,43,0,0,131072,4096,,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0
+263,maximum-triangle-path-sum,rosetta-prolog__maximum-triangle-path-sum,rosetta-prolog,43,0,0,131072,262144,,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0
 264,menu-1,rosetta-prolog__menu-1,rosetta-prolog,20,1,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,1,0,0,0,1,0,0,0,0,0,0,1,0,0,0
 265,merge-and-aggregate-datasets-1,rosetta-prolog__merge-and-aggregate-datasets-1,rosetta-prolog,39,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 266,mersenne-primes,rosetta-prolog__mersenne-primes,rosetta-prolog,19,0,0,131072,4096,,,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,1,0,1,1,0,0,0
@@ -314,7 +314,7 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 313,partial-function-application,rosetta-prolog__partial-function-application,rosetta-prolog,28,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0
 314,partition-an-integer-x-into-n-primes-1,rosetta-prolog__partition-an-integer-x-into-n-primes-1,rosetta-prolog,48,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,1,1,0,0,0
 315,pascals-triangle-3,rosetta-prolog__pascals-triangle-3,rosetta-prolog,32,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,1,0,1,0,0,0,0,0,1,1,0,0,0
-316,pascals-triangle-puzzle,rosetta-prolog__pascals-triangle-puzzle,rosetta-prolog,22,0,0,131072,4096,,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,1,0,1,1,0,0,0
+316,pascals-triangle-puzzle,rosetta-prolog__pascals-triangle-puzzle,rosetta-prolog,22,0,0,131072,8192,,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,1,0,1,1,0,0,0
 317,peano-curve,rosetta-prolog__peano-curve,rosetta-prolog,59,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,1,0,1,1,0,0,0
 318,perfect-numbers-1,rosetta-prolog__perfect-numbers-1,rosetta-prolog,17,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,1,0,0,1,0,0,0
 319,perfect-numbers-2,rosetta-prolog__perfect-numbers-2,rosetta-prolog,29,0,0,131072,4096,,,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,1,0,1,0,1,1,0,0,0
@@ -366,7 +366,7 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 365,roots-of-unity,rosetta-prolog__roots-of-unity,rosetta-prolog,19,0,0,131072,4096,,,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,1,0,1,0,1,0,0,1,0,0,0
 366,rot-13-1,rosetta-prolog__rot-13-1,rosetta-prolog,25,1,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,1,0,0,0
 367,rot-13-2,rosetta-prolog__rot-13-2,rosetta-prolog,13,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,1,0,0,0
-368,run-length-encoding,rosetta-prolog__run-length-encoding,rosetta-prolog,114,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,1,1,0,1,0,1,1,0,0,0
+368,run-length-encoding,rosetta-prolog__run-length-encoding,rosetta-prolog,114,0,0,131072,8192,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,1,1,0,1,0,1,1,0,0,0
 369,search-a-list,rosetta-prolog__search-a-list,rosetta-prolog,29,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,1,0,1,0,0,1,0,0,0
 370,sedols-1,rosetta-prolog__sedols-1,rosetta-prolog,40,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,1,0,0,0
 371,self-describing-numbers,rosetta-prolog__self-describing-numbers,rosetta-prolog,110,0,0,131072,4096,,,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,1,0,0,0,1,0,1,1,0,0,0
@@ -416,7 +416,7 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 415,spiral-matrix,rosetta-prolog__spiral-matrix,rosetta-prolog,54,0,0,131072,4096,,,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,1,0,1,0,1,0,1,1,0,0,0
 416,stable-marriage-problem-2,rosetta-prolog__stable-marriage-problem-2,rosetta-prolog,217,0,0,131072,4096,,,0,1,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,1,0,1,1,0,0,1
 417,stack,rosetta-prolog__stack,rosetta-prolog,14,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,1,1,0,0,0
-418,state-name-puzzle,rosetta-prolog__state-name-puzzle,rosetta-prolog,73,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,1,0,1,1,0,0,0
+418,state-name-puzzle,rosetta-prolog__state-name-puzzle,rosetta-prolog,73,0,0,131072,8192,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,1,0,1,1,0,0,0
 419,steady-squares,rosetta-prolog__steady-squares,rosetta-prolog,38,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,1,0,1,1,0,0,0
 420,stem-and-leaf-plot,rosetta-prolog__stem-and-leaf-plot,rosetta-prolog,40,0,0,131072,4096,,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,1,1,0,0,1,0,0,0
 421,stirling-numbers-of-the-first-kind,rosetta-prolog__stirling-numbers-of-the-first-kind,rosetta-prolog,45,0,0,131072,4096,,,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,1,0,0,0
@@ -435,7 +435,7 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 434,substring-1,rosetta-prolog__substring-1,rosetta-prolog,20,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 435,substring-top-and-tail,rosetta-prolog__substring-top-and-tail,rosetta-prolog,18,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0
 436,successive-prime-differences,rosetta-prolog__successive-prime-differences,rosetta-prolog,54,0,0,131072,4096,,,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,1,0,0,0,1,0,1,1,0,0,0
-437,sudoku-1,rosetta-prolog__sudoku-1,rosetta-prolog,29,0,0,131072,4096,,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0
+437,sudoku-1,rosetta-prolog__sudoku-1,rosetta-prolog,29,0,0,131072,8192,,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0
 438,sum-and-product-of-an-array-1,rosetta-prolog__sum-and-product-of-an-array-1,rosetta-prolog,7,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0
 439,sum-digits-of-an-integer,rosetta-prolog__sum-digits-of-an-integer,rosetta-prolog,24,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0
 440,sum-multiples-of-3-and-5-1,rosetta-prolog__sum-multiples-of-3-and-5-1,rosetta-prolog,18,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,1,0,0,1,0,0,0
