@@ -159,26 +159,26 @@ FAILEND  TEST = FAILURE() STARS
 *        TEST OUT ARRAY FACILITY
 *
          A = ARRAY(3)
-         TEST = DIFFER(A<1>) STARS
-         A<2> = 4.5
-         TEST = DIFFER(A<2>,4.5) STARS
-         TEST = ?A<4> STARS
-         TEST = ?A<0> STARS
+         TEST = DIFFER(A[1]) STARS
+         A[2] = 4.5
+         TEST = DIFFER(A[2],4.5) STARS
+         TEST = ?A[4] STARS
+         TEST = ?A[0] STARS
          TEST = DIFFER(PROTOTYPE(A),3) STARS
          B = ARRAY(3,10)
-         TEST = DIFFER(B<2>,10) STARS
+         TEST = DIFFER(B[2],10) STARS
          B = ARRAY('3')
-         B<2> = 'A'
-         TEST = DIFFER(B<2>,'A') STARS
+         B[2] = 'A'
+         TEST = DIFFER(B[2],'A') STARS
          C = ARRAY('2,2')
-         C<1,2> = '*'
-         TEST = DIFFER(C<1,2>,'*') STARS
+         C[1,2] = '*'
+         TEST = DIFFER(C[1,2],'*') STARS
          TEST = DIFFER(PROTOTYPE(C),'2,2') STARS
          D = ARRAY('-1:1,2')
-         D<-1,1> = 0
-         TEST = DIFFER(D<-1,1>,0) STARS
-         TEST = ?D<-2,1> STARS
-         TEST = ?D<2,1> STARS
+         D[-1,1] = 0
+         TEST = DIFFER(D[-1,1],0) STARS
+         TEST = ?D[-2,1] STARS
+         TEST = ?D[2,1] STARS
 -EJECT
 *
 *        TEST PROGRAM DEFINED DATATYPE FUNCTIONS
@@ -261,8 +261,8 @@ FAILEND  TEST = FAILURE() STARS
          TEST = DIFFER(QQ,'X') STARS
          TEST = DIFFER($'GARBAGE') STARS
          A = ARRAY(3)
-         A<2> = 'X'
-         TEST = DIFFER($.A<2>,'X') STARS
+         A[2] = 'X'
+         TEST = DIFFER($.A[2],'X') STARS
 -EJECT
 *
 *        TEST CONCATENATION
@@ -303,31 +303,31 @@ FAILEND  TEST = FAILURE() STARS
 *        TEST TABLE FACILITY
 *
          T = TABLE(10)
-         TEST = DIFFER(T<'CAT'>) STARS
-         T<'CAT'> = 'DOG'
-         TEST = DIFFER(T<'CAT'>,'DOG')   STARS
-         T<7> = 45
-         TEST = DIFFER(T<7>,45)   STARS
-         TEST = DIFFER(T<'CAT'>,'DOG')  STARS
+         TEST = DIFFER(T['CAT']) STARS
+         T['CAT'] = 'DOG'
+         TEST = DIFFER(T['CAT'],'DOG')   STARS
+         T[7] = 45
+         TEST = DIFFER(T[7],45)   STARS
+         TEST = DIFFER(T['CAT'],'DOG')  STARS
          TA = CONVERT(T,'ARRAY')
          TEST = DIFFER(PROTOTYPE(TA),'2,2') STARS
          ATA = CONVERT(TA,'TABLE')
-         TEST = DIFFER(ATA<7>,45) STARS
-         TEST = DIFFER(ATA<'CAT'>,'DOG') STARS
+         TEST = DIFFER(ATA[7],45) STARS
+         TEST = DIFFER(ATA['CAT'],'DOG') STARS
 *
 *        TEST ITEM FUNCTION
 *
          AAA = ARRAY(10)
          ITEM(AAA,1) = 5
          TEST = DIFFER(ITEM(AAA,1),5) STARS
-         TEST = DIFFER(AAA<1>,5) STARS
-         AAA<2> = 22
+         TEST = DIFFER(AAA[1],5) STARS
+         AAA[2] = 22
          TEST = DIFFER(ITEM(AAA,2),22) STARS
          AMA = ARRAY('2,2,2,2')
          ITEM(AMA,1,2,1,2) = 1212
          TEST = DIFFER(ITEM(AMA,1,2,1,2),1212) STARS
-         TEST = DIFFER(AMA<1,2,1,2>,1212) STARS
-         AMA<2,1,2,1> = 2121
+         TEST = DIFFER(AMA[1,2,1,2],1212) STARS
+         AMA[2,1,2,1] = 2121
          TEST = DIFFER(ITEM(AMA,2,1,2,1),2121) STARS
 -EJECT
 *

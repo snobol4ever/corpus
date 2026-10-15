@@ -281,7 +281,7 @@ CAL
        N  = CONVERT(N,'INTEGER')    :S(CAL1)
        TDUMP( .CAL, 1)
 CAL1   GT(N,0)        :F(RETURN)
-       CAL = A<N> ~ CAL
+       CAL = A[N] ~ CAL
        N = N -  1          :(CAL1)
 CAL.END
 *
@@ -415,7 +415,7 @@ CLA
        ( LE(N,0)   TDUMP( .CLA, 1)  )
        CLA = ARRAY(N)
        N = 1
-CLA1  CLA<N> = POP( .L)        :F(RETURN)
+CLA1  CLA[N] = POP( .L)        :F(RETURN)
        N = N + 1     :(CLA1)
 CLA.END
 *
@@ -1304,53 +1304,53 @@ SORT1
 SORT5  GE(I,J)       :S(SORT70)
 SORT10    K = I
        IJ = CONVERT( (J + I) / 2, 'INTEGER' )
-       T = A<IJ>
-       SORT.LE(A<I>,T)    :S(SORT20)
-       A<IJ> = A<I>
-       A<I> = T
-       T = A<IJ>
+       T = A[IJ]
+       SORT.LE(A[I],T)    :S(SORT20)
+       A[IJ] = A[I]
+       A[I] = T
+       T = A[IJ]
 SORT20    L = J
-       SORT.GE(A<J>,T)    :S(SORT40)
-       A<IJ> = A<J>
-       A<J> = T
-       T = A<IJ>
-       SORT.LE(A<I>,T)    :S(SORT40)
-       A<IJ> = A<I>
-       A<I> = T
-       T = A<IJ>      :(SORT40)
-SORT30    A<L> = A<K>
-       A<K> = TT
+       SORT.GE(A[J],T)    :S(SORT40)
+       A[IJ] = A[J]
+       A[J] = T
+       T = A[IJ]
+       SORT.LE(A[I],T)    :S(SORT40)
+       A[IJ] = A[I]
+       A[I] = T
+       T = A[IJ]      :(SORT40)
+SORT30    A[L] = A[K]
+       A[K] = TT
 SORT40     L = L - 1
-       SORT.GT(A<L>,T)    :S(SORT40)
-       TT = A<L>
+       SORT.GT(A[L],T)    :S(SORT40)
+       TT = A[L]
 SORT50    K = K + 1
-       SORT.LT(A<K>,T)    :S(SORT50)
+       SORT.LT(A[K],T)    :S(SORT50)
        LE(K,L)       :S(SORT30)
        LE( L - I, J - K)       :S(SORT60)
-       IL<M> = I
-       IU<M> = L
+       IL[M] = I
+       IU[M] = L
        I = K
        M = M + 1    :(SORT80)
-SORT60   IL<M> = K
-       IU<M> = J
+SORT60   IL[M] = K
+       IU[M] = J
        J = L
        M = M + 1    :(SORT80)
 SORT70   M = M - 1
        SORT. = LE(M,0) A        :S(RETURN)
-       I = IL<M>
-       J = IU<M>
+       I = IL[M]
+       J = IU[M]
 SORT80   GE( J - I, II)        :S(SORT10)
        EQ(I,II)      :S(SORT5)
        I = I - 1
 SORT90    I = I + 1
        EQ(I,J)       :S(SORT70)
-       T = A<I + 1>
-       SORT.LE(A<I>,T)    :S(SORT90)
+       T = A[I + 1]
+       SORT.LE(A[I],T)    :S(SORT90)
        K = I
-SORT100  A<K + 1> = A<K>
+SORT100  A[K + 1] = A[K]
        K = K - 1
-       SORT.LT(T,A<K>)    :S(SORT100)
-       A<K + 1> = T       :(SORT90)
+       SORT.LT(T,A[K])    :S(SORT100)
+       A[K + 1] = T       :(SORT90)
 *
 SORT.LE  APPLY(P,X,Y)     :S(RETURN)F(FRETURN)
 SORT.GE  APPLY(P,Y,X)     :S(RETURN)F(FRETURN)

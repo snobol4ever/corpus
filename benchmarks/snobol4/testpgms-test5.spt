@@ -5,7 +5,7 @@
  DATA = ARRAY(24)
          INPUT(.INPUT)
 READER J = J + 1
- DATA<J> = TRIM(INPUT)  :S(READER)
+ DATA[J] = TRIM(INPUT)  :S(READER)
  OUTPUT = 'UNSORTED DATA'
  OUTPUT =
  PRINTER()
@@ -17,7 +17,7 @@ READER J = J + 1
 *
 PRINTER J = 0
 PRINTL J = J + 1
- OUTPUT = DATA<J>    :S(PRINTL)F(RETURN)
+ OUTPUT = DATA[J]    :S(PRINTL)F(RETURN)
 -STITL ACTUAL TREESORT4 SUBROUTINE
 *             TREESORT4
 *             ---------
@@ -32,15 +32,15 @@ TREESORT4
               NODE_TO_SIFT = NUMBER_TO_SORT / 2
               RETURN_FROM_SIFT = .SIFT_RETURN_1
 SIFT_CALL_1
-.             HOLD_LOCATION = DATA<NODE_TO_SIFT> :(SIFT_NODE)
+.             HOLD_LOCATION = DATA[NODE_TO_SIFT] :(SIFT_NODE)
 SIFT_RETURN_1
 .             NODE_TO_SIFT = GT(NODE_TO_SIFT,1)
 .                              NODE_TO_SIFT - 1  :S(SIFT_CALL_1)
 SECOND_PHASE
 .             RETURN_FROM_SIFT = .SIFT_RETURN_2
 SIFT_RETURN_2
-.             HOLD_LOCATION = DATA<NUMBER_IN_TREE>
-              DATA<NUMBER_IN_TREE> = DATA<1>
+.             HOLD_LOCATION = DATA[NUMBER_IN_TREE]
+              DATA[NUMBER_IN_TREE] = DATA[1]
               NUMBER_IN_TREE = GT(NUMBER_IN_TREE,1)
 .                               NUMBER_IN_TREE - 1
 .                                                :S(SIFT_NODE)F(RETURN)
@@ -54,25 +54,25 @@ PULL_UP_LARGER_SON
                                                  :(CHECK_FATHERS)
 COMPARE_SONS
 .             RIGHT_SON = LEFT_SON + 1
-              LGT(DATA<LEFT_SON>,DATA<RIGHT_SON>)
+              LGT(DATA[LEFT_SON],DATA[RIGHT_SON])
 .                                                :S(LEFT_SON_HIGH)
 RIGHT_SON_HIGH
-.             DATA<FATHER> = DATA<RIGHT_SON>
+.             DATA[FATHER] = DATA[RIGHT_SON]
               FATHER = RIGHT_SON                 :(PULL_UP_LARGER_SON)
 LEFT_SON_HIGH
-.             DATA<FATHER> = DATA<LEFT_SON>
+.             DATA[FATHER] = DATA[LEFT_SON]
               FATHER = LEFT_SON                  :(PULL_UP_LARGER_SON)
 CHECK_FATHERS
 .             HOLE_IN_TREE = FATHER
 TEST_NEXT_FATHER
 .             FATHER_OF_HOLE = HOLE_IN_TREE / 2
               LT(FATHER_OF_HOLE,NODE_TO_SIFT)    :S(FILL_HOLE)
-              LGT(DATA<FATHER_OF_HOLE>,HOLD_LOCATION)
+              LGT(DATA[FATHER_OF_HOLE],HOLD_LOCATION)
 .                                                :S(FILL_HOLE)
-              DATA<HOLE_IN_TREE> = DATA<FATHER_OF_HOLE>
+              DATA[HOLE_IN_TREE] = DATA[FATHER_OF_HOLE]
               HOLE_IN_TREE = FATHER_OF_HOLE      :(TEST_NEXT_FATHER)
 FILL_HOLE
-.             DATA<HOLE_IN_TREE> = HOLD_LOCATION
+.             DATA[HOLE_IN_TREE] = HOLD_LOCATION
 .                                                :($RETURN_FROM_SIFT)
 END
 SHALL
