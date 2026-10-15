@@ -17,4 +17,64 @@ leash([call,bogus]) => error(domain_error(leash_ports,[call,bogus]))
 leash(A) => error(instantiation_error)
 Spypoint placed on d_foo/1
 The debugger will first leap -- showing spypoints (debug)
-{debug}
+The debugger is switched off
+spy(d_foo/1) => true
+There is already a spypoint on d_foo/1
+The debugger will first leap -- showing spypoints (debug)
+The debugger is switched off
+spy(d_foo) => true
+Spypoint removed from d_foo/1
+The debugger is switched off
+nospy(d_foo/1) => true
+There is no spypoint on d_foo/1
+The debugger is switched off
+nospy(d_foo/1) => true
+Warning: spy nonesuch/3 - no matching predicate
+The debugger is switched off
+spy(nonesuch/3) => true
+spy(A) => error(instantiation_error)
+spy(foo/bar) => error(type_error(integer,bar))
+spy(42) => error(type_error(predicate_indicator,42))
+nospy(A) => error(instantiation_error)
+Spypoint placed on d_foo/1
+The debugger will first leap -- showing spypoints (debug)
+The debugger is switched off
+spypoint_condition(d_foo(A),call,true) => true
+spypoint_condition(A,call,true) => error(instantiation_error)
+There is already a spypoint on d_foo/1
+The debugger will first leap -- showing spypoints (debug)
+The debugger is switched off
+spypoint_condition(d_foo(A),bogus,true) => true
+The debugger is switched off
+Using leashing stopping at [call,exit,redo,fail,exception] ports
+Undefined predicates will raise an existence_error
+Spypoints:
+   d_foo/1
+debugging => [debugging]
+All spypoints removed
+The debugger is switched off
+nospyall => true
+The debugger is switched off
+Using leashing stopping at [call,exit,redo,fail,exception] ports
+Undefined predicates will raise an existence_error
+Spypoints:
+debugging => [debugging]
+The debugger will first leap -- showing spypoints (debug)
+The debugger is switched off
+debug => true
+The debugger is switched off
+Using leashing stopping at [call,exit,redo,fail,exception] ports
+Undefined predicates will raise an existence_error
+Spypoints:
+debugging => [debugging]
+The debugger is switched off
+The debugger is switched off
+notrace => true
+The debugger is switched off
+The debugger is switched off
+nodebug => true
+The debugger is switched off
+Using leashing stopping at [call,exit,redo,fail,exception] ports
+Undefined predicates will raise an existence_error
+Spypoints:
+debugging => [debugging]

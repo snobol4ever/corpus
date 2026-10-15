@@ -5,6 +5,9 @@
 % (m3 = m4 = gprolog). Each call prints what the debugger says on standard output, then every solution or the formal error term
 % it raises. No spied predicate is ever called: that enters the interactive debugger, which reads its commands from the
 % terminal. The debugger is switched off at the end.
+% r(G): a call that may switch the debugger on runs here, and nodebug/0 follows it at once: with the debugger on, gprolog 1.6.0 raises
+% existence_error(procedure, '$get_cut_level'/1) in the next consulted if-then-else (t/1's own), which cut the reference at its 20th line
+% and left every case after spy(d_foo/1) without an answer. So debugging/0 always reports the debugger switched off.
 :- initialization(main).
 
 d_foo(1).
@@ -19,6 +22,12 @@ t(G) :- copy_term(G, C),
         ),
         \+ \+ ( numbervars(G-R, 0, _), writeq(G), write(' => '), writeq(R), nl ).
 
+% r(G): G once, then nodebug; true, or the formal error term G raised.
+r(G) :- catch(G, E, true), nodebug, r2(G, E).
+r2(G, E) :- var(E), !, \+ \+ ( numbervars(G, 0, _), writeq(G), write(' => true'), nl ).
+r2(G, error(F, _)) :- !, \+ \+ ( numbervars(G-F, 0, _), writeq(G), write(' => '), writeq(error(F)), nl ).
+r2(G, B) :- \+ \+ ( numbervars(G-B, 0, _), writeq(G), write(' => '), writeq(ball(B)), nl ).
+
 main :-
     t(leash(full)),
     t(leash(half)),
@@ -30,24 +39,24 @@ main :-
     t(leash(bogus)),
     t(leash([call, bogus])),
     t(leash(_)),
-    t(spy(d_foo/1)),
-    t(spy(d_foo)),
-    t(nospy(d_foo/1)),
-    t(nospy(d_foo/1)),
-    t(spy(nonesuch/3)),
+    r(spy(d_foo/1)),
+    r(spy(d_foo)),
+    r(nospy(d_foo/1)),
+    r(nospy(d_foo/1)),
+    r(spy(nonesuch/3)),
     t(spy(_)),
     t(spy(foo/bar)),
     t(spy(42)),
     t(nospy(_)),
-    t(spypoint_condition(d_foo(_), call, true)),
+    r(spypoint_condition(d_foo(_), call, true)),
     t(spypoint_condition(_, call, true)),
-    t(spypoint_condition(d_foo(_), bogus, true)),
+    r(spypoint_condition(d_foo(_), bogus, true)),
     t(debugging),
-    t(nospyall),
+    r(nospyall),
     t(debugging),
-    t(debug),
+    r(debug),
     t(debugging),
-    t(notrace),
-    t(nodebug),
+    r(notrace),
+    r(nodebug),
     t(debugging),
     true.
