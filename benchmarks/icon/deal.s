@@ -566,7 +566,7 @@ n40_to_α:               mov              rdi, qword ptr [rsp + 1392]
                         call             core_icn_int_operand_ok@PLT
 .Lgcsite_display_22:    mov              r9,  qword ptr [rip + rtccb+48]
                         test             eax, eax;                            jz    n58_line_mark_α
-                        push             rax                                  # gc_poll xa_to_helpers.cpp:39
+                        push             rax                                  # gc_poll xa_to_helpers.cpp:50
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -580,7 +580,7 @@ n40_to_α:               mov              rdi, qword ptr [rsp + 1392]
 .Lgcsite_display_20:    mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 1392], 3
                         mov              qword ptr [rsp + 1400], rax
-                        push             rax                                  # gc_poll bb_to.cpp:160
+                        push             rax                                  # gc_poll bb_to.cpp:162
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -593,7 +593,7 @@ n40_to_α:               mov              rdi, qword ptr [rsp + 1392]
                         call             core_icn_int_operand_ok@PLT
 .Lgcsite_display_18:    mov              r9,  qword ptr [rip + rtccb+48]
                         test             eax, eax;                            jz    n58_line_mark_α
-                        push             rax                                  # gc_poll xa_to_helpers.cpp:39
+                        push             rax                                  # gc_poll xa_to_helpers.cpp:50
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -607,7 +607,7 @@ n40_to_α:               mov              rdi, qword ptr [rsp + 1392]
 .Lgcsite_display_16:    mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 1408], 3
                         mov              qword ptr [rsp + 1416], rax
-                        push             rax                                  # gc_poll bb_to.cpp:168
+                        push             rax                                  # gc_poll bb_to.cpp:170
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1422,7 +1422,7 @@ n76_to_α:               mov              rdi, qword ptr [rsp + 384]
                         call             core_icn_int_operand_ok@PLT
 .Lgcsite_display_72:    mov              r9,  qword ptr [rip + rtccb+48]
                         test             eax, eax;                            jz    n99_line_mark_α
-                        push             rax                                  # gc_poll xa_to_helpers.cpp:39
+                        push             rax                                  # gc_poll xa_to_helpers.cpp:50
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1436,7 +1436,7 @@ n76_to_α:               mov              rdi, qword ptr [rsp + 384]
 .Lgcsite_display_70:    mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 384], 3
                         mov              qword ptr [rsp + 392], rax
-                        push             rax                                  # gc_poll bb_to.cpp:160
+                        push             rax                                  # gc_poll bb_to.cpp:162
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1449,7 +1449,7 @@ n76_to_α:               mov              rdi, qword ptr [rsp + 384]
                         call             core_icn_int_operand_ok@PLT
 .Lgcsite_display_68:    mov              r9,  qword ptr [rip + rtccb+48]
                         test             eax, eax;                            jz    n99_line_mark_α
-                        push             rax                                  # gc_poll xa_to_helpers.cpp:39
+                        push             rax                                  # gc_poll xa_to_helpers.cpp:50
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1463,7 +1463,7 @@ n76_to_α:               mov              rdi, qword ptr [rsp + 384]
 .Lgcsite_display_66:    mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 400], 3
                         mov              qword ptr [rsp + 408], rax
-                        push             rax                                  # gc_poll bb_to.cpp:168
+                        push             rax                                  # gc_poll bb_to.cpp:170
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -9921,7 +9921,7 @@ n00359_to_α:             mov              rdi, qword ptr [rsp + 80]
                         call             core_icn_int_operand_ok@PLT
 .Lgcsite_main_46:       mov              r9,  qword ptr [rip + rtccb+48]
                         test             eax, eax;                            jz    main_ω
-                        push             rax                                  # gc_poll xa_to_helpers.cpp:39
+                        push             rax                                  # gc_poll xa_to_helpers.cpp:50
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -9935,7 +9935,7 @@ n00359_to_α:             mov              rdi, qword ptr [rsp + 80]
 .Lgcsite_main_44:       mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 80], 3
                         mov              qword ptr [rsp + 88], rax
-                        push             rax                                  # gc_poll bb_to.cpp:160
+                        push             rax                                  # gc_poll bb_to.cpp:162
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -9948,7 +9948,7 @@ n00359_to_α:             mov              rdi, qword ptr [rsp + 80]
                         call             core_icn_int_operand_ok@PLT
 .Lgcsite_main_42:       mov              r9,  qword ptr [rip + rtccb+48]
                         test             eax, eax;                            jz    main_ω
-                        push             rax                                  # gc_poll xa_to_helpers.cpp:39
+                        push             rax                                  # gc_poll xa_to_helpers.cpp:50
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -9962,7 +9962,7 @@ n00359_to_α:             mov              rdi, qword ptr [rsp + 80]
 .Lgcsite_main_40:       mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 96], 3
                         mov              qword ptr [rsp + 104], rax
-                        push             rax                                  # gc_poll bb_to.cpp:168
+                        push             rax                                  # gc_poll bb_to.cpp:170
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax

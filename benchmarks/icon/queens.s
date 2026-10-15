@@ -839,7 +839,7 @@ n47_to_α:               mov              rdi, qword ptr [rbp + 656]
                         call             core_icn_int_operand_ok@PLT
 .Lgcsite_q_35:          mov              r9,  qword ptr [rip + rtccb+48]
                         test             eax, eax;                            jz    q_ω
-                        push             rax                                  # gc_poll xa_to_helpers.cpp:39
+                        push             rax                                  # gc_poll xa_to_helpers.cpp:50
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -853,7 +853,7 @@ n47_to_α:               mov              rdi, qword ptr [rbp + 656]
 .Lgcsite_q_33:          mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 656], 3
                         mov              qword ptr [rbp + 664], rax
-                        push             rax                                  # gc_poll bb_to.cpp:160
+                        push             rax                                  # gc_poll bb_to.cpp:162
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -866,7 +866,7 @@ n47_to_α:               mov              rdi, qword ptr [rbp + 656]
                         call             core_icn_int_operand_ok@PLT
 .Lgcsite_q_31:          mov              r9,  qword ptr [rip + rtccb+48]
                         test             eax, eax;                            jz    q_ω
-                        push             rax                                  # gc_poll xa_to_helpers.cpp:39
+                        push             rax                                  # gc_poll xa_to_helpers.cpp:50
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -880,7 +880,7 @@ n47_to_α:               mov              rdi, qword ptr [rbp + 656]
 .Lgcsite_q_29:          mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 672], 3
                         mov              qword ptr [rbp + 680], rax
-                        push             rax                                  # gc_poll bb_to.cpp:168
+                        push             rax                                  # gc_poll bb_to.cpp:170
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
