@@ -112,46 +112,67 @@ START
                   $']'           =  *Gray ']'
                   $'>'           =  *Gray '>'
 
-                  ExprList       =  nPush() *XList ("'ExprList'" & '*(GT(nTop(), 1) nTop())') nPop()
-                  XList          =  nInc() (*Expr | epsilon ~ '') FENCE($',' *XList | epsilon)
+                  ExprList       =  nPush()
++                                   *XList
++                                   (epsilon . *Reduce('ExprList', *(GT(nTop(), 1) nTop())))
++                                   nPop()
+                  XList          =  nInc()
++                                   (*Expr | epsilon . thx . *Shift('', thx))
++                                   FENCE($',' *XList | epsilon)
                   Expr           =  *Expr0
-                  Expr0          =  *Expr1 FENCE($'=' *Expr0 ("'='" & 2) | epsilon)
-                  Expr1          =  *Expr2 FENCE($'?' *Expr1 ("'?'" & 2) | epsilon)
-                  Expr2          =  *Expr3 FENCE($'&' *Expr2 ("'&'" & 2) | epsilon)
-                  Expr3          =  nPush() *X3 ("'|'" & '*(GT(nTop(), 1) nTop())') nPop()
+                  Expr0          =  *Expr1 FENCE($'=' *Expr0 (epsilon . *Reduce('=', 2)) | epsilon)
+                  Expr1          =  *Expr2 FENCE($'?' *Expr1 (epsilon . *Reduce('?', 2)) | epsilon)
+                  Expr2          =  *Expr3 FENCE($'&' *Expr2 (epsilon . *Reduce('&', 2)) | epsilon)
+                  Expr3          =  nPush() *X3 (epsilon . *Reduce('|', *(GT(nTop(), 1) nTop()))) nPop()
                   X3             =  nInc() *Expr4 FENCE($'|' *X3 | epsilon)
-                  Expr4          =  nPush() *X4 ("'..'" & '*(GT(nTop(), 1) nTop())') nPop()
+                  Expr4          =  nPush() *X4 (epsilon . *Reduce('..', *(GT(nTop(), 1) nTop()))) nPop()
                   X4             =  nInc() *Expr5 FENCE(*White *X4 | epsilon)
-                  Expr5          =  *Expr6 FENCE($'@' *Expr5 ("'@'" & 2) | epsilon)
+                  Expr5          =  *Expr6 FENCE($'@' *Expr5 (epsilon . *Reduce('@', 2)) | epsilon)
                   Expr6          =  *Expr7
-+                                   FENCE($'+' *Expr6 ("'+'" & 2) | $'-' *Expr6 ("'-'" & 2) | epsilon)
-                  Expr7          =  *Expr8 FENCE($'#' *Expr7 ("'#'" & 2) | epsilon)
-                  Expr8          =  *Expr9 FENCE($'/' *Expr8 ("'/'" & 2) | epsilon)
-                  Expr9          =  *Expr10 FENCE($'*' *Expr9 ("'*'" & 2) | epsilon)
-                  Expr10         =  *Expr11 FENCE($'%' *Expr10 ("'%'" & 2) | epsilon)
-                  Expr11         =  *Expr12 FENCE(($'^' | $'!' | $'**') *Expr11 ("'^'" & 2) | epsilon)
++                                   FENCE(
++                                     $'+' *Expr6 (epsilon . *Reduce('+', 2))
++                                   | $'-' *Expr6 (epsilon . *Reduce('-', 2))
++                                   | epsilon
++                                   )
+                  Expr7          =  *Expr8 FENCE($'#' *Expr7 (epsilon . *Reduce('#', 2)) | epsilon)
+                  Expr8          =  *Expr9 FENCE($'/' *Expr8 (epsilon . *Reduce('/', 2)) | epsilon)
+                  Expr9          =  *Expr10 FENCE($'*' *Expr9 (epsilon . *Reduce('*', 2)) | epsilon)
+                  Expr10         =  *Expr11 FENCE($'%' *Expr10 (epsilon . *Reduce('%', 2)) | epsilon)
+                  Expr11         =  *Expr12
++                                   FENCE(
++                                     ($'^' | $'!' | $'**') *Expr11 (epsilon . *Reduce('^', 2))
++                                   | epsilon
++                                   )
                   Expr12         =  *Expr13
-+                                   FENCE($'$' *Expr12 ("'$'" & 2) | $'.' *Expr12 ("'.'" & 2) | epsilon)
-                  Expr13         =  *Expr14 FENCE($'~' *Expr13 ("'~'" & 2) | epsilon)
-                  Expr14         =  '@' *Expr14 ("'@'" & 1)
-+                                 | '~' *Expr14 ("'~'" & 1)
-+                                 | '?' *Expr14 ("'?'" & 1)
-+                                 | *ProtKwd ~ 'ProtKwd'
-+                                 | *UnprotKwd ~ 'UnprotKwd'
-+                                 | '&' *Expr14 ("'&'" & 1)
-+                                 | '+' *Expr14 ("'+'" & 1)
-+                                 | '-' *Expr14 ("'-'" & 1)
-+                                 | '*' *Expr14 ("'*'" & 1)
-+                                 | '$' *Expr14 ("'$'" & 1)
-+                                 | '.' *Expr14 ("'.'" & 1)
-+                                 | '!' *Expr14 ("'!'" & 1)
-+                                 | '%' *Expr14 ("'%'" & 1)
-+                                 | '/' *Expr14 ("'/'" & 1)
-+                                 | '#' *Expr14 ("'#'" & 1)
-+                                 | '=' *Expr14 ("'='" & 1)
-+                                 | '|' *Expr14 ("'|'" & 1)
++                                   FENCE(
++                                     $'$' *Expr12 (epsilon . *Reduce('$', 2))
++                                   | $'.' *Expr12 (epsilon . *Reduce('.', 2))
++                                   | epsilon
++                                   )
+                  Expr13         =  *Expr14 FENCE($'~' *Expr13 (epsilon . *Reduce('~', 2)) | epsilon)
+                  Expr14         =  '@' *Expr14 (epsilon . *Reduce('@', 1))
++                                 | '~' *Expr14 (epsilon . *Reduce('~', 1))
++                                 | '?' *Expr14 (epsilon . *Reduce('?', 1))
++                                 | *ProtKwd . thx . *Shift('ProtKwd', thx)
++                                 | *UnprotKwd . thx . *Shift('UnprotKwd', thx)
++                                 | '&' *Expr14 (epsilon . *Reduce('&', 1))
++                                 | '+' *Expr14 (epsilon . *Reduce('+', 1))
++                                 | '-' *Expr14 (epsilon . *Reduce('-', 1))
++                                 | '*' *Expr14 (epsilon . *Reduce('*', 1))
++                                 | '$' *Expr14 (epsilon . *Reduce('$', 1))
++                                 | '.' *Expr14 (epsilon . *Reduce('.', 1))
++                                 | '!' *Expr14 (epsilon . *Reduce('!', 1))
++                                 | '%' *Expr14 (epsilon . *Reduce('%', 1))
++                                 | '/' *Expr14 (epsilon . *Reduce('/', 1))
++                                 | '#' *Expr14 (epsilon . *Reduce('#', 1))
++                                 | '=' *Expr14 (epsilon . *Reduce('=', 1))
++                                 | '|' *Expr14 (epsilon . *Reduce('|', 1))
 +                                 | *Expr15
-                  Expr15         =  *Expr17 FENCE(nPush() *Expr16 ("'[]'" & 'nTop() + 1') nPop() | epsilon)
+                  Expr15         =  *Expr17
++                                   FENCE(
++                                     nPush() *Expr16 (epsilon . *Reduce('[]', nTop() + 1)) nPop()
++                                   | epsilon
++                                   )
                   Expr16         =  nInc()
 +                                   ($'[' *ExprList $']' | $'<' *ExprList $'>')
 +                                   FENCE(*Expr16 | epsilon)
@@ -159,17 +180,27 @@ START
 +                                     nPush()
 +                                     $'('
 +                                     *Expr
-+                                     ($',' *XList ("','" & 'nTop() + 1') | epsilon ("'()'" & 1))
++                                     ( $',' *XList (epsilon . *Reduce(',', nTop() + 1))
++                                     | epsilon (epsilon . *Reduce('()', 1))
++                                     )
 +                                     $')'
 +                                     nPop()
-+                                   | *Function ~ 'Function' $'(' *ExprList $')' ("'Call'" & 2)
-+                                   | *Id ~ 'Id' $'(' *ExprList $')' ("'Call'" & 2)
-+                                   | *BuiltinVar ~ 'BuiltinVar'
-+                                   | *SpecialNm ~ 'SpecialNm'
-+                                   | *Id ~ 'Id'
-+                                   | *String ~ 'String'
-+                                   | *Real ~ 'Real'
-+                                   | *Integer ~ 'Integer'
++                                   | *Function . thx . *Shift('Function', thx)
++                                     $'('
++                                     *ExprList
++                                     $')'
++                                     (epsilon . *Reduce('Call', 2))
++                                   | *Id . thx . *Shift('Id', thx)
++                                     $'('
++                                     *ExprList
++                                     $')'
++                                     (epsilon . *Reduce('Call', 2))
++                                   | *BuiltinVar . thx . *Shift('BuiltinVar', thx)
++                                   | *SpecialNm . thx . *Shift('SpecialNm', thx)
++                                   | *Id . thx . *Shift('Id', thx)
++                                   | *String . thx . *Shift('String', thx)
++                                   | *Real . thx . *Shift('Real', thx)
++                                   | *Integer . thx . *Shift('Integer', thx)
 +                                   )
 
                   SGoto          =  ('S' | 's') . *assign(.sf, *'S')
@@ -181,48 +212,70 @@ START
 +                                   ':'
 +                                   *Gray
 +                                   FENCE(
-+                                     *Target ("*(':' Brackets)" & 1) epsilon ~ ''
++                                     *Target
++                                     (epsilon . *Reduce(*(':' Brackets), 1))
++                                     epsilon . thx . *Shift('', thx)
 +                                   | *SorF
 +                                     *Target
-+                                     ("*(':' sf Brackets)" & 1)
-+                                     FENCE(*Gray *SorF *Target ("*(':' sf Brackets)" & 1) | epsilon ~ '')
++                                     (epsilon . *Reduce(*(':' sf Brackets), 1))
++                                     FENCE(
++                                       *Gray *SorF *Target (epsilon . *Reduce(*(':' sf Brackets), 1))
++                                     | epsilon . thx . *Shift('', thx)
++                                     )
 +                                   )
                   Control        =  '-' BREAK(nl ';')
                   Comment        =  '*' BREAK(nl)
-                  Label          =  BREAK(' ' tab nl ';') ~ 'Label'
+                  Label          =  BREAK(' ' tab nl ';') . thx . *Shift('Label', thx)
                   Stmt           =  *Label
 +                                   ( *White
 +                                     *Expr14
 +                                     FENCE(
-+                                       epsilon ~ ''
++                                       epsilon . thx . *Shift('', thx)
 +                                       *White
-+                                       ('=' ~ '=' *White *Expr | '=' ~ '=' epsilon ~ '')
++                                       ( '=' . thx . *Shift('=', thx) *White *Expr
++                                       | '=' . thx . *Shift('=', thx) epsilon . thx . *Shift('', thx)
++                                       )
 +                                     | ($'?' | *White)
 +                                       *Expr1
 +                                       FENCE(
-+                                         *White ('=' ~ '=' *White *Expr | '=' ~ '=' epsilon ~ '')
-+                                       | epsilon ~ '' epsilon ~ ''
++                                         *White
++                                         ( '=' . thx . *Shift('=', thx) *White *Expr
++                                         | '=' . thx . *Shift('=', thx) epsilon . thx . *Shift('', thx)
++                                         )
++                                       | epsilon . thx . *Shift('', thx) epsilon . thx . *Shift('', thx)
 +                                       )
-+                                     | epsilon ~ '' epsilon ~ '' epsilon ~ ''
++                                     | epsilon . thx . *Shift('', thx)
++                                       epsilon . thx . *Shift('', thx)
++                                       epsilon . thx . *Shift('', thx)
 +                                     )
-+                                   | epsilon ~ '' epsilon ~ '' epsilon ~ '' epsilon ~ ''
++                                   | epsilon . thx . *Shift('', thx)
++                                     epsilon . thx . *Shift('', thx)
++                                     epsilon . thx . *Shift('', thx)
++                                     epsilon . thx . *Shift('', thx)
 +                                   )
-+                                   FENCE(*Goto | epsilon ~ '' epsilon ~ '')
++                                   FENCE(
++                                     *Goto
++                                   | epsilon . thx . *Shift('', thx) epsilon . thx . *Shift('', thx)
++                                   )
 +                                   *Gray
 
                   Commands       =  *Command FENCE(*Commands | epsilon)
                   Command        =  nInc()
 +                                   FENCE(
-+                                     *Comment ~ 'comment' ("'Comment'" & 1) nl
-+                                   | *Control ~ 'control' ("'Control'" & 1) (nl | ';')
-+                                   | *Stmt ("'Stmt'" & 7) (nl | ';')
++                                     *Comment . thx . *Shift('comment', thx)
++                                     (epsilon . *Reduce('Comment', 1))
++                                     nl
++                                   | *Control . thx . *Shift('control', thx)
++                                     (epsilon . *Reduce('Control', 1))
++                                     (nl | ';')
++                                   | *Stmt (epsilon . *Reduce('Stmt', 7)) (nl | ';')
 +                                   )
 
-                  Parse          =  nPush() ARBNO(*Command) ("'Parse'" & 'nTop()') nPop()
+                  Parse          =  nPush() ARBNO(*Command) (epsilon . *Reduce('Parse', nTop())) nPop()
 
                   Compiland      =  nPush()
 +                                   ARBNO(*Command)
-+                                   ("'Parse'" & 'nTop()')
++                                   (epsilon . *Reduce('Parse', nTop()))
 +                                   ( icase('END') (' ' BREAK(nl) nl | nl) ARBNO(BREAK(nl) nl)
 +                                   | epsilon
 +                                   )
