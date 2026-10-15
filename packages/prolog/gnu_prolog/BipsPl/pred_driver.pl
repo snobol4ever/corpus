@@ -6,6 +6,8 @@
 % pe/2 dynamic with none, pm/1 multifile, ps/2 static) and about a few built-ins, always with a bound name and a bound
 % property: current_predicate(-) and predicate_property(-, ?) enumerate the whole predicate table, whose order and contents
 % differ by system, and prolog_file(F) is a path that depends on where the driver sits, so those modes are left out.
+% NOT DRIVEN: predicate_property(catch(_, _, _), meta_predicate(_)) -- gprolog 1.6.0, the grading oracle, dies there with
+% "Fatal Error: Segmentation Violation (bad address: 0x26)", which cut the reference short and left the cases after it with no answer.
 :- initialization(main).
 
 :- dynamic(pd/1).
@@ -72,7 +74,6 @@ main :-
     t(predicate_property((_, _), control_construct)),
     t(predicate_property(call(_), control_construct)),
     t(predicate_property(atom_length(_, _), control_construct)),
-    t(predicate_property(catch(_, _, _), meta_predicate(_))),
     t(predicate_property(findall(_, _, _), meta_predicate(_))),
     t(predicate_property(nosuch(_), dynamic)),
     t(predicate_property(nosuch(_), static)),
