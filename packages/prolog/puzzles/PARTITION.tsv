@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by scripts/util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=268 features=26 ubiquitous=5(package findall nl unify directive) distinctive=21 core=18 clusters=73 chunks=3 sizes=100,100,50
+# shape: entries=267 features=26 ubiquitous=5(package findall nl unify directive) distinctive=21 core=18 clusters=72 chunks=3 sizes=100,100,49
 entry	part	cluster	shells
 hakank_sicstus_clique	core	core	cut format if_then_else list_cons write
 hakank_sicstus_diet1	chunk:02	feat:write	write
@@ -269,4 +269,3 @@ p4_binary_trees	core	core	between catch copy_term cut findall_with_var_goal fora
 p5_multiway_trees	chunk:02	feat:copy_term	catch copy_term findall_with_var_goal forall if_then_else list_cons negation nonvar
 p6_graphs	core	core	assertz between catch copy_term cut findall_with_var_goal forall functor if_then_else list_cons negation nonvar var
 p7_miscellaneous	core	core	between catch copy_term cut findall_with_var_goal forall if_then_else list_cons negation nonvar univ var write
-hakank_swi_shifted_division	chunk:03	family:hakank_swi_shifted_division	
