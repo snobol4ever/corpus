@@ -19,43 +19,12 @@
 # moved. A pinned exit code with no recorded recipe cannot be re-derived, only re-measured.
 misc17_halt_1_status_1	3
 #
-# ⛔ throw_ite_directive_1, hq_prolog 2026-09-22 (row prolog-an-uncaught-error-in-an-initialization-
-# goal-exits-0-with-empty-stdout-where-swipl-exits-2). main's body is `write(before), nl, (throw(oops)
-# -> write(yes) ; write(no)), nl, write(after), nl` -- ISO: throw/1 in the CONDITION of -> is not caught
-# by -> and propagates uncaught, so main never completes past `before`. ALL.ref's stdout ("before\n")
-# is correct and untouched; only rc is declared here. ⭐ THE SAME RECIPE-DRIFT TRAP THIS FILE'S OWN
-# 2026-09-02 note names, one recipe over: cmd_capture_oracle_refs' canonical Prolog oracle recipe is
-# BARE `swipl -q file.pl` (corpus_suite_harness.py resolve_oracle_bin, chosen 2026-09-05 to dodge a
-# DIFFERENT vacuous-ref trap where `-g halt` fires before the initialization/2 hook). For a single-arg
-# `:- initialization(main).` whose goal throws uncaught, bare -q reports the exception then FALLS
-# THROUGH TO THE INTERACTIVE TOPLEVEL, which hits EOF on closed stdin and exits 0 -- an artifact of the
-# toplevel's own EOF handling, not of anything main computed. This is exactly why this row's own GOAL
-# excluded gprolog as an oracle here ("it exits 0 but enters its toplevel and writes 587 bytes"): bare
-# -q swipl enters the identical disqualified shape for this one program class, just silently (no banner).
-# MEASURED, both reproducible on demand: `swipl -q -g main -t halt file.pl` -- the recipe that actually
-# drives the goal to completion instead of falling through -- exits 2, matching the row's own witness.
-throw_ite_directive_1	2
-#
-# ⛔ simple_program_103, hq_prolog 2026-09-23 (CEO-1197 blocking-set pass: test_gate_pl_ctx_leaf_thunks_
-# cannot_drop_a_ball). main's body ends `atom_to_term(A, bar(x), [])` with A UNBOUND -- ISO requires
-# atom_to_term/3's first argument to be an atom, so this is an instantiation_error. Before this session's
-# gate cure, atom_to_term was registered under the PLAIN PL_CTX_LEAF thunk in rtx_plunify.s, which never
-# reads back the C helper's ball, so the C side's already-correct instantiation_error was written into an
-# uninitialised stack slot and silently dropped -- the goal just failed, main's initialization goal failed
-# (not threw), and a failed (not thrown) initialization goal exits 0 (its own, separate, already-tracked
-# behaviour). Moving atom_to_term to PL_CTX_LEAF_BALL makes the same C-side error actually reach the
-# throw, exactly the fix's whole point -- confirmed against swipl (gprolog has no atom_to_term/3 at all):
-# `swipl -q -g main -t halt` on the identical goal shape raises instantiation_error and, per the same
-# uncaught-in-initialization recipe as throw_ite_directive_1 immediately above, exits 2. ALL.ref's stdout
-# ("foo(1,2)\n[]\n", main's output stops there either way) is correct and untouched; only rc is declared.
-simple_program_103	2
-#
-# ⛔ directive_42, hq_prolog 2026-09-23 (CEO-1214 health check: four logtalk_iso integer-rounding cases regressed at SCRIP
-# 6a6983d9e2, which made truncate/round/ceiling/floor of an INTEGER return it to satisfy this entry's swipl-cut ref "7\n4\n").
-# ISO/IEC 13211-1 9.1.1 types these four functions F -> I: an integer argument is type_error(float, 7). GNU Prolog agrees
-# (gprolog --consult-file: "user directive caused exception: error(type_error(float,7),(is)/2)", nothing on stdout) and the
-# Logtalk ISO suite asserts it (lgt_ceiling_1_05, lgt_floor_1_06, lgt_round_1_13, lgt_truncate_1_06). swipl alone answers 7,
-# with or without its iso flag -- ORACLE-DIVERGENT, the same class as list_directive_4 (GNU canonical where SWI leaves ISO).
-# ALL.ref's block is RE-CUT FROM GNU: empty stdout, and the uncaught-in-initialization recipe above gives rc 2. A future
-# whole-rungs re-cut from swipl would put "7\n4\n" back and must not: curing it costs the four ISO cases.
-directive_42	2
+# ⛔ throw_ite_directive_1, simple_program_103 and directive_42 are NO LONGER PINNED (hq_prolog 2026-10-15, the coo's
+# bisect to SCRIP bb7cfbe56, ceo CEO-1766). Each pinned rc 2 for a lone `:- initialization(main).` whose goal raises,
+# by the recipe `swipl -q -g main -t halt` -- which runs main TWICE (once as the initialization goal, once as -g) and
+# prints the block twice against a ref that holds it once, so that rc was never the oracle's answer for this program.
+# MEASURED on all three, stdin /dev/null: swipl 9.0.4 `swipl -q file.pl` (the recipe that cut the refs) exits 0;
+# gprolog 1.6.0 through gprolog_bin `--consult-file` exits 0 (a warning, then the toplevel's EOF); 1.6.0's gplc
+# compiles only throw_ite_directive_1, whose binary exits 0. A raising initialization/1 goal is a warning and the
+# program goes on, as bb7cfbe56 does; `initialization(main, main)` is the shape that exits 2 (swipl and SCRIP alike).
+# The refs' stdout is unchanged; directive_42's GNU-cut empty block (truncate(7) is type_error(float,7)) stands.
