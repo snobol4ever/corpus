@@ -1,6 +1,15 @@
 %---- ladder__rung08_null_default_return total=2
 alpha NADA
 gamma NADA
+%---- ladder__rung08_used_in_replacement_field total=2
+alpha TAG
+gamma TAG
+%---- ladder__rung08_call_by_value_default total=2
+alpha ZERO
+gamma ZERO
+%---- ladder__rung08_local_var_saved_restored total=2
+alpha SETX
+gamma SETX
 %---- ladder__rung08_define_function total=2
 alpha DBL
 gamma DBL
@@ -9,18 +18,59 @@ alpha ADD1
 gamma ADD1
 alpha ADD1
 gamma ADD1
-%---- ladder__rung08_used_in_replacement_field total=2
-alpha TAG
-gamma TAG
-%---- ladder__rung08_call_by_value_default total=2
-alpha ZERO
-gamma ZERO
+%---- ladder__rung18_value_traces_an_assignment_through_a_returned_name total=2
+alpha H
+gamma H
+%---- ladder__rung19_ftrace_call_and_return total=2
+alpha SHIFT
+gamma SHIFT
+%---- ladder__rung14_lastno_stno_line_file_lastline_lastfile total=2
+alpha SHOW
+gamma SHOW
+%---- ladder__rung21_keyword_stcount_calls_the_trace_function_before_every_statement total=6
+alpha MYFUN
+gamma MYFUN
+alpha MYFUN
+gamma MYFUN
+alpha MYFUN
+gamma MYFUN
+%---- ladder__rung22_access_calls_a_program_defined_trace_function_with_the_name_and_the_tag total=2
+alpha TRFUN
+gamma TRFUN
 %---- ladder__rung08_dummy_arg_saved_restored total=2
 alpha DBL2
 gamma DBL2
-%---- ladder__rung08_local_var_saved_restored total=2
-alpha SETX
-gamma SETX
+%---- ladder__rung19_ftrace_decrements_and_stops_at_zero total=6
+alpha F
+gamma F
+alpha F
+gamma F
+alpha F
+gamma F
+%---- ladder__rung08_call_by_name_swap total=2
+alpha SWAP
+gamma SWAP
+%---- ladder__rung17_trace_types_all total=0
+%---- ladder__rung08_returns_pattern_for_match total=2
+alpha BRK1
+gamma BRK1
+%---- ladder__rung17_trace_function_tag total=4
+alpha TRFUN
+gamma TRFUN
+alpha TRFUN
+gamma TRFUN
+%---- ladder__rung21_keyword_spelling_k total=2
+alpha F
+gamma F
+%---- ladder__rung20_label_that_begins_a_function_is_not_traced_on_call total=2
+alpha F
+gamma F
+%---- ladder__rung21_keyword_fnclevel total=2
+alpha F
+gamma F
+%---- ladder__rung22_access_nesting_depth_prints_an_i_per_function_call_level total=2
+alpha F
+gamma F
 %---- ladder__rung08_array_arg_implicit_reference total=2
 alpha BUMP
 gamma BUMP
@@ -35,12 +85,35 @@ gamma FACT
 gamma FACT
 gamma FACT
 gamma FACT
-%---- ladder__rung08_call_by_name_swap total=2
-alpha SWAP
-gamma SWAP
-%---- ladder__rung08_returns_pattern_for_match total=2
-alpha BRK1
-gamma BRK1
+%---- ladder__rung19_ftrace_nesting_depth_marks total=6
+alpha A
+alpha B
+alpha C
+gamma C
+gamma B
+gamma A
+%---- ladder__rung19_trace_type_call total=4
+alpha F
+gamma F
+alpha G
+gamma G
+%---- ladder__rung19_trace_type_return total=4
+alpha F
+gamma F
+alpha G
+gamma G
+%---- ladder__rung19_trace_type_function_combines_call_and_return total=4
+alpha F
+gamma F
+alpha G
+gamma G
+%---- ladder__rung19_ftrace_return_types total=6
+alpha R
+gamma R
+alpha NM
+gamma NM
+alpha FL
+omega FL
 %---- ladder__rung08_freturn_signals_failure total=4
 alpha MAYBE
 gamma MAYBE
@@ -51,6 +124,13 @@ alpha F1
 gamma F1
 alpha F2
 omega F2
-%---- ladder__rung14_lastno_stno_line_file_lastline_lastfile total=2
-alpha SHOW
-gamma SHOW
+%---- ladder__rung08_function_built_patterns_keep_their_own_arguments total=4
+alpha MK
+gamma MK
+alpha MK
+gamma MK
+%---- ladder__rung32_an_error_in_a_function_called_from_a_deferred_capture_target_fails_only_its_statement total=4
+alpha CR
+gamma CR
+alpha SH
+gamma SH
