@@ -92,7 +92,7 @@ end
 abc:2
 1234:2
 ABC:4
-#---------------------------------------------- 881 procedure_to_while_replace_1
+#---------------------------------------------- 882 procedure_to_while_replace_1
 Order, Coleoptera, (Beetles). Many beetles are colored so as
 to resemble the surfaces which they habitually frequent, and they thus
 escape detection by their enemies. Other species, for instance, diamond-beetles, are ornamented
@@ -110,7 +110,7 @@ sexual characters. Blind beetles, which cannot, of course, behold each
 other's beauty, never, as I hear from Mr. Waterhouse, Jr., exhibit bright
 colors, though they often have polished coats; but the explanation of their
 obscurity may be that they generally inhabit caves and other obscure stations.
-#------------------------------------------ 904 procedure_record_every_replace_3
+#------------------------------------------ 905 procedure_record_every_replace_3
 abcdefgh
 01
 d
@@ -131,14 +131,14 @@ f
 g
 g
 d
-#-------------------------------------------- 906 procedure_every_scan_replace_6
+#-------------------------------------------- 907 procedure_every_scan_replace_6
 [ constructed by hand ]
 ABCD EFGH IJKL MNOP
 AEIM BFJN CGKO DHLP
 AHKN BGLM CFIP DEJO
 AFLO BEKP CHJM DGIN
 AGJP BHIO CELN DFKM
-#-------------------------------------------- 907 procedure_every_scan_replace_4
+#-------------------------------------------- 908 procedure_every_scan_replace_4
 ##  test data for entab/detab tester; see driver program's comments for details
 #
 #   Remember that the characters --> "!.$" <-- are metacharacters, and cannot
@@ -397,7 +397,7 @@ abc\b!.de\b!..fghij\b!...k
 !...!.!..\n!...!.!..\r!...!.!..\n\r!...!.!..\r\n!...!.!..
 !...\a!.\a!..\a!..
 !...\b\b\b\b!...\b\a\b\a!.!.!..\n\n\n  \t!.!..\n
-#------------------------------------------- 910 procedure_every_scan_replace_16
+#------------------------------------------- 911 procedure_every_scan_replace_16
 #
 #	W O R D   T A B U L A T I O N
 #
@@ -421,7 +421,7 @@ procedure wordcount(n)
    x := sort(t)
    every y := !x do write(left(y[1],n),y[2])
 end
-#------------------------------------------- 912 procedure_record_scan_replace_2
+#------------------------------------------- 913 procedure_record_scan_replace_2
 {html{head
     {title Off the Beaten Path}
 }{body bgcolor="#EEEEEE"

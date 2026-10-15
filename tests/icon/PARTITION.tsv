@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by scripts/util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=912 features=62 ubiquitous=3(write procedure assign) distinctive=59 core=25 clusters=109 chunks=9 sizes=100,100,100,100,100,100,100,100,87
+# shape: entries=913 features=62 ubiquitous=3(write procedure assign) distinctive=59 core=25 clusters=109 chunks=9 sizes=100,100,100,100,100,100,100,100,88
 entry	part	cluster	shells
 procedure_write_107	chunk:09	family:scrip_test_icon_jcon_audit_01_intlit	
 procedure_write_108	chunk:09	family:scrip_test_icon_jcon_audit_02_reallit	
@@ -39,7 +39,7 @@ procedure_write_181	chunk:01	family:ladder
 procedure_write_199	chunk:01	family:ladder	
 procedure_write_22	chunk:08	family:rung17_real_arith	
 procedure_write_23	chunk:08	family:rung17_real_arith	
-procedure_write_27	chunk:08	family:rung18_real_relop	
+procedure_write_27	chunk:09	family:rung18_real_relop	
 procedure_write_29	chunk:09	family:rung19_pow_toby	
 procedure_write_30	chunk:09	family:rung19_pow_toby	
 procedure_write_41	chunk:09	family:rung26_pow	
@@ -148,8 +148,8 @@ procedure_write_173	chunk:01	family:ladder
 procedure_write_178	chunk:01	family:ladder	
 procedure_write_20	chunk:07	feat:integer	integer
 procedure_write_200	chunk:01	family:ladder	
-procedure_write_25	chunk:08	family:rung18_real_relop	
-procedure_write_26	chunk:08	family:rung18_real_relop	
+procedure_write_25	chunk:09	family:rung18_real_relop	
+procedure_write_26	chunk:09	family:rung18_real_relop	
 procedure_write_31	chunk:09	family:rung19_pow_toby	
 procedure_write_35	chunk:09	family:rung20_section_seqexpr	
 procedure_write_38	chunk:09	family:rung22_lists	
@@ -169,8 +169,8 @@ procedure_write_170	chunk:01	family:ladder
 procedure_write_189	chunk:05	feat:image	image
 procedure_write_19	chunk:08	family:rung16_subscript	
 procedure_write_192	chunk:03	feat:type	type
-procedure_write_21	chunk:08	family:rung17_real_arith	
-procedure_write_28	chunk:08	family:rung18_real_relop	
+procedure_write_21	chunk:09	family:rung17_real_arith	
+procedure_write_28	chunk:09	family:rung18_real_relop	
 procedure_write_36	chunk:09	family:rung20_section_seqexpr	
 procedure_write_50	chunk:05	feat:image	image
 procedure_write_53	chunk:03	feat:type	type
@@ -437,7 +437,7 @@ ladder_rung42_kw_dump	chunk:03	feat:type	keyword_ref type
 procedure_scan_alt_1	chunk:08	feat:match	alternation match scan
 procedure_scan_alt_2	chunk:08	feat:match	alternation match scan
 procedure_write_245	chunk:02	feat:limitation	limitation local
-procedure_write_45	chunk:09	feat:reads	local reads
+procedure_write_45	chunk:08	feat:reads	local reads
 procedure_write_read_2	chunk:06	feat:read	local read
 procedure_write_read_4	chunk:06	feat:read	local read
 ladder__rung08_strbuiltins_trim_with_a_nul_in_its_cset	chunk:08	feat:trim	image limitation trim
@@ -527,7 +527,7 @@ procedure_every_elemgen_7	chunk:07	feat:sort	element_gen every sort
 procedure_every_to_52	chunk:08	feat:stop	every keyword_ref stop to_by
 procedure_while_write_2	chunk:06	feat:read	local read while
 procedure_while_write_8	chunk:06	feat:read	local read while
-procedure_write_keyword_5	chunk:09	feat:reads	keyword_ref local reads
+procedure_write_keyword_5	chunk:08	feat:reads	keyword_ref local reads
 ladder__rung13_alt_a_call_with_a_generating_argument_resumes	chunk:05	feat:element_gen	element_gen every local
 ladder_rung38_coexpr_create	chunk:04	feat:create	coexpr_activate create local
 procedure_every_alt_17	chunk:02	feat:return	alternation every gen_with_alternation return
@@ -596,7 +596,7 @@ ladder__rung02_proc_a_real_callee_invokes_by_its_integer_part	chunk:02	feat:retu
 ladder__rung29_builtins_a_builtin_assigned_a_procedure_calls_it	chunk:08	feat:put	global local put
 ladder__rung42_kw_not_of_a_failing_keyword_succeeds	chunk:06	feat:fail	alternation fail image keyword_ref
 procedure_scan_size_1	chunk:06	feat:scan	keyword_ref local scan
-ladder_rung41_rt_flush_seek_where	chunk:09	feat:reads	local reads writes
+ladder_rung41_rt_flush_seek_where	chunk:08	feat:reads	local reads writes
 procedure_write_275	chunk:03	feat:record	keyword_ref local record
 ladder__rung08_strbuiltins_a_numeric_comparison_converts_a_string_of_any_length	chunk:08	feat:repl	integer local repl
 procedure_write_augassign_replace_2	chunk:06	feat:static	aug_assign image static
@@ -662,7 +662,7 @@ ladder__rung29_builtins_binary_star_with_one_argument_raises	chunk:05	feat:image
 procedure_every_to_13	chunk:02	feat:return	every local return to_by
 procedure_every_to_44	chunk:02	feat:return	every local return to_by
 ladder__rung29_builtins_proc_finds_a_linked_procedure_in_both_modes	chunk:02	feat:return	alternation image local return
-ladder_rung41_rt_read_reads_from_file	chunk:09	feat:reads	alternation local read reads
+ladder_rung41_rt_read_reads_from_file	chunk:08	feat:reads	alternation local read reads
 procedure_every_to_replace_3	chunk:07	feat:next	every local next to_by
 procedure_write_222	chunk:07	feat:insert	insert local return table
 procedure_scan_alt_replace_2	chunk:07	feat:integer	alternation integer keyword_ref scan
@@ -752,7 +752,7 @@ ladder_rung37_bal_default	chunk:07	feat:bal	bal local move scan scan_with_tab ta
 ladder__rung29_builtins_a_builtin_swapped_with_a_procedure_calls_it	chunk:03	feat:swap	alternation limitation local return swap writes
 procedure_record_alt_1	chunk:03	feat:swap	alternation aug_assign image local record swap
 ladder_rung38_coexpr_coroutine_switch	chunk:04	feat:create	aug_assign coexpr_activate create global local while
-procedure_alt_list_replace_1	core	core	alternation image keyword_ref list local reads
+procedure_alt_list_replace_1	chunk:08	feat:reads	alternation image keyword_ref list local reads
 procedure_scan_to_replace_1	chunk:08	feat:match	image keyword_ref match scan scan_with_tab tab to_by
 ladder__rung13_alt_a_converted_concatenation_error_falls_to_the_alternative	chunk:05	feat:gen_with_alternation	alternation every gen_with_alternation keyword_ref local to_by
 procedure_alt_table_replace_2	chunk:08	feat:repl	alternation image keyword_ref local repl table
@@ -882,6 +882,7 @@ procedure_scan_while_replace_1	chunk:08	feat:stop	aug_assign find integer local 
 procedure_record_every_replace_4	chunk:07	feat:next	alternation aug_assign element_gen every gen_with_alternation global integer list local next record repl static stop to_by
 ladder__rung22_repalt_repeated_alternation_resumes_its_operand	chunk:09	feat:get	alternation aug_assign coexpr_activate create element_gen every every_with_suspend fail gen_with_alternation get keyword_ref limitation local suspend to_by writes
 ladder__rung38_coexpr_a_merge_of_two_coexpressions_under_scanning	chunk:09	feat:coexpr_activate	alternation coexpr_activate every every_with_suspend gen_with_alternation image keyword_ref limitation local scan scan_with_tab suspend tab upto while writes
+ladder__rung29_builtins_read_returns_each_line_of_a_file_whatever_its_ending_or_length	core	core	alternation aug_assign every gen_with_alternation image limitation local read reads repl return section stop to_by while writes
 procedure_to_while_replace_1	chunk:07	feat:next	aug_assign get insert keyword_ref local many map next read section set sort table to_by upto while
 procedure_every_suspend_7	core	core	alternation every every_with_suspend fail gen_with_alternation image integer keyword_ref local many pos scan scan_with_tab suspend tab to_by
 procedure_coexpr_suspend_replace_3	chunk:08	feat:stop	alternation aug_assign coexpr_activate create element_gen gen_with_alternation image keyword_ref limitation local repl section stop suspend to_by while
