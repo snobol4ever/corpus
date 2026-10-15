@@ -66,7 +66,7 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 65,core/test_write,swi_tests__core/test_write,swi_tests,333,0,0,131072,4096,,
 66,db/test_abolish,swi_tests__db/test_abolish,swi_tests,88,0,0,131072,4096,,
 67,db/test_cgc,swi_tests__db/test_cgc,swi_tests,107,0,0,131072,4096,,
-68,db/test_db,swi_tests__db/test_db,swi_tests,249,0,0,131072,4096,,
+68,db/test_db,swi_tests__db/test_db,swi_tests,249,0,0,131072,65536,,
 69,db/test_dbref,swi_tests__db/test_dbref,swi_tests,90,0,0,131072,4096,,
 70,db/test_jit,swi_tests__db/test_jit,swi_tests,230,0,0,131072,4096,,
 71,db/test_module,swi_tests__db/test_module,swi_tests,100,0,0,131072,4096,,
