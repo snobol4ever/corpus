@@ -19,6 +19,12 @@ main:
                         push             rsi
                         call             core_lib_init@PLT
                         call             module_init
+                        mov              edi, 719
+                        call             rt_gva_island@PLT
+                        mov              rsi, rax
+                        lea              rdi, [rip + __gva_names]
+                        mov              edx, 719
+                        call             gva_register@PLT
                         lea              rdi, [rip + __alpha_cellp_tab]
                         call             rt_ab_cell_bind_table@PLT
                         lea              rdi, [rip + __gc_frame_maps]
@@ -33,7 +39,10 @@ main:
                         mov              esi, dword ptr [rsp + 8]
                         sub              esi, 1
                         call             rt_main_args_stage_argv@PLT
+                        mov              r12, qword ptr [0x70000000]
                         call             rtcc_load_all@PLT
+                        lea              rdi, [rsp - 16]
+                        call             rt_program_top_adopt@PLT
                         xor              esi, esi
                         xor              r14d, r14d
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
@@ -46,22 +55,770 @@ main:
 .Lmain_icn_end:         and              rsp, -16
                         xor              edi, edi
                         call             exit@PLT
+                        .section         .rodata
+                        .align           8
+__gva_names:
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .section         .text
+                        .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgccode_main_0:
 main_α:
                         sub              rsp, 512
                         mov              rdi, rsp
-                        add              rdi, 0
+                        xorps            xmm0, xmm0
                         xor              eax, eax
-                        mov              ecx, 504
-                        rep              stosb
-                        lea              rax, [rip + .Lgcmap_main]
-                        mov              qword ptr [rsp + 424], rax
-                        mov              dword ptr [rsp + 416], 160
-                        mov              dword ptr [rsp + 420], 512
-                        mov              eax, 0
-                        mov              qword ptr [rsp + 504], rbp
-                        mov              rbp, rsp
+                        movups           xmmword ptr [rdi + 0], xmm0
+                        movups           xmmword ptr [rdi + 16], xmm0
+                        movups           xmmword ptr [rdi + 32], xmm0
+                        movups           xmmword ptr [rdi + 48], xmm0
+                        movups           xmmword ptr [rdi + 64], xmm0
+                        movups           xmmword ptr [rdi + 80], xmm0
+                        movups           xmmword ptr [rdi + 96], xmm0
+                        movups           xmmword ptr [rdi + 112], xmm0
+                        movups           xmmword ptr [rdi + 128], xmm0
+                        movups           xmmword ptr [rdi + 144], xmm0
+                        movups           xmmword ptr [rdi + 160], xmm0
+                        movups           xmmword ptr [rdi + 176], xmm0
+                        movups           xmmword ptr [rdi + 192], xmm0
+                        movups           xmmword ptr [rdi + 208], xmm0
+                        movups           xmmword ptr [rdi + 224], xmm0
+                        movups           xmmword ptr [rdi + 240], xmm0
+                        movups           xmmword ptr [rdi + 256], xmm0
+                        movups           xmmword ptr [rdi + 272], xmm0
+                        movups           xmmword ptr [rdi + 288], xmm0
+                        movups           xmmword ptr [rdi + 304], xmm0
+                        movups           xmmword ptr [rdi + 320], xmm0
+                        movups           xmmword ptr [rdi + 336], xmm0
+                        movups           xmmword ptr [rdi + 352], xmm0
+                        movups           xmmword ptr [rdi + 368], xmm0
+                        movups           xmmword ptr [rdi + 384], xmm0
+                        movups           xmmword ptr [rdi + 400], xmm0
+                        movups           xmmword ptr [rdi + 416], xmm0
+                        movups           xmmword ptr [rdi + 432], xmm0
+                        movups           xmmword ptr [rdi + 448], xmm0
+                        movups           xmmword ptr [rdi + 464], xmm0
+                        movups           xmmword ptr [rdi + 480], xmm0
+                        mov              qword ptr [rdi + 496], rax
+                        mov              eax, 0                               # GCANCHOR .Lgcmap_main qword ptr [rsp + 424]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -72,26 +829,27 @@ main_α:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
 main_α_body:
-                        .type            n0_call_bx, @function
-n0_call_bx:
+                        .type            n0_call_direct_bx, @function
+n0_call_direct_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n0_call_α:              lea              rdi, [rbp + 384]
+n0_call_direct_α:       lea              rdi, [rsp + 384]
                         mov              esi, 0
                         call             rt_quit_trap_300@PLT
-.Lgcsite_main_0:        mov              qword ptr [rbp + 368], rax
-                        mov              qword ptr [rbp + 376], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:281
+.Lgcsite_main_0:        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              qword ptr [rsp + 368], rax
+                        mov              qword ptr [rsp + 376], rdx
+                        push             rax                                  # gc_poll bb_call_fn.cpp:261
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_1:
+.Lgcsite_main_1:        mov              r9,  qword ptr [rip + rtccb+48]
 1:                      cmp              al, 104;                             je    n1_line_mark_α
                                                                               jmp   n1_line_mark_α
-n0_call_β:                                                                    jmp   n1_line_mark_α
-                        .size            n0_call_bx, .-n0_call_bx
+n0_call_direct_β:                                                             jmp   n1_line_mark_α
+                        .size            n0_call_direct_bx, .-n0_call_direct_bx
                         .type            n1_line_mark_bx, @function
 n1_line_mark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -127,18 +885,18 @@ n2_line_mark_α:         mov              rax, qword ptr [rip + g_line@GOTPCREL]
                         .type            n3_lit_integer_bx, @function
 n3_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3_lit_integer_α:       mov              qword ptr [rbp + 320], 3             # result
+n3_lit_integer_α:       mov              qword ptr [rsp + 320], 3             # result
                         mov              rax, qword ptr [rip + .Llit_integer_α_28_0]
-                        mov              qword ptr [rbp + 328], rax;          jmp   n4_assign_α
+                        mov              qword ptr [rsp + 328], rax;          jmp   n4_assign_α
 .Llit_integer_α_28_0:   .quad            0
                         .size            n3_lit_integer_bx, .-n3_lit_integer_bx
                         .type            n4_assign_bx, @function
 n4_assign_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n4_assign_α:            mov              rax, qword ptr [rbp + 320]
-                        mov              rdx, qword ptr [rbp + 328]
-                        mov              qword ptr [rbp + 384], rax
-                        mov              qword ptr [rbp + 392], rdx;          jmp   n5_line_mark_α
+n4_assign_α:            mov              rax, qword ptr [rsp + 320]
+                        mov              rdx, qword ptr [rsp + 328]
+                        mov              qword ptr [rsp + 384], rax
+                        mov              qword ptr [rsp + 392], rdx;          jmp   n5_line_mark_α
                         .size            n4_assign_bx, .-n4_assign_bx
                         .type            n5_line_mark_bx, @function
 n5_line_mark_bx:
@@ -155,26 +913,27 @@ n5_line_mark_α:         mov              rax, qword ptr [rip + g_line@GOTPCREL]
                         .type            n6_lit_integer_bx, @function
 n6_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n6_lit_integer_α:       mov              qword ptr [rbp + 144], 3             # result
+n6_lit_integer_α:       mov              qword ptr [rsp + 144], 3             # result
                         mov              rax, qword ptr [rip + .Llit_integer_α_32_0]
-                        mov              qword ptr [rbp + 152], rax;          jmp   n7_lit_integer_α
+                        mov              qword ptr [rsp + 152], rax;          jmp   n7_lit_integer_α
 .Llit_integer_α_32_0:   .quad            1
                         .size            n6_lit_integer_bx, .-n6_lit_integer_bx
                         .type            n7_lit_integer_bx, @function
 n7_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n7_lit_integer_α:       mov              qword ptr [rbp + 160], 3             # result
+n7_lit_integer_α:       mov              qword ptr [rsp + 160], 3             # result
                         mov              rax, qword ptr [rip + .Llit_integer_α_33_0]
-                        mov              qword ptr [rbp + 168], rax;          jmp   n8_to_α
+                        mov              qword ptr [rsp + 168], rax;          jmp   n8_to_α
 .Llit_integer_α_33_0:   .quad            2000000
                         .size            n7_lit_integer_bx, .-n7_lit_integer_bx
                         .type            n8_to_bx, @function
 n8_to_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n8_to_α:                mov              rdi, qword ptr [rbp + 144]
-                        mov              rsi, qword ptr [rbp + 152]
+n8_to_α:                mov              rdi, qword ptr [rsp + 144]
+                        mov              rsi, qword ptr [rsp + 152]
                         call             core_icn_int_operand_ok@PLT
-.Lgcsite_main_9:        test             eax, eax;                            jz    n18_line_mark_α
+.Lgcsite_main_9:        mov              r9,  qword ptr [rip + rtccb+48]
+                        test             eax, eax;                            jz    n18_line_mark_α
                         push             rax                                  # gc_poll xa_to_helpers.cpp:39
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -182,12 +941,13 @@ n8_to_α:                mov              rdi, qword ptr [rbp + 144]
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_8:
-1:                      mov              rdi, qword ptr [rbp + 144]
-                        mov              rsi, qword ptr [rbp + 152]
+.Lgcsite_main_8:        mov              r9,  qword ptr [rip + rtccb+48]
+1:                      mov              rdi, qword ptr [rsp + 144]
+                        mov              rsi, qword ptr [rsp + 152]
                         call             core_icn_to_int_check@PLT
-.Lgcsite_main_7:        mov              qword ptr [rbp + 144], 3
-                        mov              qword ptr [rbp + 152], rax
+.Lgcsite_main_7:        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              qword ptr [rsp + 144], 3
+                        mov              qword ptr [rsp + 152], rax
                         push             rax                                  # gc_poll bb_to.cpp:160
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -195,11 +955,12 @@ n8_to_α:                mov              rdi, qword ptr [rbp + 144]
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_6:
-1:                      mov              rdi, qword ptr [rbp + 160]
-                        mov              rsi, qword ptr [rbp + 168]
+.Lgcsite_main_6:        mov              r9,  qword ptr [rip + rtccb+48]
+1:                      mov              rdi, qword ptr [rsp + 160]
+                        mov              rsi, qword ptr [rsp + 168]
                         call             core_icn_int_operand_ok@PLT
-.Lgcsite_main_5:        test             eax, eax;                            jz    n18_line_mark_α
+.Lgcsite_main_5:        mov              r9,  qword ptr [rip + rtccb+48]
+                        test             eax, eax;                            jz    n18_line_mark_α
                         push             rax                                  # gc_poll xa_to_helpers.cpp:39
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -207,12 +968,13 @@ n8_to_α:                mov              rdi, qword ptr [rbp + 144]
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_4:
-1:                      mov              rdi, qword ptr [rbp + 160]
-                        mov              rsi, qword ptr [rbp + 168]
+.Lgcsite_main_4:        mov              r9,  qword ptr [rip + rtccb+48]
+1:                      mov              rdi, qword ptr [rsp + 160]
+                        mov              rsi, qword ptr [rsp + 168]
                         call             core_icn_to_int_check@PLT
-.Lgcsite_main_3:        mov              qword ptr [rbp + 160], 3
-                        mov              qword ptr [rbp + 168], rax
+.Lgcsite_main_3:        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              qword ptr [rsp + 160], 3
+                        mov              qword ptr [rsp + 168], rax
                         push             rax                                  # gc_poll bb_to.cpp:168
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -220,130 +982,132 @@ n8_to_α:                mov              rdi, qword ptr [rbp + 144]
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_2:
-1:                      mov              rax, qword ptr [rbp + 152]
-                        mov              qword ptr [rbp + 128], rax
-.Lto_α_35_0:            mov              rax, qword ptr [rbp + 128]
-                        mov              rcx, qword ptr [rbp + 168]
+.Lgcsite_main_2:        mov              r9,  qword ptr [rip + rtccb+48]
+1:                      mov              rax, qword ptr [rsp + 152]
+                        mov              qword ptr [rsp + 128], rax
+.Lto_α_35_0:            mov              rax, qword ptr [rsp + 128]
+                        mov              rcx, qword ptr [rsp + 168]
                         cmp              rax, rcx;                            jg    n18_line_mark_α
-                        mov              qword ptr [rbp + 112], 3
-                        mov              qword ptr [rbp + 120], rax;          jmp   n9_assign_α
-n8_to_β:                inc              qword ptr [rbp + 128];               jo    n18_line_mark_α
+                        mov              qword ptr [rsp + 112], 3
+                        mov              qword ptr [rsp + 120], rax;          jmp   n9_assign_α
+n8_to_β:                inc              qword ptr [rsp + 128];               jo    n18_line_mark_α
                                                                               jmp   .Lto_α_35_0
                         .size            n8_to_bx, .-n8_to_bx
                         .type            n9_assign_bx, @function
 n9_assign_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n9_assign_α:            mov              rax, qword ptr [rbp + 112]
-                        mov              rdx, qword ptr [rbp + 120]
-                        mov              qword ptr [rbp + 400], rax
-                        mov              qword ptr [rbp + 408], rdx;          jmp   n10_bound_α
+n9_assign_α:            mov              rax, qword ptr [rsp + 112]
+                        mov              rdx, qword ptr [rsp + 120]
+                        mov              qword ptr [rsp + 400], rax
+                        mov              qword ptr [rsp + 408], rdx;          jmp   n10_bound_α
                         .size            n9_assign_bx, .-n9_assign_bx
                         .type            n10_bound_bx, @function
 n10_bound_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n10_bound_α:            mov              qword ptr [rbp + 192], rsp;          jmp   n11_var_α
+n10_bound_α:            mov              qword ptr [rsp + 192], rsp;          jmp   n11_var_α
                         .size            n10_bound_bx, .-n10_bound_bx
                         .type            n11_var_bx, @function
 n11_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n11_var_α:              mov              rax, qword ptr [rbp + 384]
-                        mov              qword ptr [rbp + 272], rax
-                        mov              rax, qword ptr [rbp + 392]
-                        mov              qword ptr [rbp + 280], rax;          jmp   n12_var_α
+n11_var_α:              mov              rax, qword ptr [rsp + 384]
+                        mov              qword ptr [rsp + 272], rax
+                        mov              rax, qword ptr [rsp + 392]
+                        mov              qword ptr [rsp + 280], rax;          jmp   n12_var_α
                         .size            n11_var_bx, .-n11_var_bx
                         .type            n12_var_bx, @function
 n12_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n12_var_α:              mov              rax, qword ptr [rbp + 400]
-                        mov              qword ptr [rbp + 288], rax
-                        mov              rax, qword ptr [rbp + 408]
-                        mov              qword ptr [rbp + 296], rax;          jmp   n13_coerce_numeric_α
+n12_var_α:              mov              rax, qword ptr [rsp + 400]
+                        mov              qword ptr [rsp + 288], rax
+                        mov              rax, qword ptr [rsp + 408]
+                        mov              qword ptr [rsp + 296], rax;          jmp   n13_coerce_numeric_α
                         .size            n12_var_bx, .-n12_var_bx
                         .type            n13_coerce_numeric_bx, @function
 n13_coerce_numeric_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n13_coerce_numeric_α:   mov              eax, dword ptr [rbp + 384]
+n13_coerce_numeric_α:   mov              eax, dword ptr [rsp + 384]
                         cmp              al, 5;                               je    .Lcoerce_numeric_α_44_1
                         cmp              al, 3;                               jne   .Lcoerce_numeric_α_44_0
-                        mov              eax, dword ptr [rbp + 400]
+                        mov              eax, dword ptr [rsp + 400]
                         cmp              al, 3;                               jne   .Lcoerce_numeric_α_44_0
 .Lcoerce_numeric_α_44_1:
-                        mov              rax, qword ptr [rbp + 384]
-                        mov              qword ptr [rbp + 256], rax
-                        mov              rax, qword ptr [rbp + 392]
-                        mov              qword ptr [rbp + 264], rax;          jmp   n14_coerce_numeric_α
+                        mov              rax, qword ptr [rsp + 384]
+                        mov              qword ptr [rsp + 256], rax
+                        mov              rax, qword ptr [rsp + 392]
+                        mov              qword ptr [rsp + 264], rax;          jmp   n14_coerce_numeric_α
 .Lcoerce_numeric_α_44_0:
-                        lea              rdi, [rbp + 384]
-                        lea              rsi, [rbp + 400]
-                        lea              rdx, [rbp + 256]
+                        lea              rdi, [rsp + 384]
+                        lea              rsi, [rsp + 400]
+                        lea              rdx, [rsp + 256]
                         mov              rcx, 4311744614
                         call             qword ptr [rip + rt_coerce_num2_d@GOTPCREL]
-.Lgcsite_main_12:       cmp              al, 255;                             jne   .Lvd0
+.Lgcsite_main_12:       cmp              al, 255;                             jne   .Lcoerce_numeric_vd_44_0
                         call             c_rt_coerce_num2_d@PLT
-.Lgcsite_main_11:
-.Lvd0:                  push             rax                                  # gc_poll bb_coerce_numeric.cpp:77
+.Lgcsite_main_11:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lcoerce_numeric_vd_44_0:
+                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:77
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_10:
-1:                      mov              eax, dword ptr [rbp + 256]
+.Lgcsite_main_10:       mov              r9,  qword ptr [rip + rtccb+48]
+1:                      mov              eax, dword ptr [rsp + 256]
                         cmp              al, 104;                             je    n17_unmark_α
                                                                               jmp   n14_coerce_numeric_α
                         .size            n13_coerce_numeric_bx, .-n13_coerce_numeric_bx
                         .type            n14_coerce_numeric_bx, @function
 n14_coerce_numeric_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n14_coerce_numeric_α:   mov              eax, dword ptr [rbp + 400]
+n14_coerce_numeric_α:   mov              eax, dword ptr [rsp + 400]
                         cmp              al, 5;                               je    .Lcoerce_numeric_α_46_1
                         cmp              al, 3;                               jne   .Lcoerce_numeric_α_46_0
-                        mov              eax, dword ptr [rbp + 384]
+                        mov              eax, dword ptr [rsp + 384]
                         cmp              al, 3;                               jne   .Lcoerce_numeric_α_46_0
 .Lcoerce_numeric_α_46_1:
-                        mov              rax, qword ptr [rbp + 400]
-                        mov              qword ptr [rbp + 240], rax
-                        mov              rax, qword ptr [rbp + 408]
-                        mov              qword ptr [rbp + 248], rax;          jmp   n15_binop_α
+                        mov              rax, qword ptr [rsp + 400]
+                        mov              qword ptr [rsp + 240], rax
+                        mov              rax, qword ptr [rsp + 408]
+                        mov              qword ptr [rsp + 248], rax;          jmp   n15_binop_α
 .Lcoerce_numeric_α_46_0:
-                        lea              rdi, [rbp + 400]
-                        lea              rsi, [rbp + 384]
-                        lea              rdx, [rbp + 240]
+                        lea              rdi, [rsp + 400]
+                        lea              rsi, [rsp + 384]
+                        lea              rdx, [rsp + 240]
                         mov              rcx, 281479288455270
                         call             qword ptr [rip + rt_coerce_num2_d@GOTPCREL]
-.Lgcsite_main_15:       cmp              al, 255;                             jne   .Lvd1
+.Lgcsite_main_15:       cmp              al, 255;                             jne   .Lcoerce_numeric_vd_46_1
                         call             c_rt_coerce_num2_d@PLT
-.Lgcsite_main_14:
-.Lvd1:                  push             rax                                  # gc_poll bb_coerce_numeric.cpp:77
+.Lgcsite_main_14:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lcoerce_numeric_vd_46_1:
+                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:77
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_13:
-1:                      mov              eax, dword ptr [rbp + 240]
+.Lgcsite_main_13:       mov              r9,  qword ptr [rip + rtccb+48]
+1:                      mov              eax, dword ptr [rsp + 240]
                         cmp              al, 104;                             je    n17_unmark_α
                                                                               jmp   n15_binop_α
                         .size            n14_coerce_numeric_bx, .-n14_coerce_numeric_bx
                         .type            n15_binop_bx, @function
 n15_binop_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n15_binop_α:            mov              eax, dword ptr [rbp + 256]
-                        mov              ecx, dword ptr [rbp + 240]
+n15_binop_α:            mov              eax, dword ptr [rsp + 256]
+                        mov              ecx, dword ptr [rsp + 240]
                         mov              edx, eax
                         and              edx, ecx
                         cmp              dl, 3;                               jne   .Lbinop_α_47_2
-                        mov              rax, qword ptr [rbp + 264]
-                        mov              rdx, qword ptr [rbp + 248]
+                        mov              rax, qword ptr [rsp + 264]
+                        mov              rdx, qword ptr [rsp + 248]
                         add              rax, rdx;                            jo    .Lbinop_α_47_0
-                        mov              qword ptr [rbp + 224], 3
-                        mov              qword ptr [rbp + 232], rax;          jmp   .Lbinop_α_47_7
+                        mov              qword ptr [rsp + 224], 3
+                        mov              qword ptr [rsp + 232], rax;          jmp   .Lbinop_α_47_7
 .Lbinop_α_47_2:         and              edx, 1;                              jz    .Lbinop_α_47_0
-                        mov              rsi, qword ptr [rbp + 264]
-                        mov              rdi, qword ptr [rbp + 248]
+                        mov              rsi, qword ptr [rsp + 264]
+                        mov              rdi, qword ptr [rsp + 248]
                         cmp              al, 5;                               je    .Lbinop_α_47_3
                         cvtsi2sd         xmm0, rsi;                           jmp   .Lbinop_α_47_4
 .Lbinop_α_47_3:         movq             xmm0, rsi
@@ -356,17 +1120,18 @@ n15_binop_α:            mov              eax, dword ptr [rbp + 256]
                         add              rdx, rdx
                         movabs           rcx, 18437736874454810624
                         cmp              rdx, rcx;                            jae   .Lbinop_α_47_0
-                        mov              qword ptr [rbp + 224], 5
-                        mov              qword ptr [rbp + 232], rax
+                        mov              qword ptr [rsp + 224], 5
+                        mov              qword ptr [rsp + 232], rax
 .Lbinop_α_47_7:                                                               jmp   n16_assign_α
-.Lbinop_α_47_0:         mov              rdi, qword ptr [rbp + 256]
-                        mov              rsi, qword ptr [rbp + 264]
-                        mov              rdx, qword ptr [rbp + 240]
-                        mov              rcx, qword ptr [rbp + 248]
+.Lbinop_α_47_0:         mov              rdi, qword ptr [rsp + 256]
+                        mov              rsi, qword ptr [rsp + 264]
+                        mov              rdx, qword ptr [rsp + 240]
+                        mov              rcx, qword ptr [rsp + 248]
                         call             rt_add_big@PLT
-.Lgcsite_main_17:       cmp              al, 104;                             je    n17_unmark_α
-                        mov              qword ptr [rbp + 224], rax
-                        mov              qword ptr [rbp + 232], rdx
+.Lgcsite_main_17:       mov              r9,  qword ptr [rip + rtccb+48]
+                        cmp              al, 104;                             je    n17_unmark_α
+                        mov              qword ptr [rsp + 224], rax
+                        mov              qword ptr [rsp + 232], rdx
                         push             rax                                  # gc_poll bb_binop_arith.cpp:301
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -374,21 +1139,21 @@ n15_binop_α:            mov              eax, dword ptr [rbp + 256]
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_16:
+.Lgcsite_main_16:       mov              r9,  qword ptr [rip + rtccb+48]
 1:                                                                            jmp   n16_assign_α
                         .size            n15_binop_bx, .-n15_binop_bx
                         .type            n16_assign_bx, @function
 n16_assign_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n16_assign_α:           mov              rax, qword ptr [rbp + 224]
-                        mov              rdx, qword ptr [rbp + 232]
-                        mov              qword ptr [rbp + 384], rax
-                        mov              qword ptr [rbp + 392], rdx;          jmp   n17_unmark_α
+n16_assign_α:           mov              rax, qword ptr [rsp + 224]
+                        mov              rdx, qword ptr [rsp + 232]
+                        mov              qword ptr [rsp + 384], rax
+                        mov              qword ptr [rsp + 392], rdx;          jmp   n17_unmark_α
                         .size            n16_assign_bx, .-n16_assign_bx
                         .type            n17_unmark_bx, @function
 n17_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n17_unmark_α:           mov              rsp, qword ptr [rbp + 192];          jmp   n8_to_β
+n17_unmark_α:           mov              rsp, qword ptr [rsp + 192];          jmp   n8_to_β
                         .size            n17_unmark_bx, .-n17_unmark_bx
                         .type            n18_line_mark_bx, @function
 n18_line_mark_bx:
@@ -406,19 +1171,20 @@ n18_line_mark_α:        mov              rax, qword ptr [rip + g_line@GOTPCREL]
 n19_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n19_var_ref_α:          mov              rax, 4294967336
-                        lea              rdx, [rbp + 384]
-                        mov              qword ptr [rbp + 48], rax
-                        mov              qword ptr [rbp + 56], rdx;           jmp   n20_deref_α
+                        lea              rdx, [rsp + 384]
+                        mov              qword ptr [rsp + 48], rax
+                        mov              qword ptr [rsp + 56], rdx;           jmp   n20_deref_α
                         .size            n19_var_ref_bx, .-n19_var_ref_bx
                         .type            n20_deref_bx, @function
 n20_deref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n20_deref_α:            mov              rdi, qword ptr [rbp + 48]            # d
-                        mov              rsi, qword ptr [rbp + 56]            # d
+n20_deref_α:            mov              rdi, qword ptr [rsp + 48]            # d
+                        mov              rsi, qword ptr [rsp + 56]            # d
                         call             rt_deref@PLT
-.Lgcsite_main_19:       cmp              al, 104;                             je    main_ω
-                        mov              qword ptr [rbp + 64], rax
-                        mov              qword ptr [rbp + 72], rdx
+.Lgcsite_main_19:       mov              r9,  qword ptr [rip + rtccb+48]
+                        cmp              al, 104;                             je    main_ω
+                        mov              qword ptr [rsp + 64], rax
+                        mov              qword ptr [rsp + 72], rdx
                         push             rax                                  # gc_poll bb_deref.cpp:41
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -426,7 +1192,7 @@ n20_deref_α:            mov              rdi, qword ptr [rbp + 48]            #
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_18:
+.Lgcsite_main_18:       mov              r9,  qword ptr [rip + rtccb+48]
 1:                                                                            jmp   n21_line_mark_α
                         .size            n20_deref_bx, .-n20_deref_bx
                         .type            n21_line_mark_bx, @function
@@ -439,38 +1205,39 @@ n21_line_mark_bx:
                         .quad            .Lstnof1
                         .popsection
 n21_line_mark_α:        mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 5;              jmp   n22_call_icon_α
+                        mov              qword ptr [rax + 0], 5;              jmp   n22_call_byname_α
                         .size            n21_line_mark_bx, .-n21_line_mark_bx
-                        .type            n22_call_icon_bx, @function
-n22_call_icon_bx:
+                        .type            n22_call_byname_bx, @function
+n22_call_byname_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n22_call_icon_α:        mov              rax, qword ptr [rbp + 64]
-                        mov              qword ptr [rbp + 16], rax
-                        mov              rax, qword ptr [rbp + 72]
-                        mov              qword ptr [rbp + 24], rax
+n22_call_byname_α:      mov              rax, qword ptr [rsp + 64]
+                        mov              qword ptr [rsp + 16], rax
+                        mov              rax, qword ptr [rsp + 72]
+                        mov              qword ptr [rsp + 24], rax
                         .section         .rodata
-.Lcall_icon_α_rkfn59:   .string          "write"
+.Lcall_byname_α_rkfn59: .string          "write"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_α_rkfn59]
-                        lea              rsi, [rbp + 16]
+                        lea              rdi, [rip + .Lcall_byname_α_rkfn59]
+                        lea              rsi, [rsp + 16]
                         mov              edx, 1
                         mov              ecx, 327852
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_main_20:       mov              qword ptr [rbp + 0], rax
-                        mov              qword ptr [rbp + 8], rdx
-                        push             rax                                  # gc_poll bb_call_fn.cpp:350
+.Lgcsite_main_20:       mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
+                        push             rax                                  # gc_poll bb_call_fn.cpp:184
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_21:
+.Lgcsite_main_21:       mov              r9,  qword ptr [rip + rtccb+48]
 1:                      cmp              al, 104;                             je    main_ω
                                                                               jmp   main_ω
-n22_call_icon_β:                                                              jmp   main_ω
-                        .size            n22_call_icon_bx, .-n22_call_icon_bx
+n22_call_byname_β:                                                            jmp   main_ω
+                        .size            n22_call_byname_bx, .-n22_call_byname_bx
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
                                                                               jmp   main_ω
@@ -489,8 +1256,7 @@ main_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 512]
-                        mov              rbp, qword ptr [rbp + 504];          jmp   qword ptr [rsp]
+                        add              rsp, 512;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 main_ω:
                         push             rax
@@ -504,12 +1270,11 @@ main_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 512]
-                        mov              rbp, qword ptr [rbp + 504];          jmp   qword ptr [rsp + 8]
+                        add              rsp, 512;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgcmap_main:
                         .quad            2200369712474
-                        .quad            382252089424
+                        .quad            107374182480
                         .quad            .Lgcmap_main_s
                         .quad            416
                         .quad            5
@@ -521,52 +1286,52 @@ main_ω:
 .Lgcmap_main_s:         .string          "main"
 .Lgcsites_main_0:       .quad            22
                         .quad            .Lgcmap_main
-                        .quad            9223653477471748608
+                        .quad            10376311131500184064
                         .quad            .Lgccode_main_0
                         .quad            .Lgcsite_main_0
-                        .quad            65537
+                        .quad            1
                         .quad            .Lgcsite_main_1
-                        .quad            65537
+                        .quad            1
                         .quad            .Lgcsite_main_2
-                        .quad            65537
+                        .quad            1
                         .quad            .Lgcsite_main_3
-                        .quad            65537
+                        .quad            1
                         .quad            .Lgcsite_main_4
-                        .quad            65537
+                        .quad            1
                         .quad            .Lgcsite_main_5
-                        .quad            65537
+                        .quad            1
                         .quad            .Lgcsite_main_6
-                        .quad            65537
+                        .quad            1
                         .quad            .Lgcsite_main_7
-                        .quad            65537
+                        .quad            1
                         .quad            .Lgcsite_main_8
-                        .quad            65537
+                        .quad            1
                         .quad            .Lgcsite_main_9
-                        .quad            65537
+                        .quad            1
                         .quad            .Lgcsite_main_10
-                        .quad            65537
+                        .quad            1
                         .quad            .Lgcsite_main_11
-                        .quad            65537
+                        .quad            1
                         .quad            .Lgcsite_main_12
-                        .quad            65537
+                        .quad            1
                         .quad            .Lgcsite_main_13
-                        .quad            65537
+                        .quad            1
                         .quad            .Lgcsite_main_14
-                        .quad            65537
+                        .quad            1
                         .quad            .Lgcsite_main_15
-                        .quad            65537
+                        .quad            1
                         .quad            .Lgcsite_main_16
-                        .quad            65537
+                        .quad            1
                         .quad            .Lgcsite_main_17
-                        .quad            65537
+                        .quad            1
                         .quad            .Lgcsite_main_18
-                        .quad            65537
+                        .quad            1
                         .quad            .Lgcsite_main_19
-                        .quad            65537
+                        .quad            1
                         .quad            .Lgcsite_main_20
-                        .quad            65537
+                        .quad            1
                         .quad            .Lgcsite_main_21
-                        .quad            65537
+                        .quad            1
 module_init:
                         sub              rsp, 8
                         .section         .rodata
