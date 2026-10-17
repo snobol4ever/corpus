@@ -172,7 +172,7 @@ TESTF1
 
 **********************************
  FUNCTION GETF (X) ()
-    GETF = LEXICAL_FEATURES<X> :(RETURN) ;
+    GETF = LEXICAL_FEATURES[X] :(RETURN) ;
  END GETF
 
 32091 milliseconds compile time
