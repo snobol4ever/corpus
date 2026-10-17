@@ -18,11 +18,11 @@ main:
                         push             rdi
                         push             rsi
                         call             core_lib_init@PLT
-                        mov              edi, 719
+                        mov              edi, 741
                         call             rt_gva_island@PLT
                         mov              rsi, rax
                         lea              rdi, [rip + __gva_names]
-                        mov              edx, 719
+                        mov              edx, 741
                         call             gva_register@PLT
                         lea              rdi, [rip + __alpha_cellp_tab]
                         call             rt_ab_cell_bind_table@PLT
@@ -54,8 +54,31 @@ main:
 .Llevel_zero_return:    call             rt_kw_return_level_zero@PLT
                         ud2
                         .section         .rodata
+                        .section         .data.rel.ro,"aw",@progbits
                         .align           8
 __gva_names:
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
                         .quad            0
                         .quad            0
                         .quad            0
@@ -779,6 +802,7 @@ __gva_names:
                         .intel_syntax    noprefix
                         .section         .rodata
 .Llbln0:                .string          "END"
+                        .section         .data.rel.ro,"aw",@progbits
                         .align           8
 __label_names:
                         .quad            .Llbln0
@@ -787,7 +811,7 @@ __label_names:
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgccode_main_0:
 main_α:
-                        mov              eax, 0                               # GCANCHOR .Lgcmap_main qword ptr [rsp$ + 88]
+                        mov              eax, 0                               # GCANCHOR .Lgcmap_main qword ptr [rsp$ + 72]
 main_α_body:
                         .type            n0_call_direct_bx, @function
 n0_call_direct_bx:
@@ -868,7 +892,7 @@ n2_statement_begin_bx:
 .Lstnof1:               .string          "snobol4/hello/hello.sno"
                         .popsection
 .Lstatement_begin_α_9_stno:
-                        .pushsection     scrip_stno_map,"a",@progbits
+                        .pushsection     scrip_stno_map,"aw",@progbits; .p2align 3
                         .quad            .Lstatement_begin_α_9_stno
                         .long            1
                         .long            2
@@ -889,7 +913,7 @@ n3_lit_string_α:        sub              rsp, 16
                         mov              dword ptr [rsp + 4], 5
                         mov              rax, qword ptr [rip + .Llit_string_α_11_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4_assign_α
-.Llit_string_α_11_0:    .quad            .Llit_string_α_11_0_s
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_string_α_11_0: .quad .Llit_string_α_11_0_s; .popsection
 .Llit_string_α_11_0_s:  .string          "hello"
                         .size            n3_lit_string_bx, .-n3_lit_string_bx
                         .type            n4_assign_bx, @function
@@ -922,7 +946,7 @@ n4_assign_α:            mov              rax, qword ptr [rsp + 0]             #
                         mov              r13, qword ptr [rsp + 16]
                         add              rsp, 32
 1:                                                                            jmp   n5_statement_end_α
-.Lassign_α_12_0:        .quad            .Lassign_α_12_0_s
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Lassign_α_12_0: .quad .Lassign_α_12_0_s; .popsection
 .Lassign_α_12_0_s:      .string          "OUTPUT"
                         .size            n4_assign_bx, .-n4_assign_bx
                         .type            n5_statement_end_bx, @function
@@ -968,14 +992,19 @@ main_ω:
                         call             exit@PLT
 .Lgcsite_main_9:
 #-----------------------------------------------------------------------------------------------------------------------
+                        .pushsection     .data.rel.ro,"aw",@progbits
+                        .p2align         3
 .Lgcmap_main:
-                        .quad            413663317338
+                        .quad            344943840602
                         .quad            38654705664
                         .quad            .Lgcmap_main_s
-                        .quad            80
+                        .quad            64
                         .quad            1
-                        .quad            87960930222080
+                        .quad            70368744177664
 .Lgcmap_main_s:         .string          "main"
+                        .popsection
+                        .pushsection     .data.rel.ro,"aw",@progbits
+                        .p2align         3
 .Lgcsites_main_0:       .quad            10
                         .quad            .Lgcmap_main
                         .quad            0
@@ -988,19 +1017,20 @@ main_ω:
                         .quad            137438953473
                         .quad            .Lgcsite_main_3
                         .quad            274877906945
-                        .quad            .Lgcsite_main_4
-                        .quad            206158430209
                         .quad            .Lgcsite_main_5
                         .quad            68719476737
-                        .quad            .Lgcsite_main_6
+                        .quad            .Lgcsite_main_4
+                        .quad            206158430209
+                        .quad            .Lgcsite_main_8
                         .quad            1
                         .quad            .Lgcsite_main_7
                         .quad            1
-                        .quad            .Lgcsite_main_8
+                        .quad            .Lgcsite_main_6
                         .quad            1
                         .quad            .Lgcsite_main_9
                         .quad            1
-                        .section         .rodata
+                        .popsection
+                        .section         .data.rel.ro,"aw",@progbits
                         .align           8
 __gc_frame_maps:        .quad            1
                         .quad            .Lgcmap_main
