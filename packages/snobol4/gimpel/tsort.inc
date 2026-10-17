@@ -36,7 +36,7 @@ TSORT_2	I  =  I + 1
 	P  =  IDENT(P)  'LGT'
 	X  =  F  '(A[I]),'  F  '(A[J])'
 	X  =  IDENT(DATATYPE(F),'INTEGER')
-+	'A<I,'  F  '>,A<J,'  F  '>'
++	'A[I,'  F  '],A[J,'  F  ']'
 	P_I_J  =  CONVERT(P '(' X ')', 'EXPRESSION')
 	K  =  TS
 TSORT_3	K  =  K - 1
