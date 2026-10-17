@@ -1,1 +1,3 @@
-../jcon/inputs/hello.icn
+procedure main()
+   write("hello, world");
+end
