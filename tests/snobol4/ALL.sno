@@ -19902,3 +19902,9 @@ fail            t1              =   TIME()
                 TERMINAL        =   'match_ms=' (t1 - t0) / 1000000
 *------------------------------------------------------------------------------
 END
+*- 1981 ladder__rung12_fence_backtracks_into_an_immediate_assign_to_a_deferred_name_in_a_pattern_value
+	P = ('' $ *V) FENCE 'q'
+	'xyz' P	:S(Y)F(N)
+Y	OUTPUT = 'ok'	:(END)
+N	OUTPUT = 'failed'
+END
