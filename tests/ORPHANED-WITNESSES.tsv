@@ -4,8 +4,6 @@
 # ⛔ The cure is to ABSORB them into ALL.<ext> once they are green, NOT to delete them.
 #
 lang	name	path
-icon	w_control_structures	tests/icon/config/audit_return_forms/w_control_structures.icn
-icon	w_return_forms	tests/icon/config/audit_return_forms/w_return_forms.icn
 snobol4	any_dyn_nullalt	tests/snobol4/any_dyn_nullalt.sno
 snobol4	break_dyn_nullalt	tests/snobol4/break_dyn_nullalt.sno
 snobol4	code_call_runtime_define_pending_entry	tests/snobol4/code_call_runtime_define_pending_entry.sno
@@ -46,5 +44,5 @@ snobol4	span_dyn_lit_nullalt	tests/snobol4/span_dyn_lit_nullalt.sno
 snobol4	span_dyn_noalt	tests/snobol4/span_dyn_noalt.sno
 snobol4	span_dyn_nullalt	tests/snobol4/span_dyn_nullalt.sno
 #
-# TOTALS  icon=2/197  pascal=0/5  prolog=0/40  raku=0/97  rebus=0/3  snobol4=39/142  snocone=0/68
-# TOTAL ORPHANED PAIRS: 41
+# TOTALS  icon=0/192  pascal=0/5  prolog=0/40  raku=0/97  rebus=0/3  snobol4=39/142  snocone=0/68
+# TOTAL ORPHANED PAIRS: 39

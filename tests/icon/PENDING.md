@@ -41,17 +41,6 @@ cross-reference. Re-verified after resolving: gate shows `stale-deferral: 0`,
   unimplemented as real coroutines) — this is a repoint to the row that already claims this file,
   not a new deferral target, and the isolation above is new information that row didn't have.
 
-## DEFERRED icon-v9gen-augmented-assign-and-unary-refresh-plus-two-emitter-gaps
-- rung36_jcon_proto.icn — V9GEN Icon-syntax stress test; 6 parser gaps (unary prefix `^`/REFRESH;
-  augmented `|||:=`/`===:=`/`~===:=`/`&:=`/`@:=`) plus 2 emitter-level gaps (`op=120` GOUGE, `op=122`
-  no-template) — full catalog in
-  `.github/FINDING-2026-08-29-seat08-icon-proto-v9gen-kitchen-sink-multiple-frontend-emitter-gaps.md`
-  (seat08). This is a SEPARATE row from either of the two above — a per-section `## DEFERRED <row>`
-  heading (hq_B 2026-08-29, SCRIP `18e04c63`, landed for exactly this "one directory, multiple
-  different owning rows" shape) is what makes all three declarations legal in the same file. As of
-  the 2026-08-30 re-pointing above, every section here names its own row explicitly — there is no
-  file-level `ROW:` line or bare section anymore for any of them to fall back to.
-
 ## DEFERRED icn-recogn-genqueen-suspend-shape
 ⛔ **2026-08-30 (seat09) — NOW DEFERRED; was deliberately excluded until today (old note preserved
 below this section).** The exclusion held only while the row was `CLAIMED:seat12` and its scope
@@ -121,27 +110,12 @@ its GOAL**, and pointing at a row on topical resemblance is how a false stale-de
 ⭐ All three are **m3≡m4 identical** in their failure (verified, not assumed): none is a mode-
 divergence, so none needs a per-mode deferral note.
 
-## DEFERRED icon-assign-nameless-emit-guard-var
-- rung36_jcon_var.icn — rc=134 both modes. ⭐ **NOT a crash — an INTENTIONAL guard, and reading it
-  as a crash is the trap here** (it aborts and dumps core, so `m4` presents as a compiler blow-up):
-  `FATAL emit_drive IR_ASSIGN guard: nameless 2-operand assign (assign-through-lvalue-producer:
-  !x/?x element-variable or s[i:j] section) — LOWER's TT_ASSIGN terminal arm minted a placeholder;
-  not a missing template.` The guard's own message names its owning work — *"ASSIGN-LV rung,
-  GOAL-IR-IMMUTABLE-EMIT.md"* — and this row is named for that guard, so target and witness agree
-  by construction rather than by inference. Fires in BOTH modes at emit time, so there is no partial
-  m3 result to grade. Converts when the `TT_ASSIGN` terminal arm mints a real lvalue-producer assign.
-  ⛔ **STALE AS OF 2026-09-24 (hq_icon, measured): the guard no longer fires.** SCRIP runs it rc=0 in both modes, and its
-  m3 output equals Arizona iconx's byte for byte. What kept it red was the ref: a JCON-provenance cut whose display()
-  output (`co-expression_1(0)`, no local-identifier blocks) iconx does not print. Re-cut from iconx -- stdout, /dev/null,
-  an empty scratch cwd, three runs byte-identical -- and it PASSES in m3 and m4.
+## DEFERRED spine-zd-planner-arms-zero-icon-nodes-line-mark-unadmitted-zk2-index-order-disjunction-run-and-dead-local-arms
+- `config/audit_return_forms/w_return_forms.icn` -- GREEN in both modes and ALREADY IN THE MASTER, byte for byte with the same ref, as
+  `ladder__rung02_proc_every_return_form_returns_its_variable`. It stays loose only because this live row's DONE-WHEN compiles
+  `$C/config/audit_return_forms/w_return_forms.icn` by path (SCRIP_ZD_MAP=1 ... 'GRAPH n='); delete it when that row closes or re-points.
 
-## DEFERRED icon-reopened-a-procedure-returns-its-variable-not-its-value-six-return-forms-raise-111-where-iconx-assigns-through-the-returned-variable-coo-183
-- `config/audit_return_forms/w_return_forms.icn` -- RED in both modes on SCRIP `9238d864e` (error 111 at the first `return`); iconx 9.5.25a prints its ref `1 2 3 43 5 6`.
-- `config/audit_return_forms/w_control_structures.icn` -- RED in both modes on SCRIP `9238d864e` (error 111); iconx 9.5.25a prints its ref `I J C B L MM`.
-
-The coo's two COO-183 audit witnesses, homed here by the ceo (CEO-1245, corpus `6b145b60a`) as the DONE-WHEN witnesses of this row
-and of `icon-if-then-else-if-then-case-a-compound-and-the-limitation-drop-their-operands-variable-even-inline-and-raise-111-where-iconx-assigns-coo-183`,
-both PARKED-AWAITING the crawl row. They are absorbed into the rungs when those rows cure: the builder cannot carry a red witness
-into the rungs honestly today (it mints an XFAIL with no reason; test_gate_orphaned_witnesses_do_not_grow.sh's own note), and
-moving them would break the DONE-WHENs that name this path. Until then test_gate_orphaned_witnesses_do_not_grow.sh carries them in
-FLOOR_icon (0 -> 2, the coo 2026-09-27, ceo CEO-1306), named debt and not a leak.
+Re-pointed 2026-10-17 by hq_icon. It was deferred to the COO-183 return-variable rows (the ceo homed it there, CEO-1245, corpus
+`6b145b60a`), which have since cured and left the queue; its twin `w_control_structures.icn` (in the master as
+`ladder__rung02_proc_an_if_case_block_or_limitation_is_a_variable_when_its_arm_is`) is deleted, no live criterion naming it.
+test_gate_orphaned_witnesses_do_not_grow.sh's FLOOR_icon falls 2 -> 1 with it.
