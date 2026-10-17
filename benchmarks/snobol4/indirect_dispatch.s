@@ -19,11 +19,11 @@ main:
                         push             rsi
                         call             core_lib_init@PLT
                         call             module_init
-                        mov              edi, 724
+                        mov              edi, 746
                         call             rt_gva_island@PLT
                         mov              rsi, rax
                         lea              rdi, [rip + __gva_names]
-                        mov              edx, 724
+                        mov              edx, 746
                         call             gva_register@PLT
                         lea              rdi, [rip + __alpha_cellp_tab]
                         call             rt_ab_cell_bind_table@PLT
@@ -55,11 +55,12 @@ main:
 .Llevel_zero_return:    call             rt_kw_return_level_zero@PLT
                         ud2
                         .section         .rodata
-.Lgvan719:              .string          "add1"
-.Lgvan720:              .string          "v"
-.Lgvan721:              .string          "fname"
-.Lgvan722:              .string          "sum"
-.Lgvan723:              .string          "i"
+.Lgvan741:              .string          "add1"
+.Lgvan742:              .string          "v"
+.Lgvan743:              .string          "fname"
+.Lgvan744:              .string          "sum"
+.Lgvan745:              .string          "i"
+                        .section         .data.rel.ro,"aw",@progbits
                         .align           8
 __gva_names:
                         .quad            0
@@ -781,11 +782,33 @@ __gva_names:
                         .quad            0
                         .quad            0
                         .quad            0
-                        .quad            .Lgvan719
-                        .quad            .Lgvan720
-                        .quad            .Lgvan721
-                        .quad            .Lgvan722
-                        .quad            .Lgvan723
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .quad            .Lgvan741
+                        .quad            .Lgvan742
+                        .quad            .Lgvan743
+                        .quad            .Lgvan744
+                        .quad            .Lgvan745
                         .section         .text
                         .intel_syntax    noprefix
                         .section         .rodata
@@ -793,6 +816,7 @@ __gva_names:
 .Llbln1:                .string          "add1_end"
 .Llbln2:                .string          "loop"
 .Llbln3:                .string          "END"
+                        .section         .data.rel.ro,"aw",@progbits
                         .align           8
 __label_names:
                         .quad            .Llbln0
@@ -804,7 +828,7 @@ __label_names:
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgccode_main_0:
 main_α:
-                        mov              eax, 0                               # GCANCHOR .Lgcmap_main qword ptr [rsp$ + 600]
+                        mov              eax, 0                               # GCANCHOR .Lgcmap_main qword ptr [rsp$ + 456]
 main_α_body:
                         .type            n0_call_direct_bx, @function
 n0_call_direct_bx:
@@ -885,7 +909,7 @@ n2_statement_begin_bx:
 .Lstnof1:               .string          "indirect_dispatch.sno"
                         .popsection
 .Lstatement_begin_α_62_stno:
-                        .pushsection     scrip_stno_map,"a",@progbits
+                        .pushsection     scrip_stno_map,"aw",@progbits; .p2align 3
                         .quad            .Lstatement_begin_α_62_stno
                         .long            1
                         .long            3
@@ -901,12 +925,12 @@ n2_statement_begin_β:                                                         j
                         .type            n3_define_bx, @function
 n3_define_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n3_define_α:            mov              rdi, qword ptr [rip + .Ldefine_α_65_0]
-                        mov              rsi, qword ptr [rip + .Ldefine_α_65_1]
-                        mov              edx, 1
-                        mov              ecx, 1
-                        mov              r8d, 0
-                        lea              r9, [rip + LBL__add1]
+n3_define_α:            mov              rdi, qword ptr [rip + .Ldefine_α_65_0] # name
+                        mov              rsi, qword ptr [rip + .Ldefine_α_65_1] # params_csv
+                        mov              edx, 1                               # nparams
+                        mov              ecx, 1                               # nformals
+                        mov              r8d, 0                               # frame_bytes
+                        lea              r9, [rip + LBL__add1]                # fn
                         call             rt_define_site@PLT
 .Lgcsite_main_5:        mov              r9,  qword ptr [rip + rtccb+48]
                         push             rax                                  # gc_poll bb_define.cpp:160
@@ -930,9 +954,9 @@ entry_cell$add1:        .quad            LBL__add1
                         mov              rcx, qword ptr [rip + entry_cell$add1@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n4_statement_end_α
 n3_define_β:                                                                  jmp   n2_statement_begin_β
-.Ldefine_α_65_0:        .quad            .Ldefine_α_65_0_s
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Ldefine_α_65_0: .quad .Ldefine_α_65_0_s; .popsection
 .Ldefine_α_65_0_s:      .string          "add1"
-.Ldefine_α_65_1:        .quad            .Ldefine_α_65_1_s
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Ldefine_α_65_1: .quad .Ldefine_α_65_1_s; .popsection
 .Ldefine_α_65_1_s:      .string          "v"
                                                                               jmp   .Ldefine_α_66_245
 #-----------------------------------------------------------------------------------------------------------------------
@@ -944,12 +968,12 @@ add1_α:                 sub              rsp, 64
                         mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [rip + rt_g_ret_by_name@GOTPCREL]
                         mov              dword ptr [rax + 0], 0
-                        mov              rax, qword ptr [r9 + 11504]          # add1
+                        mov              rax, qword ptr [r9 + 11856]          # add1
                         mov              qword ptr [rsp + 0], rax
-                        mov              rax, qword ptr [r9 + 11512]
+                        mov              rax, qword ptr [r9 + 11864]
                         mov              qword ptr [rsp + 8], rax
-                        mov              qword ptr [r9 + 11504], 0
-                        mov              qword ptr [r9 + 11512], 0
+                        mov              qword ptr [r9 + 11856], 0
+                        mov              qword ptr [r9 + 11864], 0
                         mov              qword ptr [rsp + 32], rcx
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 64]
@@ -957,19 +981,19 @@ add1_α:                 sub              rsp, 64
                         mov              rdi, qword ptr [rcx + 24]
                         add              rdi, r8
                         mov              rax, qword ptr [rdi + 0]
-                        mov              rsi, qword ptr [r9 + 11520]          # v
-                        mov              qword ptr [r9 + 11520], rax
+                        mov              rsi, qword ptr [r9 + 11872]          # v
+                        mov              qword ptr [r9 + 11872], rax
                         mov              qword ptr [rdi + 0], rsi
                         mov              rax, qword ptr [rdi + 8]
-                        mov              rsi, qword ptr [r9 + 11528]
-                        mov              qword ptr [r9 + 11528], rax
+                        mov              rsi, qword ptr [r9 + 11880]
+                        mov              qword ptr [r9 + 11880], rax
                         mov              qword ptr [rdi + 8], rsi;            jmp   .Ldefine_α_66_11
-.Ldefine_α_66_10:       mov              rax, qword ptr [r9 + 11520]
+.Ldefine_α_66_10:       mov              rax, qword ptr [r9 + 11872]
                         mov              qword ptr [rsp + 48], rax
-                        mov              rax, qword ptr [r9 + 11528]
+                        mov              rax, qword ptr [r9 + 11880]
                         mov              qword ptr [rsp + 56], rax
-                        mov              qword ptr [r9 + 11520], 0
-                        mov              qword ptr [r9 + 11528], 0
+                        mov              qword ptr [r9 + 11872], 0
+                        mov              qword ptr [r9 + 11880], 0
 .Ldefine_α_66_11:       push             rcx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -986,7 +1010,7 @@ add1_α:                 sub              rsp, 64
                         mov              rax, qword ptr [rax + 0]
                         mov              qword ptr [rsp + 32], rax
                         pop              rcx;                                 jmp   .Ldefine_α_66_231
-.Ldefine_α_66_232:      .quad            .Ldefine_α_66_232_s
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Ldefine_α_66_232: .quad .Ldefine_α_66_232_s; .popsection
 .Ldefine_α_66_232_s:    .string          "add1"
 .Ldefine_α_66_231:      lea              rcx, [rip + add1_γ]
                         lea              rax, [rip + add1_ω]
@@ -995,13 +1019,13 @@ add1_α:                 sub              rsp, 64
                         mov              rax, qword ptr [rip + entry_cell$add1@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 add1_γ:
-.Lgcsite_main_7:        mov              rdi, qword ptr [r9 + 11504]          # add1
-                        mov              rsi, qword ptr [r9 + 11512]
+.Lgcsite_main_7:        mov              rdi, qword ptr [r9 + 11856]          # add1
+                        mov              rsi, qword ptr [r9 + 11864]
                         mov              rax, rdi
                         mov              rdx, rsi
                         push             rdx
                         push             rax;                                 jmp   .Ldefine_α_66_236
-.Ldefine_α_66_237:      .quad            .Ldefine_α_66_237_s
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Ldefine_α_66_237: .quad .Ldefine_α_66_237_s; .popsection
 .Ldefine_α_66_237_s:    .string          "add1"
 .Ldefine_α_66_236:      pop              rax
                         pop              rdx
@@ -1009,22 +1033,22 @@ add1_γ:
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 64]
                         mov              rax, qword ptr [rsp + 0]
-                        mov              qword ptr [r9 + 11504], rax
+                        mov              qword ptr [r9 + 11856], rax
                         mov              rax, qword ptr [rsp + 8]
-                        mov              qword ptr [r9 + 11512], rax
+                        mov              qword ptr [r9 + 11864], rax
                         cmp              rdx, 0;                              jbe   .Ldefine_α_66_80
                         mov              rax, qword ptr [rcx + 24]
                         add              rax, r8
                         mov              rax, qword ptr [rax + 0]
-                        mov              qword ptr [r9 + 11520], rax          # v
+                        mov              qword ptr [r9 + 11872], rax          # v
                         mov              rax, qword ptr [rcx + 24]
                         add              rax, r8
                         mov              rax, qword ptr [rax + 8]
-                        mov              qword ptr [r9 + 11528], rax;         jmp   .Ldefine_α_66_81
+                        mov              qword ptr [r9 + 11880], rax;         jmp   .Ldefine_α_66_81
 .Ldefine_α_66_80:       mov              rax, qword ptr [rsp + 48]
-                        mov              qword ptr [r9 + 11520], rax
+                        mov              qword ptr [r9 + 11872], rax
                         mov              rax, qword ptr [rsp + 56]
-                        mov              qword ptr [r9 + 11528], rax
+                        mov              qword ptr [r9 + 11880], rax
 .Ldefine_α_66_81:       push             rcx
                         mov              rax, qword ptr [rip + g_stno@GOTPCREL]
                         mov              rcx, qword ptr [rax + 0]
@@ -1061,22 +1085,22 @@ add1_ω:                 mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 64]
                         mov              rax, qword ptr [rsp + 0]
-                        mov              qword ptr [r9 + 11504], rax          # add1
+                        mov              qword ptr [r9 + 11856], rax          # add1
                         mov              rax, qword ptr [rsp + 8]
-                        mov              qword ptr [r9 + 11512], rax
+                        mov              qword ptr [r9 + 11864], rax
                         cmp              rdx, 0;                              jbe   .Ldefine_α_66_150
                         mov              rax, qword ptr [rcx + 24]
                         add              rax, r8
                         mov              rax, qword ptr [rax + 0]
-                        mov              qword ptr [r9 + 11520], rax          # v
+                        mov              qword ptr [r9 + 11872], rax          # v
                         mov              rax, qword ptr [rcx + 24]
                         add              rax, r8
                         mov              rax, qword ptr [rax + 8]
-                        mov              qword ptr [r9 + 11528], rax;         jmp   .Ldefine_α_66_151
+                        mov              qword ptr [r9 + 11880], rax;         jmp   .Ldefine_α_66_151
 .Ldefine_α_66_150:      mov              rax, qword ptr [rsp + 48]
-                        mov              qword ptr [r9 + 11520], rax
+                        mov              qword ptr [r9 + 11872], rax
                         mov              rax, qword ptr [rsp + 56]
-                        mov              qword ptr [r9 + 11528], rax
+                        mov              qword ptr [r9 + 11880], rax
 .Ldefine_α_66_151:      push             rcx
                         mov              rax, qword ptr [rip + g_stno@GOTPCREL]
                         mov              rcx, qword ptr [rax + 0]
@@ -1134,7 +1158,7 @@ n5_setexit_test_α:      mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
                         .type            n6_statement_begin_bx, @function
 n6_statement_begin_bx:
 .Lstatement_begin_α_70_stno:
-                        .pushsection     scrip_stno_map,"a",@progbits
+                        .pushsection     scrip_stno_map,"aw",@progbits; .p2align 3
                         .quad            .Lstatement_begin_α_70_stno
                         .long            2
                         .long            4
@@ -1151,8 +1175,8 @@ n6_statement_begin_β:                                                         j
 n7_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n7_var_α:               sub              rsp, 16
-                        mov              rax, qword ptr [r9 + 11520]          # v
-                        mov              rdx, qword ptr [r9 + 11528]
+                        mov              rax, qword ptr [r9 + 11872]          # v
+                        mov              rdx, qword ptr [r9 + 11880]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n8_lit_integer_α
                         .size            n7_var_bx, .-n7_var_bx
@@ -1205,7 +1229,7 @@ n9_binop_α:             sub              rsp, 16
                         add              rsp, 16;                             jmp   n8_lit_integer_β
 .Lbinop_α_74_240:       mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:247
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:246
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1221,8 +1245,8 @@ n10_assign_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n10_assign_α:           mov              rax, qword ptr [rsp + 0]             # binop
                         mov              rdx, qword ptr [rsp + 8]
-                        mov              qword ptr [r9 + 11504], rax          # add1
-                        mov              qword ptr [r9 + 11512], rdx;         jmp   n11_statement_end_α
+                        mov              qword ptr [r9 + 11856], rax          # add1
+                        mov              qword ptr [r9 + 11864], rdx;         jmp   n11_statement_end_α
                         .size            n10_assign_bx, .-n10_assign_bx
                         .type            n11_statement_end_bx, @function
 n11_statement_end_bx:
@@ -1247,7 +1271,7 @@ n12_setexit_test_α:     mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
                         .type            n13_statement_begin_bx, @function
 n13_statement_begin_bx:
 .Lstatement_begin_α_79_stno:
-                        .pushsection     scrip_stno_map,"a",@progbits
+                        .pushsection     scrip_stno_map,"aw",@progbits; .p2align 3
                         .quad            .Lstatement_begin_α_79_stno
                         .long            3
                         .long            5
@@ -1268,7 +1292,7 @@ n14_lit_string_α:       sub              rsp, 16
                         mov              dword ptr [rsp + 4], 4
                         mov              rax, qword ptr [rip + .Llit_string_α_81_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n15_assign_α
-.Llit_string_α_81_0:    .quad            .Llit_string_α_81_0_s
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_string_α_81_0: .quad .Llit_string_α_81_0_s; .popsection
 .Llit_string_α_81_0_s:  .string          "add1"
                         .size            n14_lit_string_bx, .-n14_lit_string_bx
                         .type            n15_assign_bx, @function
@@ -1276,8 +1300,8 @@ n15_assign_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n15_assign_α:           mov              rax, qword ptr [rsp + 0]             # lit_string
                         mov              rdx, qword ptr [rsp + 8]
-                        mov              qword ptr [r9 + 11536], rax          # fname
-                        mov              qword ptr [r9 + 11544], rdx;         jmp   n16_statement_end_α
+                        mov              qword ptr [r9 + 11888], rax          # fname
+                        mov              qword ptr [r9 + 11896], rdx;         jmp   n16_statement_end_α
                         .size            n15_assign_bx, .-n15_assign_bx
                         .type            n16_statement_end_bx, @function
 n16_statement_end_bx:
@@ -1302,7 +1326,7 @@ n17_setexit_test_α:     mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
                         .type            n18_statement_begin_bx, @function
 n18_statement_begin_bx:
 .Lstatement_begin_α_86_stno:
-                        .pushsection     scrip_stno_map,"a",@progbits
+                        .pushsection     scrip_stno_map,"aw",@progbits; .p2align 3
                         .quad            .Lstatement_begin_α_86_stno
                         .long            4
                         .long            6
@@ -1329,8 +1353,8 @@ n20_assign_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n20_assign_α:           mov              rax, qword ptr [rsp + 0]             # lit_integer
                         mov              rdx, qword ptr [rsp + 8]
-                        mov              qword ptr [r9 + 11552], rax          # sum
-                        mov              qword ptr [r9 + 11560], rdx;         jmp   n21_statement_end_α
+                        mov              qword ptr [r9 + 11904], rax          # sum
+                        mov              qword ptr [r9 + 11912], rdx;         jmp   n21_statement_end_α
                         .size            n20_assign_bx, .-n20_assign_bx
                         .type            n21_statement_end_bx, @function
 n21_statement_end_bx:
@@ -1355,7 +1379,7 @@ n22_setexit_test_α:     mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
                         .type            n23_statement_begin_bx, @function
 n23_statement_begin_bx:
 .Lstatement_begin_α_93_stno:
-                        .pushsection     scrip_stno_map,"a",@progbits
+                        .pushsection     scrip_stno_map,"aw",@progbits; .p2align 3
                         .quad            .Lstatement_begin_α_93_stno
                         .long            5
                         .long            7
@@ -1382,8 +1406,8 @@ n25_assign_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n25_assign_α:           mov              rax, qword ptr [rsp + 0]             # lit_integer
                         mov              rdx, qword ptr [rsp + 8]
-                        mov              qword ptr [r9 + 11568], rax          # i
-                        mov              qword ptr [r9 + 11576], rdx;         jmp   n26_statement_end_α
+                        mov              qword ptr [r9 + 11920], rax          # i
+                        mov              qword ptr [r9 + 11928], rdx;         jmp   n26_statement_end_α
                         .size            n25_assign_bx, .-n25_assign_bx
                         .type            n26_statement_end_bx, @function
 n26_statement_end_bx:
@@ -1408,7 +1432,7 @@ n27_setexit_test_α:     mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
                         .type            n28_statement_begin_bx, @function
 n28_statement_begin_bx:
 .Lstatement_begin_α_100_stno:
-                        .pushsection     scrip_stno_map,"a",@progbits
+                        .pushsection     scrip_stno_map,"aw",@progbits; .p2align 3
                         .quad            .Lstatement_begin_α_100_stno
                         .long            6
                         .long            8
@@ -1425,8 +1449,8 @@ n28_statement_begin_β:                                                        j
 n29_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n29_var_α:              sub              rsp, 16
-                        mov              rax, qword ptr [r9 + 11552]          # sum
-                        mov              rdx, qword ptr [r9 + 11560]
+                        mov              rax, qword ptr [r9 + 11904]          # sum
+                        mov              rdx, qword ptr [r9 + 11912]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n30_var_α
                         .size            n29_var_bx, .-n29_var_bx
@@ -1434,8 +1458,8 @@ n29_var_α:              sub              rsp, 16
 n30_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n30_var_α:              sub              rsp, 16
-                        mov              rax, qword ptr [r9 + 11536]          # fname
-                        mov              rdx, qword ptr [r9 + 11544]
+                        mov              rax, qword ptr [r9 + 11888]          # fname
+                        mov              rdx, qword ptr [r9 + 11896]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n31_var_α
 n30_var_β:              add              rsp, 16
@@ -1445,8 +1469,8 @@ n30_var_β:              add              rsp, 16
 n31_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n31_var_α:              sub              rsp, 16
-                        mov              rax, qword ptr [r9 + 11568]          # i
-                        mov              rdx, qword ptr [r9 + 11576]
+                        mov              rax, qword ptr [r9 + 11920]          # i
+                        mov              rdx, qword ptr [r9 + 11928]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n32_call_apply_α
 n31_var_β:              add              rsp, 16;                             jmp   n30_var_β
@@ -1464,8 +1488,8 @@ n32_call_apply_α:       sub              rsp, 16
                         mov              qword ptr [rsp + 16], rax
                         mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [rsp + 24], rax
-                        lea              rdi, [rsp + 0]
-                        mov              esi, 2
+                        lea              rdi, [rsp + 0]                       # args
+                        mov              esi, 2                               # nargs
                         call             rt_apply_open@PLT
 .Lgcsite_main_21:       mov              r9,  qword ptr [rip + rtccb+48]
                         push             rax
@@ -1683,7 +1707,7 @@ n32_call_apply_α:       sub              rsp, 16
                         sub              rsp, 112
                         mov              qword ptr [rsp + 0], 0
                         mov              qword ptr [rsp + 8], 0
-                        mov              rdx, rsp
+                        mov              rdx, rsp                             # pend
                         call             rt_tweak_open@PLT
 .Lgcsite_main_46:       mov              r9,  qword ptr [rip + rtccb+48]
                         push             rax                                  # gc_poll bb_glue_flat.cpp:234
@@ -1696,8 +1720,8 @@ n32_call_apply_α:       sub              rsp, 16
 .Lgcsite_main_45:       mov              r9,  qword ptr [rip + rtccb+48]
 1:                      mov              rcx, qword ptr [rsp + 0]
                         test             rcx, rcx;                            jz    .Lcall_apply_α_105_150
-                        lea              rdi, [rsp + 0]
-                        mov              esi, 2
+                        lea              rdi, [rsp + 0]                       # args
+                        mov              esi, 2                               # nargs
                         call             rt_apply_open@PLT
 .Lgcsite_main_44:       mov              r9,  qword ptr [rip + rtccb+48]
                         push             rax
@@ -1877,7 +1901,7 @@ n32_call_apply_α:       sub              rsp, 16
                         add              rsp, 32
 1:                      add              rsp, 16;                             jmp   .Lcall_apply_α_105_152
 .Lcall_apply_α_105_151:
-.Lcall_apply_α_105_152: lea              rdi, [rsp + 0]
+.Lcall_apply_α_105_152: lea              rdi, [rsp + 0]                       # pend
                         call             rt_call_pend_close@PLT
 .Lgcsite_main_32:       mov              r9,  qword ptr [rip + rtccb+48]
 .Lcall_apply_α_105_150: add              rsp, 112;                            jmp   .Lcall_apply_α_105_108
@@ -2096,7 +2120,7 @@ n33_binop_α:            sub              rsp, 16
                         add              rsp, 32;                             jmp   n31_var_β
 .Lbinop_α_107_240:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:247
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:246
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2112,8 +2136,8 @@ n34_assign_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n34_assign_α:           mov              rax, qword ptr [rsp + 0]             # binop
                         mov              rdx, qword ptr [rsp + 8]
-                        mov              qword ptr [r9 + 11552], rax          # sum
-                        mov              qword ptr [r9 + 11560], rdx;         jmp   n35_statement_end_α
+                        mov              qword ptr [r9 + 11904], rax          # sum
+                        mov              qword ptr [r9 + 11912], rdx;         jmp   n35_statement_end_α
                         .size            n34_assign_bx, .-n34_assign_bx
                         .type            n35_statement_end_bx, @function
 n35_statement_end_bx:
@@ -2138,7 +2162,7 @@ n36_setexit_test_α:     mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
                         .type            n37_statement_begin_bx, @function
 n37_statement_begin_bx:
 .Lstatement_begin_α_112_stno:
-                        .pushsection     scrip_stno_map,"a",@progbits
+                        .pushsection     scrip_stno_map,"aw",@progbits; .p2align 3
                         .quad            .Lstatement_begin_α_112_stno
                         .long            7
                         .long            9
@@ -2155,8 +2179,8 @@ n37_statement_begin_β:                                                        j
 n38_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n38_var_α:              sub              rsp, 16
-                        mov              rax, qword ptr [r9 + 11568]          # i
-                        mov              rdx, qword ptr [r9 + 11576]
+                        mov              rax, qword ptr [r9 + 11920]          # i
+                        mov              rdx, qword ptr [r9 + 11928]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n39_lit_integer_α
                         .size            n38_var_bx, .-n38_var_bx
@@ -2275,8 +2299,8 @@ n42_cmp_test_β:         add              rsp, 16;                             j
 n43_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n43_var_α:              sub              rsp, 16
-                        mov              rax, qword ptr [r9 + 11568]          # i
-                        mov              rdx, qword ptr [r9 + 11576]
+                        mov              rax, qword ptr [r9 + 11920]          # i
+                        mov              rdx, qword ptr [r9 + 11928]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n44_lit_integer_α
 n43_var_β:              add              rsp, 16;                             jmp   n42_cmp_test_β
@@ -2329,7 +2353,7 @@ n45_binop_α:            sub              rsp, 16
                         add              rsp, 16;                             jmp   n44_lit_integer_β
 .Lbinop_α_124_240:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:247
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:246
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2345,8 +2369,8 @@ n46_assign_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n46_assign_α:           mov              rax, qword ptr [rsp + 0]             # binop
                         mov              rdx, qword ptr [rsp + 8]
-                        mov              qword ptr [r9 + 11568], rax          # i
-                        mov              qword ptr [r9 + 11576], rdx;         jmp   n47_statement_end_α
+                        mov              qword ptr [r9 + 11920], rax          # i
+                        mov              qword ptr [r9 + 11928], rdx;         jmp   n47_statement_end_α
                         .size            n46_assign_bx, .-n46_assign_bx
                         .type            n47_statement_end_bx, @function
 n47_statement_end_bx:
@@ -2371,7 +2395,7 @@ n48_setexit_test_α:     mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
                         .type            n49_statement_begin_bx, @function
 n49_statement_begin_bx:
 .Lstatement_begin_α_129_stno:
-                        .pushsection     scrip_stno_map,"a",@progbits
+                        .pushsection     scrip_stno_map,"aw",@progbits; .p2align 3
                         .quad            .Lstatement_begin_α_129_stno
                         .long            8
                         .long            10
@@ -2392,15 +2416,15 @@ n50_lit_string_α:       sub              rsp, 16
                         mov              dword ptr [rsp + 4], 36
                         mov              rax, qword ptr [rip + .Llit_string_α_131_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n51_var_α
-.Llit_string_α_131_0:   .quad            .Llit_string_α_131_0_s
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_string_α_131_0: .quad .Llit_string_α_131_0_s; .popsection
 .Llit_string_α_131_0_s: .string          "sum of add1(1..500) through APPLY = "
                         .size            n50_lit_string_bx, .-n50_lit_string_bx
                         .type            n51_var_bx, @function
 n51_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n51_var_α:              sub              rsp, 16
-                        mov              rax, qword ptr [r9 + 11552]          # sum
-                        mov              rdx, qword ptr [r9 + 11560]
+                        mov              rax, qword ptr [r9 + 11904]          # sum
+                        mov              rdx, qword ptr [r9 + 11912]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n52_binop_α
 n51_var_β:              add              rsp, 16
@@ -2464,7 +2488,7 @@ n53_assign_α:           mov              rax, qword ptr [rsp + 0]             #
                         mov              r13, qword ptr [rsp + 16]
                         add              rsp, 32
 1:                                                                            jmp   n54_statement_end_α
-.Lassign_α_134_0:       .quad            .Lassign_α_134_0_s
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Lassign_α_134_0: .quad .Lassign_α_134_0_s; .popsection
 .Lassign_α_134_0_s:     .string          "OUTPUT"
                         .size            n53_assign_bx, .-n53_assign_bx
                         .type            n54_statement_end_bx, @function
@@ -2536,14 +2560,19 @@ main_ω:
                         call             exit@PLT
 .Lgcsite_main_70:
 #-----------------------------------------------------------------------------------------------------------------------
+                        .pushsection     .data.rel.ro,"aw",@progbits
+                        .p2align         3
 .Lgcmap_main:
-                        .quad            2612686572890
+                        .quad            1994211282266
                         .quad            38654705664
                         .quad            .Lgcmap_main_s
-                        .quad            592
+                        .quad            448
                         .quad            1
-                        .quad            650910883643392
+                        .quad            492581209243648
 .Lgcmap_main_s:         .string          "main"
+                        .popsection
+                        .pushsection     .data.rel.ro,"aw",@progbits
+                        .p2align         3
 .Lgcsites_main_0:       .quad            71
                         .quad            .Lgcmap_main
                         .quad            0
@@ -2556,143 +2585,144 @@ main_ω:
                         .quad            137438953473
                         .quad            .Lgcsite_main_3
                         .quad            274877906945
-                        .quad            .Lgcsite_main_4
-                        .quad            1
                         .quad            .Lgcsite_main_5
+                        .quad            1
+                        .quad            .Lgcsite_main_4
                         .quad            1
                         .quad            .Lgcsite_main_6
                         .quad            1
                         .quad            .Lgcsite_main_7
                         .quad            18014604668370950
-                        .quad            .Lgcsite_main_8
-                        .quad            206158430209
                         .quad            .Lgcsite_main_9
                         .quad            206158430209
-                        .quad            .Lgcsite_main_10
-                        .quad            618475290625
-                        .quad            .Lgcsite_main_11
-                        .quad            481036337153
-                        .quad            .Lgcsite_main_12
-                        .quad            618475290625
-                        .quad            .Lgcsite_main_13
-                        .quad            481036337153
-                        .quad            .Lgcsite_main_14
-                        .quad            824633720834
-                        .quad            .Lgcsite_main_15
+                        .quad            .Lgcsite_main_8
+                        .quad            206158430209
+                        .quad            .Lgcsite_main_21
+                        .quad            412316860417
+                        .quad            .Lgcsite_main_20
+                        .quad            549755813889
+                        .quad            .Lgcsite_main_19
+                        .quad            962072674306
+                        .quad            .Lgcsite_main_18
+                        .quad            962072674306
+                        .quad            .Lgcsite_main_17
                         .quad            824633720834
                         .quad            .Lgcsite_main_16
                         .quad            824633720834
-                        .quad            .Lgcsite_main_17
+                        .quad            .Lgcsite_main_15
                         .quad            824633720834
-                        .quad            .Lgcsite_main_18
-                        .quad            962072674306
-                        .quad            .Lgcsite_main_19
-                        .quad            962072674306
-                        .quad            .Lgcsite_main_20
-                        .quad            549755813889
-                        .quad            .Lgcsite_main_21
+                        .quad            .Lgcsite_main_14
+                        .quad            824633720834
+                        .quad            .Lgcsite_main_13
+                        .quad            481036337153
+                        .quad            .Lgcsite_main_12
+                        .quad            618475290625
+                        .quad            .Lgcsite_main_11
+                        .quad            481036337153
+                        .quad            .Lgcsite_main_10
+                        .quad            618475290625
+                        .quad            .Lgcsite_main_48
                         .quad            412316860417
-                        .quad            .Lgcsite_main_22
+                        .quad            .Lgcsite_main_47
                         .quad            549755813889
-                        .quad            .Lgcsite_main_23
-                        .quad            412316860417
-                        .quad            .Lgcsite_main_24
-                        .quad            549755813889
-                        .quad            .Lgcsite_main_25
-                        .quad            412316860417
-                        .quad            .Lgcsite_main_26
-                        .quad            755914244098
-                        .quad            .Lgcsite_main_27
-                        .quad            755914244098
-                        .quad            .Lgcsite_main_28
-                        .quad            755914244098
-                        .quad            .Lgcsite_main_29
-                        .quad            755914244098
-                        .quad            .Lgcsite_main_30
-                        .quad            893353197570
-                        .quad            .Lgcsite_main_31
-                        .quad            893353197570
-                        .quad            .Lgcsite_main_32
-                        .quad            893353197569
-                        .quad            .Lgcsite_main_33
-                        .quad            1099511627777
-                        .quad            .Lgcsite_main_34
-                        .quad            962072674305
-                        .quad            .Lgcsite_main_35
-                        .quad            1099511627777
-                        .quad            .Lgcsite_main_36
-                        .quad            962072674305
-                        .quad            .Lgcsite_main_37
-                        .quad            1305670057986
-                        .quad            .Lgcsite_main_38
-                        .quad            1305670057986
-                        .quad            .Lgcsite_main_39
-                        .quad            1305670057986
-                        .quad            .Lgcsite_main_40
-                        .quad            1305670057986
-                        .quad            .Lgcsite_main_41
-                        .quad            1443109011458
-                        .quad            .Lgcsite_main_42
-                        .quad            1443109011458
-                        .quad            .Lgcsite_main_43
-                        .quad            1030792151041
-                        .quad            .Lgcsite_main_44
+                        .quad            .Lgcsite_main_46
                         .quad            893353197569
                         .quad            .Lgcsite_main_45
                         .quad            893353197569
-                        .quad            .Lgcsite_main_46
+                        .quad            .Lgcsite_main_44
                         .quad            893353197569
-                        .quad            .Lgcsite_main_47
-                        .quad            549755813889
-                        .quad            .Lgcsite_main_48
+                        .quad            .Lgcsite_main_43
+                        .quad            1030792151041
+                        .quad            .Lgcsite_main_42
+                        .quad            1443109011458
+                        .quad            .Lgcsite_main_41
+                        .quad            1443109011458
+                        .quad            .Lgcsite_main_40
+                        .quad            1305670057986
+                        .quad            .Lgcsite_main_39
+                        .quad            1305670057986
+                        .quad            .Lgcsite_main_38
+                        .quad            1305670057986
+                        .quad            .Lgcsite_main_37
+                        .quad            1305670057986
+                        .quad            .Lgcsite_main_36
+                        .quad            962072674305
+                        .quad            .Lgcsite_main_35
+                        .quad            1099511627777
+                        .quad            .Lgcsite_main_34
+                        .quad            962072674305
+                        .quad            .Lgcsite_main_33
+                        .quad            1099511627777
+                        .quad            .Lgcsite_main_32
+                        .quad            893353197569
+                        .quad            .Lgcsite_main_31
+                        .quad            893353197570
+                        .quad            .Lgcsite_main_30
+                        .quad            893353197570
+                        .quad            .Lgcsite_main_29
+                        .quad            755914244098
+                        .quad            .Lgcsite_main_28
+                        .quad            755914244098
+                        .quad            .Lgcsite_main_27
+                        .quad            755914244098
+                        .quad            .Lgcsite_main_26
+                        .quad            755914244098
+                        .quad            .Lgcsite_main_25
                         .quad            412316860417
+                        .quad            .Lgcsite_main_24
+                        .quad            549755813889
+                        .quad            .Lgcsite_main_23
+                        .quad            412316860417
+                        .quad            .Lgcsite_main_22
+                        .quad            549755813889
                         .quad            .Lgcsite_main_49
                         .quad            549755813889
-                        .quad            .Lgcsite_main_50
-                        .quad            343597383681
                         .quad            .Lgcsite_main_51
                         .quad            343597383681
-                        .quad            .Lgcsite_main_52
+                        .quad            .Lgcsite_main_50
+                        .quad            343597383681
+                        .quad            .Lgcsite_main_54
                         .quad            206158430209
                         .quad            .Lgcsite_main_53
                         .quad            206158430209
-                        .quad            .Lgcsite_main_54
+                        .quad            .Lgcsite_main_52
                         .quad            206158430209
-                        .quad            .Lgcsite_main_55
+                        .quad            .Lgcsite_main_57
                         .quad            274877906945
                         .quad            .Lgcsite_main_56
                         .quad            274877906945
-                        .quad            .Lgcsite_main_57
+                        .quad            .Lgcsite_main_55
                         .quad            274877906945
                         .quad            .Lgcsite_main_58
                         .quad            343597383681
-                        .quad            .Lgcsite_main_59
-                        .quad            549755813889
                         .quad            .Lgcsite_main_60
                         .quad            549755813889
-                        .quad            .Lgcsite_main_61
+                        .quad            .Lgcsite_main_59
+                        .quad            549755813889
+                        .quad            .Lgcsite_main_63
                         .quad            206158430209
                         .quad            .Lgcsite_main_62
                         .quad            206158430209
-                        .quad            .Lgcsite_main_63
+                        .quad            .Lgcsite_main_61
+                        .quad            206158430209
+                        .quad            .Lgcsite_main_65
                         .quad            206158430209
                         .quad            .Lgcsite_main_64
                         .quad            343597383681
-                        .quad            .Lgcsite_main_65
-                        .quad            206158430209
                         .quad            .Lgcsite_main_66
                         .quad            1
-                        .quad            .Lgcsite_main_67
+                        .quad            .Lgcsite_main_69
                         .quad            18446744004990074881
                         .quad            .Lgcsite_main_68
                         .quad            18446744004990074881
-                        .quad            .Lgcsite_main_69
+                        .quad            .Lgcsite_main_67
                         .quad            18446744004990074881
                         .quad            .Lgcsite_main_70
                         .quad            18446744004990074881
+                        .popsection
 module_init:
                         sub              rsp, 8
-                        .section         .rodata
+                        .section         .data.rel.ro,"aw",@progbits
 .Lstartup_pname0:       .string          "LBL__add1"
                         .align           8
 .Lstartup_prec0:
@@ -2703,7 +2733,7 @@ module_init:
                         .quad            0
                         .long            0
                         .long            0
-                        .long            592
+                        .long            448
                         .long            16
                         .long            0
                         .long            0
@@ -2722,7 +2752,7 @@ module_init:
                         call             rt_proc_seal_alpha@PLT
                         add              rsp, 8
                         ret
-                        .section         .rodata
+                        .section         .data.rel.ro,"aw",@progbits
                         .align           8
 __gc_frame_maps:        .quad            1
                         .quad            .Lgcmap_main
