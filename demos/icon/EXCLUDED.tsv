@@ -1,0 +1,4 @@
+# path	class	measurement (CEO-1696: a program the oracle gives no output for, or whose answer is not known, is excluded with its measurement; hq_icon 2026-10-17, Arizona icont/iconx 9.5.25a)
+demo/family_icon.icn	NO_ORACLE_ANSWER	icont refuses it (rc 1): line 3 "import": invalid preprocessing directive -- it $imports a Prolog module, which Arizona Icon cannot load
+demo/family_net/family_icon.icn	NO_ORACLE_ANSWER	icont refuses it (rc 1): line 8 "import": invalid preprocessing directive -- it $imports a Prolog module, which Arizona Icon cannot load
+jcon/jlink.icn	NO_ORACLE_ANSWER	with no argv iconx stops at its usage check (rc 1, "missing output class name" on stderr, nothing on stdout; util_cut_icon_kernel_refs.sh --root demos/icon --only jlink reads ORACLE_FAIL); its real input is Java class files that only the full jtran pipeline writes, and iconx dumps core in that pipeline (rc 139 after 1.1 s, CEO-1213)

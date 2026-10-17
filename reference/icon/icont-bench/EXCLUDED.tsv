@@ -1,0 +1,6 @@
+# path	class	measurement (CEO-1696: a program the oracle gives no output for, or whose answer is not known, is excluded with its measurement; hq_icon 2026-10-17, Arizona icont/iconx 9.5.25a)
+micro.icn	NO_ORACLE_ANSWER	a timing driver: iconx runs past 60 s (rc 124) on empty stdin, and two runs under timeout 20 differ from their first line (".....        18  overhead" against ".....        17  overhead"), so no run reproduces an answer
+micsum.icn	NO_ORACLE_ANSWER	summarizes micro.icn timing output read on stdin: on empty stdin iconx raises run-time error 103 at line 52 (rc 1); its only real input is micro output, which no run reproduces
+options.icn	NO_ORACLE_ANSWER	a library procedure file with no main: icont links it and iconx stops with run-time error 117 missing main procedure (rc 1)
+post.icn	NO_ORACLE_ANSWER	the 1993 benchmark wrapper library with no main: iconx stops with run-time error 117 missing main procedure (rc 1)
+shuffle.icn	NO_ORACLE_ANSWER	a library procedure file with no main: iconx stops with run-time error 117 missing main procedure (rc 1)
