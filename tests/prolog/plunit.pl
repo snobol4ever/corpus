@@ -255,8 +255,12 @@ pj_do_fail_r(Suite,Name,err(E)) :-
 pj_err_text(error(F,_), T) :- !, T = F.
 pj_err_text(E, E).
 
+/* a body that RETURNS without raising is that case's FAIL, as plunit fails it (no_exception): the catch alone, with its cut, let a
+ * succeeding body print nothing, so the case read "no verdict" (cfo 2026-10-17, test_arith max_integer_size:overflow, SCRIP row
+ * prolog-swi-core-test-arith-every-case-agrees-with-swipl-in-both-modes-ceo-1664) */
 pj_do_error(Suite,Name,Goal,Exp) :-
-    catch(Goal, B, pj_err_ball(Suite,Name,Exp,B)), !.
+    catch((Goal, Ok = true), B, pj_err_ball(Suite,Name,Exp,B)), !,
+    ( Ok == true -> pj_inc_fail, format('  FAIL: ~w:~w  (no exception)~n',[Suite,Name]) ; true ).
 pj_do_error(Suite,Name,_,_) :-
     pj_inc_fail, format('  FAIL: ~w:~w  (no exception)~n',[Suite,Name]).
 
@@ -273,8 +277,9 @@ pj_match_err(Suite,Name,Exp,Act) :-
     ).
 
 pj_do_throw(Suite,Name,Goal,Exp) :-
-    catch(Goal, Act, (Act=Exp -> pj_inc_pass, format('  pass: ~w:~w~n',[Suite,Name])
-                                ; pj_inc_fail, format('  FAIL: ~w:~w  (throw mismatch)~n',[Suite,Name]))), !.
+    catch((Goal, Ok = true), Act, (Act=Exp -> pj_inc_pass, format('  pass: ~w:~w~n',[Suite,Name])
+                                ; pj_inc_fail, format('  FAIL: ~w:~w  (throw mismatch)~n',[Suite,Name]))), !,
+    ( Ok == true -> pj_inc_fail, format('  FAIL: ~w:~w  (no throw)~n',[Suite,Name]) ; true ).
 pj_do_throw(Suite,Name,_,_) :-
     pj_inc_fail, format('  FAIL: ~w:~w  (no throw)~n',[Suite,Name]).
 
