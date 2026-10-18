@@ -15207,7 +15207,7 @@ n641_call_proc_staged_α:
                         mov              qword ptr [rbp + 440], rdx
                         cmp              al, 104;                             jne   .Lcall_proc_staged_α_786_999
                         add              rsp, 16
-                        add              rsp, 48;                             jmp   n657_unmark_α
+                        add              rsp, 1040;                           jmp   n657_unmark_α
 .Lcall_proc_staged_α_786_999:
                                                                               jmp   n642_gate_arm_α
 n641_call_proc_staged_β:
@@ -15222,7 +15222,7 @@ n641_call_proc_staged_β:
                         add              dword ptr [rax + 0], 1;              jmp   rcx
 .Lcall_proc_staged_β_786_22:
                         add              rsp, 16
-                        add              rsp, 48;                             jmp   n657_unmark_α
+                        add              rsp, 1040;                           jmp   n657_unmark_α
                         .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Lcall_proc_staged_β_786_0: .quad .Lcall_proc_staged_β_786_0_s; .popsection
 .Lcall_proc_staged_β_786_0_s:
                         .string          "$between_test/3"
@@ -15683,9 +15683,8 @@ n657_unmark_α:          mov              rsi, qword ptr [rbp + 352]           #
 .Lunmark_α_814_201:     mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
-                        test             r15, r15;                            je    .Lunmark_α_814_999
-                        add              rsp, 208;                            jmp   n620_to_β
-.Lunmark_α_814_999:     mov              r13, qword ptr [rbp + 368]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
+                        test             r15, r15;                            jne   n620_to_β
+                        mov              r13, qword ptr [rbp + 368]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
                         mov              rsp, qword ptr [rbp + 360]
                         mov              rax, qword ptr [rbp + 448]
                         mov              rcx, rax
@@ -15702,9 +15701,8 @@ n658_gate_α:            add              rsp, 208;                            j
 n658_gate_β:            test             r15, r15;                            je    .Lgate_β_816_999
                         add              rsp, 208;                            jmp   n620_to_β
 .Lgate_β_816_999:       mov              eax, dword ptr [rbp + 320]
-                        cmp              eax, 0;                              jne   .Lgate_β_816_10
-                        add              rsp, -48;                            jmp   n641_call_proc_staged_β
-.Lgate_β_816_10:        cmp              eax, 1;                              je    n655_gate_β
+                        cmp              eax, 0;                              je    n641_call_proc_staged_β
+                        cmp              eax, 1;                              je    n655_gate_β
                         add              rsp, 208;                            jmp   n620_to_β
                         .size            n658_gate_bx, .-n658_gate_bx
                         .type            n659_var_ref_bx, @function
@@ -15713,7 +15711,7 @@ n659_var_ref_bx:
 n659_var_ref_α:         sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 544]
+                        lea              rax, [rbp + -480]
                         mov              qword ptr [rsp + 8], rax;            jmp   n660_var_ref_α
                         .size            n659_var_ref_bx, .-n659_var_ref_bx
                         .type            n660_var_ref_bx, @function
@@ -15722,7 +15720,7 @@ n660_var_ref_bx:
 n660_var_ref_α:         sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 528]
+                        lea              rax, [rbp + -512]
                         mov              qword ptr [rsp + 8], rax;            jmp   n661_var_ref_α
                         .size            n660_var_ref_bx, .-n660_var_ref_bx
                         .type            n661_var_ref_bx, @function
@@ -15731,7 +15729,7 @@ n661_var_ref_bx:
 n661_var_ref_α:         sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 592]
+                        lea              rax, [rbp + -464]
                         mov              qword ptr [rsp + 8], rax;            jmp   n662_call_direct_α
                         .size            n661_var_ref_bx, .-n661_var_ref_bx
                         .type            n662_call_direct_bx, @function
@@ -15810,7 +15808,7 @@ n665_var_ref_bx:
 n665_var_ref_α:         sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 624]
+                        lea              rax, [rbp + -496]
                         mov              qword ptr [rsp + 8], rax;            jmp   n666_var_ref_α
                         .size            n665_var_ref_bx, .-n665_var_ref_bx
                         .type            n666_var_ref_bx, @function
@@ -15819,7 +15817,7 @@ n666_var_ref_bx:
 n666_var_ref_α:         sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 608]
+                        lea              rax, [rbp + -528]
                         mov              qword ptr [rsp + 8], rax;            jmp   n667_call_pl_leaf_α
                         .size            n666_var_ref_bx, .-n666_var_ref_bx
                         .type            n667_call_pl_leaf_bx, @function
@@ -15951,12 +15949,12 @@ n667_call_pl_leaf_α:    sub              rsp, 16
                         add              rsp, 48
                         cmp              al, 104;                             jne   .Lcall_pl_leaf_α_831_999
                         add              rsp, 16
-                        add              rsp, 1136;                           jmp   $mod_cl$2F4_step
+                        add              rsp, 144;                            jmp   $mod_cl$2F4_step
 .Lcall_pl_leaf_α_831_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n668_call_direct_α
 n667_call_pl_leaf_β:    add              rsp, 16
-                        add              rsp, 1136;                           jmp   $mod_cl$2F4_step
+                        add              rsp, 144;                            jmp   $mod_cl$2F4_step
                         .size            n667_call_pl_leaf_bx, .-n667_call_pl_leaf_bx
                         .type            n668_call_direct_bx, @function
 n668_call_direct_bx:
@@ -16030,7 +16028,7 @@ n671_var_ref_bx:
 n671_var_ref_α:         sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 704]
+                        lea              rax, [rbp + -512]
                         mov              qword ptr [rsp + 8], rax;            jmp   n672_var_ref_α
                         .size            n671_var_ref_bx, .-n671_var_ref_bx
                         .type            n672_var_ref_bx, @function
@@ -16039,7 +16037,7 @@ n672_var_ref_bx:
 n672_var_ref_α:         sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 704]
+                        lea              rax, [rbp + -528]
                         mov              qword ptr [rsp + 8], rax;            jmp   n673_call_pl_leaf_α
                         .size            n672_var_ref_bx, .-n672_var_ref_bx
                         .type            n673_call_pl_leaf_bx, @function
@@ -16171,12 +16169,12 @@ n673_call_pl_leaf_α:    sub              rsp, 16
                         add              rsp, 48
                         cmp              al, 104;                             jne   .Lcall_pl_leaf_α_840_999
                         add              rsp, 16
-                        add              rsp, 1232;                           jmp   $mod_cl$2F4_step
+                        add              rsp, 240;                            jmp   $mod_cl$2F4_step
 .Lcall_pl_leaf_α_840_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n674_call_direct_α
 n673_call_pl_leaf_β:    add              rsp, 16
-                        add              rsp, 1232;                           jmp   $mod_cl$2F4_step
+                        add              rsp, 240;                            jmp   $mod_cl$2F4_step
                         .size            n673_call_pl_leaf_bx, .-n673_call_pl_leaf_bx
                         .type            n674_call_direct_bx, @function
 n674_call_direct_bx:
@@ -16222,8 +16220,7 @@ n674_call_direct_α:     sub              rsp, 16
                         add              rsp, 240;                            jmp   n658_gate_β
 .Lcall_direct_α_841_999:
                         mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx
-                        add              rsp, 1264;                           jmp   $mod_cl$2F4_ret0
+                        mov              qword ptr [rsp + 8], rdx;            jmp   $mod_cl$2F4_ret0
 n674_call_direct_β:     add              rsp, 16
                         add              rsp, 240;                            jmp   n658_gate_β
                         .size            n674_call_direct_bx, .-n674_call_direct_bx
@@ -16233,7 +16230,7 @@ n675_var_ref_bx:
 n675_var_ref_α:         sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 560]
+                        lea              rax, [rsp + 592]
                         mov              qword ptr [rsp + 8], rax;            jmp   n676_lit_atom_α
 n675_var_ref_β:         add              rsp, 16;                             jmp   .Ldisjunction_ω_645_af
                         .size            n675_var_ref_bx, .-n675_var_ref_bx
@@ -16373,7 +16370,7 @@ n678_var_ref_bx:
 n678_var_ref_α:         sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 560]
+                        lea              rax, [rsp + 592]
                         mov              qword ptr [rsp + 8], rax;            jmp   n679_lit_atom_α
 n678_var_ref_β:         add              rsp, 16;                             jmp   .Ldisjunction_ω_645_af
                         .size            n678_var_ref_bx, .-n678_var_ref_bx
@@ -17800,7 +17797,8 @@ n881_call_pl_leaf_β:    add              rsp, 16
                         .type            n882_gate_arm_bx, @function
 n882_gate_arm_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n882_gate_arm_α:        mov              dword ptr [rbp + 176], 0;            jmp   n893_var_ref_α
+n882_gate_arm_α:        mov              dword ptr [rbp + 176], 0
+                        add              rsp, 32;                             jmp   n893_var_ref_α
                         .size            n882_gate_arm_bx, .-n882_gate_arm_bx
                         .type            n883_unmark_bx, @function
 n883_unmark_bx:
@@ -18058,8 +18056,7 @@ n889_call_pl_leaf_β:    add              rsp, 16
                         .type            n890_gate_arm_bx, @function
 n890_gate_arm_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n890_gate_arm_α:        mov              dword ptr [rbp + 176], 1
-                        add              rsp, 80;                             jmp   n893_var_ref_α
+n890_gate_arm_α:        mov              dword ptr [rbp + 176], 1;            jmp   n893_var_ref_α
                         .size            n890_gate_arm_bx, .-n890_gate_arm_bx
                         .type            n891_unmark_bx, @function
 n891_unmark_bx:
@@ -18076,9 +18073,8 @@ n891_unmark_α:          mov              rsi, qword ptr [rbp + 208]           #
 .Lunmark_α_938_201:     mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
-                        test             r15, r15;                            je    .Lunmark_α_938_999
-                        add              rsp, 64;                             jmp   $var_subtract$2F3_step
-.Lunmark_α_938_999:     mov              r13, qword ptr [rbp + 224]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
+                        test             r15, r15;                            jne   $var_subtract$2F3_step
+                        mov              r13, qword ptr [rbp + 224]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
                         mov              rsp, qword ptr [rbp + 216]
                         mov              rax, qword ptr [rbp + 432]
                         mov              rcx, rax
@@ -18091,15 +18087,12 @@ n891_unmark_α:          mov              rsi, qword ptr [rbp + 208]           #
                         .type            n892_gate_bx, @function
 n892_gate_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n892_gate_α:            add              rsp, 64;                             jmp   $var_subtract$2F3_step
-n892_gate_β:            test             r15, r15;                            je    .Lgate_β_940_999
-                        add              rsp, 64;                             jmp   $var_subtract$2F3_step
-.Lgate_β_940_999:       mov              eax, dword ptr [rbp + 176]
-                        cmp              eax, 0;                              jne   .Lgate_β_940_10
-                        add              rsp, 16;                             jmp   n892_gate_α
-.Lgate_β_940_10:        cmp              eax, 1;                              jne   .Lgate_β_940_11
-                        add              rsp, 16;                             jmp   n892_gate_α
-.Lgate_β_940_11:        add              rsp, 64;                             jmp   $var_subtract$2F3_step
+n892_gate_α:                                                                  jmp   $var_subtract$2F3_step
+n892_gate_β:            test             r15, r15;                            jne   $var_subtract$2F3_step
+                        mov              eax, dword ptr [rbp + 176]
+                        cmp              eax, 0;                              je    n892_gate_α
+                        cmp              eax, 1;                              je    n892_gate_α
+                                                                              jmp   $var_subtract$2F3_step
                         .size            n892_gate_bx, .-n892_gate_bx
                         .type            n893_var_ref_bx, @function
 n893_var_ref_bx:
@@ -18107,7 +18100,7 @@ n893_var_ref_bx:
 n893_var_ref_α:         sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 48]
+                        lea              rax, [rbp + -48]
                         mov              qword ptr [rsp + 8], rax;            jmp   n894_var_ref_α
                         .size            n893_var_ref_bx, .-n893_var_ref_bx
                         .type            n894_var_ref_bx, @function
@@ -18125,7 +18118,7 @@ n895_var_ref_bx:
 n895_var_ref_α:         sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 96]
+                        lea              rax, [rbp + -32]
                         mov              qword ptr [rsp + 8], rax;            jmp   n896_call_proc_staged_α
                         .size            n895_var_ref_bx, .-n895_var_ref_bx
                         .type            n896_call_proc_staged_bx, @function
@@ -18147,9 +18140,9 @@ n896_call_proc_staged_α:
                         mov              qword ptr [rsp + 32], rax
                         mov              rax, qword ptr [rsp + 72]
                         mov              qword ptr [rsp + 40], rax
-                        lea              r11, [rsp + 192]                     # last call (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.4): the block is tested in place, then copied over this frame's own block and the frame released
+                        lea              r11, [rsp + 128]                     # last call (ARCH-PROLOG-C-OUT-OF-THE-BOX 1.4): the block is tested in place, then copied over this frame's own block and the frame released
                         lea              rsi, [rsp + 0]                       # tail-safe, per cell (ARCH-PROLOG-C-OUT-OF-THE-BOX 9.3): a variable argument is inspected from its own slot (one hop fewer than through its name cell), any other cell from the block; ONE check body, its cold arms out of line after the callee jump: a name (slen 1 the cell, slen 2 the VCELL's) is followed to its cell; a PLVAR link INTO THIS FRAME -- rsp up to the old block's top, every cell the release kills, the spine cells below fb included -- is followed too, a link elsewhere is a value (its pointer is absolute and its target outlives the frame); at most four hops, a longer chain or a self link of this frame DECLINES the tail arm; a bound cell's VALUE is copied in; an unbound cell (the zero DESCR, a null name) of this frame declines, elsewhere it becomes a one-hop name
-                        lea              rdi, [rsp + 144]
+                        lea              rdi, [rbp + -48]
                         mov              r9d, 4
 .Lcall_proc_staged_α_948_112:
                         mov              eax, dword ptr [rdi + 0]
@@ -18177,7 +18170,7 @@ n896_call_proc_staged_α:
                         mov              qword ptr [rsi + 8], rax
 .Lcall_proc_staged_α_948_127:
                         lea              rsi, [rsp + 32]
-                        lea              rdi, [rsp + 160]
+                        lea              rdi, [rbp + -32]
                         mov              r9d, 4
 .Lcall_proc_staged_α_948_132:
                         mov              eax, dword ptr [rdi + 0]
@@ -19271,7 +19264,7 @@ n970_call_proc_staged_α:
                         mov              qword ptr [rbp + 424], rdx
                         cmp              al, 104;                             jne   .Lcall_proc_staged_α_1064_999
                         add              rsp, 16
-                        add              rsp, 48;                             jmp   n986_unmark_α
+                        add              rsp, 176;                            jmp   n986_unmark_α
 .Lcall_proc_staged_α_1064_999:
                                                                               jmp   n971_gate_arm_α
 n970_call_proc_staged_β:
@@ -19286,7 +19279,7 @@ n970_call_proc_staged_β:
                         add              dword ptr [rax + 0], 1;              jmp   rcx
 .Lcall_proc_staged_β_1064_22:
                         add              rsp, 16
-                        add              rsp, 48;                             jmp   n986_unmark_α
+                        add              rsp, 176;                            jmp   n986_unmark_α
                         .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Lcall_proc_staged_β_1064_0: .quad .Lcall_proc_staged_β_1064_0_s; .popsection
 .Lcall_proc_staged_β_1064_0_s:
                         .string          "$between_test/3"
@@ -19747,9 +19740,8 @@ n986_unmark_α:          mov              rsi, qword ptr [rbp + 336]           #
 .Lunmark_α_1092_201:    mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
-                        test             r15, r15;                            je    .Lunmark_α_1092_999
-                        add              rsp, 128;                            jmp   n1009_unmark_α
-.Lunmark_α_1092_999:    mov              r13, qword ptr [rbp + 352]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
+                        test             r15, r15;                            jne   n1009_unmark_α
+                        mov              r13, qword ptr [rbp + 352]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
                         mov              rsp, qword ptr [rbp + 344]
                         mov              rax, qword ptr [rbp + 432]
                         mov              rcx, rax
@@ -19766,9 +19758,8 @@ n987_gate_α:            add              rsp, 128;                            j
 n987_gate_β:            test             r15, r15;                            je    .Lgate_β_1094_999
                         add              rsp, 128;                            jmp   n1009_unmark_α
 .Lgate_β_1094_999:      mov              eax, dword ptr [rbp + 304]
-                        cmp              eax, 0;                              jne   .Lgate_β_1094_10
-                        add              rsp, -48;                            jmp   n970_call_proc_staged_β
-.Lgate_β_1094_10:       cmp              eax, 1;                              je    n984_gate_β
+                        cmp              eax, 0;                              je    n970_call_proc_staged_β
+                        cmp              eax, 1;                              je    n984_gate_β
                         add              rsp, 128;                            jmp   n1009_unmark_α
                         .size            n987_gate_bx, .-n987_gate_bx
                         .type            n988_var_ref_bx, @function
@@ -19911,12 +19902,12 @@ n992_call_pl_leaf_α:    sub              rsp, 16
                         add              rsp, 64
                         cmp              al, 104;                             jne   .Lcall_pl_leaf_α_1102_999
                         add              rsp, 16
-                        add              rsp, 208;                            jmp   n1009_unmark_α
+                        add              rsp, 80;                             jmp   n1009_unmark_α
 .Lcall_pl_leaf_α_1102_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n993_call_direct_α
 n992_call_pl_leaf_β:    add              rsp, 16
-                        add              rsp, 208;                            jmp   n1009_unmark_α
+                        add              rsp, 80;                             jmp   n1009_unmark_α
                         .size            n992_call_pl_leaf_bx, .-n992_call_pl_leaf_bx
                         .type            n993_call_direct_bx, @function
 n993_call_direct_bx:
@@ -19974,7 +19965,7 @@ n993_call_direct_β:     add              rsp, 16
 n994_gate_arm_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n994_gate_arm_α:        mov              dword ptr [rbp + 112], 0
-                        add              rsp, 272;                            jmp   $arg_swi$2F3_ret0
+                        add              rsp, 96;                             jmp   $arg_swi$2F3_ret0
                         .size            n994_gate_arm_bx, .-n994_gate_arm_bx
                         .type            n995_var_ref_bx, @function
 n995_var_ref_bx:
@@ -19982,7 +19973,7 @@ n995_var_ref_bx:
 n995_var_ref_α:         sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 80]
+                        lea              rax, [rsp + 112]
                         mov              qword ptr [rsp + 8], rax;            jmp   n996_lit_atom_α
 n995_var_ref_β:         add              rsp, 16;                             jmp   .Ldisjunction_ω_974_af
                         .size            n995_var_ref_bx, .-n995_var_ref_bx
@@ -20122,7 +20113,7 @@ n998_var_ref_bx:
 n998_var_ref_α:         sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 80]
+                        lea              rax, [rsp + 112]
                         mov              qword ptr [rsp + 8], rax;            jmp   n999_lit_atom_α
 n998_var_ref_β:         add              rsp, 16;                             jmp   .Ldisjunction_ω_974_af
                         .size            n998_var_ref_bx, .-n998_var_ref_bx
@@ -20522,9 +20513,8 @@ n1010_gate_α:           add              rsp, 32;                             j
 n1010_gate_β:           test             r15, r15;                            je    .Lgate_β_1132_999
                         add              rsp, 32;                             jmp   $arg_swi$2F3_ω
 .Lgate_β_1132_999:      mov              eax, dword ptr [rbp + 112]
-                        cmp              eax, 0;                              jne   .Lgate_β_1132_10
-                        add              rsp, -128;                           jmp   n987_gate_β
-.Lgate_β_1132_10:       cmp              eax, 1;                              jne   .Lgate_β_1132_11
+                        cmp              eax, 0;                              je    n987_gate_β
+                        cmp              eax, 1;                              jne   .Lgate_β_1132_11
                         add              rsp, 16;                             jmp   n1010_gate_α
 .Lgate_β_1132_11:       add              rsp, 32;                             jmp   $arg_swi$2F3_ω
                         .size            n1010_gate_bx, .-n1010_gate_bx
@@ -25551,7 +25541,7 @@ n1349_call_proc_staged_α:
                         mov              qword ptr [rbp + 296], rdx
                         cmp              al, 104;                             jne   .Lcall_proc_staged_α_1400_999
                         add              rsp, 16
-                        add              rsp, 64;                             jmp   n1363_unmark_α
+                        add              rsp, 208;                            jmp   n1363_unmark_α
 .Lcall_proc_staged_α_1400_999:
                                                                               jmp   n1350_var_ref_α
 n1349_call_proc_staged_β:
@@ -25566,7 +25556,7 @@ n1349_call_proc_staged_β:
                         add              dword ptr [rax + 0], 1;              jmp   rcx
 .Lcall_proc_staged_β_1400_22:
                         add              rsp, 16
-                        add              rsp, 64;                             jmp   n1363_unmark_α
+                        add              rsp, 208;                            jmp   n1363_unmark_α
                         .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Lcall_proc_staged_β_1400_0: .quad .Lcall_proc_staged_β_1400_0_s; .popsection
 .Lcall_proc_staged_β_1400_0_s:
                         .string          "$mod_q1/3"
@@ -25800,7 +25790,8 @@ n1355_call_pl_leaf_β:   add              rsp, 16
                         .type            n1356_gate_arm_bx, @function
 n1356_gate_arm_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n1356_gate_arm_α:       mov              dword ptr [rbp + 96], 0;             jmp   n1365_cut_α
+n1356_gate_arm_α:       mov              dword ptr [rbp + 96], 0
+                        add              rsp, 80;                             jmp   n1365_cut_α
                         .size            n1356_gate_arm_bx, .-n1356_gate_arm_bx
                         .type            n1357_unmark_bx, @function
 n1357_unmark_bx:
@@ -25970,9 +25961,8 @@ n1363_unmark_α:         mov              rsi, qword ptr [rbp + 128]           #
 .Lunmark_α_1425_201:    mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
-                        test             r15, r15;                            je    .Lunmark_α_1425_999
-                        add              rsp, 144;                            jmp   $mod_head$2F3_step
-.Lunmark_α_1425_999:    mov              r13, qword ptr [rbp + 144]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
+                        test             r15, r15;                            jne   $mod_head$2F3_step
+                        mov              r13, qword ptr [rbp + 144]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
                         mov              rsp, qword ptr [rbp + 136]
                         mov              rax, qword ptr [rbp + 304]
                         mov              rcx, rax
@@ -25992,15 +25982,12 @@ n1363_unmark_α:         mov              rsi, qword ptr [rbp + 128]           #
                         .type            n1364_gate_bx, @function
 n1364_gate_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n1364_gate_α:           add              rsp, 144;                            jmp   $mod_head$2F3_step
-n1364_gate_β:           test             r15, r15;                            je    .Lgate_β_1427_999
-                        add              rsp, 144;                            jmp   $mod_head$2F3_step
-.Lgate_β_1427_999:      mov              eax, dword ptr [rbp + 96]
-                        cmp              eax, 0;                              jne   .Lgate_β_1427_10
-                        add              rsp, -64;                            jmp   n1349_call_proc_staged_β
-.Lgate_β_1427_10:       cmp              eax, 1;                              jne   .Lgate_β_1427_11
-                        add              rsp, -48;                            jmp   n1361_call_proc_staged_β
-.Lgate_β_1427_11:       add              rsp, 144;                            jmp   $mod_head$2F3_step
+n1364_gate_α:                                                                 jmp   $mod_head$2F3_step
+n1364_gate_β:           test             r15, r15;                            jne   $mod_head$2F3_step
+                        mov              eax, dword ptr [rbp + 96]
+                        cmp              eax, 0;                              je    n1349_call_proc_staged_β
+                        cmp              eax, 1;                              je    n1361_call_proc_staged_β
+                                                                              jmp   $mod_head$2F3_step
                         .size            n1364_gate_bx, .-n1364_gate_bx
                         .type            n1365_cut_bx, @function
 n1365_cut_bx:
@@ -26010,8 +25997,7 @@ n1365_cut_α:            mov              qword ptr [rbp + 712], 0
                         mov              r13, qword ptr [rbp + 728]           # pl_cut_barrier inline (ARCH-PROLOG-C-OUT-OF-THE-BOX 2.2): B := F.B0, the caller's choice the prologue saved at [kt-40]
                         mov              qword ptr [rbp + 304], 0
                         mov              qword ptr [rbp + 384], 0
-                        lea              rsp, [rbp + -160]
-                        add              rsp, 160;                            jmp   $mod_head$2F3_γ
+                        lea              rsp, [rbp + -224];                   jmp   $mod_head$2F3_γ
                         .size            n1365_cut_bx, .-n1365_cut_bx
                         .type            n1366_unify_value_bx, @function
 n1366_unify_value_bx:
@@ -42799,7 +42785,7 @@ n2393_call_proc_staged_α:
                         mov              qword ptr [rbp + 696], rdx
                         cmp              al, 104;                             jne   .Lcall_proc_staged_α_2795_999
                         add              rsp, 16
-                        add              rsp, 48;                             jmp   n2409_unmark_α
+                        add              rsp, 208;                            jmp   n2409_unmark_α
 .Lcall_proc_staged_α_2795_999:
                                                                               jmp   n2394_gate_arm_α
 n2393_call_proc_staged_β:
@@ -42814,7 +42800,7 @@ n2393_call_proc_staged_β:
                         add              dword ptr [rax + 0], 1;              jmp   rcx
 .Lcall_proc_staged_β_2795_22:
                         add              rsp, 16
-                        add              rsp, 48;                             jmp   n2409_unmark_α
+                        add              rsp, 208;                            jmp   n2409_unmark_α
                         .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Lcall_proc_staged_β_2795_0: .quad .Lcall_proc_staged_β_2795_0_s; .popsection
 .Lcall_proc_staged_β_2795_0_s:
                         .string          "$between_test/3"
@@ -42839,9 +42825,8 @@ n2395_unmark_α:         mov              rsi, qword ptr [rbp + 608]           #
 .Lunmark_α_2799_201:    mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
-                        test             r15, r15;                            je    .Lunmark_α_2799_999
-                        add              rsp, 160;                            jmp   n2477_unmark_α
-.Lunmark_α_2799_999:    mov              r13, qword ptr [rbp + 624]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
+                        test             r15, r15;                            jne   n2477_unmark_α
+                        mov              r13, qword ptr [rbp + 624]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
                         mov              rsp, qword ptr [rbp + 616]
                         mov              rax, qword ptr [rbp + 704]
                         mov              rcx, rax
@@ -43287,7 +43272,7 @@ n2409_unmark_α:         mov              rsi, qword ptr [rbp + 608]           #
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            je    .Lunmark_α_2823_999
-                        add              rsp, 160;                            jmp   n2477_unmark_α
+                        add              rsp, -16;                            jmp   n2477_unmark_α
 .Lunmark_α_2823_999:    mov              r13, qword ptr [rbp + 624]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
                         mov              rsp, qword ptr [rbp + 616]
                         mov              rax, qword ptr [rbp + 704]
@@ -43308,14 +43293,13 @@ n2409_unmark_α:         mov              rsi, qword ptr [rbp + 608]           #
                         .type            n2410_gate_bx, @function
 n2410_gate_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2410_gate_α:           add              rsp, 160;                            jmp   n2477_unmark_α
+n2410_gate_α:           add              rsp, -16;                            jmp   n2477_unmark_α
 n2410_gate_β:           test             r15, r15;                            je    .Lgate_β_2825_999
-                        add              rsp, 160;                            jmp   n2477_unmark_α
+                        add              rsp, -16;                            jmp   n2477_unmark_α
 .Lgate_β_2825_999:      mov              eax, dword ptr [rbp + 576]
-                        cmp              eax, 0;                              jne   .Lgate_β_2825_10
-                        add              rsp, -48;                            jmp   n2393_call_proc_staged_β
-.Lgate_β_2825_10:       cmp              eax, 1;                              je    n2407_gate_β
-                        add              rsp, 160;                            jmp   n2477_unmark_α
+                        cmp              eax, 0;                              je    n2393_call_proc_staged_β
+                        cmp              eax, 1;                              je    n2407_gate_β
+                        add              rsp, -16;                            jmp   n2477_unmark_α
                         .size            n2410_gate_bx, .-n2410_gate_bx
                         .type            n2411_var_ref_bx, @function
 n2411_var_ref_bx:
@@ -43323,7 +43307,7 @@ n2411_var_ref_bx:
 n2411_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 48]
+                        lea              rax, [rbp + -240]
                         mov              qword ptr [rsp + 8], rax;            jmp   n2412_var_ref_α
                         .size            n2411_var_ref_bx, .-n2411_var_ref_bx
                         .type            n2412_var_ref_bx, @function
@@ -43332,7 +43316,7 @@ n2412_var_ref_bx:
 n2412_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 272]
+                        lea              rax, [rbp + -32]
                         mov              qword ptr [rsp + 8], rax;            jmp   n2413_var_ref_α
                         .size            n2412_var_ref_bx, .-n2412_var_ref_bx
                         .type            n2413_var_ref_bx, @function
@@ -43341,7 +43325,7 @@ n2413_var_ref_bx:
 n2413_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 176]
+                        lea              rax, [rbp + -144]
                         mov              qword ptr [rsp + 8], rax;            jmp   n2414_call_direct_α
                         .size            n2413_var_ref_bx, .-n2413_var_ref_bx
                         .type            n2414_call_direct_bx, @function
@@ -43400,15 +43384,15 @@ n2415_var_ref_bx:
 n2415_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 304]
+                        lea              rax, [rbp + -48]
                         mov              qword ptr [rsp + 8], rax;            jmp   n2416_var_α
                         .size            n2415_var_ref_bx, .-n2415_var_ref_bx
                         .type            n2416_var_bx, @function
 n2416_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n2416_var_α:            sub              rsp, 16
-                        mov              rax, qword ptr [rsp + 224]
-                        mov              rdx, qword ptr [rsp + 232]
+                        mov              rax, qword ptr [rbp + -144]
+                        mov              rdx, qword ptr [rbp + -136]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n2417_lit_integer_α
                         .size            n2416_var_bx, .-n2416_var_bx
@@ -43505,12 +43489,12 @@ n2418_call_pl_leaf_α:   sub              rsp, 16
                         add              rsp, 32
                         cmp              al, 104;                             jne   .Lcall_pl_leaf_α_2838_999
                         add              rsp, 16
-                        add              rsp, 288;                            jmp   n2477_unmark_α
+                        add              rsp, 112;                            jmp   n2477_unmark_α
 .Lcall_pl_leaf_α_2838_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n2419_call_pl_leaf_α
 n2418_call_pl_leaf_β:   add              rsp, 16
-                        add              rsp, 288;                            jmp   n2477_unmark_α
+                        add              rsp, 112;                            jmp   n2477_unmark_α
                         .size            n2418_call_pl_leaf_bx, .-n2418_call_pl_leaf_bx
                         .type            n2419_call_pl_leaf_bx, @function
 n2419_call_pl_leaf_bx:
@@ -43587,8 +43571,8 @@ n2419_call_pl_leaf_β:   add              rsp, 16
 n2420_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n2420_var_α:            sub              rsp, 16
-                        mov              rax, qword ptr [rsp + 384]
-                        mov              rdx, qword ptr [rsp + 392]
+                        mov              rax, qword ptr [rbp + -48]
+                        mov              rdx, qword ptr [rbp + -40]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n2421_lit_integer_α
                         .size            n2420_var_bx, .-n2420_var_bx
@@ -43696,7 +43680,7 @@ n2422_call_pl_leaf_β:   add              rsp, 16
 n2423_gate_arm_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n2423_gate_arm_α:       mov              dword ptr [rbp + 304], 0
-                        add              rsp, 352;                            jmp   n2479_gate_arm_α
+                        add              rsp, 176;                            jmp   n2479_gate_arm_α
                         .size            n2423_gate_arm_bx, .-n2423_gate_arm_bx
                         .type            n2424_var_ref_bx, @function
 n2424_var_ref_bx:
@@ -43704,7 +43688,7 @@ n2424_var_ref_bx:
 n2424_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 64]
+                        lea              rax, [rsp + 96]
                         mov              qword ptr [rsp + 8], rax;            jmp   n2425_lit_atom_α
 n2424_var_ref_β:        add              rsp, 16;                             jmp   .Ldisjunction_ω_2397_af
                         .size            n2424_var_ref_bx, .-n2424_var_ref_bx
@@ -43842,7 +43826,7 @@ n2427_var_ref_bx:
 n2427_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 64]
+                        lea              rax, [rsp + 96]
                         mov              qword ptr [rsp + 8], rax;            jmp   n2428_lit_atom_α
 n2427_var_ref_β:        add              rsp, 16;                             jmp   .Ldisjunction_ω_2397_af
                         .size            n2427_var_ref_bx, .-n2427_var_ref_bx
@@ -44560,7 +44544,7 @@ n2448_call_proc_staged_α:
                         mov              qword ptr [rbp + 1592], rdx
                         cmp              al, 104;                             jne   .Lcall_proc_staged_α_2889_999
                         add              rsp, 16
-                        add              rsp, 48;                             jmp   n2464_unmark_α
+                        add              rsp, 272;                            jmp   n2464_unmark_α
 .Lcall_proc_staged_α_2889_999:
                                                                               jmp   n2449_gate_arm_α
 n2448_call_proc_staged_β:
@@ -44575,7 +44559,7 @@ n2448_call_proc_staged_β:
                         add              dword ptr [rax + 0], 1;              jmp   rcx
 .Lcall_proc_staged_β_2889_22:
                         add              rsp, 16
-                        add              rsp, 48;                             jmp   n2464_unmark_α
+                        add              rsp, 272;                            jmp   n2464_unmark_α
                         .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Lcall_proc_staged_β_2889_0: .quad .Lcall_proc_staged_β_2889_0_s; .popsection
 .Lcall_proc_staged_β_2889_0_s:
                         .string          "$between_test/3"
@@ -44600,9 +44584,8 @@ n2450_unmark_α:         mov              rsi, qword ptr [rbp + 1504]          #
 .Lunmark_α_2893_201:    mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
-                        test             r15, r15;                            je    .Lunmark_α_2893_999
-                        add              rsp, 224;                            jmp   n2477_unmark_α
-.Lunmark_α_2893_999:    mov              r13, qword ptr [rbp + 1520]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
+                        test             r15, r15;                            jne   n2477_unmark_α
+                        mov              r13, qword ptr [rbp + 1520]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
                         mov              rsp, qword ptr [rbp + 1512]
                         mov              rax, qword ptr [rbp + 1600]
                         mov              rcx, rax
@@ -45026,9 +45009,8 @@ n2464_unmark_α:         mov              rsi, qword ptr [rbp + 1504]          #
 .Lunmark_α_2917_201:    mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
-                        test             r15, r15;                            je    .Lunmark_α_2917_999
-                        add              rsp, 224;                            jmp   n2477_unmark_α
-.Lunmark_α_2917_999:    mov              r13, qword ptr [rbp + 1520]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
+                        test             r15, r15;                            jne   n2477_unmark_α
+                        mov              r13, qword ptr [rbp + 1520]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
                         mov              rsp, qword ptr [rbp + 1512]
                         mov              rax, qword ptr [rbp + 1600]
                         mov              rcx, rax
@@ -45041,14 +45023,12 @@ n2464_unmark_α:         mov              rsi, qword ptr [rbp + 1504]          #
                         .type            n2465_gate_bx, @function
 n2465_gate_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2465_gate_α:           add              rsp, 224;                            jmp   n2477_unmark_α
-n2465_gate_β:           test             r15, r15;                            je    .Lgate_β_2919_999
-                        add              rsp, 224;                            jmp   n2477_unmark_α
-.Lgate_β_2919_999:      mov              eax, dword ptr [rbp + 1472]
-                        cmp              eax, 0;                              jne   .Lgate_β_2919_10
-                        add              rsp, -48;                            jmp   n2448_call_proc_staged_β
-.Lgate_β_2919_10:       cmp              eax, 1;                              je    n2462_gate_β
-                        add              rsp, 224;                            jmp   n2477_unmark_α
+n2465_gate_α:                                                                 jmp   n2477_unmark_α
+n2465_gate_β:           test             r15, r15;                            jne   n2477_unmark_α
+                        mov              eax, dword ptr [rbp + 1472]
+                        cmp              eax, 0;                              je    n2448_call_proc_staged_β
+                        cmp              eax, 1;                              je    n2462_gate_β
+                                                                              jmp   n2477_unmark_α
                         .size            n2465_gate_bx, .-n2465_gate_bx
                         .type            n2466_var_ref_bx, @function
 n2466_var_ref_bx:
@@ -45056,7 +45036,7 @@ n2466_var_ref_bx:
 n2466_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 48]
+                        lea              rax, [rbp + -304]
                         mov              qword ptr [rsp + 8], rax;            jmp   n2467_var_ref_α
                         .size            n2466_var_ref_bx, .-n2466_var_ref_bx
                         .type            n2467_var_ref_bx, @function
@@ -45065,7 +45045,7 @@ n2467_var_ref_bx:
 n2467_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 192]
+                        lea              rax, [rbp + -176]
                         mov              qword ptr [rsp + 8], rax;            jmp   n2468_var_ref_α
                         .size            n2467_var_ref_bx, .-n2467_var_ref_bx
                         .type            n2468_var_ref_bx, @function
@@ -45074,7 +45054,7 @@ n2468_var_ref_bx:
 n2468_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 176]
+                        lea              rax, [rbp + -208]
                         mov              qword ptr [rsp + 8], rax;            jmp   n2469_call_direct_α
                         .size            n2468_var_ref_bx, .-n2468_var_ref_bx
                         .type            n2469_call_direct_bx, @function
@@ -45131,7 +45111,7 @@ n2469_call_direct_β:    add              rsp, 16
 n2470_gate_arm_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n2470_gate_arm_α:       mov              dword ptr [rbp + 304], 1
-                        add              rsp, 288;                            jmp   n2479_gate_arm_α
+                        add              rsp, 64;                             jmp   n2479_gate_arm_α
                         .size            n2470_gate_arm_bx, .-n2470_gate_arm_bx
                         .type            n2471_var_ref_bx, @function
 n2471_var_ref_bx:
@@ -45139,7 +45119,7 @@ n2471_var_ref_bx:
 n2471_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 64]
+                        lea              rax, [rsp + 96]
                         mov              qword ptr [rsp + 8], rax;            jmp   n2472_lit_atom_α
 n2471_var_ref_β:        add              rsp, 16;                             jmp   .Ldisjunction_ω_2452_af
                         .size            n2471_var_ref_bx, .-n2471_var_ref_bx
@@ -45277,7 +45257,7 @@ n2474_var_ref_bx:
 n2474_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 64]
+                        lea              rax, [rsp + 96]
                         mov              qword ptr [rsp + 8], rax;            jmp   n2475_lit_atom_α
 n2474_var_ref_β:        add              rsp, 16;                             jmp   .Ldisjunction_ω_2452_af
                         .size            n2474_var_ref_bx, .-n2474_var_ref_bx
@@ -45448,11 +45428,9 @@ n2478_gate_bx:
 n2478_gate_α:                                                                 jmp   n2480_unmark_α
 n2478_gate_β:           test             r15, r15;                            jne   n2480_unmark_α
                         mov              eax, dword ptr [rbp + 304]
-                        cmp              eax, 0;                              jne   .Lgate_β_2942_10
-                        add              rsp, -160;                           jmp   n2410_gate_β
-.Lgate_β_2942_10:       cmp              eax, 1;                              jne   .Lgate_β_2942_11
-                        add              rsp, -224;                           jmp   n2465_gate_β
-.Lgate_β_2942_11:                                                             jmp   n2480_unmark_α
+                        cmp              eax, 0;                              je    n2410_gate_β
+                        cmp              eax, 1;                              je    n2465_gate_β
+                                                                              jmp   n2480_unmark_α
                         .size            n2478_gate_bx, .-n2478_gate_bx
                         .type            n2479_gate_arm_bx, @function
 n2479_gate_arm_bx:
@@ -45474,9 +45452,8 @@ n2480_unmark_α:         mov              rsi, qword ptr [rbp + 144]           #
 .Lunmark_α_2946_201:    mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
-                        test             r15, r15;                            je    .Lunmark_α_2946_999
-                        add              rsp, 96;                             jmp   $cp_mq$2F2_step
-.Lunmark_α_2946_999:    mov              r13, qword ptr [rbp + 160]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
+                        test             r15, r15;                            jne   $cp_mq$2F2_step
+                        mov              r13, qword ptr [rbp + 160]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
                         mov              rsp, qword ptr [rbp + 152]
                         mov              rax, qword ptr [rbp + 240]
                         mov              rcx, rax
@@ -45503,14 +45480,13 @@ n2480_unmark_α:         mov              rsi, qword ptr [rbp + 144]           #
                         .type            n2481_gate_bx, @function
 n2481_gate_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2481_gate_α:           add              rsp, 96;                             jmp   $cp_mq$2F2_ω
-n2481_gate_β:           test             r15, r15;                            je    .Lgate_β_2948_999
-                        add              rsp, 96;                             jmp   $cp_mq$2F2_ω
-.Lgate_β_2948_999:      mov              eax, dword ptr [rbp + 112]
-                        cmp              eax, 0;                              jne   .Lgate_β_2948_10
-                        add              rsp, -32;                            jmp   n2366_call_proc_staged_β
-.Lgate_β_2948_10:       cmp              eax, 1;                              je    n2478_gate_β
-                        add              rsp, 96;                             jmp   $cp_mq$2F2_ω
+n2481_gate_α:                                                                 jmp   $cp_mq$2F2_ω
+n2481_gate_β:           test             r15, r15;                            jne   $cp_mq$2F2_ω
+                        mov              eax, dword ptr [rbp + 112]
+                        cmp              eax, 0;                              je    n2366_call_proc_staged_β
+                        cmp              eax, 1;                              jne   .Lgate_β_2948_11
+                        add              rsp, -16;                            jmp   n2478_gate_β
+.Lgate_β_2948_11:                                                             jmp   $cp_mq$2F2_ω
                         .size            n2481_gate_bx, .-n2481_gate_bx
                         .type            n2482_unify_const_bx, @function
 n2482_unify_const_bx:
@@ -45541,7 +45517,7 @@ n2482_unify_const_α:    lea              rdi, [rbp + 3088]
                         movabs           rax, 242
                         mov              rsi, qword ptr [rdi + 8]
                         cmp              rsi, rax;                            jne   n2481_gate_β
-                        add              rsp, 112;                            jmp   $cp_mq$2F2_ret0
+                                                                              jmp   $cp_mq$2F2_ret0
 .Lunify_const_α_2950_20:
                         cmp              al, 0;                               je    .Lunify_const_α_2950_30
                         cmp              al, 104;                             je    .Lunify_const_α_2950_30
@@ -45586,15 +45562,14 @@ n2482_unify_const_α:    lea              rdi, [rbp + 3088]
 .Lunify_const_α_2950_31:
                         mov              qword ptr [rdi + 0], 176
                         movabs           rax, 242
-                        mov              qword ptr [rdi + 8], rax
-                        add              rsp, 112;                            jmp   $cp_mq$2F2_ret0
+                        mov              qword ptr [rdi + 8], rax;            jmp   $cp_mq$2F2_ret0
 .Lunify_const_α_2950_40:
                         movabs           rsi, 242                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
                         mov              edx, 1                               # atom
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$cp_mq$2F2_97: mov              r9,  qword ptr [rip + rtccb+48]
                         test             eax, eax;                            je    n2481_gate_β
-                        add              rsp, 112;                            jmp   $cp_mq$2F2_ret0
+                                                                              jmp   $cp_mq$2F2_ret0
 .Lunify_const_α_2950_39:
                         mov              rdi, r12
                         call             rt_pl_tr_refuse@PLT
@@ -48994,7 +48969,7 @@ n2573_call_proc_staged_α:
                         mov              qword ptr [rbp + 696], rdx
                         cmp              al, 104;                             jne   .Lcall_proc_staged_α_3096_999
                         add              rsp, 16
-                        add              rsp, 48;                             jmp   n2589_unmark_α
+                        add              rsp, 208;                            jmp   n2589_unmark_α
 .Lcall_proc_staged_α_3096_999:
                                                                               jmp   n2574_gate_arm_α
 n2573_call_proc_staged_β:
@@ -49009,7 +48984,7 @@ n2573_call_proc_staged_β:
                         add              dword ptr [rax + 0], 1;              jmp   rcx
 .Lcall_proc_staged_β_3096_22:
                         add              rsp, 16
-                        add              rsp, 48;                             jmp   n2589_unmark_α
+                        add              rsp, 208;                            jmp   n2589_unmark_α
                         .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Lcall_proc_staged_β_3096_0: .quad .Lcall_proc_staged_β_3096_0_s; .popsection
 .Lcall_proc_staged_β_3096_0_s:
                         .string          "$between_test/3"
@@ -49034,9 +49009,8 @@ n2575_unmark_α:         mov              rsi, qword ptr [rbp + 608]           #
 .Lunmark_α_3100_201:    mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
-                        test             r15, r15;                            je    .Lunmark_α_3100_999
-                        add              rsp, 160;                            jmp   n2657_unmark_α
-.Lunmark_α_3100_999:    mov              r13, qword ptr [rbp + 624]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
+                        test             r15, r15;                            jne   n2657_unmark_α
+                        mov              r13, qword ptr [rbp + 624]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
                         mov              rsp, qword ptr [rbp + 616]
                         mov              rax, qword ptr [rbp + 704]
                         mov              rcx, rax
@@ -49494,7 +49468,7 @@ n2589_unmark_α:         mov              rsi, qword ptr [rbp + 608]           #
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            je    .Lunmark_α_3124_999
-                        add              rsp, 160;                            jmp   n2657_unmark_α
+                        add              rsp, -16;                            jmp   n2657_unmark_α
 .Lunmark_α_3124_999:    mov              r13, qword ptr [rbp + 624]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
                         mov              rsp, qword ptr [rbp + 616]
                         mov              rax, qword ptr [rbp + 704]
@@ -49515,14 +49489,13 @@ n2589_unmark_α:         mov              rsi, qword ptr [rbp + 608]           #
                         .type            n2590_gate_bx, @function
 n2590_gate_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2590_gate_α:           add              rsp, 160;                            jmp   n2657_unmark_α
+n2590_gate_α:           add              rsp, -16;                            jmp   n2657_unmark_α
 n2590_gate_β:           test             r15, r15;                            je    .Lgate_β_3126_999
-                        add              rsp, 160;                            jmp   n2657_unmark_α
+                        add              rsp, -16;                            jmp   n2657_unmark_α
 .Lgate_β_3126_999:      mov              eax, dword ptr [rbp + 576]
-                        cmp              eax, 0;                              jne   .Lgate_β_3126_10
-                        add              rsp, -48;                            jmp   n2573_call_proc_staged_β
-.Lgate_β_3126_10:       cmp              eax, 1;                              je    n2587_gate_β
-                        add              rsp, 160;                            jmp   n2657_unmark_α
+                        cmp              eax, 0;                              je    n2573_call_proc_staged_β
+                        cmp              eax, 1;                              je    n2587_gate_β
+                        add              rsp, -16;                            jmp   n2657_unmark_α
                         .size            n2590_gate_bx, .-n2590_gate_bx
                         .type            n2591_var_ref_bx, @function
 n2591_var_ref_bx:
@@ -49530,7 +49503,7 @@ n2591_var_ref_bx:
 n2591_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 48]
+                        lea              rax, [rbp + -144]
                         mov              qword ptr [rsp + 8], rax;            jmp   n2592_var_ref_α
                         .size            n2591_var_ref_bx, .-n2591_var_ref_bx
                         .type            n2592_var_ref_bx, @function
@@ -49548,7 +49521,7 @@ n2593_var_ref_bx:
 n2593_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 176]
+                        lea              rax, [rbp + -48]
                         mov              qword ptr [rsp + 8], rax;            jmp   n2594_call_direct_α
                         .size            n2593_var_ref_bx, .-n2593_var_ref_bx
                         .type            n2594_call_direct_bx, @function
@@ -49616,8 +49589,8 @@ n2595_var_ref_α:        sub              rsp, 16
 n2596_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n2596_var_α:            sub              rsp, 16
-                        mov              rax, qword ptr [rsp + 224]
-                        mov              rdx, qword ptr [rsp + 232]
+                        mov              rax, qword ptr [rbp + -48]
+                        mov              rdx, qword ptr [rbp + -40]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n2597_lit_integer_α
                         .size            n2596_var_bx, .-n2596_var_bx
@@ -49716,12 +49689,12 @@ n2598_call_pl_leaf_α:   sub              rsp, 16
                         add              rsp, 32
                         cmp              al, 104;                             jne   .Lcall_pl_leaf_α_3139_999
                         add              rsp, 16
-                        add              rsp, 288;                            jmp   n2657_unmark_α
+                        add              rsp, 112;                            jmp   n2657_unmark_α
 .Lcall_pl_leaf_α_3139_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n2599_call_pl_leaf_α
 n2598_call_pl_leaf_β:   add              rsp, 16
-                        add              rsp, 288;                            jmp   n2657_unmark_α
+                        add              rsp, 112;                            jmp   n2657_unmark_α
                         .size            n2598_call_pl_leaf_bx, .-n2598_call_pl_leaf_bx
                         .type            n2599_call_pl_leaf_bx, @function
 n2599_call_pl_leaf_bx:
@@ -49912,7 +49885,7 @@ n2602_call_pl_leaf_β:   add              rsp, 16
 n2603_gate_arm_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n2603_gate_arm_α:       mov              dword ptr [rbp + 304], 0
-                        add              rsp, 352;                            jmp   n2659_gate_arm_α
+                        add              rsp, 176;                            jmp   n2659_gate_arm_α
                         .size            n2603_gate_arm_bx, .-n2603_gate_arm_bx
                         .type            n2604_var_ref_bx, @function
 n2604_var_ref_bx:
@@ -49920,7 +49893,7 @@ n2604_var_ref_bx:
 n2604_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 64]
+                        lea              rax, [rsp + 96]
                         mov              qword ptr [rsp + 8], rax;            jmp   n2605_lit_atom_α
 n2604_var_ref_β:        add              rsp, 16;                             jmp   .Ldisjunction_ω_2577_af
                         .size            n2604_var_ref_bx, .-n2604_var_ref_bx
@@ -50060,7 +50033,7 @@ n2607_var_ref_bx:
 n2607_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 64]
+                        lea              rax, [rsp + 96]
                         mov              qword ptr [rsp + 8], rax;            jmp   n2608_lit_atom_α
 n2607_var_ref_β:        add              rsp, 16;                             jmp   .Ldisjunction_ω_2577_af
                         .size            n2607_var_ref_bx, .-n2607_var_ref_bx
@@ -50796,7 +50769,7 @@ n2628_call_proc_staged_α:
                         mov              qword ptr [rbp + 1592], rdx
                         cmp              al, 104;                             jne   .Lcall_proc_staged_α_3190_999
                         add              rsp, 16
-                        add              rsp, 48;                             jmp   n2644_unmark_α
+                        add              rsp, 272;                            jmp   n2644_unmark_α
 .Lcall_proc_staged_α_3190_999:
                                                                               jmp   n2629_gate_arm_α
 n2628_call_proc_staged_β:
@@ -50811,7 +50784,7 @@ n2628_call_proc_staged_β:
                         add              dword ptr [rax + 0], 1;              jmp   rcx
 .Lcall_proc_staged_β_3190_22:
                         add              rsp, 16
-                        add              rsp, 48;                             jmp   n2644_unmark_α
+                        add              rsp, 272;                            jmp   n2644_unmark_α
                         .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Lcall_proc_staged_β_3190_0: .quad .Lcall_proc_staged_β_3190_0_s; .popsection
 .Lcall_proc_staged_β_3190_0_s:
                         .string          "$between_test/3"
@@ -50836,9 +50809,8 @@ n2630_unmark_α:         mov              rsi, qword ptr [rbp + 1504]          #
 .Lunmark_α_3194_201:    mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
-                        test             r15, r15;                            je    .Lunmark_α_3194_999
-                        add              rsp, 224;                            jmp   n2657_unmark_α
-.Lunmark_α_3194_999:    mov              r13, qword ptr [rbp + 1520]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
+                        test             r15, r15;                            jne   n2657_unmark_α
+                        mov              r13, qword ptr [rbp + 1520]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
                         mov              rsp, qword ptr [rbp + 1512]
                         mov              rax, qword ptr [rbp + 1600]
                         mov              rcx, rax
@@ -51274,9 +51246,8 @@ n2644_unmark_α:         mov              rsi, qword ptr [rbp + 1504]          #
 .Lunmark_α_3218_201:    mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
-                        test             r15, r15;                            je    .Lunmark_α_3218_999
-                        add              rsp, 224;                            jmp   n2657_unmark_α
-.Lunmark_α_3218_999:    mov              r13, qword ptr [rbp + 1520]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
+                        test             r15, r15;                            jne   n2657_unmark_α
+                        mov              r13, qword ptr [rbp + 1520]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
                         mov              rsp, qword ptr [rbp + 1512]
                         mov              rax, qword ptr [rbp + 1600]
                         mov              rcx, rax
@@ -51289,14 +51260,12 @@ n2644_unmark_α:         mov              rsi, qword ptr [rbp + 1504]          #
                         .type            n2645_gate_bx, @function
 n2645_gate_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2645_gate_α:           add              rsp, 224;                            jmp   n2657_unmark_α
-n2645_gate_β:           test             r15, r15;                            je    .Lgate_β_3220_999
-                        add              rsp, 224;                            jmp   n2657_unmark_α
-.Lgate_β_3220_999:      mov              eax, dword ptr [rbp + 1472]
-                        cmp              eax, 0;                              jne   .Lgate_β_3220_10
-                        add              rsp, -48;                            jmp   n2628_call_proc_staged_β
-.Lgate_β_3220_10:       cmp              eax, 1;                              je    n2642_gate_β
-                        add              rsp, 224;                            jmp   n2657_unmark_α
+n2645_gate_α:                                                                 jmp   n2657_unmark_α
+n2645_gate_β:           test             r15, r15;                            jne   n2657_unmark_α
+                        mov              eax, dword ptr [rbp + 1472]
+                        cmp              eax, 0;                              je    n2628_call_proc_staged_β
+                        cmp              eax, 1;                              je    n2642_gate_β
+                                                                              jmp   n2657_unmark_α
                         .size            n2645_gate_bx, .-n2645_gate_bx
                         .type            n2646_var_ref_bx, @function
 n2646_var_ref_bx:
@@ -51304,7 +51273,7 @@ n2646_var_ref_bx:
 n2646_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 48]
+                        lea              rax, [rbp + -208]
                         mov              qword ptr [rsp + 8], rax;            jmp   n2647_var_ref_α
                         .size            n2646_var_ref_bx, .-n2646_var_ref_bx
                         .type            n2647_var_ref_bx, @function
@@ -51313,7 +51282,7 @@ n2647_var_ref_bx:
 n2647_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 192]
+                        lea              rax, [rbp + -80]
                         mov              qword ptr [rsp + 8], rax;            jmp   n2648_var_ref_α
                         .size            n2647_var_ref_bx, .-n2647_var_ref_bx
                         .type            n2648_var_ref_bx, @function
@@ -51322,7 +51291,7 @@ n2648_var_ref_bx:
 n2648_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 176]
+                        lea              rax, [rbp + -112]
                         mov              qword ptr [rsp + 8], rax;            jmp   n2649_call_direct_α
                         .size            n2648_var_ref_bx, .-n2648_var_ref_bx
                         .type            n2649_call_direct_bx, @function
@@ -51381,7 +51350,7 @@ n2649_call_direct_β:    add              rsp, 16
 n2650_gate_arm_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n2650_gate_arm_α:       mov              dword ptr [rbp + 304], 1
-                        add              rsp, 288;                            jmp   n2659_gate_arm_α
+                        add              rsp, 64;                             jmp   n2659_gate_arm_α
                         .size            n2650_gate_arm_bx, .-n2650_gate_arm_bx
                         .type            n2651_var_ref_bx, @function
 n2651_var_ref_bx:
@@ -51389,7 +51358,7 @@ n2651_var_ref_bx:
 n2651_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 64]
+                        lea              rax, [rsp + 96]
                         mov              qword ptr [rsp + 8], rax;            jmp   n2652_lit_atom_α
 n2651_var_ref_β:        add              rsp, 16;                             jmp   .Ldisjunction_ω_2632_af
                         .size            n2651_var_ref_bx, .-n2651_var_ref_bx
@@ -51529,7 +51498,7 @@ n2654_var_ref_bx:
 n2654_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 64]
+                        lea              rax, [rsp + 96]
                         mov              qword ptr [rsp + 8], rax;            jmp   n2655_lit_atom_α
 n2654_var_ref_β:        add              rsp, 16;                             jmp   .Ldisjunction_ω_2632_af
                         .size            n2654_var_ref_bx, .-n2654_var_ref_bx
@@ -51702,17 +51671,14 @@ n2658_gate_bx:
 n2658_gate_α:                                                                 jmp   n2660_unmark_α
 n2658_gate_β:           test             r15, r15;                            jne   n2660_unmark_α
                         mov              eax, dword ptr [rbp + 304]
-                        cmp              eax, 0;                              jne   .Lgate_β_3243_10
-                        add              rsp, -160;                           jmp   n2590_gate_β
-.Lgate_β_3243_10:       cmp              eax, 1;                              jne   .Lgate_β_3243_11
-                        add              rsp, -224;                           jmp   n2645_gate_β
-.Lgate_β_3243_11:                                                             jmp   n2660_unmark_α
+                        cmp              eax, 0;                              je    n2590_gate_β
+                        cmp              eax, 1;                              je    n2645_gate_β
+                                                                              jmp   n2660_unmark_α
                         .size            n2658_gate_bx, .-n2658_gate_bx
                         .type            n2659_gate_arm_bx, @function
 n2659_gate_arm_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2659_gate_arm_α:       mov              dword ptr [rbp + 112], 1
-                        add              rsp, 16;                             jmp   $cp_mq$2F2_ret3
+n2659_gate_arm_α:       mov              dword ptr [rbp + 112], 1;            jmp   $cp_mq$2F2_ret3
                         .size            n2659_gate_arm_bx, .-n2659_gate_arm_bx
                         .type            n2660_unmark_bx, @function
 n2660_unmark_bx:
@@ -51762,8 +51728,9 @@ n2661_gate_β:           test             r15, r15;                            j
                         mov              eax, dword ptr [rbp + 112]
                         cmp              eax, 0;                              jne   .Lgate_β_3249_10
                         add              rsp, -32;                            jmp   n2546_call_proc_staged_β
-.Lgate_β_3249_10:       cmp              eax, 1;                              je    n2658_gate_β
-                                                                              jmp   $cp_mq$2F2_ω
+.Lgate_β_3249_10:       cmp              eax, 1;                              jne   .Lgate_β_3249_11
+                        add              rsp, -16;                            jmp   n2658_gate_β
+.Lgate_β_3249_11:                                                             jmp   $cp_mq$2F2_ω
                         .size            n2661_gate_bx, .-n2661_gate_bx
                         .type            n2662_unify_struct_bx, @function
 n2662_unify_struct_bx:
@@ -88669,7 +88636,8 @@ n4785_cut_α:            mov              qword ptr [rbp + 3768], 0
                         mov              qword ptr [rbp + 384], 0
                         mov              qword ptr [rbp + 1632], 0
                         mov              qword ptr [rbp + 2736], 0
-                        lea              rsp, [rbp + -144];                   jmp   n4786_disjunction_α
+                        lea              rsp, [rbp + -144]
+                        add              rsp, 144;                            jmp   n4786_disjunction_α
                         .size            n4785_cut_bx, .-n4785_cut_bx
                         .type            n4786_disjunction_bx, @function
 n4786_disjunction_bx:
@@ -88749,11 +88717,10 @@ n4786_disjunction_β:    mov              eax, dword ptr [rbp + 144]
 n4787_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4787_lit_integer_α:    sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 3               # result
+                        mov              qword ptr [rbp + 3424], 3            # result
                         mov              rax, qword ptr [rip + .Llit_integer_α_5185_0]
-                        mov              qword ptr [rsp + 8], rax;            jmp   n4788_var_ref_α
-n4787_lit_integer_β:    add              rsp, 16
-                        add              rsp, 144;                            jmp   $cp_mq1$2F3_ω
+                        mov              qword ptr [rbp + 3432], rax;         jmp   n4788_var_ref_α
+n4787_lit_integer_β:    add              rsp, 16;                             jmp   $cp_mq1$2F3_ω
 .Llit_integer_α_5185_0: .quad            6
                         .size            n4787_lit_integer_bx, .-n4787_lit_integer_bx
                         .type            n4788_var_ref_bx, @function
@@ -88779,9 +88746,9 @@ n4790_call_pl_leaf_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4790_call_pl_leaf_α:   sub              rsp, 16
                         sub              rsp, 48
-                        mov              rax, qword ptr [rsp + 96]
+                        mov              rax, qword ptr [rbp + 3424]
                         mov              qword ptr [rsp + 0], rax
-                        mov              rax, qword ptr [rsp + 104]
+                        mov              rax, qword ptr [rbp + 3432]
                         mov              qword ptr [rsp + 8], rax
                         mov              rax, qword ptr [rsp + 80]
                         mov              qword ptr [rsp + 16], rax
@@ -88955,7 +88922,7 @@ n4792_var_ref_bx:
 n4792_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 208]
+                        lea              rax, [rbp + -32]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4793_call_direct_α
                         .size            n4792_var_ref_bx, .-n4792_var_ref_bx
                         .type            n4793_call_direct_bx, @function
@@ -89042,7 +89009,7 @@ n4795_var_ref_bx:
 n4795_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 224]
+                        lea              rax, [rbp + -48]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4796_call_pl_leaf_α
                         .size            n4795_var_ref_bx, .-n4795_var_ref_bx
                         .type            n4796_call_pl_leaf_bx, @function
@@ -89151,7 +89118,7 @@ n4799_var_ref_bx:
 n4799_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 256]
+                        lea              rax, [rbp + -32]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4800_var_ref_α
                         .size            n4799_var_ref_bx, .-n4799_var_ref_bx
                         .type            n4800_var_ref_bx, @function
@@ -89160,7 +89127,7 @@ n4800_var_ref_bx:
 n4800_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 256]
+                        lea              rax, [rbp + -48]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4801_call_proc_staged_α
                         .size            n4800_var_ref_bx, .-n4800_var_ref_bx
                         .type            n4801_call_proc_staged_bx, @function
@@ -89230,9 +89197,9 @@ n4801_call_proc_staged_α:
                         mov              qword ptr [rbp + 2728], rdx
                         cmp              al, 104;                             jne   .Lcall_proc_staged_α_5209_999
                         add              rsp, 16
-                        add              rsp, 48;                             jmp   n4817_unmark_α
+                        add              rsp, 176;                            jmp   n4817_unmark_α
 .Lcall_proc_staged_α_5209_999:
-                                                                              jmp   n4802_gate_arm_α
+                        add              rsp, 176;                            jmp   n4802_gate_arm_α
 n4801_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_5209_22
                         mov              rax, qword ptr [rbp + 2736]
@@ -89245,7 +89212,7 @@ n4801_call_proc_staged_β:
                         add              dword ptr [rax + 0], 1;              jmp   rcx
 .Lcall_proc_staged_β_5209_22:
                         add              rsp, 16
-                        add              rsp, 48;                             jmp   n4817_unmark_α
+                        add              rsp, 176;                            jmp   n4817_unmark_α
                         .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Lcall_proc_staged_β_5209_0: .quad .Lcall_proc_staged_β_5209_0_s; .popsection
 .Lcall_proc_staged_β_5209_0_s:
                         .string          "$between_test/3"
@@ -89405,7 +89372,7 @@ n4807_var_ref_bx:
 n4807_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 224]
+                        lea              rax, [rbp + -48]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4808_lit_integer_α
                         .size            n4807_var_ref_bx, .-n4807_var_ref_bx
                         .type            n4808_lit_integer_bx, @function
@@ -89471,12 +89438,12 @@ n4810_call_direct_α:    sub              rsp, 16
 1:                      add              rsp, 48
                         cmp              al, 104;                             jne   .Lcall_direct_α_5224_999
                         add              rsp, 16
-                        add              rsp, 48;                             jmp   n4814_unmark_α
+                        add              rsp, 16;                             jmp   n4814_unmark_α
 .Lcall_direct_α_5224_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n4811_to_α
 n4810_call_direct_β:    add              rsp, 16
-                        add              rsp, 48;                             jmp   n4814_unmark_α
+                        add              rsp, 16;                             jmp   n4814_unmark_α
                         .size            n4810_call_direct_bx, .-n4810_call_direct_bx
                         .type            n4811_to_bx, @function
 n4811_to_bx:
@@ -89537,10 +89504,10 @@ n4811_to_α:             sub              rsp, 32
                         cmp              rax, rcx;                            jle   .Lto_α_5226_6
                         mov              r13, qword ptr [rbp + 2976]          # pl_choice_restore inline (D1): the enumeration is exhausted, so its header is no choice: B returns to the choice it found
                         add              rsp, 32
-                        add              rsp, 64;                             jmp   n4814_unmark_α
+                        add              rsp, 32;                             jmp   n4814_unmark_α
 .Lto_α_5226_6:                                                                jle   .Lto_α_5226_997
                         add              rsp, 32
-                        add              rsp, 64;                             jmp   n4814_unmark_α
+                        add              rsp, 32;                             jmp   n4814_unmark_α
 .Lto_α_5226_997:        cmp              rax, rcx;                            jne   .Lto_α_5226_8
                         mov              r13, qword ptr [rbp + 2976]          # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_5226_8:          mov              qword ptr [rsp + 0], 3               # result
@@ -89569,14 +89536,14 @@ n4811_to_β:             mov              rsi, qword ptr [rbp + 2952]          #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            je    .Lto_β_5226_998
                         add              rsp, 32
-                        add              rsp, 64;                             jmp   n4814_unmark_α
+                        add              rsp, 32;                             jmp   n4814_unmark_α
 .Lto_β_5226_998:        inc              qword ptr [rbp + 2944];              jno   .Lto_β_5226_7
                         mov              r13, qword ptr [rbp + 2976]          # pl_choice_restore inline (D1): the enumeration is exhausted, so its header is no choice: B returns to the choice it found
                         add              rsp, 32
-                        add              rsp, 64;                             jmp   n4814_unmark_α
+                        add              rsp, 32;                             jmp   n4814_unmark_α
 .Lto_β_5226_7:                                                                jno   .Lto_β_5226_999
                         add              rsp, 32
-                        add              rsp, 64;                             jmp   n4814_unmark_α
+                        add              rsp, 32;                             jmp   n4814_unmark_α
 .Lto_β_5226_999:                                                              jmp   .Lto_α_5226_0
                         .size            n4811_to_bx, .-n4811_to_bx
                         .type            n4812_call_pl_leaf_bx, @function
@@ -89655,7 +89622,7 @@ n4812_call_pl_leaf_β:   add              rsp, 16;                             j
 n4813_gate_arm_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4813_gate_arm_α:       mov              dword ptr [rbp + 2816], 0
-                        add              rsp, 96;                             jmp   n4816_gate_arm_α
+                        add              rsp, 64;                             jmp   n4816_gate_arm_α
                         .size            n4813_gate_arm_bx, .-n4813_gate_arm_bx
                         .type            n4814_unmark_bx, @function
 n4814_unmark_bx:
@@ -89672,26 +89639,29 @@ n4814_unmark_α:         mov              rsi, qword ptr [rbp + 2848]          #
 .Lunmark_α_5231_201:    mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
-                        test             r15, r15;                            jne   n4817_unmark_α
-                        mov              r13, qword ptr [rbp + 2864]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
+                        test             r15, r15;                            je    .Lunmark_α_5231_999
+                        add              rsp, 160;                            jmp   n4817_unmark_α
+.Lunmark_α_5231_999:    mov              r13, qword ptr [rbp + 2864]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
                         mov              rsp, qword ptr [rbp + 2856];         jmp   n4815_gate_α
                         .size            n4814_unmark_bx, .-n4814_unmark_bx
                         .type            n4815_gate_bx, @function
 n4815_gate_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n4815_gate_α:                                                                 jmp   n4817_unmark_α
-n4815_gate_β:           test             r15, r15;                            jne   n4817_unmark_α
-                        mov              eax, dword ptr [rbp + 2816]
+n4815_gate_α:           add              rsp, 128;                            jmp   n4817_unmark_α
+n4815_gate_β:           test             r15, r15;                            je    .Lgate_β_5233_999
+                        add              rsp, 128;                            jmp   n4817_unmark_α
+.Lgate_β_5233_999:      mov              eax, dword ptr [rbp + 2816]
                         cmp              eax, 0;                              jne   .Lgate_β_5233_10
-                        add              rsp, -80;                            jmp   n4811_to_β
+                        add              rsp, -208;                           jmp   n4811_to_β
 .Lgate_β_5233_10:       cmp              eax, 1;                              jne   .Lgate_β_5233_11
-                        add              rsp, -112;                           jmp   n5124_to_β
-.Lgate_β_5233_11:                                                             jmp   n4817_unmark_α
+                        add              rsp, -240;                           jmp   n5124_to_β
+.Lgate_β_5233_11:       add              rsp, 128;                            jmp   n4817_unmark_α
                         .size            n4815_gate_bx, .-n4815_gate_bx
                         .type            n4816_gate_arm_bx, @function
 n4816_gate_arm_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n4816_gate_arm_α:       mov              dword ptr [rbp + 2608], 1;           jmp   n4819_var_ref_α
+n4816_gate_arm_α:       mov              dword ptr [rbp + 2608], 1
+                        add              rsp, 160;                            jmp   n4819_var_ref_α
                         .size            n4816_gate_arm_bx, .-n4816_gate_arm_bx
                         .type            n4817_unmark_bx, @function
 n4817_unmark_bx:
@@ -89709,7 +89679,7 @@ n4817_unmark_α:         mov              rsi, qword ptr [rbp + 2640]          #
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            je    .Lunmark_α_5237_999
-                        add              rsp, 112;                            jmp   .Ldisjunction_ω_4786_af
+                        add              rsp, -16;                            jmp   .Ldisjunction_ω_4786_af
 .Lunmark_α_5237_999:    mov              r13, qword ptr [rbp + 2656]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
                         mov              rsp, qword ptr [rbp + 2648]
                         mov              rax, qword ptr [rbp + 2736]
@@ -89728,9 +89698,10 @@ n4818_gate_β:           test             r15, r15;                            j
                         add              rsp, 112;                            jmp   .Ldisjunction_ω_4786_af
 .Lgate_β_5239_999:      mov              eax, dword ptr [rbp + 2608]
                         cmp              eax, 0;                              jne   .Lgate_β_5239_10
-                        add              rsp, -48;                            jmp   n4801_call_proc_staged_β
-.Lgate_β_5239_10:       cmp              eax, 1;                              je    n4815_gate_β
-                        add              rsp, 112;                            jmp   .Ldisjunction_ω_4786_af
+                        add              rsp, -176;                           jmp   n4801_call_proc_staged_β
+.Lgate_β_5239_10:       cmp              eax, 1;                              jne   .Lgate_β_5239_11
+                        add              rsp, -160;                           jmp   n4815_gate_β
+.Lgate_β_5239_11:       add              rsp, 112;                            jmp   .Ldisjunction_ω_4786_af
                         .size            n4818_gate_bx, .-n4818_gate_bx
                         .type            n4819_var_ref_bx, @function
 n4819_var_ref_bx:
@@ -89738,7 +89709,7 @@ n4819_var_ref_bx:
 n4819_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 240]
+                        lea              rax, [rbp + -48]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4820_var_ref_α
                         .size            n4819_var_ref_bx, .-n4819_var_ref_bx
                         .type            n4820_var_ref_bx, @function
@@ -89835,7 +89806,7 @@ n4825_var_ref_bx:
 n4825_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 272]
+                        lea              rax, [rbp + -112]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4826_lit_string_α
                         .size            n4825_var_ref_bx, .-n4825_var_ref_bx
                         .type            n4826_lit_string_bx, @function
@@ -89972,12 +89943,12 @@ n4827_call_pl_leaf_α:   sub              rsp, 16
                         add              rsp, 64
                         cmp              al, 104;                             jne   .Lcall_pl_leaf_α_5254_999
                         add              rsp, 16
-                        add              rsp, 256;                            jmp   .Ldisjunction_ω_4786_af
+                        add              rsp, 128;                            jmp   .Ldisjunction_ω_4786_af
 .Lcall_pl_leaf_α_5254_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n4828_lit_integer_α
 n4827_call_pl_leaf_β:   add              rsp, 16
-                        add              rsp, 256;                            jmp   .Ldisjunction_ω_4786_af
+                        add              rsp, 128;                            jmp   .Ldisjunction_ω_4786_af
                         .size            n4827_call_pl_leaf_bx, .-n4827_call_pl_leaf_bx
                         .type            n4828_lit_integer_bx, @function
 n4828_lit_integer_bx:
@@ -90012,7 +89983,7 @@ n4831_var_ref_bx:
 n4831_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 368]
+                        lea              rax, [rbp + -112]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4832_call_direct_α
                         .size            n4831_var_ref_bx, .-n4831_var_ref_bx
                         .type            n4832_call_direct_bx, @function
@@ -90061,12 +90032,12 @@ n4832_call_direct_α:    sub              rsp, 16
 1:                      add              rsp, 48
                         cmp              al, 104;                             jne   .Lcall_direct_α_5262_999
                         add              rsp, 16
-                        add              rsp, 336;                            jmp   .Ldisjunction_ω_4786_af
+                        add              rsp, 208;                            jmp   .Ldisjunction_ω_4786_af
 .Lcall_direct_α_5262_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n4833_to_α
 n4832_call_direct_β:    add              rsp, 16
-                        add              rsp, 336;                            jmp   .Ldisjunction_ω_4786_af
+                        add              rsp, 208;                            jmp   .Ldisjunction_ω_4786_af
                         .size            n4832_call_direct_bx, .-n4832_call_direct_bx
                         .type            n4833_to_bx, @function
 n4833_to_bx:
@@ -90273,7 +90244,7 @@ n4837_var_ref_bx:
 n4837_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 464]
+                        lea              rax, [rbp + -112]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4838_var_ref_α
                         .size            n4837_var_ref_bx, .-n4837_var_ref_bx
                         .type            n4838_var_ref_bx, @function
@@ -90413,13 +90384,11 @@ n4839_call_pl_leaf_α:   sub              rsp, 16
 .Lcall_pl_leaf_α_5273_249:
                         add              rsp, 48
                         cmp              al, 104;                             jne   .Lcall_pl_leaf_α_5273_999
-                        add              rsp, 16
-                        add              rsp, 48;                             jmp   n4880_unmark_α
+                        add              rsp, 16;                             jmp   n4880_unmark_α
 .Lcall_pl_leaf_α_5273_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n4840_call_direct_α
-n4839_call_pl_leaf_β:   add              rsp, 16
-                        add              rsp, 48;                             jmp   n4880_unmark_α
+n4839_call_pl_leaf_β:   add              rsp, 16;                             jmp   n4880_unmark_α
                         .size            n4839_call_pl_leaf_bx, .-n4839_call_pl_leaf_bx
                         .type            n4840_call_direct_bx, @function
 n4840_call_direct_bx:
@@ -90458,12 +90427,12 @@ n4840_call_direct_α:    sub              rsp, 16
 1:                      add              rsp, 16
                         cmp              al, 104;                             jne   .Lcall_direct_α_5274_999
                         add              rsp, 16
-                        add              rsp, 64;                             jmp   n4880_unmark_α
+                        add              rsp, 16;                             jmp   n4880_unmark_α
 .Lcall_direct_α_5274_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n4841_var_ref_α
 n4840_call_direct_β:    add              rsp, 16
-                        add              rsp, 64;                             jmp   n4880_unmark_α
+                        add              rsp, 16;                             jmp   n4880_unmark_α
                         .size            n4840_call_direct_bx, .-n4840_call_direct_bx
                         .type            n4841_var_ref_bx, @function
 n4841_var_ref_bx:
@@ -90471,7 +90440,7 @@ n4841_var_ref_bx:
 n4841_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 576]
+                        lea              rax, [rbp + -64]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4842_call_direct_α
                         .size            n4841_var_ref_bx, .-n4841_var_ref_bx
                         .type            n4842_call_direct_bx, @function
@@ -90511,12 +90480,12 @@ n4842_call_direct_α:    sub              rsp, 16
 1:                      add              rsp, 16
                         cmp              al, 104;                             jne   .Lcall_direct_α_5277_999
                         add              rsp, 16
-                        add              rsp, 96;                             jmp   n4880_unmark_α
+                        add              rsp, 48;                             jmp   n4880_unmark_α
 .Lcall_direct_α_5277_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n4843_bound_α
 n4842_call_direct_β:    add              rsp, 16
-                        add              rsp, 96;                             jmp   n4880_unmark_α
+                        add              rsp, 48;                             jmp   n4880_unmark_α
                         .size            n4842_call_direct_bx, .-n4842_call_direct_bx
                         .type            n4843_bound_bx, @function
 n4843_bound_bx:
@@ -90559,7 +90528,7 @@ n4844_var_ref_bx:
 n4844_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 592]
+                        lea              rax, [rbp + -80]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4845_call_pl_leaf_α
                         .size            n4844_var_ref_bx, .-n4844_var_ref_bx
                         .type            n4845_call_pl_leaf_bx, @function
@@ -90675,7 +90644,7 @@ n4848_var_ref_bx:
 n4848_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 624]
+                        lea              rax, [rbp + -64]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4849_var_ref_α
                         .size            n4848_var_ref_bx, .-n4848_var_ref_bx
                         .type            n4849_var_ref_bx, @function
@@ -90684,7 +90653,7 @@ n4849_var_ref_bx:
 n4849_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 624]
+                        lea              rax, [rbp + -80]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4850_call_proc_staged_α
                         .size            n4849_var_ref_bx, .-n4849_var_ref_bx
                         .type            n4850_call_proc_staged_bx, @function
@@ -90754,7 +90723,7 @@ n4850_call_proc_staged_α:
                         mov              qword ptr [rbp + 1624], rdx
                         cmp              al, 104;                             jne   .Lcall_proc_staged_α_5292_999
                         add              rsp, 16
-                        add              rsp, 48;                             jmp   n4866_unmark_α
+                        add              rsp, 16;                             jmp   n4866_unmark_α
 .Lcall_proc_staged_α_5292_999:
                                                                               jmp   n4851_gate_arm_α
 n4850_call_proc_staged_β:
@@ -90769,7 +90738,7 @@ n4850_call_proc_staged_β:
                         add              dword ptr [rax + 0], 1;              jmp   rcx
 .Lcall_proc_staged_β_5292_22:
                         add              rsp, 16
-                        add              rsp, 48;                             jmp   n4866_unmark_α
+                        add              rsp, 16;                             jmp   n4866_unmark_α
                         .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Lcall_proc_staged_β_5292_0: .quad .Lcall_proc_staged_β_5292_0_s; .popsection
 .Lcall_proc_staged_β_5292_0_s:
                         .string          "$between_test/3"
@@ -90795,7 +90764,7 @@ n4852_unmark_α:         mov              rsi, qword ptr [rbp + 1536]          #
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            je    .Lunmark_α_5296_999
-                        add              rsp, 112;                            jmp   n4880_unmark_α
+                        add              rsp, 64;                             jmp   n4880_unmark_α
 .Lunmark_α_5296_999:    mov              r13, qword ptr [rbp + 1552]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
                         mov              rsp, qword ptr [rbp + 1544]
                         mov              rax, qword ptr [rbp + 1632]
@@ -90943,7 +90912,7 @@ n4856_var_ref_bx:
 n4856_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 592]
+                        lea              rax, [rbp + -80]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4857_lit_integer_α
                         .size            n4856_var_ref_bx, .-n4856_var_ref_bx
                         .type            n4857_lit_integer_bx, @function
@@ -91009,12 +90978,12 @@ n4859_call_direct_α:    sub              rsp, 16
 1:                      add              rsp, 48
                         cmp              al, 104;                             jne   .Lcall_direct_α_5307_999
                         add              rsp, 16
-                        add              rsp, 48;                             jmp   n4863_unmark_α
+                        add              rsp, 16;                             jmp   n4863_unmark_α
 .Lcall_direct_α_5307_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n4860_to_α
 n4859_call_direct_β:    add              rsp, 16
-                        add              rsp, 48;                             jmp   n4863_unmark_α
+                        add              rsp, 16;                             jmp   n4863_unmark_α
                         .size            n4859_call_direct_bx, .-n4859_call_direct_bx
                         .type            n4860_to_bx, @function
 n4860_to_bx:
@@ -91075,10 +91044,10 @@ n4860_to_α:             sub              rsp, 32
                         cmp              rax, rcx;                            jle   .Lto_α_5309_6
                         mov              r13, qword ptr [rbp + 1872]          # pl_choice_restore inline (D1): the enumeration is exhausted, so its header is no choice: B returns to the choice it found
                         add              rsp, 32
-                        add              rsp, 64;                             jmp   n4863_unmark_α
+                        add              rsp, 32;                             jmp   n4863_unmark_α
 .Lto_α_5309_6:                                                                jle   .Lto_α_5309_997
                         add              rsp, 32
-                        add              rsp, 64;                             jmp   n4863_unmark_α
+                        add              rsp, 32;                             jmp   n4863_unmark_α
 .Lto_α_5309_997:        cmp              rax, rcx;                            jne   .Lto_α_5309_8
                         mov              r13, qword ptr [rbp + 1872]          # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_5309_8:          mov              qword ptr [rsp + 0], 3               # result
@@ -91107,14 +91076,14 @@ n4860_to_β:             mov              rsi, qword ptr [rbp + 1848]          #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            je    .Lto_β_5309_998
                         add              rsp, 32
-                        add              rsp, 64;                             jmp   n4863_unmark_α
+                        add              rsp, 32;                             jmp   n4863_unmark_α
 .Lto_β_5309_998:        inc              qword ptr [rbp + 1840];              jno   .Lto_β_5309_7
                         mov              r13, qword ptr [rbp + 1872]          # pl_choice_restore inline (D1): the enumeration is exhausted, so its header is no choice: B returns to the choice it found
                         add              rsp, 32
-                        add              rsp, 64;                             jmp   n4863_unmark_α
+                        add              rsp, 32;                             jmp   n4863_unmark_α
 .Lto_β_5309_7:                                                                jno   .Lto_β_5309_999
                         add              rsp, 32
-                        add              rsp, 64;                             jmp   n4863_unmark_α
+                        add              rsp, 32;                             jmp   n4863_unmark_α
 .Lto_β_5309_999:                                                              jmp   .Lto_α_5309_0
                         .size            n4860_to_bx, .-n4860_to_bx
                         .type            n4861_call_pl_leaf_bx, @function
@@ -91193,7 +91162,7 @@ n4861_call_pl_leaf_β:   add              rsp, 16;                             j
 n4862_gate_arm_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4862_gate_arm_α:       mov              dword ptr [rbp + 1712], 0
-                        add              rsp, 96;                             jmp   n4865_gate_arm_α
+                        add              rsp, 64;                             jmp   n4865_gate_arm_α
                         .size            n4862_gate_arm_bx, .-n4862_gate_arm_bx
                         .type            n4863_unmark_bx, @function
 n4863_unmark_bx:
@@ -91224,14 +91193,15 @@ n4863_unmark_α:         mov              rsi, qword ptr [rbp + 1744]          #
                         .type            n4864_gate_bx, @function
 n4864_gate_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n4864_gate_α:                                                                 jmp   n4866_unmark_α
-n4864_gate_β:           test             r15, r15;                            jne   n4866_unmark_α
-                        mov              eax, dword ptr [rbp + 1712]
+n4864_gate_α:           add              rsp, -32;                            jmp   n4866_unmark_α
+n4864_gate_β:           test             r15, r15;                            je    .Lgate_β_5316_999
+                        add              rsp, -32;                            jmp   n4866_unmark_α
+.Lgate_β_5316_999:      mov              eax, dword ptr [rbp + 1712]
                         cmp              eax, 0;                              jne   .Lgate_β_5316_10
-                        add              rsp, -80;                            jmp   n4860_to_β
+                        add              rsp, -480;                           jmp   n4860_to_β
 .Lgate_β_5316_10:       cmp              eax, 1;                              jne   .Lgate_β_5316_11
-                        add              rsp, -112;                           jmp   n5134_to_β
-.Lgate_β_5316_11:                                                             jmp   n4866_unmark_α
+                        add              rsp, -512;                           jmp   n5134_to_β
+.Lgate_β_5316_11:       add              rsp, -32;                            jmp   n4866_unmark_α
                         .size            n4864_gate_bx, .-n4864_gate_bx
                         .type            n4865_gate_arm_bx, @function
 n4865_gate_arm_bx:
@@ -91254,7 +91224,7 @@ n4866_unmark_α:         mov              rsi, qword ptr [rbp + 1536]          #
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            je    .Lunmark_α_5320_999
-                        add              rsp, 112;                            jmp   n4880_unmark_α
+                        add              rsp, 96;                             jmp   n4880_unmark_α
 .Lunmark_α_5320_999:    mov              r13, qword ptr [rbp + 1552]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
                         mov              rsp, qword ptr [rbp + 1544]
                         mov              rax, qword ptr [rbp + 1632]
@@ -91275,14 +91245,14 @@ n4866_unmark_α:         mov              rsi, qword ptr [rbp + 1536]          #
                         .type            n4867_gate_bx, @function
 n4867_gate_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n4867_gate_α:           add              rsp, 112;                            jmp   n4880_unmark_α
+n4867_gate_α:           add              rsp, 64;                             jmp   n4880_unmark_α
 n4867_gate_β:           test             r15, r15;                            je    .Lgate_β_5322_999
-                        add              rsp, 112;                            jmp   n4880_unmark_α
+                        add              rsp, 64;                             jmp   n4880_unmark_α
 .Lgate_β_5322_999:      mov              eax, dword ptr [rbp + 1504]
-                        cmp              eax, 0;                              jne   .Lgate_β_5322_10
-                        add              rsp, -48;                            jmp   n4850_call_proc_staged_β
-.Lgate_β_5322_10:       cmp              eax, 1;                              je    n4864_gate_β
-                        add              rsp, 112;                            jmp   n4880_unmark_α
+                        cmp              eax, 0;                              je    n4850_call_proc_staged_β
+                        cmp              eax, 1;                              jne   .Lgate_β_5322_11
+                        add              rsp, -432;                           jmp   n4864_gate_β
+.Lgate_β_5322_11:       add              rsp, 64;                             jmp   n4880_unmark_α
                         .size            n4867_gate_bx, .-n4867_gate_bx
                         .type            n4868_var_ref_bx, @function
 n4868_var_ref_bx:
@@ -91290,7 +91260,7 @@ n4868_var_ref_bx:
 n4868_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 608]
+                        lea              rax, [rbp + -80]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4869_var_ref_α
                         .size            n4868_var_ref_bx, .-n4868_var_ref_bx
                         .type            n4869_var_ref_bx, @function
@@ -91299,7 +91269,7 @@ n4869_var_ref_bx:
 n4869_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 592]
+                        lea              rax, [rbp + -112]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4870_var_ref_α
                         .size            n4869_var_ref_bx, .-n4869_var_ref_bx
                         .type            n4870_var_ref_bx, @function
@@ -91359,8 +91329,7 @@ n4871_call_direct_α:    sub              rsp, 16
                         add              rsp, 48;                             jmp   n4867_gate_β
 .Lcall_direct_α_5329_999:
                         mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx
-                        add              rsp, 192;                            jmp   n4872_unmark_α
+                        mov              qword ptr [rsp + 8], rdx;            jmp   n4872_unmark_α
 n4871_call_direct_β:    add              rsp, 16
                         add              rsp, 48;                             jmp   n4867_gate_β
                         .size            n4871_call_direct_bx, .-n4871_call_direct_bx
@@ -91400,7 +91369,7 @@ n4873_unmark_α:         mov              rsi, qword ptr [rbp + 1344]          #
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            je    .Lunmark_α_5333_999
-                        add              rsp, 400;                            jmp   .Ldisjunction_ω_4786_af
+                        add              rsp, 496;                            jmp   .Ldisjunction_ω_4786_af
 .Lunmark_α_5333_999:    mov              r13, qword ptr [rbp + 1360]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
                         mov              rsp, qword ptr [rbp + 1352]
                         mov              rax, qword ptr [rbp + 1632]
@@ -91424,7 +91393,7 @@ n4874_var_ref_bx:
 n4874_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 608]
+                        lea              rax, [rbp + -64]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4875_lit_atom_α
 n4874_var_ref_β:        add              rsp, 16;                             jmp   .Ldisjunction_ω_4854_af
                         .size            n4874_var_ref_bx, .-n4874_var_ref_bx
@@ -91564,7 +91533,7 @@ n4877_var_ref_bx:
 n4877_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 608]
+                        lea              rax, [rbp + -64]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4878_lit_atom_α
 n4877_var_ref_β:        add              rsp, 16;                             jmp   .Ldisjunction_ω_4854_af
                         .size            n4877_var_ref_bx, .-n4877_var_ref_bx
@@ -91714,7 +91683,7 @@ n4880_unmark_α:         mov              rsi, qword ptr [rbp + 1344]          #
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            je    .Lunmark_α_5345_999
-                        add              rsp, 400;                            jmp   .Ldisjunction_ω_4786_af
+                        add              rsp, 320;                            jmp   .Ldisjunction_ω_4786_af
 .Lunmark_α_5345_999:    mov              r13, qword ptr [rbp + 1360]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
                         mov              rsp, qword ptr [rbp + 1352]
                         mov              rax, qword ptr [rbp + 1632]
@@ -91736,7 +91705,7 @@ n4880_unmark_α:         mov              rsi, qword ptr [rbp + 1344]          #
 n4881_gate_arm_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4881_gate_arm_α:       mov              dword ptr [rbp + 1312], 1
-                        add              rsp, 400;                            jmp   .Ldisjunction_γ_4786_as
+                        add              rsp, 320;                            jmp   .Ldisjunction_γ_4786_as
                         .size            n4881_gate_arm_bx, .-n4881_gate_arm_bx
                         .type            n4882_gate_bx, @function
 n4882_gate_bx:
@@ -91745,10 +91714,9 @@ n4882_gate_α:           add              rsp, 16;                             j
 n4882_gate_β:           test             r15, r15;                            je    .Lgate_β_5349_999
                         add              rsp, 16;                             jmp   n4833_to_β
 .Lgate_β_5349_999:      mov              eax, dword ptr [rbp + 1312]
-                        cmp              eax, 0;                              jne   .Lgate_β_5349_10
-                        add              rsp, 16;                             jmp   n4882_gate_α
-.Lgate_β_5349_10:       cmp              eax, 1;                              jne   .Lgate_β_5349_11
-                        add              rsp, 16;                             jmp   n4882_gate_α
+                        cmp              eax, 0;                              je    n4882_gate_α
+                        cmp              eax, 1;                              jne   .Lgate_β_5349_11
+                        add              rsp, -496;                           jmp   n4882_gate_α
 .Lgate_β_5349_11:       add              rsp, 16;                             jmp   n4833_to_β
                         .size            n4882_gate_bx, .-n4882_gate_bx
                         .type            n4883_var_ref_bx, @function
@@ -91757,7 +91725,7 @@ n4883_var_ref_bx:
 n4883_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 240]
+                        lea              rax, [rbp + -32]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4884_lit_atom_α
 n4883_var_ref_β:        add              rsp, 16;                             jmp   .Ldisjunction_ω_4805_af
                         .size            n4883_var_ref_bx, .-n4883_var_ref_bx
@@ -91897,7 +91865,7 @@ n4886_var_ref_bx:
 n4886_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 240]
+                        lea              rax, [rbp + -32]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4887_lit_atom_α
 n4886_var_ref_β:        add              rsp, 16;                             jmp   .Ldisjunction_ω_4805_af
                         .size            n4886_var_ref_bx, .-n4886_var_ref_bx
@@ -92036,9 +92004,9 @@ n4889_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4889_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
-                        mov              qword ptr [rsp + 0], rax             # result
+                        mov              qword ptr [rbp + 1184], rax          # result
                         lea              rax, [rbp + 3824]
-                        mov              qword ptr [rsp + 8], rax;            jmp   n4890_var_ref_α
+                        mov              qword ptr [rbp + 1192], rax;         jmp   n4890_var_ref_α
 n4889_var_ref_β:        add              rsp, 16;                             jmp   .Ldisjunction_ω_4786_af
                         .size            n4889_var_ref_bx, .-n4889_var_ref_bx
                         .type            n4890_var_ref_bx, @function
@@ -92056,7 +92024,7 @@ n4891_var_ref_bx:
 n4891_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 80]
+                        lea              rax, [rbp + -112]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4892_lit_string_α
                         .size            n4891_var_ref_bx, .-n4891_var_ref_bx
                         .type            n4892_lit_string_bx, @function
@@ -92080,9 +92048,9 @@ n4893_call_pl_leaf_α:   sub              rsp, 16
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 88]
                         mov              qword ptr [rsp + 8], rax
-                        mov              rax, qword ptr [rsp + 128]
+                        mov              rax, qword ptr [rbp + 1184]
                         mov              qword ptr [rsp + 16], rax
-                        mov              rax, qword ptr [rsp + 136]
+                        mov              rax, qword ptr [rbp + 1192]
                         mov              qword ptr [rsp + 24], rax
                         mov              rax, qword ptr [rsp + 112]
                         mov              qword ptr [rsp + 32], rax
@@ -92233,7 +92201,7 @@ n4897_var_ref_bx:
 n4897_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 176]
+                        lea              rax, [rbp + -112]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4898_call_direct_α
                         .size            n4897_var_ref_bx, .-n4897_var_ref_bx
                         .type            n4898_call_direct_bx, @function
@@ -92399,9 +92367,9 @@ n4900_call_direct_α:    sub              rsp, 16
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 88]
                         mov              qword ptr [rsp + 8], rax
-                        mov              rax, qword ptr [rsp + 256]
+                        mov              rax, qword ptr [rbp + 1184]
                         mov              qword ptr [rsp + 16], rax
-                        mov              rax, qword ptr [rsp + 264]
+                        mov              rax, qword ptr [rbp + 1192]
                         mov              qword ptr [rsp + 24], rax
                         mov              rax, qword ptr [rsp + 240]
                         mov              qword ptr [rsp + 32], rax
@@ -92459,7 +92427,7 @@ n4902_var_ref_bx:
 n4902_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 272]
+                        lea              rax, [rbp + -112]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4903_var_ref_α
                         .size            n4902_var_ref_bx, .-n4902_var_ref_bx
                         .type            n4903_var_ref_bx, @function
@@ -92657,7 +92625,7 @@ n4906_var_ref_bx:
 n4906_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 352]
+                        lea              rax, [rbp + -96]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4907_call_direct_α
                         .size            n4906_var_ref_bx, .-n4906_var_ref_bx
                         .type            n4907_call_direct_bx, @function
@@ -92745,7 +92713,7 @@ n4909_var_ref_bx:
 n4909_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 352]
+                        lea              rax, [rbp + -128]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4910_call_pl_leaf_α
                         .size            n4909_var_ref_bx, .-n4909_var_ref_bx
                         .type            n4910_call_pl_leaf_bx, @function
@@ -92868,7 +92836,7 @@ n4913_var_ref_bx:
 n4913_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 400]
+                        lea              rax, [rbp + -96]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4914_var_ref_α
                         .size            n4913_var_ref_bx, .-n4913_var_ref_bx
                         .type            n4914_var_ref_bx, @function
@@ -92877,7 +92845,7 @@ n4914_var_ref_bx:
 n4914_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 384]
+                        lea              rax, [rbp + -128]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4915_call_proc_staged_α
                         .size            n4914_var_ref_bx, .-n4914_var_ref_bx
                         .type            n4915_call_proc_staged_bx, @function
@@ -92947,7 +92915,7 @@ n4915_call_proc_staged_α:
                         mov              qword ptr [rbp + 376], rdx
                         cmp              al, 104;                             jne   .Lcall_proc_staged_α_5403_999
                         add              rsp, 16
-                        add              rsp, 48;                             jmp   n4931_unmark_α
+                        add              rsp, 368;                            jmp   n4931_unmark_α
 .Lcall_proc_staged_α_5403_999:
                                                                               jmp   n4916_gate_arm_α
 n4915_call_proc_staged_β:
@@ -92962,7 +92930,7 @@ n4915_call_proc_staged_β:
                         add              dword ptr [rax + 0], 1;              jmp   rcx
 .Lcall_proc_staged_β_5403_22:
                         add              rsp, 16
-                        add              rsp, 48;                             jmp   n4931_unmark_α
+                        add              rsp, 368;                            jmp   n4931_unmark_α
                         .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Lcall_proc_staged_β_5403_0: .quad .Lcall_proc_staged_β_5403_0_s; .popsection
 .Lcall_proc_staged_β_5403_0_s:
                         .string          "$between_test/3"
@@ -93150,7 +93118,7 @@ n4921_var_ref_bx:
 n4921_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 352]
+                        lea              rax, [rbp + -128]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4922_lit_integer_α
                         .size            n4921_var_ref_bx, .-n4921_var_ref_bx
                         .type            n4922_lit_integer_bx, @function
@@ -93216,12 +93184,12 @@ n4924_call_direct_α:    sub              rsp, 16
 1:                      add              rsp, 48
                         cmp              al, 104;                             jne   .Lcall_direct_α_5418_999
                         add              rsp, 16
-                        add              rsp, 48;                             jmp   n4928_unmark_α
+                        add              rsp, 16;                             jmp   n4928_unmark_α
 .Lcall_direct_α_5418_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n4925_to_α
 n4924_call_direct_β:    add              rsp, 16
-                        add              rsp, 48;                             jmp   n4928_unmark_α
+                        add              rsp, 16;                             jmp   n4928_unmark_α
                         .size            n4924_call_direct_bx, .-n4924_call_direct_bx
                         .type            n4925_to_bx, @function
 n4925_to_bx:
@@ -93282,10 +93250,10 @@ n4925_to_α:             sub              rsp, 32
                         cmp              rax, rcx;                            jle   .Lto_α_5420_6
                         mov              r13, qword ptr [rbp + 624]           # pl_choice_restore inline (D1): the enumeration is exhausted, so its header is no choice: B returns to the choice it found
                         add              rsp, 32
-                        add              rsp, 64;                             jmp   n4928_unmark_α
+                        add              rsp, 32;                             jmp   n4928_unmark_α
 .Lto_α_5420_6:                                                                jle   .Lto_α_5420_997
                         add              rsp, 32
-                        add              rsp, 64;                             jmp   n4928_unmark_α
+                        add              rsp, 32;                             jmp   n4928_unmark_α
 .Lto_α_5420_997:        cmp              rax, rcx;                            jne   .Lto_α_5420_8
                         mov              r13, qword ptr [rbp + 624]           # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_5420_8:          mov              qword ptr [rsp + 0], 3               # result
@@ -93314,14 +93282,14 @@ n4925_to_β:             mov              rsi, qword ptr [rbp + 600]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            je    .Lto_β_5420_998
                         add              rsp, 32
-                        add              rsp, 64;                             jmp   n4928_unmark_α
+                        add              rsp, 32;                             jmp   n4928_unmark_α
 .Lto_β_5420_998:        inc              qword ptr [rbp + 592];               jno   .Lto_β_5420_7
                         mov              r13, qword ptr [rbp + 624]           # pl_choice_restore inline (D1): the enumeration is exhausted, so its header is no choice: B returns to the choice it found
                         add              rsp, 32
-                        add              rsp, 64;                             jmp   n4928_unmark_α
+                        add              rsp, 32;                             jmp   n4928_unmark_α
 .Lto_β_5420_7:                                                                jno   .Lto_β_5420_999
                         add              rsp, 32
-                        add              rsp, 64;                             jmp   n4928_unmark_α
+                        add              rsp, 32;                             jmp   n4928_unmark_α
 .Lto_β_5420_999:                                                              jmp   .Lto_α_5420_0
                         .size            n4925_to_bx, .-n4925_to_bx
                         .type            n4926_call_pl_leaf_bx, @function
@@ -93400,7 +93368,7 @@ n4926_call_pl_leaf_β:   add              rsp, 16;                             j
 n4927_gate_arm_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4927_gate_arm_α:       mov              dword ptr [rbp + 464], 0
-                        add              rsp, 96;                             jmp   n4930_gate_arm_α
+                        add              rsp, 64;                             jmp   n4930_gate_arm_α
                         .size            n4927_gate_arm_bx, .-n4927_gate_arm_bx
                         .type            n4928_unmark_bx, @function
 n4928_unmark_bx:
@@ -93442,9 +93410,9 @@ n4929_gate_α:                                                                 j
 n4929_gate_β:           test             r15, r15;                            jne   n4931_unmark_α
                         mov              eax, dword ptr [rbp + 464]
                         cmp              eax, 0;                              jne   .Lgate_β_5427_10
-                        add              rsp, -80;                            jmp   n4925_to_β
+                        add              rsp, -416;                           jmp   n4925_to_β
 .Lgate_β_5427_10:       cmp              eax, 1;                              jne   .Lgate_β_5427_11
-                        add              rsp, -112;                           jmp   n5144_to_β
+                        add              rsp, -448;                           jmp   n5144_to_β
 .Lgate_β_5427_11:                                                             jmp   n4931_unmark_α
                         .size            n4929_gate_bx, .-n4929_gate_bx
                         .type            n4930_gate_arm_bx, @function
@@ -93467,9 +93435,8 @@ n4931_unmark_α:         mov              rsi, qword ptr [rbp + 288]           #
 .Lunmark_α_5431_201:    mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
-                        test             r15, r15;                            je    .Lunmark_α_5431_999
-                        add              rsp, 128;                            jmp   n4899_to_β
-.Lunmark_α_5431_999:    mov              r13, qword ptr [rbp + 304]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
+                        test             r15, r15;                            jne   n4899_to_β
+                        mov              r13, qword ptr [rbp + 304]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
                         mov              rsp, qword ptr [rbp + 296]
                         mov              rax, qword ptr [rbp + 384]
                         mov              rcx, rax
@@ -93500,10 +93467,10 @@ n4932_gate_α:           add              rsp, 128;                            j
 n4932_gate_β:           test             r15, r15;                            je    .Lgate_β_5433_999
                         add              rsp, 128;                            jmp   n4899_to_β
 .Lgate_β_5433_999:      mov              eax, dword ptr [rbp + 256]
-                        cmp              eax, 0;                              jne   .Lgate_β_5433_10
-                        add              rsp, -48;                            jmp   n4915_call_proc_staged_β
-.Lgate_β_5433_10:       cmp              eax, 1;                              je    n4929_gate_β
-                        add              rsp, 128;                            jmp   n4899_to_β
+                        cmp              eax, 0;                              je    n4915_call_proc_staged_β
+                        cmp              eax, 1;                              jne   .Lgate_β_5433_11
+                        add              rsp, -368;                           jmp   n4929_gate_β
+.Lgate_β_5433_11:       add              rsp, 128;                            jmp   n4899_to_β
                         .size            n4932_gate_bx, .-n4932_gate_bx
                         .type            n4933_var_ref_bx, @function
 n4933_var_ref_bx:
@@ -93511,7 +93478,7 @@ n4933_var_ref_bx:
 n4933_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 368]
+                        lea              rax, [rbp + -128]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4934_var_ref_α
                         .size            n4933_var_ref_bx, .-n4933_var_ref_bx
                         .type            n4934_var_ref_bx, @function
@@ -93520,7 +93487,7 @@ n4934_var_ref_bx:
 n4934_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 400]
+                        lea              rax, [rbp + -112]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4935_var_ref_α
                         .size            n4934_var_ref_bx, .-n4934_var_ref_bx
                         .type            n4935_var_ref_bx, @function
@@ -93581,7 +93548,7 @@ n4936_call_direct_α:    sub              rsp, 16
 .Lcall_direct_α_5440_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        add              rsp, 400;                            jmp   .Ldisjunction_γ_4786_as
+                        add              rsp, 80;                             jmp   .Ldisjunction_γ_4786_as
 n4936_call_direct_β:    add              rsp, 16
                         add              rsp, 48;                             jmp   n4932_gate_β
                         .size            n4936_call_direct_bx, .-n4936_call_direct_bx
@@ -93591,7 +93558,7 @@ n4937_var_ref_bx:
 n4937_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 384]
+                        lea              rax, [rbp + -96]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4938_lit_atom_α
 n4937_var_ref_β:        add              rsp, 16;                             jmp   .Ldisjunction_ω_4919_af
                         .size            n4937_var_ref_bx, .-n4937_var_ref_bx
@@ -93731,7 +93698,7 @@ n4940_var_ref_bx:
 n4940_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 384]
+                        lea              rax, [rbp + -96]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4941_lit_atom_α
 n4940_var_ref_β:        add              rsp, 16;                             jmp   .Ldisjunction_ω_4919_af
                         .size            n4940_var_ref_bx, .-n4940_var_ref_bx
@@ -94360,7 +94327,7 @@ n4957_call_proc_staged_α:
                         mov              qword ptr [rbp + 1624], rdx
                         cmp              al, 104;                             jne   .Lcall_proc_staged_α_5475_999
                         add              rsp, 16
-                        add              rsp, 48;                             jmp   n4973_unmark_α
+                        add              rsp, 208;                            jmp   n4973_unmark_α
 .Lcall_proc_staged_α_5475_999:
                                                                               jmp   n4958_gate_arm_α
 n4957_call_proc_staged_β:
@@ -94375,7 +94342,7 @@ n4957_call_proc_staged_β:
                         add              dword ptr [rax + 0], 1;              jmp   rcx
 .Lcall_proc_staged_β_5475_22:
                         add              rsp, 16
-                        add              rsp, 48;                             jmp   n4973_unmark_α
+                        add              rsp, 208;                            jmp   n4973_unmark_α
                         .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Lcall_proc_staged_β_5475_0: .quad .Lcall_proc_staged_β_5475_0_s; .popsection
 .Lcall_proc_staged_β_5475_0_s:
                         .string          "$between_test/3"
@@ -94838,9 +94805,8 @@ n4973_unmark_α:         mov              rsi, qword ptr [rbp + 592]           #
 .Lunmark_α_5503_201:    mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
-                        test             r15, r15;                            je    .Lunmark_α_5503_999
-                        add              rsp, 160;                            jmp   $cp_mq1$2F3_step
-.Lunmark_α_5503_999:    mov              r13, qword ptr [rbp + 608]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
+                        test             r15, r15;                            jne   $cp_mq1$2F3_step
+                        mov              r13, qword ptr [rbp + 608]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
                         mov              rsp, qword ptr [rbp + 600]
                         mov              rax, qword ptr [rbp + 1632]
                         mov              rcx, rax
@@ -94853,14 +94819,12 @@ n4973_unmark_α:         mov              rsi, qword ptr [rbp + 592]           #
                         .type            n4974_gate_bx, @function
 n4974_gate_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n4974_gate_α:           add              rsp, 160;                            jmp   $cp_mq1$2F3_step
-n4974_gate_β:           test             r15, r15;                            je    .Lgate_β_5505_999
-                        add              rsp, 160;                            jmp   $cp_mq1$2F3_step
-.Lgate_β_5505_999:      mov              eax, dword ptr [rbp + 496]
-                        cmp              eax, 0;                              jne   .Lgate_β_5505_10
-                        add              rsp, -48;                            jmp   n4957_call_proc_staged_β
-.Lgate_β_5505_10:       cmp              eax, 1;                              je    n4971_gate_β
-                        add              rsp, 160;                            jmp   $cp_mq1$2F3_step
+n4974_gate_α:                                                                 jmp   $cp_mq1$2F3_step
+n4974_gate_β:           test             r15, r15;                            jne   $cp_mq1$2F3_step
+                        mov              eax, dword ptr [rbp + 496]
+                        cmp              eax, 0;                              je    n4957_call_proc_staged_β
+                        cmp              eax, 1;                              je    n4971_gate_β
+                                                                              jmp   $cp_mq1$2F3_step
                         .size            n4974_gate_bx, .-n4974_gate_bx
                         .type            n4975_var_ref_bx, @function
 n4975_var_ref_bx:
@@ -94868,7 +94832,7 @@ n4975_var_ref_bx:
 n4975_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 48]
+                        lea              rax, [rbp + -144]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4976_var_ref_α
                         .size            n4975_var_ref_bx, .-n4975_var_ref_bx
                         .type            n4976_var_ref_bx, @function
@@ -94877,7 +94841,7 @@ n4976_var_ref_bx:
 n4976_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 176]
+                        lea              rax, [rbp + -32]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4977_var_ref_α
                         .size            n4976_var_ref_bx, .-n4976_var_ref_bx
                         .type            n4977_var_ref_bx, @function
@@ -94965,7 +94929,7 @@ n4981_var_ref_bx:
 n4981_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 256]
+                        lea              rax, [rbp + -32]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4982_lit_string_α
                         .size            n4981_var_ref_bx, .-n4981_var_ref_bx
                         .type            n4982_lit_string_bx, @function
@@ -95102,12 +95066,12 @@ n4983_call_pl_leaf_α:   sub              rsp, 16
                         add              rsp, 64
                         cmp              al, 104;                             jne   .Lcall_pl_leaf_α_5520_999
                         add              rsp, 16
-                        add              rsp, 304;                            jmp   $cp_mq1$2F3_step
+                        add              rsp, 144;                            jmp   $cp_mq1$2F3_step
 .Lcall_pl_leaf_α_5520_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n4984_lit_integer_α
 n4983_call_pl_leaf_β:   add              rsp, 16
-                        add              rsp, 304;                            jmp   $cp_mq1$2F3_step
+                        add              rsp, 144;                            jmp   $cp_mq1$2F3_step
                         .size            n4983_call_pl_leaf_bx, .-n4983_call_pl_leaf_bx
                         .type            n4984_lit_integer_bx, @function
 n4984_lit_integer_bx:
@@ -95142,7 +95106,7 @@ n4987_var_ref_bx:
 n4987_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 352]
+                        lea              rax, [rbp + -32]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4988_call_direct_α
                         .size            n4987_var_ref_bx, .-n4987_var_ref_bx
                         .type            n4988_call_direct_bx, @function
@@ -95191,12 +95155,12 @@ n4988_call_direct_α:    sub              rsp, 16
 1:                      add              rsp, 48
                         cmp              al, 104;                             jne   .Lcall_direct_α_5528_999
                         add              rsp, 16
-                        add              rsp, 384;                            jmp   $cp_mq1$2F3_step
+                        add              rsp, 224;                            jmp   $cp_mq1$2F3_step
 .Lcall_direct_α_5528_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n4989_to_α
 n4988_call_direct_β:    add              rsp, 16
-                        add              rsp, 384;                            jmp   $cp_mq1$2F3_step
+                        add              rsp, 224;                            jmp   $cp_mq1$2F3_step
                         .size            n4988_call_direct_bx, .-n4988_call_direct_bx
                         .type            n4989_to_bx, @function
 n4989_to_bx:
@@ -95350,8 +95314,7 @@ n4990_call_direct_α:    sub              rsp, 16
                         add              rsp, 16;                             jmp   n4989_to_β
 .Lcall_direct_α_5531_999:
                         mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx
-                        add              rsp, 448;                            jmp   $cp_mq1$2F3_ret1
+                        mov              qword ptr [rsp + 8], rdx;            jmp   $cp_mq1$2F3_ret1
 n4990_call_direct_β:    add              rsp, 16;                             jmp   n4989_to_β
                         .size            n4990_call_direct_bx, .-n4990_call_direct_bx
                         .type            n4991_var_ref_bx, @function
@@ -95360,7 +95323,7 @@ n4991_var_ref_bx:
 n4991_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 64]
+                        lea              rax, [rsp + 96]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4992_lit_atom_α
 n4991_var_ref_β:        add              rsp, 16;                             jmp   .Ldisjunction_ω_4961_af
                         .size            n4991_var_ref_bx, .-n4991_var_ref_bx
@@ -95500,7 +95463,7 @@ n4994_var_ref_bx:
 n4994_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 64]
+                        lea              rax, [rsp + 96]
                         mov              qword ptr [rsp + 8], rax;            jmp   n4995_lit_atom_α
 n4994_var_ref_β:        add              rsp, 16;                             jmp   .Ldisjunction_ω_4961_af
                         .size            n4994_var_ref_bx, .-n4994_var_ref_bx
@@ -96139,7 +96102,7 @@ n5011_call_proc_staged_α:
                         mov              qword ptr [rbp + 2728], rdx
                         cmp              al, 104;                             jne   .Lcall_proc_staged_α_5566_999
                         add              rsp, 16
-                        add              rsp, 48;                             jmp   n5027_unmark_α
+                        add              rsp, 288;                            jmp   n5027_unmark_α
 .Lcall_proc_staged_α_5566_999:
                                                                               jmp   n5012_gate_arm_α
 n5011_call_proc_staged_β:
@@ -96154,7 +96117,7 @@ n5011_call_proc_staged_β:
                         add              dword ptr [rax + 0], 1;              jmp   rcx
 .Lcall_proc_staged_β_5566_22:
                         add              rsp, 16
-                        add              rsp, 48;                             jmp   n5027_unmark_α
+                        add              rsp, 288;                            jmp   n5027_unmark_α
                         .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Lcall_proc_staged_β_5566_0: .quad .Lcall_proc_staged_β_5566_0_s; .popsection
 .Lcall_proc_staged_β_5566_0_s:
                         .string          "$between_test/3"
@@ -96617,9 +96580,8 @@ n5027_unmark_α:         mov              rsi, qword ptr [rbp + 2112]          #
 .Lunmark_α_5594_201:    mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
-                        test             r15, r15;                            je    .Lunmark_α_5594_999
-                        add              rsp, 240;                            jmp   $cp_mq1$2F3_step
-.Lunmark_α_5594_999:    mov              r13, qword ptr [rbp + 2128]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
+                        test             r15, r15;                            jne   $cp_mq1$2F3_step
+                        mov              r13, qword ptr [rbp + 2128]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
                         mov              rsp, qword ptr [rbp + 2120]
                         mov              rax, qword ptr [rbp + 2736]
                         mov              rcx, rax
@@ -96632,14 +96594,12 @@ n5027_unmark_α:         mov              rsi, qword ptr [rbp + 2112]          #
                         .type            n5028_gate_bx, @function
 n5028_gate_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n5028_gate_α:           add              rsp, 240;                            jmp   $cp_mq1$2F3_step
-n5028_gate_β:           test             r15, r15;                            je    .Lgate_β_5596_999
-                        add              rsp, 240;                            jmp   $cp_mq1$2F3_step
-.Lgate_β_5596_999:      mov              eax, dword ptr [rbp + 1952]
-                        cmp              eax, 0;                              jne   .Lgate_β_5596_10
-                        add              rsp, -48;                            jmp   n5011_call_proc_staged_β
-.Lgate_β_5596_10:       cmp              eax, 1;                              je    n5025_gate_β
-                        add              rsp, 240;                            jmp   $cp_mq1$2F3_step
+n5028_gate_α:                                                                 jmp   $cp_mq1$2F3_step
+n5028_gate_β:           test             r15, r15;                            jne   $cp_mq1$2F3_step
+                        mov              eax, dword ptr [rbp + 1952]
+                        cmp              eax, 0;                              je    n5011_call_proc_staged_β
+                        cmp              eax, 1;                              je    n5025_gate_β
+                                                                              jmp   $cp_mq1$2F3_step
                         .size            n5028_gate_bx, .-n5028_gate_bx
                         .type            n5029_var_ref_bx, @function
 n5029_var_ref_bx:
@@ -96647,7 +96607,7 @@ n5029_var_ref_bx:
 n5029_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 144]
+                        lea              rax, [rbp + -128]
                         mov              qword ptr [rsp + 8], rax;            jmp   n5030_var_ref_α
                         .size            n5029_var_ref_bx, .-n5029_var_ref_bx
                         .type            n5030_var_ref_bx, @function
@@ -96761,7 +96721,7 @@ n5034_var_ref_bx:
 n5034_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 112]
+                        lea              rax, [rbp + -224]
                         mov              qword ptr [rsp + 8], rax;            jmp   n5035_var_ref_α
                         .size            n5034_var_ref_bx, .-n5034_var_ref_bx
                         .type            n5035_var_ref_bx, @function
@@ -96770,7 +96730,7 @@ n5035_var_ref_bx:
 n5035_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 192]
+                        lea              rax, [rbp + -160]
                         mov              qword ptr [rsp + 8], rax;            jmp   n5036_var_ref_α
                         .size            n5035_var_ref_bx, .-n5035_var_ref_bx
                         .type            n5036_var_ref_bx, @function
@@ -96779,7 +96739,7 @@ n5036_var_ref_bx:
 n5036_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 224]
+                        lea              rax, [rbp + -144]
                         mov              qword ptr [rsp + 8], rax;            jmp   n5037_lit_atom_α
                         .size            n5036_var_ref_bx, .-n5036_var_ref_bx
                         .type            n5037_lit_atom_bx, @function
@@ -97265,7 +97225,7 @@ n5047_unmark_α:         mov              rsi, qword ptr [rbp + 1744]          #
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            je    .Lunmark_α_5627_999
-                        add              rsp, 320;                            jmp   $cp_mq1$2F3_step
+                        add              rsp, 80;                             jmp   $cp_mq1$2F3_step
 .Lunmark_α_5627_999:    mov              r13, qword ptr [rbp + 1760]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
                         mov              rsp, qword ptr [rbp + 1752]
                         mov              rax, qword ptr [rbp + 2736]
@@ -97291,9 +97251,8 @@ n5048_unmark_α:         mov              rsi, qword ptr [rbp + 1744]          #
 .Lunmark_α_5629_201:    mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
-                        test             r15, r15;                            je    .Lunmark_α_5629_999
-                        add              rsp, 320;                            jmp   $cp_mq1$2F3_step
-.Lunmark_α_5629_999:    mov              r13, qword ptr [rbp + 1760]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
+                        test             r15, r15;                            jne   $cp_mq1$2F3_step
+                        mov              r13, qword ptr [rbp + 1760]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
                         mov              rsp, qword ptr [rbp + 1752]
                         mov              rax, qword ptr [rbp + 2736]
                         mov              rcx, rax
@@ -97316,10 +97275,9 @@ n5050_gate_α:           add              rsp, 64;                             j
 n5050_gate_β:           test             r15, r15;                            je    .Lgate_β_5633_999
                         add              rsp, 64;                             jmp   n5028_gate_β
 .Lgate_β_5633_999:      mov              eax, dword ptr [rbp + 1504]
-                        cmp              eax, 0;                              jne   .Lgate_β_5633_10
-                        add              rsp, 16;                             jmp   n5050_gate_α
-.Lgate_β_5633_10:       cmp              eax, 1;                              jne   .Lgate_β_5633_11
-                        add              rsp, 16;                             jmp   n5050_gate_α
+                        cmp              eax, 0;                              je    n5050_gate_α
+                        cmp              eax, 1;                              jne   .Lgate_β_5633_11
+                        add              rsp, -64;                            jmp   n5050_gate_α
 .Lgate_β_5633_11:       add              rsp, 64;                             jmp   n5028_gate_β
                         .size            n5050_gate_bx, .-n5050_gate_bx
                         .type            n5051_var_ref_bx, @function
@@ -97346,7 +97304,7 @@ n5053_var_ref_bx:
 n5053_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 192]
+                        lea              rax, [rbp + -192]
                         mov              qword ptr [rsp + 8], rax;            jmp   n5054_lit_string_α
                         .size            n5053_var_ref_bx, .-n5053_var_ref_bx
                         .type            n5054_lit_string_bx, @function
@@ -97483,12 +97441,12 @@ n5055_call_pl_leaf_α:   sub              rsp, 16
                         add              rsp, 64
                         cmp              al, 104;                             jne   .Lcall_pl_leaf_α_5641_999
                         add              rsp, 16
-                        add              rsp, 400;                            jmp   $cp_mq1$2F3_step
+                        add              rsp, 160;                            jmp   $cp_mq1$2F3_step
 .Lcall_pl_leaf_α_5641_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n5056_lit_integer_α
 n5055_call_pl_leaf_β:   add              rsp, 16
-                        add              rsp, 400;                            jmp   $cp_mq1$2F3_step
+                        add              rsp, 160;                            jmp   $cp_mq1$2F3_step
                         .size            n5055_call_pl_leaf_bx, .-n5055_call_pl_leaf_bx
                         .type            n5056_lit_integer_bx, @function
 n5056_lit_integer_bx:
@@ -97523,7 +97481,7 @@ n5059_var_ref_bx:
 n5059_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 288]
+                        lea              rax, [rbp + -192]
                         mov              qword ptr [rsp + 8], rax;            jmp   n5060_call_direct_α
                         .size            n5059_var_ref_bx, .-n5059_var_ref_bx
                         .type            n5060_call_direct_bx, @function
@@ -97572,12 +97530,12 @@ n5060_call_direct_α:    sub              rsp, 16
 1:                      add              rsp, 48
                         cmp              al, 104;                             jne   .Lcall_direct_α_5649_999
                         add              rsp, 16
-                        add              rsp, 480;                            jmp   $cp_mq1$2F3_step
+                        add              rsp, 240;                            jmp   $cp_mq1$2F3_step
 .Lcall_direct_α_5649_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n5061_to_α
 n5060_call_direct_β:    add              rsp, 16
-                        add              rsp, 480;                            jmp   $cp_mq1$2F3_step
+                        add              rsp, 240;                            jmp   $cp_mq1$2F3_step
                         .size            n5060_call_direct_bx, .-n5060_call_direct_bx
                         .type            n5061_to_bx, @function
 n5061_to_bx:
@@ -97784,7 +97742,7 @@ n5065_var_ref_bx:
 n5065_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 384]
+                        lea              rax, [rbp + -192]
                         mov              qword ptr [rsp + 8], rax;            jmp   n5066_var_ref_α
                         .size            n5065_var_ref_bx, .-n5065_var_ref_bx
                         .type            n5066_var_ref_bx, @function
@@ -97924,13 +97882,11 @@ n5067_call_pl_leaf_α:   sub              rsp, 16
 .Lcall_pl_leaf_α_5660_249:
                         add              rsp, 48
                         cmp              al, 104;                             jne   .Lcall_pl_leaf_α_5660_999
-                        add              rsp, 16
-                        add              rsp, 48;                             jmp   n5108_unmark_α
+                        add              rsp, 16;                             jmp   n5108_unmark_α
 .Lcall_pl_leaf_α_5660_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n5068_call_direct_α
-n5067_call_pl_leaf_β:   add              rsp, 16
-                        add              rsp, 48;                             jmp   n5108_unmark_α
+n5067_call_pl_leaf_β:   add              rsp, 16;                             jmp   n5108_unmark_α
                         .size            n5067_call_pl_leaf_bx, .-n5067_call_pl_leaf_bx
                         .type            n5068_call_direct_bx, @function
 n5068_call_direct_bx:
@@ -97969,12 +97925,12 @@ n5068_call_direct_α:    sub              rsp, 16
 1:                      add              rsp, 16
                         cmp              al, 104;                             jne   .Lcall_direct_α_5661_999
                         add              rsp, 16
-                        add              rsp, 64;                             jmp   n5108_unmark_α
+                        add              rsp, 16;                             jmp   n5108_unmark_α
 .Lcall_direct_α_5661_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n5069_var_ref_α
 n5068_call_direct_β:    add              rsp, 16
-                        add              rsp, 64;                             jmp   n5108_unmark_α
+                        add              rsp, 16;                             jmp   n5108_unmark_α
                         .size            n5068_call_direct_bx, .-n5068_call_direct_bx
                         .type            n5069_var_ref_bx, @function
 n5069_var_ref_bx:
@@ -97982,7 +97938,7 @@ n5069_var_ref_bx:
 n5069_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 464]
+                        lea              rax, [rbp + -176]
                         mov              qword ptr [rsp + 8], rax;            jmp   n5070_call_direct_α
                         .size            n5069_var_ref_bx, .-n5069_var_ref_bx
                         .type            n5070_call_direct_bx, @function
@@ -98022,12 +97978,12 @@ n5070_call_direct_α:    sub              rsp, 16
 1:                      add              rsp, 16
                         cmp              al, 104;                             jne   .Lcall_direct_α_5664_999
                         add              rsp, 16
-                        add              rsp, 96;                             jmp   n5108_unmark_α
+                        add              rsp, 48;                             jmp   n5108_unmark_α
 .Lcall_direct_α_5664_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n5071_bound_α
 n5070_call_direct_β:    add              rsp, 16
-                        add              rsp, 96;                             jmp   n5108_unmark_α
+                        add              rsp, 48;                             jmp   n5108_unmark_α
                         .size            n5070_call_direct_bx, .-n5070_call_direct_bx
                         .type            n5071_bound_bx, @function
 n5071_bound_bx:
@@ -98070,7 +98026,7 @@ n5072_var_ref_bx:
 n5072_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 464]
+                        lea              rax, [rbp + -208]
                         mov              qword ptr [rsp + 8], rax;            jmp   n5073_call_pl_leaf_α
                         .size            n5072_var_ref_bx, .-n5072_var_ref_bx
                         .type            n5073_call_pl_leaf_bx, @function
@@ -98186,7 +98142,7 @@ n5076_var_ref_bx:
 n5076_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 512]
+                        lea              rax, [rbp + -176]
                         mov              qword ptr [rsp + 8], rax;            jmp   n5077_var_ref_α
                         .size            n5076_var_ref_bx, .-n5076_var_ref_bx
                         .type            n5077_var_ref_bx, @function
@@ -98195,7 +98151,7 @@ n5077_var_ref_bx:
 n5077_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 496]
+                        lea              rax, [rbp + -208]
                         mov              qword ptr [rsp + 8], rax;            jmp   n5078_call_proc_staged_α
                         .size            n5077_var_ref_bx, .-n5077_var_ref_bx
                         .type            n5078_call_proc_staged_bx, @function
@@ -98265,7 +98221,7 @@ n5078_call_proc_staged_α:
                         mov              qword ptr [rbp + 1624], rdx
                         cmp              al, 104;                             jne   .Lcall_proc_staged_α_5679_999
                         add              rsp, 16
-                        add              rsp, 48;                             jmp   n5094_unmark_α
+                        add              rsp, 16;                             jmp   n5094_unmark_α
 .Lcall_proc_staged_α_5679_999:
                                                                               jmp   n5079_gate_arm_α
 n5078_call_proc_staged_β:
@@ -98280,7 +98236,7 @@ n5078_call_proc_staged_β:
                         add              dword ptr [rax + 0], 1;              jmp   rcx
 .Lcall_proc_staged_β_5679_22:
                         add              rsp, 16
-                        add              rsp, 48;                             jmp   n5094_unmark_α
+                        add              rsp, 16;                             jmp   n5094_unmark_α
                         .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Lcall_proc_staged_β_5679_0: .quad .Lcall_proc_staged_β_5679_0_s; .popsection
 .Lcall_proc_staged_β_5679_0_s:
                         .string          "$between_test/3"
@@ -98306,7 +98262,7 @@ n5080_unmark_α:         mov              rsi, qword ptr [rbp + 496]           #
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            je    .Lunmark_α_5683_999
-                        add              rsp, 112;                            jmp   n5108_unmark_α
+                        add              rsp, 64;                             jmp   n5108_unmark_α
 .Lunmark_α_5683_999:    mov              r13, qword ptr [rbp + 512]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
                         mov              rsp, qword ptr [rbp + 504]
                         mov              rax, qword ptr [rbp + 1632]
@@ -98454,7 +98410,7 @@ n5084_var_ref_bx:
 n5084_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 464]
+                        lea              rax, [rbp + -208]
                         mov              qword ptr [rsp + 8], rax;            jmp   n5085_lit_integer_α
                         .size            n5084_var_ref_bx, .-n5084_var_ref_bx
                         .type            n5085_lit_integer_bx, @function
@@ -98520,12 +98476,12 @@ n5087_call_direct_α:    sub              rsp, 16
 1:                      add              rsp, 48
                         cmp              al, 104;                             jne   .Lcall_direct_α_5694_999
                         add              rsp, 16
-                        add              rsp, 48;                             jmp   n5091_unmark_α
+                        add              rsp, 16;                             jmp   n5091_unmark_α
 .Lcall_direct_α_5694_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n5088_to_α
 n5087_call_direct_β:    add              rsp, 16
-                        add              rsp, 48;                             jmp   n5091_unmark_α
+                        add              rsp, 16;                             jmp   n5091_unmark_α
                         .size            n5087_call_direct_bx, .-n5087_call_direct_bx
                         .type            n5088_to_bx, @function
 n5088_to_bx:
@@ -98586,10 +98542,10 @@ n5088_to_α:             sub              rsp, 32
                         cmp              rax, rcx;                            jle   .Lto_α_5696_6
                         mov              r13, qword ptr [rbp + 896]           # pl_choice_restore inline (D1): the enumeration is exhausted, so its header is no choice: B returns to the choice it found
                         add              rsp, 32
-                        add              rsp, 64;                             jmp   n5091_unmark_α
+                        add              rsp, 32;                             jmp   n5091_unmark_α
 .Lto_α_5696_6:                                                                jle   .Lto_α_5696_997
                         add              rsp, 32
-                        add              rsp, 64;                             jmp   n5091_unmark_α
+                        add              rsp, 32;                             jmp   n5091_unmark_α
 .Lto_α_5696_997:        cmp              rax, rcx;                            jne   .Lto_α_5696_8
                         mov              r13, qword ptr [rbp + 896]           # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_5696_8:          mov              qword ptr [rsp + 0], 3               # result
@@ -98618,14 +98574,14 @@ n5088_to_β:             mov              rsi, qword ptr [rbp + 872]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            je    .Lto_β_5696_998
                         add              rsp, 32
-                        add              rsp, 64;                             jmp   n5091_unmark_α
+                        add              rsp, 32;                             jmp   n5091_unmark_α
 .Lto_β_5696_998:        inc              qword ptr [rbp + 864];               jno   .Lto_β_5696_7
                         mov              r13, qword ptr [rbp + 896]           # pl_choice_restore inline (D1): the enumeration is exhausted, so its header is no choice: B returns to the choice it found
                         add              rsp, 32
-                        add              rsp, 64;                             jmp   n5091_unmark_α
+                        add              rsp, 32;                             jmp   n5091_unmark_α
 .Lto_β_5696_7:                                                                jno   .Lto_β_5696_999
                         add              rsp, 32
-                        add              rsp, 64;                             jmp   n5091_unmark_α
+                        add              rsp, 32;                             jmp   n5091_unmark_α
 .Lto_β_5696_999:                                                              jmp   .Lto_α_5696_0
                         .size            n5088_to_bx, .-n5088_to_bx
                         .type            n5089_call_pl_leaf_bx, @function
@@ -98704,7 +98660,7 @@ n5089_call_pl_leaf_β:   add              rsp, 16;                             j
 n5090_gate_arm_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5090_gate_arm_α:       mov              dword ptr [rbp + 592], 0
-                        add              rsp, 96;                             jmp   n5093_gate_arm_α
+                        add              rsp, 64;                             jmp   n5093_gate_arm_α
                         .size            n5090_gate_arm_bx, .-n5090_gate_arm_bx
                         .type            n5091_unmark_bx, @function
 n5091_unmark_bx:
@@ -98735,14 +98691,15 @@ n5091_unmark_α:         mov              rsi, qword ptr [rbp + 704]           #
                         .type            n5092_gate_bx, @function
 n5092_gate_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n5092_gate_α:                                                                 jmp   n5094_unmark_α
-n5092_gate_β:           test             r15, r15;                            jne   n5094_unmark_α
-                        mov              eax, dword ptr [rbp + 592]
+n5092_gate_α:           add              rsp, -32;                            jmp   n5094_unmark_α
+n5092_gate_β:           test             r15, r15;                            je    .Lgate_β_5703_999
+                        add              rsp, -32;                            jmp   n5094_unmark_α
+.Lgate_β_5703_999:      mov              eax, dword ptr [rbp + 592]
                         cmp              eax, 0;                              jne   .Lgate_β_5703_10
-                        add              rsp, -80;                            jmp   n5088_to_β
+                        add              rsp, -496;                           jmp   n5088_to_β
 .Lgate_β_5703_10:       cmp              eax, 1;                              jne   .Lgate_β_5703_11
-                        add              rsp, -112;                           jmp   n5174_to_β
-.Lgate_β_5703_11:                                                             jmp   n5094_unmark_α
+                        add              rsp, -528;                           jmp   n5174_to_β
+.Lgate_β_5703_11:       add              rsp, -32;                            jmp   n5094_unmark_α
                         .size            n5092_gate_bx, .-n5092_gate_bx
                         .type            n5093_gate_arm_bx, @function
 n5093_gate_arm_bx:
@@ -98765,7 +98722,7 @@ n5094_unmark_α:         mov              rsi, qword ptr [rbp + 496]           #
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            je    .Lunmark_α_5707_999
-                        add              rsp, 112;                            jmp   n5108_unmark_α
+                        add              rsp, 96;                             jmp   n5108_unmark_α
 .Lunmark_α_5707_999:    mov              r13, qword ptr [rbp + 512]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
                         mov              rsp, qword ptr [rbp + 504]
                         mov              rax, qword ptr [rbp + 1632]
@@ -98786,14 +98743,14 @@ n5094_unmark_α:         mov              rsi, qword ptr [rbp + 496]           #
                         .type            n5095_gate_bx, @function
 n5095_gate_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n5095_gate_α:           add              rsp, 112;                            jmp   n5108_unmark_α
+n5095_gate_α:           add              rsp, 64;                             jmp   n5108_unmark_α
 n5095_gate_β:           test             r15, r15;                            je    .Lgate_β_5709_999
-                        add              rsp, 112;                            jmp   n5108_unmark_α
+                        add              rsp, 64;                             jmp   n5108_unmark_α
 .Lgate_β_5709_999:      mov              eax, dword ptr [rbp + 464]
-                        cmp              eax, 0;                              jne   .Lgate_β_5709_10
-                        add              rsp, -48;                            jmp   n5078_call_proc_staged_β
-.Lgate_β_5709_10:       cmp              eax, 1;                              je    n5092_gate_β
-                        add              rsp, 112;                            jmp   n5108_unmark_α
+                        cmp              eax, 0;                              je    n5078_call_proc_staged_β
+                        cmp              eax, 1;                              jne   .Lgate_β_5709_11
+                        add              rsp, -448;                           jmp   n5092_gate_β
+.Lgate_β_5709_11:       add              rsp, 64;                             jmp   n5108_unmark_α
                         .size            n5095_gate_bx, .-n5095_gate_bx
                         .type            n5096_var_ref_bx, @function
 n5096_var_ref_bx:
@@ -98801,7 +98758,7 @@ n5096_var_ref_bx:
 n5096_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 480]
+                        lea              rax, [rbp + -208]
                         mov              qword ptr [rsp + 8], rax;            jmp   n5097_var_ref_α
                         .size            n5096_var_ref_bx, .-n5096_var_ref_bx
                         .type            n5097_var_ref_bx, @function
@@ -98810,7 +98767,7 @@ n5097_var_ref_bx:
 n5097_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 512]
+                        lea              rax, [rbp + -192]
                         mov              qword ptr [rsp + 8], rax;            jmp   n5098_var_ref_α
                         .size            n5097_var_ref_bx, .-n5097_var_ref_bx
                         .type            n5098_var_ref_bx, @function
@@ -98870,8 +98827,7 @@ n5099_call_direct_α:    sub              rsp, 16
                         add              rsp, 48;                             jmp   n5095_gate_β
 .Lcall_direct_α_5716_999:
                         mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx
-                        add              rsp, 192;                            jmp   n5100_unmark_α
+                        mov              qword ptr [rsp + 8], rdx;            jmp   n5100_unmark_α
 n5099_call_direct_β:    add              rsp, 16
                         add              rsp, 48;                             jmp   n5095_gate_β
                         .size            n5099_call_direct_bx, .-n5099_call_direct_bx
@@ -98910,9 +98866,8 @@ n5101_unmark_α:         mov              rsi, qword ptr [rbp + 288]           #
 .Lunmark_α_5720_201:    mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
-                        test             r15, r15;                            je    .Lunmark_α_5720_999
-                        add              rsp, 544;                            jmp   $cp_mq1$2F3_step
-.Lunmark_α_5720_999:    mov              r13, qword ptr [rbp + 304]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
+                        test             r15, r15;                            jne   $cp_mq1$2F3_step
+                        mov              r13, qword ptr [rbp + 304]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
                         mov              rsp, qword ptr [rbp + 296]
                         mov              rax, qword ptr [rbp + 1632]
                         mov              rcx, rax
@@ -98935,7 +98890,7 @@ n5102_var_ref_bx:
 n5102_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 496]
+                        lea              rax, [rbp + -176]
                         mov              qword ptr [rsp + 8], rax;            jmp   n5103_lit_atom_α
 n5102_var_ref_β:        add              rsp, 16;                             jmp   .Ldisjunction_ω_5082_af
                         .size            n5102_var_ref_bx, .-n5102_var_ref_bx
@@ -99075,7 +99030,7 @@ n5105_var_ref_bx:
 n5105_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 496]
+                        lea              rax, [rbp + -176]
                         mov              qword ptr [rsp + 8], rax;            jmp   n5106_lit_atom_α
 n5105_var_ref_β:        add              rsp, 16;                             jmp   .Ldisjunction_ω_5082_af
                         .size            n5105_var_ref_bx, .-n5105_var_ref_bx
@@ -99224,9 +99179,8 @@ n5108_unmark_α:         mov              rsi, qword ptr [rbp + 288]           #
 .Lunmark_α_5732_201:    mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
-                        test             r15, r15;                            je    .Lunmark_α_5732_999
-                        add              rsp, 544;                            jmp   $cp_mq1$2F3_step
-.Lunmark_α_5732_999:    mov              r13, qword ptr [rbp + 304]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
+                        test             r15, r15;                            jne   $cp_mq1$2F3_step
+                        mov              r13, qword ptr [rbp + 304]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
                         mov              rsp, qword ptr [rbp + 296]
                         mov              rax, qword ptr [rbp + 1632]
                         mov              rcx, rax
@@ -99246,8 +99200,7 @@ n5108_unmark_α:         mov              rsi, qword ptr [rbp + 288]           #
                         .type            n5109_gate_arm_bx, @function
 n5109_gate_arm_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n5109_gate_arm_α:       mov              dword ptr [rbp + 144], 1
-                        add              rsp, 544;                            jmp   $cp_mq1$2F3_ret2
+n5109_gate_arm_α:       mov              dword ptr [rbp + 144], 1;            jmp   $cp_mq1$2F3_ret2
                         .size            n5109_gate_arm_bx, .-n5109_gate_arm_bx
                         .type            n5110_gate_bx, @function
 n5110_gate_bx:
@@ -99256,10 +99209,9 @@ n5110_gate_α:           add              rsp, 16;                             j
 n5110_gate_β:           test             r15, r15;                            je    .Lgate_β_5736_999
                         add              rsp, 16;                             jmp   n5061_to_β
 .Lgate_β_5736_999:      mov              eax, dword ptr [rbp + 144]
-                        cmp              eax, 0;                              jne   .Lgate_β_5736_10
-                        add              rsp, 16;                             jmp   n5110_gate_α
-.Lgate_β_5736_10:       cmp              eax, 1;                              jne   .Lgate_β_5736_11
-                        add              rsp, 16;                             jmp   n5110_gate_α
+                        cmp              eax, 0;                              je    n5110_gate_α
+                        cmp              eax, 1;                              jne   .Lgate_β_5736_11
+                        add              rsp, -512;                           jmp   n5110_gate_α
 .Lgate_β_5736_11:       add              rsp, 16;                             jmp   n5061_to_β
                         .size            n5110_gate_bx, .-n5110_gate_bx
                         .type            n5111_var_ref_bx, @function
@@ -99268,7 +99220,7 @@ n5111_var_ref_bx:
 n5111_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 160]
+                        lea              rax, [rsp + 192]
                         mov              qword ptr [rsp + 8], rax;            jmp   n5112_lit_atom_α
 n5111_var_ref_β:        add              rsp, 16;                             jmp   .Ldisjunction_ω_5015_af
                         .size            n5111_var_ref_bx, .-n5111_var_ref_bx
@@ -99408,7 +99360,7 @@ n5114_var_ref_bx:
 n5114_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 160]
+                        lea              rax, [rsp + 192]
                         mov              qword ptr [rsp + 8], rax;            jmp   n5115_lit_atom_α
 n5114_var_ref_β:        add              rsp, 16;                             jmp   .Ldisjunction_ω_5015_af
                         .size            n5114_var_ref_bx, .-n5114_var_ref_bx
@@ -99557,8 +99509,9 @@ n5117_unmark_α:         mov              rsi, qword ptr [rbp + 2848]          #
 .Lunmark_α_5748_201:    mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
-                        test             r15, r15;                            jne   n4817_unmark_α
-                        mov              r13, qword ptr [rbp + 2864]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
+                        test             r15, r15;                            je    .Lunmark_α_5748_999
+                        add              rsp, 128;                            jmp   n4817_unmark_α
+.Lunmark_α_5748_999:    mov              r13, qword ptr [rbp + 2864]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
                         mov              rsp, qword ptr [rbp + 2856];         jmp   n5118_var_ref_α
                         .size            n5117_unmark_bx, .-n5117_unmark_bx
                         .type            n5118_var_ref_bx, @function
@@ -99567,7 +99520,7 @@ n5118_var_ref_bx:
 n5118_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 224]
+                        lea              rax, [rbp + -48]
                         mov              qword ptr [rsp + 8], rax;            jmp   n5119_lit_integer_α
                         .size            n5118_var_ref_bx, .-n5118_var_ref_bx
                         .type            n5119_lit_integer_bx, @function
@@ -99583,8 +99536,8 @@ n5119_lit_integer_α:    sub              rsp, 16
 n5120_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5120_var_α:            sub              rsp, 16
-                        mov              rax, qword ptr [rsp + 272]
-                        mov              rdx, qword ptr [rsp + 280]
+                        mov              rax, qword ptr [rbp + -32]
+                        mov              rdx, qword ptr [rbp + -24]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n5121_call_direct_α
                         .size            n5120_var_bx, .-n5120_var_bx
@@ -99633,19 +99586,19 @@ n5121_call_direct_α:    sub              rsp, 16
 1:                      add              rsp, 48
                         cmp              al, 104;                             jne   .Lcall_direct_α_5754_999
                         add              rsp, 16
-                        add              rsp, 48;                             jmp   n4814_unmark_α
+                        add              rsp, 16;                             jmp   n4814_unmark_α
 .Lcall_direct_α_5754_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n5122_var_α
 n5121_call_direct_β:    add              rsp, 16
-                        add              rsp, 48;                             jmp   n4814_unmark_α
+                        add              rsp, 16;                             jmp   n4814_unmark_α
                         .size            n5121_call_direct_bx, .-n5121_call_direct_bx
                         .type            n5122_var_bx, @function
 n5122_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5122_var_α:            sub              rsp, 16
-                        mov              rax, qword ptr [rsp + 304]
-                        mov              rdx, qword ptr [rsp + 312]
+                        mov              rax, qword ptr [rbp + -32]
+                        mov              rdx, qword ptr [rbp + -24]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n5123_call_pl_leaf_α
                         .size            n5122_var_bx, .-n5122_var_bx
@@ -99697,12 +99650,12 @@ n5123_call_pl_leaf_α:   sub              rsp, 16
                         add              rsp, 16
                         cmp              al, 104;                             jne   .Lcall_pl_leaf_α_5757_999
                         add              rsp, 16
-                        add              rsp, 80;                             jmp   n4814_unmark_α
+                        add              rsp, 48;                             jmp   n4814_unmark_α
 .Lcall_pl_leaf_α_5757_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n5124_to_α
 n5123_call_pl_leaf_β:   add              rsp, 16
-                        add              rsp, 80;                             jmp   n4814_unmark_α
+                        add              rsp, 48;                             jmp   n4814_unmark_α
                         .size            n5123_call_pl_leaf_bx, .-n5123_call_pl_leaf_bx
                         .type            n5124_to_bx, @function
 n5124_to_bx:
@@ -99763,10 +99716,10 @@ n5124_to_α:             sub              rsp, 32
                         cmp              rax, rcx;                            jle   .Lto_α_5760_6
                         mov              r13, qword ptr [rbp + 3088]          # pl_choice_restore inline (D1): the enumeration is exhausted, so its header is no choice: B returns to the choice it found
                         add              rsp, 32
-                        add              rsp, 96;                             jmp   n4814_unmark_α
+                        add              rsp, 64;                             jmp   n4814_unmark_α
 .Lto_α_5760_6:                                                                jle   .Lto_α_5760_997
                         add              rsp, 32
-                        add              rsp, 96;                             jmp   n4814_unmark_α
+                        add              rsp, 64;                             jmp   n4814_unmark_α
 .Lto_α_5760_997:        cmp              rax, rcx;                            jne   .Lto_α_5760_8
                         mov              r13, qword ptr [rbp + 3088]          # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_5760_8:          mov              qword ptr [rsp + 0], 3               # result
@@ -99795,14 +99748,14 @@ n5124_to_β:             mov              rsi, qword ptr [rbp + 3064]          #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            je    .Lto_β_5760_998
                         add              rsp, 32
-                        add              rsp, 96;                             jmp   n4814_unmark_α
+                        add              rsp, 64;                             jmp   n4814_unmark_α
 .Lto_β_5760_998:        inc              qword ptr [rbp + 3056];              jno   .Lto_β_5760_7
                         mov              r13, qword ptr [rbp + 3088]          # pl_choice_restore inline (D1): the enumeration is exhausted, so its header is no choice: B returns to the choice it found
                         add              rsp, 32
-                        add              rsp, 96;                             jmp   n4814_unmark_α
+                        add              rsp, 64;                             jmp   n4814_unmark_α
 .Lto_β_5760_7:                                                                jno   .Lto_β_5760_999
                         add              rsp, 32
-                        add              rsp, 96;                             jmp   n4814_unmark_α
+                        add              rsp, 64;                             jmp   n4814_unmark_α
 .Lto_β_5760_999:                                                              jmp   .Lto_α_5760_0
                         .size            n5124_to_bx, .-n5124_to_bx
                         .type            n5125_call_pl_leaf_bx, @function
@@ -99881,7 +99834,7 @@ n5125_call_pl_leaf_β:   add              rsp, 16;                             j
 n5126_gate_arm_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5126_gate_arm_α:       mov              dword ptr [rbp + 2816], 1
-                        add              rsp, 128;                            jmp   n4816_gate_arm_α
+                        add              rsp, 96;                             jmp   n4816_gate_arm_α
                         .size            n5126_gate_arm_bx, .-n5126_gate_arm_bx
                         .type            n5127_unmark_bx, @function
 n5127_unmark_bx:
@@ -99898,8 +99851,9 @@ n5127_unmark_α:         mov              rsi, qword ptr [rbp + 1744]          #
 .Lunmark_α_5765_201:    mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
-                        test             r15, r15;                            jne   n4866_unmark_α
-                        mov              r13, qword ptr [rbp + 1760]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
+                        test             r15, r15;                            je    .Lunmark_α_5765_999
+                        add              rsp, -32;                            jmp   n4866_unmark_α
+.Lunmark_α_5765_999:    mov              r13, qword ptr [rbp + 1760]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
                         mov              rsp, qword ptr [rbp + 1752]
                         mov              rax, qword ptr [rbp + 2736]
                         mov              rcx, rax
@@ -99915,7 +99869,7 @@ n5128_var_ref_bx:
 n5128_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 592]
+                        lea              rax, [rbp + -80]
                         mov              qword ptr [rsp + 8], rax;            jmp   n5129_lit_integer_α
                         .size            n5128_var_ref_bx, .-n5128_var_ref_bx
                         .type            n5129_lit_integer_bx, @function
@@ -99931,8 +99885,8 @@ n5129_lit_integer_α:    sub              rsp, 16
 n5130_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5130_var_α:            sub              rsp, 16
-                        mov              rax, qword ptr [rsp + 640]
-                        mov              rdx, qword ptr [rsp + 648]
+                        mov              rax, qword ptr [rbp + -64]
+                        mov              rdx, qword ptr [rbp + -56]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n5131_call_direct_α
                         .size            n5130_var_bx, .-n5130_var_bx
@@ -99981,19 +99935,19 @@ n5131_call_direct_α:    sub              rsp, 16
 1:                      add              rsp, 48
                         cmp              al, 104;                             jne   .Lcall_direct_α_5771_999
                         add              rsp, 16
-                        add              rsp, 48;                             jmp   n4863_unmark_α
+                        add              rsp, 16;                             jmp   n4863_unmark_α
 .Lcall_direct_α_5771_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n5132_var_α
 n5131_call_direct_β:    add              rsp, 16
-                        add              rsp, 48;                             jmp   n4863_unmark_α
+                        add              rsp, 16;                             jmp   n4863_unmark_α
                         .size            n5131_call_direct_bx, .-n5131_call_direct_bx
                         .type            n5132_var_bx, @function
 n5132_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5132_var_α:            sub              rsp, 16
-                        mov              rax, qword ptr [rsp + 672]
-                        mov              rdx, qword ptr [rsp + 680]
+                        mov              rax, qword ptr [rbp + -64]
+                        mov              rdx, qword ptr [rbp + -56]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n5133_call_pl_leaf_α
                         .size            n5132_var_bx, .-n5132_var_bx
@@ -100045,12 +99999,12 @@ n5133_call_pl_leaf_α:   sub              rsp, 16
                         add              rsp, 16
                         cmp              al, 104;                             jne   .Lcall_pl_leaf_α_5774_999
                         add              rsp, 16
-                        add              rsp, 80;                             jmp   n4863_unmark_α
+                        add              rsp, 48;                             jmp   n4863_unmark_α
 .Lcall_pl_leaf_α_5774_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n5134_to_α
 n5133_call_pl_leaf_β:   add              rsp, 16
-                        add              rsp, 80;                             jmp   n4863_unmark_α
+                        add              rsp, 48;                             jmp   n4863_unmark_α
                         .size            n5133_call_pl_leaf_bx, .-n5133_call_pl_leaf_bx
                         .type            n5134_to_bx, @function
 n5134_to_bx:
@@ -100111,10 +100065,10 @@ n5134_to_α:             sub              rsp, 32
                         cmp              rax, rcx;                            jle   .Lto_α_5777_6
                         mov              r13, qword ptr [rbp + 1984]          # pl_choice_restore inline (D1): the enumeration is exhausted, so its header is no choice: B returns to the choice it found
                         add              rsp, 32
-                        add              rsp, 96;                             jmp   n4863_unmark_α
+                        add              rsp, 64;                             jmp   n4863_unmark_α
 .Lto_α_5777_6:                                                                jle   .Lto_α_5777_997
                         add              rsp, 32
-                        add              rsp, 96;                             jmp   n4863_unmark_α
+                        add              rsp, 64;                             jmp   n4863_unmark_α
 .Lto_α_5777_997:        cmp              rax, rcx;                            jne   .Lto_α_5777_8
                         mov              r13, qword ptr [rbp + 1984]          # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_5777_8:          mov              qword ptr [rsp + 0], 3               # result
@@ -100143,14 +100097,14 @@ n5134_to_β:             mov              rsi, qword ptr [rbp + 1960]          #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            je    .Lto_β_5777_998
                         add              rsp, 32
-                        add              rsp, 96;                             jmp   n4863_unmark_α
+                        add              rsp, 64;                             jmp   n4863_unmark_α
 .Lto_β_5777_998:        inc              qword ptr [rbp + 1952];              jno   .Lto_β_5777_7
                         mov              r13, qword ptr [rbp + 1984]          # pl_choice_restore inline (D1): the enumeration is exhausted, so its header is no choice: B returns to the choice it found
                         add              rsp, 32
-                        add              rsp, 96;                             jmp   n4863_unmark_α
+                        add              rsp, 64;                             jmp   n4863_unmark_α
 .Lto_β_5777_7:                                                                jno   .Lto_β_5777_999
                         add              rsp, 32
-                        add              rsp, 96;                             jmp   n4863_unmark_α
+                        add              rsp, 64;                             jmp   n4863_unmark_α
 .Lto_β_5777_999:                                                              jmp   .Lto_α_5777_0
                         .size            n5134_to_bx, .-n5134_to_bx
                         .type            n5135_call_pl_leaf_bx, @function
@@ -100229,7 +100183,7 @@ n5135_call_pl_leaf_β:   add              rsp, 16;                             j
 n5136_gate_arm_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5136_gate_arm_α:       mov              dword ptr [rbp + 1712], 1
-                        add              rsp, 128;                            jmp   n4865_gate_arm_α
+                        add              rsp, 96;                             jmp   n4865_gate_arm_α
                         .size            n5136_gate_arm_bx, .-n5136_gate_arm_bx
                         .type            n5137_unmark_bx, @function
 n5137_unmark_bx:
@@ -100270,7 +100224,7 @@ n5138_var_ref_bx:
 n5138_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 352]
+                        lea              rax, [rbp + -128]
                         mov              qword ptr [rsp + 8], rax;            jmp   n5139_lit_integer_α
                         .size            n5138_var_ref_bx, .-n5138_var_ref_bx
                         .type            n5139_lit_integer_bx, @function
@@ -100286,8 +100240,8 @@ n5139_lit_integer_α:    sub              rsp, 16
 n5140_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5140_var_α:            sub              rsp, 16
-                        mov              rax, qword ptr [rsp + 416]
-                        mov              rdx, qword ptr [rsp + 424]
+                        mov              rax, qword ptr [rbp + -96]
+                        mov              rdx, qword ptr [rbp + -88]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n5141_call_direct_α
                         .size            n5140_var_bx, .-n5140_var_bx
@@ -100336,19 +100290,19 @@ n5141_call_direct_α:    sub              rsp, 16
 1:                      add              rsp, 48
                         cmp              al, 104;                             jne   .Lcall_direct_α_5788_999
                         add              rsp, 16
-                        add              rsp, 48;                             jmp   n4928_unmark_α
+                        add              rsp, 16;                             jmp   n4928_unmark_α
 .Lcall_direct_α_5788_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n5142_var_α
 n5141_call_direct_β:    add              rsp, 16
-                        add              rsp, 48;                             jmp   n4928_unmark_α
+                        add              rsp, 16;                             jmp   n4928_unmark_α
                         .size            n5141_call_direct_bx, .-n5141_call_direct_bx
                         .type            n5142_var_bx, @function
 n5142_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5142_var_α:            sub              rsp, 16
-                        mov              rax, qword ptr [rsp + 448]
-                        mov              rdx, qword ptr [rsp + 456]
+                        mov              rax, qword ptr [rbp + -96]
+                        mov              rdx, qword ptr [rbp + -88]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n5143_call_pl_leaf_α
                         .size            n5142_var_bx, .-n5142_var_bx
@@ -100400,12 +100354,12 @@ n5143_call_pl_leaf_α:   sub              rsp, 16
                         add              rsp, 16
                         cmp              al, 104;                             jne   .Lcall_pl_leaf_α_5791_999
                         add              rsp, 16
-                        add              rsp, 80;                             jmp   n4928_unmark_α
+                        add              rsp, 48;                             jmp   n4928_unmark_α
 .Lcall_pl_leaf_α_5791_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n5144_to_α
 n5143_call_pl_leaf_β:   add              rsp, 16
-                        add              rsp, 80;                             jmp   n4928_unmark_α
+                        add              rsp, 48;                             jmp   n4928_unmark_α
                         .size            n5143_call_pl_leaf_bx, .-n5143_call_pl_leaf_bx
                         .type            n5144_to_bx, @function
 n5144_to_bx:
@@ -100466,10 +100420,10 @@ n5144_to_α:             sub              rsp, 32
                         cmp              rax, rcx;                            jle   .Lto_α_5794_6
                         mov              r13, qword ptr [rbp + 736]           # pl_choice_restore inline (D1): the enumeration is exhausted, so its header is no choice: B returns to the choice it found
                         add              rsp, 32
-                        add              rsp, 96;                             jmp   n4928_unmark_α
+                        add              rsp, 64;                             jmp   n4928_unmark_α
 .Lto_α_5794_6:                                                                jle   .Lto_α_5794_997
                         add              rsp, 32
-                        add              rsp, 96;                             jmp   n4928_unmark_α
+                        add              rsp, 64;                             jmp   n4928_unmark_α
 .Lto_α_5794_997:        cmp              rax, rcx;                            jne   .Lto_α_5794_8
                         mov              r13, qword ptr [rbp + 736]           # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_5794_8:          mov              qword ptr [rsp + 0], 3               # result
@@ -100498,14 +100452,14 @@ n5144_to_β:             mov              rsi, qword ptr [rbp + 712]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            je    .Lto_β_5794_998
                         add              rsp, 32
-                        add              rsp, 96;                             jmp   n4928_unmark_α
+                        add              rsp, 64;                             jmp   n4928_unmark_α
 .Lto_β_5794_998:        inc              qword ptr [rbp + 704];               jno   .Lto_β_5794_7
                         mov              r13, qword ptr [rbp + 736]           # pl_choice_restore inline (D1): the enumeration is exhausted, so its header is no choice: B returns to the choice it found
                         add              rsp, 32
-                        add              rsp, 96;                             jmp   n4928_unmark_α
+                        add              rsp, 64;                             jmp   n4928_unmark_α
 .Lto_β_5794_7:                                                                jno   .Lto_β_5794_999
                         add              rsp, 32
-                        add              rsp, 96;                             jmp   n4928_unmark_α
+                        add              rsp, 64;                             jmp   n4928_unmark_α
 .Lto_β_5794_999:                                                              jmp   .Lto_α_5794_0
                         .size            n5144_to_bx, .-n5144_to_bx
                         .type            n5145_call_pl_leaf_bx, @function
@@ -100584,7 +100538,7 @@ n5145_call_pl_leaf_β:   add              rsp, 16;                             j
 n5146_gate_arm_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5146_gate_arm_α:       mov              dword ptr [rbp + 464], 1
-                        add              rsp, 128;                            jmp   n4930_gate_arm_α
+                        add              rsp, 96;                             jmp   n4930_gate_arm_α
                         .size            n5146_gate_arm_bx, .-n5146_gate_arm_bx
                         .type            n5147_unmark_bx, @function
 n5147_unmark_bx:
@@ -101283,8 +101237,9 @@ n5167_unmark_α:         mov              rsi, qword ptr [rbp + 704]           #
 .Lunmark_α_5833_201:    mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
-                        test             r15, r15;                            jne   n5094_unmark_α
-                        mov              r13, qword ptr [rbp + 720]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
+                        test             r15, r15;                            je    .Lunmark_α_5833_999
+                        add              rsp, -32;                            jmp   n5094_unmark_α
+.Lunmark_α_5833_999:    mov              r13, qword ptr [rbp + 720]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
                         mov              rsp, qword ptr [rbp + 712]
                         mov              rax, qword ptr [rbp + 2736]
                         mov              rcx, rax
@@ -101300,7 +101255,7 @@ n5168_var_ref_bx:
 n5168_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 464]
+                        lea              rax, [rbp + -208]
                         mov              qword ptr [rsp + 8], rax;            jmp   n5169_lit_integer_α
                         .size            n5168_var_ref_bx, .-n5168_var_ref_bx
                         .type            n5169_lit_integer_bx, @function
@@ -101316,8 +101271,8 @@ n5169_lit_integer_α:    sub              rsp, 16
 n5170_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5170_var_α:            sub              rsp, 16
-                        mov              rax, qword ptr [rsp + 528]
-                        mov              rdx, qword ptr [rsp + 536]
+                        mov              rax, qword ptr [rbp + -176]
+                        mov              rdx, qword ptr [rbp + -168]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n5171_call_direct_α
                         .size            n5170_var_bx, .-n5170_var_bx
@@ -101366,19 +101321,19 @@ n5171_call_direct_α:    sub              rsp, 16
 1:                      add              rsp, 48
                         cmp              al, 104;                             jne   .Lcall_direct_α_5839_999
                         add              rsp, 16
-                        add              rsp, 48;                             jmp   n5091_unmark_α
+                        add              rsp, 16;                             jmp   n5091_unmark_α
 .Lcall_direct_α_5839_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n5172_var_α
 n5171_call_direct_β:    add              rsp, 16
-                        add              rsp, 48;                             jmp   n5091_unmark_α
+                        add              rsp, 16;                             jmp   n5091_unmark_α
                         .size            n5171_call_direct_bx, .-n5171_call_direct_bx
                         .type            n5172_var_bx, @function
 n5172_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5172_var_α:            sub              rsp, 16
-                        mov              rax, qword ptr [rsp + 560]
-                        mov              rdx, qword ptr [rsp + 568]
+                        mov              rax, qword ptr [rbp + -176]
+                        mov              rdx, qword ptr [rbp + -168]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n5173_call_pl_leaf_α
                         .size            n5172_var_bx, .-n5172_var_bx
@@ -101430,12 +101385,12 @@ n5173_call_pl_leaf_α:   sub              rsp, 16
                         add              rsp, 16
                         cmp              al, 104;                             jne   .Lcall_pl_leaf_α_5842_999
                         add              rsp, 16
-                        add              rsp, 80;                             jmp   n5091_unmark_α
+                        add              rsp, 48;                             jmp   n5091_unmark_α
 .Lcall_pl_leaf_α_5842_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n5174_to_α
 n5173_call_pl_leaf_β:   add              rsp, 16
-                        add              rsp, 80;                             jmp   n5091_unmark_α
+                        add              rsp, 48;                             jmp   n5091_unmark_α
                         .size            n5173_call_pl_leaf_bx, .-n5173_call_pl_leaf_bx
                         .type            n5174_to_bx, @function
 n5174_to_bx:
@@ -101496,10 +101451,10 @@ n5174_to_α:             sub              rsp, 32
                         cmp              rax, rcx;                            jle   .Lto_α_5845_6
                         mov              r13, qword ptr [rbp + 1136]          # pl_choice_restore inline (D1): the enumeration is exhausted, so its header is no choice: B returns to the choice it found
                         add              rsp, 32
-                        add              rsp, 96;                             jmp   n5091_unmark_α
+                        add              rsp, 64;                             jmp   n5091_unmark_α
 .Lto_α_5845_6:                                                                jle   .Lto_α_5845_997
                         add              rsp, 32
-                        add              rsp, 96;                             jmp   n5091_unmark_α
+                        add              rsp, 64;                             jmp   n5091_unmark_α
 .Lto_α_5845_997:        cmp              rax, rcx;                            jne   .Lto_α_5845_8
                         mov              r13, qword ptr [rbp + 1136]          # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_5845_8:          mov              qword ptr [rsp + 0], 3               # result
@@ -101528,14 +101483,14 @@ n5174_to_β:             mov              rsi, qword ptr [rbp + 1112]          #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            je    .Lto_β_5845_998
                         add              rsp, 32
-                        add              rsp, 96;                             jmp   n5091_unmark_α
+                        add              rsp, 64;                             jmp   n5091_unmark_α
 .Lto_β_5845_998:        inc              qword ptr [rbp + 1104];              jno   .Lto_β_5845_7
                         mov              r13, qword ptr [rbp + 1136]          # pl_choice_restore inline (D1): the enumeration is exhausted, so its header is no choice: B returns to the choice it found
                         add              rsp, 32
-                        add              rsp, 96;                             jmp   n5091_unmark_α
+                        add              rsp, 64;                             jmp   n5091_unmark_α
 .Lto_β_5845_7:                                                                jno   .Lto_β_5845_999
                         add              rsp, 32
-                        add              rsp, 96;                             jmp   n5091_unmark_α
+                        add              rsp, 64;                             jmp   n5091_unmark_α
 .Lto_β_5845_999:                                                              jmp   .Lto_α_5845_0
                         .size            n5174_to_bx, .-n5174_to_bx
                         .type            n5175_call_pl_leaf_bx, @function
@@ -101614,7 +101569,7 @@ n5175_call_pl_leaf_β:   add              rsp, 16;                             j
 n5176_gate_arm_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5176_gate_arm_α:       mov              dword ptr [rbp + 592], 1
-                        add              rsp, 128;                            jmp   n5093_gate_arm_α
+                        add              rsp, 96;                             jmp   n5093_gate_arm_α
                         .size            n5176_gate_arm_bx, .-n5176_gate_arm_bx
 #-----------------------------------------------------------------------------------------------------------------------
 $cp_mq1$2F3_ret0:
@@ -106608,7 +106563,7 @@ n5999_call_proc_staged_α:
                         mov              qword ptr [rbp + 264], rdx
                         cmp              al, 104;                             jne   .Lcall_proc_staged_α_6055_999
                         add              rsp, 16
-                        add              rsp, 64;                             jmp   n6007_unmark_α
+                        add              rsp, 336;                            jmp   n6007_unmark_α
 .Lcall_proc_staged_α_6055_999:
                                                                               jmp   n6000_gate_arm_α
 n5999_call_proc_staged_β:
@@ -106623,7 +106578,7 @@ n5999_call_proc_staged_β:
                         add              dword ptr [rax + 0], 1;              jmp   rcx
 .Lcall_proc_staged_β_6055_22:
                         add              rsp, 16
-                        add              rsp, 64;                             jmp   n6007_unmark_α
+                        add              rsp, 336;                            jmp   n6007_unmark_α
                         .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Lcall_proc_staged_β_6055_0: .quad .Lcall_proc_staged_β_6055_0_s; .popsection
 .Lcall_proc_staged_β_6055_0_s:
                         .string          "$yall_bind/4"
@@ -106801,9 +106756,8 @@ n6007_unmark_α:         mov              rsi, qword ptr [rbp + 176]           #
 .Lunmark_α_6071_201:    mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
-                        test             r15, r15;                            je    .Lunmark_α_6071_999
-                        add              rsp, 272;                            jmp   $yall_slash$2F3_step
-.Lunmark_α_6071_999:    mov              r13, qword ptr [rbp + 192]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
+                        test             r15, r15;                            jne   $yall_slash$2F3_step
+                        mov              r13, qword ptr [rbp + 192]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
                         mov              rsp, qword ptr [rbp + 184]
                         mov              rax, qword ptr [rbp + 272]
                         mov              rcx, rax
@@ -106823,22 +106777,19 @@ n6007_unmark_α:         mov              rsi, qword ptr [rbp + 176]           #
                         .type            n6008_gate_bx, @function
 n6008_gate_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n6008_gate_α:           add              rsp, 272;                            jmp   $yall_slash$2F3_step
-n6008_gate_β:           test             r15, r15;                            je    .Lgate_β_6073_999
-                        add              rsp, 272;                            jmp   $yall_slash$2F3_step
-.Lgate_β_6073_999:      mov              eax, dword ptr [rbp + 144]
-                        cmp              eax, 0;                              jne   .Lgate_β_6073_10
-                        add              rsp, -64;                            jmp   n5999_call_proc_staged_β
-.Lgate_β_6073_10:       cmp              eax, 1;                              jne   .Lgate_β_6073_11
-                        add              rsp, -48;                            jmp   n6005_call_proc_staged_β
-.Lgate_β_6073_11:       add              rsp, 272;                            jmp   $yall_slash$2F3_step
+n6008_gate_α:                                                                 jmp   $yall_slash$2F3_step
+n6008_gate_β:           test             r15, r15;                            jne   $yall_slash$2F3_step
+                        mov              eax, dword ptr [rbp + 144]
+                        cmp              eax, 0;                              je    n5999_call_proc_staged_β
+                        cmp              eax, 1;                              je    n6005_call_proc_staged_β
+                                                                              jmp   $yall_slash$2F3_step
                         .size            n6008_gate_bx, .-n6008_gate_bx
                         .type            n6009_var_bx, @function
 n6009_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n6009_var_α:            sub              rsp, 16
-                        mov              rax, qword ptr [rsp + 48]
-                        mov              rdx, qword ptr [rsp + 56]
+                        mov              rax, qword ptr [rbp + -256]
+                        mov              rdx, qword ptr [rbp + -248]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n6010_call_value_α
                         .size            n6009_var_bx, .-n6009_var_bx
@@ -113777,7 +113728,7 @@ n6403_call_proc_staged_α:
                         mov              qword ptr [rbp + 440], rdx
                         cmp              al, 104;                             jne   .Lcall_proc_staged_α_6530_999
                         add              rsp, 16
-                        add              rsp, 48;                             jmp   n6419_unmark_α
+                        add              rsp, 864;                            jmp   n6419_unmark_α
 .Lcall_proc_staged_α_6530_999:
                                                                               jmp   n6404_gate_arm_α
 n6403_call_proc_staged_β:
@@ -113792,7 +113743,7 @@ n6403_call_proc_staged_β:
                         add              dword ptr [rax + 0], 1;              jmp   rcx
 .Lcall_proc_staged_β_6530_22:
                         add              rsp, 16
-                        add              rsp, 48;                             jmp   n6419_unmark_α
+                        add              rsp, 864;                            jmp   n6419_unmark_α
                         .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Lcall_proc_staged_β_6530_0: .quad .Lcall_proc_staged_β_6530_0_s; .popsection
 .Lcall_proc_staged_β_6530_0_s:
                         .string          "$between_test/3"
@@ -114255,9 +114206,8 @@ n6419_unmark_α:         mov              rsi, qword ptr [rbp + 352]           #
 .Lunmark_α_6558_201:    mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
-                        test             r15, r15;                            je    .Lunmark_α_6558_999
-                        add              rsp, 128;                            jmp   n6387_to_β
-.Lunmark_α_6558_999:    mov              r13, qword ptr [rbp + 368]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
+                        test             r15, r15;                            jne   n6387_to_β
+                        mov              r13, qword ptr [rbp + 368]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
                         mov              rsp, qword ptr [rbp + 360]
                         mov              rax, qword ptr [rbp + 448]
                         mov              rcx, rax
@@ -114274,9 +114224,8 @@ n6420_gate_α:           add              rsp, 128;                            j
 n6420_gate_β:           test             r15, r15;                            je    .Lgate_β_6560_999
                         add              rsp, 128;                            jmp   n6387_to_β
 .Lgate_β_6560_999:      mov              eax, dword ptr [rbp + 320]
-                        cmp              eax, 0;                              jne   .Lgate_β_6560_10
-                        add              rsp, -48;                            jmp   n6403_call_proc_staged_β
-.Lgate_β_6560_10:       cmp              eax, 1;                              je    n6417_gate_β
+                        cmp              eax, 0;                              je    n6403_call_proc_staged_β
+                        cmp              eax, 1;                              je    n6417_gate_β
                         add              rsp, 128;                            jmp   n6387_to_β
                         .size            n6420_gate_bx, .-n6420_gate_bx
                         .type            n6421_var_ref_bx, @function
@@ -114285,7 +114234,7 @@ n6421_var_ref_bx:
 n6421_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 464]
+                        lea              rax, [rbp + -384]
                         mov              qword ptr [rsp + 8], rax;            jmp   n6422_var_ref_α
                         .size            n6421_var_ref_bx, .-n6421_var_ref_bx
                         .type            n6422_var_ref_bx, @function
@@ -114294,7 +114243,7 @@ n6422_var_ref_bx:
 n6422_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 448]
+                        lea              rax, [rbp + -416]
                         mov              qword ptr [rsp + 8], rax;            jmp   n6423_var_ref_α
                         .size            n6422_var_ref_bx, .-n6422_var_ref_bx
                         .type            n6423_var_ref_bx, @function
@@ -114303,7 +114252,7 @@ n6423_var_ref_bx:
 n6423_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 784]
+                        lea              rax, [rbp + -96]
                         mov              qword ptr [rsp + 8], rax;            jmp   n6424_call_direct_α
                         .size            n6423_var_ref_bx, .-n6423_var_ref_bx
                         .type            n6424_call_direct_bx, @function
@@ -114382,7 +114331,7 @@ n6427_var_ref_bx:
 n6427_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 544]
+                        lea              rax, [rbp + -400]
                         mov              qword ptr [rsp + 8], rax;            jmp   n6428_var_ref_α
                         .size            n6427_var_ref_bx, .-n6427_var_ref_bx
                         .type            n6428_var_ref_bx, @function
@@ -114391,7 +114340,7 @@ n6428_var_ref_bx:
 n6428_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 528]
+                        lea              rax, [rbp + -432]
                         mov              qword ptr [rsp + 8], rax;            jmp   n6429_call_pl_leaf_α
                         .size            n6428_var_ref_bx, .-n6428_var_ref_bx
                         .type            n6429_call_pl_leaf_bx, @function
@@ -114523,12 +114472,12 @@ n6429_call_pl_leaf_α:   sub              rsp, 16
                         add              rsp, 48
                         cmp              al, 104;                             jne   .Lcall_pl_leaf_α_6575_999
                         add              rsp, 16
-                        add              rsp, 960;                            jmp   $mod_q1$2F3_step
+                        add              rsp, 144;                            jmp   $mod_q1$2F3_step
 .Lcall_pl_leaf_α_6575_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n6430_call_direct_α
 n6429_call_pl_leaf_β:   add              rsp, 16
-                        add              rsp, 960;                            jmp   $mod_q1$2F3_step
+                        add              rsp, 144;                            jmp   $mod_q1$2F3_step
                         .size            n6429_call_pl_leaf_bx, .-n6429_call_pl_leaf_bx
                         .type            n6430_call_direct_bx, @function
 n6430_call_direct_bx:
@@ -114602,7 +114551,7 @@ n6433_var_ref_bx:
 n6433_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 624]
+                        lea              rax, [rbp + -416]
                         mov              qword ptr [rsp + 8], rax;            jmp   n6434_var_ref_α
                         .size            n6433_var_ref_bx, .-n6433_var_ref_bx
                         .type            n6434_var_ref_bx, @function
@@ -114611,7 +114560,7 @@ n6434_var_ref_bx:
 n6434_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 624]
+                        lea              rax, [rbp + -432]
                         mov              qword ptr [rsp + 8], rax;            jmp   n6435_call_pl_leaf_α
                         .size            n6434_var_ref_bx, .-n6434_var_ref_bx
                         .type            n6435_call_pl_leaf_bx, @function
@@ -114743,12 +114692,12 @@ n6435_call_pl_leaf_α:   sub              rsp, 16
                         add              rsp, 48
                         cmp              al, 104;                             jne   .Lcall_pl_leaf_α_6584_999
                         add              rsp, 16
-                        add              rsp, 1056;                           jmp   $mod_q1$2F3_step
+                        add              rsp, 240;                            jmp   $mod_q1$2F3_step
 .Lcall_pl_leaf_α_6584_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n6436_call_direct_α
 n6435_call_pl_leaf_β:   add              rsp, 16
-                        add              rsp, 1056;                           jmp   $mod_q1$2F3_step
+                        add              rsp, 240;                            jmp   $mod_q1$2F3_step
                         .size            n6435_call_pl_leaf_bx, .-n6435_call_pl_leaf_bx
                         .type            n6436_call_direct_bx, @function
 n6436_call_direct_bx:
@@ -114794,8 +114743,7 @@ n6436_call_direct_α:    sub              rsp, 16
                         add              rsp, 240;                            jmp   n6420_gate_β
 .Lcall_direct_α_6585_999:
                         mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx
-                        add              rsp, 1088;                           jmp   $mod_q1$2F3_ret0
+                        mov              qword ptr [rsp + 8], rdx;            jmp   $mod_q1$2F3_ret0
 n6436_call_direct_β:    add              rsp, 16
                         add              rsp, 240;                            jmp   n6420_gate_β
                         .size            n6436_call_direct_bx, .-n6436_call_direct_bx
@@ -114805,7 +114753,7 @@ n6437_var_ref_bx:
 n6437_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 464]
+                        lea              rax, [rsp + 496]
                         mov              qword ptr [rsp + 8], rax;            jmp   n6438_lit_atom_α
 n6437_var_ref_β:        add              rsp, 16;                             jmp   .Ldisjunction_ω_6407_af
                         .size            n6437_var_ref_bx, .-n6437_var_ref_bx
@@ -114945,7 +114893,7 @@ n6440_var_ref_bx:
 n6440_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 464]
+                        lea              rax, [rsp + 496]
                         mov              qword ptr [rsp + 8], rax;            jmp   n6441_lit_atom_α
 n6440_var_ref_β:        add              rsp, 16;                             jmp   .Ldisjunction_ω_6407_af
                         .size            n6440_var_ref_bx, .-n6440_var_ref_bx
@@ -153292,8 +153240,7 @@ n8302_unmark_α:         mov              rsi, qword ptr [rbp + 160]           #
                         .type            n8303_gate_arm_bx, @function
 n8303_gate_arm_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n8303_gate_arm_α:       mov              dword ptr [rbp + 128], 1
-                        add              rsp, -16;                            jmp   n8305_var_ref_α
+n8303_gate_arm_α:       mov              dword ptr [rbp + 128], 1;            jmp   n8305_var_ref_α
                         .size            n8303_gate_arm_bx, .-n8303_gate_arm_bx
                         .type            n8304_gate_bx, @function
 n8304_gate_bx:
@@ -153301,11 +153248,9 @@ n8304_gate_bx:
 n8304_gate_α:                                                                 jmp   current_prolog_flag$2F2_step
 n8304_gate_β:           test             r15, r15;                            jne   current_prolog_flag$2F2_step
                         mov              eax, dword ptr [rbp + 128]
-                        cmp              eax, 0;                              jne   .Lgate_β_8443_10
-                        add              rsp, -1840;                          jmp   n8299_call_value_β
-.Lgate_β_8443_10:       cmp              eax, 1;                              jne   .Lgate_β_8443_11
-                        add              rsp, 16;                             jmp   n8304_gate_α
-.Lgate_β_8443_11:                                                             jmp   current_prolog_flag$2F2_step
+                        cmp              eax, 0;                              je    n8299_call_value_β
+                        cmp              eax, 1;                              je    n8304_gate_α
+                                                                              jmp   current_prolog_flag$2F2_step
                         .size            n8304_gate_bx, .-n8304_gate_bx
                         .type            n8305_var_ref_bx, @function
 n8305_var_ref_bx:
@@ -153369,8 +153314,7 @@ n8307_call_direct_α:    sub              rsp, 16
                         add              rsp, 32;                             jmp   n8304_gate_β
 .Lcall_direct_α_8448_999:
                         mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx
-                        add              rsp, 64;                             jmp   current_prolog_flag$2F2_ret0
+                        mov              qword ptr [rsp + 8], rdx;            jmp   current_prolog_flag$2F2_ret0
 n8307_call_direct_β:    add              rsp, 16
                         add              rsp, 32;                             jmp   n8304_gate_β
                         .size            n8307_call_direct_bx, .-n8307_call_direct_bx
