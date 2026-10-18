@@ -39,59 +39,59 @@ fullscan-combinations.sno	OK	OK	NO_ORACLE
 fullscan-overlap.sno	OK	OK	NO_ORACLE			
 fullscan-palindrome.sno	OK	OK	NO_ORACLE			
 function-arg-local.sno	OK	OK	NO_ORACLE			
-gimpel-additional-string-functions.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-additional-string-functions.sno(14,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-additional-string-functions.sno:14: Error 30 in statement 0 at level 0	
-gimpel-array-functions.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-array-functions.sno(10,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-array-functions.sno:10: Error 30 in statement 0 at level 0	
-gimpel-asm360-pli-once.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-asm360-pli-once.sno(18,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-asm360-pli-once.sno:18: Error 30 in statement 0 at level 0	
-gimpel-asm-machine-m.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-asm-machine-m.sno(20,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-asm-machine-m.sno:20: Error 30 in statement 0 at level 0	
-gimpel-basic-string-functions.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-basic-string-functions.sno(12,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-basic-string-functions.sno:12: Error 30 in statement 0 at level 0	
+gimpel-additional-string-functions.sno	OK	OK	NO_ORACLE			
+gimpel-array-functions.sno	OK	OK	NO_ORACLE			
+gimpel-asm360-pli-once.sno	OK	OK	NO_ORACLE			
+gimpel-asm-machine-m.sno	OK	TIMEOUT	NO_ORACLE			
+gimpel-basic-string-functions.sno	OK	OK	NO_ORACLE			
 gimpel-bcd-ebcd-conversion.sno	OK	OK	NO_ORACLE			
-gimpel-binary-tree-linearize.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-binary-tree-linearize.sno(9,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-binary-tree-linearize.sno:9: Error 30 in statement 0 at level 0	
-gimpel-bnorm-inorm-image-line.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-bnorm-inorm-image-line.sno(38,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-bnorm-inorm-image-line.sno:38: Error 30 in statement 0 at level 0	
+gimpel-binary-tree-linearize.sno	OK	OK	NO_ORACLE			
+gimpel-bnorm-inorm-image-line.sno	OK	OK	NO_ORACLE			
 gimpel-code-function.sno	OK	OK	NO_ORACLE			
-gimpel-combinatorics.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-combinatorics.sno(22,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-combinatorics.sno:22: Error 30 in statement 0 at level 0	
-gimpel-conversions.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-conversions.sno(11,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-conversions.sno:11: Error 30 in statement 0 at level 0	
-gimpel-crack-cata-functions.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-crack-cata-functions.sno(8,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-crack-cata-functions.sno:8: Error 30 in statement 0 at level 0	
-gimpel-day-of-week.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-day-of-week.sno(11,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-day-of-week.sno:11: Error 30 in statement 0 at level 0	
-gimpel-dextern-loader.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-dextern-loader.sno(8,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-dextern-loader.sno:8: Error 30 in statement 0 at level 0	
-gimpel-fortran-blank-removal.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-fortran-blank-removal.sno(11,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-fortran-blank-removal.sno:11: Error 30 in statement 0 at level 0	
-gimpel-fortran-statement-reader.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-fortran-statement-reader.sno(17,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-fortran-statement-reader.sno:17: Error 30 in statement 0 at level 0	
-gimpel-function-tracing.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-function-tracing.sno(8,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-function-tracing.sno:8: Error 30 in statement 0 at level 0	
-gimpel-general-purpose-macro.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-general-purpose-macro.sno(13,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-general-purpose-macro.sno:13: Error 30 in statement 0 at level 0	
-gimpel-generated-stack-functions.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-generated-stack-functions.sno(8,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-generated-stack-functions.sno:8: Error 30 in statement 0 at level 0	
-gimpel-hex-conversion.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-hex-conversion.sno(9,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-hex-conversion.sno:9: Error 30 in statement 0 at level 0	
-gimpel-implementation-and-timing.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-implementation-and-timing.sno(25,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-implementation-and-timing.sno:25: Error 30 in statement 0 at level 0	
-gimpel-infinip-arithmetic.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-infinip-arithmetic.sno(13,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-infinip-arithmetic.sno:13: Error 30 in statement 0 at level 0	
-gimpel-insulate-anchor.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-insulate-anchor.sno(9,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-insulate-anchor.sno:9: Error 30 in statement 0 at level 0	
-gimpel-line-output.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-line-output.sno(16,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-line-output.sno:16: Error 30 in statement 0 at level 0	
-gimpel-linked-list-functions.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-linked-list-functions.sno(13,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-linked-list-functions.sno:13: Error 30 in statement 0 at level 0	
-gimpel-l-one-compiler.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-l-one-compiler.sno(20,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-l-one-compiler.sno:20: Error 30 in statement 0 at level 0	
-gimpel-l-two-compiler.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-l-two-compiler.sno(31,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-l-two-compiler.sno:31: Error 30 in statement 0 at level 0	
-gimpel-merge-tournament-sort-variants.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-merge-tournament-sort-variants.sno(11,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-merge-tournament-sort-variants.sno:11: Error 30 in statement 0 at level 0	
-gimpel-mfread-multi-file.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-mfread-multi-file.sno(13,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-mfread-multi-file.sno:13: Error 30 in statement 0 at level 0	
-gimpel-numeric-random-functions.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-numeric-random-functions.sno(14,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-numeric-random-functions.sno:14: Error 30 in statement 0 at level 0	
-gimpel-oneway-cipher.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-oneway-cipher.sno(11,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-oneway-cipher.sno:11: Error 30 in statement 0 at level 0	
-gimpel-paragraph-reader.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-paragraph-reader.sno(19,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-paragraph-reader.sno:19: Error 30 in statement 0 at level 0	
-gimpel-pattern-functions.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-pattern-functions.sno(14,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-pattern-functions.sno:14: Error 30 in statement 0 at level 0	
-gimpel-permutation-functions.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-permutation-functions.sno(24,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-permutation-functions.sno:24: Error 30 in statement 0 at level 0	
-gimpel-physical-quantities.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-physical-quantities.sno(10,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-physical-quantities.sno:10: Error 30 in statement 0 at level 0	
-gimpel-poker-game.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-poker-game.sno(32,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-poker-game.sno:32: Error 30 in statement 0 at level 0	
-gimpel-print-width-functions.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-print-width-functions.sno(10,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-print-width-functions.sno:10: Error 30 in statement 0 at level 0	
-gimpel-random-poem.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-random-poem.sno(50,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-random-poem.sno:50: Error 30 in statement 0 at level 0	
-gimpel-random-story.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-random-story.sno(104,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-random-story.sno:104: Error 30 in statement 0 at level 0	
-gimpel-random-string-functions.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-random-string-functions.sno(18,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-random-string-functions.sno:18: Error 30 in statement 0 at level 0	
-gimpel-read-list-functions.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-read-list-functions.sno(17,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-read-list-functions.sno:17: Error 30 in statement 0 at level 0	
-gimpel-real-math-functions.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-real-math-functions.sno(16,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-real-math-functions.sno:16: Error 30 in statement 0 at level 0	
-gimpel-rseason-baseball.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-rseason-baseball.sno(29,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-rseason-baseball.sno:29: Error 30 in statement 0 at level 0	
-gimpel-snobol-statement-reader.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-snobol-statement-reader.sno(19,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-snobol-statement-reader.sno:19: Error 30 in statement 0 at level 0	
-gimpel-sorting-functions.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-sorting-functions.sno(8,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-sorting-functions.sno:8: Error 30 in statement 0 at level 0	
-gimpel-stack-field-functions.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-stack-field-functions.sno(10,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-stack-field-functions.sno:10: Error 30 in statement 0 at level 0	
-gimpel-state-functions.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-state-functions.sno(9,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-state-functions.sno:9: Error 30 in statement 0 at level 0	
-gimpel-stone-game.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-stone-game.sno(34,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-stone-game.sno:34: Error 30 in statement 0 at level 0	
-gimpel-test-pattern-predicate.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-test-pattern-predicate.sno(8,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-test-pattern-predicate.sno:8: Error 30 in statement 0 at level 0	
-gimpel-tictactoe-functions.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-tictactoe-functions.sno(13,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-tictactoe-functions.sno:13: Error 30 in statement 0 at level 0	
-gimpel-tree-pattern.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-tree-pattern.sno(9,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-tree-pattern.sno:9: Error 30 in statement 0 at level 0	
-gimpel-tree-reader.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-tree-reader.sno(14,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-tree-reader.sno:14: Error 30 in statement 0 at level 0	
-gimpel-visit-structure-functions.sno	ERR	ERR	NO_ORACLE	rc=1 gimpel-visit-structure-functions.sno(17,10) : ERROR 285 -- include file cannot be opened	rc=1 gimpel-visit-structure-functions.sno:17: Error 30 in statement 0 at level 0	
+gimpel-combinatorics.sno	OK	OK	NO_ORACLE			
+gimpel-conversions.sno	OK	OK	NO_ORACLE			
+gimpel-crack-cata-functions.sno	OK	OK	NO_ORACLE			
+gimpel-day-of-week.sno	OK	OK	NO_ORACLE			
+gimpel-dextern-loader.sno	OK	OK	NO_ORACLE			
+gimpel-fortran-blank-removal.sno	OK	OK	NO_ORACLE			
+gimpel-fortran-statement-reader.sno	OK	OK	NO_ORACLE			
+gimpel-function-tracing.sno	OK	OK	NO_ORACLE			
+gimpel-general-purpose-macro.sno	OK	OK	NO_ORACLE			
+gimpel-generated-stack-functions.sno	OK	OK	NO_ORACLE			
+gimpel-hex-conversion.sno	OK	OK	NO_ORACLE			
+gimpel-implementation-and-timing.sno	OK	OK	NO_ORACLE			
+gimpel-infinip-arithmetic.sno	OK	OK	NO_ORACLE			
+gimpel-insulate-anchor.sno	OK	OK	NO_ORACLE			
+gimpel-line-output.sno	OK	OK	NO_ORACLE			
+gimpel-linked-list-functions.sno	OK	OK	NO_ORACLE			
+gimpel-l-one-compiler.sno	OK	OK	NO_ORACLE			
+gimpel-l-two-compiler.sno	OK	OK	NO_ORACLE			
+gimpel-merge-tournament-sort-variants.sno	OK	OK	NO_ORACLE			
+gimpel-mfread-multi-file.sno	OK	OK	NO_ORACLE			
+gimpel-numeric-random-functions.sno	OK	OK	NO_ORACLE			
+gimpel-oneway-cipher.sno	OK	OK	NO_ORACLE			
+gimpel-paragraph-reader.sno	OK	OK	NO_ORACLE			
+gimpel-pattern-functions.sno	OK	OK	NO_ORACLE			
+gimpel-permutation-functions.sno	OK	OK	NO_ORACLE			
+gimpel-physical-quantities.sno	OK	OK	NO_ORACLE			
+gimpel-poker-game.sno	OK	TIMEOUT	NO_ORACLE			
+gimpel-print-width-functions.sno	OK	OK	NO_ORACLE			
+gimpel-random-poem.sno	OK	TIMEOUT	NO_ORACLE			
+gimpel-random-story.sno	OK	TIMEOUT	NO_ORACLE			
+gimpel-random-string-functions.sno	OK	OK	NO_ORACLE			
+gimpel-read-list-functions.sno	OK	OK	NO_ORACLE			
+gimpel-real-math-functions.sno	OK	OK	NO_ORACLE			
+gimpel-rseason-baseball.sno	OK	ERR	NO_ORACLE		rc=1 RSEASON.INC:29: Error 4 in statement 23 at level 1	
+gimpel-snobol-statement-reader.sno	OK	OK	NO_ORACLE			
+gimpel-sorting-functions.sno	OK	OK	NO_ORACLE			
+gimpel-stack-field-functions.sno	OK	OK	NO_ORACLE			
+gimpel-state-functions.sno	OK	OK	NO_ORACLE			
+gimpel-stone-game.sno	OK	TIMEOUT	NO_ORACLE			
+gimpel-test-pattern-predicate.sno	OK	OK	NO_ORACLE			
+gimpel-tictactoe-functions.sno	OK	OK	NO_ORACLE			
+gimpel-tree-pattern.sno	OK	OK	NO_ORACLE			
+gimpel-tree-reader.sno	OK	OK	NO_ORACLE			
+gimpel-visit-structure-functions.sno	OK	OK	NO_ORACLE			
 hexadecimal-to-decimal.sno	OK	OK	NO_ORACLE			
 hoare-quicksort.sno	OK	OK	NO_ORACLE			
 immediate-vs-conditional-assignment.sno	OK	OK	NO_ORACLE			
@@ -111,7 +111,7 @@ keywords-and-code.sno	OK	OK	NO_ORACLE
 leadering-replacement.sno	OK	OK	NO_ORACLE			
 letter-counter.sno	OK	OK	NO_ORACLE			
 letter-count.sno	OK	OK	NO_ORACLE			
-lexical-comparison.sno	ERR	OK	NO_ORACLE	rc=1 No END statement found in source file(s).		
+lexical-comparison.sno	OK	OK	NO_ORACLE			
 lgt-alphabetize.sno	OK	OK	NO_ORACLE			
 linked-list.sno	OK	OK	NO_ORACLE			
 load-failure-graceful.sno	OK	OK	NO_ORACLE			
@@ -154,7 +154,7 @@ stlimit-negative-stcount.sno	OK	OK	NO_ORACLE
 stlimit-nonnegative.sno	OK	ERR	NO_ORACLE		rc=1 stlimit-nonnegative.sno:5: Error 22 in statement 2 at level 0	
 stop-tracing.sno	OK	OK	NO_ORACLE			
 string-functions.sno	OK	OK	NO_ORACLE			
-string-pad.sno	ERR	OK	NO_ORACLE	rc=1 No END statement found in source file(s).		
+string-pad.sno	OK	OK	NO_ORACLE			
 string-reverse.sno	OK	OK	NO_ORACLE			
 strings-and-variables.sno	OK	OK	NO_ORACLE			
 string-substr.sno	OK	OK	NO_ORACLE			

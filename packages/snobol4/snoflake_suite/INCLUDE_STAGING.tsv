@@ -1,0 +1,3 @@
+# INCLUDE_STAGING.tsv -- the directories whose *.INC and *.IN test_snoflake_suite.sh copies beside each program before it runs (SPITBOL resolves
+# -INCLUDE against the cwd); util_snobol4_oracle_census.sh stages the same, so ORACLE_ACCEPTANCE.tsv asks the oracle what the runner asks it.
+gimpel	the gimpel-* programs -INCLUDE Gimpel's library files (STATEF.INC and kin) by bare name
