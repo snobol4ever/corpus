@@ -12160,3 +12160,9 @@ Barbecuing with Liquid Oxygen</a>
 <hr>
 <address><a href="http://www.cs.arizona.edu/~gmt">Gregg Townsend</a></address>
 </body></html>
+#- 930 ladder__rung02_proc_an_undeclared_local_passed_as_an_argument_reaches_the_callee
+7 5
+5 abc
+1 5
+2 5
+3 5

@@ -14570,3 +14570,14 @@ procedure warn(a[])
    errors +:= 1;
    return;
 end
+#- 930 ladder__rung02_proc_an_undeclared_local_passed_as_an_argument_reaches_the_callee
+procedure show(m, d);
+   write(m, " ", d);
+end
+procedure main();
+   x := 5;
+   show(7, x);
+   y := "abc";
+   show(x, y);
+   every z := 1 to 3 do show(z, x);
+end
