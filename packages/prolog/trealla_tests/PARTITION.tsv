@@ -1,4 +1,4 @@
-# PARTITION.tsv -- built by scripts/util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
 # shape: entries=329 features=40 ubiquitous=5(package write nl unify directive) distinctive=35 core=34 clusters=34 chunks=3 sizes=100,100,95
 entry	part	cluster	shells
