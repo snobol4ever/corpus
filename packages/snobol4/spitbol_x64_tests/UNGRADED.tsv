@@ -12,3 +12,4 @@
 # being written, and the very next run printed:
 #     ⚠ UNGRADED.tsv STALE -- ... they are graded now, so delete their rows: gcbuster.sbl math_atan.sbl ...
 # The rows were deleted on that measurement.  36 of 36 shipped are graded.
+arcget.sbl	NEEDS_RUNNER_WIRING	its answer is the files it extracts and its TERMINAL lines (stderr); with arcget.in sbl -bf prints nothing on stdout, so the stream arm has no answer to compare (the coo 2026-10-18, row coo-x32t-and-x64t-grade-stdin-filters-on-dev-null-so-a-print-nothing-engine-passes)

@@ -1,0 +1,4 @@
+int count; /* the counter */
+/* a whole-line comment */
+int total;
+x = y; /* swap later */

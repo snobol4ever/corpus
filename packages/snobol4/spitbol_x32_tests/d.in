@@ -1,0 +1,9 @@
+program demo;
+
+*
+{ a block comment opener on its own line
+* a starred line inside the block
+  an indented line inside the block
+}
+begin
+end.

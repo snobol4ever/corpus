@@ -1,0 +1,6 @@
+# EMPTY_ANSWER.tsv -- the programs whose right answer on stdout IS nothing, name<TAB>reason (the coo 2026-10-18, row
+# coo-x32t-and-x64t-grade-stdin-filters-on-dev-null-so-a-print-nothing-engine-passes). test_snobol4_spitbol_x32_suite.sh grades an
+# empty oracle stdout ONLY for a program named here; any other program the oracle answers with nothing is UNGRADED, because a PASS over
+# an empty answer proves only that the program compiled and terminated. Re-asked every whole run: a row the oracle answers is STALE.
+e.spt	the program is a bare END: it reads nothing and prints nothing
+en.spt	the program is a bare END: it reads nothing and prints nothing

@@ -1,0 +1,8 @@
+program demo;
+{ a block comment opens here
+* a starred line inside it
+  an indented line inside it
+}
+begin
+  writeln(1)
+end.
