@@ -1,70 +1,70 @@
 *------------------------------ 990 input_record_truncates_at_the_default_1024_1
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 *-------------------------------------------------------- 1169 keyword_replace_5
-*----------------------------------------- 1479 arb_capture_alt_replace_branch_1
+*----------------------------------------- 1484 arb_capture_alt_replace_branch_1
 She saw the cat of the hat sitting near the dog a bone.
 Nothing interesting on this line.
 I know the house of cards and the tower a bridge.
-*----------------------------------------- 1480 arb_capture_alt_replace_branch_2
+*----------------------------------------- 1485 arb_capture_alt_replace_branch_2
 She saw the cat of the hat sitting near the dog a bone.
 Nothing interesting on this line.
 I know the house of cards and the tower a bridge.
-*-------------------------------------------------- 1525 tab_trim_size_replace_2
+*-------------------------------------------------- 1531 tab_trim_size_replace_2
 hello   
 world	
-*-------------------------------------------------- 1526 tab_trim_size_replace_1
+*-------------------------------------------------- 1532 tab_trim_size_replace_1
 hello   
 world	
-*--------------------------------------- 1574 trim_size_keyword_replace_branch_1
+*--------------------------------------- 1580 trim_size_keyword_replace_branch_1
 hello world
 foo bar baz
-*--------------------------------------- 1575 trim_size_keyword_replace_branch_2
+*--------------------------------------- 1581 trim_size_keyword_replace_branch_2
 hello world
 foo bar baz
-*----------------------------------------------------------- 1679 demo_wordcount
+*----------------------------------------------------------- 1685 demo_wordcount
 The quick brown fox jumps over the lazy dog.
 It's a well-known pangram, used since 1885.
-*------------------------------------------ 1690 trim_dupl_size_replace_branch_1
+*------------------------------------------ 1696 trim_dupl_size_replace_branch_1
 alpha
 beta
 gamma
 delta
 epsilon
 epsilon
-*------------------------------------------ 1691 trim_dupl_size_replace_branch_2
+*------------------------------------------ 1697 trim_dupl_size_replace_branch_2
 alpha
 beta
 gamma
 delta
 epsilon
 epsilon
-*----------------------------------------- 1713 span_break_trim_replace_branch_1
+*----------------------------------------- 1719 span_break_trim_replace_branch_1
 it's a well-known fact that the quick brown fox
 jumped over the lazy dog
-*----------------------------------------- 1714 span_break_trim_replace_branch_2
+*----------------------------------------- 1720 span_break_trim_replace_branch_2
 The quick brown fox jumps over the lazy dog.
 It's a well-known pangram, used since 1885.
-*------------------------------------------ 1788 arb_span_break_replace_branch_2
+*------------------------------------------ 1794 arb_span_break_replace_branch_2
 1769  Watt : Steam Engine
 1876  Bell : Telephone
 1903  Wright : Airplane
 1928  Fleming : Penicillin
-*------------------------------------------ 1789 arb_span_break_replace_branch_4
+*------------------------------------------ 1795 arb_span_break_replace_branch_4
 1769  Watt : Steam Engine
 1876  Bell : Telephone
 1903  Wright : Airplane
 1928  Fleming : Penicillin
-*--------------------------------------------- 1791 arb_tab_pos_replace_branch_1
+*--------------------------------------------- 1797 arb_tab_pos_replace_branch_1
 1769  Watt             : Steam Engine
 1876  Bell             : Telephone
 1903  Wright           : Airplane
 1928  Fleming          : Penicillin
-*--------------------------------------------- 1792 arb_tab_pos_replace_branch_2
+*--------------------------------------------- 1798 arb_tab_pos_replace_branch_2
 1769  Watt             : Steam Engine
 1876  Bell             : Telephone
 1903  Wright           : Airplane
 1928  Fleming          : Penicillin
-*-------------------------------- 1813 user_function_array_trim_replace_branch_1
+*-------------------------------- 1819 user_function_array_trim_replace_branch_1
 *
 *      A VARIETY OF CORRECT AND INCORRECT SPITBOL STATEMENTS FOLLOW
 *
@@ -633,23 +633,23 @@ NLOOP    DEALSEQ  HAND  ','  BREAK(',') . HAND         :F(ERR)
 .                                                      :(NEWDEAL)
 END
 ./*
-*------------------------------------------ 1869 arb_span_break_replace_branch_1
+*------------------------------------------ 1875 arb_span_break_replace_branch_1
 1769  Watt : Steam Engine
 1876  Bell : Telephone
 1903  Wright : Airplane
 1928  Fleming : Penicillin
-*------------------------------------------ 1870 arb_span_break_replace_branch_3
+*------------------------------------------ 1876 arb_span_break_replace_branch_3
 1769  Watt : Steam Engine
 1876  Bell : Telephone
 1903  Wright : Airplane
 1928  Fleming : Penicillin
-*--------------------------------------------- 1927 any_pos_len_replace_branch_1
+*--------------------------------------------- 1933 any_pos_len_replace_branch_1
 SNOBOL
 OBJECT
-*--------------------------------------------- 1928 any_pos_len_replace_branch_2
+*--------------------------------------------- 1934 any_pos_len_replace_branch_2
 SNOBOL
 OBJECT
-*------------------------------------ 1988 code_eval_notany_pos_replace_branch_1
+*------------------------------------ 1994 code_eval_notany_pos_replace_branch_1
 *
 *      A VARIETY OF CORRECT AND INCORRECT SPITBOL STATEMENTS FOLLOW
 *
@@ -1218,19 +1218,19 @@ NLOOP    DEALSEQ  HAND  ','  BREAK(',') . HAND         :F(ERR)
 .                                                      :(NEWDEAL)
 END
 ./*
-*--------------------------------- 1994 user_function_eval_span_replace_branch_2
+*--------------------------------- 2000 user_function_eval_span_replace_branch_2
 1+2*3
 (1+2)*3
 2.5e1+0.5
 -3+10
 4*5+6
-*--------------------------------- 1995 user_function_eval_span_replace_branch_3
+*--------------------------------- 2001 user_function_eval_span_replace_branch_3
 1+2*3
 (1+2)*3
 2.5e1+0.5
 -3+10
 4*5+6
-*--------------------------------- 1997 user_function_eval_span_replace_branch_1
+*--------------------------------- 2003 user_function_eval_span_replace_branch_1
 1+2*3-4+5*6-7+8*9+10*11-12+13*14-15+16*17
 1+2*3-4+5*6-7+8*9+10*11-12+13*14-15+16*17
 1+2*3-4+5*6-7+8*9+10*11-12+13*14-15+16*17
@@ -4231,7 +4231,7 @@ END
 1+2*3-4+5*6-7+8*9+10*11-12+13*14-15+16*17
 1+2*3-4+5*6-7+8*9+10*11-12+13*14-15+16*17
 1+2*3-4+5*6-7+8*9+10*11-12+13*14-15+16*17
-*-------------------------------- 2001 user_function_fence_span_replace_branch_1
+*-------------------------------- 2007 user_function_fence_span_replace_branch_1
 *
 *      A VARIETY OF CORRECT AND INCORRECT SPITBOL STATEMENTS FOLLOW
 *
@@ -4800,7 +4800,7 @@ NLOOP    DEALSEQ  HAND  ','  BREAK(',') . HAND         :F(ERR)
 .                                                      :(NEWDEAL)
 END
 ./*
-*-------------------------------------------------------------- 2002 demo_porter
+*-------------------------------------------------------------- 2008 demo_porter
 a
 aaron
 abaissiez
@@ -28332,7 +28332,7 @@ zodiacs
 zone
 zounds
 zwagger
-*--------------------------------------------------------- 2003 benchmark_porter
+*--------------------------------------------------------- 2009 benchmark_porter
 a
 aaron
 abaissiez
@@ -28533,7 +28533,7 @@ acquaintance
 acquainted
 acquaints
 acquir
-*--------------------------------------------------- 2004 benchmark_calculator-1
+*--------------------------------------------------- 2010 benchmark_calculator-1
 ((3*0-45+9-35))
 1/3
 6*v*f*(1+79+1*-j+6/7)+i+98/6
@@ -30742,7 +30742,7 @@ c++8*-+81*k-n
 4*j*(-i*(i-6+0+6*4)+9-2-m/7)
 k+q/4+r-c
 37-+-7+i*+s/1-i
-*--------------------------------------------------- 2005 benchmark_calculator-2
+*--------------------------------------------------- 2011 benchmark_calculator-2
 ((3*0-45+9-35))
 1/3
 6*v*f*(1+79+1*-j+6/7)+i+98/6
@@ -32951,7 +32951,7 @@ c++8*-+81*k-n
 4*j*(-i*(i-6+0+6*4)+9-2-m/7)
 k+q/4+r-c
 37-+-7+i*+s/1-i
-*-------------------------------------------------------------- 2009 demo_claws5
+*-------------------------------------------------------------- 2015 demo_claws5
 1_CRD :_PUN That_CJT the_AT0 power_NN1 of_PRF taxing_VVG it_PNP by_PRP the_AT0 
 states_NN2 may_VM0 be_VBI exercised_VVN so_AV0 as_AV0 to_TO0 destroy_VVI 
 it_PNP ,_PUN is_VBZ too_AV0 obvious_AJ0 to_TO0 be_VBI denied_VVN ._PUN 
@@ -32968,7 +32968,7 @@ of_PRF the_AT0 `_PUQ peculiar_AJ0 institution_NN1 ._PUN '_PUQ
 about_PRP slavery_NN1 ,_PUN `_PUQ slumbering_VVG in_PRP the_AT0 lap_NN1 of_PRF 
 moral_AJ0 death_NN1 ,_PUN '_POS at_PRP the_AT0 time_NN1 the_AT0 liberator_NN1 
 first_ORD appeared_VVD ._PUN 
-*--------------------------------------------------------- 2010 benchmark_claws5
+*--------------------------------------------------------- 2016 benchmark_claws5
 1_CRD :_PUN That_CJT the_AT0 power_NN1 of_PRF taxing_VVG it_PNP by_PRP the_AT0 
 states_NN2 may_VM0 be_VBI exercised_VVN so_AV0 as_AV0 to_TO0 destroy_VVI 
 it_PNP ,_PUN is_VBZ too_AV0 obvious_AJ0 to_TO0 be_VBI denied_VVN ._PUN 
@@ -32985,12 +32985,12 @@ of_PRF the_AT0 `_PUQ peculiar_AJ0 institution_NN1 ._PUN '_PUQ
 about_PRP slavery_NN1 ,_PUN `_PUQ slumbering_VVG in_PRP the_AT0 lap_NN1 of_PRF 
 moral_AJ0 death_NN1 ,_PUN '_POS at_PRP the_AT0 time_NN1 the_AT0 liberator_NN1 
 first_ORD appeared_VVD ._PUN 
-*------------------------------------------------------------ 2011 demo_treebank
+*------------------------------------------------------------ 2017 demo_treebank
 (S (NP (DT The) (NN cat)) (VP (VBZ sits)))
 (S (NP (DT A) (NN dog)) (VP (VBZ runs) (NP (DT the) (NN park))))
 (S (NP (PRP She)) (VP (VBD saw) (NP (DT the) (NN man)) (PP (IN with) (NP (DT a) (NN telescope)))))
 (S (NP (DT The) (JJ old) (NN man)) (VP (VBZ knows) (SBAR (IN that) (S (NP (PRP he)) (VP (VBZ is) (ADJP (JJ right)))))))
-*---------------------------------------------------------------- 2013 demo_json
+*---------------------------------------------------------------- 2019 demo_json
 {"name":"SNOBOL4","version":4,"tags":["string","pattern"],"active":true,"score":null}
-*----------------------------------------------------------- 2014 benchmark_json
+*----------------------------------------------------------- 2020 benchmark_json
 {"name":"SNOBOL4","version":4,"tags":["string","pattern"],"active":true,"score":null}
