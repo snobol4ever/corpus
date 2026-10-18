@@ -134,7 +134,6 @@ probe_loose_errpath_undef_label_goto[tests]	non-deterministic or diverges from t
 probe_loose_errpath_unterminated_string[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=SKIP vs oracle rc=231
 probe_loose_fuzz_fz_red_m4b_blob_defer_fence	fuzz nondeterministic-crash class -- a captured ref is one sample of a distribution; util_fuzz_witness_stability.sh owns these, stays as files
 probe_loose_fwctx_fwctx_standalone_ctl	plain body carries suite-format markers (banner or ';* tag' line) -- a block would split on re-read; quarantined class, stays as files
-probe_loose_gimpel_gim_cassign_array_elt_loud[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=SKIP vs oracle rc=0
 probe_loose_preord_pre_unsafe_then_guard[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
 probe_loose_table_nested_chain_incr_d1	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
 probe_loose_table_nested_chain_incr_d2	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
