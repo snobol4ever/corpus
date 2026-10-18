@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=2027 features=40 ubiquitous=0() distinctive=40 core=34 clusters=146 chunks=20 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,93
+# shape: entries=2028 features=40 ubiquitous=0() distinctive=40 core=34 clusters=146 chunks=20 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,94
 entry	part	cluster	shells
 simple_assign_1	chunk:18	family:probe_conformance	
 simple_output_10	chunk:18	family:probe_conformance	
@@ -25,7 +25,7 @@ simple_output_119	chunk:19	family:crosscheck_concat
 simple_output_120	chunk:19	family:crosscheck_control_new	
 simple_output_125	chunk:19	family:crosscheck_control_new	
 simple_output_126	chunk:19	family:crosscheck_control_new	
-simple_output_127	chunk:19	family:crosscheck_data	
+simple_output_127	chunk:20	family:crosscheck_data	
 simple_output_128	chunk:20	family:crosscheck_data	
 simple_output_130	chunk:19	family:crosscheck_hello	
 simple_output_131	chunk:19	family:crosscheck_hello	
@@ -1526,7 +1526,7 @@ any_len_capture_replace_branch_1	chunk:06	feat:ANY	ANY LEN cond_assign goto_succ
 break_size_capture_replace_branch_1	chunk:13	feat:SIZE	BREAK SIZE cond_assign goto_success
 notany_len_capture_replace_branch_1	chunk:17	feat:NOTANY	LEN NOTANY cond_assign goto_success
 rtab_capture_branch_1	chunk:18	feat:RTAB	RTAB cond_assign goto_fail goto_success
-rtab_len_capture_replace_branch_1	chunk:18	feat:RTAB	LEN RTAB cond_assign goto_success
+rtab_len_capture_replace_branch_1	chunk:19	feat:RTAB	LEN RTAB cond_assign goto_success
 tab_capture_branch_1	chunk:12	feat:TAB	TAB cond_assign goto_fail goto_success
 table_array_convert_1	chunk:18	feat:CONVERT	ARRAY CONVERT DATATYPE TABLE
 table_array_datatype_branch_1	chunk:13	feat:TABLE	ARRAY DATATYPE TABLE goto_fail
@@ -1628,6 +1628,7 @@ pos_rpos_len_replace_branch_1	chunk:05	feat:imm_assign	LEN POS RPOS goto_success
 user_function_break_defer_branch_2	chunk:16	feat:BREAK	BREAK DEFINE deferred_eval goto_fail indirect_ref
 user_function_break_defer_branch_3	chunk:16	feat:BREAK	BREAK DEFINE deferred_eval goto_fail indirect_ref
 arb_pos_rpos_replace_branch_6	chunk:10	feat:ARB	ARB POS RPOS goto_success indirect_ref
+pos_rpos_defer_branch_5	chunk:18	feat:alternation	POS RPOS alternation deferred_eval goto_success
 rtab_rpos_len_replace_branch_1	chunk:19	feat:RTAB	LEN RPOS RTAB cond_assign goto_success
 user_function_opsyn_eval_branch_1	chunk:17	feat:OPSYN	DEFINE EVAL OPSYN deferred_eval goto_fail
 user_function_opsyn_eval_branch_2	chunk:17	feat:OPSYN	DEFINE EVAL OPSYN deferred_eval goto_fail
