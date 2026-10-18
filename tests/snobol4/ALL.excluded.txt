@@ -174,4 +174,4 @@ treebank-match[demos]	committed .ref disagrees with a fresh oracle run -- re-con
 treebank[demos]	already in the rungs (origin demo_snobol4_treebank__treebank) -- not re-appended
 var_access[benchmarks]	already in the rungs (origin benchmark_snobol4_var_access__var_access) -- not re-appended
 wordcount[demos]	already in the rungs (origin demo_snobol4_wordcount__wordcount) -- not re-appended
-# builder-digest: aa3a61b6daacaf60fe4e17e7f36abec3f221c70e10ea5be151df228b4e6ec5db
+# builder-digest: 75b35bdce1e371fb41a817055cacf81038c4f6036522db5f7a30881392366a65
