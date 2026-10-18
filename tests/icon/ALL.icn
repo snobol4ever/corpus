@@ -12443,7 +12443,56 @@ procedure limage(label, lst)
    write();
    return;
 end
-#----------------------------------------- 916 procedure_record_every_replace_18
+#----------------------- 916 ladder__rung05_scan_variable_cset_many_upto_any_bal
+procedure main()
+   local c, d, s, t, i, n, L, hi;
+   c := &letters ++ '> ';
+   d := 'xyz';
+   s := ">ONE homo sapiens\nGATTACA gattaca\n>TWO\nACGT acgt 123 xyz\n";
+   s ? while tab(upto(c)) do write("tok [", tab(many(c)), "]");
+   s ? every write("upto c ", upto(c)) \ 12;
+   s ? every write("upto d ", upto(d));
+   s ? every write("upto str ", upto("Gg"));
+   s ? write("many fail ", image(many(d)) | "fail");
+   s ? write("many str ", many(">ONE") | "fail");
+   "abc" ? write("many all ", many(&lcase) | "fail");
+   "" ? write("many empty ", many(c) | "fail");
+   "" ? write("upto empty ", upto(c) | "fail");
+   "aaa" ? write("upto none ", upto(d) | "fail");
+   write("arg many ", many(c, "Hello world", 2) | "fail");
+   write("arg upto ", upto(d, "abcxyz", 2) | "fail");
+   every write("arg upto gen ", upto('lo', "Hello world"));
+   hi := char(200) || char(255) || "q" || char(128);
+   c := cset(char(200) || char(255) || char(128));
+   hi ? write("hi many ", many(c) | "fail");
+   hi ? every write("hi upto ", upto(c));
+   t := "";
+   every i := 1 to 300 do t ||:= (if i % 7 = 0 then "#" else "a");
+   n := 0;
+   t ? while tab(upto('#')) do { n +:= 1; move(1) };
+   write("hash count ", n);
+   L := [];
+   t ? every put(L, upto('#'));
+   write("gen count ", *L, " last ", L[-1]);
+   c := 'a';
+   t ? { tab(many(c)); write("after many ", &pos) };
+   every c := !['ab', "ba", 'a#'] do t ? write("loop many ", type(c), " ", many(c) | "fail");
+   c := '+-';
+   d := "*/";
+   "a+(b-c)*d-e" ? every write("bal c ", bal(c));
+   "a+(b-c)*d-e" ? every write("bal d ", bal(d));
+   "x+(y" ? every write("bal open ", bal(c));
+   "((a))+b" ? every write("bal nest ", bal(c));
+   write("bal arg ", bal(c, '(', ')', "(a+b)+c") | "fail");
+   c := &ucase;
+   "Abc" ? write("any c ", any(c) | "fail");
+   "abc" ? write("any c2 ", any(c) | "fail");
+   "abc" ? write("any str ", any("cba") | "fail");
+   "" ? write("any empty ", any(c) | "fail");
+   write("any arg ", any(c, "xYz", 2) | "fail");
+   every c := !['ab', "ba", &digits] do "a1" ? write("loop any ", type(c), " ", any(c) | "fail");
+end
+#----------------------------------------- 917 procedure_record_every_replace_18
 #SRC: JCON
 
 record message(who,gap,what)
@@ -12572,7 +12621,7 @@ procedure nullsuspend()
    suspend;
    suspend;
 end
-#------------------------------------------ 917 procedure_record_every_replace_3
+#------------------------------------------ 918 procedure_record_every_replace_3
 #SRC: V9GEN
 
 ### mindfa -- minimize a DFA
@@ -12789,7 +12838,7 @@ local l,t1,t2;
    if *l = 0 then fail;
    return l;
 end
-#------------------------------------------- 918 procedure_every_scan_replace_13
+#------------------------------------------- 919 procedure_every_scan_replace_13
 #SRC: V9GEN
 
 ##    gener.icn -- test generation in parallel with inserts/deletes
@@ -12931,7 +12980,7 @@ procedure stale()
    write();
    return;
 end
-#-------------------------------------------- 919 procedure_every_scan_replace_6
+#-------------------------------------------- 920 procedure_every_scan_replace_6
 #SRC: V9GEN
 
 ##  mffsol.icn -- show solution graphically in mff format
@@ -13048,7 +13097,7 @@ procedure newcolor()
 	if lum > 96 then return
     };
     end
-#-------------------------------------------- 920 procedure_every_scan_replace_4
+#-------------------------------------------- 921 procedure_every_scan_replace_4
 #SRC: V9GEN
 #OPT: -fe
 
@@ -13199,7 +13248,7 @@ procedure setup (line);		# interpret and report a column spec line
    write (")");
    return p;
 end
-#----------------------------------------- 921 procedure_record_coexpr_replace_6
+#----------------------------------------- 922 procedure_record_coexpr_replace_6
 #SRC: V9GEN
 
 #  This program contains samples of all the basic syntactic
@@ -13358,7 +13407,7 @@ procedure expr4()
    2.5e4;
    4e-10;
 end
-#----------------------------------------- 922 procedure_record_every_replace_19
+#----------------------------------------- 923 procedure_record_every_replace_19
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g)
@@ -13563,7 +13612,7 @@ end
 
 global s, t, x, r
 global a, a1, a2, a3, a4
-#----------------------------------------- 923 procedure_record_coexpr_replace_3
+#----------------------------------------- 924 procedure_record_coexpr_replace_3
 #SRC: JCON
 
 # test sorting and copying
@@ -13798,7 +13847,7 @@ procedure wsortf(L, n)
       };
    return;
 end
-#------------------------------------------- 924 procedure_every_scan_replace_16
+#------------------------------------------- 925 procedure_every_scan_replace_16
 #SRC: V9GEN
 
 
@@ -13899,7 +13948,7 @@ procedure wordcount(n)
    every i := 1 to *x - 1 by 2 do
       write(left(x[i],n),x[i + 1]);
 end
-#----------------------------------------- 925 procedure_record_every_replace_12
+#----------------------------------------- 926 procedure_record_every_replace_12
 #SRC: V9GEN
 #OPT: -fe
 
@@ -14105,7 +14154,7 @@ procedure monitor(line)
    write("   &errorvalue = ", image(&errorvalue));
    return line;
 end
-#------------------------------------------- 926 procedure_record_scan_replace_2
+#------------------------------------------- 927 procedure_record_scan_replace_2
 #SRC: IPL
 
 ############################################################################

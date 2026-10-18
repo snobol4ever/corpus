@@ -9780,7 +9780,69 @@ z. [18] 11 12 13 14 15 16 17 18 19 21 22 23 24 25 26 27 28 29
 x. [9] 21 22 23 24 25 26 27 28 29
 y. [9] 41 42 43 44 45 46 47 48 49
 z. [18] 61 62 63 64 65 66 67 68 69 71 72 73 74 75 76 77 78 79
-#----------------------------------------- 916 procedure_record_every_replace_18
+#----------------------- 916 ladder__rung05_scan_variable_cset_many_upto_any_bal
+tok [>ONE homo sapiens]
+tok [GATTACA gattaca]
+tok [>TWO]
+tok [ACGT acgt ]
+tok [ xyz]
+upto c 1
+upto c 2
+upto c 3
+upto c 4
+upto c 5
+upto c 6
+upto c 7
+upto c 8
+upto c 9
+upto c 10
+upto c 11
+upto c 12
+upto d 54
+upto d 55
+upto d 56
+upto str 19
+upto str 27
+upto str 42
+upto str 47
+many fail fail
+many str 5
+many all 4
+many empty fail
+upto empty fail
+upto none fail
+arg many 12
+arg upto 4
+arg upto gen 3
+arg upto gen 4
+arg upto gen 5
+arg upto gen 8
+arg upto gen 10
+hi many 3
+hi upto 1
+hi upto 2
+hi upto 4
+hash count 42
+gen count 42 last 294
+after many 7
+loop many cset 7
+loop many string 7
+loop many cset 301
+bal c 2
+bal c 10
+bal d 8
+bal open 2
+bal nest 6
+bal arg 6
+any c 2
+any c2 fail
+any str 2
+any empty fail
+any arg 3
+loop any cset 2
+loop any string 2
+loop any cset fail
+#----------------------------------------- 917 procedure_record_every_replace_18
 2
 3
 b
@@ -9861,7 +9923,7 @@ record constructor recordAsVariable
 3
 OK to get here
 done
-#------------------------------------------ 917 procedure_record_every_replace_3
+#------------------------------------------ 918 procedure_record_every_replace_3
 Enter states (1 character names): Enter input alphabet: Enter Final states (subset of states): What is the start state? enter delta(a,0) = enter delta(a,1) = enter delta(b,0) = enter delta(b,1) = enter delta(c,0) = enter delta(c,1) = enter delta(d,0) = enter delta(d,1) = enter delta(e,0) = enter delta(e,1) = enter delta(f,0) = enter delta(f,1) = enter delta(g,0) = enter delta(g,1) = enter delta(h,0) = enter delta(h,1) = 
 
 
@@ -10262,7 +10324,7 @@ where:
 	d(bf,0) = ag	d(bf,1) = ce
 	d(ce,0) = d	d(ce,1) = bf
 	d(d,0) = d	d(d,1) = ag
-#------------------------------------------- 918 procedure_every_scan_replace_13
+#------------------------------------------- 919 procedure_every_scan_replace_13
 test delete:    41,    3	[ok]
 test delete:    41,   11	[ok]
 test delete:    41,   23	[ok]
@@ -10305,7 +10367,7 @@ checking !T:
 checking key(T):
 
 [done]
-#-------------------------------------------- 919 procedure_every_scan_replace_6
+#-------------------------------------------- 920 procedure_every_scan_replace_6
 1 metafile 1250 1000 0 0 0 init
 581 950 (A) text
 751 880 (B) text
@@ -10375,7 +10437,7 @@ checking key(T):
 125 249 line stroke 874 249 begin 58 587 line stroke
 255 255 255 color
 0 0 (16 players, 5 rounds, 20 matches) text
-#-------------------------------------------- 920 procedure_every_scan_replace_4
+#-------------------------------------------- 921 procedure_every_scan_replace_4
 testing entab/detab(s)
 testing entab/detab(s,5)
 testing entab/detab(s,8,12)
@@ -10387,8 +10449,8 @@ testing entab/detab(s,3)
 testing entab/detab(s,3,4)
 testing entab/detab(s,5)
 testing entab/detab(s,5,7,10)
-#----------------------------------------- 921 procedure_record_coexpr_replace_6
-#----------------------------------------- 922 procedure_record_every_replace_19
+#----------------------------------------- 922 procedure_record_coexpr_replace_6
+#----------------------------------------- 923 procedure_record_every_replace_19
  ----> &null
 list(0) ----> list_1(0)
 list(0,1) ----> list_2(0)
@@ -10748,7 +10810,7 @@ procedure main
 &null
 every write(image(!r)) ----> none
  a: -2035912587 847198497 
-#----------------------------------------- 923 procedure_record_coexpr_replace_3
+#----------------------------------------- 924 procedure_record_coexpr_replace_3
 0:
 1:
 2:
@@ -11252,7 +11314,7 @@ key=6 record r2_2(2)
 key=6 record r2_4(2)
 key=8 record r5_11(5)
 key=8 record r5_15(5)
-#------------------------------------------- 924 procedure_every_scan_replace_16
+#------------------------------------------- 925 procedure_every_scan_replace_16
 1	one
 2	two
 3	three
@@ -11436,7 +11498,7 @@ write               1
 writes              1
 x                   3
 y                   4
-#----------------------------------------- 925 procedure_record_every_replace_12
+#----------------------------------------- 926 procedure_record_every_replace_12
 
 error in line 7:
    &error = -2
@@ -11970,7 +12032,7 @@ error in line 180:
    &errortext = "negative first argument to real exponentiation"
 (-36. ^ -9.) | monitor(&line) ----> 180
  eginopst
-#------------------------------------------- 926 procedure_record_scan_replace_2
+#------------------------------------------- 927 procedure_record_scan_replace_2
 <!-- Created by HTPREP -->
 <html><head>
 <title>Off the Beaten Path</title>
