@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1023 features=37 ubiquitous=2(my sigil_scalar) distinctive=35 core=44 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,79
+# shape: entries=1024 features=37 ubiquitous=2(my sigil_scalar) distinctive=35 core=44 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,80
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:08	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:08	family:ladder	
@@ -122,7 +122,7 @@ simple_program_2	chunk:05	feat:if	if
 simple_program_21	chunk:05	feat:if	if
 simple_program_3	chunk:05	feat:if	if
 simple_program_35	core	core	print
-simple_program_4	chunk:06	feat:string_concat	string_concat
+simple_program_4	chunk:07	feat:string_concat	string_concat
 simple_program_42	chunk:07	feat:string_concat	string_concat
 simple_program_51	chunk:10	feat:sprintf	sprintf
 simple_program_52	chunk:10	feat:sprintf	sprintf
@@ -465,7 +465,7 @@ multi_2	chunk:08	feat:multi	multi return
 range_array_1	chunk:08	feat:range_op	range_op sigil_array
 range_array_11	chunk:08	feat:range_op	range_op sigil_array
 range_array_12	chunk:08	feat:range_op	range_op sigil_array
-range_array_2	chunk:08	feat:range_op	range_op sigil_array
+range_array_2	chunk:09	feat:range_op	range_op sigil_array
 range_array_3	chunk:09	feat:range_op	range_op sigil_array
 range_array_4	chunk:09	feat:range_op	range_op sigil_array
 range_array_5	chunk:09	feat:range_op	range_op sigil_array
@@ -496,7 +496,7 @@ simple_assign_61	chunk:05	feat:if	if
 simple_assign_72	chunk:05	feat:if	if
 simple_assign_81	chunk:05	feat:if	if
 simple_assign_82	chunk:05	feat:if	if
-simple_assign_83	chunk:05	feat:if	if
+simple_assign_83	chunk:06	feat:if	if
 simple_assign_84	chunk:10	feat:unless	unless
 simple_assign_88	chunk:06	feat:if	if
 simple_assign_91	chunk:06	feat:if	if
@@ -806,7 +806,7 @@ ladder__rung13_classes_named_arg_constructor	chunk:02	feat:has	has method
 ladder__rung14_roles_smartmatch	chunk:09	feat:smartmatch	smartmatch string_concat
 say_try_die_7	chunk:09	feat:die	die say string_concat try
 ladder__rung14_roles	chunk:07	feat:method	method return
-ladder__rung14_roles_override	chunk:07	feat:method	method return
+ladder__rung14_roles_override	chunk:08	feat:method	method return
 sub_for_say_1	chunk:05	feat:for_with_say	for for_with_say say sub
 ladder__rung06_control_with_orwith_and_without_test_definedness_and_bind_the_topic	chunk:08	feat:sub_with_return	return sub sub_with_return
 ladder__rung07_subs_an_array_parameter_assigned_to_a_scalar_or_chosen_by_a_ternary	chunk:07	feat:join	join sigil_array sub
@@ -885,7 +885,7 @@ when_while_replace_1	chunk:10	feat:unless	if unless when while
 ladder__rung02_arithmetic_power_assigned_and_compound_assigned	chunk:08	feat:sub_with_return	return sigil_array sub sub_with_return
 sub_for_say_replace_1	chunk:05	feat:for_with_say	for for_with_say say sub
 sub_say_try_replace_1	core	core	die if say sub try
-scrip_test_rk_given	chunk:09	feat:given	given range_op say sub when
+scrip_test_rk_given	chunk:10	feat:given	given range_op say sub when
 ladder__rung02_arithmetic_fatrat_keeps_every_digit	chunk:05	feat:for_with_say	for for_with_say range_op say
 class_method_say_replace_19	chunk:02	feat:has	has method return say
 class_method_say_replace_3	chunk:02	feat:has	has method return say
@@ -1025,3 +1025,4 @@ ladder__rung09_regex_engine_basics_1_agree_with_rakudo	chunk:09	feat:map	for for
 ladder__rung09_regex_engine_basics_2_agree_with_rakudo	chunk:09	feat:map	for for_with_say if join map range_op regex sigil_array sigil_hash smartmatch string_concat sub
 ladder__rung09_regex_engine_basics_3_agree_with_rakudo	chunk:09	feat:map	for for_with_say if join map range_op regex sigil_array sigil_hash smartmatch string_concat sub
 ladder__rung09_regex_engine_classes_1_agree_with_rakudo	chunk:09	feat:map	for for_with_say if join map range_op regex sigil_array sigil_hash smartmatch string_concat sub
+ladder__rung08_for_a_pointy_block_body_resumes_the_range_at_its_own_depth_each_pass	chunk:05	feat:for_with_say	for for_with_say range_op sigil_array

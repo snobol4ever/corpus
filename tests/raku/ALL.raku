@@ -6184,3 +6184,14 @@ if "\n" ~~ /./ { show($/) } else { say "NO" }
 if "a\nb" ~~ /^^a/ { show($/) } else { say "NO" }
 if "a\nb" ~~ /a$$/ { show($/) } else { say "NO" }
 if 'a' ~~ /./ { show($/) } else { say "NO" }
+#- 1024 ladder__rung08_for_a_pointy_block_body_resumes_the_range_at_its_own_depth_each_pass
+for 1..3 -> $x { print $x }
+say "";
+my @a = 4, 5, 6;
+for @a -> $v { print $v * 2, " " }
+say "";
+my $s = 0;
+for 1..10 -> $i { $s = $s + $i }
+say $s;
+for <p q r> { print $_, "." }
+say "";
