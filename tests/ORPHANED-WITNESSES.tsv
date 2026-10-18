@@ -4,7 +4,6 @@
 # ⛔ The cure is to ABSORB them into ALL.<ext> once they are green, NOT to delete them.
 #
 lang	name	path
-snobol4	nested_arbno_rpos	tests/snobol4/nested_arbno_rpos.sno
 #
-# TOTALS  icon=0/192  pascal=0/5  prolog=0/40  raku=0/97  rebus=0/3  snobol4=1/101  snocone=0/68
-# TOTAL ORPHANED PAIRS: 1
+# TOTALS  icon=0/192  pascal=0/5  prolog=0/40  raku=0/97  rebus=0/3  snobol4=0/100  snocone=0/68
+# TOTAL ORPHANED PAIRS: 0
