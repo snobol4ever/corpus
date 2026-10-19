@@ -483,6 +483,7 @@ procedure_table_write_7	chunk:03	feat:table	local table
 procedure_until_write_replace_2	chunk:06	feat:until	local until
 procedure_until_write_replace_5	chunk:06	feat:until	local until
 procedure_write_255	chunk:05	feat:image	every image keyword_ref
+ladder__rung02_proc_an_undeclared_local_passed_as_an_argument_reaches_the_callee	chunk:02	feat:to_by	every to_by
 ladder__rung33_case_failing_selector_tries_next_clause	chunk:07	feat:find	case find return
 procedure_table_write_11	chunk:03	feat:table	local table
 ladder_rung41_rt_open_close_write_file	chunk:07	feat:read	local read
@@ -931,4 +932,3 @@ procedure_record_coexpr_replace_3	core	core	alternation case create delete eleme
 procedure_every_scan_replace_16	core	core	alternation aug_assign delete element_gen every fail find gen_with_alternation image insert integer keyword_ref local many member move read return scan scan_with_tab section set sort static stop tab table to_by upto while
 procedure_record_every_replace_12	core	core	alternation aug_assign bal element_gen every fail gen_with_alternation image keyword_ref limitation list member move pos put read reads record repl return scan scan_with_tab section seq set sort stop swap tab to_by trim type while
 procedure_record_scan_replace_2	core	core	alternation any aug_assign bal coexpr_activate element_gen fail get global keyword_ref limitation local many map move next pop push put read record return scan scan_with_tab section static stop tab table to_by trim upto while writes
-ladder__rung02_proc_an_undeclared_local_passed_as_an_argument_reaches_the_callee	chunk:02	feat:to_by	every to_by
