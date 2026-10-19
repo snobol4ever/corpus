@@ -25226,7 +25226,8 @@ n769_match_break_α:     sub              rsp, 16
                         mov              dword ptr [rbp + -96], r14d
                         mov              r14d, eax
                         add              rsp, 16;                             jmp   .Lmatch_alternate_γ_758_s0
-n769_match_break_β:     mov              r14d, dword ptr [rbp + -96]
+n769_match_break_β:     sub              rsp, 16
+                        mov              r14d, dword ptr [rbp + -96]
                         add              rsp, 16;                             jmp   .Lmatch_alternate_ω_758_af
                         .size            n769_match_break_bx, .-n769_match_break_bx
                         .type            n770_goto_bx, @function
