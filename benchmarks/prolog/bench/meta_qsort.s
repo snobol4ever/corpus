@@ -724,7 +724,7 @@ n19_call_value_α:       sub              rsp, 16
                         cmp              al, 104;                             jne   .Lcall_value_α_54_999
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n17_call_proc_staged_β
-.Lcall_value_α_54_999:  push             rax                                  # gc_poll bb_call_value.cpp:320
+.Lcall_value_α_54_999:  push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1989,7 +1989,7 @@ n92_to_α:               sub              rsp, 32
 .Lgcsite_$mod_cl$2F4_20:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 1440], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2046,7 +2046,7 @@ n92_to_α:               sub              rsp, 32
                         mov              r13, qword ptr [rbp + 1472]          # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_216_8:           mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2400,7 +2400,7 @@ n104_to_α:              sub              rsp, 32
 .Lgcsite_$mod_cl$2F4_31:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 1232], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2457,7 +2457,7 @@ n104_to_α:              sub              rsp, 32
                         mov              r13, qword ptr [rbp + 1264]          # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_235_8:           mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -3362,7 +3362,9 @@ n129_disjunction_α:     sub              rsp, 32
 .Ldisjunction_α_278_0:  cmp              eax, 1;                              jne   .Ldisjunction_α_278_1
                                                                               jmp   n130_unmark_α
 .Ldisjunction_α_278_1:                                                        jmp   n130_unmark_α
-n129_disjunction_β:     add              rsp, 32;                             jmp   n165_unmark_α
+n129_disjunction_β:     mov              eax, dword ptr [rsp + 16]
+                        cmp              eax, 0;                              je    .Ldisjunction_ω_129_af
+                                                                              jmp   .Ldisjunction_ω_129_af
 .Ldisjunction_γ_129_af:
 .Ldisjunction_ω_129_af: mov              rsi, qword ptr [rsp + 24]            # pl_tr_unwind: pop the r12 trail to the mark, inline
 .Ldisjunction_β_278_200:
@@ -3484,7 +3486,7 @@ n135_to_α:              sub              rsp, 32
 .Lgcsite_$mod_cl$2F4_60:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 656], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -3541,7 +3543,7 @@ n135_to_α:              sub              rsp, 32
                         mov              r13, qword ptr [rbp + 688]           # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_287_8:           mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -4697,7 +4699,7 @@ n172_to_α:              sub              rsp, 32
 .Lgcsite_$mod_cl$2F4_88:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 768], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -4754,7 +4756,7 @@ n172_to_α:              sub              rsp, 32
                         mov              r13, qword ptr [rbp + 800]           # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_349_8:           mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -6924,8 +6926,9 @@ n429_gate_bx:
 n429_gate_α:                                                                  jmp   $var_subtract$2F3_step
 n429_gate_β:            test             r15, r15;                            jne   $var_subtract$2F3_step
                         mov              eax, dword ptr [rbp + 176]
-                        cmp              eax, 0;                              je    n429_gate_α
-                        cmp              eax, 1;                              je    n429_gate_α
+                        cmp              eax, 0;                              jne   .Lgate_β_477_10
+                        add              rsp, 16;                             jmp   n429_gate_α
+.Lgate_β_477_10:        cmp              eax, 1;                              je    n429_gate_α
                                                                               jmp   $var_subtract$2F3_step
                         .size            n429_gate_bx, .-n429_gate_bx
                         .type            n430_var_ref_bx, @function
@@ -9192,7 +9195,9 @@ n535_disjunction_α:     sub              rsp, 32
 .Ldisjunction_α_633_0:  cmp              eax, 1;                              jne   .Ldisjunction_α_633_1
                                                                               jmp   n536_unmark_α
 .Ldisjunction_α_633_1:                                                        jmp   n536_unmark_α
-n535_disjunction_β:     add              rsp, 32;                             jmp   n578_unmark_α
+n535_disjunction_β:     mov              eax, dword ptr [rsp + 16]
+                        cmp              eax, 0;                              je    .Ldisjunction_ω_535_af
+                                                                              jmp   .Ldisjunction_ω_535_af
 .Ldisjunction_γ_535_af:
 .Ldisjunction_ω_535_af: mov              rsi, qword ptr [rsp + 24]            # pl_tr_unwind: pop the r12 trail to the mark, inline
 .Ldisjunction_β_633_200:
@@ -9314,7 +9319,7 @@ n541_to_α:              sub              rsp, 32
 .Lgcsite_$arg_swi$2F3_24:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 640], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -9371,7 +9376,7 @@ n541_to_α:              sub              rsp, 32
                         mov              r13, qword ptr [rbp + 672]           # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_642_8:           mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -10681,7 +10686,7 @@ n585_to_α:              sub              rsp, 32
 .Lgcsite_$arg_swi$2F3_52:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 752], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -10738,7 +10743,7 @@ n585_to_α:              sub              rsp, 32
                         mov              r13, qword ptr [rbp + 784]           # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_716_8:           mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -15897,15 +15902,17 @@ n950_call_pl_leaf_β:    add              rsp, 16
                         .type            n951_call_pl_leaf_bx, @function
 n951_call_pl_leaf_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n951_call_pl_leaf_α:    sub              rsp, 16
+n951_call_pl_leaf_α:    sub              rsp, 32
+                        mov              qword ptr [rsp + 16], 0
+                        mov              qword ptr [rsp + 24], 0
                         sub              rsp, 32
-                        mov              rax, qword ptr [rsp + 112]
+                        mov              rax, qword ptr [rsp + 128]
                         mov              qword ptr [rsp + 0], rax
-                        mov              rax, qword ptr [rsp + 120]
+                        mov              rax, qword ptr [rsp + 136]
                         mov              qword ptr [rsp + 8], rax
-                        mov              rax, qword ptr [rsp + 48]
+                        mov              rax, qword ptr [rsp + 64]
                         mov              qword ptr [rsp + 16], rax
-                        mov              rax, qword ptr [rsp + 56]
+                        mov              rax, qword ptr [rsp + 72]
                         mov              qword ptr [rsp + 24], rax
                         lea              rdi, [rsp + 0]
                         lea              rsi, [rsp + 16]
@@ -15940,12 +15947,12 @@ n951_call_pl_leaf_α:    sub              rsp, 16
 .Lcall_pl_leaf_α_1282_249:
                         add              rsp, 32
                         cmp              al, 104;                             jne   .Lcall_pl_leaf_α_1282_999
-                        add              rsp, 16
+                        add              rsp, 32
                         add              rsp, 112;                            jmp   is_stream$2F1_step
 .Lcall_pl_leaf_α_1282_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n952_bound_α
-n951_call_pl_leaf_β:    add              rsp, 16
+n951_call_pl_leaf_β:    add              rsp, 32
                         add              rsp, 112;                            jmp   is_stream$2F1_step
                         .size            n951_call_pl_leaf_bx, .-n951_call_pl_leaf_bx
                         .type            n952_bound_bx, @function
@@ -15986,9 +15993,7 @@ n952_bound_α:
                         .type            n953_var_ref_bx, @function
 n953_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n953_var_ref_α:         sub              rsp, 32
-                        mov              qword ptr [rsp + 16], 0
-                        mov              qword ptr [rsp + 24], 0
+n953_var_ref_α:         sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
                         lea              rax, [rbp + 3488]
@@ -16656,7 +16661,9 @@ n973_disjunction_α:     sub              rsp, 32
 .Ldisjunction_α_1323_0: cmp              eax, 1;                              jne   .Ldisjunction_α_1323_1
                                                                               jmp   n974_unmark_α
 .Ldisjunction_α_1323_1:                                                       jmp   n974_unmark_α
-n973_disjunction_β:     add              rsp, 32;                             jmp   n1187_unmark_α
+n973_disjunction_β:     mov              eax, dword ptr [rsp + 16]
+                        cmp              eax, 0;                              je    .Ldisjunction_ω_973_af
+                                                                              jmp   .Ldisjunction_ω_973_af
 .Ldisjunction_γ_973_af:
 .Ldisjunction_ω_973_af: mov              rsi, qword ptr [rsp + 24]            # pl_tr_unwind: pop the r12 trail to the mark, inline
 .Ldisjunction_β_1323_200:
@@ -16785,7 +16792,7 @@ n979_to_α:              sub              rsp, 32
 .Lgcsite_is_stream$2F1_31:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 896], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -16842,7 +16849,7 @@ n979_to_α:              sub              rsp, 32
                         mov              r13, qword ptr [rbp + 928]           # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_1332_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -17551,8 +17558,9 @@ n1004_gate_β:           test             r15, r15;                            j
                         add              rsp, -64;                            jmp   n1041_unmark_α
 .Lgate_β_1378_999:      mov              eax, dword ptr [rbp + 240]
                         cmp              eax, 0;                              je    n1001_gate_β
-                        cmp              eax, 1;                              je    n1175_gate_β
-                        add              rsp, -64;                            jmp   n1041_unmark_α
+                        cmp              eax, 1;                              jne   .Lgate_β_1378_11
+                        add              rsp, 16;                             jmp   n1175_gate_β
+.Lgate_β_1378_11:       add              rsp, -64;                            jmp   n1041_unmark_α
                         .size            n1004_gate_bx, .-n1004_gate_bx
                         .type            n1005_unmark_bx, @function
 n1005_unmark_bx:
@@ -18215,7 +18223,9 @@ n1021_disjunction_α:    sub              rsp, 32
 .Ldisjunction_α_1409_0: cmp              eax, 1;                              jne   .Ldisjunction_α_1409_1
                                                                               jmp   n1022_var_ref_α
 .Ldisjunction_α_1409_1:                                                       jmp   n1022_var_ref_α
-n1021_disjunction_β:    add              rsp, 32;                             jmp   n1197_unmark_α
+n1021_disjunction_β:    mov              eax, dword ptr [rsp + 16]
+                        cmp              eax, 0;                              je    .Ldisjunction_ω_1021_af
+                                                                              jmp   .Ldisjunction_ω_1021_af
 .Ldisjunction_γ_1021_af:
 .Ldisjunction_ω_1021_af:
                         mov              rsi, qword ptr [rsp + 24]            # pl_tr_unwind: pop the r12 trail to the mark, inline
@@ -18901,7 +18911,7 @@ n1042_var_ref_bx:
 n1042_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rbp + -144]
+                        lea              rax, [rbp + -128]
                         mov              qword ptr [rsp + 8], rax;            jmp   n1043_call_direct_α
                         .size            n1042_var_ref_bx, .-n1042_var_ref_bx
                         .type            n1043_call_direct_bx, @function
@@ -18956,7 +18966,7 @@ n1044_gate_β:           test             r15, r15;                            j
                         add              rsp, 32;                             jmp   is_stream$2F1_step
 .Lgate_β_1446_999:      mov              eax, dword ptr [rbp + 96]
                         cmp              eax, 0;                              jne   .Lgate_β_1446_10
-                        add              rsp, -16;                            jmp   n1004_gate_β
+                        add              rsp, 96;                             jmp   n1004_gate_β
 .Lgate_β_1446_10:       cmp              eax, 1;                              je    n1044_gate_α
                         add              rsp, 32;                             jmp   is_stream$2F1_step
                         .size            n1044_gate_bx, .-n1044_gate_bx
@@ -18982,11 +18992,13 @@ n1046_var_ref_α:        sub              rsp, 16
                         .type            n1047_call_pl_leaf_bx, @function
 n1047_call_pl_leaf_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n1047_call_pl_leaf_α:   sub              rsp, 16
+n1047_call_pl_leaf_α:   sub              rsp, 32
+                        mov              qword ptr [rsp + 16], 0
+                        mov              qword ptr [rsp + 24], 0
                         sub              rsp, 16
-                        mov              rax, qword ptr [rsp + 32]
+                        mov              rax, qword ptr [rsp + 48]
                         mov              qword ptr [rsp + 0], rax
-                        mov              rax, qword ptr [rsp + 40]
+                        mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [rsp + 8], rax
                         lea              rdi, [rsp + 0]
 .Lcall_pl_leaf_α_1451_100:
@@ -19049,12 +19061,12 @@ n1047_call_pl_leaf_α:   sub              rsp, 16
 .Lcall_pl_leaf_α_1451_249:
                         add              rsp, 16
                         cmp              al, 104;                             jne   .Lcall_pl_leaf_α_1451_999
-                        add              rsp, 16
+                        add              rsp, 32
                         add              rsp, 16;                             jmp   is_stream$2F1_step
 .Lcall_pl_leaf_α_1451_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n1048_bound_α
-n1047_call_pl_leaf_β:   add              rsp, 16
+n1047_call_pl_leaf_β:   add              rsp, 32
                         add              rsp, 16;                             jmp   is_stream$2F1_step
                         .size            n1047_call_pl_leaf_bx, .-n1047_call_pl_leaf_bx
                         .type            n1048_bound_bx, @function
@@ -19095,14 +19107,12 @@ n1048_bound_α:
                         .type            n1049_var_ref_bx, @function
 n1049_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n1049_var_ref_α:        sub              rsp, 48
+n1049_var_ref_α:        sub              rsp, 32
                         mov              qword ptr [rsp + 16], 0
                         mov              qword ptr [rsp + 24], 0
-                        mov              qword ptr [rsp + 32], 0
-                        mov              qword ptr [rsp + 40], 0
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 32]
+                        lea              rax, [rsp + 16]
                         mov              qword ptr [rsp + 8], rax;            jmp   n1050_lit_integer_α
                         .size            n1049_var_ref_bx, .-n1049_var_ref_bx
                         .type            n1050_lit_integer_bx, @function
@@ -19909,7 +19919,9 @@ n1071_disjunction_α:    sub              rsp, 32
 .Ldisjunction_α_1495_0: cmp              eax, 1;                              jne   .Ldisjunction_α_1495_1
                                                                               jmp   n1072_unmark_α
 .Ldisjunction_α_1495_1:                                                       jmp   n1072_unmark_α
-n1071_disjunction_β:    add              rsp, 32;                             jmp   n1240_unmark_α
+n1071_disjunction_β:    mov              eax, dword ptr [rsp + 16]
+                        cmp              eax, 0;                              je    .Ldisjunction_ω_1071_af
+                                                                              jmp   .Ldisjunction_ω_1071_af
 .Ldisjunction_γ_1071_af:
 .Ldisjunction_ω_1071_af:
                         mov              rsi, qword ptr [rsp + 24]            # pl_tr_unwind: pop the r12 trail to the mark, inline
@@ -20039,7 +20051,7 @@ n1077_to_α:             sub              rsp, 32
 .Lgcsite_is_stream$2F1_102:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 1168], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -20096,7 +20108,7 @@ n1077_to_α:             sub              rsp, 32
                         mov              r13, qword ptr [rbp + 1200]          # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_1504_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -20310,7 +20322,7 @@ n1086_var_ref_bx:
 n1086_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rbp + -48]
+                        lea              rax, [rbp + -64]
                         mov              qword ptr [rsp + 8], rax;            jmp   n1087_lit_integer_α
                         .size            n1086_var_ref_bx, .-n1086_var_ref_bx
                         .type            n1087_lit_integer_bx, @function
@@ -20946,8 +20958,9 @@ n1104_gate_β:           test             r15, r15;                            j
                         add              rsp, -96;                            jmp   n1143_unmark_α
 .Lgate_β_1552_999:      mov              eax, dword ptr [rbp + 240]
                         cmp              eax, 0;                              je    n1101_gate_β
-                        cmp              eax, 1;                              je    n1226_gate_β
-                        add              rsp, -96;                            jmp   n1143_unmark_α
+                        cmp              eax, 1;                              jne   .Lgate_β_1552_11
+                        add              rsp, 16;                             jmp   n1226_gate_β
+.Lgate_β_1552_11:       add              rsp, -96;                            jmp   n1143_unmark_α
                         .size            n1104_gate_bx, .-n1104_gate_bx
                         .type            n1105_unmark_bx, @function
 n1105_unmark_bx:
@@ -21359,7 +21372,7 @@ n1116_var_ref_bx:
 n1116_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 160]
+                        lea              rax, [rsp + 144]
                         mov              qword ptr [rsp + 8], rax;            jmp   n1117_call_pl_leaf_α
 n1116_var_ref_β:        add              rsp, 16;                             jmp   .Ldisjunction_ω_1055_af
                         .size            n1116_var_ref_bx, .-n1116_var_ref_bx
@@ -21752,7 +21765,9 @@ n1123_disjunction_α:    sub              rsp, 32
 .Ldisjunction_α_1585_0: cmp              eax, 1;                              jne   .Ldisjunction_α_1585_1
                                                                               jmp   n1124_var_ref_α
 .Ldisjunction_α_1585_1:                                                       jmp   n1124_var_ref_α
-n1123_disjunction_β:    add              rsp, 32;                             jmp   n1250_unmark_α
+n1123_disjunction_β:    mov              eax, dword ptr [rsp + 16]
+                        cmp              eax, 0;                              je    .Ldisjunction_ω_1123_af
+                                                                              jmp   .Ldisjunction_ω_1123_af
 .Ldisjunction_γ_1123_af:
 .Ldisjunction_ω_1123_af:
                         mov              rsi, qword ptr [rsp + 24]            # pl_tr_unwind: pop the r12 trail to the mark, inline
@@ -21882,7 +21897,7 @@ n1127_var_ref_bx:
 n1127_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 336]
+                        lea              rax, [rsp + 320]
                         mov              qword ptr [rsp + 8], rax;            jmp   n1128_var_ref_α
                         .size            n1127_var_ref_bx, .-n1127_var_ref_bx
                         .type            n1128_var_ref_bx, @function
@@ -22439,7 +22454,7 @@ n1144_var_ref_bx:
 n1144_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rbp + -64]
+                        lea              rax, [rbp + -32]
                         mov              qword ptr [rsp + 8], rax;            jmp   n1145_call_direct_α
                         .size            n1144_var_ref_bx, .-n1144_var_ref_bx
                         .type            n1145_call_direct_bx, @function
@@ -22494,7 +22509,7 @@ n1146_gate_β:           test             r15, r15;                            j
                         add              rsp, 32;                             jmp   is_stream$2F1_step
 .Lgate_β_1622_999:      mov              eax, dword ptr [rbp + 96]
                         cmp              eax, 0;                              jne   .Lgate_β_1622_10
-                        add              rsp, -16;                            jmp   n1104_gate_β
+                        add              rsp, 128;                            jmp   n1104_gate_β
 .Lgate_β_1622_10:       cmp              eax, 1;                              je    n1146_gate_α
                         add              rsp, 32;                             jmp   is_stream$2F1_step
                         .size            n1146_gate_bx, .-n1146_gate_bx
@@ -22961,7 +22976,9 @@ n1162_disjunction_α:    sub              rsp, 32
 .Ldisjunction_α_1652_0: cmp              eax, 1;                              jne   .Ldisjunction_α_1652_1
                                                                               jmp   n1163_unmark_α
 .Ldisjunction_α_1652_1:                                                       jmp   n1163_unmark_α
-n1162_disjunction_β:    add              rsp, 32;                             jmp   n1252_unmark_α
+n1162_disjunction_β:    mov              eax, dword ptr [rsp + 16]
+                        cmp              eax, 0;                              je    .Ldisjunction_ω_1162_af
+                                                                              jmp   .Ldisjunction_ω_1162_af
 .Ldisjunction_γ_1162_af:
 .Ldisjunction_ω_1162_af:
                         mov              rsi, qword ptr [rsp + 24]            # pl_tr_unwind: pop the r12 trail to the mark, inline
@@ -23084,7 +23101,7 @@ n1168_to_α:             sub              rsp, 32
 .Lgcsite_is_stream$2F1_168:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 1728], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -23141,7 +23158,7 @@ n1168_to_α:             sub              rsp, 32
                         mov              r13, qword ptr [rbp + 1760]          # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_1661_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -23871,7 +23888,7 @@ n1194_to_α:             sub              rsp, 32
 .Lgcsite_is_stream$2F1_186:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 1008], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -23928,7 +23945,7 @@ n1194_to_α:             sub              rsp, 32
                         mov              r13, qword ptr [rbp + 1040]          # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_1707_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -24519,7 +24536,9 @@ n1213_disjunction_α:    sub              rsp, 32
 .Ldisjunction_α_1742_0: cmp              eax, 1;                              jne   .Ldisjunction_α_1742_1
                                                                               jmp   n1214_unmark_α
 .Ldisjunction_α_1742_1:                                                       jmp   n1214_unmark_α
-n1213_disjunction_β:    add              rsp, 32;                             jmp   n1262_unmark_α
+n1213_disjunction_β:    mov              eax, dword ptr [rsp + 16]
+                        cmp              eax, 0;                              je    .Ldisjunction_ω_1213_af
+                                                                              jmp   .Ldisjunction_ω_1213_af
 .Ldisjunction_γ_1213_af:
 .Ldisjunction_ω_1213_af:
                         mov              rsi, qword ptr [rsp + 24]            # pl_tr_unwind: pop the r12 trail to the mark, inline
@@ -24642,7 +24661,7 @@ n1219_to_α:             sub              rsp, 32
 .Lgcsite_is_stream$2F1_206:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 2192], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -24699,7 +24718,7 @@ n1219_to_α:             sub              rsp, 32
                         mov              r13, qword ptr [rbp + 2224]          # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_1751_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -24900,7 +24919,7 @@ n1228_var_ref_bx:
 n1228_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rbp + -48]
+                        lea              rax, [rbp + -64]
                         mov              qword ptr [rsp + 8], rax;            jmp   n1229_lit_integer_α
                         .size            n1228_var_ref_bx, .-n1228_var_ref_bx
                         .type            n1229_lit_integer_bx, @function
@@ -25570,7 +25589,7 @@ n1247_to_α:             sub              rsp, 32
 .Lgcsite_is_stream$2F1_227:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 1424], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -25627,7 +25646,7 @@ n1247_to_α:             sub              rsp, 32
                         mov              r13, qword ptr [rbp + 1456]          # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_1799_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -25937,7 +25956,7 @@ n1259_to_α:             sub              rsp, 32
 .Lgcsite_is_stream$2F1_239:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 1840], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -25994,7 +26013,7 @@ n1259_to_α:             sub              rsp, 32
                         mov              r13, qword ptr [rbp + 1872]          # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_1820_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -26278,7 +26297,7 @@ n1269_to_α:             sub              rsp, 32
 .Lgcsite_is_stream$2F1_251:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 2288], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -26335,7 +26354,7 @@ n1269_to_α:             sub              rsp, 32
                         mov              r13, qword ptr [rbp + 2320]          # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_1837_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -28602,7 +28621,9 @@ n1868_disjunction_α:    sub              rsp, 32
 .Ldisjunction_α_2120_0: cmp              eax, 1;                              jne   .Ldisjunction_α_2120_1
                                                                               jmp   n1869_unmark_α
 .Ldisjunction_α_2120_1:                                                       jmp   n1869_unmark_α
-n1868_disjunction_β:    add              rsp, 32;                             jmp   n2053_unmark_α
+n1868_disjunction_β:    mov              eax, dword ptr [rsp + 16]
+                        cmp              eax, 0;                              je    .Ldisjunction_ω_1868_af
+                                                                              jmp   .Ldisjunction_ω_1868_af
 .Ldisjunction_γ_1868_af:
 .Ldisjunction_ω_1868_af:
                         mov              rsi, qword ptr [rsp + 24]            # pl_tr_unwind: pop the r12 trail to the mark, inline
@@ -28789,7 +28810,7 @@ n1876_to_α:             sub              rsp, 32
 .Lgcsite_$error_has_type$2F2_35:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 560], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -28846,7 +28867,7 @@ n1876_to_α:             sub              rsp, 32
                         mov              r13, qword ptr [rbp + 592]           # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_2134_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -29837,7 +29858,9 @@ n1904_disjunction_α:    sub              rsp, 32
 .Ldisjunction_α_2187_0: cmp              eax, 1;                              jne   .Ldisjunction_α_2187_1
                                                                               jmp   n1905_cut_α
 .Ldisjunction_α_2187_1:                                                       jmp   n1905_cut_α
-n1904_disjunction_β:    add              rsp, 32;                             jmp   $error_has_type$2F2_step
+n1904_disjunction_β:    mov              eax, dword ptr [rsp + 16]
+                        cmp              eax, 0;                              je    .Ldisjunction_ω_1904_af
+                                                                              jmp   .Ldisjunction_ω_1904_af
 .Ldisjunction_γ_1904_af:
 .Ldisjunction_ω_1904_af:
                         mov              rsi, qword ptr [rsp + 24]            # pl_tr_unwind: pop the r12 trail to the mark, inline
@@ -30662,7 +30685,7 @@ n1919_call_value_α:     sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 48;                             jmp   $error_has_type$2F2_step
 .Lcall_value_α_2213_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -31016,7 +31039,7 @@ n1924_call_value_α:     sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 48;                             jmp   $error_has_type$2F2_step
 .Lcall_value_α_2221_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -38300,7 +38323,7 @@ n2062_to_α:             sub              rsp, 32
 .Lgcsite_$error_has_type$2F2_237:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 704], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -38357,7 +38380,7 @@ n2062_to_α:             sub              rsp, 32
                         mov              r13, qword ptr [rbp + 736]           # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_2483_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -41319,9 +41342,9 @@ n2547_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n2547_var_ref_α:        sub              rsp, 16
                         mov              rax, 4294967336
-                        mov              qword ptr [rsp + 0], rax             # result
-                        lea              rax, [rsp + 48]
-                        mov              qword ptr [rsp + 8], rax;            jmp   n2548_call_pl_leaf_α
+                        mov              qword ptr [rbp + 192], rax           # result
+                        lea              rax, [rbp + -32]
+                        mov              qword ptr [rbp + 200], rax;          jmp   n2548_call_pl_leaf_α
 n2547_var_ref_β:        add              rsp, 16;                             jmp   .Ldisjunction_ω_2545_af
                         .size            n2547_var_ref_bx, .-n2547_var_ref_bx
                         .type            n2548_call_pl_leaf_bx, @function
@@ -41329,9 +41352,9 @@ n2548_call_pl_leaf_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n2548_call_pl_leaf_α:   sub              rsp, 16
                         sub              rsp, 16
-                        mov              rax, qword ptr [rsp + 32]
+                        mov              rax, qword ptr [rbp + 192]
                         mov              qword ptr [rsp + 0], rax
-                        mov              rax, qword ptr [rsp + 40]
+                        mov              rax, qword ptr [rbp + 200]
                         mov              qword ptr [rsp + 8], rax
                         lea              rdi, [rsp + 0]
 .Lcall_pl_leaf_α_2563_100:
@@ -41410,8 +41433,7 @@ n2549_cut_α:            mov              qword ptr [rbp + 312], 0
                         mov              r13, qword ptr [rbp + 328]           # pl_cut_barrier inline (ARCH-PROLOG-C-OUT-OF-THE-BOX 2.2): B := F.B0, the caller's choice the prologue saved at [kt-40]
                         mov              qword ptr [rbp + 144], 0
                         mov              qword ptr [rbp + 224], 0
-                        lea              rsp, [rbp + -64]
-                        add              rsp, 32;                             jmp   n2550_var_ref_α
+                        lea              rsp, [rbp + -64];                    jmp   n2550_var_ref_α
                         .size            n2549_cut_bx, .-n2549_cut_bx
                         .type            n2550_var_ref_bx, @function
 n2550_var_ref_bx:
@@ -41533,13 +41555,13 @@ n2551_call_proc_staged_α:
                         mov              eax, 104
                         xor              edx, edx
 .Lcall_proc_staged_α_2570_2:
-                        mov              qword ptr [rsp + 0], rax
-                        mov              qword ptr [rsp + 8], rdx
+                        mov              qword ptr [rbp + 128], rax
+                        mov              qword ptr [rbp + 136], rdx
                         cmp              al, 104;                             jne   .Lcall_proc_staged_α_2570_999
                         add              rsp, 16
                         add              rsp, 80;                             jmp   interpret$2F1_ω
 .Lcall_proc_staged_α_2570_999:
-                        add              rsp, 32;                             jmp   .Ldisjunction_γ_2545_as
+                                                                              jmp   .Ldisjunction_γ_2545_as
 n2551_call_proc_staged_β:
                         test             r15, r15;                            jne   .Lcall_proc_staged_β_2570_22
                         mov              rax, qword ptr [rbp + 144]
@@ -43670,13 +43692,14 @@ n2631_unmark_α:         mov              rsi, qword ptr [rbp + 128]           #
                         .type            n2632_gate_bx, @function
 n2632_gate_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n2632_gate_α:                                                                 jmp   n2614_call_proc_staged_β
-n2632_gate_β:           test             r15, r15;                            jne   n2614_call_proc_staged_β
-                        mov              eax, dword ptr [rbp + 96]
+n2632_gate_α:           add              rsp, 32;                             jmp   n2614_call_proc_staged_β
+n2632_gate_β:           test             r15, r15;                            je    .Lgate_β_2730_999
+                        add              rsp, 32;                             jmp   n2614_call_proc_staged_β
+.Lgate_β_2730_999:      mov              eax, dword ptr [rbp + 96]
                         cmp              eax, 0;                              jne   .Lgate_β_2730_10
-                        add              rsp, -32;                            jmp   n2632_gate_α
+                        add              rsp, 16;                             jmp   n2632_gate_α
 .Lgate_β_2730_10:       cmp              eax, 1;                              je    n2629_call_proc_staged_β
-                                                                              jmp   n2614_call_proc_staged_β
+                        add              rsp, 32;                             jmp   n2614_call_proc_staged_β
                         .size            n2632_gate_bx, .-n2632_gate_bx
                         .type            n2633_unify_struct_bx, @function
 n2633_unify_struct_bx:
@@ -56445,8 +56468,9 @@ n3217_gate_bx:
 n3217_gate_α:                                                                 jmp   $dbg_rm$2F3_step
 n3217_gate_β:           test             r15, r15;                            jne   $dbg_rm$2F3_step
                         mov              eax, dword ptr [rbp + 176]
-                        cmp              eax, 0;                              je    n3217_gate_α
-                        cmp              eax, 1;                              je    n3217_gate_α
+                        cmp              eax, 0;                              jne   .Lgate_β_3265_10
+                        add              rsp, 16;                             jmp   n3217_gate_α
+.Lgate_β_3265_10:       cmp              eax, 1;                              je    n3217_gate_α
                                                                               jmp   $dbg_rm$2F3_step
                         .size            n3217_gate_bx, .-n3217_gate_bx
                         .type            n3218_var_ref_bx, @function
@@ -58860,8 +58884,9 @@ n3340_gate_α:                                                                 j
 n3340_gate_β:           test             r15, r15;                            jne   n3343_unmark_α
                         mov              eax, dword ptr [rbp + 208]
                         cmp              eax, 0;                              je    n3340_gate_α
-                        cmp              eax, 1;                              je    n3340_gate_α
-                                                                              jmp   n3343_unmark_α
+                        cmp              eax, 1;                              jne   .Lgate_β_3375_11
+                        add              rsp, 16;                             jmp   n3340_gate_α
+.Lgate_β_3375_11:                                                             jmp   n3343_unmark_α
                         .size            n3340_gate_bx, .-n3340_gate_bx
                         .type            n3341_unmark_bx, @function
 n3341_unmark_bx:
@@ -58962,8 +58987,9 @@ n3345_gate_α:                                                                 j
 n3345_gate_β:           test             r15, r15;                            jne   n3330_call_proc_staged_β
                         mov              eax, dword ptr [rbp + 64]
                         cmp              eax, 0;                              je    n3345_gate_α
-                        cmp              eax, 1;                              je    n3345_gate_α
-                                                                              jmp   n3330_call_proc_staged_β
+                        cmp              eax, 1;                              jne   .Lgate_β_3385_11
+                        add              rsp, 16;                             jmp   n3345_gate_α
+.Lgate_β_3385_11:                                                             jmp   n3330_call_proc_staged_β
                         .size            n3345_gate_bx, .-n3345_gate_bx
                         .type            n3346_cut_bx, @function
 n3346_cut_bx:
@@ -60465,7 +60491,7 @@ n3437_call_value_α:     sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n3435_call_proc_staged_β
 .Lcall_value_α_3449_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -63438,8 +63464,9 @@ n3574_gate_bx:
 n3574_gate_α:                                                                 jmp   $mod_head$2F3_step
 n3574_gate_β:           test             r15, r15;                            jne   $mod_head$2F3_step
                         mov              eax, dword ptr [rbp + 96]
-                        cmp              eax, 0;                              je    n3559_call_proc_staged_β
-                        cmp              eax, 1;                              je    n3571_call_proc_staged_β
+                        cmp              eax, 0;                              jne   .Lgate_β_3637_10
+                        add              rsp, 16;                             jmp   n3559_call_proc_staged_β
+.Lgate_β_3637_10:       cmp              eax, 1;                              je    n3571_call_proc_staged_β
                                                                               jmp   $mod_head$2F3_step
                         .size            n3574_gate_bx, .-n3574_gate_bx
                         .type            n3575_cut_bx, @function
@@ -75607,13 +75634,14 @@ n4116_unmark_α:         mov              rsi, qword ptr [rbp + 112]           #
                         .type            n4117_gate_bx, @function
 n4117_gate_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n4117_gate_α:                                                                 jmp   n4099_call_proc_staged_β
-n4117_gate_β:           test             r15, r15;                            jne   n4099_call_proc_staged_β
-                        mov              eax, dword ptr [rbp + 80]
+n4117_gate_α:           add              rsp, 48;                             jmp   n4099_call_proc_staged_β
+n4117_gate_β:           test             r15, r15;                            je    .Lgate_β_4171_999
+                        add              rsp, 48;                             jmp   n4099_call_proc_staged_β
+.Lgate_β_4171_999:      mov              eax, dword ptr [rbp + 80]
                         cmp              eax, 0;                              jne   .Lgate_β_4171_10
-                        add              rsp, -48;                            jmp   n4117_gate_α
+                        add              rsp, 16;                             jmp   n4117_gate_α
 .Lgate_β_4171_10:       cmp              eax, 1;                              je    n4114_call_proc_staged_β
-                                                                              jmp   n4099_call_proc_staged_β
+                        add              rsp, 48;                             jmp   n4099_call_proc_staged_β
                         .size            n4117_gate_bx, .-n4117_gate_bx
 #-----------------------------------------------------------------------------------------------------------------------
 $ts_occ_l$2F4_ret1:
@@ -76968,7 +76996,7 @@ n4216_call_value_α:     sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 32;                             jmp   n4223_unmark_α
 .Lcall_value_α_4243_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -77151,7 +77179,7 @@ n4221_call_value_α:     sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 32;                             jmp   n4223_unmark_α
 .Lcall_value_α_4253_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -77698,7 +77726,7 @@ n4270_call_value_α:     sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 48;                             jmp   n4278_unmark_α
 .Lcall_value_α_4300_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -77899,7 +77927,7 @@ n4276_call_value_α:     sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 48;                             jmp   n4278_unmark_α
 .Lcall_value_α_4312_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -79592,7 +79620,7 @@ n4397_call_value_α:     sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 64;                             jmp   n4406_unmark_α
 .Lcall_value_α_4430_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -79811,7 +79839,7 @@ n4404_call_value_α:     sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 64;                             jmp   n4406_unmark_α
 .Lcall_value_α_4444_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -80394,7 +80422,7 @@ n4463_call_value_α:     sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 80;                             jmp   n4473_unmark_α
 .Lcall_value_α_4499_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -80631,7 +80659,7 @@ n4471_call_value_α:     sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 80;                             jmp   n4473_unmark_α
 .Lcall_value_α_4515_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -81232,7 +81260,7 @@ n4535_call_value_α:     sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 96;                             jmp   n4546_unmark_α
 .Lcall_value_α_4574_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -81487,7 +81515,7 @@ n4544_call_value_α:     sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 96;                             jmp   n4546_unmark_α
 .Lcall_value_α_4592_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -82611,7 +82639,7 @@ n4643_call_value_α:     sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 112;                            jmp   n4655_unmark_α
 .Lcall_value_α_4685_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -82884,7 +82912,7 @@ n4653_call_value_α:     sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 112;                            jmp   n4655_unmark_α
 .Lcall_value_α_4705_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -83521,7 +83549,7 @@ n4727_call_value_α:     sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 128;                            jmp   n4740_unmark_α
 .Lcall_value_α_4772_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -83812,7 +83840,7 @@ n4738_call_value_α:     sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 128;                            jmp   n4740_unmark_α
 .Lcall_value_α_4794_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -85261,7 +85289,7 @@ n4856_call_value_α:     sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 32;                             jmp   n4870_unmark_α
 .Lcall_value_α_4904_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -88408,7 +88436,9 @@ n5002_disjunction_α:    sub              rsp, 32
 .Ldisjunction_α_5408_0: cmp              eax, 1;                              jne   .Ldisjunction_α_5408_1
                                                                               jmp   n5003_unmark_α
 .Ldisjunction_α_5408_1:                                                       jmp   n5003_unmark_α
-n5002_disjunction_β:    add              rsp, 32;                             jmp   n5286_unmark_α
+n5002_disjunction_β:    mov              eax, dword ptr [rsp + 16]
+                        cmp              eax, 0;                              je    .Ldisjunction_ω_5002_af
+                                                                              jmp   .Ldisjunction_ω_5002_af
 .Ldisjunction_γ_5002_af:
 .Ldisjunction_ω_5002_af:
                         mov              rsi, qword ptr [rsp + 24]            # pl_tr_unwind: pop the r12 trail to the mark, inline
@@ -88535,7 +88565,7 @@ n5008_to_α:             sub              rsp, 32
                         call             to_int@PLT
 .Lgcsite_$cp_mq$2F2_45: mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 912], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -88589,7 +88619,7 @@ n5008_to_α:             sub              rsp, 32
                         mov              r13, qword ptr [rbp + 944]           # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_5417_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -90160,7 +90190,9 @@ n5057_disjunction_α:    sub              rsp, 32
 .Ldisjunction_α_5502_0: cmp              eax, 1;                              jne   .Ldisjunction_α_5502_1
                                                                               jmp   n5058_unmark_α
 .Ldisjunction_α_5502_1:                                                       jmp   n5058_unmark_α
-n5057_disjunction_β:    add              rsp, 32;                             jmp   n5296_unmark_α
+n5057_disjunction_β:    mov              eax, dword ptr [rsp + 16]
+                        cmp              eax, 0;                              je    .Ldisjunction_ω_5057_af
+                                                                              jmp   .Ldisjunction_ω_5057_af
 .Ldisjunction_γ_5057_af:
 .Ldisjunction_ω_5057_af:
                         mov              rsi, qword ptr [rsp + 24]            # pl_tr_unwind: pop the r12 trail to the mark, inline
@@ -90280,7 +90312,7 @@ n5063_to_α:             sub              rsp, 32
                         call             to_int@PLT
 .Lgcsite_$cp_mq$2F2_86: mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 1808], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -90334,7 +90366,7 @@ n5063_to_α:             sub              rsp, 32
                         mov              r13, qword ptr [rbp + 1840]          # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_5511_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -90912,8 +90944,9 @@ n5083_gate_bx:
 n5083_gate_α:                                                                 jmp   n5085_unmark_α
 n5083_gate_β:           test             r15, r15;                            jne   n5085_unmark_α
                         mov              eax, dword ptr [rbp + 304]
-                        cmp              eax, 0;                              je    n5015_gate_β
-                        cmp              eax, 1;                              je    n5070_gate_β
+                        cmp              eax, 0;                              jne   .Lgate_β_5547_10
+                        add              rsp, 16;                             jmp   n5015_gate_β
+.Lgate_β_5547_10:       cmp              eax, 1;                              je    n5070_gate_β
                                                                               jmp   n5085_unmark_α
                         .size            n5083_gate_bx, .-n5083_gate_bx
                         .type            n5084_gate_arm_bx, @function
@@ -94594,7 +94627,9 @@ n5182_disjunction_α:    sub              rsp, 32
 .Ldisjunction_α_5709_0: cmp              eax, 1;                              jne   .Ldisjunction_α_5709_1
                                                                               jmp   n5183_unmark_α
 .Ldisjunction_α_5709_1:                                                       jmp   n5183_unmark_α
-n5182_disjunction_β:    add              rsp, 32;                             jmp   n5306_unmark_α
+n5182_disjunction_β:    mov              eax, dword ptr [rsp + 16]
+                        cmp              eax, 0;                              je    .Ldisjunction_ω_5182_af
+                                                                              jmp   .Ldisjunction_ω_5182_af
 .Ldisjunction_γ_5182_af:
 .Ldisjunction_ω_5182_af:
                         mov              rsi, qword ptr [rsp + 24]            # pl_tr_unwind: pop the r12 trail to the mark, inline
@@ -94724,7 +94759,7 @@ n5188_to_α:             sub              rsp, 32
 .Lgcsite_$cp_mq$2F2_179:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 912], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -94781,7 +94816,7 @@ n5188_to_α:             sub              rsp, 32
                         mov              r13, qword ptr [rbp + 944]           # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_5718_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -96387,7 +96422,9 @@ n5237_disjunction_α:    sub              rsp, 32
 .Ldisjunction_α_5803_0: cmp              eax, 1;                              jne   .Ldisjunction_α_5803_1
                                                                               jmp   n5238_unmark_α
 .Ldisjunction_α_5803_1:                                                       jmp   n5238_unmark_α
-n5237_disjunction_β:    add              rsp, 32;                             jmp   n5316_unmark_α
+n5237_disjunction_β:    mov              eax, dword ptr [rsp + 16]
+                        cmp              eax, 0;                              je    .Ldisjunction_ω_5237_af
+                                                                              jmp   .Ldisjunction_ω_5237_af
 .Ldisjunction_γ_5237_af:
 .Ldisjunction_ω_5237_af:
                         mov              rsi, qword ptr [rsp + 24]            # pl_tr_unwind: pop the r12 trail to the mark, inline
@@ -96510,7 +96547,7 @@ n5243_to_α:             sub              rsp, 32
 .Lgcsite_$cp_mq$2F2_220:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 1808], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -96567,7 +96604,7 @@ n5243_to_α:             sub              rsp, 32
                         mov              r13, qword ptr [rbp + 1840]          # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_5812_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -97155,8 +97192,9 @@ n5263_gate_bx:
 n5263_gate_α:                                                                 jmp   n5265_unmark_α
 n5263_gate_β:           test             r15, r15;                            jne   n5265_unmark_α
                         mov              eax, dword ptr [rbp + 304]
-                        cmp              eax, 0;                              je    n5195_gate_β
-                        cmp              eax, 1;                              je    n5250_gate_β
+                        cmp              eax, 0;                              jne   .Lgate_β_5848_10
+                        add              rsp, 16;                             jmp   n5195_gate_β
+.Lgate_β_5848_10:       cmp              eax, 1;                              je    n5250_gate_β
                                                                               jmp   n5265_unmark_α
                         .size            n5263_gate_bx, .-n5263_gate_bx
                         .type            n5264_gate_arm_bx, @function
@@ -97703,7 +97741,7 @@ n5280_to_α:             sub              rsp, 32
 .Lgcsite_$cp_mq$2F2_241:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 336], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -97760,7 +97798,7 @@ n5280_to_α:             sub              rsp, 32
                         mov              r13, qword ptr [rbp + 368]           # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_5876_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -98289,7 +98327,7 @@ n5293_to_α:             sub              rsp, 32
 .Lgcsite_$cp_mq$2F2_255:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 1024], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -98346,7 +98384,7 @@ n5293_to_α:             sub              rsp, 32
                         mov              r13, qword ptr [rbp + 1056]          # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_5899_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -98630,7 +98668,7 @@ n5303_to_α:             sub              rsp, 32
 .Lgcsite_$cp_mq$2F2_267:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 1920], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -98687,7 +98725,7 @@ n5303_to_α:             sub              rsp, 32
                         mov              r13, qword ptr [rbp + 1952]          # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_5916_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -98978,7 +99016,7 @@ n5313_to_α:             sub              rsp, 32
 .Lgcsite_$cp_mq$2F2_279:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 1024], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -99035,7 +99073,7 @@ n5313_to_α:             sub              rsp, 32
                         mov              r13, qword ptr [rbp + 1056]          # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_5933_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -99319,7 +99357,7 @@ n5323_to_α:             sub              rsp, 32
 .Lgcsite_$cp_mq$2F2_291:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 1920], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -99376,7 +99414,7 @@ n5323_to_α:             sub              rsp, 32
                         mov              r13, qword ptr [rbp + 1952]          # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_5950_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -101144,7 +101182,7 @@ n5965_call_value_α:     sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 112;                            jmp   $apply_partition_$2F5_step
 .Lcall_value_α_5995_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -110426,14 +110464,15 @@ n6384_unmark_α:         mov              rsi, qword ptr [rbp + 208]           #
                         .type            n6385_gate_bx, @function
 n6385_gate_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n6385_gate_α:                                                                 jmp   n6366_call_proc_staged_β
-n6385_gate_β:           test             r15, r15;                            jne   n6366_call_proc_staged_β
-                        mov              eax, dword ptr [rbp + 176]
+n6385_gate_α:           add              rsp, 48;                             jmp   n6366_call_proc_staged_β
+n6385_gate_β:           test             r15, r15;                            je    .Lgate_β_6441_999
+                        add              rsp, 48;                             jmp   n6366_call_proc_staged_β
+.Lgate_β_6441_999:      mov              eax, dword ptr [rbp + 176]
                         cmp              eax, 0;                              jne   .Lgate_β_6441_10
-                        add              rsp, -48;                            jmp   n6385_gate_α
+                        add              rsp, 16;                             jmp   n6385_gate_α
 .Lgate_β_6441_10:       cmp              eax, 1;                              jne   .Lgate_β_6441_11
-                        add              rsp, -48;                            jmp   n6385_gate_α
-.Lgate_β_6441_11:                                                             jmp   n6366_call_proc_staged_β
+                        add              rsp, 16;                             jmp   n6385_gate_α
+.Lgate_β_6441_11:       add              rsp, 48;                             jmp   n6366_call_proc_staged_β
                         .size            n6385_gate_bx, .-n6385_gate_bx
                         .type            n6386_var_ref_bx, @function
 n6386_var_ref_bx:
@@ -113958,7 +113997,7 @@ n6558_call_value_α:     sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 176;                            jmp   $conj_nocut$2F1_ω
 .Lcall_value_α_6581_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -114226,7 +114265,7 @@ n6562_call_value_α:     sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 16;                             jmp   $conj_nocut$2F1_step
 .Lcall_value_α_6589_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -132600,7 +132639,7 @@ n7509_call_value_α:     sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 160;                            jmp   n7524_unmark_α
 .Lcall_value_α_7560_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -132927,7 +132966,7 @@ n7522_call_value_α:     sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 160;                            jmp   n7524_unmark_α
 .Lcall_value_α_7586_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -134901,7 +134940,7 @@ n7658_call_value_α:     sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 144;                            jmp   n7672_unmark_α
 .Lcall_value_α_7706_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -135210,7 +135249,7 @@ n7670_call_value_α:     sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 144;                            jmp   n7672_unmark_α
 .Lcall_value_α_7730_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -145072,7 +145111,7 @@ n8110_gate_α:                                                                 j
 n8110_gate_β:           test             r15, r15;                            jne   n8087_gate_β
                         mov              eax, dword ptr [rbp + 80]
                         cmp              eax, 0;                              jne   .Lgate_β_8187_10
-                        add              rsp, -112;                           jmp   n8110_gate_α
+                        add              rsp, 16;                             jmp   n8110_gate_α
 .Lgate_β_8187_10:       cmp              eax, 1;                              je    n8107_call_proc_staged_β
                                                                               jmp   n8087_gate_β
                         .size            n8110_gate_bx, .-n8110_gate_bx
@@ -151432,7 +151471,9 @@ n8432_disjunction_α:    sub              rsp, 32
 .Ldisjunction_α_8844_0: cmp              eax, 1;                              jne   .Ldisjunction_α_8844_1
                                                                               jmp   n8433_unmark_α
 .Ldisjunction_α_8844_1:                                                       jmp   n8433_unmark_α
-n8432_disjunction_β:    add              rsp, 32;                             jmp   n8744_unmark_α
+n8432_disjunction_β:    mov              eax, dword ptr [rsp + 16]
+                        cmp              eax, 0;                              je    .Ldisjunction_ω_8432_af
+                                                                              jmp   .Ldisjunction_ω_8432_af
 .Ldisjunction_γ_8432_af:
 .Ldisjunction_ω_8432_af:
                         mov              rsi, qword ptr [rsp + 24]            # pl_tr_unwind: pop the r12 trail to the mark, inline
@@ -151555,7 +151596,7 @@ n8438_to_α:             sub              rsp, 32
 .Lgcsite_$cp_mq1$2F3_25:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 2944], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -151612,7 +151653,7 @@ n8438_to_α:             sub              rsp, 32
                         mov              r13, qword ptr [rbp + 2976]          # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_8853_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -151752,9 +151793,9 @@ n8442_gate_β:           test             r15, r15;                            j
                         add              rsp, 128;                            jmp   n8444_unmark_α
 .Lgate_β_8860_999:      mov              eax, dword ptr [rbp + 2816]
                         cmp              eax, 0;                              jne   .Lgate_β_8860_10
-                        add              rsp, -208;                           jmp   n8438_to_β
+                        add              rsp, -48;                            jmp   n8438_to_β
 .Lgate_β_8860_10:       cmp              eax, 1;                              jne   .Lgate_β_8860_11
-                        add              rsp, -240;                           jmp   n8751_to_β
+                        add              rsp, -80;                            jmp   n8751_to_β
 .Lgate_β_8860_11:       add              rsp, 128;                            jmp   n8444_unmark_α
                         .size            n8442_gate_bx, .-n8442_gate_bx
                         .type            n8443_gate_arm_bx, @function
@@ -152149,7 +152190,7 @@ n8460_to_α:             sub              rsp, 32
 .Lgcsite_$cp_mq1$2F3_39:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 2352], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -152206,7 +152247,7 @@ n8460_to_α:             sub              rsp, 32
                         mov              r13, qword ptr [rbp + 2384]          # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_8891_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -152965,7 +153006,9 @@ n8481_disjunction_α:    sub              rsp, 32
 .Ldisjunction_α_8927_0: cmp              eax, 1;                              jne   .Ldisjunction_α_8927_1
                                                                               jmp   n8482_unmark_α
 .Ldisjunction_α_8927_1:                                                       jmp   n8482_unmark_α
-n8481_disjunction_β:    add              rsp, 32;                             jmp   n8754_unmark_α
+n8481_disjunction_β:    mov              eax, dword ptr [rsp + 16]
+                        cmp              eax, 0;                              je    .Ldisjunction_ω_8481_af
+                                                                              jmp   .Ldisjunction_ω_8481_af
 .Ldisjunction_γ_8481_af:
 .Ldisjunction_ω_8481_af:
                         mov              rsi, qword ptr [rsp + 24]            # pl_tr_unwind: pop the r12 trail to the mark, inline
@@ -153095,7 +153138,7 @@ n8487_to_α:             sub              rsp, 32
 .Lgcsite_$cp_mq1$2F3_64:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 1840], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -153152,7 +153195,7 @@ n8487_to_α:             sub              rsp, 32
                         mov              r13, qword ptr [rbp + 1872]          # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_8936_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -153298,9 +153341,9 @@ n8491_gate_β:           test             r15, r15;                            j
                         add              rsp, -32;                            jmp   n8493_unmark_α
 .Lgate_β_8943_999:      mov              eax, dword ptr [rbp + 1712]
                         cmp              eax, 0;                              jne   .Lgate_β_8943_10
-                        add              rsp, -480;                           jmp   n8487_to_β
+                        add              rsp, -48;                            jmp   n8487_to_β
 .Lgate_β_8943_10:       cmp              eax, 1;                              jne   .Lgate_β_8943_11
-                        add              rsp, -512;                           jmp   n8761_to_β
+                        add              rsp, -80;                            jmp   n8761_to_β
 .Lgate_β_8943_11:       add              rsp, -32;                            jmp   n8493_unmark_α
                         .size            n8491_gate_bx, .-n8491_gate_bx
                         .type            n8492_gate_arm_bx, @function
@@ -153350,9 +153393,8 @@ n8494_gate_β:           test             r15, r15;                            j
                         add              rsp, 64;                             jmp   n8507_unmark_α
 .Lgate_β_8949_999:      mov              eax, dword ptr [rbp + 1504]
                         cmp              eax, 0;                              je    n8477_call_proc_staged_β
-                        cmp              eax, 1;                              jne   .Lgate_β_8949_11
-                        add              rsp, -432;                           jmp   n8491_gate_β
-.Lgate_β_8949_11:       add              rsp, 64;                             jmp   n8507_unmark_α
+                        cmp              eax, 1;                              je    n8491_gate_β
+                        add              rsp, 64;                             jmp   n8507_unmark_α
                         .size            n8494_gate_bx, .-n8494_gate_bx
                         .type            n8495_var_ref_bx, @function
 n8495_var_ref_bx:
@@ -153816,7 +153858,7 @@ n8509_gate_β:           test             r15, r15;                            j
 .Lgate_β_8976_999:      mov              eax, dword ptr [rbp + 1312]
                         cmp              eax, 0;                              je    n8509_gate_α
                         cmp              eax, 1;                              jne   .Lgate_β_8976_11
-                        add              rsp, -496;                           jmp   n8509_gate_α
+                        add              rsp, 16;                             jmp   n8509_gate_α
 .Lgate_β_8976_11:       add              rsp, 16;                             jmp   n8460_to_β
                         .size            n8509_gate_bx, .-n8509_gate_bx
                         .type            n8510_var_ref_bx, @function
@@ -154367,7 +154409,7 @@ n8526_to_α:             sub              rsp, 32
 .Lgcsite_$cp_mq1$2F3_86:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 1104], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -154424,7 +154466,7 @@ n8526_to_α:             sub              rsp, 32
                         mov              r13, qword ptr [rbp + 1136]          # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_9004_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -155164,7 +155206,9 @@ n8546_disjunction_α:    sub              rsp, 32
 .Ldisjunction_α_9038_0: cmp              eax, 1;                              jne   .Ldisjunction_α_9038_1
                                                                               jmp   n8547_unmark_α
 .Ldisjunction_α_9038_1:                                                       jmp   n8547_unmark_α
-n8546_disjunction_β:    add              rsp, 32;                             jmp   n8764_unmark_α
+n8546_disjunction_β:    mov              eax, dword ptr [rsp + 16]
+                        cmp              eax, 0;                              je    .Ldisjunction_ω_8546_af
+                                                                              jmp   .Ldisjunction_ω_8546_af
 .Ldisjunction_γ_8546_af:
 .Ldisjunction_ω_8546_af:
                         mov              rsi, qword ptr [rsp + 24]            # pl_tr_unwind: pop the r12 trail to the mark, inline
@@ -155301,7 +155345,7 @@ n8552_to_α:             sub              rsp, 32
 .Lgcsite_$cp_mq1$2F3_110:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 592], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -155358,7 +155402,7 @@ n8552_to_α:             sub              rsp, 32
                         mov              r13, qword ptr [rbp + 624]           # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_9047_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -155510,9 +155554,9 @@ n8556_gate_α:                                                                 j
 n8556_gate_β:           test             r15, r15;                            jne   n8558_unmark_α
                         mov              eax, dword ptr [rbp + 464]
                         cmp              eax, 0;                              jne   .Lgate_β_9054_10
-                        add              rsp, -416;                           jmp   n8552_to_β
+                        add              rsp, -48;                            jmp   n8552_to_β
 .Lgate_β_9054_10:       cmp              eax, 1;                              jne   .Lgate_β_9054_11
-                        add              rsp, -448;                           jmp   n8771_to_β
+                        add              rsp, -80;                            jmp   n8771_to_β
 .Lgate_β_9054_11:                                                             jmp   n8558_unmark_α
                         .size            n8556_gate_bx, .-n8556_gate_bx
                         .type            n8557_gate_arm_bx, @function
@@ -156562,7 +156606,9 @@ n8588_disjunction_α:    sub              rsp, 32
 .Ldisjunction_α_9110_0: cmp              eax, 1;                              jne   .Ldisjunction_α_9110_1
                                                                               jmp   n8589_unmark_α
 .Ldisjunction_α_9110_1:                                                       jmp   n8589_unmark_α
-n8588_disjunction_β:    add              rsp, 32;                             jmp   n8774_unmark_α
+n8588_disjunction_β:    mov              eax, dword ptr [rsp + 16]
+                        cmp              eax, 0;                              je    .Ldisjunction_ω_8588_af
+                                                                              jmp   .Ldisjunction_ω_8588_af
 .Ldisjunction_γ_8588_af:
 .Ldisjunction_ω_8588_af:
                         mov              rsi, qword ptr [rsp + 24]            # pl_tr_unwind: pop the r12 trail to the mark, inline
@@ -156685,7 +156731,7 @@ n8594_to_α:             sub              rsp, 32
 .Lgcsite_$cp_mq1$2F3_141:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 1104], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -156742,7 +156788,7 @@ n8594_to_α:             sub              rsp, 32
                         mov              r13, qword ptr [rbp + 1136]          # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_9119_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -157272,7 +157318,7 @@ n8616_to_α:             sub              rsp, 32
 .Lgcsite_$cp_mq1$2F3_155:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 144], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -157329,7 +157375,7 @@ n8616_to_α:             sub              rsp, 32
                         mov              r13, qword ptr [rbp + 176]           # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_9157_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -158337,7 +158383,9 @@ n8642_disjunction_α:    sub              rsp, 32
 .Ldisjunction_α_9201_0: cmp              eax, 1;                              jne   .Ldisjunction_α_9201_1
                                                                               jmp   n8643_unmark_α
 .Ldisjunction_α_9201_1:                                                       jmp   n8643_unmark_α
-n8642_disjunction_β:    add              rsp, 32;                             jmp   n8784_unmark_α
+n8642_disjunction_β:    mov              eax, dword ptr [rsp + 16]
+                        cmp              eax, 0;                              je    .Ldisjunction_ω_8642_af
+                                                                              jmp   .Ldisjunction_ω_8642_af
 .Ldisjunction_γ_8642_af:
 .Ldisjunction_ω_8642_af:
                         mov              rsi, qword ptr [rsp + 24]            # pl_tr_unwind: pop the r12 trail to the mark, inline
@@ -158460,7 +158508,7 @@ n8648_to_α:             sub              rsp, 32
 .Lgcsite_$cp_mq1$2F3_183:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 2848], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -158517,7 +158565,7 @@ n8648_to_α:             sub              rsp, 32
                         mov              r13, qword ptr [rbp + 2880]          # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_9210_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -159143,7 +159191,7 @@ n8671_to_α:             sub              rsp, 32
 .Lgcsite_$cp_mq1$2F3_198:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 1840], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -159200,7 +159248,7 @@ n8671_to_α:             sub              rsp, 32
                         mov              r13, qword ptr [rbp + 1872]          # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_9249_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -159377,7 +159425,7 @@ n8677_gate_β:           test             r15, r15;                            j
 .Lgate_β_9260_999:      mov              eax, dword ptr [rbp + 1504]
                         cmp              eax, 0;                              je    n8677_gate_α
                         cmp              eax, 1;                              jne   .Lgate_β_9260_11
-                        add              rsp, -64;                            jmp   n8677_gate_α
+                        add              rsp, 16;                             jmp   n8677_gate_α
 .Lgate_β_9260_11:       add              rsp, 64;                             jmp   n8655_gate_β
                         .size            n8677_gate_bx, .-n8677_gate_bx
                         .type            n8678_var_ref_bx, @function
@@ -159647,7 +159695,7 @@ n8688_to_α:             sub              rsp, 32
 .Lgcsite_$cp_mq1$2F3_209:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 1536], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -159704,7 +159752,7 @@ n8688_to_α:             sub              rsp, 32
                         mov              r13, qword ptr [rbp + 1568]          # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_9278_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -160463,7 +160511,9 @@ n8709_disjunction_α:    sub              rsp, 32
 .Ldisjunction_α_9314_0: cmp              eax, 1;                              jne   .Ldisjunction_α_9314_1
                                                                               jmp   n8710_unmark_α
 .Ldisjunction_α_9314_1:                                                       jmp   n8710_unmark_α
-n8709_disjunction_β:    add              rsp, 32;                             jmp   n8794_unmark_α
+n8709_disjunction_β:    mov              eax, dword ptr [rsp + 16]
+                        cmp              eax, 0;                              je    .Ldisjunction_ω_8709_af
+                                                                              jmp   .Ldisjunction_ω_8709_af
 .Ldisjunction_γ_8709_af:
 .Ldisjunction_ω_8709_af:
                         mov              rsi, qword ptr [rsp + 24]            # pl_tr_unwind: pop the r12 trail to the mark, inline
@@ -160593,7 +160643,7 @@ n8715_to_α:             sub              rsp, 32
 .Lgcsite_$cp_mq1$2F3_234:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 864], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -160650,7 +160700,7 @@ n8715_to_α:             sub              rsp, 32
                         mov              r13, qword ptr [rbp + 896]           # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_9323_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -160796,9 +160846,9 @@ n8719_gate_β:           test             r15, r15;                            j
                         add              rsp, -32;                            jmp   n8721_unmark_α
 .Lgate_β_9330_999:      mov              eax, dword ptr [rbp + 592]
                         cmp              eax, 0;                              jne   .Lgate_β_9330_10
-                        add              rsp, -496;                           jmp   n8715_to_β
+                        add              rsp, -48;                            jmp   n8715_to_β
 .Lgate_β_9330_10:       cmp              eax, 1;                              jne   .Lgate_β_9330_11
-                        add              rsp, -528;                           jmp   n8801_to_β
+                        add              rsp, -80;                            jmp   n8801_to_β
 .Lgate_β_9330_11:       add              rsp, -32;                            jmp   n8721_unmark_α
                         .size            n8719_gate_bx, .-n8719_gate_bx
                         .type            n8720_gate_arm_bx, @function
@@ -160848,9 +160898,8 @@ n8722_gate_β:           test             r15, r15;                            j
                         add              rsp, 64;                             jmp   n8735_unmark_α
 .Lgate_β_9336_999:      mov              eax, dword ptr [rbp + 464]
                         cmp              eax, 0;                              je    n8705_call_proc_staged_β
-                        cmp              eax, 1;                              jne   .Lgate_β_9336_11
-                        add              rsp, -448;                           jmp   n8719_gate_β
-.Lgate_β_9336_11:       add              rsp, 64;                             jmp   n8735_unmark_α
+                        cmp              eax, 1;                              je    n8719_gate_β
+                        add              rsp, 64;                             jmp   n8735_unmark_α
                         .size            n8722_gate_bx, .-n8722_gate_bx
                         .type            n8723_var_ref_bx, @function
 n8723_var_ref_bx:
@@ -161311,7 +161360,7 @@ n8737_gate_β:           test             r15, r15;                            j
 .Lgate_β_9363_999:      mov              eax, dword ptr [rbp + 144]
                         cmp              eax, 0;                              je    n8737_gate_α
                         cmp              eax, 1;                              jne   .Lgate_β_9363_11
-                        add              rsp, -512;                           jmp   n8737_gate_α
+                        add              rsp, 16;                             jmp   n8737_gate_α
 .Lgate_β_9363_11:       add              rsp, 16;                             jmp   n8688_to_β
                         .size            n8737_gate_bx, .-n8737_gate_bx
                         .type            n8738_var_ref_bx, @function
@@ -161767,7 +161816,7 @@ n8751_to_α:             sub              rsp, 32
 .Lgcsite_$cp_mq1$2F3_256:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 3056], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -161824,7 +161873,7 @@ n8751_to_α:             sub              rsp, 32
                         mov              r13, qword ptr [rbp + 3088]          # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_9387_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -162116,7 +162165,7 @@ n8761_to_α:             sub              rsp, 32
 .Lgcsite_$cp_mq1$2F3_268:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 1952], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -162173,7 +162222,7 @@ n8761_to_α:             sub              rsp, 32
                         mov              r13, qword ptr [rbp + 1984]          # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_9404_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -162471,7 +162520,7 @@ n8771_to_α:             sub              rsp, 32
 .Lgcsite_$cp_mq1$2F3_280:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 704], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -162528,7 +162577,7 @@ n8771_to_α:             sub              rsp, 32
                         mov              r13, qword ptr [rbp + 736]           # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_9421_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -162812,7 +162861,7 @@ n8781_to_α:             sub              rsp, 32
 .Lgcsite_$cp_mq1$2F3_292:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 1344], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -162869,7 +162918,7 @@ n8781_to_α:             sub              rsp, 32
                         mov              r13, qword ptr [rbp + 1376]          # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_9438_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -163153,7 +163202,7 @@ n8791_to_α:             sub              rsp, 32
 .Lgcsite_$cp_mq1$2F3_304:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 2944], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -163210,7 +163259,7 @@ n8791_to_α:             sub              rsp, 32
                         mov              r13, qword ptr [rbp + 2976]          # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_9455_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -163502,7 +163551,7 @@ n8801_to_α:             sub              rsp, 32
 .Lgcsite_$cp_mq1$2F3_316:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 1104], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -163559,7 +163608,7 @@ n8801_to_α:             sub              rsp, 32
                         mov              r13, qword ptr [rbp + 1136]          # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_9472_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -190703,7 +190752,7 @@ n10151_call_value_α:    sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n10149_gate_β
 .Lcall_value_α_10218_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -196512,7 +196561,7 @@ n10516_to_α:            sub              rsp, 32
 .Lgcsite_$mod_q1$2F3_16:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 1376], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -196569,7 +196618,7 @@ n10516_to_α:            sub              rsp, 32
                         mov              r13, qword ptr [rbp + 1408]          # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_10626_8:         mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -196925,7 +196974,7 @@ n10528_to_α:            sub              rsp, 32
 .Lgcsite_$mod_q1$2F3_27:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 1168], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -196982,7 +197031,7 @@ n10528_to_α:            sub              rsp, 32
                         mov              r13, qword ptr [rbp + 1200]          # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_10645_8:         mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -197698,7 +197747,9 @@ n10548_disjunction_α:   sub              rsp, 32
                                                                               jmp   n10549_unmark_α
 .Ldisjunction_α_10679_1:
                                                                               jmp   n10549_unmark_α
-n10548_disjunction_β:   add              rsp, 32;                             jmp   n10584_unmark_α
+n10548_disjunction_β:   mov              eax, dword ptr [rsp + 16]
+                        cmp              eax, 0;                              je    .Ldisjunction_ω_10548_af
+                                                                              jmp   .Ldisjunction_ω_10548_af
 .Ldisjunction_γ_10548_af:
 .Ldisjunction_ω_10548_af:
                         mov              rsi, qword ptr [rsp + 24]            # pl_tr_unwind: pop the r12 trail to the mark, inline
@@ -197823,7 +197874,7 @@ n10554_to_α:            sub              rsp, 32
 .Lgcsite_$mod_q1$2F3_51:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 656], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -197880,7 +197931,7 @@ n10554_to_α:            sub              rsp, 32
                         mov              r13, qword ptr [rbp + 688]           # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_10688_8:         mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -199039,7 +199090,7 @@ n10591_to_α:            sub              rsp, 32
 .Lgcsite_$mod_q1$2F3_79:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 768], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -199096,7 +199147,7 @@ n10591_to_α:            sub              rsp, 32
                         mov              r13, qword ptr [rbp + 800]           # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_10750_8:         mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -203763,7 +203814,7 @@ n10922_call_value_α:    sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n10925_unmark_α
 .Lcall_value_α_10957_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -238263,7 +238314,9 @@ n12504_disjunction_α:   sub              rsp, 32
                                                                               jmp   n12505_unmark_α
 .Ldisjunction_α_12613_1:
                                                                               jmp   n12505_unmark_α
-n12504_disjunction_β:   add              rsp, 32;                             jmp   n12535_unmark_α
+n12504_disjunction_β:   mov              eax, dword ptr [rsp + 16]
+                        cmp              eax, 0;                              je    .Ldisjunction_ω_12504_af
+                                                                              jmp   .Ldisjunction_ω_12504_af
 .Ldisjunction_γ_12504_af:
 .Ldisjunction_ω_12504_af:
                         mov              rsi, qword ptr [rsp + 24]            # pl_tr_unwind: pop the r12 trail to the mark, inline
@@ -238395,7 +238448,7 @@ n12510_to_α:            sub              rsp, 32
 .Lgcsite_$error_qualify$2F2_39:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 544], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -238452,7 +238505,7 @@ n12510_to_α:            sub              rsp, 32
                         mov              r13, qword ptr [rbp + 576]           # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_12622_8:         mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -238598,9 +238651,9 @@ n12514_gate_β:          test             r15, r15;                            j
                         add              rsp, -32;                            jmp   n12516_unmark_α
 .Lgate_β_12629_999:     mov              eax, dword ptr [rbp + 416]
                         cmp              eax, 0;                              jne   .Lgate_β_12629_10
-                        add              rsp, -144;                           jmp   n12510_to_β
+                        add              rsp, -48;                            jmp   n12510_to_β
 .Lgate_β_12629_10:      cmp              eax, 1;                              jne   .Lgate_β_12629_11
-                        add              rsp, -176;                           jmp   n12542_to_β
+                        add              rsp, -80;                            jmp   n12542_to_β
 .Lgate_β_12629_11:      add              rsp, -32;                            jmp   n12516_unmark_α
                         .size            n12514_gate_bx, .-n12514_gate_bx
                         .type            n12515_gate_arm_bx, @function
@@ -238644,13 +238697,13 @@ n12516_unmark_α:        mov              rsi, qword ptr [rbp + 272]           #
                         .type            n12517_gate_bx, @function
 n12517_gate_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n12517_gate_α:                                                                jmp   n12489_call_proc_staged_β
-n12517_gate_β:          test             r15, r15;                            jne   n12489_call_proc_staged_β
-                        mov              eax, dword ptr [rbp + 240]
+n12517_gate_α:          add              rsp, 80;                             jmp   n12489_call_proc_staged_β
+n12517_gate_β:          test             r15, r15;                            je    .Lgate_β_12635_999
+                        add              rsp, 80;                             jmp   n12489_call_proc_staged_β
+.Lgate_β_12635_999:     mov              eax, dword ptr [rbp + 240]
                         cmp              eax, 0;                              je    n12500_call_proc_staged_β
-                        cmp              eax, 1;                              jne   .Lgate_β_12635_11
-                        add              rsp, -96;                            jmp   n12514_gate_β
-.Lgate_β_12635_11:                                                            jmp   n12489_call_proc_staged_β
+                        cmp              eax, 1;                              je    n12514_gate_β
+                        add              rsp, 80;                             jmp   n12489_call_proc_staged_β
                         .size            n12517_gate_bx, .-n12517_gate_bx
                         .type            n12518_var_ref_bx, @function
 n12518_var_ref_bx:
@@ -239694,7 +239747,7 @@ n12542_to_α:            sub              rsp, 32
 .Lgcsite_$error_qualify$2F2_69:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 656], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -239751,7 +239804,7 @@ n12542_to_α:            sub              rsp, 32
                         mov              r13, qword ptr [rbp + 688]           # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_12678_8:         mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -249506,8 +249559,9 @@ n13065_gate_α:                                                                j
 n13065_gate_β:          test             r15, r15;                            jne   n13057_call_proc_staged_β
                         mov              eax, dword ptr [rbp + 528]
                         cmp              eax, 0;                              je    n13065_gate_α
-                        cmp              eax, 1;                              je    n13065_gate_α
-                                                                              jmp   n13057_call_proc_staged_β
+                        cmp              eax, 1;                              jne   .Lgate_β_13205_11
+                        add              rsp, 16;                             jmp   n13065_gate_α
+.Lgate_β_13205_11:                                                            jmp   n13057_call_proc_staged_β
                         .size            n13065_gate_bx, .-n13065_gate_bx
                         .type            n13066_unmark_bx, @function
 n13066_unmark_bx:
@@ -253722,8 +253776,9 @@ n13325_gate_bx:
 n13325_gate_α:                                                                jmp   n13327_unmark_α
 n13325_gate_β:          test             r15, r15;                            jne   n13327_unmark_α
                         mov              eax, dword ptr [rbp + 256]
-                        cmp              eax, 0;                              je    n13317_gate_β
-                        cmp              eax, 1;                              je    n13322_call_proc_staged_β
+                        cmp              eax, 0;                              jne   .Lgate_β_13411_10
+                        add              rsp, 16;                             jmp   n13317_gate_β
+.Lgate_β_13411_10:      cmp              eax, 1;                              je    n13322_call_proc_staged_β
                                                                               jmp   n13327_unmark_α
                         .size            n13325_gate_bx, .-n13325_gate_bx
                         .type            n13326_gate_arm_bx, @function
@@ -269036,7 +269091,7 @@ n14102_call_value_α:    sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 240;                            jmp   $2C$2F2_ω
 .Lcall_value_α_14143_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -269175,7 +269230,7 @@ n14105_call_value_α:    sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 240;                            jmp   $2C$2F2_ω
 .Lcall_value_α_14149_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -269530,7 +269585,7 @@ n14114_call_value_α:    sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 128;                            jmp   $2C$2F2_ω
 .Lcall_value_α_14164_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -269658,7 +269713,7 @@ n14116_call_value_α:    sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 16;                             jmp   $2C$2F2_step
 .Lcall_value_α_14168_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -270419,7 +270474,7 @@ n14181_call_value_α:    sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 128;                            jmp   $3B$2F2_ω
 .Lcall_value_α_14261_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -270817,7 +270872,7 @@ n14191_call_value_α:    sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n14196_unmark_α
 .Lcall_value_α_14278_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -270972,7 +271027,7 @@ n14194_call_value_α:    sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n14200_unmark_α
 .Lcall_value_α_14284_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -271146,7 +271201,7 @@ n14198_call_value_α:    sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n14200_unmark_α
 .Lcall_value_α_14292_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -271607,7 +271662,7 @@ n14212_call_value_α:    sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n14217_unmark_α
 .Lcall_value_α_14317_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -271740,7 +271795,7 @@ n14215_call_value_α:    sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n14212_call_value_β
 .Lcall_value_α_14323_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -271903,7 +271958,7 @@ n14220_call_value_α:    sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 32;                             jmp   n14222_unmark_α
 .Lcall_value_α_14333_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -272181,7 +272236,7 @@ n14229_call_value_α:    sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n14227_call_proc_staged_β
 .Lcall_value_α_14351_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -272320,7 +272375,7 @@ n14232_call_value_α:    sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 112;                            jmp   $3B$2F2_ω
 .Lcall_value_α_14357_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -272448,7 +272503,7 @@ n14234_call_value_α:    sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 16;                             jmp   $3B$2F2_step
 .Lcall_value_α_14361_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -272702,7 +272757,7 @@ n14241_call_value_α:    sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 112;                            jmp   $3B$2F2_ω
 .Lcall_value_α_14375_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -272841,7 +272896,7 @@ n14244_call_value_α:    sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 112;                            jmp   $3B$2F2_ω
 .Lcall_value_α_14381_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -272969,7 +273024,7 @@ n14246_call_value_α:    sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 16;                             jmp   $3B$2F2_step
 .Lcall_value_α_14385_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -273746,7 +273801,7 @@ n14394_call_value_α:    sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 128;                            jmp   $2D$3E$2F2_ω
 .Lcall_value_α_14414_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -273874,7 +273929,7 @@ n14396_call_value_α:    sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 16;                             jmp   $2D$3E$2F2_step
 .Lcall_value_α_14418_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -274012,7 +274067,7 @@ n14399_call_value_α:    sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 48;                             jmp   $2D$3E$2F2_ω
 .Lcall_value_α_14424_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -274590,7 +274645,7 @@ n14433_call_value_α:    sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 128;                            jmp   $2A$2D$3E$2F2_ω
 .Lcall_value_α_14452_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -274722,7 +274777,7 @@ n14435_call_value_α:    sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 16;                             jmp   $2A$2D$3E$2F2_step
 .Lcall_value_α_14456_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -274854,7 +274909,7 @@ n14437_call_value_α:    sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n14435_call_value_β
 .Lcall_value_α_14460_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -275207,7 +275262,7 @@ n14464_call_value_α:    sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n14469_unmark_α
 .Lcall_value_α_14483_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -275340,7 +275395,7 @@ n14467_call_value_α:    sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n14464_call_value_β
 .Lcall_value_α_14489_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -275503,7 +275558,7 @@ n14472_call_value_α:    sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 32;                             jmp   n14474_unmark_α
 .Lcall_value_α_14499_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -284349,7 +284404,7 @@ n14849_to_α:            sub              rsp, 32
 .Lgcsite_atom_concat$2F3_8:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 112], rax
-                        push             rax                                  # gc_poll bb_to.cpp:93
+                        push             rax                                  # gc_poll bb_to.cpp:106
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -284406,7 +284461,7 @@ n14849_to_α:            sub              rsp, 32
                         mov              r13, qword ptr [rbp + 144]           # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_14868_8:         mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:113
+                        push             rax                                  # gc_poll bb_to.cpp:126
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -286565,7 +286620,7 @@ n14943_call_value_α:    sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 80;                             jmp   n14945_unmark_α
 .Lcall_value_α_14979_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -298800,7 +298855,7 @@ n15366_call_value_α:    sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 1840;                           jmp   n15368_unmark_α
 .Lcall_value_α_15500_999:
-                        push             rax                                  # gc_poll bb_call_value.cpp:320
+                        push             rax                                  # gc_poll bb_call_value.cpp:341
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
