@@ -13356,169 +13356,7 @@ procedure setup (line);		# interpret and report a column spec line
    write (")");
    return p;
 end
-#----------------------------------------- 925 procedure_record_coexpr_replace_6
-#SRC: V9GEN
-
-#  This program contains samples of all the basic syntactic
-#  forms in Icon.
-
-record three(x,y,z)
-record zero()
-record one(z)
-
-global line, count
-
-procedure main()
-   write(image(expr1), " ", image(expr2), " ", image(expr3), " ", image(expr4));
-   write(image(three), " ", image(zero), " ", image(one));
-   write(type(three(1, 2, 3)), " ", type(zero()), " ", type(one(0)));
-end
-procedure expr1(a, b)
-   local x,y,z;
-   static e1;
-   initial e1 := 0;
-   ();
-   {}
-   ();();
-   [];
-   [,];
-   x.y;
-   x[i];
-   x[i:j];
-   x[i+:j];
-   x[i-:j];
-   (,,,);
-   x(,,,);
-   x!y;
-   not x;
-   |x;
-   !x;
-   *x;
-   +x;
-   -x;
-end
-
-procedure expr2(a, b[])
-   .x;
-   /x;
-   =x;
-   ?x;
-   \x;
-   ~x;
-   @x;
-   ^x;
-   x \ i;
-   x @ y;
-   i ^ j;
-   i * j;
-   i / j;
-   i % j;
-   c1 ** c2;
-   i + j;
-   i - j;
-   c1 ++ c2;
-   c1 -- c2;
-   s1 || s2;
-   a1 ||| a2;
-   i < j;
-   i <= j;
-   i = j;
-   i >= j;
-   i > j;
-   i ~= j;
-   s1 << s2;
-   s1 == s2;
-   s1 >>= s2;
-   s1 >> s2;
-   s1 ~== s2;
-   x === y;
-   x ~=== y;
-   x | y;
-   i to j;
-   i to j by k;
-   x := y;
-   x <- y;
-   x :=: y;
-   x <-> y;
-   i +:= j;
-   i -:= j;
-   i *:= j;
-end
-
-procedure expr3()
-   i /:= j;
-   i %:= j;
-   i ^:= j;
-   i <:= j;
-   i <=:= j;
-   i =:= j;
-   i >=:= j;
-   i ~=:= j;
-   c1 ++:= c2;
-   c1 --:= c2;
-   c1 **:= c2;
-   s1 ||:= s2;
-   s1 <<:= s2;
-   s1 <<=:= s2;
-   s1 ==:= s2;
-   s1 >>=:= s2;
-   s1 >>:= s2;
-   s1 ~==:= s2;
-   s1 ?:= s2;
-   a1 |||:= a2;
-   x ===:= y;
-   x ~===:= y;
-   x &:= y;
-   x @:= y;
-   s ? x;
-   x & y;
-   create x;
-   return;
-   return x;
-   suspend x;
-   suspend x do y;
-   fail;
-end
-
-procedure expr4()
-   while e1 do break;
-   while e1 do break e2;
-   while e1 do next;
-   case e of {
-     x:   fail;
-     (i > j) | 1    :  return
-     };
-   case size(s) of {
-     1:   1;
-     default:  fail
-     };
-   if e1 then e2;
-   if e1 then e2 else e3;
-   repeat e;
-   while e1;
-   while e1 do e2;
-   until e1;
-   until e1 do e2;
-   every e1;
-   every e1 do e2;
-   x;
-   X_;
-   &cset;
-   &null;
-   "abc";
-   'abc';
-   "\n";
-   "^a";
-   "\001";
-   "\x01";
-   1;
-   999999;
-   36ra1;
-   3.5;
-   2.5e4;
-   4e-10;
-end
-#----------------------------------------- 926 procedure_record_every_replace_19
+#----------------------------------------- 925 procedure_record_every_replace_19
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g)
@@ -13723,7 +13561,7 @@ end
 
 global s, t, x, r
 global a, a1, a2, a3, a4
-#----------------------------------------- 927 procedure_record_coexpr_replace_3
+#----------------------------------------- 926 procedure_record_coexpr_replace_3
 #SRC: JCON
 
 # test sorting and copying
@@ -13957,6 +13795,168 @@ procedure wsortf(L, n)
       write(s)
       };
    return;
+end
+#----------------------------------------- 927 procedure_record_coexpr_replace_6
+#SRC: V9GEN
+
+#  This program contains samples of all the basic syntactic
+#  forms in Icon.
+
+record three(x,y,z)
+record zero()
+record one(z)
+
+global line, count
+
+procedure main()
+   write(image(expr1), " ", image(expr2), " ", image(expr3), " ", image(expr4));
+   write(image(three), " ", image(zero), " ", image(one));
+   write(type(three(1, 2, 3)), " ", type(zero()), " ", type(one(0)));
+end
+procedure expr1(a, b)
+   local x,y,z;
+   static e1;
+   initial e1 := 0;
+   ();
+   {}
+   ();();
+   [];
+   [,];
+   x.y;
+   x[i];
+   x[i:j];
+   x[i+:j];
+   x[i-:j];
+   (,,,);
+   x(,,,);
+   x!y;
+   not x;
+   |x;
+   !x;
+   *x;
+   +x;
+   -x;
+end
+
+procedure expr2(a, b[])
+   .x;
+   /x;
+   =x;
+   ?x;
+   \x;
+   ~x;
+   @x;
+   ^x;
+   x \ i;
+   x @ y;
+   i ^ j;
+   i * j;
+   i / j;
+   i % j;
+   c1 ** c2;
+   i + j;
+   i - j;
+   c1 ++ c2;
+   c1 -- c2;
+   s1 || s2;
+   a1 ||| a2;
+   i < j;
+   i <= j;
+   i = j;
+   i >= j;
+   i > j;
+   i ~= j;
+   s1 << s2;
+   s1 == s2;
+   s1 >>= s2;
+   s1 >> s2;
+   s1 ~== s2;
+   x === y;
+   x ~=== y;
+   x | y;
+   i to j;
+   i to j by k;
+   x := y;
+   x <- y;
+   x :=: y;
+   x <-> y;
+   i +:= j;
+   i -:= j;
+   i *:= j;
+end
+
+procedure expr3()
+   i /:= j;
+   i %:= j;
+   i ^:= j;
+   i <:= j;
+   i <=:= j;
+   i =:= j;
+   i >=:= j;
+   i ~=:= j;
+   c1 ++:= c2;
+   c1 --:= c2;
+   c1 **:= c2;
+   s1 ||:= s2;
+   s1 <<:= s2;
+   s1 <<=:= s2;
+   s1 ==:= s2;
+   s1 >>=:= s2;
+   s1 >>:= s2;
+   s1 ~==:= s2;
+   s1 ?:= s2;
+   a1 |||:= a2;
+   x ===:= y;
+   x ~===:= y;
+   x &:= y;
+   x @:= y;
+   s ? x;
+   x & y;
+   create x;
+   return;
+   return x;
+   suspend x;
+   suspend x do y;
+   fail;
+end
+
+procedure expr4()
+   while e1 do break;
+   while e1 do break e2;
+   while e1 do next;
+   case e of {
+     x:   fail;
+     (i > j) | 1    :  return
+     };
+   case size(s) of {
+     1:   1;
+     default:  fail
+     };
+   if e1 then e2;
+   if e1 then e2 else e3;
+   repeat e;
+   while e1;
+   while e1 do e2;
+   until e1;
+   until e1 do e2;
+   every e1;
+   every e1 do e2;
+   x;
+   X_;
+   &cset;
+   &null;
+   "abc";
+   'abc';
+   "\n";
+   "^a";
+   "\001";
+   "\x01";
+   1;
+   999999;
+   36ra1;
+   3.5;
+   2.5e4;
+   4e-10;
 end
 #------------------------------------------- 928 procedure_every_scan_replace_16
 #SRC: V9GEN

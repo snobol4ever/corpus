@@ -10508,11 +10508,7 @@ testing entab/detab(s,3)
 testing entab/detab(s,3,4)
 testing entab/detab(s,5)
 testing entab/detab(s,5,7,10)
-#----------------------------------------- 925 procedure_record_coexpr_replace_6
-procedure expr1 procedure expr2 procedure expr3 procedure expr4
-record constructor three record constructor zero record constructor one
-three zero one
-#----------------------------------------- 926 procedure_record_every_replace_19
+#----------------------------------------- 925 procedure_record_every_replace_19
  ----> &null
 list(0) ----> list_1(0)
 list(0,1) ----> list_2(0)
@@ -10872,7 +10868,7 @@ procedure main
 &null
 every write(image(!r)) ----> none
  a: -2035912587 847198497 
-#----------------------------------------- 927 procedure_record_coexpr_replace_3
+#----------------------------------------- 926 procedure_record_coexpr_replace_3
 0:
 1:
 2:
@@ -11376,6 +11372,10 @@ key=6 record r2_2(2)
 key=6 record r2_4(2)
 key=8 record r5_11(5)
 key=8 record r5_15(5)
+#----------------------------------------- 927 procedure_record_coexpr_replace_6
+procedure expr1 procedure expr2 procedure expr3 procedure expr4
+record constructor three record constructor zero record constructor one
+three zero one
 #------------------------------------------- 928 procedure_every_scan_replace_16
 1	one
 2	two
