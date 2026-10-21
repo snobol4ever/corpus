@@ -20,7 +20,7 @@
 # ISO expected refusal. The six that were: tbs_tb0454, tbs_tb0675, webtbs_tw3207 (objfpc), webtbs_tw3572, webtbs_tw17430 (delphi) and
 # webtbs_tw41595 (delphiunicode, admitted by the lexer as the Delphi dialect, as fpc admits it). Each is graded against its own .ref:
 # MEASURED, fpc 3.2.2 under each source's own mode cuts a ref byte-identical to the -Miso cut, so no ref moved. tb0675 (FPC overloads
-# over Currency, Halt 1) and tw17430 (the System variable ReturnNilIfGrowHeapFails) are FPC-dialect debt on this board, red until cured.
+# over Currency, Halt 1) is FPC-dialect debt on this board, red until cured; tw17430 (the System variable ReturnNilIfGrowHeapFails) was cured at SCRIP 24d05dffc.
 # REMOVED 2026-10-21 by hq_pascal: webtbs_tw2072. Its two const-definition-parts sit in an (*$ifdef FPC*) / (*$else*) pair; since SCRIP
 # 8f58b6145 (2026-10-14) the lexer reads the (*$...*) conditional forms as their brace forms, as fpc does, so one part survives, the program
 # is valid ISO 7185 and SCRIP runs it. It is graded against its own .ref (Hello FPC), m3 and m4 byte-identical. The 6.2.1 check itself
