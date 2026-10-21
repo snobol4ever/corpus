@@ -3894,7 +3894,7 @@ end
 #------------------------------------------------------- 585 procedure_write_254
 procedure main()
    local f;
-   f := loadfunc("/home/resources/icon-build/bin/libcfunc.so", "bitcount");
+   f := loadfunc("/home/resources/icon-master/bin/libcfunc.so", "bitcount");
    write("A:", image(f));
    write("B:", f(500));
    write("C:", f(511));
