@@ -1,10 +1,10 @@
- TERMINAL = 'via-terminal';END;* simple_assign_1
+ TERMINAL = 'via-terminal'; OUTPUT = 'after the terminal assignment';END;* simple_assign_1
  OUTPUT = 'AB' 'CD';END;* simple_output_10
  OUTPUT = REMDR(10, 3);END;* simple_output_101
  X = 'hello'; OUTPUT = X;END;* simple_output_102
  N = 42; OUTPUT = N;END;* simple_output_103
  X = 'alpha'; Y = X; OUTPUT = Y;END;* simple_output_104
- X = 'something'; X =; OUTPUT = X;END;* simple_output_105
+ X = 'something'; X =; OUTPUT = X; OUTPUT = 'done';END;* simple_output_105
  X = 'first'; X = 'second'; OUTPUT = X;END;* simple_output_106
  $'X' = 'hello'; OUTPUT = X;END;* simple_output_107
  OUTPUT = 'alpha'; OUTPUT = 'beta';END;* simple_output_108
@@ -23,15 +23,15 @@
  :(A); OUTPUT = 'skip';A OUTPUT = 'a' :(B); OUTPUT = 'skip';B OUTPUT = 'b';END;* simple_output_126
  DATA('complex(real,imag)'); X = complex(3, -2); OUTPUT = real(X); OUTPUT = imag(X);END;* simple_output_127
  DATA('point(x,y)'); P = point(10, 20); OUTPUT = x(P); OUTPUT = y(P); x(P) = 99; OUTPUT = x(P);END;* simple_output_128
- OUTPUT = '';END;* simple_output_130
+ OUTPUT = ''; OUTPUT = 'done';END;* simple_output_130
  OUTPUT = 'HELLO WORLD';END;* simple_output_131
  OUTPUT = 'LINE ONE'; OUTPUT = 'LINE TWO'; OUTPUT = 'LINE THREE';END;* simple_output_133
  OUTPUT = 'hello world';END;* simple_output_140
  OUTPUT = 42;END;* simple_output_141
  OUTPUT = 3.14;END;* simple_output_142
- OUTPUT = '';END;* simple_output_143
+ OUTPUT = ''; OUTPUT = 'done';END;* simple_output_143
  OUTPUT = 'line one'; OUTPUT = 'line two'; OUTPUT = 'line three';END;* simple_output_144
- OUTPUT = X;END;* simple_output_145
+ OUTPUT = X; OUTPUT = 'done';END;* simple_output_145
  OUTPUT = "hello world";END;* simple_output_146
  OUTPUT = ATAN(1); OUTPUT = ATAN(0);END;* simple_output_16
  OUTPUT = CHOP(3.7); OUTPUT = CHOP(-3.7); OUTPUT = CHOP(3.2); OUTPUT = CHOP(-3.2); OUTPUT = CHOP(0.0);END;* simple_output_17
@@ -68,7 +68,7 @@
  x =; OUTPUT = 'a=' (IDENT(x) 0, 5); OUTPUT = 'b=' (LT(1,2) 7, 9);END;* simple_output_86
  x = 'nn'; z = (IDENT(x) 0, 5); OUTPUT = 'z=' z; OUTPUT = 'direct=' (IDENT(x) 0, 5); w = (LT(1,0) 7, 9); OUTPUT = 'w=' w; v = (LT(1,2) 7, 9); OUTPUT = 'v=' v;END;* simple_output_88
  OUTPUT = -5;END;* simple_output_99
-;END;;* simple_program_2
+;; OUTPUT = 'leading empty statements';END;;* simple_program_2
  subject = 'foobar'; subject ('foo' | 'baz') :f(e001); OUTPUT = 'PASS W03/001: alt first branch matched' :(END);e001 OUTPUT = 'FAIL W03/001: alt first branch should match';END;* alt_1
  subject = 'hello'; subject ANY('aeiou') :f(e001); OUTPUT = 'PASS W05/001: any matched' :(END);e001 OUTPUT = 'FAIL W05/001: any should match';END;* any_1
  subject = 'xxx'; subject (ARBNO('ab') 'xxx') :f(e001); OUTPUT = 'PASS W04/003: arbno zero then literal' :(END);e001 OUTPUT = 'FAIL W04/003: should have matched';END;* arbno_1
@@ -176,7 +176,7 @@
  DEFINE('F(x)') :(FEnd);F F = 'got:' x :(RETURN);FEnd; DEFINE('F(x)'); OUTPUT = F('one'); OUTPUT = F('two');END;* user_function_19
  DEFINE('MYFN(X)'); MYFN = 'a value in the variable'; UNLOAD('MYFN'); OUTPUT = 'var after unload = [' MYFN ']' :(END);MYFN MYFN = X :(RETURN);END;* user_function_21
  DEFINE('swap(a,b)tmp') :(swap_end);swap tmp = a; a = b; b = tmp; OUTPUT = a ' ' b :(RETURN);swap_end; swap('hello', 'world');END;* user_function_24
- DEFINE('namer()namedvar') :(main);namer namedvar = 'set-by-namer'; namer = .namedvar :(NRETURN);main result = namer(); OUTPUT = result;END;* user_function_5
+ DEFINE('namer()namedvar') :(main);namer namedvar = 'set-by-namer'; namer = .namedvar :(NRETURN);main result = namer(); OUTPUT = result; OUTPUT = 'done';END;* user_function_5
  DEFINE('H()'); OUTPUT = H() :(END);H H = 42 :(RETURN);END;* user_function_7
  DEFINE('f(OP)') :(fmain);f :(LADD);LADD OUTPUT = 'op=ADD' :(RETURN);fmain f('ADD'); OUTPUT = 'back' :(END);END;* user_function_9
  'DEF' ? ('ABC' | 'DEF') :F(bad); OUTPUT = 'alt-ok' :(fin);bad OUTPUT = 'alt-bad';fin;END;* alt_branch_1
@@ -811,30 +811,41 @@
  P = (SPAN(' ') | (NOTANY('abc') | NOTANY('+'))) FENCE(FENCE(TAB(0))) ARBNO((ARB) . v0); 'aaa' *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_fence_arb_branch_1
 *---------------------------------------------------------- 812 simple_assign_12
         x = 5
+        OUTPUT = 'x=' x
 END
 *---------------------------------------------------------- 813 simple_assign_15
         x = 'hi'
+        OUTPUT = 'x=' x
 END
 *---------------------------------------------------------- 814 simple_assign_16
         x = y
+        OUTPUT = 'x=' x
 END
 *---------------------------------------------------------- 815 simple_assign_19
         y = (x) z
+        OUTPUT = 'y=' y
 END
 *---------------------------------------------------------- 816 simple_assign_20
         y = 'hello' 'world'
+        OUTPUT = 'y=' y
 END
 *---------------------------------------------------------- 817 simple_assign_21
         y = x z
+        OUTPUT = 'y=' y
 END
 *---------------------------------------------------------- 818 simple_assign_26
-	S 'a' = 'b'
+	S 'a' = 'b'	:S(YES)F(NO)
+YES	OUTPUT = 'match' ' S=' S	:(END)
+NO	OUTPUT = 'no match'
 END
 *---------------------------------------------------------- 819 simple_assign_27
-	S 'a' =
+	S 'a' =	:S(YES)F(NO)
+YES	OUTPUT = 'match' ' S=' S	:(END)
+NO	OUTPUT = 'no match'
 END
 *---------------------------------------------------------- 820 simple_assign_30
         x = .foo
+        OUTPUT = 'x is ' DATATYPE(x)
 END
 *--------------------------------------------------------- 821 simple_output_183
         OUTPUT = REMDR(10, 3)
@@ -850,24 +861,34 @@ END
 END
 *---------------------------------------------------------- 825 simple_program_3
         x
+        OUTPUT = 'ran past the bare statement'
 END
 *---------------------------------------------------------- 826 simple_program_4
         42
+        OUTPUT = 'ran past the bare statement'
 END
 *---------------------------------------------------------- 827 simple_program_5
         'hi'
+        OUTPUT = 'ran past the bare statement'
 END
 *---------------------------------------------------------- 828 simple_program_6
 LOOP    x
+        OUTPUT = 'ran past the bare statement'
 END
 *---------------------------------------------------------- 829 simple_program_7
-L1	S 'a'
+L1	S 'a'	:S(YES)F(NO)
+YES	OUTPUT = 'match'	:(END)
+NO	OUTPUT = 'no match'
 END
 *---------------------------------------------------------- 830 simple_program_8
-	S 'a' 'b' 'c'
+	S 'a' 'b' 'c'	:S(YES)F(NO)
+YES	OUTPUT = 'match'	:(END)
+NO	OUTPUT = 'no match'
 END
 *---------------------------------------------------------- 831 simple_program_9
-	S 'a' 'b'
+	S 'a' 'b'	:S(YES)F(NO)
+YES	OUTPUT = 'match'	:(END)
+NO	OUTPUT = 'no match'
 END
 *---------------------------------------------------------------- 832 demo_hello
 *       Simple hello world
@@ -876,22 +897,27 @@ END
 *---------------------------------------------------------- 833 simple_assign_13
         a = 1
         b = 'two'
+        OUTPUT = 'a=' a ' b=' b
 END
 *---------------------------------------------------------- 834 simple_assign_18
 START
         x = 1
+        OUTPUT = 'x=' x
 END
 *---------------------------------------------------------- 835 simple_assign_23
         Y = 'foo'
 .            'bar'
+        OUTPUT = 'Y=' Y
 END
 *---------------------------------------------------------- 836 simple_assign_24
         X = 'hello'
 +            ' world'
+        OUTPUT = 'X=' X
 END
 *---------------------------------------------------------- 837 simple_assign_29
         X = 1 ;* comment after semi
         Y = 2 ; Z = 3
+        OUTPUT = 'X=' X ' Y=' Y ' Z=' Z
 END
 *--------------------------------------------------------- 838 simple_output_187
 *  066 - SUBSTR extracts substring
@@ -920,10 +946,12 @@ END
 *--------------------------------------------------------- 844 simple_output_201
 *  004 - Output empty string produces blank line
         OUTPUT = ''
+        OUTPUT = 'done'
 END
 *--------------------------------------------------------- 845 simple_output_203
 *  007 - Uninitialized variable outputs empty line
         OUTPUT = X
+        OUTPUT = 'done'
 END
 *--------------------------------------------------------- 846 simple_output_204
 *  008 - Double-quoted string literal
@@ -956,6 +984,7 @@ END
 *--------------------------------------------------------- 853 simple_output_245
 *     empty_string.sno - Output of null string produces blank line.
         OUTPUT = ''
+        OUTPUT = 'done'
 END
 *--------------------------------------------------------- 854 simple_output_246
 *     hello.sno - Minimal output test.
@@ -1001,11 +1030,13 @@ END
         x = 5
         y = 'hi'
         z = x
+        OUTPUT = 'x=' x ' y=' y ' z=' z
 END
 *---------------------------------------------------------- 865 simple_assign_17
         x = 1
 
         y = 2
+        OUTPUT = 'x=' x ' y=' y
 END
 *--------------------------------------------------------- 866 simple_output_207
 *  019 - Concatenate variable with string literal
@@ -1108,6 +1139,7 @@ END
         X = 'something'
         X =
         OUTPUT = X
+        OUTPUT = 'done'
 END
 *--------------------------------------------------------- 885 simple_output_226
 *  013 - Overwrite variable, output second value
@@ -1187,6 +1219,7 @@ END
         Y = X
         Z = 'hello' 'world'
 * trailing comment
+        OUTPUT = 'X=' X ' Y=' Y ' Z=' Z
 END
 *--------------------------------------------------------- 897 simple_output_278
  EQ(1,1) :s(succ)
@@ -1773,94 +1806,134 @@ e005
         OUTPUT = 'PASS 914_lgt (5/5)'
 END
 *--------------------------------------------------------------------- 937 alt_4
-	S ('a' | 'b')
+	S ('a' | 'b')	:S(YES)F(NO)
+YES	OUTPUT = 'match'	:(END)
+NO	OUTPUT = 'no match'
 END
 *--------------------------------------------------------------------- 938 alt_5
-	S 'a' | 'b' | 'c'
+	S 'a' | 'b' | 'c'	:S(YES)F(NO)
+YES	OUTPUT = 'match'	:(END)
+NO	OUTPUT = 'no match'
 END
 *--------------------------------------------------------------------- 939 alt_6
-	S 'a' | 'b'
+	S 'a' | 'b'	:S(YES)F(NO)
+YES	OUTPUT = 'match'	:(END)
+NO	OUTPUT = 'no match'
 END
 *--------------------------------------------------------------------- 940 any_2
-	S 'xy' ANY('xy')
+	S 'xy' ANY('xy')	:S(YES)F(NO)
+YES	OUTPUT = 'match'	:(END)
+NO	OUTPUT = 'no match'
 END
 *------------------------------------------------------------------- 941 arbno_4
         x = ARBNO('a')
+        OUTPUT = 'x is ' DATATYPE(x)
 END
 *------------------------------------------------------------------- 942 break_2
-	S 'hello,world' BREAK(',')
+	S 'hello,world' BREAK(',')	:S(YES)F(NO)
+YES	OUTPUT = 'match'	:(END)
+NO	OUTPUT = 'no match'
 END
 *----------------------------------------------------------------- 943 capture_5
-	S 'a' . X . Y
+	S 'a' . X . Y	:S(YES)F(NO)
+YES	OUTPUT = 'match' ' X=' X ' Y=' Y	:(END)
+NO	OUTPUT = 'no match'
 END
 *----------------------------------------------------------------- 944 capture_6
-	S 'a' . X
+	S 'a' . X	:S(YES)F(NO)
+YES	OUTPUT = 'match' ' X=' X	:(END)
+NO	OUTPUT = 'no match'
 END
 *------------------------------------------------------------------- 945 defer_2
-        X *P
+        X *P	:S(YES)F(NO)
+YES	OUTPUT = 'match'	:(END)
+NO	OUTPUT = 'no match'
 END
 *------------------------------------------------------------------- 946 defer_3
         P = *Q
+        OUTPUT = 'P is ' DATATYPE(P)
 END
 *-------------------------------------------------------------------- 947 dupl_3
         OUTPUT = DUPL('ab', 3)
 END
 *------------------------------------------------------------------- 948 fence_1
         x = FENCE('a')
+        OUTPUT = 'x is ' DATATYPE(x)
 END
 *------------------------------------------------------------- 949 imm_capture_2
-	S 'a' $ X
+	S 'a' $ X	:S(YES)F(NO)
+YES	OUTPUT = 'match' ' X=' X	:(END)
+NO	OUTPUT = 'no match'
 END
 *--------------------------------------------------------------------- 950 len_3
-	S 'hi' LEN(3)
+	S 'hi' LEN(3)	:S(YES)F(NO)
+YES	OUTPUT = 'match'	:(END)
+NO	OUTPUT = 'no match'
 END
 *------------------------------------------------------------------ 951 notany_2
-	S 'abc' NOTANY('xy')
+	S 'abc' NOTANY('xy')	:S(YES)F(NO)
+YES	OUTPUT = 'match'	:(END)
+NO	OUTPUT = 'no match'
 END
 *---------------------------------------------------------- 952 simple_assign_10
         y = 2 ** 3 ** 2
+        OUTPUT = 'y=' y
 END
 *----------------------------------------------------------- 953 simple_assign_4
         y = 1 + 2 * 3
+        OUTPUT = 'y=' y
 END
 *----------------------------------------------------------- 954 simple_assign_5
         y = 1 - 2 + 3 - 4 + 5
+        OUTPUT = 'y=' y
 END
 *----------------------------------------------------------- 955 simple_assign_6
         y = 1 - 2 - 3
+        OUTPUT = 'y=' y
 END
 *----------------------------------------------------------- 956 simple_assign_7
         y = 12 / 4 / 3
+        OUTPUT = 'y=' y
 END
 *----------------------------------------------------------- 957 simple_assign_8
         y = 1 + 2 - 3
+        OUTPUT = 'y=' y
 END
 *----------------------------------------------------------- 958 simple_assign_9
         y = (1 + 2) * 3
+        OUTPUT = 'y=' y
 END
 *--------------------------------------------------------- 959 simple_output_272
 	OUTPUT = 'Fourscore and ' (1863 - 1776 - 4 * 20) ' years'
 END
 *--------------------------------------------------------- 960 simple_program_10
 L1	S 'a' :S(L1)
+        OUTPUT = 'fell through L1'
 END
 *-------------------------------------------------------------------- 961 span_3
-	S 'aaabbb' SPAN('a')
+	S 'aaabbb' SPAN('a')	:S(YES)F(NO)
+YES	OUTPUT = 'match'	:(END)
+NO	OUTPUT = 'no match'
 END
 *---------------------------------------------------------- 962 user_function_30
 	DEFINE('F(X)')
+        OUTPUT = 'defined'
 END
 *---------------------------------------------------------- 963 user_function_31
 F	DEFINE('F(X)')
+        OUTPUT = 'defined'
 END
 *---------------------------------------------------------- 964 user_function_32
 	DEFINE('F(X)L1')
+        OUTPUT = 'defined'
 END
 *---------------------------------------------------------- 965 user_function_33
 	DEFINE('F(X,Y)')
+        OUTPUT = 'defined'
 END
 *---------------------------------------------------------- 966 user_function_34
 	DEFINE('F()')
+        OUTPUT = 'defined'
 END
 *------------------------------------------------------------------ 967 array_12
  A = ARRAY('3', "Z")
@@ -1885,6 +1958,7 @@ END
 *---------------------------------------------------------- 972 simple_assign_28
 	S 'a' = 'b' :F(L2)
 L2	X
+        OUTPUT = 'reached L2'
 END
 *--------------------------------------------------------- 973 simple_output_211
 *  023 - Integer addition
@@ -2244,6 +2318,7 @@ END
         c = 2 ** 3
         d = 6 / 2
         e = 10 - 4
+        OUTPUT = 'a=' a ' b=' b ' c=' c ' d=' d ' e=' e
 END
 *--------------------------------------------------------- 1036 simple_assign_22
         Z = 'a'
@@ -2251,6 +2326,7 @@ END
 +           'c'
         W = 1
 +           + 2
+        OUTPUT = 'Z=' Z ' W=' W
 END
 *-------------------------------------------------------- 1037 simple_output_237
 *  077 - DIFFER succeeds when strings differ
@@ -3053,6 +3129,7 @@ EXPORT          GREET
 GREET   GREET = 'Hello, ' NAME                         :(RETURN)
 GREET_END
 
+        OUTPUT = GREET('world')
 END
 *-------------------------------------------------------- 1121 keyword_replace_3
 * SETEXIT FACE 9 -- THE HANDLER'S VIEW OF WHERE THE ERROR HAPPENED.  Companion to
@@ -4738,6 +4815,8 @@ END
     UTF[CHAR(95) CHAR(33)] = 'X94'
     UTF[CHAR(96) CHAR(36)] = 'X95'
     UTF[CHAR(97) CHAR(39)] = 'X96'
+        OUTPUT = UTF[CHAR(2) CHAR(4)]
+        OUTPUT = UTF[CHAR(97) CHAR(39)]
 END
 *--------------------------------------------------------- 1192 user_function_49
         DEFINE('F(P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19,P20,P21,P22,P23,P24,P25,P26,P27,P28,P29,P30,P31,P32,P33,P34,P35,P36,P37,P38,P39,P40,P41,P42,P43,P44,P45,P46,P47,P48,P49,P50,P51,P52,P53,P54,P55,P56,P57,P58,P59,P60,P61,P62,P63,P64,P65,P66,P67,P68,P69,P70)L1,L2')
@@ -4890,7 +4969,9 @@ START   L1 = 'k'
         OUTPUT = P1 P35 P70 L1
 END
 *---------------------------------------------------------- 1193 break_capture_1
-	S BREAK(',') . X = ''
+	S BREAK(',') . X = ''	:S(YES)F(NO)
+YES	OUTPUT = 'match' ' S=' S	:(END)
+NO	OUTPUT = 'no match'
 END
 *----------------------------------------------------------- 1194 capture_alt_11
  "B2" ? ("A" | "B") . OUTPUT ("1" | "2" | "3") . OUTPUT
@@ -4899,10 +4980,13 @@ END
         'B2' ? ('A' | 'B') . OUTPUT ('1' | '2' | '3') . OUTPUT
 END
 *------------------------------------------------------------ 1196 capture_alt_7
-	S ('a' | 'b') . X
+	S ('a' | 'b') . X	:S(YES)F(NO)
+YES	OUTPUT = 'match' ' X=' X	:(END)
+NO	OUTPUT = 'no match'
 END
 *-------------------------------------------------------------- 1197 defer_alt_1
         P = *Q | *R
+        OUTPUT = 'P is ' DATATYPE(P)
 END
 *-------------------------------------------------------- 1198 arb_imm_capture_1
  S = "ABCDEFG"
@@ -4923,6 +5007,7 @@ END
 *--------------------------------------------------------------- 1202 pos_rpos_1
         x = POS(0)
         y = RPOS(0)
+        OUTPUT = 'x is ' DATATYPE(x) ' y is ' DATATYPE(y)
 END
 *----------------------------------------------------------- 1203 size_keyword_5
 *  006 - SIZE of &ALPHABET
@@ -4946,6 +5031,7 @@ END
         X = &UCASE
         Y = &LCASE
         Z = SIZE(&UCASE)
+        OUTPUT = 'X=' X ' Y=' Y ' Z=' Z
 END
 *--------------------------------------------------------- 1208 user_function_42
         DEFINE('F(X)')                :(FEND)
@@ -5010,6 +5096,7 @@ END
         &FULLSCAN = 1
         Y = &TRIM
         &TRIM = 0
+        OUTPUT = 'X=' X ' Y=' Y
 END
 *--------------------------------------------------------- 1219 user_function_35
  DEFINE("DBL(N)")
@@ -5821,6 +5908,7 @@ END
 
         S = 'AXBYC'
         S ANY('AB') . captured
+        OUTPUT = 'S=' S ' captured=' captured
 END
 *--------------------------------------------------------- 1297 simple_output_56
         INPUT(.m, 1, '/tmp/f20_input_does_not_exist.txt')       :F(noexist)
@@ -7757,6 +7845,7 @@ SQR_END
         S = 'hello world'
         S 'world' = 'there'
         N = SQR(7)
+        OUTPUT = S ' ' N
 END
 *------------------------------------- 1443 user_function_array_replace_branch_1
 *  ⛔ RED ON ARRIVAL -- A PRE-EXISTING DEFECT EXPOSED BY queue row `subscript-silent-accept`,
@@ -7819,6 +7908,7 @@ SQR     SQR = N * N                             :(RETURN)
 SQR_END
         S = 'hello world'
         N = SQR(7)
+        OUTPUT = S ' ' N
 END
 *---------------------------------------------------- 1445 table_array_convert_3
         t = TABLE(10)
@@ -8823,6 +8913,7 @@ END
         X ARB . V LEN(1)                                           :S(YES)
         OUTPUT = 'fail' :(END)
 YES     OUTPUT = V
+        OUTPUT = 'matched'
 END
 *------------------------------------------------------- 1464 fence_alt_branch_1
         X = 'bx'
@@ -8930,6 +9021,7 @@ END
         OUTPUT = 'fail'
         :(END)
 YES     OUTPUT = V
+        OUTPUT = 'matched'
 END
 *---------------------------------------- 1480 arbno_break_imm_capture_replace_1
 *  CONTROL, GREEN -- BREAK alone (no ARBNO) is NOT a generator (unlike BREAKX): it proposes

@@ -3,3 +3,4 @@
 # pass / (shipped - EXCLUDED), naming EXCLUDED=N in the row and the SUITE TABLE's Excl column (util_score_row.py --excluded), the
 # shape every SNOBOL4 package's EXCLUDED.tsv already has (CEO-1286). An EXCLUDED entry is NOT an expected failure: it carries no
 # XFAIL marker and is not run; it returns to the denominator the day its row's cure lands. ceo CEO-1408, 2026-10-02.
+simple_program_11	FAKEABLE_NO_OBSERVABLE	sbl -bf prints nothing (0 bytes) and exits rc 0 on this comment-only program (two comment lines and a bare END): its only correct behaviour is to print nothing, so no output it could carry would still witness the construct and a do-nothing engine passes it (CEO-1868, CEO-1869: tighten, else exclude)
