@@ -9327,9 +9327,9 @@ n00366_conjunction_β:                                                          
                         .type            n00367_conjunction_bx, @function
 n00367_conjunction_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n00367_conjunction_α:     mov              rax, qword ptr [rbp + 1936]
+n00367_conjunction_α:     mov              rax, qword ptr [rbp + 2336]
                         mov              qword ptr [rbp + 1904], rax
-                        mov              rax, qword ptr [rbp + 1944]
+                        mov              rax, qword ptr [rbp + 2344]
                         mov              qword ptr [rbp + 1912], rax
                         mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [rbp + 1872], rax
@@ -10343,8 +10343,6 @@ n00400_scan_β:           call             rt_scan_sync_in@PLT
                         call             rt_scan_sync_out@PLT
 .Lgcsite_options_19:    mov              r9,  qword ptr [rip + rtccb+48]
                         add              rsp, 16;                             jmp   n00398_disjunction_β
-                        add              rsp, 16
-                        add              rsp, -16;                            jmp   n00397_unmark_α
                         .size            n00400_scan_bx, .-n00400_scan_bx
                         .type            n00404_conjunction_bx, @function
 n00404_conjunction_bx:
@@ -16927,6 +16925,10 @@ n00669_disjunction_α:    mov              qword ptr [rbp + 4064], 0
                         mov              rax, qword ptr [rbp + 4072]
                         mov              qword ptr [rbp + 2840], rax;         jmp   .Ldisjunction_γ_1703_as
 .Ldisjunction_α_2222_0: cmp              eax, 1;                              jne   .Ldisjunction_α_2222_1
+                        mov              rax, qword ptr [rbp + 4464]
+                        mov              qword ptr [rbp + 4064], rax
+                        mov              rax, qword ptr [rbp + 4472]
+                        mov              qword ptr [rbp + 4072], rax
                         mov              rax, qword ptr [rbp + 4064]
                         mov              qword ptr [rbp + 2832], rax
                         mov              rax, qword ptr [rbp + 4072]
@@ -16970,7 +16972,10 @@ n00672_disjunction_α:    mov              qword ptr [rbp + 4464], 0
                         cmp              eax, 0;                              jne   .Ldisjunction_α_2226_0
                                                                               jmp   .Ldisjunction_γ_1705_as
 .Ldisjunction_α_2226_0: cmp              eax, 1;                              jne   .Ldisjunction_α_2226_1
-                                                                              jmp   .Ldisjunction_γ_1705_as
+                        mov              rax, qword ptr [rbp + 4576]
+                        mov              qword ptr [rbp + 4464], rax
+                        mov              rax, qword ptr [rbp + 4584]
+                        mov              qword ptr [rbp + 4472], rax;         jmp   .Ldisjunction_γ_1705_as
 .Ldisjunction_α_2226_1:                                                       jmp   .Ldisjunction_γ_1705_as
 n00672_disjunction_β:    mov              eax, dword ptr [rbp + 4480]
                         cmp              eax, 0;                              je    n00658_unmark_α
@@ -17659,7 +17664,7 @@ n00708_conjunction_β:    add              rsp, 112;                            
 n00674_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00674_var_α:                                                                  jmp   n00709_var_α
-n00674_var_β:            add              rsp, -32;                            jmp   .Ldisjunction_ω_1707_af
+n00674_var_β:                                                                  jmp   .Ldisjunction_ω_1707_af
                         .size            n00674_var_bx, .-n00674_var_bx
                         .type            n00709_var_bx, @function
 n00709_var_bx:

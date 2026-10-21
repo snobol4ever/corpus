@@ -952,9 +952,9 @@ n44_conjunction_β:                                                            j
 n45_scan_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n45_scan_α:             sub              rsp, 16
-                        mov              rax, qword ptr [rsp + 16]
+                        mov              rax, qword ptr [rbp + 192]
                         mov              qword ptr [rsp + 0], rax
-                        mov              rax, qword ptr [rsp + 24]
+                        mov              rax, qword ptr [rbp + 200]
                         mov              qword ptr [rsp + 8], rax
                         mov              dword ptr [rbp + 128], r14d
                         mov              dword ptr [rbp + 116], r15d
@@ -985,8 +985,6 @@ n45_scan_β:             call             rt_scan_sync_in@PLT
                         call             rt_scan_sync_out@PLT
 .Lgcsite_tabulate_38:   mov              r9,  qword ptr [rip + rtccb+48]
                         add              rsp, 16;                             jmp   n43_disjunction_β
-                        add              rsp, 16
-                        add              rsp, 32;                             jmp   tabulate_ω
                         .size            n45_scan_bx, .-n45_scan_bx
                         .type            n46_line_mark_bx, @function
 n46_line_mark_bx:
@@ -5271,8 +5269,6 @@ n00127_scan_β:            call             rt_scan_sync_in@PLT
                         mov              rdi, r14                             # delta
                         call             rt_scan_sync_out@PLT
 .Lgcsite_item_51:       mov              r9,  qword ptr [rip + rtccb+48];     jmp   n00122_unmark_α
-                        add              rsp, 16
-                        add              rsp, 48;                             jmp   n00122_unmark_α
                         .size            n00127_scan_bx, .-n00127_scan_bx
                         .type            n00122_unmark_bx, @function
 n00122_unmark_bx:
@@ -6100,8 +6096,6 @@ n00159_scan_β:            call             rt_scan_sync_in@PLT
                         call             rt_scan_sync_out@PLT
 .Lgcsite_options_19:    mov              r9,  qword ptr [rip + rtccb+48]
                         add              rsp, 16;                             jmp   n00157_disjunction_β
-                        add              rsp, 16
-                        add              rsp, -16;                            jmp   n00156_unmark_α
                         .size            n00159_scan_bx, .-n00159_scan_bx
                         .type            n00163_conjunction_bx, @function
 n00163_conjunction_bx:

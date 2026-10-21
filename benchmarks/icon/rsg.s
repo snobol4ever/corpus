@@ -612,8 +612,6 @@ n23_scan_β:             call             rt_scan_sync_in@PLT
                         mov              rdi, r14                             # delta
                         call             rt_scan_sync_out@PLT
 .Lgcsite_alts_22:       mov              r9,  qword ptr [rip + rtccb+48];     jmp   n18_disjunction_β
-                        add              rsp, 16
-                        add              rsp, 160;                            jmp   n32_line_mark_α
                         .size            n23_scan_bx, .-n23_scan_bx
                         .type            n24_scan_bx, @function
 n24_scan_bx:
@@ -2100,8 +2098,6 @@ n00032_scan_β:            call             rt_scan_sync_in@PLT
                         call             rt_scan_sync_out@PLT
 .Lgcsite_define_34:     mov              r9,  qword ptr [rip + rtccb+48]
                         add              rsp, 64;                             jmp   n00026_scan_tab_β
-                        add              rsp, 16
-                        add              rsp, 256;                            jmp   define_ω
                         .size            n00032_scan_bx, .-n00032_scan_bx
                         .type            n00033_return_bx, @function
 n00033_return_bx:
@@ -3005,9 +3001,9 @@ n00058_conjunction_β:                                                          
 n00059_scan_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00059_scan_α:            sub              rsp, 16
-                        mov              rax, qword ptr [rsp + 16]
+                        mov              rax, qword ptr [rsp + 464]
                         mov              qword ptr [rsp + 0], rax
-                        mov              rax, qword ptr [rsp + 24]
+                        mov              rax, qword ptr [rsp + 472]
                         mov              qword ptr [rsp + 8], rax
                         mov              dword ptr [rsp + 400], r14d
                         mov              dword ptr [rsp + 388], r15d
@@ -3037,8 +3033,6 @@ n00059_scan_β:            call             rt_scan_sync_in@PLT
                         call             rt_scan_sync_out@PLT
 .Lgcsite_defnon_26:     mov              r9,  qword ptr [rip + rtccb+48]
                         add              rsp, 16;                             jmp   n00057_scan_tab_β
-                        add              rsp, 16
-                        add              rsp, 160;                            jmp   .Ldisjunction_ω_193_af
                         .size            n00059_scan_bx, .-n00059_scan_bx
                         .type            n00060_line_mark_bx, @function
 n00060_line_mark_bx:
@@ -6954,9 +6948,9 @@ n00214_conjunction_β:                                                          
 n00215_scan_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00215_scan_α:            sub              rsp, 16
-                        mov              rax, qword ptr [rbp + 416]
+                        mov              rax, qword ptr [rbp + 384]
                         mov              qword ptr [rsp + 0], rax
-                        mov              rax, qword ptr [rbp + 424]
+                        mov              rax, qword ptr [rbp + 392]
                         mov              qword ptr [rsp + 8], rax
                         mov              dword ptr [rbp + 320], r14d
                         mov              dword ptr [rbp + 308], r15d
@@ -6986,8 +6980,6 @@ n00215_scan_β:            call             rt_scan_sync_in@PLT
                         call             rt_scan_sync_out@PLT
 .Lgcsite_generate_27:   mov              r9,  qword ptr [rip + rtccb+48]
                         add              rsp, 16;                             jmp   n00208_disjunction_β
-                        add              rsp, 16
-                        add              rsp, 240;                            jmp   .Ldisjunction_ω_586_af
                         .size            n00215_scan_bx, .-n00215_scan_bx
                         .type            n00216_line_mark_bx, @function
 n00216_line_mark_bx:
@@ -8674,9 +8666,9 @@ n00284_conjunction_β:                                                          
 n00285_scan_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00285_scan_α:            sub              rsp, 16
-                        mov              rax, qword ptr [rbp + 832]
+                        mov              rax, qword ptr [rbp + 800]
                         mov              qword ptr [rsp + 0], rax
-                        mov              rax, qword ptr [rbp + 840]
+                        mov              rax, qword ptr [rbp + 808]
                         mov              qword ptr [rsp + 8], rax
                         mov              dword ptr [rbp + 736], r14d
                         mov              dword ptr [rbp + 724], r15d
@@ -8706,8 +8698,6 @@ n00285_scan_β:            call             rt_scan_sync_in@PLT
                         call             rt_scan_sync_out@PLT
 .Lgcsite_grammar_13:    mov              r9,  qword ptr [rip + rtccb+48]
                         add              rsp, 16;                             jmp   n00280_disjunction_β
-                        add              rsp, 16
-                        add              rsp, 160;                            jmp   .Ldisjunction_ω_781_af
                         .size            n00285_scan_bx, .-n00285_scan_bx
                         .type            n00286_line_mark_bx, @function
 n00286_line_mark_bx:
@@ -13818,8 +13808,6 @@ n00495_scan_β:           call             rt_scan_sync_in@PLT
                         call             rt_scan_sync_out@PLT
 .Lgcsite_source_2:      mov              r9,  qword ptr [rip + rtccb+48]
                         add              rsp, 16;                             jmp   n00493_disjunction_β
-                        add              rsp, 16
-                        add              rsp, 48;                             jmp   source_ω
                         .size            n00495_scan_bx, .-n00495_scan_bx
                         .type            n00497_return_bx, @function
 n00497_return_bx:
@@ -18119,8 +18107,6 @@ n00642_scan_β:           call             rt_scan_sync_in@PLT
                         call             rt_scan_sync_out@PLT
 .Lgcsite_options_19:    mov              r9,  qword ptr [rip + rtccb+48]
                         add              rsp, 16;                             jmp   n00640_disjunction_β
-                        add              rsp, 16
-                        add              rsp, -16;                            jmp   n00639_unmark_α
                         .size            n00642_scan_bx, .-n00642_scan_bx
                         .type            n00646_conjunction_bx, @function
 n00646_conjunction_bx:

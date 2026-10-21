@@ -12861,9 +12861,9 @@ n00401_conjunction_β:                                                          
 n00402_scan_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00402_scan_α:           sub              rsp, 16
-                        mov              rax, qword ptr [rbp + 1408]
+                        mov              rax, qword ptr [rbp + 656]
                         mov              qword ptr [rsp + 0], rax
-                        mov              rax, qword ptr [rbp + 1416]
+                        mov              rax, qword ptr [rbp + 664]
                         mov              qword ptr [rsp + 8], rax
                         mov              dword ptr [rbp + 592], r14d
                         mov              dword ptr [rbp + 580], r15d
@@ -12894,8 +12894,6 @@ n00402_scan_β:           call             rt_scan_sync_in@PLT
                         call             rt_scan_sync_out@PLT
 .Lgcsite_gedfnf_17:     mov              r9,  qword ptr [rip + rtccb+48]
                         add              rsp, 16;                             jmp   n00399_scan_tab_β
-                        add              rsp, 16
-                        add              rsp, 64;                             jmp   n00378_line_mark_α
                         .size            n00402_scan_bx, .-n00402_scan_bx
                         .type            n00397_lit_integer_bx, @function
 n00397_lit_integer_bx:
@@ -15022,9 +15020,9 @@ n00478_conjunction_β:                                                          
 n00479_scan_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00479_scan_α:           sub              rsp, 16
-                        mov              rax, qword ptr [rbp + 1216]
+                        mov              rax, qword ptr [rbp + 480]
                         mov              qword ptr [rsp + 0], rax
-                        mov              rax, qword ptr [rbp + 1224]
+                        mov              rax, qword ptr [rbp + 488]
                         mov              qword ptr [rsp + 8], rax
                         mov              dword ptr [rbp + 416], r14d
                         mov              dword ptr [rbp + 404], r15d
@@ -15055,8 +15053,6 @@ n00479_scan_β:           call             rt_scan_sync_in@PLT
                         call             rt_scan_sync_out@PLT
 .Lgcsite_gedlnf_17:     mov              r9,  qword ptr [rip + rtccb+48]
                         add              rsp, 16;                             jmp   n00476_scan_tab_β
-                        add              rsp, 16
-                        add              rsp, 64;                             jmp   n00455_line_mark_α
                         .size            n00479_scan_bx, .-n00479_scan_bx
                         .type            n00474_lit_integer_bx, @function
 n00474_lit_integer_bx:
@@ -19120,9 +19116,9 @@ n00613_conjunction_β:                                                          
                         .type            n00614_conjunction_bx, @function
 n00614_conjunction_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n00614_conjunction_α:    mov              rax, qword ptr [rbp + 1360]
+n00614_conjunction_α:    mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [rbp + 1280], rax
-                        mov              rax, qword ptr [rbp + 1368]
+                        mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [rbp + 1288], rax
                         mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [rbp + 1248], rax

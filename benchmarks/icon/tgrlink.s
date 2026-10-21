@@ -1961,8 +1961,7 @@ n87_var_ref_α:          sub              rsp, 16
                         mov              qword ptr [rsp + 0], rax             # result
                         lea              rax, [rsp + 1792]
                         mov              qword ptr [rsp + 8], rax;            jmp   n88_var_ref_α
-n87_var_ref_β:          add              rsp, 16
-                        add              rsp, -32;                            jmp   .Ldisjunction_ω_56_af
+n87_var_ref_β:          add              rsp, 16;                             jmp   .Ldisjunction_ω_56_af
                         .size            n87_var_ref_bx, .-n87_var_ref_bx
                         .type            n88_var_ref_bx, @function
 n88_var_ref_bx:
@@ -7835,9 +7834,9 @@ n00228_conjunction_β:                                                          
 n00229_scan_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00229_scan_α:            sub              rsp, 16
-                        mov              rax, qword ptr [rsp + 3664]
+                        mov              rax, qword ptr [rsp + 3072]
                         mov              qword ptr [rsp + 0], rax
-                        mov              rax, qword ptr [rsp + 3672]
+                        mov              rax, qword ptr [rsp + 3080]
                         mov              qword ptr [rsp + 8], rax
                         mov              dword ptr [rsp + 3008], r14d
                         mov              dword ptr [rsp + 2996], r15d
@@ -13443,9 +13442,6 @@ n00475_scan_β:           call             rt_scan_sync_in@PLT
                         call             rt_scan_sync_out@PLT
 .Lgcsite_putdel_10:     mov              r9,  qword ptr [rip + rtccb+48]
                         add              rsp, 16;                             jmp   n00473_disjunction_β
-                        add              rsp, 16
-                        mov              rsp, qword ptr [rbp + 200]
-                        add              rsp, 64;                             jmp   n00471_line_mark_α
                         .size            n00475_scan_bx, .-n00475_scan_bx
                         .type            n00480_conjunction_bx, @function
 n00480_conjunction_bx:
@@ -28628,9 +28624,9 @@ n01052_conjunction_β:                                                          
 n01053_scan_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n01053_scan_α:           sub              rsp, 16
-                        mov              rax, qword ptr [rsp + 16]
+                        mov              rax, qword ptr [rbp + 176]
                         mov              qword ptr [rsp + 0], rax
-                        mov              rax, qword ptr [rsp + 24]
+                        mov              rax, qword ptr [rbp + 184]
                         mov              qword ptr [rsp + 8], rax
                         mov              dword ptr [rbp + 112], r14d
                         mov              dword ptr [rbp + 100], r15d
@@ -29818,8 +29814,6 @@ n01085_scan_β:           call             rt_scan_sync_in@PLT
                         call             rt_scan_sync_out@PLT
 .Lgcsite_options_19:    mov              r9,  qword ptr [rip + rtccb+48]
                         add              rsp, 16;                             jmp   n01083_disjunction_β
-                        add              rsp, 16
-                        add              rsp, -16;                            jmp   n01082_unmark_α
                         .size            n01085_scan_bx, .-n01085_scan_bx
                         .type            n01089_conjunction_bx, @function
 n01089_conjunction_bx:

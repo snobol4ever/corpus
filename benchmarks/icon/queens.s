@@ -6313,8 +6313,6 @@ n00141_scan_β:            call             rt_scan_sync_in@PLT
                         call             rt_scan_sync_out@PLT
 .Lgcsite_options_19:    mov              r9,  qword ptr [rip + rtccb+48]
                         add              rsp, 16;                             jmp   n00139_disjunction_β
-                        add              rsp, 16
-                        add              rsp, -16;                            jmp   n00138_unmark_α
                         .size            n00141_scan_bx, .-n00141_scan_bx
                         .type            n00145_conjunction_bx, @function
 n00145_conjunction_bx:
