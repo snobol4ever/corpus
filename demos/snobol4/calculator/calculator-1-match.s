@@ -7653,8 +7653,8 @@ n83_match_arbno_β:      mov              rax, qword ptr [rbp + -64]
                         mov              rdx, qword ptr [rcx + 16]
                         mov              qword ptr [rbp + -64], rdx
                         cmp              r14d, eax;                           je    .Lmatch_arbno_β_90_3
-                        lea              rsp, [rcx + 32];                     jmp   n86_match_lit_β
-.Lmatch_arbno_β_90_3:   lea              rsp, [rcx + 32];                     jmp   n82_match_pos_β
+                        add              rsp, 32;                             jmp   n86_match_lit_β
+.Lmatch_arbno_β_90_3:   add              rsp, 32;                             jmp   n82_match_pos_β
                         .size            n83_match_arbno_bx, .-n83_match_arbno_bx
                         .type            n84_match_rpos_bx, @function
 n84_match_rpos_bx:

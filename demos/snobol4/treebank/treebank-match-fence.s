@@ -637,8 +637,8 @@ n10_match_arbno_β:      mov              rax, qword ptr [rbp + -64]
                         mov              qword ptr [rbp + -80], rax
                         mov              rax, qword ptr [rcx + 88]
                         mov              qword ptr [rbp + -72], rax
-                        lea              rsp, [rcx + 96];                     jmp   n13_match_fence1_β
-.Lmatch_arbno_β_22_3:   lea              rsp, [rcx + 96];                     jmp   n9_match_defer_β
+                        add              rsp, 96;                             jmp   n13_match_fence1_β
+.Lmatch_arbno_β_22_3:   add              rsp, 96;                             jmp   n9_match_defer_β
                         .size            n10_match_arbno_bx, .-n10_match_arbno_bx
                         .type            n11_match_lit_bx, @function
 n11_match_lit_bx:
@@ -1062,8 +1062,7 @@ n13_match_fence1_α:     mov              qword ptr [rbp + -96], rsp
 .Lmatch_fence1_γ_13_af:
 .Lmatch_fence1_ω_13_af:
 n13_match_fence1_β:     mov              r12, qword ptr [rbp + -88]
-                        mov              r14d, dword ptr [rbp + -76]
-                        mov              rsp, qword ptr [rbp + -96];          jmp   n12_match_defer_β
+                        mov              r14d, dword ptr [rbp + -76];         jmp   n12_match_defer_β
                         .size            n13_match_fence1_bx, .-n13_match_fence1_bx
                         .type            n14_match_alternate_bx, @function
 n14_match_alternate_bx:
@@ -2170,8 +2169,8 @@ n34_match_arbno_β:      mov              rax, qword ptr [rbp + -64]
                         mov              qword ptr [rbp + -80], rax
                         mov              rax, qword ptr [rcx + 40]
                         mov              qword ptr [rbp + -72], rax
-                        lea              rsp, [rcx + 48];                     jmp   n38_match_fence0_β
-.Lmatch_arbno_β_44_3:   lea              rsp, [rcx + 48];                     jmp   n33_match_pos_β
+                        add              rsp, 48;                             jmp   n38_match_fence0_β
+.Lmatch_arbno_β_44_3:   add              rsp, 48;                             jmp   n33_match_pos_β
                         .size            n34_match_arbno_bx, .-n34_match_arbno_bx
                         .type            n35_match_rpos_bx, @function
 n35_match_rpos_bx:
@@ -2212,8 +2211,8 @@ n36_match_arbno_β:      mov              rax, qword ptr [rbp + -80]
                         mov              rdx, qword ptr [rcx + 16]
                         mov              qword ptr [rbp + -80], rdx
                         cmp              r14d, eax;                           je    .Lmatch_arbno_β_47_3
-                        lea              rsp, [rcx + 32];                     jmp   n40_match_fence0_β
-.Lmatch_arbno_β_47_3:   lea              rsp, [rcx + 32];                     jmp   .Lmatch_arbno_ω_34_af
+                        add              rsp, 32;                             jmp   n40_match_fence0_β
+.Lmatch_arbno_β_47_3:   add              rsp, 32;                             jmp   .Lmatch_arbno_ω_34_af
                         .size            n36_match_arbno_bx, .-n36_match_arbno_bx
                         .type            n37_match_defer_bx, @function
 n37_match_defer_bx:
@@ -2618,7 +2617,7 @@ n37_match_defer_β:      cmp              qword ptr [rsp + 0], 0;              j
 n38_match_fence0_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n38_match_fence0_α:                                                           jmp   .Lmatch_arbno_γ_34_as
-n38_match_fence0_β:                                                           jmp   n41_match_abort_β
+n38_match_fence0_β:     add              rsp, 32;                             jmp   n41_match_abort_β
                         .size            n38_match_fence0_bx, .-n38_match_fence0_bx
                         .type            n39_match_defer_bx, @function
 n39_match_defer_bx:

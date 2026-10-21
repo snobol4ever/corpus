@@ -93,8 +93,7 @@ n7_match_fence1_α:      mov              qword ptr [rbp + -80], rsp
 .Lmatch_fence1_γ_7_af:
 .Lmatch_fence1_ω_7_af:  add              rsp, 0
 n7_match_fence1_β:      mov              r12, qword ptr [rbp + -72]
-                        mov              r14d, dword ptr [rbp + -60]
-                        mov              rsp, qword ptr [rbp + -80];          jmp   .LTp0_ω
+                        mov              r14d, dword ptr [rbp + -60];         jmp   .LTp0_ω
                         .size            n7_match_fence1_bx, .-n7_match_fence1_bx
                         .type            n8_match_alternate_bx, @function
 n8_match_alternate_bx:
@@ -951,8 +950,8 @@ n48_match_arbno_β:      mov              rax, qword ptr [rbp + -64]
                         mov              qword ptr [rbp + -80], rax
                         mov              rax, qword ptr [rcx + 40]
                         mov              qword ptr [rbp + -72], rax
-                        lea              rsp, [rcx + 48];                     jmp   n52_match_defer_β
-.Lmatch_arbno_β_58_3:   lea              rsp, [rcx + 48];                     jmp   n47_match_defer_β
+                        add              rsp, 48;                             jmp   n52_match_defer_β
+.Lmatch_arbno_β_58_3:   add              rsp, 48;                             jmp   n47_match_defer_β
                         .size            n48_match_arbno_bx, .-n48_match_arbno_bx
                         .type            n49_match_lit_bx, @function
 n49_match_lit_bx:
@@ -971,7 +970,7 @@ n50_match_fence0_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n50_match_fence0_α:     mov              rsp, rbp
                         sub              rsp, 104;                            jmp   .LTp3_γ
-n50_match_fence0_β:                                                           jmp   n53_match_abort_β
+n50_match_fence0_β:     add              rsp, 32;                             jmp   n53_match_abort_β
                         .size            n50_match_fence0_bx, .-n50_match_fence0_bx
                         .type            n51_match_defer_bx, @function
 n51_match_defer_bx:
@@ -2035,8 +2034,7 @@ n66_match_fence1_α:     mov              qword ptr [rbp + -464], rsp
 .Lmatch_fence1_γ_66_af:
 .Lmatch_fence1_ω_66_af: add              rsp, 0
 n66_match_fence1_β:     mov              r12, qword ptr [rbp + -456]
-                        mov              r14d, dword ptr [rbp + -444]
-                        mov              rsp, qword ptr [rbp + -464];         jmp   .LTp4_ω
+                        mov              r14d, dword ptr [rbp + -444];        jmp   .LTp4_ω
                         .size            n66_match_fence1_bx, .-n66_match_fence1_bx
                         .type            n67_match_alternate_bx, @function
 n67_match_alternate_bx:
@@ -2087,8 +2085,7 @@ n68_match_fence1_α:     mov              qword ptr [rbp + -240], rsp
 .Lmatch_fence1_γ_68_af:
 .Lmatch_fence1_ω_68_af: add              rsp, 0
 n68_match_fence1_β:     mov              r12, qword ptr [rbp + -232]
-                        mov              r14d, dword ptr [rbp + -220]
-                        mov              rsp, qword ptr [rbp + -240];         jmp   n67_match_alternate_β
+                        mov              r14d, dword ptr [rbp + -220];        jmp   n67_match_alternate_β
                         .size            n68_match_fence1_bx, .-n68_match_fence1_bx
                         .type            n69_match_fence1_bx, @function
 n69_match_fence1_bx:
@@ -2103,8 +2100,7 @@ n69_match_fence1_α:     mov              qword ptr [rbp + -80], rsp
 .Lmatch_fence1_γ_69_af:
 .Lmatch_fence1_ω_69_af: add              rsp, 0
 n69_match_fence1_β:     mov              r12, qword ptr [rbp + -72]
-                        mov              r14d, dword ptr [rbp + -60]
-                        mov              rsp, qword ptr [rbp + -80];          jmp   n68_match_fence1_β
+                        mov              r14d, dword ptr [rbp + -60];         jmp   n68_match_fence1_β
                         .size            n69_match_fence1_bx, .-n69_match_fence1_bx
                         .type            n70_match_alternate_bx, @function
 n70_match_alternate_bx:
@@ -2167,8 +2163,7 @@ n73_match_fence1_α:     mov              qword ptr [rbp + -176], rsp
 .Lmatch_fence1_γ_73_af:
 .Lmatch_fence1_ω_73_af: add              rsp, 0
 n73_match_fence1_β:     mov              r12, qword ptr [rbp + -168]
-                        mov              r14d, dword ptr [rbp + -156]
-                        mov              rsp, qword ptr [rbp + -176];         jmp   n72_match_any_β
+                        mov              r14d, dword ptr [rbp + -156];        jmp   n72_match_any_β
                         .size            n73_match_fence1_bx, .-n73_match_fence1_bx
                         .type            n74_match_span_bx, @function
 n74_match_span_bx:
@@ -2324,8 +2319,7 @@ n83_match_fence1_α:     mov              qword ptr [rbp + -368], rsp
 .Lmatch_fence1_γ_83_af:
 .Lmatch_fence1_ω_83_af: add              rsp, 0
 n83_match_fence1_β:     mov              r12, qword ptr [rbp + -360]
-                        mov              r14d, dword ptr [rbp + -348]
-                        mov              rsp, qword ptr [rbp + -368];         jmp   n82_match_any_β
+                        mov              r14d, dword ptr [rbp + -348];        jmp   n82_match_any_β
                         .size            n83_match_fence1_bx, .-n83_match_fence1_bx
                         .type            n84_match_alternate_bx, @function
 n84_match_alternate_bx:
@@ -5316,8 +5310,8 @@ n159_match_arbno_β:     mov              rax, qword ptr [rbp + -80]
                         mov              qword ptr [rbp + -96], rax
                         mov              rax, qword ptr [rcx + 56]
                         mov              qword ptr [rbp + -88], rax
-                        lea              rsp, [rcx + 64];                     jmp   n162_match_defer_β
-.Lmatch_arbno_β_173_3:  lea              rsp, [rcx + 64];                     jmp   n158_match_defer_β
+                        add              rsp, 64;                             jmp   n162_match_defer_β
+.Lmatch_arbno_β_173_3:  add              rsp, 64;                             jmp   n158_match_defer_β
                         .size            n159_match_arbno_bx, .-n159_match_arbno_bx
                         .type            n160_match_defer_bx, @function
 n160_match_defer_bx:
@@ -7291,8 +7285,8 @@ n184_match_arbno_β:     mov              rax, qword ptr [rbp + -80]
                         mov              qword ptr [rbp + -96], rax
                         mov              rax, qword ptr [rcx + 56]
                         mov              qword ptr [rbp + -88], rax
-                        lea              rsp, [rcx + 64];                     jmp   n187_match_defer_β
-.Lmatch_arbno_β_198_3:  lea              rsp, [rcx + 64];                     jmp   n183_match_defer_β
+                        add              rsp, 64;                             jmp   n187_match_defer_β
+.Lmatch_arbno_β_198_3:  add              rsp, 64;                             jmp   n183_match_defer_β
                         .size            n184_match_arbno_bx, .-n184_match_arbno_bx
                         .type            n185_match_defer_bx, @function
 n185_match_defer_bx:
@@ -8863,7 +8857,7 @@ n208_match_defer_β:     cmp              qword ptr [rsp + 0], 0;              j
 n209_match_fence0_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n209_match_fence0_α:                                                          jmp   .Lmatch_alternate_γ_204_s3
-n209_match_fence0_β:                                                          jmp   n214_match_abort_β
+n209_match_fence0_β:    add              rsp, 16;                             jmp   n214_match_abort_β
                         .size            n209_match_fence0_bx, .-n209_match_fence0_bx
                         .type            n210_match_defer_bx, @function
 n210_match_defer_bx:
@@ -9272,7 +9266,7 @@ n210_match_defer_β:     cmp              qword ptr [rsp + 0], 0;              j
 n211_match_fence0_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n211_match_fence0_α:                                                          jmp   .Lmatch_alternate_γ_204_s2
-n211_match_fence0_β:                                                          jmp   n214_match_abort_β
+n211_match_fence0_β:    add              rsp, 16;                             jmp   n214_match_abort_β
                         .size            n211_match_fence0_bx, .-n211_match_fence0_bx
                         .type            n212_match_defer_bx, @function
 n212_match_defer_bx:
