@@ -10509,6 +10509,9 @@ testing entab/detab(s,3,4)
 testing entab/detab(s,5)
 testing entab/detab(s,5,7,10)
 #----------------------------------------- 925 procedure_record_coexpr_replace_6
+procedure expr1 procedure expr2 procedure expr3 procedure expr4
+record constructor three record constructor zero record constructor one
+three zero one
 #----------------------------------------- 926 procedure_record_every_replace_19
  ----> &null
 list(0) ----> list_1(0)

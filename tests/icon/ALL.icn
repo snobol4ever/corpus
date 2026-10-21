@@ -13369,6 +13369,9 @@ record one(z)
 global line, count
 
 procedure main()
+   write(image(expr1), " ", image(expr2), " ", image(expr3), " ", image(expr4));
+   write(image(three), " ", image(zero), " ", image(one));
+   write(type(three(1, 2, 3)), " ", type(zero()), " ", type(one(0)));
 end
 procedure expr1(a, b)
    local x,y,z;
