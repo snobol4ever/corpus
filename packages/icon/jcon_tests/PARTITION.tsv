@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=85 features=64 ubiquitous=11(package stderr write every procedure local alternation to_by assign keyword_ref gen_with_alternation) distinctive=53 core=23 clusters=38 chunks=1 sizes=62
+# shape: entries=85 features=63 ubiquitous=10(package write every procedure local alternation to_by assign keyword_ref gen_with_alternation) distinctive=53 core=23 clusters=38 chunks=1 sizes=62
 entry	part	cluster	shells
 args	chunk:01	feat:put	element_gen fail limitation put return while writes
 arith	chunk:01	feat:static	fail integer return static type writes
