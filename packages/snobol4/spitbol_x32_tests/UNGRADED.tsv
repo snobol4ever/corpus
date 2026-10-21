@@ -2,4 +2,4 @@
 # ⛔ A DECLARATION, NEVER AN INFERENCE (lib_inventory.sh).  test_snobol4_spitbol_x32_suite.sh MEASURES the same
 # set live on every run and says STALE / UNRECORDED aloud when this file and the oracle disagree.  Empty at
 # vendoring: sbl -bf answers all 21 converted programs (2026-09-26).
-arcget.spt	NEEDS_RUNNER_WIRING	its answer is the files it extracts and its TERMINAL lines (stderr); with arcget.in sbl -bf prints nothing on stdout, so the stream arm has no answer to compare (the coo 2026-10-18, row coo-x32t-and-x64t-grade-stdin-filters-on-dev-null-so-a-print-nothing-engine-passes)
+# arcget is GRADED since its ALL.csv row declares its answer: out_files=extract1.txt extract2.txt and stderr=merged, so each engine's answer is its TERMINAL lines (stderr) plus the two files it extracts, composed by declared_answer_compose (hq_snobol4, CEO-1866 brief; it was NEEDS_RUNNER_WIRING here, the coo 2026-10-18).

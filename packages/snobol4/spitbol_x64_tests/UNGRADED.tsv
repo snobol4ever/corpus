@@ -12,4 +12,4 @@
 # being written, and the very next run printed:
 #     ⚠ UNGRADED.tsv STALE -- ... they are graded now, so delete their rows: gcbuster.sbl math_atan.sbl ...
 # The rows were deleted on that measurement.  36 of 36 shipped are graded.
-arcget.sbl	NEEDS_RUNNER_WIRING	its answer is the files it extracts and its TERMINAL lines (stderr); with arcget.in sbl -bf prints nothing on stdout, so the stream arm has no answer to compare (the coo 2026-10-18, row coo-x32t-and-x64t-grade-stdin-filters-on-dev-null-so-a-print-nothing-engine-passes)
+# arcget is GRADED since its ALL.csv row declares its answer: out_files=extract1.txt extract2.txt and stderr=merged, so each engine's answer is its TERMINAL lines (stderr) plus the two files it extracts, composed by declared_answer_compose (hq_snobol4, CEO-1866 brief; it was NEEDS_RUNNER_WIRING here, the coo 2026-10-18).
