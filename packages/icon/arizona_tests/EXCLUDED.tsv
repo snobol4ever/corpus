@@ -1,0 +1,4 @@
+# NO_ORACLE_ANSWER for an answer a broken engine can give (CEO-1696 applied by Lon 2026-10-21 16:5x CDT, in-chat to the coo, verbatim: "I suspect you
+# know not what you are doing and are measuring failure not success." · "You better fix your flawed measurement system for the test suites."; his
+# ruling on the coo's question, "Tighten, else exclude"; ceo CEO-1865): measured by util_false_green_census.sh: the silent stub earned general/proto in both modes.
+general/proto.icn	NO_ORACLE_ANSWER	CEO-1696, applied by Lon 2026-10-21 (tighten, else exclude; CEO-1865): its ref is EMPTY: the oracle prints nothing, so an engine that prints nothing earns it -- silent stub PASS m3 and m4 on harness 54425c7
