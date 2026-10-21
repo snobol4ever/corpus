@@ -144,710 +144,707 @@ main :- X is 2 ** 10, write(X), nl, Y is 3 ^ 3, write(Y), nl.
 %--------------------------------------------------------------- 44 directive_41
 :- initialization(main).
 main :- X is sign(-5), write(X), nl, Y is sign(0), write(Y), nl, Z is sign(3), write(Z), nl.
-%--------------------------------------------------------------- 45 directive_42
-:- initialization(main).
-main :- catch((X is truncate(7), write(X), nl, Y is integer(4), write(Y), nl), error(E, _), (write(E), nl)).
-%--------------------------------------------------------------- 46 directive_43
+%--------------------------------------------------------------- 45 directive_43
 :- initialization(main).
 main :- term_string(hello, S), write(S), nl.
-%--------------------------------------------------------------- 47 directive_44
+%--------------------------------------------------------------- 46 directive_44
 :- initialization(main).
 main :- term_string(f(1,2), S), write(S), nl.
-%--------------------------------------------------------------- 48 directive_45
+%--------------------------------------------------------------- 47 directive_45
 :- initialization(main).
 main :- term_string(42, S), write(S), nl.
-%--------------------------------------------------------------- 49 directive_46
+%--------------------------------------------------------------- 48 directive_46
 :- initialization(main).
 main :- term_string(T, hello), write(T), nl.
-%--------------------------------------------------------------- 50 directive_47
+%--------------------------------------------------------------- 49 directive_47
 :- initialization(main).
 main :- term_string(T, '42'), write(T), nl.
-%--------------------------------------------------------------- 51 directive_53
+%--------------------------------------------------------------- 50 directive_53
 :- initialization(main).
 main :- char_code(a, N), write(N), nl.
-%--------------------------------------------------------------- 52 directive_54
+%--------------------------------------------------------------- 51 directive_54
 :- initialization(main).
 main :- char_code(C, 65), write(C), nl.
-%--------------------------------------------------------------- 53 directive_55
+%--------------------------------------------------------------- 52 directive_55
 :- initialization(main).
 main :- number_chars(42, C), write(C), nl.
-%--------------------------------------------------------------- 54 directive_56
+%--------------------------------------------------------------- 53 directive_56
 :- initialization(main).
 main :- number_codes(42, C), write(C), nl.
-%--------------------------------------------------------------- 55 directive_82
+%--------------------------------------------------------------- 54 directive_82
 :- initialization(main).
 main :- write(hello_world), nl.
-%---------------------------------------------------- 56 disjunction_left_only_1
+%---------------------------------------------------- 55 disjunction_left_only_1
 :- initialization(main).
 main :- (write(left) ; write(right)), nl.
-%------------------------------------------- 57 disjunction_nested_disjunction_1
+%------------------------------------------- 56 disjunction_nested_disjunction_1
 :- initialization(main).
 main :- (fail ; (fail ; write(inner))), nl.
-%--------------------------------------------------- 58 disjunction_right_only_1
+%--------------------------------------------------- 57 disjunction_right_only_1
 :- initialization(main).
 main :- (fail ; write(right)), nl.
-%--------------------------------------------------------- 59 format_directive_5
+%--------------------------------------------------------- 58 format_directive_5
 :- initialization(main).
 main :- format("x = ~w~n", [42]).
-%---------------------------------------------- 60 global_vars_b_setval_getval_1
+%---------------------------------------------- 59 global_vars_b_setval_getval_1
 :- initialization(main).
 main :- b_setval(flag10a, on), b_getval(flag10a, V), write(V), nl.
-%--------------------------------- 61 global_vars_b_setval_trails_on_backtrack_1
+%--------------------------------- 60 global_vars_b_setval_trails_on_backtrack_1
 :- initialization(main).
 main :- b_setval(x10a, 1), (b_setval(x10a, 2), fail ; true), b_getval(x10a, V), write(V), nl.
-%--------------------------------------------- 62 global_vars_nb_setval_getval_1
+%--------------------------------------------- 61 global_vars_nb_setval_getval_1
 :- initialization(main).
 main :- nb_setval(counter10a, 5), nb_getval(counter10a, V), write(V), nl.
-%----------------------------------------------------------- 63 init_directive_1
+%----------------------------------------------------------- 62 init_directive_1
 :- initialization(main).
 main :- write(initialized), nl.
-%------------------------------------------------------------ 64 misc17_halt_0_1
+%------------------------------------------------------------ 63 misc17_halt_0_1
 :- initialization(main).
 main :- write(before), nl, halt, write(after), nl.
-%----------------------------------------------------- 65 misc17_halt_1_status_1
+%----------------------------------------------------- 64 misc17_halt_1_status_1
 :- initialization(main).
 main :- write(before), nl, halt(3).
-%----------------------------------------------------------------------- 66 nl_1
+%----------------------------------------------------------------------- 65 nl_1
 :- initialization(main).
 main :- write(a), nl, write(b), nl.
-%----------------------------------------------------------- 67 read_directive_1
+%----------------------------------------------------------- 66 read_directive_1
 :- initialization(main).
 main :- get_char(C), read(T), write(C), nl, write(T), nl.
-%------------------------------------------------------------ 68 streams_close_1
+%------------------------------------------------------------ 67 streams_close_1
 :- initialization(main).
 main :- open('/tmp/scrip_rung06_sw_close_a.txt', write, A), open('/tmp/scrip_rung06_sw_close_b.txt', write, B), write(A, first), close(A), write(B, second), close(B), write(closed), nl.
-%--------------------------------------------------- 69 streams_current_output_1
+%--------------------------------------------------- 68 streams_current_output_1
 :- initialization(main).
 main :- current_output(S), write(S, probe), nl(S), write(ok), nl.
-%--------------------------------------------------------- 70 streams_get_char_1
+%--------------------------------------------------------- 69 streams_get_char_1
 :- initialization(main).
 main :- open('/tmp/scrip_rung06_sw_get_char.txt', write, W), write(W, ab), close(W), open('/tmp/scrip_rung06_sw_get_char.txt', read, R), get_char(R, C1), get_char(R, C2), get_char(R, C3), close(R), write(C1), write(C2), write(C3), nl.
-%-------------------------------------------------------- 71 streams_open_read_1
+%-------------------------------------------------------- 70 streams_open_read_1
 :- initialization(main).
 main :- open('/tmp/scrip_rung06_sw_open_read.txt', write, S0), write(S0, 'data(42).'), close(S0), open('/tmp/scrip_rung06_sw_open_read.txt', read, R), read(R, T), close(R), write(T), nl.
-%------------------------------------------------------- 72 streams_open_write_1
+%------------------------------------------------------- 71 streams_open_write_1
 :- initialization(main).
 main :- open('/tmp/scrip_rung06_sw_open_write.txt', write, S), write(S, 'ok.'), close(S), open('/tmp/scrip_rung06_sw_open_write.txt', read, R2), read(R2, T), close(R2), write(T), nl.
-%-------------------------------------------------------- 73 streams_peek_char_1
+%-------------------------------------------------------- 72 streams_peek_char_1
 :- initialization(main).
 main :- open('/tmp/scrip_rung06_sw_peek_char.txt', write, W), write(W, xy), close(W), open('/tmp/scrip_rung06_sw_peek_char.txt', read, R), peek_char(R, P1), peek_char(R, P2), get_char(R, C1), close(R), write(P1), write(P2), write(C1), nl.
-%------------------------------------------ 74 streams_read_term_empty_options_1
+%------------------------------------------ 73 streams_read_term_empty_options_1
 :- initialization(main).
 main :- open('/tmp/scrip_rung06_sw_read_term_opts.txt', write, W), write(W, 'opts(a,b).'), close(W), open('/tmp/scrip_rung06_sw_read_term_opts.txt', read, R), read_term(R, T, []), close(R), write(T), nl.
-%-------------------------------------------------------- 75 streams_set_input_1
+%-------------------------------------------------------- 74 streams_set_input_1
 :- initialization(main).
 main :- open('/tmp/scrip_rung06_sw_set_input.txt', write, W), write(W, 'sentinel(9).'), close(W), open('/tmp/scrip_rung06_sw_set_input.txt', read, R), set_input(R), read(T), close(R), set_input(user_input), write(T), nl.
-%------------------------------------------------------- 76 streams_set_output_1
+%------------------------------------------------------- 75 streams_set_output_1
 :- initialization(main).
 main :- open('/tmp/scrip_rung06_sw_set_output.txt', write, S), set_output(S), write('redirected.'), nl, set_output(user_output), write(back), nl, close(S), open('/tmp/scrip_rung06_sw_set_output.txt', read, R), read(R, T), close(R), write(T), nl.
-%----------------------------------------------------- 77 streams_stream_alias_1
+%----------------------------------------------------- 76 streams_stream_alias_1
 :- initialization(main).
 main :- write(user_output, visible), nl(user_output), write(user_error, hidden), nl(user_error), write(done), nl.
-%--------------------------------------------- 78 sub_atom_fixed_before_length_1
+%--------------------------------------------- 77 sub_atom_fixed_before_length_1
 :- initialization(main).
 main :- sub_atom(hello, 0, 3, _, S), write(S), nl.
-%---------------------------------------------------------- 79 sub_atom_prefix_1
+%---------------------------------------------------------- 78 sub_atom_prefix_1
 :- initialization(main).
 main :- sub_atom(hello, 0, 2, _, P), write(P), nl.
-%---------------------------------------------------------- 80 sub_atom_suffix_1
+%---------------------------------------------------------- 79 sub_atom_suffix_1
 :- initialization(main).
 main :- sub_atom(hello, _, 2, 0, S), write(S), nl.
-%--------------------------------------------------- 81 term_compare_compare_3_1
+%--------------------------------------------------- 80 term_compare_compare_3_1
 :- initialization(main).
 main :- compare(Order, 1, 2), write(Order), nl.
-%--------------------------------------------------- 82 term_compare_keysort_2_1
+%--------------------------------------------------- 81 term_compare_keysort_2_1
 :- initialization(main).
 main :- keysort([b-2, a-1, a-3], L), write(L), nl.
-%----------------------------------------------------- 83 term_compare_msort_2_1
+%----------------------------------------------------- 82 term_compare_msort_2_1
 :- initialization(main).
 main :- msort([3, 1, 2, 1], L), write(L), nl.
-%------------------------------------------------------ 84 term_compare_sort_2_1
+%------------------------------------------------------ 83 term_compare_sort_2_1
 :- initialization(main).
 main :- sort([3, 1, 2, 1], L), write(L), nl.
-%--------------------------------------------------------------- 85 write_atom_1
+%--------------------------------------------------------------- 84 write_atom_1
 :- initialization(main).
 main :- write(some_atom), nl.
-%------------------------------------------------ 86 write_canonical_directive_4
+%------------------------------------------------ 85 write_canonical_directive_4
 :- initialization(main).
 main :- write_canonical(1+2), nl.
-%------------------------------------------------ 87 write_canonical_directive_5
+%------------------------------------------------ 86 write_canonical_directive_5
 :- initialization(main).
 main :- write_canonical([a,b]), nl.
-%---------------------------------------------------------- 88 write_family_nl_1
+%---------------------------------------------------------- 87 write_family_nl_1
 :- initialization(main).
 main :- write(a), nl, write(b), nl.
-%--------------------------------------------------------- 89 write_family_tab_1
+%--------------------------------------------------------- 88 write_family_tab_1
 :- initialization(main).
 main :- write(a), tab(3), write(b), nl.
-%------------------------------------------------------- 90 write_family_write_1
+%------------------------------------------------------- 89 write_family_write_1
 :- initialization(main).
 main :- write(hello), nl.
-%--------------------------------------------- 91 write_family_write_canonical_1
+%--------------------------------------------- 90 write_family_write_canonical_1
 :- initialization(main).
 main :- write_canonical(1+2), nl.
-%------------------------------------------------------ 92 write_family_writeq_1
+%------------------------------------------------------ 91 write_family_writeq_1
 :- initialization(main).
 main :- writeq('needs quotes'), nl.
-%--------------------------------------------------------- 93 writeq_directive_3
+%--------------------------------------------------------- 92 writeq_directive_3
 :- initialization(main).
 main :- writeq('hello world'), nl, writeq(foo), nl.
-%--------------------------------------------------------- 94 writeq_directive_4
+%--------------------------------------------------------- 93 writeq_directive_4
 :- initialization(main).
 main :- writeq(f(a, 'Hello')), nl.
-%----------------------------------------------- 95 declarations_ensure_loaded_1
+%----------------------------------------------- 94 declarations_ensure_loaded_1
 :- ensure_loaded(library(lists)).
 :- initialization(main).
 main :- write(loaded), nl.
-%-------------------------------------------------- 96 declarations_use_module_1
+%-------------------------------------------------- 95 declarations_use_module_1
 :- use_module(library(lists)).
 :- initialization(main).
 main :- write(loaded), nl.
-%---------------------------------------------- 97 determinism_nondet_reported_1
+%---------------------------------------------- 96 determinism_nondet_reported_1
 small(1). small(2). small(3).
 :- initialization(main).
 main :- (small(X), write(X), fail ; true), nl.
-%--------------------------------------- 98 dg_directive_before_initialization_1
+%--------------------------------------- 97 dg_directive_before_initialization_1
 :- write(immediate), nl.
 :- initialization(main).
 main :- write(deferred), nl.
-%--------------------------------------------------------------- 99 directive_12
+%--------------------------------------------------------------- 98 directive_12
 :- initialization(main).
 f(a).
 main :- f(X), write(X), nl.
-%-------------------------------------------------------------- 100 directive_30
+%--------------------------------------------------------------- 99 directive_30
 :- initialization(main).
 main :- char_type(a, to_upper(U)), write(U), nl,
         char_type('Z', to_lower(L)), write(L), nl.
-%-------------------------------------------------------------- 101 directive_31
+%-------------------------------------------------------------- 100 directive_31
 :- initialization(main).
 main :- char_type('A', upper(L)), write(L), nl,
         char_type(b, lower(U)), write(U), nl.
-%-------------------------------------------------------------- 102 directive_66
+%-------------------------------------------------------------- 101 directive_66
 :- initialization(main).
 main :-
     concat_atom([foo, bar, baz], A), write(A), nl.
-%-------------------------------------------------------------- 103 directive_83
+%-------------------------------------------------------------- 102 directive_83
 :- initialization(main).
 p(a,b).
 main :- p(X,_), write(X), nl.
-%----------------------------------------------- 104 disjunction_both_branches_1
+%----------------------------------------------- 103 disjunction_both_branches_1
 :- initialization(main).
 main :- (write(left) ; write(right)), fail.
 main :- nl.
-%------------------------------------------------ 105 disjunction_in_rule_body_1
+%------------------------------------------------ 104 disjunction_in_rule_body_1
 :- initialization(main).
 classify(X) :- write(before), (X > 0 ; X < 0), write(after).
 main :- classify(5), nl.
-%-------------------------------------------------- 106 fact_anonymous_var_arg_1
+%-------------------------------------------------- 105 fact_anonymous_var_arg_1
 :- initialization(main).
 point(1, 2, 3).
 main :- point(_, Y, _), write(Y), nl.
-%-------------------------------------------------------- 107 fact_integer_arg_1
+%-------------------------------------------------------- 106 fact_integer_arg_1
 :- initialization(main).
 count(42).
 main :- count(N), write(N), nl.
-%------------------------------------------------- 108 fact_nested_functor_arg_1
+%------------------------------------------------- 107 fact_nested_functor_arg_1
 :- initialization(main).
 wrap(point(1, 2)).
 main :- wrap(point(X, Y)), write(X+Y), nl.
-%------------------------------------------------------- 109 fact_one_arg_atom_1
+%------------------------------------------------------- 108 fact_one_arg_atom_1
 :- initialization(main).
 color(red).
 main :- color(X), write(X), nl.
-%--------------------------------------------------------- 110 fact_string_arg_1
+%--------------------------------------------------------- 109 fact_string_arg_1
 :- initialization(main).
 label("hello").
 main :- label(S), write(S), nl.
-%----------------------------------------------------------- 111 fact_two_args_1
+%----------------------------------------------------------- 110 fact_two_args_1
 :- initialization(main).
 edge(a, b).
 main :- edge(X, Y), write(X-Y), nl.
-%--------------------------------------------------------- 112 fact_zero_arity_1
+%--------------------------------------------------------- 111 fact_zero_arity_1
 :- initialization(main).
 ready.
 main :- ready, write(yes), nl.
-%-------------------------------------------- 113 global_vars_prolog_flag_read_1
+%-------------------------------------------- 112 global_vars_prolog_flag_read_1
 :- set_prolog_flag(demo_flag10a, initial).
 :- initialization(main).
 main :- current_prolog_flag(demo_flag10a, V), write(V), nl.
-%--------------------------------------------- 114 global_vars_prolog_flag_set_1
+%--------------------------------------------- 113 global_vars_prolog_flag_set_1
 :- set_prolog_flag(demo_flag10b, initial).
 :- initialization(main).
 main :- set_prolog_flag(demo_flag10b, changed), current_prolog_flag(demo_flag10b, V), write(V), nl.
-%----------------------------------------------------- 115 rule_body_two_goals_1
+%----------------------------------------------------- 114 rule_body_two_goals_1
 :- initialization(main).
 both :- write(a), write(b).
 main :- both, nl.
-%----------------------------------------------- 116 rule_head_var_passthrough_1
+%----------------------------------------------- 115 rule_head_var_passthrough_1
 :- initialization(main).
 show(X) :- write(X).
 main :- show(passed), nl.
-%-------------------------------------------------- 117 rule_head_var_repeated_1
+%-------------------------------------------------- 116 rule_head_var_repeated_1
 :- initialization(main).
 same(X, X) :- write(matched).
 main :- same(a, a), nl.
-%--------------------------------------------------- 118 rule_single_goal_body_1
+%--------------------------------------------------- 117 rule_single_goal_body_1
 :- initialization(main).
 greet :- write(hi).
 main :- greet, nl.
-%----------------------------------------- 119 rung01_rule_with_program_skeleton
+%----------------------------------------- 118 rung01_rule_with_program_skeleton
 :- initialization(main).
 banner :- write(ready), nl.
 main :- banner.
-%---------------------------------------------- 120 rung03_disjunction_with_rule
+%---------------------------------------------- 119 rung03_disjunction_with_rule
 :- initialization(main).
 combo :- write(a), (write(x) ; write(y)), write(b).
 main :- combo, nl.
-%--------------------------------------------------- 121 streamio_flush_output_1
+%--------------------------------------------------- 120 streamio_flush_output_1
 :- initialization(main).
 main :-
     write(a), flush_output, write(b), flush_output(user_output), nl.
-%------------------------------------------------------ 122 sub_atom_directive_1
+%------------------------------------------------------ 121 sub_atom_directive_1
 :- initialization(main).
 main :- sub_atom(abc, B, 1, _, S), write(B-S), nl, fail.
 main :- write(done), nl.
-%----------------------------------------------------- 123 zero_arity_dispatch_1
+%----------------------------------------------------- 122 zero_arity_dispatch_1
 :- initialization(main).
 main(x) :- write(wrong), nl.
 main :- write(right), nl.
-%-------------------------------- 124 clause_choice_two_clauses_distinct_heads_1
+%-------------------------------- 123 clause_choice_two_clauses_distinct_heads_1
 :- initialization(main).
 sound(dog, woof).
 sound(cat, meow).
 main :- sound(cat, S), write(S), nl.
-%-------------------------------------------------------------- 125 directive_13
+%-------------------------------------------------------------- 124 directive_13
 :- initialization(main).
 f(a).
 f(b).
 main :- f(X), write(X), nl.
-%-------------------------------------------------------------- 126 directive_16
+%-------------------------------------------------------------- 125 directive_16
 % rung01_hello — write/1, nl/0, halt/0
 % Expected output: hello
 :- initialization(main).
 main :- write(hello), nl.
-%-------------------------------------------------------------- 127 directive_35
+%-------------------------------------------------------------- 126 directive_35
 :- initialization(main).
 main :-
     X1 is 2**10, write(X1), nl,
     X2 is 3**3,  write(X2), nl.
-%-------------------------------------------------------------- 128 directive_36
+%-------------------------------------------------------------- 127 directive_36
 :- initialization(main).
 main :-
     X1 is 1 << 4,   write(X1), nl,
     X2 is 256 >> 3, write(X2), nl.
-%-------------------------------------------------------------- 129 directive_49
+%-------------------------------------------------------------- 128 directive_49
 :- initialization(main).
 main :-
     number_string(42, S), write(S), nl,
     number_string(N, "99"), write(N), nl.
-%-------------------------------------------------------------- 130 directive_51
+%-------------------------------------------------------------- 129 directive_51
 :- initialization(main).
 main :-
     string_concat("foo", "bar", S), write(S), nl,
     string_concat(hello, ' world', S2), write(S2), nl.
-%-------------------------------------------------------------- 131 directive_52
+%-------------------------------------------------------------- 130 directive_52
 :- initialization(main).
 main :-
     string_length("hello", N), write(N), nl,
     string_length(abcde, M), write(M), nl.
-%-------------------------------------------------------------- 132 directive_57
+%-------------------------------------------------------------- 131 directive_57
 :- initialization(main).
 main :-
     upcase_atom(hello, U), write(U), nl,
     downcase_atom('HELLO', D), write(D), nl.
-%-------------------------------------------------------------- 133 directive_58
+%-------------------------------------------------------------- 132 directive_58
 :- initialization(main).
 main :-
     term_string(point(3,4), S), write(S), nl,
     term_string(42, S2), write(S2), nl.
-%-------------------------------------------------------------- 134 directive_60
+%-------------------------------------------------------------- 133 directive_60
 :- initialization(main).
 main :-
     term_to_atom(1+2, A), write(A), nl,
     term_to_atom(f(a,b,c), B), write(B), nl.
-%-------------------------------------------------------------- 135 directive_61
+%-------------------------------------------------------------- 134 directive_61
 :- initialization(main).
 main :-
     atomic_list_concat([hello, world], A), write(A), nl,
     atomic_list_concat([1, 2, 3], B), write(B), nl.
-%-------------------------------------------------------------- 136 directive_62
+%-------------------------------------------------------------- 135 directive_62
 :- initialization(main).
 main :-
     atomic_list_concat([hello, beautiful, world], ' ', A), write(A), nl,
     atomic_list_concat([a, b, c], '-', B), write(B), nl.
-%-------------------------------------------------------------- 137 directive_63
+%-------------------------------------------------------------- 136 directive_63
 :- initialization(main).
 main :-
     string_to_atom(hello, A), write(A), nl,
     string_to_atom(S, world), write(S), nl.
-%-------------------------------------------------------------- 138 directive_64
+%-------------------------------------------------------------- 137 directive_64
 :- initialization(main).
 main :-
     atomic_list_concat([hello, world], A), write(A), nl,
     atomic_list_concat([1, 2, 3], B), write(B), nl.
-%-------------------------------------------------------------- 139 directive_65
+%-------------------------------------------------------------- 138 directive_65
 :- initialization(main).
 main :-
     atomic_list_concat([hello, beautiful, world], ' ', A), write(A), nl,
     atomic_list_concat([a, b, c], '-', B), write(B), nl.
-%-------------------------------------------------------------- 140 directive_67
+%-------------------------------------------------------------- 139 directive_67
 :- initialization(main).
 main :-
     string_to_atom(hello, A), write(A), nl,
     string_to_atom(S, world), write(S), nl.
-%-------------------------------------------------------------- 141 directive_73
+%-------------------------------------------------------------- 140 directive_73
 :- initialization(main).
 main :-
     X is pi, write(X), nl,
     Y is exp(1.0), write(Y), nl.
-%-------------------------------------------------------------- 142 directive_77
+%-------------------------------------------------------------- 141 directive_77
 :- initialization(main).
 main :-
     X is gcd(12, 8), write(X), nl,
     Y is gcd(100, 75), write(Y), nl.
-%-------------------------------------------------------------- 143 directive_85
+%-------------------------------------------------------------- 142 directive_85
 :- initialization(main).
 p :- ( write(a) ; write(b) ), nl, fail.
 p.
 main :- p.
-%-------------------------------------------------------------- 144 directive_86
+%-------------------------------------------------------------- 143 directive_86
 :- initialization(main).
 main :- open('/tmp/scrip_rung06_tail.txt', write, W), write(W, 'hello(world).'), nl(W), write(W, 'second(1).'), nl(W), write(W, xy), close(W),
     open('/tmp/scrip_rung06_tail.txt', read, R), read(R, T), set_input(R), read_term(T2, []), set_input(user_input), get_char(R, C1), peek_char(R, P), get_char(R, C2), get_char(R, E), close(R),
     write(T), nl, write(T2), nl, write(C1), write(P), write(C2), nl, write(E), nl.
-%----------------------------------------- 145 evaluable_float_fractional_part_1
+%----------------------------------------- 144 evaluable_float_fractional_part_1
 :- initialization(main).
 main :-
     X is float_fractional_part(3.5), write(X), nl,
     Y is float_fractional_part(-3.5), write(Y), nl.
-%-------------------------------------------- 146 evaluable_float_integer_part_1
+%-------------------------------------------- 145 evaluable_float_integer_part_1
 :- initialization(main).
 main :-
     X is float_integer_part(3.7), write(X), nl,
     Y is float_integer_part(-3.7), write(Y), nl.
-%------------------------------------------------ 147 evaluable_pi_e_constants_1
+%------------------------------------------------ 146 evaluable_pi_e_constants_1
 :- initialization(main).
 main :-
     X is pi, write(X), nl,
     Y is e, write(Y), nl.
-%---------------------------------------------- 148 evaluable_shift_left_right_1
+%---------------------------------------------- 147 evaluable_shift_left_right_1
 :- initialization(main).
 main :-
     X is 1 << 4, write(X), nl,
     Y is 256 >> 3, write(Y), nl.
-%------------------------------------------------- 149 ofi_once_first_solution_1
+%------------------------------------------------- 148 ofi_once_first_solution_1
 :- initialization(main).
 p(1).
 p(2).
 main :- once(p(X)), write(X), nl.
-%---------------------------------------------------- 150 rule_body_calls_fact_1
+%---------------------------------------------------- 149 rule_body_calls_fact_1
 :- initialization(main).
 color(red).
 likes_color :- color(X), write(X).
 main :- likes_color, nl.
-%------------------------------------- 151 rung03_disjunction_with_clause_choice
+%------------------------------------- 150 rung03_disjunction_with_clause_choice
 :- initialization(main).
 pick(a) :- (write(left) ; write(right)).
 pick(b) :- write(only).
 main :- pick(a), nl, pick(b), nl.
-%----------------------------------------------- 152 write_canonical_directive_2
+%----------------------------------------------- 151 write_canonical_directive_2
 :- initialization(main).
 main :-
     write_canonical(f(a,b)), nl,
     write_canonical(g(1,2,3)), nl.
-%----------------------------------------------- 153 write_canonical_directive_3
+%----------------------------------------------- 152 write_canonical_directive_3
 :- initialization(main).
 main :-
     write_canonical(1+2), nl,
     write_canonical(a-b), nl.
-%--------------------------------------- 154 clause_choice_first_solution_only_1
+%--------------------------------------- 153 clause_choice_first_solution_only_1
 :- initialization(main).
 r(1).
 r(2).
 r(3).
 main :- r(X), write(X), nl.
-%--------------------------------------------------------------- 155 directive_1
+%--------------------------------------------------------------- 154 directive_1
 % SCRIP DEMO1 -- Hello World (Prolog section)
 % Idiom: write/1 + nl/0
 :- initialization(main, main).
 main :-
     write('Hello, World!'), nl.
-%-------------------------------------------------------------- 156 directive_14
+%-------------------------------------------------------------- 155 directive_14
 :- initialization(main).
 f(a).
 f(b).
 f(c).
 main :- ( f(X), write(X), nl, fail ) ; true.
-%-------------------------------------------------------------- 157 directive_33
+%-------------------------------------------------------------- 156 directive_33
 :- initialization(main).
 main :-
     X1 is 12 /\ 10, write(X1), nl,
     X2 is 12 \/ 3,  write(X2), nl,
     X3 is 12 xor 10, write(X3), nl.
-%-------------------------------------------------------------- 158 directive_34
+%-------------------------------------------------------------- 157 directive_34
 :- initialization(main).
 main :-
     X1 is max(3,7),  write(X1), nl,
     X2 is min(3,7),  write(X2), nl,
     X3 is max(-1,0), write(X3), nl.
-%-------------------------------------------------------------- 159 directive_37
+%-------------------------------------------------------------- 158 directive_37
 :- initialization(main).
 main :-
     X1 is sign(5),  write(X1), nl,
     X2 is sign(-3), write(X2), nl,
     X3 is sign(0),  write(X3), nl.
-%-------------------------------------------------------------- 160 directive_48
+%-------------------------------------------------------------- 159 directive_48
 :- initialization(main).
 main :-
     atom_string(hello, S), write(S), nl,
     atom_string(A, "world"), write(A), nl,
     atom_string(42, S2), write(S2), nl.
-%-------------------------------------------------------------- 161 directive_50
+%-------------------------------------------------------------- 160 directive_50
 :- initialization(main).
 main :-
     string_upper("hello", U), write(U), nl,
     string_lower("WORLD", L), write(L), nl,
     string_upper(foo, U2), write(U2), nl.
-%-------------------------------------------------------------- 162 directive_59
+%-------------------------------------------------------------- 161 directive_59
 :- initialization(main).
 main :-
     term_to_atom(foo(1,2), A), write(A), nl,
     term_to_atom(hello, B), write(B), nl,
     term_to_atom([1,2,3], C), write(C), nl.
-%-------------------------------------------------------------- 163 directive_68
+%-------------------------------------------------------------- 162 directive_68
 :- initialization(main).
 fruit(apple). fruit(banana). fruit(cherry).
 main :-
     aggregate_all(count, fruit(_), N),
     write(N), nl.
-%-------------------------------------------------------------- 164 directive_69
+%-------------------------------------------------------------- 163 directive_69
 :- initialization(main).
 val(5). val(3). val(8). val(1).
 main :-
     aggregate_all(max(V), val(V), Max), write(Max), nl,
     aggregate_all(min(W), val(W), Min), write(Min), nl.
-%-------------------------------------------------------------- 165 directive_70
+%-------------------------------------------------------------- 164 directive_70
 :- initialization(main).
 score(10). score(20). score(30).
 main :-
     aggregate_all(sum(S), score(S), Total),
     write(Total), nl.
-%-------------------------------------------------------------- 166 directive_72
+%-------------------------------------------------------------- 165 directive_72
 :- initialization(main).
 main :-
     nb_setval(msg, hello),
     nb_getval(msg, X),
     write(X), nl.
-%-------------------------------------------------------------- 167 directive_75
+%-------------------------------------------------------------- 166 directive_75
 :- initialization(main).
 main :-
     X is sqrt(4.0), write(X), nl,
     Y is sin(0.0), write(Y), nl,
     Z is cos(0.0), write(Z), nl.
-%-------------------------------------------------------------- 168 directive_76
+%-------------------------------------------------------------- 167 directive_76
 :- initialization(main).
 main :-
     X is float_integer_part(3.7), write(X), nl,
     Y is float_fractional_part(3.7), write(Y), nl,
     Z is float(5), write(Z), nl.
-%-------------------------------------------------- 169 evaluable_exp_log_sqrt_1
+%-------------------------------------------------- 168 evaluable_exp_log_sqrt_1
 :- initialization(main).
 main :-
     X is exp(0.0), write(X), nl,
     Y is log(1.0), write(Y), nl,
     Z is sqrt(4.0), write(Z), nl.
-%---------------------------------------------------------- 170 evaluable_sign_1
+%---------------------------------------------------------- 169 evaluable_sign_1
 :- initialization(main).
 main :-
     X is sign(-5), write(X), nl,
     Y is sign(0), write(Y), nl,
     Z is sign(7), write(Z), nl.
-%-------------------------------------------------- 171 evaluable_sin_cos_atan_1
+%-------------------------------------------------- 170 evaluable_sin_cos_atan_1
 :- initialization(main).
 main :-
     X is sin(0.0), write(X), nl,
     Y is cos(0.0), write(Y), nl,
     Z is atan(0.0), write(Z), nl.
-%--------------------------------------------------------- 172 index_directive_1
+%--------------------------------------------------------- 171 index_directive_1
 :- initialization(main).
 fact(a, 1).
 fact(b, 2).
 fact(c, 3).
 main :- fact(b, V), write(V), nl.
-%----------------------------------- 173 indexing_distinct_constant_first_args_1
+%----------------------------------- 172 indexing_distinct_constant_first_args_1
 color_code(red, 1).
 color_code(green, 2).
 color_code(blue, 3).
 :- initialization(main).
 main :- color_code(green, X), write(X), nl.
-%----------------------------------------------------- 174 misc17_number_chars_1
+%----------------------------------------------------- 173 misc17_number_chars_1
 :- initialization(main).
 main :-
     number_chars(42, Chars), write(Chars), nl,
     number_chars(N, ['4','2']), write(N), nl,
     number_chars(N2, ['3','.','5']), write(N2), nl.
-%-------------------------------------------- 175 rung02_clause_choice_with_rule
+%-------------------------------------------- 174 rung02_clause_choice_with_rule
 :- initialization(main).
 lang(en) :- write(hello), nl.
 lang(fr) :- write(bonjour), nl.
 main :- lang(_), fail.
 main :- true.
-%---------------------------------------------------------- 176 scrip_test_hello
+%---------------------------------------------------------- 175 scrip_test_hello
 % SCRIP DEMO1 -- Hello World (Prolog section)
 % Idiom: write/1 + nl/0
 :- initialization(main, main).
 main :-
     write('Hello, World!'), nl.
-%--------------------------------------------------------- 177 simple_program_91
+%--------------------------------------------------------- 176 simple_program_91
 :- initialization(main).
 main :-
     plus(3, Y, 10), write(Y), nl,
     plus(0, W, 5),  write(W), nl.
 main.
-%--------------------------------------------------------- 178 simple_program_92
+%--------------------------------------------------------- 177 simple_program_92
 :- initialization(main).
 main :-
     plus(X, 4, 10), write(X), nl,
     plus(Y, 3, 3),  write(Y), nl.
 main.
-%----------------------------------------------- 179 write_canonical_directive_1
+%----------------------------------------------- 178 write_canonical_directive_1
 :- initialization(main).
 main :-
     write_canonical(hello), nl,
     write_canonical('Hello'), nl,
     write_canonical([]), nl.
-%-------------------------------------------------------- 180 writeq_directive_1
+%-------------------------------------------------------- 179 writeq_directive_1
 :- initialization(main).
 main :-
     writeq(hello), nl,
     writeq('Hello'), nl,
     writeq([]), nl.
-%-------------------------------------------------------- 181 writeq_directive_2
+%-------------------------------------------------------- 180 writeq_directive_2
 :- initialization(main).
 main :-
     writeq(1+2), nl,
     writeq(f(a,b)), nl,
     writeq(a-b), nl.
-%----------------------------------- 182 clause_choice_three_clauses_enumerate_1
+%----------------------------------- 181 clause_choice_three_clauses_enumerate_1
 :- initialization(main).
 q(1).
 q(2).
 q(3).
 main :- q(X), write(X), fail.
 main :- nl.
-%---------------------------------------------- 183 declarations_discontiguous_1
+%---------------------------------------------- 182 declarations_discontiguous_1
 :- discontiguous(bar/1).
 bar(1).
 other(x).
 bar(2).
 :- initialization(main).
 main :- bar(1), bar(2), write(ok), nl.
-%-------------------------------------------------------------- 184 directive_20
+%-------------------------------------------------------------- 183 directive_20
 :- initialization(main).
 main :-
     atom_chars(hi, Cs),
     write(Cs), nl,
     atom_chars(A, [w,o,r,l,d]),
     write(A), nl.
-%-------------------------------------------------------------- 185 directive_21
+%-------------------------------------------------------------- 184 directive_21
 :- initialization(main).
 main :-
     atom_codes(hi, Cs),
     write(Cs), nl,
     atom_codes(A, [104,101,108,108,111]),
     write(A), nl.
-%-------------------------------------------------------------- 186 directive_22
+%-------------------------------------------------------------- 185 directive_22
 :- initialization(main).
 main :-
     atom_concat(foo, bar, R),
     write(R), nl,
     atom_concat(hello, ' world', R2),
     write(R2), nl.
-%-------------------------------------------------------------- 187 directive_23
+%-------------------------------------------------------------- 186 directive_23
 :- initialization(main).
 main :-
     atom_length(hello, N),
     write(N), nl,
     atom_length('', Z),
     write(Z), nl.
-%-------------------------------------------------------------- 188 directive_38
+%-------------------------------------------------------------- 187 directive_38
 :- initialization(main).
 main :- X is 5 /\ 3, write(X), nl,
         Y is 5 \/ 3, write(Y), nl,
         Z is 5 xor 3, write(Z), nl,
         W is 5 >> 1, write(W), nl,
         V is 5 << 1, write(V), nl.
-%-------------------------------------------------------------- 189 directive_71
+%-------------------------------------------------------------- 188 directive_71
 :- initialization(main).
 main :-
     nb_setval(counter, 0),
     nb_setval(counter, 42),
     nb_getval(counter, V),
     write(V), nl.
-%-------------------------------------------------------------- 190 directive_74
+%-------------------------------------------------------------- 189 directive_74
 :- initialization(main).
 main :-
     X is truncate(3.7), write(X), nl,
     Y is ceiling(3.2), write(Y), nl,
     Z is floor(3.9), write(Z), nl,
     W is round(3.5), write(W), nl.
-%-------------------------------------------------------------- 191 directive_84
+%-------------------------------------------------------------- 190 directive_84
 :- initialization(main).
 p(1).
 p(2).
 p(3).
 main :- p(X), write(X), nl, fail.
 main.
-%--------------------------------------- 192 evaluable_bitand_bitor_bitneg_xor_1
+%--------------------------------------- 191 evaluable_bitand_bitor_bitneg_xor_1
 :- initialization(main).
 main :-
     X is 12 /\ 10, write(X), nl,
     Y is 12 \/ 10, write(Y), nl,
     Z is \ 12, write(Z), nl,
     W is 12 xor 10, write(W), nl.
-%---------------------------------- 193 evaluable_floor_truncate_round_ceiling_1
+%---------------------------------- 192 evaluable_floor_truncate_round_ceiling_1
 :- initialization(main).
 main :-
     X is floor(3.7), write(X), nl,
     Y is truncate(3.7), write(Y), nl,
     Z is round(3.5), write(Z), nl,
     W is ceiling(3.2), write(W), nl.
-%-------------------------------------------------------- 194 simple_program_100
+%-------------------------------------------------------- 193 simple_program_100
 :- initialization(main).
 main :-
     sub_atom(abcdef, 2, 3, _, Sub),
     write(Sub), nl,
     sub_atom(abcdef, B, 1, _, b),
     write(B), nl.
-%-------------------------------------------------------- 195 simple_program_102
+%-------------------------------------------------------- 194 simple_program_102
 :- initialization(main).
 main :-
     upcase_atom(hello, U),
     write(U), nl,
     downcase_atom('WORLD', D),
     write(D), nl.
-%--------------------------------------------------------- 196 simple_program_90
+%--------------------------------------------------------- 195 simple_program_90
 :- initialization(main).
 main :-
     plus(3, 4, Z), write(Z), nl,
     plus(0, 7, W), write(W), nl,
     plus(10, 20, V), write(V), nl.
 main.
-%------------------------------------------ 197 termio_current_char_conversion_1
+%------------------------------------------ 196 termio_current_char_conversion_1
 :- initialization(main).
 main :-
     current_char_conversion(a, X0), write(X0), nl,
     char_conversion(a, z),
     current_char_conversion(a, X1), write(X1), nl,
     char_conversion(a, a).
-%-------------------------------------------- 198 termio_write_term_numbervars_1
+%-------------------------------------------- 197 termio_write_term_numbervars_1
 :- initialization(main).
 main :-
     T = f(X, Y, X),
     numbervars(T, 0, _),
     write_term(T, [numbervars(true)]), nl,
     write_term(T, [numbervars(false)]), nl.
-%-------------------------------------------------------------- 199 directive_17
+%-------------------------------------------------------------- 198 directive_17
 % rung02_facts — deterministic fact lookup
 % Expected output (one per line): brown jones smith
 :- initialization(main).
@@ -855,7 +852,7 @@ person(brown).
 person(jones).
 person(smith).
 main :- person(X), write(X), nl, fail ; true.
-%-------------------------------------------------------- 200 simple_program_103
+%-------------------------------------------------------- 199 simple_program_103
 :- initialization(main).
 main :-
     atom_to_term('foo(1,2)', T, B),
@@ -863,7 +860,7 @@ main :-
     write(B), nl,
     atom_to_term(A, bar(x), []),
     write(A), nl.
-%--------------------------------------------------------- 201 simple_program_97
+%--------------------------------------------------------- 200 simple_program_97
 % ** and ^ for exponentiation
 :- initialization(main).
 main :-
@@ -871,7 +868,7 @@ main :-
     B is 2 ^ 10,  write(B), nl,
     C is 3 ** 0,  write(C), nl,
     D is 2 ** -1, write(D), nl.
-%-------------------------------------------------------------- 202 directive_19
+%-------------------------------------------------------------- 201 directive_19
 :- initialization(main).
 main :-
     upcase_atom(hello, U),
@@ -880,7 +877,7 @@ main :-
     write(D), nl,
     atom_length(abcde, N),
     write(N), nl.
-%-------------------------------------------------------------- 203 directive_78
+%-------------------------------------------------------------- 202 directive_78
 % rung35_bridge_setup/01_scc_basic — all three positions are concrete goals.
 :- initialization(main).
 main :-
@@ -889,7 +886,7 @@ main :-
         (nl, write(goal), nl),
         (write(cleanup), nl)
     ).
-%-------------------------------------------------------- 204 simple_program_101
+%-------------------------------------------------------- 203 simple_program_101
 :- initialization(main).
 main :-
     atom_number('42', N),
@@ -898,7 +895,7 @@ main :-
     write(F), nl,
     atom_number(A, 7),
     write(A), nl.
-%--------------------------------------------- 205 streamio_get_byte_peek_byte_1
+%--------------------------------------------- 204 streamio_get_byte_peek_byte_1
 :- initialization(main).
 main :-
     open('/tmp/scrip_rung15_streamio_get_byte_peek_byte.bin', write, WS, [type(binary)]),
@@ -907,7 +904,7 @@ main :-
     peek_byte(RS, P1), get_byte(RS, G1), get_byte(RS, G2),
     write(P1), write(' '), write(G1), write(' '), write(G2), nl,
     close(RS).
-%--------------------------------------------- 206 streamio_get_code_peek_code_1
+%--------------------------------------------- 205 streamio_get_code_peek_code_1
 :- initialization(main).
 main :-
     open('/tmp/scrip_rung15_streamio_get_code_peek_code.txt', write, WS),
@@ -916,7 +913,7 @@ main :-
     peek_code(RS, P1), get_code(RS, G1), get_code(RS, G2),
     write(P1), write(' '), write(G1), write(' '), write(G2), nl,
     close(RS).
-%------------------------------------------------------- 207 streamio_put_byte_1
+%------------------------------------------------------- 206 streamio_put_byte_1
 :- initialization(main).
 main :-
     open('/tmp/scrip_rung15_streamio_put_byte.bin', write, WS, [type(binary)]),
@@ -925,7 +922,7 @@ main :-
     get_byte(RS, B1), get_byte(RS, B2),
     write(B1), write(' '), write(B2), nl,
     close(RS).
-%-------------------------------------------------------- 208 simple_program_104
+%-------------------------------------------------------- 207 simple_program_104
 % sub_atom in determinate mode: Before and Length both bound
 :- initialization(main).
 main :-
@@ -935,7 +932,7 @@ main :-
     write(Sub2), nl,
     sub_atom(hello, 0, 0, _, Sub3),
     write(Sub3), nl.
-%--------------------------------------------------------- 209 simple_program_96
+%--------------------------------------------------------- 208 simple_program_96
 % ISO §8.7 — truncate/round/ceiling/floor
 :- initialization(main).
 main :-
@@ -946,7 +943,7 @@ main :-
     E is ceiling(3.2),   write(E), nl,
     F is floor(3.7),     write(F), nl,
     G is floor(-3.2),    write(G), nl.
-%--------------------------------------------------------- 210 simple_program_98
+%--------------------------------------------------------- 209 simple_program_98
 % abs/1, sign/1, max/2, min/2
 :- initialization(main).
 main :-
@@ -957,7 +954,7 @@ main :-
     E is sign(3),      write(E), nl,
     F is max(3, 7),    write(F), nl,
     G is min(3, 7),    write(G), nl.
-%-------------------------------------------------- 211 termio_char_conversion_1
+%-------------------------------------------------- 210 termio_char_conversion_1
 :- initialization(main).
 main :-
     char_conversion(a, b),
@@ -968,7 +965,7 @@ main :-
     close(RS),
     write(T), nl,
     char_conversion(a, a).
-%--------------------------------------------------------- 212 simple_program_95
+%--------------------------------------------------------- 211 simple_program_95
 % ISO §8.4 mod (sign of divisor) vs rem (sign of dividend)
 :- initialization(main).
 main :-
@@ -980,7 +977,7 @@ main :-
     F is -7 rem 3,  write(F), nl,
     G is 7 rem -3,  write(G), nl,
     H is -7 rem -3, write(H), nl.
-%-------------------------------------------- 213 streamio_set_stream_position_1
+%-------------------------------------------- 212 streamio_set_stream_position_1
 :- initialization(main).
 main :-
     open('/tmp/scrip_rung15_streamio_set_stream_position.txt', write, WS),
@@ -993,7 +990,7 @@ main :-
     get_char(RS, C3Again),
     write(C1), write(C2), write(C3), write(C3Again), nl,
     close(RS).
-%-------------------------------------------------------- 214 simple_program_105
+%-------------------------------------------------------- 213 simple_program_105
 :- initialization(main).
 main :-
     writeln(hello),
@@ -1007,7 +1004,7 @@ main :-
     writeln(after_tail),
     writeln(end).
 main :- write(main_failed), nl.
-%-------------------------------------------------------------- 215 directive_80
+%-------------------------------------------------------------- 214 directive_80
 :- initialization(main).
 main :-
     put(72), put(105), put(33), nl,
@@ -1025,7 +1022,7 @@ main :-
     write(chars(C0,C1,C2,C3)), nl,
     write(done), nl,
     halt.
-%-------------------------------------------------------------- 216 directive_81
+%-------------------------------------------------------------- 215 directive_81
 :- initialization(main).
 main :-
     telling(T0), seeing(S0),
@@ -1045,7 +1042,7 @@ main :-
     seeing(S1), write(after_seen(S1)), nl,
     write(done), nl,
     halt.
-%-------------------------------------------------------------- 217 directive_79
+%-------------------------------------------------------------- 216 directive_79
 :- initialization(main).
 main :-
     open('/tmp/rung72_ug.txt', write, WS), write(WS, 'ABC'), close(WS),
@@ -1068,7 +1065,7 @@ main :-
     write(byte(B1,B2)), nl,
     write(done), nl,
     halt.
-%-------------------------------------------------------------- 218 directive_18
+%-------------------------------------------------------------- 217 directive_18
 % rung08_recursion — fibonacci/2, factorial/2
 % Expected output: 8  6
 :- initialization(main).
@@ -1093,7 +1090,7 @@ factorial(N, F) :-
 main :-
     fib(6, F), write(F), nl,
     factorial(3, G), write(G), nl.
-%-------------------------------------------- 219 test_rung10_programs_puzzle_10
+%-------------------------------------------- 218 test_rung10_programs_puzzle_10
 %-------------------------------------------------------------------------------
 % 10 — High school chums
 %-------------------------------------------------------------------------------
@@ -1134,39 +1131,42 @@ all_diff5(A,B,C,D,E) :-
     A\=B, A\=C, A\=D, A\=E,
     B\=C, B\=D, B\=E,
     C\=D, C\=E, D\=E.
-%-------------------------------------------------------- 220 arith_compare_ge_1
+%-------------------------------------------------------- 219 arith_compare_ge_1
 :- initialization(main).
 main :- (2 >= 2 -> write(yes) ; write(no)), nl.
-%-------------------------------------------------------- 221 arith_compare_gt_1
+%-------------------------------------------------------- 220 arith_compare_gt_1
 :- initialization(main).
 main :- (3 > 2 -> write(yes) ; write(no)), nl.
-%-------------------------------------------------------- 222 arith_compare_le_1
+%-------------------------------------------------------- 221 arith_compare_le_1
 :- initialization(main).
 main :- (2 =< 2 -> write(yes) ; write(no)), nl.
-%-------------------------------------------------------- 223 arith_compare_lt_1
+%-------------------------------------------------------- 222 arith_compare_lt_1
 :- initialization(main).
 main :- (2 < 3 -> write(yes) ; write(no)), nl.
-%--------------------------------------------------------- 224 arith_directive_1
+%--------------------------------------------------------- 223 arith_directive_1
 :- initialization(main).
 main :- X is 3 + 4 * 2, Y is X - 1, Z is X mod 3, X > Y, Y >= 10, Z =:= 2, X =\= Y, Y < X, Y =< X, write(X), nl, write(Y), nl, write(Z), nl.
-%----------------------------------------------------- 225 arith_eval_negation_1
+%----------------------------------------------------- 224 arith_eval_negation_1
 :- initialization(main).
 main :- N = 5, X is -N, write(X), nl.
-%------------------------------------------- 226 arith_eval_zero_divisor_error_1
+%------------------------------------------- 225 arith_eval_zero_divisor_error_1
 :- initialization(main).
 main :- catch(( _ is 1 / 0, write(nocaught) ), error(evaluation_error(zero_divisor), _), write(caught)), nl.
-%-------------------------------------------- 227 between_backtrack_all_values_1
+%-------------------------------------------- 226 between_backtrack_all_values_1
 :- initialization(main).
 main :- (between(1,4,X), write(X), fail ; true), nl.
-%------------------------------------ 228 catch_throw_catch_of_succeeding_goal_1
+%------------------------------------ 227 catch_throw_catch_of_succeeding_goal_1
 :- initialization(main).
 main :- catch(write(normal), _, write(recovery)), nl.
-%------------------------------------- 229 catch_throw_error_term_from_builtin_1
+%------------------------------------- 228 catch_throw_error_term_from_builtin_1
 :- initialization(main).
 main :- catch(( X is 1/0, write(X) ), error(evaluation_error(zero_divisor),_), write(caught)), nl.
-%-------------------------------------------------------------- 230 directive_15
+%-------------------------------------------------------------- 229 directive_15
 :- initialization(main).
 main :- ( ( X = a ; X = b ), write(X), nl, fail ) ; true.
+%-------------------------------------------------------------- 230 directive_42
+:- initialization(main).
+main :- catch((X is truncate(7), write(X), nl, Y is integer(4), write(Y), nl), error(E, _), (write(E), nl)).
 %----------------------------------------------------- 231 erriso_domain_error_1
 :- initialization(main).
 main :- catch( open('/tmp/scrip_rung18_erriso_domain.txt', bogus_mode, _), error(domain_error(io_mode, bogus_mode), _), write(caught) ), nl.

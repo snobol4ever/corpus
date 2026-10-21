@@ -46,7 +46,6 @@ directive_29	chunk:05	family:rung21_char_type
 directive_39	chunk:05	family:rung23_arith_ext	
 directive_40	chunk:05	family:rung23_arith_ext	
 directive_41	chunk:05	family:rung23_arith_ext	
-directive_42	chunk:02	feat:catch	catch
 directive_43	chunk:04	family:rung24	
 directive_44	chunk:04	family:rung24	
 directive_45	chunk:04	family:rung24	
@@ -227,11 +226,12 @@ arith_compare_le_1	chunk:02	feat:if_then_else	if_then_else
 arith_compare_lt_1	chunk:02	feat:if_then_else	if_then_else
 arith_directive_1	chunk:02	feat:unify	unify
 arith_eval_negation_1	chunk:02	feat:unify	unify
-arith_eval_zero_divisor_error_1	chunk:03	feat:catch	catch
+arith_eval_zero_divisor_error_1	chunk:02	feat:catch	catch
 between_backtrack_all_values_1	chunk:04	feat:between	between
 catch_throw_catch_of_succeeding_goal_1	chunk:03	feat:catch	catch
 catch_throw_error_term_from_builtin_1	chunk:03	feat:catch	catch
 directive_15	chunk:02	feat:unify	unify
+directive_42	chunk:03	feat:catch	catch
 erriso_domain_error_1	chunk:03	feat:catch	catch
 erriso_evaluation_error_1	chunk:03	feat:catch	catch
 erriso_existence_error_1	chunk:03	feat:catch	catch
