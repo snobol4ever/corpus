@@ -931,8 +931,10 @@ n43_disjunction_α:      sub              rsp, 32
                                                                               jmp   n44_conjunction_α
 .Ldisjunction_α_166_1:                                                        jmp   n44_conjunction_α
 n43_disjunction_β:      mov              eax, dword ptr [rsp + 16]
-                        cmp              eax, 0;                              je    n87_scan_α
-                                                                              jmp   n87_scan_α
+                        cmp              eax, 0;                              jne   .Ldisjunction_β_166_302
+                        add              rsp, 32;                             jmp   n87_scan_α
+.Ldisjunction_β_166_302:
+                        add              rsp, 32;                             jmp   n87_scan_α
 .Ldisjunction_γ_43_af:
 .Ldisjunction_ω_43_af:  add              dword ptr [rsp + 16], 1
                         mov              eax, dword ptr [rsp + 16]
@@ -952,9 +954,9 @@ n44_conjunction_β:                                                            j
 n45_scan_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n45_scan_α:             sub              rsp, 16
-                        mov              rax, qword ptr [rbp + 192]
+                        mov              rax, qword ptr [rsp + 16]
                         mov              qword ptr [rsp + 0], rax
-                        mov              rax, qword ptr [rbp + 200]
+                        mov              rax, qword ptr [rsp + 24]
                         mov              qword ptr [rsp + 8], rax
                         mov              dword ptr [rbp + 128], r14d
                         mov              dword ptr [rbp + 116], r15d
@@ -6053,7 +6055,7 @@ n00157_disjunction_α:     mov              qword ptr [rbp + 512], 0
 .Ldisjunction_α_789_1:                                                        jmp   n00159_scan_α
 n00157_disjunction_β:     mov              eax, dword ptr [rbp + 528]
                         cmp              eax, 0;                              je    n00160_disjunction_β
-                                                                              jmp   n00161_scan_α
+                        add              rsp, 16;                             jmp   n00161_scan_α
 .Ldisjunction_γ_601_af:
 .Ldisjunction_ω_601_af: add              dword ptr [rbp + 528], 1
                         mov              eax, dword ptr [rbp + 528]
@@ -6490,7 +6492,8 @@ n00179_disjunction_α:     sub              rsp, 32
                         cmp              eax, 0;                              jne   .Ldisjunction_α_822_0
                         add              rsp, 32;                             jmp   n00181_line_mark_α
 .Ldisjunction_α_822_0:  add              rsp, 32;                             jmp   n00181_line_mark_α
-n00179_disjunction_β:     mov              eax, dword ptr [rsp + 16];           jmp   n00181_line_mark_α
+n00179_disjunction_β:     mov              eax, dword ptr [rsp + 16]
+                        add              rsp, 32;                             jmp   n00181_line_mark_α
 .Ldisjunction_γ_621_af:
 .Ldisjunction_ω_621_af: add              dword ptr [rsp + 16], 1
                         mov              eax, dword ptr [rsp + 16]
@@ -7064,7 +7067,7 @@ n00190_disjunction_α:     mov              qword ptr [rbp + 768], 0
 .Ldisjunction_α_869_1:                                                        jmp   n00211_assign_var_α
 n00190_disjunction_β:     mov              eax, dword ptr [rbp + 784]
                         cmp              eax, 0;                              je    n00212_disjunction_β
-                                                                              jmp   n00189_unmark_α
+                        add              rsp, 176;                            jmp   n00189_unmark_α
 .Ldisjunction_γ_650_af:
 .Ldisjunction_ω_650_af: add              dword ptr [rbp + 784], 1
                         mov              eax, dword ptr [rbp + 784]

@@ -5653,7 +5653,7 @@ n00146_disjunction_α:     mov              qword ptr [rbp + 512], 0
 .Ldisjunction_α_755_1:                                                        jmp   n00148_scan_α
 n00146_disjunction_β:     mov              eax, dword ptr [rbp + 528]
                         cmp              eax, 0;                              je    n00149_disjunction_β
-                                                                              jmp   n00150_scan_α
+                        add              rsp, 16;                             jmp   n00150_scan_α
 .Ldisjunction_γ_567_af:
 .Ldisjunction_ω_567_af: add              dword ptr [rbp + 528], 1
                         mov              eax, dword ptr [rbp + 528]
@@ -6090,7 +6090,8 @@ n00168_disjunction_α:     sub              rsp, 32
                         cmp              eax, 0;                              jne   .Ldisjunction_α_788_0
                         add              rsp, 32;                             jmp   n00170_line_mark_α
 .Ldisjunction_α_788_0:  add              rsp, 32;                             jmp   n00170_line_mark_α
-n00168_disjunction_β:     mov              eax, dword ptr [rsp + 16];           jmp   n00170_line_mark_α
+n00168_disjunction_β:     mov              eax, dword ptr [rsp + 16]
+                        add              rsp, 32;                             jmp   n00170_line_mark_α
 .Ldisjunction_γ_587_af:
 .Ldisjunction_ω_587_af: add              dword ptr [rsp + 16], 1
                         mov              eax, dword ptr [rsp + 16]
@@ -6664,7 +6665,7 @@ n00179_disjunction_α:     mov              qword ptr [rbp + 768], 0
 .Ldisjunction_α_835_1:                                                        jmp   n00200_assign_var_α
 n00179_disjunction_β:     mov              eax, dword ptr [rbp + 784]
                         cmp              eax, 0;                              je    n00201_disjunction_β
-                                                                              jmp   n00178_unmark_α
+                        add              rsp, 176;                            jmp   n00178_unmark_α
 .Ldisjunction_γ_616_af:
 .Ldisjunction_ω_616_af: add              dword ptr [rbp + 784], 1
                         mov              eax, dword ptr [rbp + 784]
