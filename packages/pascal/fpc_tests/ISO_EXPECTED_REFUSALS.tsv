@@ -21,13 +21,16 @@
 # webtbs_tw41595 (delphiunicode, admitted by the lexer as the Delphi dialect, as fpc admits it). Each is graded against its own .ref:
 # MEASURED, fpc 3.2.2 under each source's own mode cuts a ref byte-identical to the -Miso cut, so no ref moved. tb0675 (FPC overloads
 # over Currency, Halt 1) and tw17430 (the System variable ReturnNilIfGrowHeapFails) are FPC-dialect debt on this board, red until cured.
+# REMOVED 2026-10-21 by hq_pascal: webtbs_tw2072. Its two const-definition-parts sit in an (*$ifdef FPC*) / (*$else*) pair; since SCRIP
+# 8f58b6145 (2026-10-14) the lexer reads the (*$...*) conditional forms as their brace forms, as fpc does, so one part survives, the program
+# is valid ISO 7185 and SCRIP runs it. It is graded against its own .ref (Hello FPC), m3 and m4 byte-identical. The 6.2.1 check itself
+# stands: a plain program with two const-definition-parts is still refused with the same diagnostic in both modes.
 tbs_tb0316.pas	compiles rc=0 under fpc 3.2.2 -Miso	ISO 7185 6.2.1 violation: a block's type-definition-part shall precede its variable-declaration-part	m3=PASS m4=PASS on SCRIP b034cc02f
 test_cg_taddr3.pas	compiles rc=0 under fpc 3.2.2 -Miso	ISO 7185 6.2.1 violation: a block's variable-declaration-part shall precede its procedure-and-function-declaration-part	m3=PASS m4=PASS on SCRIP b034cc02f
 test_cg_tfor.pas	compiles rc=0 under fpc 3.2.2 -Miso	ISO 7185 6.2.1 violation: a block's variable-declaration-part shall precede its procedure-and-function-declaration-part	m3=PASS m4=PASS on SCRIP b034cc02f
 test_tprec5.pas	compiles rc=0 under fpc 3.2.2 -Miso	ISO 7185 6.2.1 violation: a block's variable-declaration-part shall precede its procedure-and-function-declaration-part	m3=PASS m4=PASS on SCRIP b034cc02f
 test_units_system_tassert1.pas	compiles rc=0 under fpc 3.2.2 -Miso	ISO 7185 6.2.1 violation: a block's constant-definition-part shall precede its variable-declaration-part	m3=PASS m4=PASS on SCRIP b034cc02f
 test_units_system_tassert6.pas	compiles rc=0 under fpc 3.2.2 -Miso	ISO 7185 6.2.1 violation: a block's constant-definition-part shall precede its variable-declaration-part	m3=PASS m4=PASS on SCRIP b034cc02f
-webtbs_tw2072.pas	compiles rc=0 under fpc 3.2.2 -Miso	ISO 7185 6.2.1 violation: a block has more than one constant-definition-part	m3=PASS m4=PASS on SCRIP b034cc02f
 webtbs_tw36079.pas	compiles rc=0 under fpc 3.2.2 -Miso	ISO 7185 6.2.1 violation: a block's variable-declaration-part shall precede its procedure-and-function-declaration-part	m3=PASS m4=PASS on SCRIP b034cc02f
 webtbs_tw3683.pas	compiles rc=0 under fpc 3.2.2 -Miso	ISO 7185 6.2.1 violation: a block's constant-definition-part shall precede its type-definition-part	m3=PASS m4=PASS on SCRIP b034cc02f
 webtbs_tw3691.pas	compiles rc=0 under fpc 3.2.2 -Miso	ISO 7185 6.2.1 violation: a block's constant-definition-part shall precede its type-definition-part	m3=PASS m4=PASS on SCRIP b034cc02f
