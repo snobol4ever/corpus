@@ -2032,5 +2032,5 @@ rank,entry,origin,family,kind,xfail,n_lines,heap_kb,stack_kb,compile_args,run_ar
 2031,user_function_eval_arbno_replace_branch_1,probe_ptj2__ptj1_arbno_defer_nonterminating,probe_ptj2,block,0,309,131072,4096,--stlimit,,1,0,1,1,1,0,0,1,1,1,1,0,0,0,0,1,0,1,1,1,0,0,1,0,1,0,1,0,1,0,1,0,1,1,1,1,1,1,1,1
 2032,demo_json,demo_snobol4_json__json,demo_snobol4_json,block,0,294,131072,4096,--stlimit,,1,0,1,1,1,0,0,1,1,1,1,0,0,0,0,1,0,1,1,1,0,0,1,1,1,0,1,1,1,0,1,0,1,1,1,1,1,1,1,1
 2033,benchmark_json,benchmark_snobol4_json__json,benchmark_snobol4_json,block,0,320,131072,4096,--stlimit,,1,0,1,1,1,0,0,1,1,1,1,0,0,0,0,1,0,1,1,1,0,0,1,1,1,0,1,1,1,0,1,0,1,1,1,1,1,1,1,1
-2034,user_function_keyword_14,trace_of_a_define_with_41_formals,trace_of_a_define_with_41_formals,block,1,11,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
-2035,user_function_dupl_size_1,trace_line_folds_at_120_columns,trace_line_folds_at_120_columns,block,1,10,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,1,0,0,0,0,0,0
+2034,user_function_keyword_14,trace_of_a_define_with_41_formals,trace_of_a_define_with_41_formals,block,0,11,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+2035,user_function_dupl_size_1,trace_line_folds_at_120_columns,trace_line_folds_at_120_columns,block,0,10,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,1,0,0,0,0,0,0
