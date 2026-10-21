@@ -43,14 +43,14 @@ directive_26	chunk:04	family:rung20_numbervars
 directive_27	chunk:04	family:rung20_numbervars	
 directive_28	chunk:04	family:rung20_numbervars	
 directive_29	chunk:05	family:rung21_char_type	
-directive_39	chunk:04	family:rung23_arith_ext	
-directive_40	chunk:04	family:rung23_arith_ext	
-directive_41	chunk:04	family:rung23_arith_ext	
-directive_42	chunk:04	family:rung23_arith_ext	
-directive_43	chunk:05	family:rung24	
-directive_44	chunk:05	family:rung24	
-directive_45	chunk:05	family:rung24	
-directive_46	chunk:05	family:rung24	
+directive_39	chunk:05	family:rung23_arith_ext	
+directive_40	chunk:05	family:rung23_arith_ext	
+directive_41	chunk:05	family:rung23_arith_ext	
+directive_42	chunk:02	feat:catch	catch
+directive_43	chunk:04	family:rung24	
+directive_44	chunk:04	family:rung24	
+directive_45	chunk:04	family:rung24	
+directive_46	chunk:04	family:rung24	
 directive_47	chunk:05	family:rung24	
 directive_53	chunk:05	family:rung25	
 directive_54	chunk:05	family:rung25	
@@ -189,7 +189,7 @@ directive_20	chunk:04	family:rung12_atom_builtins
 directive_21	chunk:04	family:rung12_atom_builtins	
 directive_22	chunk:04	family:rung12_atom_builtins	
 directive_23	chunk:04	family:rung12_atom_builtins	
-directive_38	chunk:04	family:rung23_arith_ext	
+directive_38	chunk:05	family:rung23_arith_ext	
 directive_71	chunk:05	family:rung27	
 directive_74	chunk:05	family:rung29	
 directive_84	chunk:02	family:ladder	
@@ -247,7 +247,7 @@ ite_condition_fails_1	chunk:02	feat:if_then_else	if_then_else
 ofi_ignore_of_failing_goal_1	chunk:02	feat:if_then_else	if_then_else
 ofi_ignore_succeeds_1	chunk:02	feat:unify	unify
 ofi_once_of_failing_goal_1	chunk:02	feat:if_then_else	if_then_else
-repeat_repeat_with_cut_1	chunk:02	feat:cut	cut
+repeat_repeat_with_cut_1	chunk:03	feat:cut	cut
 streams_current_input_1	chunk:02	feat:if_then_else	if_then_else
 streams_stream_term_1	chunk:02	feat:unify	unify
 sub_atom_empty_substring_1	chunk:02	feat:if_then_else	if_then_else
@@ -453,7 +453,7 @@ findall_dcg_directive_1	chunk:04	feat:dcg	dcg findall
 ite_directive_replace_2	chunk:02	feat:unify	if_then_else unify
 call_directive_replace_4	chunk:03	feat:call	call unify
 ite_directive_replace_1	chunk:02	feat:unify	if_then_else unify
-termio_read_term_variable_names_1	chunk:03	feat:findall	findall unify
+termio_read_term_variable_names_1	chunk:04	feat:findall	findall unify
 ite_writeq_directive_2	chunk:04	feat:writeq	if_then_else writeq
 catch_ite_directive_3	chunk:03	feat:catch	catch if_then_else
 catch_ite_directive_2	chunk:03	feat:catch	catch if_then_else

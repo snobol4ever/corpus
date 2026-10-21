@@ -146,7 +146,7 @@ main :- X is 2 ** 10, write(X), nl, Y is 3 ^ 3, write(Y), nl.
 main :- X is sign(-5), write(X), nl, Y is sign(0), write(Y), nl, Z is sign(3), write(Z), nl.
 %--------------------------------------------------------------- 45 directive_42
 :- initialization(main).
-main :- X is truncate(7), write(X), nl, Y is integer(4), write(Y), nl.
+main :- catch((X is truncate(7), write(X), nl, Y is integer(4), write(Y), nl), error(E, _), (write(E), nl)).
 %--------------------------------------------------------------- 46 directive_43
 :- initialization(main).
 main :- term_string(hello, S), write(S), nl.

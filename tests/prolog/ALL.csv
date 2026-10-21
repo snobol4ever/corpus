@@ -43,7 +43,7 @@ rank,entry,origin,family,kind,xfail,n_lines,heap_kb,stack_kb,compile_args,run_ar
 42,directive_39,rung23_arith_ext__rung23_arith_ext_max_min,rung23_arith_ext,block,0,2,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 43,directive_40,rung23_arith_ext__rung23_arith_ext_power,rung23_arith_ext,block,0,2,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 44,directive_41,rung23_arith_ext__rung23_arith_ext_sign,rung23_arith_ext,block,0,2,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
-45,directive_42,rung23_arith_ext__rung23_arith_ext_truncate,rung23_arith_ext,block,0,2,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+45,directive_42,rung23_arith_ext__rung23_arith_ext_truncate,rung23_arith_ext,block,0,2,131072,4096,,,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 46,directive_43,rung24__ts_atom,rung24,block,0,2,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 47,directive_44,rung24__ts_compound,rung24,block,0,2,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 48,directive_45,rung24__ts_int,rung24,block,0,2,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
