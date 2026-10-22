@@ -122,9 +122,13 @@ pj_run_tests(Suite, [t(N0,O,G)|Rest]) :-
 /* A test the shim cannot grade is that test's FAIL, never the end of its suite: until 2026-10-01 a pj_run_one that
  * failed (an all(X = L) the shim had no clause for) abandoned every later test of the suite through the once/1 chain,
  * and a forall generator that raised (data/1 calling random/1) escaped and ended the whole run. plunit grades each
- * test alone and reports a raising generator as that test's error. */
+ * test alone and reports a raising generator as that test's error.
+ * Each test's bindings are undone before the next test runs, as plunit's run_unit_2/4 runs every test inside forall/2:
+ * a backtrackable global a test leaves set -- the tabling delay list after a conditional answer, which xwam_state(2,_)
+ * reads -- reached every later test of the run (cfo 2026-10-22: XSB delay fr4 onward left it set, and ac_tests, which
+ * prints true or undefined by the delay register, read every true answer undefined in line and passed alone). */
 pj_run_verdict(Suite,N,_,_) :- nb_getval(pj_sto, only(S,T)), \+ (Suite == S, N == T), !.
-pj_run_verdict(Suite,N,O,G) :- once(pj_run_one(Suite,N,O,G)), !.
+pj_run_verdict(Suite,N,O,G) :- \+ \+ once(pj_run_one(Suite,N,O,G)), !.
 pj_run_verdict(Suite,N,_,_) :- pj_inc_fail, format('  FAIL: ~w:~w  (no verdict from the shim)~n',[Suite,N]).
 pj_gen_err(Suite,Name,E) :- pj_inc_fail, pj_err_text(E, T), format('  FAIL: ~w:~w  (received error: ~w)~n',[Suite,Name,T]).
 
