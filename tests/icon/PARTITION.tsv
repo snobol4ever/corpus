@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=930 features=62 ubiquitous=3(write procedure assign) distinctive=59 core=23 clusters=109 chunks=10 sizes=100,100,100,100,100,100,100,100,100,7
+# shape: entries=931 features=62 ubiquitous=3(write procedure assign) distinctive=59 core=23 clusters=109 chunks=10 sizes=100,100,100,100,100,100,100,100,100,8
 entry	part	cluster	shells
 procedure_write_107	chunk:09	family:scrip_test_icon_jcon_audit_01_intlit	
 procedure_write_108	chunk:09	family:scrip_test_icon_jcon_audit_02_reallit	
@@ -115,7 +115,7 @@ procedure_write_111	chunk:09	family:scrip_test_icon_jcon_audit_05_ident
 procedure_write_120	chunk:09	family:scrip_test_icon_jcon_audit_19_assign_local	
 procedure_write_121	chunk:09	family:scrip_test_icon_jcon_audit_22_revassign	
 procedure_write_132	chunk:09	family:scrip_test_icon_jcon_audit_50_list_ctor	
-procedure_write_133	chunk:09	family:scrip_test_icon_jcon_audit_51_lconcat	
+procedure_write_133	chunk:10	family:scrip_test_icon_jcon_audit_51_lconcat	
 procedure_write_134	chunk:10	family:scrip_test_icon_jcon_audit_61_seq_expr	
 procedure_write_135	chunk:10	family:scrip_test_icon_jcon_audit_63_string_subscript	
 procedure_write_keyword_3	chunk:05	feat:keyword_ref	keyword_ref
@@ -371,7 +371,7 @@ procedure_case_write_3	chunk:05	feat:case	case return
 procedure_table_write_replace_4	chunk:03	feat:table	table
 procedure_write_static_1	chunk:06	feat:static	static
 procedure_write_static_2	chunk:06	feat:static	static
-procedure_write_static_4	chunk:06	feat:static	static
+procedure_write_static_4	chunk:07	feat:static	static
 ladder__rung29_builtins_an_operator_value_pads_to_its_arity	chunk:03	feat:local	local
 procedure_alt_write_1	chunk:02	feat:return	alternation return
 procedure_alt_write_6	chunk:02	feat:return	alternation return
@@ -432,7 +432,7 @@ procedure_scan_tab_5	chunk:07	feat:scan_with_tab	scan scan_with_tab tab
 procedure_scan_tab_9	chunk:07	feat:scan_with_tab	scan scan_with_tab tab
 procedure_scan_write_20	chunk:08	feat:pos	any pos scan
 procedure_scan_write_9	chunk:08	feat:pos	any pos scan
-ladder_rung36_sets_refusal	chunk:07	feat:insert	insert keyword_ref
+ladder_rung36_sets_refusal	chunk:08	feat:insert	insert keyword_ref
 ladder_rung37_bal_refusal	chunk:07	feat:bal	bal keyword_ref
 ladder_rung42_kw_dump	chunk:03	feat:type	keyword_ref type
 procedure_scan_alt_1	chunk:08	feat:match	alternation match scan
@@ -603,7 +603,7 @@ procedure_scan_size_1	chunk:06	feat:scan	keyword_ref local scan
 ladder_rung41_rt_flush_seek_where	chunk:08	feat:reads	local reads writes
 procedure_write_275	chunk:03	feat:record	keyword_ref local record
 ladder__rung08_strbuiltins_a_numeric_comparison_converts_a_string_of_any_length	chunk:08	feat:repl	integer local repl
-procedure_write_augassign_replace_2	chunk:06	feat:static	aug_assign image static
+procedure_write_augassign_replace_2	chunk:07	feat:static	aug_assign image static
 procedure_record_limit_replace_1	chunk:03	feat:record	keyword_ref limitation record to_by
 procedure_coexpr_to_2	chunk:04	feat:create	coexpr_activate create to_by while
 procedure_scan_tab_6	chunk:07	feat:upto	move scan scan_with_tab tab upto
@@ -644,7 +644,7 @@ procedure_alt_to_2	chunk:07	feat:break	alternation break image to_by while
 procedure_alt_while_1	chunk:07	feat:break	alternation break image until while
 procedure_write_213	chunk:02	feat:return	every local return to_by
 procedure_write_248	chunk:09	feat:set	every local set table
-procedure_write_272	chunk:07	feat:writes	alternation every gen_with_alternation to_by writes
+procedure_write_272	chunk:06	feat:writes	alternation every gen_with_alternation to_by writes
 ladder__rung03_suspend_a_bang_over_a_cset_suspends_each_character	chunk:04	feat:every_with_suspend	element_gen every every_with_suspend suspend writes
 ladder__rung29_builtins_operator_values_coerce_as_the_operators_do	chunk:05	feat:image	alternation image keyword_ref local
 procedure_every_alt_33	chunk:02	feat:return	alternation every gen_with_alternation return to_by
@@ -660,7 +660,7 @@ procedure_every_table_1	chunk:03	feat:table	aug_assign every local table
 procedure_every_table_2	chunk:03	feat:table	aug_assign every local table
 procedure_table_write_15	chunk:06	feat:delete	delete insert local table
 procedure_table_write_4	chunk:06	feat:delete	delete insert local table
-procedure_write_271	chunk:07	feat:writes	alternation every gen_with_alternation to_by writes
+procedure_write_271	chunk:06	feat:writes	alternation every gen_with_alternation to_by writes
 ladder__rung29_builtins_an_operator_value_with_a_null_operand_raises	chunk:05	feat:image	alternation image keyword_ref local
 ladder__rung29_builtins_binary_star_with_one_argument_raises	chunk:06	feat:image	alternation image keyword_ref local
 procedure_every_to_13	chunk:02	feat:return	every local return to_by
@@ -737,7 +737,7 @@ procedure_write_274	chunk:05	feat:section	alternation every gen_with_alternation
 ladder__rung02_proc_every_return_form_returns_its_variable	chunk:04	feat:swap	alternation aug_assign global return swap
 procedure_every_scan_replace_11	chunk:04	feat:swap	every keyword_ref local scan swap
 procedure_record_alt_replace_1	chunk:04	feat:global	alternation aug_assign global image record
-procedure_every_elemgen_replace_16	chunk:07	feat:writes	alternation element_gen every gen_with_alternation local writes
+procedure_every_elemgen_replace_16	chunk:06	feat:writes	alternation element_gen every gen_with_alternation local writes
 procedure_write_212	chunk:06	feat:many	keyword_ref local many scan scan_with_tab tab
 ladder_rung37_bal_vs_upto	chunk:07	feat:bal	bal local scan scan_with_tab tab upto
 ladder__rung03_suspend_an_exhausted_suspend_backtracks_its_conjunction	chunk:04	feat:every_with_suspend	every every_with_suspend local suspend to_by writes
@@ -746,33 +746,33 @@ procedure_alt_while_replace_1	chunk:09	feat:repeat	alternation break local repea
 ladder__rung02_proc_an_if_case_block_or_limitation_is_a_variable_when_its_arm_is	chunk:05	feat:case	alternation case every gen_with_alternation global limitation
 procedure_every_alt_44	chunk:07	feat:seq	alternation every gen_with_alternation limitation seq to_by writes
 procedure_write_265	chunk:04	feat:every_with_suspend	every every_with_suspend keyword_ref local suspend to_by
-ladder__rung29_builtins_seq_called_through_a_variable_generates	chunk:07	feat:writes	alternation every gen_with_alternation limitation local writes
+ladder__rung29_builtins_seq_called_through_a_variable_generates	chunk:06	feat:writes	alternation every gen_with_alternation limitation local writes
 procedure_every_suspend_1	chunk:07	feat:upto	every every_with_suspend local suspend upto while
 procedure_every_suspend_2	chunk:07	feat:upto	every every_with_suspend local suspend upto while
 procedure_every_suspend_8	chunk:07	feat:upto	every every_with_suspend local suspend upto while
 procedure_every_suspend_9	chunk:07	feat:upto	every every_with_suspend local suspend upto while
-ladder__rung22_lists_augmented_assign_to_a_subscript_over_a_generator	chunk:07	feat:writes	aug_assign element_gen every local to_by writes
+ladder__rung22_lists_augmented_assign_to_a_subscript_over_a_generator	chunk:06	feat:writes	aug_assign element_gen every local to_by writes
 ladder__rung24_records_augmented_assign_to_a_field_over_a_generator	chunk:03	feat:record	aug_assign element_gen every local record to_by
 ladder_rung37_bal_default	chunk:07	feat:bal	bal local move scan scan_with_tab tab
 ladder__rung29_builtins_a_builtin_swapped_with_a_procedure_calls_it	chunk:04	feat:swap	alternation limitation local return swap writes
 procedure_record_alt_1	chunk:04	feat:swap	alternation aug_assign image local record swap
 ladder_rung38_coexpr_coroutine_switch	chunk:04	feat:create	aug_assign coexpr_activate create global local while
-procedure_alt_list_replace_1	chunk:08	feat:reads	alternation image keyword_ref list local reads
+procedure_alt_list_replace_1	chunk:09	feat:reads	alternation image keyword_ref list local reads
 ladder__rung02_proc_a_match_in_a_scan_inside_a_procedure_leaves_its_four_parameters_in_place	chunk:08	feat:match	image keyword_ref match scan scan_with_tab tab to_by
 procedure_scan_to_replace_1	chunk:08	feat:match	image keyword_ref match scan scan_with_tab tab to_by
 ladder__rung13_alt_a_converted_concatenation_error_falls_to_the_alternative	chunk:05	feat:gen_with_alternation	alternation every gen_with_alternation keyword_ref local to_by
 procedure_alt_table_replace_2	chunk:08	feat:repl	alternation image keyword_ref local repl table
 procedure_every_suspend_replace_1	chunk:06	feat:fail	every every_with_suspend fail local suspend to_by
 procedure_coexpr_suspend_replace_1	chunk:04	feat:create	coexpr_activate create local suspend to_by while
-ladder__rung29_builtins_display_lists_the_globals_iconx_lists	chunk:06	feat:static	global keyword_ref local record static table
+ladder__rung29_builtins_display_lists_the_globals_iconx_lists	chunk:07	feat:static	global keyword_ref local record static table
 ladder__rung42_kw_line_reads_the_line_of_the_instruction_that_follows_it_in_a_multi_line_call	chunk:02	feat:return	every image keyword_ref local return to_by
-ladder__rung19_toby_an_explicit_by_generates_as_iconx_from_integer_string_and_real_operands_and_converts_its_errors	chunk:07	feat:writes	aug_assign every keyword_ref local to_by writes
+ladder__rung19_toby_an_explicit_by_generates_as_iconx_from_integer_string_and_real_operands_and_converts_its_errors	chunk:06	feat:writes	aug_assign every keyword_ref local to_by writes
 procedure_every_elemgen_replace_5	chunk:03	feat:type	aug_assign element_gen every image local type
 procedure_every_to_replace_4	chunk:07	feat:read	every keyword_ref local read to_by writes
 procedure_alt_fail_replace_1	chunk:06	feat:fail	alternation fail image keyword_ref return type
 procedure_write_214	chunk:07	feat:find	find keyword_ref local move scan scan_with_tab tab
 ladder__rung29_builtins_args_of_an_operator_value_is_its_arity	chunk:09	feat:coexpr_activate	alternation coexpr_activate every gen_with_alternation scan to_by writes
-ladder__rung22_lists_a_null_test_of_a_generated_subscript_resumes	chunk:07	feat:writes	element_gen every image keyword_ref local to_by writes
+ladder__rung22_lists_a_null_test_of_a_generated_subscript_resumes	chunk:06	feat:writes	element_gen every image keyword_ref local to_by writes
 ladder__rung33_case_body_generator_resumes	chunk:05	feat:case	alternation case element_gen every gen_with_alternation local writes
 procedure_scan_tab_replace_2	chunk:06	feat:many	aug_assign keyword_ref local many scan scan_with_tab tab
 ladder__rung05_scan_equals_through_a_value_restores_pos	chunk:08	feat:push	alternation every gen_with_alternation keyword_ref local push scan
@@ -781,11 +781,12 @@ procedure_every_elemgen_replace_12	chunk:06	feat:fail	alternation element_gen ev
 procedure_write_225	chunk:06	feat:move	element_gen every local move scan scan_with_tab tab
 ladder__rung39_numbit_a_large_integer_is_a_scanning_subject	chunk:07	feat:find	find local move scan scan_with_tab section tab
 procedure_every_alt_45	chunk:07	feat:break	alternation break every gen_with_alternation image keyword_ref to_by while
-ladder__rung22_lists_lconcat_alternation_right	chunk:07	feat:writes	alternation element_gen every gen_with_alternation image local writes
+ladder__rung22_lists_lconcat_alternation_right	chunk:06	feat:writes	alternation element_gen every gen_with_alternation image local writes
 ladder__rung29_builtins_a_local_named_like_a_builtin_leaves_it	chunk:07	feat:scan_with_tab	alternation keyword_ref local return scan scan_with_tab tab
 procedure_scan_alt_replace_3	chunk:06	feat:fail	alternation fail image keyword_ref scan section writes
 procedure_write_249	chunk:07	feat:bal	bal find local move scan scan_with_tab tab
 ladder__rung41_rt_storage_grows_when_a_block_is_allocated	chunk:08	feat:list	aug_assign every keyword_ref limitation list local type
+ladder__rung22_alt_an_arm_with_a_box_after_its_to_resumes_the_to	chunk:06	feat:writes	alternation every gen_with_alternation limitation local to_by writes
 ladder__rung24_records_a_static_named_like_a_field_leaves_the_field	chunk:09	feat:stop	alternation keyword_ref limitation record static stop type
 procedure_write_250	chunk:06	feat:delete	delete element_gen every image local table to_by
 ladder__rung38_coexpr_activating_a_value_that_is_not_a_coexpression_is_error_118	chunk:04	feat:create	alternation coexpr_activate create image keyword_ref local to_by
@@ -824,9 +825,9 @@ ladder__rung42_kw_dateline_fields_unpadded	chunk:08	feat:pos	alternation integer
 procedure_every_alt_replace_17	chunk:08	feat:map	alternation every gen_with_alternation image keyword_ref local map section to_by
 procedure_every_elemgen_21	chunk:07	feat:seq	alternation element_gen every gen_with_alternation limitation local seq to_by writes
 procedure_every_scan_2	chunk:06	feat:fail	alternation every fail gen_with_alternation image return scan scan_with_tab tab to_by
-ladder__rung02_proc_a_returned_variable_derefs_at_the_invocation	chunk:06	feat:static	aug_assign every every_with_suspend local return static suspend to_by writes
+ladder__rung02_proc_a_returned_variable_derefs_at_the_invocation	chunk:07	feat:static	aug_assign every every_with_suspend local return static suspend to_by writes
 procedure_record_every_replace_11	chunk:04	feat:swap	aug_assign element_gen every limitation local record section swap table
-procedure_every_alt_replace_5	chunk:07	feat:writes	alternation every gen_with_alternation image keyword_ref limitation local return writes
+procedure_every_alt_replace_5	chunk:06	feat:writes	alternation every gen_with_alternation image keyword_ref limitation local return writes
 procedure_every_alt_46	chunk:06	feat:until	alternation every fail gen_with_alternation image keyword_ref local swap until
 procedure_every_elemgen_replace_9	chunk:06	feat:delete	aug_assign delete element_gen every insert local set to_by while
 procedure_suspend_scan_replace_1	chunk:08	feat:pos	alternation gen_with_alternation local pos read return scan suspend while
@@ -849,14 +850,14 @@ procedure_every_scan_replace_1	chunk:07	feat:find	every find image keyword_ref l
 procedure_every_suspend_replace_2	chunk:07	feat:seq	alternation aug_assign break every every_with_suspend gen_with_alternation local return seq suspend to_by
 procedure_every_scan_replace_12	chunk:07	feat:next	alternation aug_assign every gen_with_alternation local move next scan scan_with_tab tab to_by
 procedure_record_coexpr_replace_5	chunk:08	feat:put	alternation case create element_gen every gen_with_alternation image keyword_ref local put record
-ladder__rung29_builtins_variable_by_a_runtime_name_reaches_locals_params_and_statics	chunk:06	feat:static	aug_assign coexpr_activate create every every_with_suspend global image local static suspend to_by
+ladder__rung29_builtins_variable_by_a_runtime_name_reaches_locals_params_and_statics	chunk:07	feat:static	aug_assign coexpr_activate create every every_with_suspend global image local static suspend to_by
 ladder__rung21_apply_a_string_naming_an_operator_invokes_it	chunk:09	feat:set	alternation every fail gen_with_alternation image keyword_ref local return scan set table
 procedure_record_every_replace_6	chunk:03	feat:record	alternation aug_assign element_gen every gen_with_alternation limitation local record scan to_by writes
 ladder__rung24_records_a_field_is_assigned_through_every_store_form	chunk:08	feat:repl	aug_assign every keyword_ref local put record repl return swap to_by type
 ladder__rung41_rt_builtin_argument_errors_and_conversions_match_iconx_under_error_char_ord_bit_ops_map_detab_entab_key	chunk:08	feat:map	alternation aug_assign every gen_with_alternation image keyword_ref limitation local map set table
 ladder__rung02_arith_bignum_operands_and_zero_divisors	chunk:03	feat:type	alternation aug_assign element_gen every gen_with_alternation image keyword_ref local return to_by type
 procedure_every_scan_replace_8	chunk:04	feat:swap	alternation every gen_with_alternation image keyword_ref local return scan swap to_by writes
-procedure_every_alt_replace_14	chunk:06	feat:static	alternation every fail gen_with_alternation integer local return static to_by type writes
+procedure_every_alt_replace_14	chunk:07	feat:static	alternation every fail gen_with_alternation integer local return static to_by type writes
 ladder__rung05_scan_a_suspended_tab_restores_pos_on_backtrack	core	core	alternation every every_with_suspend gen_with_alternation keyword_ref match move scan scan_with_tab suspend tab to_by writes
 procedure_every_suspend_replace_11	chunk:04	feat:swap	alternation aug_assign every every_with_suspend gen_with_alternation image local suspend swap table to_by writes
 ladder__rung05_scan_a_value_call_moves_the_callers_pos	chunk:08	feat:push	element_gen every every_with_suspend keyword_ref local push return scan scan_with_tab suspend tab writes
@@ -868,14 +869,14 @@ procedure_every_suspend_replace_3	chunk:07	feat:break	alternation aug_assign bre
 procedure_every_alt_replace_1	chunk:08	feat:list	alternation aug_assign every fail gen_with_alternation global integer list local repl return to_by
 procedure_every_alt_replace_8	chunk:08	feat:list	alternation aug_assign every fail gen_with_alternation global integer list local repl return to_by
 procedure_every_scan_replace_7	chunk:05	feat:section	alternation element_gen every gen_with_alternation image limitation local scan section to_by type writes
-procedure_record_every_replace_5	chunk:06	feat:static	every integer keyword_ref local put record return scan set static table to_by
+procedure_record_every_replace_5	chunk:07	feat:static	every integer keyword_ref local put record return scan set static table to_by
 procedure_every_scan_replace_2	chunk:06	feat:move	alternation element_gen every gen_with_alternation image limitation local move return scan to_by writes
 ladder__rung05_scan_a_parenthesized_conjunction_is_resumed_through_its_cursor_mover	chunk:06	feat:move	alternation every every_with_suspend fail gen_with_alternation keyword_ref local move scan scan_with_tab suspend tab writes
 procedure_every_scan_replace_3	chunk:06	feat:many	element_gen every insert keyword_ref many read scan scan_with_tab set sort tab upto while
 ladder__rung03_suspend_a_do_clause_inside_a_scan_is_entered_at_its_start	chunk:06	feat:move	alternation every every_with_suspend gen_with_alternation image keyword_ref limitation local move scan suspend while writes
 ladder__rung03_suspend_a_generator_do_clause_is_entered_at_its_start	chunk:04	feat:create	alternation coexpr_activate create every every_with_suspend gen_with_alternation keyword_ref limitation local suspend to_by while writes
-procedure_every_suspend_replace_9	chunk:06	feat:static	alternation aug_assign every every_with_suspend fail gen_with_alternation image keyword_ref local return static suspend to_by
-procedure_record_every_replace_17	chunk:06	feat:static	every every_with_suspend image local record return scan scan_with_tab static suspend tab to_by upto
+procedure_every_suspend_replace_9	chunk:07	feat:static	alternation aug_assign every every_with_suspend fail gen_with_alternation image keyword_ref local return static suspend to_by
+procedure_record_every_replace_17	chunk:07	feat:static	every every_with_suspend image local record return scan scan_with_tab static suspend tab to_by upto
 procedure_every_alt_replace_4	chunk:08	feat:map	alternation case every fail gen_with_alternation image keyword_ref limitation local map return static type
 procedure_every_suspend_replace_8	chunk:07	feat:next	alternation every every_with_suspend fail gen_with_alternation global integer list local next repl suspend to_by
 procedure_scan_alt_replace_1	chunk:08	feat:integer	alternation aug_assign image integer local move return scan scan_with_tab tab to_by type upto
@@ -890,7 +891,7 @@ procedure_every_elemgen_replace_18	chunk:09	feat:pop	alternation element_gen eve
 procedure_every_scan_replace_17	chunk:08	feat:pos	alternation every find gen_with_alternation image keyword_ref limitation local move pos scan scan_with_tab section tab upto
 ladder__rung05_scan_nested_procedures_match_through_a_value	chunk:08	feat:push	alternation element_gen every every_with_suspend gen_with_alternation global keyword_ref local push record scan scan_with_tab suspend tab writes
 ladder__rung22_lists_a_list_constructor_is_resumed_through_its_elements	chunk:07	feat:upto	alternation every every_with_suspend fail gen_with_alternation keyword_ref local move scan scan_with_tab suspend tab to_by upto writes
-procedure_every_scan_replace_10	chunk:06	feat:static	aug_assign every keyword_ref local many read scan scan_with_tab sort static tab table to_by upto while
+procedure_every_scan_replace_10	chunk:07	feat:static	aug_assign every keyword_ref local many read scan scan_with_tab sort static tab table to_by upto while
 procedure_scan_while_replace_1	chunk:09	feat:stop	aug_assign find integer local move read repl return scan scan_with_tab section stop tab upto while
 ladder__rung33_case_clause_tests_by_identity	chunk:05	feat:case	alternation case every fail gen_with_alternation keyword_ref limitation local record return section table to_by type writes
 procedure_record_every_replace_4	chunk:07	feat:next	alternation aug_assign element_gen every gen_with_alternation global integer list local next record repl static stop to_by

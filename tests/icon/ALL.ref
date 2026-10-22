@@ -3943,10 +3943,18 @@ rest
 values: 3
 block region grows: yes
 non-negative: yes
-#------- 785 ladder__rung24_records_a_static_named_like_a_field_leaves_the_field
+#---------- 785 ladder__rung22_alt_an_arm_with_a_box_after_its_to_resumes_the_to
+1 2 3 9 
+1 2 3 9 
+a1 a2 a3 9 
+1 2 9 
+11 21 12 22 15 25 
+1 2 3 7 8 
+10 20 50 
+#------- 786 ladder__rung24_records_a_static_named_like_a_field_leaves_the_field
 vertical v
 horizontal
-#------------------------------------------------------- 786 procedure_write_250
+#------------------------------------------------------- 787 procedure_write_250
 0 -> int
 "" -> empty
 "lab_199" -> 124
@@ -4215,7 +4223,7 @@ int
 30
 122
 115
-#- 787 ladder__rung38_coexpr_activating_a_value_that_is_not_a_coexpression_is_error_118
+#- 788 ladder__rung38_coexpr_activating_a_value_that_is_not_a_coexpression_is_error_118
 x @ 5 fails: 118 5
 @"abc" fails: 118 "abc"
 @x fails: 118 3
@@ -4223,15 +4231,15 @@ x @ 5 fails: 118 5
 1 2
 c is exhausted
 errors left: 0
-#------------------------------------------------------ 788 procedure_scan_tab_4
+#------------------------------------------------------ 789 procedure_scan_tab_4
 A pos=1
 B pos=1
 C pos=1
-#------------------------------------------------------ 789 procedure_alt_case_1
+#------------------------------------------------------ 790 procedure_alt_case_1
 int=1
 int=2
 iters=3 (expect 3)
-#------ 790 ladder__rung13_alt_a_reversible_exchange_takes_random_error_and_dump
+#------ 791 ladder__rung13_alt_a_reversible_exchange_takes_random_error_and_dump
 99 11
 11 99
 99 11
@@ -4246,18 +4254,18 @@ c: 5 7
 0 2
 3 0
 0 3
-#------------------------------------------- 791 procedure_record_scan_replace_1
+#------------------------------------------- 792 procedure_record_scan_replace_1
 f:A/112/C
 A 112 C
 A112C
-#------------------------------------------------------- 792 procedure_write_276
+#------------------------------------------------------- 793 procedure_write_276
 procedure UnixMsg
 a3b
 xy
 loc
 dir
 A:end
-#----------------------------------------- 793 procedure_record_every_replace_10
+#----------------------------------------- 794 procedure_record_every_replace_10
 22
 42
 10
@@ -4274,7 +4282,7 @@ abXde
 40
 50
 i
-#----------------------------------------- 794 procedure_record_every_replace_16
+#----------------------------------------- 795 procedure_record_every_replace_16
 A:record r_1(1)
 B:record r_2(1)
 C:record r_3(1)
@@ -4284,7 +4292,7 @@ F:set_1(0)
 G:set_2(0)
 H:table_1(0)
 I:table_2(0)
-#---------------------------------------------- 795 procedure_every_to_replace_2
+#---------------------------------------------- 796 procedure_every_to_replace_2
 
 
 p
@@ -4444,7 +4452,7 @@ gaggle
      e
      s
 gaggle
-#-------------------------------------------- 796 procedure_every_alt_replace_15
+#-------------------------------------------- 797 procedure_every_alt_replace_15
 111111111111111111111 + 111111111111111111111 = 222222222222222222222
 111111111111111111111 + -111111111111111111111 = 0
 111111111111111111111 + 4 = 111111111111111111115
@@ -4735,20 +4743,20 @@ gaggle
 1180591620717411303424:1180591620717411303424
 1267650600228229401496703205376
 1267650600228229401496703205376:integer(~10^30)
-#- 797 ladder__rung02_proc_a_break_out_of_an_inner_every_inside_an_if_leaves_the_procedure_frame_balanced
+#- 798 ladder__rung02_proc_a_break_out_of_an_inner_every_inside_an_if_leaves_the_procedure_frame_balanced
 30 8 7 224
 31 8 7 224
 32 8 255 128
 33 8 7 224
 32
-#----------------------------------------- 798 procedure_record_coexpr_replace_4
+#----------------------------------------- 799 procedure_record_coexpr_replace_4
 a 1
 b 2
-#-------------------------------------------- 799 procedure_scan_while_replace_2
+#-------------------------------------------- 800 procedure_scan_while_replace_2
 9
-#-------------------------------------------- 800 procedure_scan_while_replace_3
+#-------------------------------------------- 801 procedure_scan_while_replace_3
 9
-#--------------------------------------------- 801 procedure_alt_limit_replace_2
+#--------------------------------------------- 802 procedure_alt_limit_replace_2
 ababab -=-x=-= abc...|...abc|
 cde ab bc
 he001 abc ABC
@@ -4760,7 +4768,7 @@ fail 1000 1000.0 2 -2
 0 ||0
 121.51e+10 1e+10 0.3 0.3333333333
 a       b       c|a	b|8 2
-#-------------------------------------------- 802 procedure_every_alt_replace_16
+#-------------------------------------------- 803 procedure_every_alt_replace_16
 2 1
 2 1
 5
@@ -4770,7 +4778,7 @@ pq
 aXYZcd
 4
 1 1
-#------------------------------------------------------- 803 procedure_write_270
+#------------------------------------------------------- 804 procedure_write_270
  3 3 3
  7 7 7 7
  3 3 3
@@ -4780,20 +4788,20 @@ aXYZcd
  0 0 0 0 0
  1 1 1
  4 4 4
-#------------------------------------------------------- 804 procedure_write_261
+#------------------------------------------------------- 805 procedure_write_261
 A:1 7 42 3.5 9.25 "ant" "bee" "zoo" '0AZ' 'q' 
 B:1 7 42 3.5 9.25 "ant" "bee" "zoo" '0AZ' 'q' 
 C:10
 D:1 7 42 3.5 9.25 "ant" "bee" "zoo" '0AZ' 'q' 
 E:end
-#---------------------------------------------------- 805 procedure_scan_while_1
+#---------------------------------------------------- 806 procedure_scan_while_1
 dash
 flist size=0
-#------------------------------------------------------- 806 procedure_write_263
+#------------------------------------------------------- 807 procedure_write_263
 A:integer=int1 integer=int2 real=real string=str cset=cset file=file procedure=proc 
 B:14
 C:end
-#---------------------------------------------------- 807 procedure_every_alt_47
+#---------------------------------------------------- 808 procedure_every_alt_47
 214748364721474836472147483647
 small
 -214748364721474836472147483647
@@ -4804,20 +4812,20 @@ int-flat
 big-grew
 4
 -1
-#--- 808 ladder__rung29_builtins_a_builtin_generator_called_as_a_value_generates
+#--- 809 ladder__rung29_builtins_a_builtin_generator_called_as_a_value_generates
  1 3 5 7 8 | apply
  1 3 5 7 8 | call
  1 3 5 7 8 | suspend apply
  1 3 5 7 8 | suspend apply, function value
  2 4 6 | string invocation
  2 8 | bal
-#------ 809 ladder__rung03_suspend_a_bang_over_a_generator_resumes_the_generator
+#------ 810 ladder__rung03_suspend_a_bang_over_a_generator_resumes_the_generator
 5 6 7 
 -5 -6 -7 
 5 6 7 
 5 6 7 
 5 6 7 
-#-------------------------------------------- 810 procedure_every_alt_replace_11
+#-------------------------------------------- 811 procedure_every_alt_replace_11
 &null
 &null
 "1"
@@ -4835,7 +4843,7 @@ null
 "1"
 "1"
 "1"
-#--------------------------------------------- 811 procedure_every_alt_replace_6
+#--------------------------------------------- 812 procedure_every_alt_replace_6
 function sqrt(0.0) = 0.0
 function sqrt(0.25) = 0.5
 function sqrt(1.0) = 1.0
@@ -4915,7 +4923,7 @@ function atan(0.0, 1.0) = 0.0
 function atan(1.0, -1.0) = 2.356
 function atan(1.0, 0.0) = 1.571
 function atan(1.0, 1.0) = 0.785
-#---------------------------------------------------- 812 procedure_every_alt_20
+#---------------------------------------------------- 813 procedure_every_alt_20
 simple_mutual:
 1,4
 1,5
@@ -4951,7 +4959,7 @@ static_mutual:
 queens_4:
 sol:2413
 sol:3142
-#- 813 ladder__rung03_suspend_a_generator_procedure_after_a_four_operand_procedure_reads_its_own_argument
+#- 814 ladder__rung03_suspend_a_generator_procedure_after_a_four_operand_procedure_reads_its_own_argument
 10
 1
 2
@@ -4968,7 +4976,7 @@ sol:3142
 11
 12
 4
-#----------------------------------------- 814 procedure_every_elemgen_replace_4
+#----------------------------------------- 815 procedure_every_elemgen_replace_4
 A. a
 B. a
 B. b
@@ -5337,14 +5345,14 @@ P a3de
 Q f4ij
 Q k5mno
 Q k6mno
-#- 815 ladder__rung02_proc_a_procedure_with_a_frame_over_1200_bytes_starts_every_local_null
+#- 816 ladder__rung02_proc_a_procedure_with_a_frame_over_1200_bytes_starts_every_local_null
 0:1:2:last
 0 3 
 0:2:4:last
 0 5 
 0:3:6:last
 0 7 
-#---------- 816 ladder__rung29_builtins_proc_names_assignments_not_augmented_ops
+#---------- 817 ladder__rung29_builtins_proc_names_assignments_not_augmented_ops
 :=/0=F :=/1=F :=/2=2 :=/3=F 
 :=:/0=F :=:/1=F :=:/2=2 :=:/3=F 
 <-/0=F <-/1=F <-/2=2 <-/3=F 
@@ -5389,22 +5397,22 @@ by/0=F by/1=F by/2=F by/3=F
 <<=:=/0=F <<=:=/1=F <<=:=/2=F <<=:=/3=F 
 >>:=/0=F >>:=/1=F >>:=/2=F >>:=/3=F 
 .../0=F .../1=F .../2=F .../3=3 
-#-------------- 817 ladder__rung05_scan_tab_and_move_through_a_value_restore_pos
+#-------------- 818 ladder__rung05_scan_tab_and_move_through_a_value_restore_pos
 1
 2 3 4 1
 R=2 pos=1
 1
-#------------- 818 ladder__rung05_scan_a_tab_failing_in_a_procedure_restores_pos
+#------------- 819 ladder__rung05_scan_a_tab_failing_in_a_procedure_restores_pos
 1
 3
 1
-#-------------------------------- 819 ladder__rung42_kw_dateline_fields_unpadded
+#-------------------------------- 820 ladder__rung42_kw_dateline_fields_unpadded
 fields: weekday, month day, year  hour:minute meridian
 day unpadded: yes
 hour unpadded: yes
 hour on a 12-hour clock: yes
 minute two digits: yes
-#-------------------------------------------- 820 procedure_every_alt_replace_17
+#-------------------------------------------- 821 procedure_every_alt_replace_17
 affa bc bc |||
 aXYZcdef
 <aXYZcdef
@@ -5415,7 +5423,7 @@ ac  3
 c y c
 xy x yz
 range9 "bc" range45 |
-#------------------------------------------------ 821 procedure_every_elemgen_21
+#------------------------------------------------ 822 procedure_every_elemgen_21
 1
 5
 6
@@ -5431,7 +5439,7 @@ ax ay bx by cx cy
 10 100 20 200 30 300 
 y fails
 1 2 3 
-#---------------------------------------------------- 822 procedure_every_scan_2
+#---------------------------------------------------- 823 procedure_every_scan_2
 19683
 1
 -2
@@ -5443,19 +5451,19 @@ y fails
 2
 3
 xy
-#---------- 823 ladder__rung02_proc_a_returned_variable_derefs_at_the_invocation
+#---------- 824 ladder__rung02_proc_a_returned_variable_derefs_at_the_invocation
 uids 3 3 3
 local 7 7
  1 3 6
 5 5
-#----------------------------------------- 824 procedure_record_every_replace_11
+#----------------------------------------- 825 procedure_record_every_replace_11
 5 17
 42
 17 42
 103 4 105 60
 7
 aXcd!
-#--------------------------------------------- 825 procedure_every_alt_replace_5
+#--------------------------------------------- 826 procedure_every_alt_replace_5
     s1    s2    <<   <<=    ==   ~==   >>=    >>
     ""    ""   ---    ""    ""   ---    ""   ---
     ""   "a"   "a"   "a"   ---   "a"   ---   ---
@@ -5492,7 +5500,7 @@ aXcd!
     ''   "c"   "c"   "c"   ---   "c"   ---   ---
     ''   'x'   "x"   "x"   ---   "x"   ---   ---
     ''   '2'   "2"   "2"   ---   "2"   ---   ---
-#---------------------------------------------------- 826 procedure_every_alt_46
+#---------------------------------------------------- 827 procedure_every_alt_46
 x <-> y            ----> 2
 x                  ----> 2
 y                  ----> 1
@@ -5503,12 +5511,12 @@ y restored         ----> 1
 x :=: y            ----> 1
 x after :=:        ----> 1
 y after :=:        ----> 2
-#----------------------------------------- 827 procedure_every_elemgen_replace_9
+#----------------------------------------- 828 procedure_every_elemgen_replace_9
 A:10
 B:0
 C:10
 D:10
-#------------------------------------------ 828 procedure_suspend_scan_replace_1
+#------------------------------------------ 829 procedure_suspend_scan_replace_1
 accepted
 rejected
 accepted
@@ -5517,7 +5525,7 @@ rejected
 rejected
 rejected
 rejected
-#-------------------------------------------- 829 procedure_coexpr_alt_replace_1
+#-------------------------------------------- 830 procedure_coexpr_alt_replace_1
 3 6.0 13 100.0 5 -0.5
 nohex nohex2 0x10 16
 integerrealstringcsetlisttablesetnullprocedureprocedureco-expression
@@ -5535,7 +5543,7 @@ e112
 int-null
 e112
 range 100000000000000000000 4.611686018e+18 1.844674407e+19
-#---------------------------------------- 830 procedure_every_elemgen_replace_19
+#---------------------------------------- 831 procedure_every_elemgen_replace_19
 1 1 1 1
 a12.5 1 3
 null-cat
@@ -5552,7 +5560,7 @@ e103
 e103
 1
 e103
-#--- 831 ladder__rung38_coexpr_reads_the_scanning_environment_it_is_activated_in
+#--- 832 ladder__rung38_coexpr_reads_the_scanning_environment_it_is_activated_in
 "def"
 3
 "xyz"
@@ -5563,7 +5571,7 @@ e103
 ""
 "aa"
 3
-#------------------------------------------------------- 832 procedure_write_251
+#------------------------------------------------------- 833 procedure_write_251
 record lab_5(1) -> l5
 record other_5(2) -> 5
 record lab_26(1) -> l26
@@ -5647,7 +5655,7 @@ set_1(1) -> 1
 list_6(1) -> 5
 table_6(0) -> 4
 list_11(1) -> 10
-#--------- 833 ladder__rung29_builtins_a_unary_operator_value_calls_its_operator
+#--------- 834 ladder__rung29_builtins_a_unary_operator_value_calls_its_operator
 12
 -5
 2
@@ -5661,13 +5669,13 @@ integer
 he
 3
 = failed
-#------------------------------------------------------- 834 procedure_write_258
+#------------------------------------------------------- 835 procedure_write_258
 A:40
 B:40
 C:""
 D:0
 E:end
-#------- 835 ladder__rung13_alt_an_exchange_resumes_a_generator_in_either_target
+#------- 836 ladder__rung13_alt_an_exchange_resumes_a_generator_in_either_target
  4 1 2 3
  4 1 2 3
  6 5 3 4
@@ -5675,7 +5683,7 @@ E:end
  2 3 1
  4 2 3 1
  0 1 2
-#-------------------------------------------- 836 procedure_every_alt_replace_13
+#-------------------------------------------- 837 procedure_every_alt_replace_13
 global<->local: 2
   ga=2 y=1
 global<->global: 2
@@ -5683,7 +5691,7 @@ global<->global: 2
   recede: ga=2 gb=1
   recede: ga=2 gb=1
 reached the end
-#-------------------------------------------- 837 procedure_every_alt_replace_12
+#-------------------------------------------- 838 procedure_every_alt_replace_12
 control image(&fail)|none -> none
 init: x=1 y=2 z=3
   (x<->y):=:z  -> 3
@@ -5691,7 +5699,7 @@ after (<->):=:: x=3 y=1 z=2
   x<->y:=:z    -> 3
 after <->:=:: x=3 y=1 z=2
 reached the end
-#------------------------------------------------------- 838 procedure_write_269
+#------------------------------------------------------- 839 procedure_write_269
  3 2 1
  5 4
 procedure lrev
@@ -5700,16 +5708,16 @@ ababab
 procedure thrice
 qqq qqq
 zzz
-#- 839 ladder__rung42_kw_the_subject_outside_a_scan_is_empty_so_tab_and_many_fail
+#- 840 ladder__rung42_kw_the_subject_outside_a_scan_is_empty_so_tab_and_many_fail
 hel
 "" 1
 hello|, 
 "" 1
-#--------- 840 ladder__rung29_builtins_key_called_by_string_invocation_generates
+#--------- 841 ladder__rung29_builtins_key_called_by_string_invocation_generates
  integer string | key by string invocation
  1 1 1 | key by apply, first only
 3 keys by apply
-#--------- 841 ladder__rung38_coexpr_an_activation_resumes_its_operand_generator
+#--------- 842 ladder__rung38_coexpr_an_activation_resumes_its_operand_generator
 hi
 "hi"
 hi
@@ -5718,7 +5726,7 @@ hi
 1 5 
 4 
 1 8 
-#-------- 842 ladder__rung05_scan_a_reversible_keyword_assignment_moves_the_scan
+#-------- 843 ladder__rung05_scan_a_reversible_keyword_assignment_moves_the_scan
 p1 1
 "" 1
 5
@@ -5732,20 +5740,20 @@ gen 3 b
 gen 4 c
 then 5
 kept 5
-#--------- 843 ladder__rung29_builtins_upto_through_a_value_defaults_its_subject
+#--------- 844 ladder__rung29_builtins_upto_through_a_value_defaults_its_subject
  1 3 5 7 8 | the subject defaults in a scan
  3 5 7 | bounded
  2 4 6 | extra arguments ignored
  2 3 4 5 6 | through a co-expression
  102 104 | apply into an expression
-#-------------------------------------------- 844 procedure_every_scan_replace_1
+#-------------------------------------------- 845 procedure_every_scan_replace_1
 c="n" optstring="n+" find=1
-#----------------------------------------- 845 procedure_every_suspend_replace_2
+#----------------------------------------- 846 procedure_every_suspend_replace_2
 suspend seq & const : 7 7 7 7 7 
 suspend (i:=seq) & i: 3 5 7 9 11 
 suspend 2 | (seq & i): 2 3 5 7 9 
 prime               : 2 3 5 7 11 
-#------------------------------------------- 846 procedure_every_scan_replace_12
+#------------------------------------------- 847 procedure_every_scan_replace_12
 a
 c
 e
@@ -5757,7 +5765,7 @@ i
 3
 
 abcde
-#----------------------------------------- 847 procedure_record_coexpr_replace_5
+#----------------------------------------- 848 procedure_record_coexpr_replace_5
       null : &null
    default : 0
          1 : 1
@@ -5782,7 +5790,7 @@ abcde
          c : co-expression_2(0)
    default : list_2(0)
          L : list_3(24)
-#- 848 ladder__rung29_builtins_variable_by_a_runtime_name_reaches_locals_params_and_statics
+#- 849 ladder__rung29_builtins_variable_by_a_runtime_name_reaches_locals_params_and_statics
 5
 7
 11
@@ -5802,7 +5810,7 @@ gen 101
 gen 102
 gen 103
 co-expression "zed"
-#--------------- 849 ladder__rung21_apply_a_string_naming_an_operator_invokes_it
+#--------------- 850 ladder__rung21_apply_a_string_naming_an_operator_invokes_it
 size list 3
 size pdco 4
 size empty pdco 0
@@ -5835,7 +5843,7 @@ mul bad "fail"
 err 102
 add bad "fail"
 err 102
-#------------------------------------------ 850 procedure_record_every_replace_6
+#------------------------------------------ 851 procedure_record_every_replace_6
 1 2
 3 4
 5 6
@@ -5851,7 +5859,7 @@ err 102
 3
 7
  11 22 73 74 
-#------- 851 ladder__rung24_records_a_field_is_assigned_through_every_store_form
+#------- 852 ladder__rung24_records_a_field_is_assigned_through_every_store_form
 27 7 stail
 every 1
 every 2
@@ -5866,7 +5874,7 @@ rev 77
 after 77
 integer integer
 207
-#- 852 ladder__rung41_rt_builtin_argument_errors_and_conversions_match_iconx_under_error_char_ord_bit_ops_map_detab_entab_key
+#- 853 ladder__rung41_rt_builtin_argument_errors_and_conversions_match_iconx_under_error_char_ord_bit_ops_map_detab_entab_key
 1: E205
 2: E205
 3: E101
@@ -5922,7 +5930,7 @@ integer integer
 53: 241 E-
 54: E101
 55: E101
-#-------------------- 853 ladder__rung02_arith_bignum_operands_and_zero_divisors
+#-------------------- 854 ladder__rung02_arith_bignum_operands_and_zero_divisors
 small*big 3541774862152233910272 integer
 big*small 3541774862152233910272 integer
 big*neg -5902958103587056517120 integer
@@ -5982,7 +5990,7 @@ lt "lt" string
 div0 &null null
 err 201 integer
 err 202 integer
-#-------------------------------------------- 854 procedure_every_scan_replace_8
+#-------------------------------------------- 855 procedure_every_scan_replace_8
   &pos=1   &subject=""
 
 s :=      "cat"         &pos=1   &subject="cat"
@@ -6045,7 +6053,7 @@ p :=          4 FAILED  &pos=2   &subject="x"
 &pos=3 x=3
 &pos=1 x=3
 &pos=1 x=2
-#-------------------------------------------- 855 procedure_every_alt_replace_14
+#-------------------------------------------- 856 procedure_every_alt_replace_14
    0    0    0    0    0    0    0  ---  ---    0  ---    0    0  ---    0  --- 
    0    1    0   -1    1   -1    0    0    0   -1    1    1  ---    1  ---  --- 
    0   -1    0    1   -1    1    0    0    0    1  ---  ---  ---   -1   -1   -1 
@@ -6195,14 +6203,14 @@ p :=          4 FAILED  &pos=2   &subject="x"
   0.0 ^ 1    =    0.0
   0.0 ^ 2    =    0.0
   0.0 ^ 3    =    0.0
-#------------- 856 ladder__rung05_scan_a_suspended_tab_restores_pos_on_backtrack
+#------------- 857 ladder__rung05_scan_a_suspended_tab_restores_pos_on_backtrack
 1
 1
 1
 3
 1
 2 3 4 1
-#---------------------------------------- 857 procedure_every_suspend_replace_11
+#---------------------------------------- 858 procedure_every_suspend_replace_11
 55
 770
 21
@@ -6216,11 +6224,11 @@ xyy
 2
 1-12-2
 2
-#-------------------- 858 ladder__rung05_scan_a_value_call_moves_the_callers_pos
+#-------------------- 859 ladder__rung05_scan_a_value_call_moves_the_callers_pos
 t1 1 pos 1
 t2 pos 2 
 t2 & pos 2
-#---------------------------------------- 859 procedure_every_suspend_replace_10
+#---------------------------------------- 860 procedure_every_suspend_replace_10
 200
 300
 301
@@ -6228,7 +6236,7 @@ t2 & pos 2
 100000 100000 50000
 20000 19999 
 200000 100000  
-#---------------------------------------- 860 procedure_every_elemgen_replace_10
+#---------------------------------------- 861 procedure_every_elemgen_replace_10
 init 40 limit 239 n 3 originals missing 0 duplicates 0
 init 40 limit 239 n 11 originals missing 0 duplicates 0
 init 40 limit 239 n 23 originals missing 0 duplicates 0
@@ -6265,9 +6273,9 @@ delete 619 n 23 duplicates 0 remaining generated 0 of 0
 delete 991 n 3 duplicates 0 remaining generated 46 of 46
 delete 991 n 11 duplicates 0 remaining generated 1 of 1
 delete 991 n 23 duplicates 0 remaining generated 2 of 2
-#----------------------------------------- 861 procedure_every_elemgen_replace_3
+#----------------------------------------- 862 procedure_every_elemgen_replace_3
 There are 168 primes in the first 1000 integers.
-#----------------------------------------- 862 procedure_record_coexpr_replace_2
+#----------------------------------------- 863 procedure_record_coexpr_replace_2
 string   ----> function write
 integer  ----> none
 real     ----> none
@@ -6282,7 +6290,7 @@ null     ----> none
 procedure----> procedure u
 recordctor->record constructor pt
 builtin  ----> function write
-#----------------------------------------- 863 procedure_every_suspend_replace_3
+#----------------------------------------- 864 procedure_every_suspend_replace_3
 starseq 
 starseq a
 starseq b
@@ -6322,7 +6330,7 @@ inline aab
 inline aa
 chain aaac
 chain aabc
-#--------------------------------------------- 864 procedure_every_alt_replace_1
+#--------------------------------------------- 865 procedure_every_alt_replace_1
 6-Queens:
 solution 1:
   -------------------------
@@ -6381,7 +6389,7 @@ solution 4:
   |   | Q |   |   |   |   |
   -------------------------
 4 solutions total.
-#--------------------------------------------- 865 procedure_every_alt_replace_8
+#--------------------------------------------- 866 procedure_every_alt_replace_8
 6-Queens:
 solution 1:
   -------------------------
@@ -6440,7 +6448,7 @@ solution 4:
   |   | Q |   |   |   |   |
   -------------------------
 4 solutions total.
-#-------------------------------------------- 866 procedure_every_scan_replace_7
+#-------------------------------------------- 867 procedure_every_scan_replace_7
 type string
 *s  5
 s:  abcde
@@ -6478,7 +6486,7 @@ c3: "b"
 c4: "cdef"
 c5: "3.14159"
 c6: "abcdef"
-#------------------------------------------ 867 procedure_record_every_replace_5
+#------------------------------------------ 868 procedure_record_every_replace_5
 
          0  i  2114
  453816694  i  4124
@@ -6544,7 +6552,7 @@ c6: "abcdef"
 1380138031  L  20
  425567097  R  2
  407906811  R  2
-#-------------------------------------------- 868 procedure_every_scan_replace_2
+#-------------------------------------------- 869 procedure_every_scan_replace_2
 +x          1     2     3     9
 -x         -1    -2    -3    -9
 *x          1     1     1     1
@@ -6599,7 +6607,7 @@ x ** y      2     1     2     2           2     1           x     2     2     x
 
   12578  .13459  ainorz  
   12345  678.9  cnost  
-#- 869 ladder__rung05_scan_a_parenthesized_conjunction_is_resumed_through_its_cursor_mover
+#- 870 ladder__rung05_scan_a_parenthesized_conjunction_is_resumed_through_its_cursor_mover
 C 1
 C1 1
 C2 1
@@ -6608,7 +6616,7 @@ C4 1
 C5 1
 p 1
 x2 y3 C6 1
-#-------------------------------------------- 870 procedure_every_scan_replace_3
+#-------------------------------------------- 871 procedure_every_scan_replace_3
 The
 There
 are
@@ -6635,21 +6643,21 @@ sort
 the
 to
 write
-#-- 871 ladder__rung03_suspend_a_do_clause_inside_a_scan_is_entered_at_its_start
+#-- 872 ladder__rung03_suspend_a_do_clause_inside_a_scan_is_entered_at_its_start
 a r=2
 a r=3
 a r=&null
 
 a a a 
 x x 2 
-#------ 872 ladder__rung03_suspend_a_generator_do_clause_is_entered_at_its_start
+#------ 873 ladder__rung03_suspend_a_generator_do_clause_is_entered_at_its_start
 1 2 3 
 1 5 
 1 2 3 4 
 1 hi
 2 hi
 
-#----------------------------------------- 873 procedure_every_suspend_replace_9
+#----------------------------------------- 874 procedure_every_suspend_replace_9
 0:none 3:1 1:&null
 d given
 4
@@ -6663,7 +6671,7 @@ via value
 &null -1 0 -1
 zzz procedure va function +
 yy
-#----------------------------------------- 874 procedure_record_every_replace_17
+#----------------------------------------- 875 procedure_record_every_replace_17
 6
 8
 10
@@ -6676,7 +6684,7 @@ cba
   gen 3
   field m
 procedure dbl
-#--------------------------------------------- 875 procedure_every_alt_replace_4
+#--------------------------------------------- 876 procedure_every_alt_replace_4
   &allocated: integer
   &allocated: integer
   &allocated: integer
@@ -6744,7 +6752,7 @@ procedure dbl
      &window: [failed]
           &x: [failed]
           &y: [failed]
-#----------------------------------------- 876 procedure_every_suspend_replace_8
+#----------------------------------------- 877 procedure_every_suspend_replace_8
 -------------
 | | | |Q| | |
 -------------
@@ -6801,7 +6809,7 @@ procedure dbl
 | | | |Q| | |
 -------------
 
-#---------------------------------------------- 877 procedure_scan_alt_replace_1
+#---------------------------------------------- 878 procedure_scan_alt_replace_1
 This test of floating-point arithmetic is likely to show
 differences from platform to platform because of differences
 in floating-point precision and details of the routines that
@@ -6946,7 +6954,7 @@ abs(-3.0) ----> 3.0
 36. ^ 9. ----> 1.015599e+14
 -36. ^ 9 ----> -1.01559e+14
 -36. ^ -9 ----> -9.84640e-15
-#------------------------------------------------ 878 procedure_every_elemgen_20
+#------------------------------------------------ 879 procedure_every_elemgen_20
 A 116 function image invalid type to element generator
 cset elements 256
 "1" B 116 function image
@@ -6959,7 +6967,7 @@ none H 108 1
 none I 108 1
 none J 108 "x"
 none K 112 function image invalid type to size operation
-#------------------------------------------ 879 procedure_coexpr_every_replace_1
+#------------------------------------------ 880 procedure_coexpr_every_replace_1
 1 
 2
 1 2
@@ -6967,7 +6975,7 @@ none K 112 function image invalid type to size operation
 co-expression_1(1)
 0 x 1
 co-expressio
-#----------------------------------------- 880 procedure_every_elemgen_replace_2
+#----------------------------------------- 881 procedure_every_elemgen_replace_2
 XIII
 IV
 VI
@@ -6976,7 +6984,7 @@ cannot convert
 XXXIX
 MMMCMXCIX
 cannot convert
-#- 881 ladder__rung02_proc_a_returned_or_suspended_structure_keeps_its_arms_variable_and_evaluates_its_target_once
+#- 882 ladder__rung02_proc_a_returned_or_suspended_structure_keeps_its_arms_variable_and_evaluates_its_target_once
 G1
 6
 T2
@@ -6992,7 +7000,7 @@ loc
 3
 ba
 qG8
-#- 882 ladder__rung02_proc_an_apply_of_a_procedure_to_an_empty_list_passes_no_arguments
+#- 883 ladder__rung02_proc_an_apply_of_a_procedure_to_an_empty_list_passes_no_arguments
 none
 va0 va2 va0
 &null,&null 1,&null 1,2
@@ -7001,7 +7009,7 @@ pair &null &null
 2
 null &null
 none va1
-#----------------------------------------- 883 procedure_record_every_replace_26
+#----------------------------------------- 884 procedure_record_every_replace_26
 &pos &subject: 3 abcde
 &pos &subject: 1 wxyz
 "main"
@@ -7116,7 +7124,7 @@ global identifiers:
    variable = function variable
    write = function write
 ----------------------------------------------------------------------
-#------------------------------------------- 884 procedure_every_scan_replace_19
+#------------------------------------------- 885 procedure_every_scan_replace_19
 abcd ac bc 2 ab 'ab'
 compl-eq 256 empty 255
 ehlo xyz 123 .15 0
@@ -7129,7 +7137,7 @@ none 6 a a
 '\t\n' 256 255 abc
 a,b,c,
 cset ab string 0 
-#---------------------------------------- 885 procedure_every_elemgen_replace_18
+#---------------------------------------- 886 procedure_every_elemgen_replace_18
 5 1 oob 2 2 0
 23 3
 016 4
@@ -7143,7 +7151,7 @@ b z a
 bza
 list_25(0) list_26(1) 0
 31 different-lists
-#------------------------------------------- 886 procedure_every_scan_replace_17
+#------------------------------------------- 887 procedure_every_scan_replace_17
 7 beta gamma
 in 6 inner x y
 back 17 beta gamma
@@ -7155,9 +7163,9 @@ a
 a.b
 1
 subject reverted
-#--------------- 887 ladder__rung05_scan_nested_procedures_match_through_a_value
+#--------------- 888 ladder__rung05_scan_nested_procedures_match_through_a_value
  1 | rematch
-#--- 888 ladder__rung22_lists_a_list_constructor_is_resumed_through_its_elements
+#--- 889 ladder__rung22_lists_a_list_constructor_is_resumed_through_its_elements
 A 1
 B 1
 D 1
@@ -7167,7 +7175,7 @@ t6 1
 t7 1
 G 1
 1a2 2a2 H 1
-#------------------------------------------- 889 procedure_every_scan_replace_10
+#------------------------------------------- 890 procedure_every_scan_replace_10
 A                   2
 B                   1
 D                   1
@@ -7221,11 +7229,11 @@ write               1
 writes              1
 x                   3
 y                   4
-#-------------------------------------------- 890 procedure_scan_while_replace_1
+#-------------------------------------------- 891 procedure_scan_while_replace_1
 accbcabbaa
 14434241332312211
 AAACCCCBCCCACCBBCCBACCABCCAACBCBCACBBBCBBACBABCBAACACABBCABACAABCAAABBBBABBAABABAAAA
-#------------------------------ 891 ladder__rung33_case_clause_tests_by_identity
+#------------------------------ 892 ladder__rung33_case_clause_tests_by_identity
 int
 real
 str
@@ -7278,7 +7286,7 @@ gen Y
 empty-str YY
 tbl nn
 csetv YY
-#------------------------------------------ 892 procedure_record_every_replace_4
+#------------------------------------------ 893 procedure_record_every_replace_4
 6-Queens:
 solution: 1
   -------------------------
@@ -7339,7 +7347,7 @@ solution: 4
   -------------------------
   |   | Q |   |   |   |   |
   -------------------------
-#------------ 893 ladder__rung22_repalt_repeated_alternation_resumes_its_operand
+#------------ 894 ladder__rung22_repalt_repeated_alternation_resumes_its_operand
 1 2 1 2 1 
 1 a 2 b 3 c d 
 1 5 2 6 5 6 5 6 5 
@@ -7348,11 +7356,11 @@ solution: 4
 1 2 3 
 none 
 1x 1x 1x 1x 
-#--------- 894 ladder__rung38_coexpr_a_merge_of_two_coexpressions_under_scanning
+#--------- 895 ladder__rung38_coexpr_a_merge_of_two_coexpressions_under_scanning
 1 2 3 4 5 
 1 2 3 4 5 
 "" 1
-#- 895 ladder__rung29_builtins_read_returns_each_line_of_a_file_whatever_its_ending_or_length
+#- 896 ladder__rung29_builtins_read_returns_each_line_of_a_file_whatever_its_ending_or_length
 1 5 "alpha" "alpha"
 2 0 "" ""
 3 10 "beta gamma" " gamma"
@@ -7367,7 +7375,7 @@ none
 "beta gamma"
 "delt"
 "a"
-#---------------------------------------------- 896 procedure_to_while_replace_1
+#---------------------------------------------- 897 procedure_to_while_replace_1
      1  Order, Coleoptera, (Beetles). Many beetles are colored so as
      2  to resemble the surfaces which they habitually frequent, and they thus
      3  escape detection by their enemies. Other species, for instance, diamond-beetles, are ornamented
@@ -7496,7 +7504,7 @@ well             : 13
 which            : 2, 4, 13, 14
 with             : 4, 9
 worm             : 8
-#------------------------------------------------- 897 procedure_every_suspend_7
+#------------------------------------------------- 898 procedure_every_suspend_7
 r1 2
 r2 2
 r3 2
@@ -7519,7 +7527,7 @@ r19 "7" 2
 r20 3
 r20 4
 r20 1
-#---------------------------------------- 898 procedure_coexpr_suspend_replace_3
+#---------------------------------------- 899 procedure_coexpr_suspend_replace_3
 writing file(tmp3)
 reading file(tmp3)
 closing file(tmp3)
@@ -7527,7 +7535,7 @@ writing file(tmp4)
 reading file(tmp4)
 closing file(tmp4)
 no problems found
-#----------------------------------------- 899 procedure_every_suspend_replace_7
+#----------------------------------------- 900 procedure_every_suspend_replace_7
 "\xfd\x00\x01\x02\x03\x04\x05\x06\x07\b\t\n\v\f\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\e\x1c\x1d\x1e\x1f !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\d\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x8d\x8e\x8f\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9a\x9b\x9c\x9d\x9e\x9f\xa0\xa1\xa2\xa3\xa4\xa5\xa6\xa7\xa8\xa9\xaa\xab\xac\xad\xae\xaf\xb0\xb1\xb2\xb3\xb4\xb5\xb6\xb7\xb8\xb9\xba\xbb\xbc\xbd\xbe\xbf\xc0\xc1\xc2\xc3\xc4\xc5\xc6\xc7\xc8\xc9\xca\xcb\xcc\xcd\xce\xcf\xd0\xd1\xd2\xd3\xd4\xd5\xd6\xd7\xd8\xd9\xda\xdb\xdc\xdd\xde\xdf\xe0\xe1\xe2\xe3\xe4\xe5\xe6\xe7\xe8\xe9\xea\xeb\xec\xed\xee\xef\xf0\xf1\xf2\xf3\xf4\xf5\xf6\xf7\xf8\xf9\xfa\xfb\xfc\xff\xfe"
 "\xfd\x01\x00\x01\x02\x03\x04\x05\x06\x07\b\t\n\v\f\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\e\x1c\x1d\x1e\x1f !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\d\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x8d\x8e\x8f\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9a\x9b\x9c\x9d\x9e\x9f\xa0\xa1\xa2\xa3\xa4\xa5\xa6\xa7\xa8\xa9\xaa\xab\xac\xad\xae\xaf\xb0\xb1\xb2\xb3\xb4\xb5\xb6\xb7\xb8\xb9\xba\xbb\xbc\xbd\xbe\xbf\xc0\xc1\xc2\xc3\xc4\xc5\xc6\xc7\xc8\xc9\xca\xcb\xcc\xcd\xce\xcf\xd0\xd1\xd2\xd3\xd4\xd5\xd6\xd7\xd8\xd9\xda\xdb\xdc\xdd\xde\xdf\xe0\xe1\xe2\xe3\xe4\xe5\xe6\xe7\xe8\xe9\xea\xeb\xec\xed\xee\xef\xf0\xf1\xf2\xf3\xf4\xf5\xf6\xf7\xf8\xf9\xfa\xfb\xff\x01"
 "\x02\x01\xff\xfe\xfd\xfc\xfb\xfa\xf9\xf8\xf7\xf6\xf5\xf4\xf3\xf2\xf1\xf0\xef\xee\xed\xec\xeb\xea\xe9\xe8\xe7\xe6\xe5\xe4\xe3\xe2\xe1\xe0\xdf\xde\xdd\xdc\xdb\xda\xd9\xd8\xd7\xd6\xd5\xd4\xd3\xd2\xd1\xd0\xcf\xce\xcd\xcc\xcb\xca\xc9\xc8\xc7\xc6\xc5\xc4\xc3\xc2\xc1\xc0\xbf\xbe\xbd\xbc\xbb\xba\xb9\xb8\xb7\xb6\xb5\xb4\xb3\xb2\xb1\xb0\xaf\xae\xad\xac\xab\xaa\xa9\xa8\xa7\xa6\xa5\xa4\xa3\xa2\xa1\xa0\x9f\x9e\x9d\x9c\x9b\x9a\x99\x98\x97\x96\x95\x94\x93\x92\x91\x90\x8f\x8e\x8d\x8c\x8b\x8a\x89\x88\x87\x86\x85\x84\x83\x82\x81\x80\d~}|{zyxwvutsrqponmlkjihgfedcba`_^]\\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#\"! \x1f\x1e\x1d\x1c\e\x1a\x19\x18\x17\x16\x15\x14\x13\x12\x11\x10\x0f\x0e\r\f\v\n\t\b\x07\x06\x05\x04\x00\x01"
@@ -7652,7 +7660,7 @@ rogam
 rogma
 romag
 romga
-#- 900 ladder__rung22_lists_bang_follows_the_iconx_block_cursor_under_push_get_put_and_pull
+#- 901 ladder__rung22_lists_bang_follows_the_iconx_block_cursor_under_push_get_put_and_pull
 w1 6
 w2 1 2 3 4
 w2L: 0 1 2 3 4 size=5
@@ -7741,7 +7749,7 @@ r57: 3234 3196 3184 3182 3182 3179 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 3174 3175
 r58: -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 3277 3278 3279 3281 3282 3283 3284 3285 3286 3287 3289 3290 3291 3292 3306 3316 | 3317 3314 -1 -1 -1 -1 -1 -1 -1 3277 3278 3279 3281 3282 3283 3284 3285 3286 3287 3289 3290 3291 3292 3306 3316
 r59: 3351 3351 3350 3344 3344 3342 3339 3326 3322 3323 3324 3327 3328 3329 3330 3331 3332 3336 3337 3340 3345 3346 3347 3348 3349 3353 3354 3365 3366 3369 3371 3376 3378 3379 3380 3381 3382 3384 | 3374 3373 3360 3356 3352 3351 3350 3344 3342 3339 3326 3322 3323 3324 3327 3328 3329 3330 3331 3332 3336 3337 3340 3345 3346 3347 3348 3349 3353 3354 3365 3366 3369 3371 3376 3378 3379 3380 3381
 r60: 1 2 3 3388 3389 3392 3393 3394 3397 3401 | 3403 3402 3399 3396 3395 1 2 3 3388 3389 3392 3393 3394 3397 3401
-#------------------------------------------- 901 procedure_every_scan_replace_18
+#------------------------------------------- 902 procedure_every_scan_replace_18
 6 10 21 
 16 1 1 nox
 3 6 4 2 noany
@@ -7753,7 +7761,7 @@ the |the cat |the cat sat |the cat sat on |the cat sat on the |the cat sat on th
 4 3 6
 the |cat|8
 abc 1 q
-#------------------------------------------- 902 procedure_every_scan_replace_15
+#------------------------------------------- 903 procedure_every_scan_replace_15
 This test of floating-point arithmetic is likely to show
 differences from platform to platform because of differences
 in floating-point precision and details of the routines that
@@ -8037,7 +8045,7 @@ copy(1.0) ----> 1.0
 trim(3.14159,58) ----> "3.14159"
 Image(2e13) ----> "2e+13"
 Image(0.0006) ----> "0.0006"
-#---------------------------------------- 903 procedure_every_elemgen_replace_17
+#---------------------------------------- 904 procedure_every_elemgen_replace_17
 
     a =  1618033988749894848204586834365638117720309
     b = -2718281828459045235360287471352662497757247
@@ -8451,7 +8459,7 @@ b:  37252902984619140625  48661191875666868481  < <= ~=
     +-   85914094860286009106  -11408288891047727856
     */%  1812770660060154962576925754547119140625  0  37252902984619140625
     &|!  36914950757738881025  48999144102547128081  12084193344808247056
-#---------------------------------------------------- 904 procedure_every_scan_4
+#---------------------------------------------------- 905 procedure_every_scan_4
 30
 done5
 "done5" 3
@@ -8464,7 +8472,7 @@ isnull still null
 nonnull not null
 3
 fail-alt
-#------------------------------------------- 905 procedure_every_scan_replace_14
+#------------------------------------------- 906 procedure_every_scan_replace_14
 The quick brown fox jumps over lazy dogs tab here end 
 digits 13
 ucase T
@@ -8480,7 +8488,7 @@ a
 b
 c
  dehlorw
-#----------------------------------------- 906 procedure_every_suspend_replace_4
+#----------------------------------------- 907 procedure_every_suspend_replace_4
 1 2 2 3 1 2
 "a\x00b" "a\x00"
 3 "\x00" 3 2
@@ -8489,14 +8497,14 @@ c
 "<S>"
 16 " <S> <CONJ> <S>\x00"
 " <S> <CONJ> <S>\x00" 16 " <S> <CONJ> "
-#----------------------------------------- 907 procedure_every_suspend_replace_5
+#----------------------------------------- 908 procedure_every_suspend_replace_5
 "<S>"
 "<CONJ>"
 "<S>"
 2 3 4 
 4 4 4 4
 "<CONJ>"
-#------------------------------------------ 908 procedure_record_every_replace_2
+#------------------------------------------ 909 procedure_record_every_replace_2
  ----> &null
 f := open("foo.baz","w") ----> file(foo.baz)
 write(f,"hello world") ----> "hello world"
@@ -8671,7 +8679,7 @@ close(f) ----> file(fncs1.dat)
 5.75              1.398 1.089 0.861 -0.50 -0.59 2.397 314.1 1.749 1.592 
 6.0               1.405 1.107 0.960 -0.27 -0.29 2.449 403.4 1.791 1.630 
 6.25              1.412 1.123 0.999 -0.03 -0.03 2.5   518.0 1.832 1.668 
-#-------------------------------------------- 909 procedure_every_scan_replace_9
+#-------------------------------------------- 910 procedure_every_scan_replace_9
    initial : 0 :
  >> 
  >> 3 3 
@@ -8690,7 +8698,7 @@ k 3
 v 7
        30s : 5 : [0]30 [1]31 [2]32 [3]33 [4]34
        50s : 5 : [0]50 [1]51 [2]52 [3]53 [4]54
-#----------------------------------------- 910 procedure_record_every_replace_13
+#----------------------------------------- 911 procedure_record_every_replace_13
  ----> &null
 2 === +2 ----> 2
 3 === *"abc" ----> 3
@@ -8995,13 +9003,13 @@ y := 2 ----> 2
 (x <- y) & &fail ----> none
 x ----> 1
 y ----> 2
-#------------------------------------------ 911 procedure_coexpr_every_replace_2
+#------------------------------------------ 912 procedure_coexpr_every_replace_2
 the|quick|brown|fox|
 a|b|c|d|
 in7 ner7 scan
 abp,q,r,
 one twozz
-#----------------------------------------- 912 procedure_record_every_replace_25
+#----------------------------------------- 913 procedure_record_every_replace_25
 1 9 pt record constructor pt 2
 0 2 2
 dflt dflt
@@ -9013,9 +9021,9 @@ k
 0 list
 4 1one2two
 record p table set
-#------------------------------------------ 913 procedure_record_every_replace_1
+#------------------------------------------ 914 procedure_record_every_replace_1
 he runs.
-#----------------------------------------- 914 procedure_record_coexpr_replace_1
+#----------------------------------------- 915 procedure_record_coexpr_replace_1
 	null : &null
     *2	integer : 47
     *7	real : 3.14159
@@ -9067,7 +9075,7 @@ he runs.
 
 '\x00\x01\x02\x03\x04\x05\x06\x07\b\t\n\v\f\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\e\x1c\x1d\x1e\x1f !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\d\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\xf9\xfa\xfb\xfc\xfd\xfe'
 
-#----------------------------------------- 915 procedure_record_every_replace_15
+#----------------------------------------- 916 procedure_record_every_replace_15
 c1 after 0
 "c1 done"
 c1 after 60
@@ -9098,7 +9106,7 @@ equiv failed
 list_16(2)
 equiv failed
 set_8(2)
-#------------------------------------------ 916 procedure_record_every_replace_7
+#------------------------------------------ 917 procedure_record_every_replace_7
  ----> &null
 s := "abcd" ----> "abcd"
 s := "x" ----> "x"
@@ -9330,7 +9338,7 @@ bal('+','[','[',"[[2*x[+3[+[5*y[") ----> none
 bal('+','([','])',"([2*x)+3]+(5*y]") ----> 10
 bal(,,,"()+()") ----> 1
 bal(&cset,,,"()+()") ----> 1
-#----------------------------------------- 917 procedure_record_every_replace_14
+#----------------------------------------- 918 procedure_record_every_replace_14
  ----> &null
 copy(1) ----> 1
 copy("abc") ----> "abc"
@@ -9786,7 +9794,7 @@ every write(seq(-10)) \ 10 ----> none
 25
 28
 every write(seq(,3)) \ 10 ----> none
-#-------------------------------------------- 918 procedure_every_scan_replace_5
+#-------------------------------------------- 919 procedure_every_scan_replace_5
 -2
 -2
 a. [0]
@@ -9839,7 +9847,7 @@ z. [18] 11 12 13 14 15 16 17 18 19 21 22 23 24 25 26 27 28 29
 x. [9] 21 22 23 24 25 26 27 28 29
 y. [9] 41 42 43 44 45 46 47 48 49
 z. [18] 61 62 63 64 65 66 67 68 69 71 72 73 74 75 76 77 78 79
-#----------------------- 919 ladder__rung05_scan_variable_cset_many_upto_any_bal
+#----------------------- 920 ladder__rung05_scan_variable_cset_many_upto_any_bal
 tok [>ONE homo sapiens]
 tok [GATTACA gattaca]
 tok [>TWO]
@@ -9901,7 +9909,7 @@ any arg 3
 loop any cset 2
 loop any string 2
 loop any cset fail
-#----------------------------------------- 920 procedure_record_every_replace_18
+#----------------------------------------- 921 procedure_record_every_replace_18
 2
 3
 b
@@ -9982,7 +9990,7 @@ record constructor recordAsVariable
 3
 OK to get here
 done
-#------------------------------------------ 921 procedure_record_every_replace_3
+#------------------------------------------ 922 procedure_record_every_replace_3
 Enter states (1 character names): Enter input alphabet: Enter Final states (subset of states): What is the start state? enter delta(a,0) = enter delta(a,1) = enter delta(b,0) = enter delta(b,1) = enter delta(c,0) = enter delta(c,1) = enter delta(d,0) = enter delta(d,1) = enter delta(e,0) = enter delta(e,1) = enter delta(f,0) = enter delta(f,1) = enter delta(g,0) = enter delta(g,1) = enter delta(h,0) = enter delta(h,1) = 
 
 
@@ -10383,7 +10391,7 @@ where:
 	d(bf,0) = ag	d(bf,1) = ce
 	d(ce,0) = d	d(ce,1) = bf
 	d(d,0) = d	d(d,1) = ag
-#------------------------------------------- 922 procedure_every_scan_replace_13
+#------------------------------------------- 923 procedure_every_scan_replace_13
 test delete:    41,    3	[ok]
 test delete:    41,   11	[ok]
 test delete:    41,   23	[ok]
@@ -10426,7 +10434,7 @@ checking !T:
 checking key(T):
 
 [done]
-#-------------------------------------------- 923 procedure_every_scan_replace_6
+#-------------------------------------------- 924 procedure_every_scan_replace_6
 1 metafile 1250 1000 0 0 0 init
 581 950 (A) text
 751 880 (B) text
@@ -10496,7 +10504,7 @@ checking key(T):
 125 249 line stroke 874 249 begin 58 587 line stroke
 255 255 255 color
 0 0 (16 players, 5 rounds, 20 matches) text
-#-------------------------------------------- 924 procedure_every_scan_replace_4
+#-------------------------------------------- 925 procedure_every_scan_replace_4
 testing entab/detab(s)
 testing entab/detab(s,5)
 testing entab/detab(s,8,12)
@@ -10508,7 +10516,7 @@ testing entab/detab(s,3)
 testing entab/detab(s,3,4)
 testing entab/detab(s,5)
 testing entab/detab(s,5,7,10)
-#----------------------------------------- 925 procedure_record_every_replace_19
+#----------------------------------------- 926 procedure_record_every_replace_19
  ----> &null
 list(0) ----> list_1(0)
 list(0,1) ----> list_2(0)
@@ -10868,7 +10876,7 @@ procedure main
 &null
 every write(image(!r)) ----> none
  a: -2035912587 847198497 
-#----------------------------------------- 926 procedure_record_coexpr_replace_3
+#----------------------------------------- 927 procedure_record_coexpr_replace_3
 0:
 1:
 2:
@@ -11372,11 +11380,11 @@ key=6 record r2_2(2)
 key=6 record r2_4(2)
 key=8 record r5_11(5)
 key=8 record r5_15(5)
-#----------------------------------------- 927 procedure_record_coexpr_replace_6
+#----------------------------------------- 928 procedure_record_coexpr_replace_6
 procedure expr1 procedure expr2 procedure expr3 procedure expr4
 record constructor three record constructor zero record constructor one
 three zero one
-#------------------------------------------- 928 procedure_every_scan_replace_16
+#------------------------------------------- 929 procedure_every_scan_replace_16
 1	one
 2	two
 3	three
@@ -11560,7 +11568,7 @@ write               1
 writes              1
 x                   3
 y                   4
-#----------------------------------------- 929 procedure_record_every_replace_12
+#----------------------------------------- 930 procedure_record_every_replace_12
 
 error in line 7:
    &error = -2
@@ -12094,7 +12102,7 @@ error in line 180:
    &errortext = "negative first argument to real exponentiation"
 (-36. ^ -9.) | monitor(&line) ----> 180
  eginopst
-#------------------------------------------- 930 procedure_record_scan_replace_2
+#------------------------------------------- 931 procedure_record_scan_replace_2
 <!-- Created by HTPREP -->
 <html><head>
 <title>Off the Beaten Path</title>
