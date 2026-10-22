@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1036 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=46 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,90
+# shape: entries=1037 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=46 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,91
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:07	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:07	family:ladder	
@@ -159,7 +159,7 @@ ladder__rung17_compare_ops_leg	chunk:03	feat:say	say
 ladder__rung17_compare_ops_numeric	chunk:03	feat:say	say
 simple_assign_49	chunk:08	feat:string_concat	string_concat
 ladder__rung02_arithmetic_e_and_tau_terms	chunk:03	feat:say	say
-ladder__rung12_exceptions_no_catch	chunk:09	feat:try	try
+ladder__rung12_exceptions_no_catch	chunk:10	feat:try	try
 ladder__rung16_bool_relops	chunk:03	feat:say	say
 say_63	chunk:03	feat:say	say
 ladder__rung11_junctions_operator	chunk:06	feat:if	if
@@ -453,7 +453,7 @@ join_array_9	chunk:06	feat:join	join sigil_array
 join_hash_1	chunk:06	feat:join	join sigil_hash
 join_hash_2	chunk:06	feat:join	join sigil_hash
 join_hash_3	chunk:06	feat:join	join sigil_hash
-ladder__rung04_arrays_slice	chunk:08	feat:range_op	range_op sigil_array
+ladder__rung04_arrays_slice	chunk:09	feat:range_op	range_op sigil_array
 ladder__rung06_control_unless	chunk:10	feat:unless	unless
 ladder__rung15_blocks_anon_sub	chunk:05	feat:sub	sub
 ladder__rung15_blocks_anon_sub_with_arg	chunk:05	feat:sub	sub
@@ -705,6 +705,7 @@ ladder__rung04_arrays_scalar_container_subscripts	chunk:07	feat:sigil_hash	if si
 ladder__rung14_roles_a_parametric_role_binds_its_parameters_in_its_methods	chunk:05	feat:method	method string_concat
 benchmark_pi-sequential-iteration	chunk:09	feat:while	if while
 hash_say_replace_3	chunk:07	feat:sigil_hash	say sigil_hash
+ladder__rung07_subs_a_multi_sub_is_chosen_by_its_named_parameters_and_a_nullary_loses_to_an_optional_named	chunk:08	feat:multi	multi sigil_array string_concat
 ladder__rung02_arithmetic_rat_rounding_comparison_sums_and_mixed_operands	chunk:09	feat:map	map range_op say
 for_range_3	chunk:04	feat:for_with_say	for for_with_say if range_op
 for_range_4	chunk:04	feat:for_with_say	for for_with_say range_op
