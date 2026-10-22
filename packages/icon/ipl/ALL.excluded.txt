@@ -170,6 +170,7 @@ gprogs/cw: oracle produced EMPTY output -- refusing to mint a vacuous ref
 gprogs/dd2draft: oracle produced EMPTY output -- refusing to mint a vacuous ref
 gprogs/dd2res: oracle produced EMPTY output -- refusing to mint a vacuous ref
 gprogs/dd2unit: oracle produced EMPTY output -- refusing to mint a vacuous ref
+gprogs/dd2wif: the container builder has no argv mechanism -- graded standalone by test_icon_ipl_suite.sh with its .argv (nofile.blp) and declared exit status (.rc); its ALL.csv row is a settings row (CEO-1261)
 gprogs/ddextend: oracle produced EMPTY output -- refusing to mint a vacuous ref
 gprogs/design1: oracle produced EMPTY output -- refusing to mint a vacuous ref
 gprogs/design2: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -244,6 +245,7 @@ gprogs/mover: oracle produced EMPTY output -- refusing to mint a vacuous ref
 gprogs/offtiler: oracle produced EMPTY output -- refusing to mint a vacuous ref
 gprogs/orbit: oracle produced EMPTY output -- refusing to mint a vacuous ref
 gprogs/othello: oracle produced EMPTY output -- refusing to mint a vacuous ref
+gprogs/painterc: the container builder has no argv mechanism -- graded standalone by test_icon_ipl_suite.sh with its .argv (nofile.txt); its ALL.csv row is a settings row (CEO-1261)
 gprogs/palcheck: oracle produced EMPTY output -- refusing to mint a vacuous ref
 gprogs/palette: oracle produced EMPTY output -- refusing to mint a vacuous ref
 gprogs/pat2gif: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -372,6 +374,7 @@ procs/equiv: oracle produced EMPTY output -- refusing to mint a vacuous ref
 procs/escape: oracle produced EMPTY output -- refusing to mint a vacuous ref
 procs/escapesq: oracle produced EMPTY output -- refusing to mint a vacuous ref
 procs/eval: oracle produced EMPTY output -- refusing to mint a vacuous ref
+procs/evallist: a library, not a program -- graded standalone by test_icon_ipl_suite.sh through procs/evallist_driver.icn and its .ref; its ALL.csv row is a settings row (CEO-1261)
 procs/everycat: oracle produced EMPTY output -- refusing to mint a vacuous ref
 procs/expander: oracle produced EMPTY output -- refusing to mint a vacuous ref
 procs/exprfile: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -639,6 +642,7 @@ progs/hebeng: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/hotedit: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/htget: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/htprep: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/huffstuf: the container builder has no argv mechanism -- graded standalone by test_icon_ipl_suite.sh with its .argv (-o fixture.txt) and its .fixtures directory; its ALL.csv row is a settings row (CEO-1261)
 progs/ibar: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/icalc: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/icalls: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -656,6 +660,7 @@ progs/imagetyp: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/indxcomp: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/ineeds: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/inter: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/interpe: declared empty output (.empty) -- the container refuses a vacuous ref, so it is graded standalone by test_icon_ipl_suite.sh against its empty .ref; its ALL.csv row is a settings row (CEO-1261)
 progs/ipatch: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/iplkwic: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/iplweb: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -673,6 +678,7 @@ progs/istrip: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/itab: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/itags: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/itrcfltr: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/iundecl: declared empty output (.empty) -- the container refuses a vacuous ref, so it is graded standalone by test_icon_ipl_suite.sh against its empty .ref; its ALL.csv row is a settings row (CEO-1261)
 progs/iversion: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/iwriter: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/knapsack: oracle produced EMPTY output -- refusing to mint a vacuous ref
