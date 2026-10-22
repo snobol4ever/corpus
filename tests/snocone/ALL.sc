@@ -62,6 +62,7 @@ OUTPUT = 'second write, same association, output accumulates by line';
 /*------------------------------------------------------- 31 simple_output_10 */
 // A01_empty_string.sc — output of empty string produces blank line
 OUTPUT = '';
+OUTPUT = 'done';
 /*------------------------------------------------------ 32 simple_output_104 */
 i = 2; j = 3;
 OUTPUT = (LT(i, j) 'first', GT(i, j) 'second', 'third');
@@ -74,6 +75,7 @@ OUTPUT = 42;
 /*------------------------------------------------------ 35 simple_output_134 */
 // empty_string.sc - Output of null string produces blank line.
 OUTPUT = '';
+OUTPUT = 'done';
 /*------------------------------------------------------ 36 simple_output_135 */
 // hello.sc - Minimal output test.
 OUTPUT = 'hello world';
@@ -92,9 +94,11 @@ OUTPUT = 3.14;
 /*------------------------------------------------------ 41 simple_output_140 */
 // 004 - Output empty string produces blank line
 OUTPUT = '';
+OUTPUT = 'done';
 /*------------------------------------------------------ 42 simple_output_142 */
 // 007 - Uninitialized variable outputs empty line
 OUTPUT = x;
+OUTPUT = 'done';
 /*------------------------------------------------------ 43 simple_output_143 */
 // 008 - Double-quoted string literal
 OUTPUT = "hello world";
@@ -170,6 +174,7 @@ OUTPUT = LPAD('hi', 6);
 /*------------------------------------------------------- 67 simple_output_59 */
 // empty_string.sc - Output of null string produces blank line.
 OUTPUT = '';
+OUTPUT = 'done';
 /*------------------------------------------------------- 68 simple_output_60 */
 // hello.sc - Minimal output test.
 OUTPUT = 'hello world';
@@ -185,9 +190,11 @@ OUTPUT = 3.14;
 /*------------------------------------------------------- 72 simple_output_65 */
 // 004 - Output empty string produces blank line
 OUTPUT = '';
+OUTPUT = 'done';
 /*------------------------------------------------------- 73 simple_output_67 */
 // 007 - Uninitialized variable outputs empty line
 OUTPUT = x;
+OUTPUT = 'done';
 /*------------------------------------------------------- 74 simple_output_68 */
 // 008 - Double-quoted string literal
 OUTPUT = "hello world";
@@ -335,6 +342,7 @@ OUTPUT = 'line three';
 x = 'something';
 x = '';
 OUTPUT = x;
+OUTPUT = 'done';
 /*----------------------------------------------------- 109 simple_output_131 */
 // 013 - Overwrite variable, output second value
 x = 'first';
@@ -375,6 +383,7 @@ OUTPUT = X;
 x = 'something';
 x =;
 OUTPUT = x;
+OUTPUT = 'done';
 /*----------------------------------------------------- 117 simple_output_172 */
 i = 1;
 do { OUTPUT = i; i = i + 1; } while (LE(i, 3));
@@ -455,6 +464,7 @@ OUTPUT = y;
 x = 'something';
 x = '';
 OUTPUT = x;
+OUTPUT = 'done';
 /*------------------------------------------------------ 133 simple_output_56 */
 // 013 - Overwrite variable, output second value
 x = 'first';
