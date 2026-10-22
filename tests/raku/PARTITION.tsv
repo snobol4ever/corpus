@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1056 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=48 clusters=49 chunks=11 sizes=100,100,100,100,100,100,100,100,100,100,8
+# shape: entries=1057 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=49 clusters=49 chunks=11 sizes=100,100,100,100,100,100,100,100,100,100,8
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:07	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:07	family:ladder	
@@ -1049,6 +1049,7 @@ ladder__rung07_subs_a_subset_is_a_type_and_a_where_clause_checks_a_parameter	cor
 scrip_test_rk_given18	core	core	for for_with_say given loop say sigil_array sub when
 ladder__rung10_given_a_when_arm_is_its_own_node_a_given_binds_the_topic_and_a_matched_when_leaves_the_block	core	core	for for_with_say given range_op return sub sub_with_return try when
 ladder__rung04_arrays_an_infinite_or_whatever_ended_range_is_lazy_where_it_is_iterated_and_a_range_value_where_it_is_held	core	core	for for_with_say if map range_op say sigil_array smartmatch string_concat
+ladder__rung05_hashes_a_hash_slice_reads_assigns_tests_and_deletes_several_keys	core	core	for for_with_say join map range_op say sigil_array sigil_hash string_concat
 ladder__rung02_arithmetic_rat_in_the_builtins_index_range_x_floor_abs_sqrt_sprintf_int_and_caret	core	core	for for_with_say range_op say sigil_array sigil_hash smartmatch sprintf string_concat
 ladder__rung09_regex_engine_captures_1_agree_with_rakudo	chunk:09	feat:map	for for_with_say if join map regex sigil_array sigil_hash smartmatch string_concat sub
 ladder__rung09_regex_engine_quantifiers_1_agree_with_rakudo	core	core	for for_with_say if join map range_op regex sigil_array sigil_hash smartmatch string_concat sub
