@@ -32,8 +32,9 @@ active line does, and the appended comment says so: the goal's leading consult l
 the same sort, so a tabled predicate's answers grade as a set, as XSB grades them. An error the goal raises is printed to standard
 error and the lines written before it are kept. The ref is swipl's output of the driven program.
 
-THE DIALECT MARKER (hq_packages 2026-10-22, measured the same day): every program that carries a driver begins with the line `:- use_module(library(lists)).` (the FIRST line: with the marker last, in the
-driver block, mode 4 printed nothing for table_tests_abol_test while mode 3 was right -- a SCRIP divergence by the marker's position, observed and not yet rowed). These programs are graded against
+THE DIALECT MARKER (hq_packages 2026-10-22, measured the same day): every program that carries a driver begins with the line `:- use_module(library(lists)).` (the FIRST line: a marker carrying a long trailing comment,
+placed just before the appended driver clauses, made the compiled mode-4 binary of table_tests_abol_test print nothing while mode 3 was right -- measured; row
+prolog-m4-a-long-comment-after-a-use-module-directive-before-the-clauses-silences-the-program). These programs are graded against
 swipl, and SCRIP reads a program as SWI-Prolog only when it carries a module/2 or use_module directive; without one it reads the ISO/GNU default (double_quotes codes, GNU's padding in format ~Ns,
 no SWI listing/1, GNU's portray_clause and residual printing). The marker states what the oracle already is: swipl's output is unchanged (the refs are identical but one: test_termtoatom prints swipl's
 numeric variable name, `_6254` became `_10430` because the program grew a line -- an answer nobody can match), no entry that passed changed (165 of 166 entries unchanged, the 166th reads a companion
