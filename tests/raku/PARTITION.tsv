@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1047 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=48 clusters=49 chunks=10 sizes=100,100,100,100,100,100,100,100,100,99
+# shape: entries=1048 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=48 clusters=49 chunks=10 sizes=100,100,100,100,100,100,100,100,100,100
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:07	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:07	family:ladder	
@@ -469,7 +469,7 @@ range_array_11	chunk:08	feat:range_op	range_op sigil_array
 range_array_12	chunk:08	feat:range_op	range_op sigil_array
 range_array_2	chunk:08	feat:range_op	range_op sigil_array
 range_array_3	chunk:08	feat:range_op	range_op sigil_array
-range_array_4	chunk:08	feat:range_op	range_op sigil_array
+range_array_4	chunk:09	feat:range_op	range_op sigil_array
 range_array_5	chunk:09	feat:range_op	range_op sigil_array
 range_array_6	chunk:09	feat:range_op	range_op sigil_array
 range_array_7	chunk:09	feat:range_op	range_op sigil_array
@@ -524,7 +524,7 @@ sub_say_10	chunk:05	feat:sub	say sub
 sub_say_11	chunk:05	feat:sub	say sub
 sub_say_9	chunk:05	feat:sub	say sub
 test_lines_file	chunk:04	feat:sigil_array	say sigil_array
-test_stmt_ctrl_loop_three	chunk:09	feat:loop	loop
+test_stmt_ctrl_loop_three	chunk:10	feat:loop	loop
 test_stmt_pfx_do	chunk:03	feat:say	say
 while_4	chunk:09	feat:while	while
 while_replace_1	chunk:09	feat:while	while
@@ -576,6 +576,7 @@ simple_assign_92	chunk:06	feat:if	if
 token_say_3	chunk:10	feat:token	regex say token
 hash_say_5	chunk:07	feat:sigil_hash	say sigil_hash
 ladder__rung03_strings_num_stringifies_round_trip	chunk:08	feat:string_concat	string_concat
+ladder__rung04_arrays_rotate_takes_its_count_from_a_string_or_a_rational	chunk:08	feat:string_concat	sigil_array string_concat
 token_say_2	chunk:10	feat:token	regex say token
 ladder__rung09_regex_a_method_call_on_the_topic_on_the_right_of_a_smartmatch_is_made_on_the_left_operand	chunk:09	feat:smartmatch	smartmatch string_concat
 ladder__rung13_classes_an_enum_value_named_like_a_builtin_term_shadows_it	chunk:04	feat:sigil_array	say sigil_array
