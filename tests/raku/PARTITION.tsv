@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1051 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=48 clusters=49 chunks=11 sizes=100,100,100,100,100,100,100,100,100,100,3
+# shape: entries=1052 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=48 clusters=49 chunks=11 sizes=100,100,100,100,100,100,100,100,100,100,4
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:07	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:07	family:ladder	
@@ -54,7 +54,7 @@ simple_program_72	chunk:01	family:smoke
 simple_program_75	chunk:01	family:smoke	
 simple_program_8	chunk:01	family:smoke	
 test_print_str	chunk:10	family:test_raku_print_str	
-test_say_int	chunk:10	family:test_raku_say_int	
+test_say_int	chunk:11	family:test_raku_say_int	
 test_say_str	chunk:11	family:test_raku_say_str	
 test_use_revision	chunk:11	family:test_raku_use_revision	
 ladder__rung00_hello_print_no_newline	chunk:07	family:ladder	
@@ -466,7 +466,7 @@ ladder__rung18_two_arg_block_sort_string	chunk:10	feat:sort	sigil_array sort
 ladder__rung19_block_methcall_sort_by_key	chunk:10	feat:sort	sigil_array sort
 multi_2	chunk:08	feat:multi	multi return
 range_array_1	chunk:08	feat:range_op	range_op sigil_array
-range_array_11	chunk:08	feat:range_op	range_op sigil_array
+range_array_11	chunk:09	feat:range_op	range_op sigil_array
 range_array_12	chunk:09	feat:range_op	range_op sigil_array
 range_array_2	chunk:09	feat:range_op	range_op sigil_array
 range_array_3	chunk:09	feat:range_op	range_op sigil_array
@@ -900,7 +900,8 @@ ladder__rung13_classes_nqp_create_and_bindattr	chunk:02	feat:has	has method stri
 ladder__rung04_arrays_hash_of_a_list_flattens_it_and_an_odd_number_of_elements_throws_x_hash_store_oddnumber	chunk:10	feat:try	say sigil_array sigil_hash try
 ladder__rung05_hashes_a_colon_pair_used_as_a_value_is_a_pair_in_a_hash_a_list_and_a_scalar	chunk:07	feat:sigil_hash	say sigil_array sigil_hash sub
 ladder__rung13_classes_a_forward_declared_class_stub_gives_way_to_the_full_class_and_typed_attributes_stay_attributes	chunk:02	feat:has	has method range_op
-sub_junction_say_replace_1	chunk:09	feat:junction	if junction say sub
+sub_junction_say_replace_1	chunk:10	feat:junction	if junction say sub
+ladder__rung03_strings_the_method_assign_form_inside_an_expression_stores_and_yields_the_new_value	chunk:08	feat:string_concat	say sigil_array string_concat sub
 when_while_replace_1	chunk:10	feat:unless	if unless when while
 ladder__rung02_arithmetic_power_assigned_and_compound_assigned	chunk:08	feat:sub_with_return	return sigil_array sub sub_with_return
 sub_for_say_replace_1	chunk:05	feat:for_with_say	for for_with_say say sub
