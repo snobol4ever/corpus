@@ -14,15 +14,15 @@ FN__display:
                         mov              eax, 0                               # GCANCHOR .Lgcmap_display qword ptr [rsp + 1704]
                         mov              qword ptr [rsp + 1784], rbp
                         mov              rbp, rsp
-                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], 1
                         mov              ecx, dword ptr [rax + 0]
                         movsxd           rcx, ecx
                         sub              rcx, 1
-                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
-                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 624], rcx
 display_α_body:
                         .type            n0_line_mark_bx, @function
 n0_line_mark_bx:
@@ -39,11 +39,11 @@ n0_line_mark_bx:
                         .long            72
                         .quad            .Lstnof1
                         .popsection
-n0_line_mark_α:         mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 72
-                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+n0_line_mark_α:         mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 72
+                        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
                         mov              rcx, qword ptr [rip + .Lline_mark_α_116_0]
-                        mov              qword ptr [rax + 0], rcx;            jmp   n1_line_mark_α
+                        mov              qword ptr [rax + 600], rcx;          jmp   n1_line_mark_α
                         .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Lline_mark_α_116_0: .quad .Lline_mark_α_116_0_s; .popsection
 .Lline_mark_α_116_0_s:  .string          "deal.icn"
                         .size            n0_line_mark_bx, .-n0_line_mark_bx
@@ -59,8 +59,8 @@ n1_line_mark_bx:
                         .long            73
                         .quad            .Lstnof1
                         .popsection
-n1_line_mark_α:         mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 73;             jmp   n2_line_mark_α
+n1_line_mark_α:         mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 73;           jmp   n2_line_mark_α
                         .size            n1_line_mark_bx, .-n1_line_mark_bx
                         .type            n2_line_mark_bx, @function
 n2_line_mark_bx:
@@ -74,8 +74,8 @@ n2_line_mark_bx:
                         .long            75
                         .quad            .Lstnof1
                         .popsection
-n2_line_mark_α:         mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 75;             jmp   n3_disjunction_α
+n2_line_mark_α:         mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 75;           jmp   n3_disjunction_α
                         .size            n2_line_mark_bx, .-n2_line_mark_bx
                         .type            n3_disjunction_bx, @function
 n3_disjunction_bx:
@@ -144,8 +144,8 @@ n8_line_mark_bx:
                         .long            76
                         .quad            .Lstnof1
                         .popsection
-n8_line_mark_α:         mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 76;             jmp   n9_lit_string_α
+n8_line_mark_α:         mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 76;           jmp   n9_lit_string_α
                         .size            n8_line_mark_bx, .-n8_line_mark_bx
                         .type            n9_lit_string_bx, @function
 n9_lit_string_bx:
@@ -187,8 +187,8 @@ n12_line_mark_bx:
                         .long            76
                         .quad            .Lstnof1
                         .popsection
-n12_line_mark_α:        mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 76;             jmp   n13_call_byname_α
+n12_line_mark_α:        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 76;           jmp   n13_call_byname_α
                         .size            n12_line_mark_bx, .-n12_line_mark_bx
                         .type            n13_call_byname_bx, @function
 n13_call_byname_bx:
@@ -212,7 +212,7 @@ n13_call_byname_α:      sub              rsp, 16
                         mov              edx, 2
                         mov              ecx, 262299
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_display_0:     mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_0:     mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -228,7 +228,7 @@ n13_call_byname_α:      sub              rsp, 16
                         mov              rdx, rsp
                         lea              rcx, [rsp + 16]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_display_1:     mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_1:     mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -252,7 +252,7 @@ n14_binop_α:            sub              rsp, 16
                         call             qword ptr [rip + str_concat_fracdigit_d@GOTPCREL]
 .Lgcsite_display_4:     cmp              al, 255;                             jne   .Lbinop_vd_136_0
                         call             c_str_concat_fracdigit_d@PLT
-.Lgcsite_display_3:     mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_3:     mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lbinop_vd_136_0:       mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
                         push             rax                                  # gc_poll bb_binop_concat_slot.cpp:70
@@ -262,7 +262,7 @@ n14_binop_α:            sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_display_2:     mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_2:     mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              eax, dword ptr [rsp + 0]             # result
                         cmp              al, 104;                             jne   .Lbinop_α_136_999
                         add              rsp, 16
@@ -290,8 +290,8 @@ n16_line_mark_bx:
                         .long            77
                         .quad            .Lstnof1
                         .popsection
-n16_line_mark_α:        mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 77;             jmp   n17_lit_string_α
+n16_line_mark_α:        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 77;           jmp   n17_lit_string_α
                         .size            n16_line_mark_bx, .-n16_line_mark_bx
                         .type            n17_lit_string_bx, @function
 n17_lit_string_bx:
@@ -322,8 +322,8 @@ n19_line_mark_bx:
                         .long            77
                         .quad            .Lstnof1
                         .popsection
-n19_line_mark_α:        mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 77;             jmp   n20_call_byname_α
+n19_line_mark_α:        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 77;           jmp   n20_call_byname_α
                         .size            n19_line_mark_bx, .-n19_line_mark_bx
                         .type            n20_call_byname_bx, @function
 n20_call_byname_bx:
@@ -347,7 +347,7 @@ n20_call_byname_α:      sub              rsp, 16
                         mov              edx, 2
                         mov              ecx, 262299
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_display_5:     mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_5:     mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -363,7 +363,7 @@ n20_call_byname_α:      sub              rsp, 16
                         mov              rdx, rsp
                         lea              rcx, [rsp + 16]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_display_6:     mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_6:     mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -429,8 +429,8 @@ n25_line_mark_bx:
                         .long            80
                         .quad            .Lstnof1
                         .popsection
-n25_line_mark_α:        mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 80;             jmp   n26_var_ref_α
+n25_line_mark_α:        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 80;           jmp   n26_var_ref_α
                         .size            n25_line_mark_bx, .-n25_line_mark_bx
                         .type            n26_var_ref_bx, @function
 n26_var_ref_bx:
@@ -448,7 +448,7 @@ n27_deref_α:            sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 16]            # var_ref
                         mov              rsi, qword ptr [rsp + 24]            # d
                         call             rt_deref@PLT
-.Lgcsite_display_8:     mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_8:     mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_154_999
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n32_line_mark_α
@@ -461,7 +461,7 @@ n27_deref_α:            sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_display_7:     mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_7:     mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n28_line_mark_α
                         .size            n27_deref_bx, .-n27_deref_bx
                         .type            n28_line_mark_bx, @function
@@ -473,8 +473,8 @@ n28_line_mark_bx:
                         .long            80
                         .quad            .Lstnof1
                         .popsection
-n28_line_mark_α:        mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 80;             jmp   n29_call_proc_staged_α
+n28_line_mark_α:        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 80;           jmp   n29_call_proc_staged_α
                         .size            n28_line_mark_bx, .-n28_line_mark_bx
                         .type            n29_call_proc_staged_bx, @function
 n29_call_proc_staged_bx:
@@ -489,24 +489,24 @@ n29_call_proc_staged_α: sub              rsp, 16
                         mov              qword ptr [rsp + 0], rcx
                         mov              rcx, qword ptr [rsp + 56]
                         mov              qword ptr [rsp + 8], rcx
-                        mov              rax, qword ptr [rip + g_rt_gen_procs@GOTPCREL] # the registry jump: the record's fn word (PROC_FN at +8, the 128-byte stride both asserted in rt.c), so a fn re-sealed at run time -- a dynamic predicate's enumerator, a redefinition -- is followed in both media
-                        mov              rax, qword ptr [rax + 0]
+                        mov              rax, qword ptr [rip + g_runtime@GOTPCREL] # the registry jump: the record's fn word (PROC_FN at +8, the 128-byte stride both asserted in rt.c), so a fn re-sealed at run time -- a dynamic predicate's enumerator, a redefinition -- is followed in both media
+                        mov              rax, qword ptr [rax + 17624]
                         mov              rax, qword ptr [rax + 520];          jmp   rax
 .Lcall_proc_staged_α_158_3:
-.Lgcsite_display_10:    mov              rcx, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rcx + 0], 80
+.Lgcsite_display_10:    mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 584], 80
                         lea              r11, [rip + .S0]
-                        mov              rcx, qword ptr [rip + g_file@GOTPCREL]
-                        mov              qword ptr [rcx + 0], r11
+                        mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 600], r11
                         add              rsp, 16
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_158_2
 .Lcall_proc_staged_α_158_4:
-.Lgcsite_display_9:     mov              rcx, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rcx + 0], 80
+.Lgcsite_display_9:     mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 584], 80
                         lea              r11, [rip + .S0]
-                        mov              rcx, qword ptr [rip + g_file@GOTPCREL]
-                        mov              qword ptr [rcx + 0], r11
+                        mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 600], r11
                         add              rsp, 16
                         mov              eax, 104
                         xor              edx, edx
@@ -518,11 +518,11 @@ n29_call_proc_staged_α: sub              rsp, 16
                         add              rsp, 32;                             jmp   n32_line_mark_α
 .Lcall_proc_staged_α_158_999:
                                                                               jmp   n30_deref_α
-n29_call_proc_staged_β: mov              rcx, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rcx + 0], 80
+n29_call_proc_staged_β: mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 584], 80
                         lea              r11, [rip + .S0]
-                        mov              rcx, qword ptr [rip + g_file@GOTPCREL]
-                        mov              qword ptr [rcx + 0], r11
+                        mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 600], r11
                         add              rsp, 16
                         add              rsp, 32;                             jmp   n32_line_mark_α
                         .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Lcall_proc_staged_β_158_0: .quad .Lcall_proc_staged_β_158_0_s; .popsection
@@ -536,7 +536,7 @@ n30_deref_α:            sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 16]            # call
                         mov              rsi, qword ptr [rsp + 24]            # d
                         call             rt_deref@PLT
-.Lgcsite_display_12:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_12:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_159_999
                         add              rsp, 16
                         add              rsp, 48;                             jmp   n32_line_mark_α
@@ -549,7 +549,7 @@ n30_deref_α:            sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_display_11:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_11:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n31_assign_α
                         .size            n30_deref_bx, .-n30_deref_bx
                         .type            n31_assign_bx, @function
@@ -573,8 +573,8 @@ n32_line_mark_bx:
                         .long            81
                         .quad            .Lstnof1
                         .popsection
-n32_line_mark_α:        mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 81;             jmp   n33_make_list_α
+n32_line_mark_α:        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 81;           jmp   n33_make_list_α
                         .size            n32_line_mark_bx, .-n32_line_mark_bx
                         .type            n33_make_list_bx, @function
 n33_make_list_bx:
@@ -583,7 +583,7 @@ n33_make_list_α:        sub              rsp, 16
                         xor              edi, edi
                         mov              esi, 0
                         call             rt_make_list@PLT
-.Lgcsite_display_14:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_14:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
                         push             rax                                  # gc_poll bb_make_list.cpp:33
@@ -593,7 +593,7 @@ n33_make_list_α:        sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_display_13:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_13:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n34_assign_α
                         .size            n33_make_list_bx, .-n33_make_list_bx
                         .type            n34_assign_bx, @function
@@ -617,8 +617,8 @@ n35_line_mark_bx:
                         .long            82
                         .quad            .Lstnof1
                         .popsection
-n35_line_mark_α:        mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 82;             jmp   n36_var_ref_α
+n35_line_mark_α:        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 82;           jmp   n36_var_ref_α
                         .size            n35_line_mark_bx, .-n35_line_mark_bx
                         .type            n36_var_ref_bx, @function
 n36_var_ref_bx:
@@ -665,7 +665,7 @@ n40_to_α:               sub              rsp, 32
                         call             qword ptr [rip + core_icn_int_operand_ok@GOTPCREL]
 .Lgcsite_display_24:    cmp              eax, -2;                             jne   .Lto_vd_175_2
                         call             c_core_icn_int_operand_ok@PLT
-.Lgcsite_display_23:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_23:    mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lto_vd_175_2:          test             eax, eax;                            jne   .Lto_α_175_996
                         add              rsp, 32
                         add              rsp, 64;                             jmp   n58_line_mark_α
@@ -676,13 +676,13 @@ n40_to_α:               sub              rsp, 32
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_display_22:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_22:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              rdi, qword ptr [rsp + 32]            # lit_integer
                         mov              rsi, qword ptr [rsp + 40]
                         call             qword ptr [rip + core_icn_int_operand_ok@GOTPCREL]
 .Lgcsite_display_21:    cmp              eax, -2;                             jne   .Lto_vd_175_1
                         call             c_core_icn_int_operand_ok@PLT
-.Lgcsite_display_20:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_20:    mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lto_vd_175_1:          test             eax, eax;                            jne   .Lto_α_175_997
                         add              rsp, 32
                         add              rsp, 64;                             jmp   n58_line_mark_α
@@ -693,11 +693,11 @@ n40_to_α:               sub              rsp, 32
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_display_19:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_19:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              rdi, qword ptr [rsp + 48]            # lit_integer
                         mov              rsi, qword ptr [rsp + 56]            # hi
                         call             core_icn_to_int_check@PLT
-.Lgcsite_display_18:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_18:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rbp + 1072], rax
                         push             rax                                  # gc_poll bb_to.cpp:104
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
@@ -706,11 +706,11 @@ n40_to_α:               sub              rsp, 32
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_display_17:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_17:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              rdi, qword ptr [rsp + 32]            # lit_integer
                         mov              rsi, qword ptr [rsp + 40]            # hi
                         call             core_icn_to_int_check@PLT
-.Lgcsite_display_16:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_16:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rbp + 1080], rax
 .Lto_α_175_0:           mov              rax, qword ptr [rbp + 1072]
                         mov              rcx, qword ptr [rbp + 1080]
@@ -726,7 +726,7 @@ n40_to_α:               sub              rsp, 32
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_display_15:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_15:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n41_var_α
 n40_to_β:               inc              qword ptr [rbp + 1072];              jno   .Lto_β_175_999
                         add              rsp, 32
@@ -764,7 +764,7 @@ n42_coerce_numeric_α:   sub              rsp, 16
                         call             qword ptr [rip + rt_coerce_num2_d@GOTPCREL]
 .Lgcsite_display_27:    cmp              al, 255;                             jne   .Lcoerce_numeric_vd_178_3
                         call             c_rt_coerce_num2_d@PLT
-.Lgcsite_display_26:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_26:    mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lcoerce_numeric_vd_178_3:
                         push             rax                                  # gc_poll bb_coerce_numeric.cpp:45
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
@@ -773,7 +773,7 @@ n42_coerce_numeric_α:   sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_display_25:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_25:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              eax, dword ptr [rsp + 0]             # result
                         cmp              al, 104;                             jne   .Lcoerce_numeric_α_178_999
                         add              rsp, 16
@@ -803,7 +803,7 @@ n43_coerce_numeric_α:   sub              rsp, 16
                         call             qword ptr [rip + rt_coerce_num2_d@GOTPCREL]
 .Lgcsite_display_30:    cmp              al, 255;                             jne   .Lcoerce_numeric_vd_180_4
                         call             c_rt_coerce_num2_d@PLT
-.Lgcsite_display_29:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_29:    mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lcoerce_numeric_vd_180_4:
                         push             rax                                  # gc_poll bb_coerce_numeric.cpp:45
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
@@ -812,7 +812,7 @@ n43_coerce_numeric_α:   sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_display_28:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_28:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              eax, dword ptr [rsp + 0]             # result
                         cmp              al, 104;                             jne   .Lcoerce_numeric_α_180_999
                         add              rsp, 16
@@ -857,7 +857,7 @@ n44_binop_α:            sub              rsp, 16
                         mov              rdx, qword ptr [rsp + 16]
                         mov              rcx, qword ptr [rsp + 24]
                         call             rt_mul_big@PLT
-.Lgcsite_display_32:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_32:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lbinop_α_181_999
                         add              rsp, 16
                         add              rsp, 144;                            jmp   n58_line_mark_α
@@ -870,7 +870,7 @@ n44_binop_α:            sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_display_31:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_31:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n45_lit_integer_α
                         .size            n44_binop_bx, .-n44_binop_bx
                         .type            n45_lit_integer_bx, @function
@@ -904,7 +904,7 @@ n46_coerce_numeric_α:   sub              rsp, 16
                         call             qword ptr [rip + rt_coerce_num2_d@GOTPCREL]
 .Lgcsite_display_35:    cmp              al, 255;                             jne   .Lcoerce_numeric_vd_184_5
                         call             c_rt_coerce_num2_d@PLT
-.Lgcsite_display_34:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_34:    mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lcoerce_numeric_vd_184_5:
                         push             rax                                  # gc_poll bb_coerce_numeric.cpp:45
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
@@ -913,7 +913,7 @@ n46_coerce_numeric_α:   sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_display_33:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_33:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              eax, dword ptr [rsp + 0]             # result
                         cmp              al, 104;                             jne   .Lcoerce_numeric_α_184_999
                         add              rsp, 16
@@ -954,7 +954,7 @@ n47_binop_α:            sub              rsp, 16
                         mov              rdx, qword ptr [rsp + 32]            # lit_integer
                         mov              rcx, qword ptr [rsp + 40]
                         call             rt_add_big@PLT
-.Lgcsite_display_37:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_37:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lbinop_α_185_999
                         add              rsp, 16
                         add              rsp, 192;                            jmp   n58_line_mark_α
@@ -967,7 +967,7 @@ n47_binop_α:            sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_display_36:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_36:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n48_var_α
                         .size            n47_binop_bx, .-n47_binop_bx
                         .type            n48_var_bx, @function
@@ -1018,7 +1018,7 @@ n49_binop_α:            sub              rsp, 16
                         mov              rdx, qword ptr [rsp + 16]            # var
                         mov              rcx, qword ptr [rsp + 24]
                         call             c_rt_add@PLT
-.Lgcsite_display_39:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_39:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lbinop_α_187_999
                         add              rsp, 16;                             jmp   n48_var_β
 .Lbinop_α_187_999:      mov              qword ptr [rsp + 0], rax             # result
@@ -1030,7 +1030,7 @@ n49_binop_α:            sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_display_38:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_38:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n50_subscript_α
 n49_binop_β:            add              rsp, 16;                             jmp   n48_var_β
                         .size            n49_binop_bx, .-n49_binop_bx
@@ -1045,7 +1045,7 @@ n50_subscript_α:        sub              rsp, 16
                         mov              r8, qword ptr [rsp + 16]
                         mov              r9, qword ptr [rsp + 24]
                         call             rt_section_var_strict@PLT
-.Lgcsite_display_41:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_41:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lsubscript_α_188_999
                         add              rsp, 16;                             jmp   n49_binop_β
 .Lsubscript_α_188_999:  mov              qword ptr [rsp + 0], rax             # result
@@ -1057,7 +1057,7 @@ n50_subscript_α:        sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_display_40:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_40:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n51_deref_α
                         .size            n50_subscript_bx, .-n50_subscript_bx
                         .type            n51_deref_bx, @function
@@ -1067,7 +1067,7 @@ n51_deref_α:            sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 16]            # subscript
                         mov              rsi, qword ptr [rsp + 24]            # d
                         call             rt_deref@PLT
-.Lgcsite_display_43:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_43:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_189_999
                         add              rsp, 16
                         add              rsp, 160;                            jmp   n40_to_β
@@ -1080,7 +1080,7 @@ n51_deref_α:            sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_display_42:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_42:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n52_line_mark_α
 n51_deref_β:            add              rsp, 16
                         add              rsp, 160;                            jmp   n40_to_β
@@ -1094,8 +1094,8 @@ n52_line_mark_bx:
                         .long            82
                         .quad            .Lstnof1
                         .popsection
-n52_line_mark_α:        mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 82;             jmp   n53_call_proc_staged_α
+n52_line_mark_α:        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 82;           jmp   n53_call_proc_staged_α
                         .size            n52_line_mark_bx, .-n52_line_mark_bx
                         .type            n53_call_proc_staged_bx, @function
 n53_call_proc_staged_bx:
@@ -1110,24 +1110,24 @@ n53_call_proc_staged_α: sub              rsp, 16
                         mov              qword ptr [rsp + 0], rcx
                         mov              rcx, qword ptr [rsp + 56]
                         mov              qword ptr [rsp + 8], rcx
-                        mov              rax, qword ptr [rip + g_rt_gen_procs@GOTPCREL] # the registry jump: the record's fn word (PROC_FN at +8, the 128-byte stride both asserted in rt.c), so a fn re-sealed at run time -- a dynamic predicate's enumerator, a redefinition -- is followed in both media
-                        mov              rax, qword ptr [rax + 0]
+                        mov              rax, qword ptr [rip + g_runtime@GOTPCREL] # the registry jump: the record's fn word (PROC_FN at +8, the 128-byte stride both asserted in rt.c), so a fn re-sealed at run time -- a dynamic predicate's enumerator, a redefinition -- is followed in both media
+                        mov              rax, qword ptr [rax + 17624]
                         mov              rax, qword ptr [rax + 136];          jmp   rax
 .Lcall_proc_staged_α_193_3:
-.Lgcsite_display_45:    mov              rcx, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rcx + 0], 82
+.Lgcsite_display_45:    mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 584], 82
                         lea              r11, [rip + .S0]
-                        mov              rcx, qword ptr [rip + g_file@GOTPCREL]
-                        mov              qword ptr [rcx + 0], r11
+                        mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 600], r11
                         add              rsp, 16
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_193_2
 .Lcall_proc_staged_α_193_4:
-.Lgcsite_display_44:    mov              rcx, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rcx + 0], 82
+.Lgcsite_display_44:    mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 584], 82
                         lea              r11, [rip + .S0]
-                        mov              rcx, qword ptr [rip + g_file@GOTPCREL]
-                        mov              qword ptr [rcx + 0], r11
+                        mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 600], r11
                         add              rsp, 16
                         mov              eax, 104
                         xor              edx, edx
@@ -1138,11 +1138,11 @@ n53_call_proc_staged_α: sub              rsp, 16
                         add              rsp, 16;                             jmp   n51_deref_β
 .Lcall_proc_staged_α_193_999:
                                                                               jmp   n54_deref_α
-n53_call_proc_staged_β: mov              rcx, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rcx + 0], 82
+n53_call_proc_staged_β: mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 584], 82
                         lea              r11, [rip + .S0]
-                        mov              rcx, qword ptr [rip + g_file@GOTPCREL]
-                        mov              qword ptr [rcx + 0], r11
+                        mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 600], r11
                         add              rsp, 16;                             jmp   n51_deref_β
                         .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Lcall_proc_staged_β_193_0: .quad .Lcall_proc_staged_β_193_0_s; .popsection
 .Lcall_proc_staged_β_193_0_s:
@@ -1155,7 +1155,7 @@ n54_deref_α:            sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 288]           # var_ref
                         mov              rsi, qword ptr [rsp + 296]           # d
                         call             rt_deref@PLT
-.Lgcsite_display_47:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_47:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_194_999
                         add              rsp, 16
                         add              rsp, 192;                            jmp   n40_to_β
@@ -1168,7 +1168,7 @@ n54_deref_α:            sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_display_46:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_46:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n55_deref_α
 n54_deref_β:            add              rsp, 16
                         add              rsp, 192;                            jmp   n40_to_β
@@ -1180,7 +1180,7 @@ n55_deref_α:            sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]            # call
                         mov              rsi, qword ptr [rsp + 40]            # d
                         call             rt_deref@PLT
-.Lgcsite_display_49:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_49:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_195_999
                         add              rsp, 16;                             jmp   n54_deref_β
 .Lderef_α_195_999:      mov              qword ptr [rsp + 0], rax             # result
@@ -1192,7 +1192,7 @@ n55_deref_α:            sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_display_48:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_48:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n56_line_mark_α
 n55_deref_β:            add              rsp, 16;                             jmp   n54_deref_β
                         .size            n55_deref_bx, .-n55_deref_bx
@@ -1205,8 +1205,8 @@ n56_line_mark_bx:
                         .long            82
                         .quad            .Lstnof1
                         .popsection
-n56_line_mark_α:        mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 82;             jmp   n57_call_byname_α
+n56_line_mark_α:        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 82;           jmp   n57_call_byname_α
                         .size            n56_line_mark_bx, .-n56_line_mark_bx
                         .type            n57_call_byname_bx, @function
 n57_call_byname_bx:
@@ -1230,7 +1230,7 @@ n57_call_byname_α:      sub              rsp, 16
                         mov              edx, 2
                         mov              ecx, 262293
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_display_50:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_50:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -1246,7 +1246,7 @@ n57_call_byname_α:      sub              rsp, 16
                         mov              rdx, rsp
                         lea              rcx, [rsp + 16]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_display_51:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_51:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -1271,8 +1271,8 @@ n58_line_mark_bx:
                         .long            84
                         .quad            .Lstnof1
                         .popsection
-n58_line_mark_α:        mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 84;             jmp   n59_line_mark_α
+n58_line_mark_α:        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 84;           jmp   n59_line_mark_α
                         .size            n58_line_mark_bx, .-n58_line_mark_bx
                         .type            n59_line_mark_bx, @function
 n59_line_mark_bx:
@@ -1283,8 +1283,8 @@ n59_line_mark_bx:
                         .long            84
                         .quad            .Lstnof1
                         .popsection
-n59_line_mark_α:        mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 84;             jmp   n60_call_byname_α
+n59_line_mark_α:        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 84;           jmp   n60_call_byname_α
                         .size            n59_line_mark_bx, .-n59_line_mark_bx
                         .type            n60_call_byname_bx, @function
 n60_call_byname_bx:
@@ -1299,7 +1299,7 @@ n60_call_byname_α:      sub              rsp, 16
                         mov              edx, 0
                         mov              ecx, 327852
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_display_52:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_52:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -1315,7 +1315,7 @@ n60_call_byname_α:      sub              rsp, 16
                         mov              rdx, rsp
                         lea              rcx, [rsp + 16]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_display_53:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_53:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -1339,8 +1339,8 @@ n61_line_mark_bx:
                         .long            85
                         .quad            .Lstnof1
                         .popsection
-n61_line_mark_α:        mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 85;             jmp   n62_var_α
+n61_line_mark_α:        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 85;           jmp   n62_var_α
                         .size            n61_line_mark_bx, .-n61_line_mark_bx
                         .type            n62_var_bx, @function
 n62_var_bx:
@@ -1382,7 +1382,7 @@ n65_subscript_α:        sub              rsp, 16
                         call             qword ptr [rip + rt_subscript_val_strict@GOTPCREL]
 .Lgcsite_display_59:    cmp              al, 255;                             jne   .Lsubscript_vd_212_7
                         call             c_rt_subscript_val_strict@PLT
-.Lgcsite_display_58:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_58:    mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lsubscript_vd_212_7:   cmp              al, 255;                             jne   .Lsubscript_α_212_4
                         mov              eax, 1;                              jmp   .Lsubscript_α_212_1
 .Lsubscript_α_212_4:    push             rax
@@ -1400,7 +1400,7 @@ n65_subscript_α:        sub              rsp, 16
                         lea              rdx, [rsp + 16]
                         lea              rcx, [rsp + 32]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_display_57:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_57:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              rax, qword ptr [rsp + 0]
                         mov              rdx, qword ptr [rsp + 8]
                         mov              r13, qword ptr [rsp + 16]
@@ -1409,7 +1409,7 @@ n65_subscript_α:        sub              rsp, 16
 .Lsubscript_α_212_2:    call             qword ptr [rip + rt_subscript_var_strict@GOTPCREL]
 .Lgcsite_display_56:    cmp              al, 255;                             jne   .Lsubscript_vd_212_6
                         call             c_rt_subscript_var_strict@PLT
-.Lgcsite_display_55:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_55:    mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lsubscript_vd_212_6:   push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -1425,7 +1425,7 @@ n65_subscript_α:        sub              rsp, 16
                         lea              rdx, [rsp + 16]
                         lea              rcx, [rsp + 32]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_display_54:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_54:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              rax, qword ptr [rsp + 0]
                         mov              rdx, qword ptr [rsp + 8]
                         mov              r13, qword ptr [rsp + 16]
@@ -1444,7 +1444,7 @@ n66_deref_α:            sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 16]            # subscript
                         mov              rsi, qword ptr [rsp + 24]            # d
                         call             rt_deref@PLT
-.Lgcsite_display_61:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_61:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_213_999
                         add              rsp, 16
                         add              rsp, 64;                             jmp   n70_line_mark_α
@@ -1457,7 +1457,7 @@ n66_deref_α:            sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_display_60:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_60:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n67_iterate_α
                         .size            n66_deref_bx, .-n66_deref_bx
                         .type            n67_iterate_bx, @function
@@ -1481,7 +1481,7 @@ n67_iterate_α:          sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_display_62:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_62:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n68_line_mark_α
 n67_iterate_β:          inc              qword ptr [rbp + 768];               jmp   .Literate_α_215_0
                         .size            n67_iterate_bx, .-n67_iterate_bx
@@ -1494,8 +1494,8 @@ n68_line_mark_bx:
                         .long            85
                         .quad            .Lstnof1
                         .popsection
-n68_line_mark_α:        mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 85;             jmp   n69_call_byname_α
+n68_line_mark_α:        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 85;           jmp   n69_call_byname_α
                         .size            n68_line_mark_bx, .-n68_line_mark_bx
                         .type            n69_call_byname_bx, @function
 n69_call_byname_bx:
@@ -1519,7 +1519,7 @@ n69_call_byname_α:      sub              rsp, 16
                         mov              edx, 2
                         mov              ecx, 327852
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_display_64:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_64:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -1535,7 +1535,7 @@ n69_call_byname_α:      sub              rsp, 16
                         mov              rdx, rsp
                         lea              rcx, [rsp + 16]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_display_65:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_65:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -1560,8 +1560,8 @@ n70_line_mark_bx:
                         .long            86
                         .quad            .Lstnof1
                         .popsection
-n70_line_mark_α:        mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 86;             jmp   n71_line_mark_α
+n70_line_mark_α:        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 86;           jmp   n71_line_mark_α
                         .size            n70_line_mark_bx, .-n70_line_mark_bx
                         .type            n71_line_mark_bx, @function
 n71_line_mark_bx:
@@ -1572,8 +1572,8 @@ n71_line_mark_bx:
                         .long            86
                         .quad            .Lstnof1
                         .popsection
-n71_line_mark_α:        mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 86;             jmp   n72_call_byname_α
+n71_line_mark_α:        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 86;           jmp   n72_call_byname_α
                         .size            n71_line_mark_bx, .-n71_line_mark_bx
                         .type            n72_call_byname_bx, @function
 n72_call_byname_bx:
@@ -1588,7 +1588,7 @@ n72_call_byname_α:      sub              rsp, 16
                         mov              edx, 0
                         mov              ecx, 327852
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_display_66:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_66:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -1604,7 +1604,7 @@ n72_call_byname_α:      sub              rsp, 16
                         mov              rdx, rsp
                         lea              rcx, [rsp + 16]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_display_67:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_67:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -1628,8 +1628,8 @@ n73_line_mark_bx:
                         .long            87
                         .quad            .Lstnof1
                         .popsection
-n73_line_mark_α:        mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 87;             jmp   n74_lit_integer_α
+n73_line_mark_α:        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 87;           jmp   n74_lit_integer_α
                         .size            n73_line_mark_bx, .-n73_line_mark_bx
                         .type            n74_lit_integer_bx, @function
 n74_lit_integer_bx:
@@ -1658,7 +1658,7 @@ n76_to_α:               sub              rsp, 32
                         call             qword ptr [rip + core_icn_int_operand_ok@GOTPCREL]
 .Lgcsite_display_77:    cmp              eax, -2;                             jne   .Lto_vd_231_9
                         call             c_core_icn_int_operand_ok@PLT
-.Lgcsite_display_76:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_76:    mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lto_vd_231_9:          test             eax, eax;                            jne   .Lto_α_231_996
                         add              rsp, 32
                         add              rsp, 32;                             jmp   n99_line_mark_α
@@ -1669,13 +1669,13 @@ n76_to_α:               sub              rsp, 32
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_display_75:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_75:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              rdi, qword ptr [rsp + 32]            # lit_integer
                         mov              rsi, qword ptr [rsp + 40]
                         call             qword ptr [rip + core_icn_int_operand_ok@GOTPCREL]
 .Lgcsite_display_74:    cmp              eax, -2;                             jne   .Lto_vd_231_8
                         call             c_core_icn_int_operand_ok@PLT
-.Lgcsite_display_73:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_73:    mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lto_vd_231_8:          test             eax, eax;                            jne   .Lto_α_231_997
                         add              rsp, 32
                         add              rsp, 32;                             jmp   n99_line_mark_α
@@ -1686,11 +1686,11 @@ n76_to_α:               sub              rsp, 32
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_display_72:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_72:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              rdi, qword ptr [rsp + 48]            # lit_integer
                         mov              rsi, qword ptr [rsp + 56]            # hi
                         call             core_icn_to_int_check@PLT
-.Lgcsite_display_71:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_71:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rbp + 272], rax
                         push             rax                                  # gc_poll bb_to.cpp:104
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
@@ -1699,11 +1699,11 @@ n76_to_α:               sub              rsp, 32
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_display_70:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_70:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              rdi, qword ptr [rsp + 32]            # lit_integer
                         mov              rsi, qword ptr [rsp + 40]            # hi
                         call             core_icn_to_int_check@PLT
-.Lgcsite_display_69:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_69:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rbp + 280], rax
 .Lto_α_231_0:           mov              rax, qword ptr [rbp + 272]
                         mov              rcx, qword ptr [rbp + 280]
@@ -1719,7 +1719,7 @@ n76_to_α:               sub              rsp, 32
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_display_68:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_68:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n77_assign_α
 n76_to_β:               inc              qword ptr [rbp + 272];               jno   .Lto_β_231_999
                         add              rsp, 32
@@ -1749,8 +1749,8 @@ n79_line_mark_bx:
                         .long            88
                         .quad            .Lstnof1
                         .popsection
-n79_line_mark_α:        mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 88;             jmp   n80_var_ref_α
+n79_line_mark_α:        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 88;           jmp   n80_var_ref_α
                         .size            n79_line_mark_bx, .-n79_line_mark_bx
                         .type            n80_var_ref_bx, @function
 n80_var_ref_bx:
@@ -1781,7 +1781,7 @@ n82_subscript_α:        sub              rsp, 16
                         call             qword ptr [rip + rt_subscript_var_strict@GOTPCREL]
 .Lgcsite_display_80:    cmp              al, 255;                             jne   .Lsubscript_vd_240_10
                         call             c_rt_subscript_var_strict@PLT
-.Lgcsite_display_79:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_79:    mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lsubscript_vd_240_10:  cmp              al, 104;                             jne   .Lsubscript_α_240_999
                         add              rsp, 16
                         add              rsp, -176;                           jmp   n97_unmark_α
@@ -1794,7 +1794,7 @@ n82_subscript_α:        sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_display_78:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_78:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n83_var_α
                         .size            n82_subscript_bx, .-n82_subscript_bx
                         .type            n83_var_bx, @function
@@ -1813,7 +1813,7 @@ n84_subscript_α:        sub              rsp, 16
                         call             qword ptr [rip + rt_subscript_var_strict@GOTPCREL]
 .Lgcsite_display_83:    cmp              al, 255;                             jne   .Lsubscript_vd_243_11
                         call             c_rt_subscript_var_strict@PLT
-.Lgcsite_display_82:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_82:    mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lsubscript_vd_243_11:  cmp              al, 104;                             jne   .Lsubscript_α_243_999
                         add              rsp, 16
                         add              rsp, -160;                           jmp   n97_unmark_α
@@ -1826,7 +1826,7 @@ n84_subscript_α:        sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_display_81:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_81:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n85_lit_integer_α
                         .size            n84_subscript_bx, .-n84_subscript_bx
                         .type            n85_lit_integer_bx, @function
@@ -1845,7 +1845,7 @@ n86_deref_α:            sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]            # subscript
                         mov              rsi, qword ptr [rsp + 40]            # d
                         call             rt_deref@PLT
-.Lgcsite_display_85:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_85:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_245_999
                         add              rsp, 16
                         add              rsp, -128;                           jmp   n97_unmark_α
@@ -1858,7 +1858,7 @@ n86_deref_α:            sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_display_84:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_84:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n87_line_mark_α
                         .size            n86_deref_bx, .-n86_deref_bx
                         .type            n87_line_mark_bx, @function
@@ -1870,8 +1870,8 @@ n87_line_mark_bx:
                         .long            88
                         .quad            .Lstnof1
                         .popsection
-n87_line_mark_α:        mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 88;             jmp   n88_call_byname_α
+n87_line_mark_α:        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 88;           jmp   n88_call_byname_α
                         .size            n87_line_mark_bx, .-n87_line_mark_bx
                         .type            n88_call_byname_bx, @function
 n88_call_byname_bx:
@@ -1895,7 +1895,7 @@ n88_call_byname_α:      sub              rsp, 16
                         mov              edx, 2
                         mov              ecx, 262275
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_display_86:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_86:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -1911,7 +1911,7 @@ n88_call_byname_α:      sub              rsp, 16
                         mov              rdx, rsp
                         lea              rcx, [rsp + 16]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_display_87:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_87:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -1953,7 +1953,7 @@ n91_subscript_α:        sub              rsp, 16
                         call             qword ptr [rip + rt_subscript_var_strict@GOTPCREL]
 .Lgcsite_display_90:    cmp              al, 255;                             jne   .Lsubscript_vd_253_12
                         call             c_rt_subscript_var_strict@PLT
-.Lgcsite_display_89:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_89:    mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lsubscript_vd_253_12:  cmp              al, 104;                             jne   .Lsubscript_α_253_999
                         add              rsp, 16
                         add              rsp, -64;                            jmp   n97_unmark_α
@@ -1966,7 +1966,7 @@ n91_subscript_α:        sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_display_88:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_88:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n92_var_α
                         .size            n91_subscript_bx, .-n91_subscript_bx
                         .type            n92_var_bx, @function
@@ -1985,7 +1985,7 @@ n93_subscript_α:        sub              rsp, 16
                         call             qword ptr [rip + rt_subscript_var_strict@GOTPCREL]
 .Lgcsite_display_93:    cmp              al, 255;                             jne   .Lsubscript_vd_256_13
                         call             c_rt_subscript_var_strict@PLT
-.Lgcsite_display_92:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_92:    mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lsubscript_vd_256_13:  cmp              al, 104;                             jne   .Lsubscript_α_256_999
                         add              rsp, 16
                         add              rsp, -48;                            jmp   n97_unmark_α
@@ -1998,7 +1998,7 @@ n93_subscript_α:        sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_display_91:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_91:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n94_deref_α
                         .size            n93_subscript_bx, .-n93_subscript_bx
                         .type            n94_deref_bx, @function
@@ -2008,7 +2008,7 @@ n94_deref_α:            sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 16]            # subscript
                         mov              rsi, qword ptr [rsp + 24]            # d
                         call             rt_deref@PLT
-.Lgcsite_display_95:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_95:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_257_999
                         add              rsp, 16
                         add              rsp, -32;                            jmp   n97_unmark_α
@@ -2021,7 +2021,7 @@ n94_deref_α:            sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_display_94:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_94:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n95_line_mark_α
                         .size            n94_deref_bx, .-n94_deref_bx
                         .type            n95_line_mark_bx, @function
@@ -2033,8 +2033,8 @@ n95_line_mark_bx:
                         .long            88
                         .quad            .Lstnof1
                         .popsection
-n95_line_mark_α:        mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 88;             jmp   n96_call_byname_α
+n95_line_mark_α:        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 88;           jmp   n96_call_byname_α
                         .size            n95_line_mark_bx, .-n95_line_mark_bx
                         .type            n96_call_byname_bx, @function
 n96_call_byname_bx:
@@ -2058,7 +2058,7 @@ n96_call_byname_α:      sub              rsp, 16
                         mov              edx, 2
                         mov              ecx, 327852
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_display_96:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_96:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -2074,7 +2074,7 @@ n96_call_byname_α:      sub              rsp, 16
                         mov              rdx, rsp
                         lea              rcx, [rsp + 16]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_display_97:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_97:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -2101,8 +2101,8 @@ n98_line_mark_bx:
                         .long            87
                         .quad            .Lstnof1
                         .popsection
-n98_line_mark_α:        mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 87;             jmp   n76_to_β
+n98_line_mark_α:        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 87;           jmp   n76_to_β
                         .size            n98_line_mark_bx, .-n98_line_mark_bx
                         .type            n99_line_mark_bx, @function
 n99_line_mark_bx:
@@ -2116,8 +2116,8 @@ n99_line_mark_bx:
                         .long            89
                         .quad            .Lstnof1
                         .popsection
-n99_line_mark_α:        mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 89;             jmp   n00001_line_mark_α
+n99_line_mark_α:        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 89;           jmp   n00001_line_mark_α
                         .size            n99_line_mark_bx, .-n99_line_mark_bx
                         .type            n00001_line_mark_bx, @function
 n00001_line_mark_bx:
@@ -2128,8 +2128,8 @@ n00001_line_mark_bx:
                         .long            89
                         .quad            .Lstnof1
                         .popsection
-n00001_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 89;             jmp   n00002_call_byname_α
+n00001_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 89;           jmp   n00002_call_byname_α
                         .size            n00001_line_mark_bx, .-n00001_line_mark_bx
                         .type            n00002_call_byname_bx, @function
 n00002_call_byname_bx:
@@ -2144,7 +2144,7 @@ n00002_call_byname_α:     sub              rsp, 16
                         mov              edx, 0
                         mov              ecx, 327852
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_display_98:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_98:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -2160,7 +2160,7 @@ n00002_call_byname_α:     sub              rsp, 16
                         mov              rdx, rsp
                         lea              rcx, [rsp + 16]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_display_99:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_99:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -2184,8 +2184,8 @@ n00003_line_mark_bx:
                         .long            90
                         .quad            .Lstnof1
                         .popsection
-n00003_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 90;             jmp   n00004_var_α
+n00003_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 90;           jmp   n00004_var_α
                         .size            n00003_line_mark_bx, .-n00003_line_mark_bx
                         .type            n00004_var_bx, @function
 n00004_var_bx:
@@ -2227,7 +2227,7 @@ n00007_subscript_α:       sub              rsp, 16
                         call             qword ptr [rip + rt_subscript_val_strict@GOTPCREL]
 .Lgcsite_display_105:   cmp              al, 255;                             jne   .Lsubscript_vd_278_15
                         call             c_rt_subscript_val_strict@PLT
-.Lgcsite_display_104:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_104:   mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lsubscript_vd_278_15:  cmp              al, 255;                             jne   .Lsubscript_α_278_4
                         mov              eax, 1;                              jmp   .Lsubscript_α_278_1
 .Lsubscript_α_278_4:    push             rax
@@ -2245,7 +2245,7 @@ n00007_subscript_α:       sub              rsp, 16
                         lea              rdx, [rsp + 16]
                         lea              rcx, [rsp + 32]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_display_103:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_103:   mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              rax, qword ptr [rsp + 0]
                         mov              rdx, qword ptr [rsp + 8]
                         mov              r13, qword ptr [rsp + 16]
@@ -2254,7 +2254,7 @@ n00007_subscript_α:       sub              rsp, 16
 .Lsubscript_α_278_2:    call             qword ptr [rip + rt_subscript_var_strict@GOTPCREL]
 .Lgcsite_display_102:   cmp              al, 255;                             jne   .Lsubscript_vd_278_14
                         call             c_rt_subscript_var_strict@PLT
-.Lgcsite_display_101:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_101:   mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lsubscript_vd_278_14:  push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -2270,7 +2270,7 @@ n00007_subscript_α:       sub              rsp, 16
                         lea              rdx, [rsp + 16]
                         lea              rcx, [rsp + 32]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_display_100:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_100:   mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              rax, qword ptr [rsp + 0]
                         mov              rdx, qword ptr [rsp + 8]
                         mov              r13, qword ptr [rsp + 16]
@@ -2289,7 +2289,7 @@ n00009_deref_α:           sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 16]            # subscript
                         mov              rsi, qword ptr [rsp + 24]            # d
                         call             rt_deref@PLT
-.Lgcsite_display_107:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_107:   mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_279_999
                         add              rsp, 16
                         add              rsp, 64;                             jmp   n00008_line_mark_α
@@ -2302,7 +2302,7 @@ n00009_deref_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_display_106:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_106:   mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00010_iterate_α
                         .size            n00009_deref_bx, .-n00009_deref_bx
                         .type            n00010_iterate_bx, @function
@@ -2326,7 +2326,7 @@ n00010_iterate_α:         sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_display_108:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_108:   mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00011_line_mark_α
 n00010_iterate_β:         inc              qword ptr [rbp + 144];               jmp   .Literate_α_281_0
                         .size            n00010_iterate_bx, .-n00010_iterate_bx
@@ -2339,8 +2339,8 @@ n00011_line_mark_bx:
                         .long            90
                         .quad            .Lstnof1
                         .popsection
-n00011_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 90;             jmp   n00012_call_byname_α
+n00011_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 90;           jmp   n00012_call_byname_α
                         .size            n00011_line_mark_bx, .-n00011_line_mark_bx
                         .type            n00012_call_byname_bx, @function
 n00012_call_byname_bx:
@@ -2364,7 +2364,7 @@ n00012_call_byname_α:     sub              rsp, 16
                         mov              edx, 2
                         mov              ecx, 327852
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_display_110:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_110:   mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -2380,7 +2380,7 @@ n00012_call_byname_α:     sub              rsp, 16
                         mov              rdx, rsp
                         lea              rcx, [rsp + 16]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_display_111:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_111:   mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -2405,8 +2405,8 @@ n00008_line_mark_bx:
                         .long            91
                         .quad            .Lstnof1
                         .popsection
-n00008_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 91;             jmp   n00013_var_α
+n00008_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 91;           jmp   n00013_var_α
                         .size            n00008_line_mark_bx, .-n00008_line_mark_bx
                         .type            n00013_var_bx, @function
 n00013_var_bx:
@@ -2426,8 +2426,8 @@ n00014_line_mark_bx:
                         .long            91
                         .quad            .Lstnof1
                         .popsection
-n00014_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 91;             jmp   n00015_call_byname_α
+n00014_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 91;           jmp   n00015_call_byname_α
                         .size            n00014_line_mark_bx, .-n00014_line_mark_bx
                         .type            n00015_call_byname_bx, @function
 n00015_call_byname_bx:
@@ -2447,7 +2447,7 @@ n00015_call_byname_α:     sub              rsp, 16
                         mov              edx, 1
                         mov              ecx, 327852
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_display_112:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_112:   mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -2463,7 +2463,7 @@ n00015_call_byname_α:     sub              rsp, 16
                         mov              rdx, rsp
                         lea              rcx, [rsp + 16]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_display_113:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_display_113:   mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -2492,8 +2492,8 @@ display_γ:
                         sub              rcx, 1
                         mov              dword ptr [rax + 0], ecx
                         sub              rcx, 1
-                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
-                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 624], rcx
                         pop              rax
                         lea              rsp, [rbp + 1792]
                         mov              rbp, qword ptr [rbp + 1784];         jmp   qword ptr [rsp]
@@ -2507,8 +2507,8 @@ display_ω:
                         sub              rcx, 1
                         mov              dword ptr [rax + 0], ecx
                         sub              rcx, 1
-                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
-                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 624], rcx
                         pop              rax
                         lea              rsp, [rbp + 1792]
                         mov              rbp, qword ptr [rbp + 1784];         jmp   qword ptr [rsp + 8]
@@ -2783,15 +2783,15 @@ FN__show:
                         mov              eax, 0                               # GCANCHOR .Lgcmap_show qword ptr [rsp + 1336]
                         mov              qword ptr [rsp + 1400], rbp
                         mov              rbp, rsp
-                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], 1
                         mov              ecx, dword ptr [rax + 0]
                         movsxd           rcx, ecx
                         sub              rcx, 1
-                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
-                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 624], rcx
 show_α_body:
                         .type            n00016_line_mark_bx, @function
 n00016_line_mark_bx:
@@ -2805,11 +2805,11 @@ n00016_line_mark_bx:
                         .long            97
                         .quad            .Lstnof1
                         .popsection
-n00016_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 97
-                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+n00016_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 97
+                        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
                         mov              rcx, qword ptr [rip + .Lline_mark_α_379_0]
-                        mov              qword ptr [rax + 0], rcx;            jmp   n00017_line_mark_α
+                        mov              qword ptr [rax + 600], rcx;          jmp   n00017_line_mark_α
                         .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Lline_mark_α_379_0: .quad .Lline_mark_α_379_0_s; .popsection
 .Lline_mark_α_379_0_s:  .string          "deal.icn"
                         .size            n00016_line_mark_bx, .-n00016_line_mark_bx
@@ -2825,8 +2825,8 @@ n00017_line_mark_bx:
                         .long            98
                         .quad            .Lstnof1
                         .popsection
-n00017_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 98;             jmp   n00018_disjunction_α
+n00017_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 98;           jmp   n00018_disjunction_α
                         .size            n00017_line_mark_bx, .-n00017_line_mark_bx
                         .type            n00018_disjunction_bx, @function
 n00018_disjunction_bx:
@@ -2895,8 +2895,8 @@ n00025_line_mark_bx:
                         .long            99
                         .quad            .Lstnof1
                         .popsection
-n00025_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 99;             jmp   n00026_var_ref_α
+n00025_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 99;           jmp   n00026_var_ref_α
                         .size            n00025_line_mark_bx, .-n00025_line_mark_bx
                         .type            n00026_var_ref_bx, @function
 n00026_var_ref_bx:
@@ -2923,7 +2923,7 @@ n00028_deref_α:           sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]            # var_ref
                         mov              rsi, qword ptr [rsp + 40]            # d
                         call             rt_deref@PLT
-.Lgcsite_show_1:        mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_1:        mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_393_999
                         add              rsp, 16
                         add              rsp, 32;                             jmp   n00029_line_mark_α
@@ -2936,7 +2936,7 @@ n00028_deref_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_show_0:        mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_0:        mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00030_line_mark_α
                         .size            n00028_deref_bx, .-n00028_deref_bx
                         .type            n00030_line_mark_bx, @function
@@ -2948,8 +2948,8 @@ n00030_line_mark_bx:
                         .long            99
                         .quad            .Lstnof1
                         .popsection
-n00030_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 99;             jmp   n00031_call_byname_α
+n00030_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 99;           jmp   n00031_call_byname_α
                         .size            n00030_line_mark_bx, .-n00030_line_mark_bx
                         .type            n00031_call_byname_bx, @function
 n00031_call_byname_bx:
@@ -2973,7 +2973,7 @@ n00031_call_byname_α:     sub              rsp, 16
                         mov              edx, 2
                         mov              ecx, 262299
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_show_2:        mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_2:        mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -2989,7 +2989,7 @@ n00031_call_byname_α:     sub              rsp, 16
                         mov              rdx, rsp
                         lea              rcx, [rsp + 16]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_show_3:        mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_3:        mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -3022,7 +3022,7 @@ n00033_binop_α:           sub              rsp, 16
                         call             qword ptr [rip + str_concat_fracdigit_d@GOTPCREL]
 .Lgcsite_show_6:        cmp              al, 255;                             jne   .Lbinop_vd_399_16
                         call             c_str_concat_fracdigit_d@PLT
-.Lgcsite_show_5:        mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_5:        mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lbinop_vd_399_16:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
                         push             rax                                  # gc_poll bb_binop_concat_slot.cpp:70
@@ -3032,7 +3032,7 @@ n00033_binop_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_show_4:        mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_4:        mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              eax, dword ptr [rsp + 0]             # result
                         cmp              al, 104;                             jne   .Lbinop_α_399_999
                         add              rsp, 16
@@ -3060,8 +3060,8 @@ n00029_line_mark_bx:
                         .long            100
                         .quad            .Lstnof1
                         .popsection
-n00029_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 100;            jmp   n00035_var_α
+n00029_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 100;          jmp   n00035_var_α
                         .size            n00029_line_mark_bx, .-n00029_line_mark_bx
                         .type            n00035_var_bx, @function
 n00035_var_bx:
@@ -3092,7 +3092,7 @@ n00037_binop_α:           sub              rsp, 16
                         call             qword ptr [rip + str_concat_fracdigit_d@GOTPCREL]
 .Lgcsite_show_9:        cmp              al, 255;                             jne   .Lbinop_vd_405_17
                         call             c_str_concat_fracdigit_d@PLT
-.Lgcsite_show_8:        mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_8:        mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lbinop_vd_405_17:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
                         push             rax                                  # gc_poll bb_binop_concat_slot.cpp:70
@@ -3102,7 +3102,7 @@ n00037_binop_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_show_7:        mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_7:        mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              eax, dword ptr [rsp + 0]             # result
                         cmp              al, 104;                             jne   .Lbinop_α_405_999
                         add              rsp, 16
@@ -3134,7 +3134,7 @@ n00041_deref_α:           sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]            # var_ref
                         mov              rsi, qword ptr [rsp + 40]            # d
                         call             rt_deref@PLT
-.Lgcsite_show_11:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_11:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_409_999
                         add              rsp, 16
                         add              rsp, 80;                             jmp   n00038_line_mark_α
@@ -3147,7 +3147,7 @@ n00041_deref_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_show_10:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_10:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00042_line_mark_α
                         .size            n00041_deref_bx, .-n00041_deref_bx
                         .type            n00042_line_mark_bx, @function
@@ -3159,8 +3159,8 @@ n00042_line_mark_bx:
                         .long            100
                         .quad            .Lstnof1
                         .popsection
-n00042_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 100;            jmp   n00043_call_byname_α
+n00042_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 100;          jmp   n00043_call_byname_α
                         .size            n00042_line_mark_bx, .-n00042_line_mark_bx
                         .type            n00043_call_byname_bx, @function
 n00043_call_byname_bx:
@@ -3184,7 +3184,7 @@ n00043_call_byname_α:     sub              rsp, 16
                         mov              edx, 2
                         mov              ecx, 262299
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_show_12:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_12:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -3200,7 +3200,7 @@ n00043_call_byname_α:     sub              rsp, 16
                         mov              rdx, rsp
                         lea              rcx, [rsp + 16]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_show_13:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_13:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -3224,7 +3224,7 @@ n00044_binop_α:           sub              rsp, 16
                         call             qword ptr [rip + str_concat_fracdigit_d@GOTPCREL]
 .Lgcsite_show_16:       cmp              al, 255;                             jne   .Lbinop_vd_414_18
                         call             c_str_concat_fracdigit_d@PLT
-.Lgcsite_show_15:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_15:       mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lbinop_vd_414_18:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
                         push             rax                                  # gc_poll bb_binop_concat_slot.cpp:70
@@ -3234,7 +3234,7 @@ n00044_binop_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_show_14:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_14:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              eax, dword ptr [rsp + 0]             # result
                         cmp              al, 104;                             jne   .Lbinop_α_414_999
                         add              rsp, 16
@@ -3262,8 +3262,8 @@ n00038_line_mark_bx:
                         .long            101
                         .quad            .Lstnof1
                         .popsection
-n00038_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 101;            jmp   n00046_var_ref_α
+n00038_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 101;          jmp   n00046_var_ref_α
                         .size            n00038_line_mark_bx, .-n00038_line_mark_bx
                         .type            n00046_var_ref_bx, @function
 n00046_var_ref_bx:
@@ -3290,7 +3290,7 @@ n00048_deref_α:           sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]            # var_ref
                         mov              rsi, qword ptr [rsp + 40]            # d
                         call             rt_deref@PLT
-.Lgcsite_show_18:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_18:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_421_999
                         add              rsp, 16
                         add              rsp, 32;                             jmp   n00049_line_mark_α
@@ -3303,7 +3303,7 @@ n00048_deref_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_show_17:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_17:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00050_line_mark_α
                         .size            n00048_deref_bx, .-n00048_deref_bx
                         .type            n00050_line_mark_bx, @function
@@ -3315,8 +3315,8 @@ n00050_line_mark_bx:
                         .long            101
                         .quad            .Lstnof1
                         .popsection
-n00050_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 101;            jmp   n00051_call_byname_α
+n00050_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 101;          jmp   n00051_call_byname_α
                         .size            n00050_line_mark_bx, .-n00050_line_mark_bx
                         .type            n00051_call_byname_bx, @function
 n00051_call_byname_bx:
@@ -3340,7 +3340,7 @@ n00051_call_byname_α:     sub              rsp, 16
                         mov              edx, 2
                         mov              ecx, 262299
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_show_19:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_19:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -3356,7 +3356,7 @@ n00051_call_byname_α:     sub              rsp, 16
                         mov              rdx, rsp
                         lea              rcx, [rsp + 16]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_show_20:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_20:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -3389,7 +3389,7 @@ n00053_binop_α:           sub              rsp, 16
                         call             qword ptr [rip + str_concat_fracdigit_d@GOTPCREL]
 .Lgcsite_show_23:       cmp              al, 255;                             jne   .Lbinop_vd_427_19
                         call             c_str_concat_fracdigit_d@PLT
-.Lgcsite_show_22:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_22:       mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lbinop_vd_427_19:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
                         push             rax                                  # gc_poll bb_binop_concat_slot.cpp:70
@@ -3399,7 +3399,7 @@ n00053_binop_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_show_21:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_21:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              eax, dword ptr [rsp + 0]             # result
                         cmp              al, 104;                             jne   .Lbinop_α_427_999
                         add              rsp, 16
@@ -3426,7 +3426,7 @@ n00055_binop_α:           sub              rsp, 16
                         call             qword ptr [rip + str_concat_fracdigit_d@GOTPCREL]
 .Lgcsite_show_26:       cmp              al, 255;                             jne   .Lbinop_vd_429_20
                         call             c_str_concat_fracdigit_d@PLT
-.Lgcsite_show_25:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_25:       mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lbinop_vd_429_20:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
                         push             rax                                  # gc_poll bb_binop_concat_slot.cpp:70
@@ -3436,7 +3436,7 @@ n00055_binop_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_show_24:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_24:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              eax, dword ptr [rsp + 0]             # result
                         cmp              al, 104;                             jne   .Lbinop_α_429_999
                         add              rsp, 16
@@ -3464,8 +3464,8 @@ n00049_line_mark_bx:
                         .long            102
                         .quad            .Lstnof1
                         .popsection
-n00049_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 102;            jmp   n00057_var_ref_α
+n00049_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 102;          jmp   n00057_var_ref_α
                         .size            n00049_line_mark_bx, .-n00049_line_mark_bx
                         .type            n00057_var_ref_bx, @function
 n00057_var_ref_bx:
@@ -3492,7 +3492,7 @@ n00059_deref_α:           sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]            # var_ref
                         mov              rsi, qword ptr [rsp + 40]            # d
                         call             rt_deref@PLT
-.Lgcsite_show_28:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_28:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_436_999
                         add              rsp, 16
                         add              rsp, 80;                             jmp   n00020_line_mark_α
@@ -3505,7 +3505,7 @@ n00059_deref_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_show_27:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_27:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00060_line_mark_α
                         .size            n00059_deref_bx, .-n00059_deref_bx
                         .type            n00060_line_mark_bx, @function
@@ -3517,8 +3517,8 @@ n00060_line_mark_bx:
                         .long            102
                         .quad            .Lstnof1
                         .popsection
-n00060_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 102;            jmp   n00061_call_byname_α
+n00060_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 102;          jmp   n00061_call_byname_α
                         .size            n00060_line_mark_bx, .-n00060_line_mark_bx
                         .type            n00061_call_byname_bx, @function
 n00061_call_byname_bx:
@@ -3542,7 +3542,7 @@ n00061_call_byname_α:     sub              rsp, 16
                         mov              edx, 2
                         mov              ecx, 262299
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_show_29:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_29:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -3558,7 +3558,7 @@ n00061_call_byname_α:     sub              rsp, 16
                         mov              rdx, rsp
                         lea              rcx, [rsp + 16]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_show_30:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_30:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -3591,7 +3591,7 @@ n00063_binop_α:           sub              rsp, 16
                         call             qword ptr [rip + str_concat_fracdigit_d@GOTPCREL]
 .Lgcsite_show_33:       cmp              al, 255;                             jne   .Lbinop_vd_442_21
                         call             c_str_concat_fracdigit_d@PLT
-.Lgcsite_show_32:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_32:       mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lbinop_vd_442_21:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
                         push             rax                                  # gc_poll bb_binop_concat_slot.cpp:70
@@ -3601,7 +3601,7 @@ n00063_binop_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_show_31:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_31:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              eax, dword ptr [rsp + 0]             # result
                         cmp              al, 104;                             jne   .Lbinop_α_442_999
                         add              rsp, 16
@@ -3661,8 +3661,8 @@ n00020_line_mark_bx:
                         .long            104
                         .quad            .Lstnof1
                         .popsection
-n00020_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 104;            jmp   n00067_lit_string_α
+n00020_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 104;          jmp   n00067_lit_string_α
                         .size            n00020_line_mark_bx, .-n00020_line_mark_bx
                         .type            n00067_lit_string_bx, @function
 n00067_lit_string_bx:
@@ -3700,7 +3700,7 @@ n00070_deref_α:           sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]            # var_ref
                         mov              rsi, qword ptr [rsp + 40]            # d
                         call             rt_deref@PLT
-.Lgcsite_show_35:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_35:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_453_999
                         add              rsp, 16
                         add              rsp, 48;                             jmp   show_ω
@@ -3713,7 +3713,7 @@ n00070_deref_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_show_34:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_34:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00071_line_mark_α
                         .size            n00070_deref_bx, .-n00070_deref_bx
                         .type            n00071_line_mark_bx, @function
@@ -3725,8 +3725,8 @@ n00071_line_mark_bx:
                         .long            105
                         .quad            .Lstnof1
                         .popsection
-n00071_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 105;            jmp   n00072_call_proc_staged_α
+n00071_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 105;          jmp   n00072_call_proc_staged_α
                         .size            n00071_line_mark_bx, .-n00071_line_mark_bx
                         .type            n00072_call_proc_staged_bx, @function
 n00072_call_proc_staged_bx:
@@ -3746,24 +3746,24 @@ n00072_call_proc_staged_α:
                         mov              qword ptr [rsp + 16], rcx
                         mov              rcx, qword ptr [rsp + 88]
                         mov              qword ptr [rsp + 24], rcx
-                        mov              rax, qword ptr [rip + g_rt_gen_procs@GOTPCREL] # the registry jump: the record's fn word (PROC_FN at +8, the 128-byte stride both asserted in rt.c), so a fn re-sealed at run time -- a dynamic predicate's enumerator, a redefinition -- is followed in both media
-                        mov              rax, qword ptr [rax + 0]
+                        mov              rax, qword ptr [rip + g_runtime@GOTPCREL] # the registry jump: the record's fn word (PROC_FN at +8, the 128-byte stride both asserted in rt.c), so a fn re-sealed at run time -- a dynamic predicate's enumerator, a redefinition -- is followed in both media
+                        mov              rax, qword ptr [rax + 17624]
                         mov              rax, qword ptr [rax + 264];          jmp   rax
 .Lcall_proc_staged_α_457_3:
-.Lgcsite_show_37:       mov              rcx, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rcx + 0], 105
+.Lgcsite_show_37:       mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 584], 105
                         lea              r11, [rip + .S0]
-                        mov              rcx, qword ptr [rip + g_file@GOTPCREL]
-                        mov              qword ptr [rcx + 0], r11
+                        mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 600], r11
                         add              rsp, 16
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_457_2
 .Lcall_proc_staged_α_457_4:
-.Lgcsite_show_36:       mov              rcx, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rcx + 0], 105
+.Lgcsite_show_36:       mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 584], 105
                         lea              r11, [rip + .S0]
-                        mov              rcx, qword ptr [rip + g_file@GOTPCREL]
-                        mov              qword ptr [rcx + 0], r11
+                        mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 600], r11
                         add              rsp, 16
                         mov              eax, 104
                         xor              edx, edx
@@ -3776,11 +3776,11 @@ n00072_call_proc_staged_α:
 .Lcall_proc_staged_α_457_999:
                                                                               jmp   n00073_deref_α
 n00072_call_proc_staged_β:
-                        mov              rcx, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rcx + 0], 105
+                        mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 584], 105
                         lea              r11, [rip + .S0]
-                        mov              rcx, qword ptr [rip + g_file@GOTPCREL]
-                        mov              qword ptr [rcx + 0], r11
+                        mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 600], r11
                         add              rsp, 16
                         add              rsp, 64;                             jmp   show_ω
                         .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Lcall_proc_staged_β_457_0: .quad .Lcall_proc_staged_β_457_0_s; .popsection
@@ -3794,7 +3794,7 @@ n00073_deref_α:           sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 16]            # call
                         mov              rsi, qword ptr [rsp + 24]            # d
                         call             rt_deref@PLT
-.Lgcsite_show_39:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_39:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_458_999
                         add              rsp, 16
                         add              rsp, 80;                             jmp   show_ω
@@ -3807,7 +3807,7 @@ n00073_deref_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_show_38:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_38:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00074_binop_α
                         .size            n00073_deref_bx, .-n00073_deref_bx
                         .type            n00074_binop_bx, @function
@@ -3821,7 +3821,7 @@ n00074_binop_α:           sub              rsp, 16
                         call             qword ptr [rip + str_concat_fracdigit_d@GOTPCREL]
 .Lgcsite_show_42:       cmp              al, 255;                             jne   .Lbinop_vd_459_22
                         call             c_str_concat_fracdigit_d@PLT
-.Lgcsite_show_41:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_41:       mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lbinop_vd_459_22:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
                         push             rax                                  # gc_poll bb_binop_concat_slot.cpp:70
@@ -3831,7 +3831,7 @@ n00074_binop_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_show_40:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_40:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              eax, dword ptr [rsp + 0]             # result
                         cmp              al, 104;                             jne   .Lbinop_α_459_999
                         add              rsp, 16
@@ -3874,7 +3874,7 @@ n00078_deref_α:           sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]            # var_ref
                         mov              rsi, qword ptr [rsp + 40]            # d
                         call             rt_deref@PLT
-.Lgcsite_show_44:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_44:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_464_999
                         add              rsp, 16
                         add              rsp, 160;                            jmp   show_ω
@@ -3887,7 +3887,7 @@ n00078_deref_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_show_43:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_43:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00079_line_mark_α
                         .size            n00078_deref_bx, .-n00078_deref_bx
                         .type            n00079_line_mark_bx, @function
@@ -3899,8 +3899,8 @@ n00079_line_mark_bx:
                         .long            106
                         .quad            .Lstnof1
                         .popsection
-n00079_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 106;            jmp   n00080_call_proc_staged_α
+n00079_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 106;          jmp   n00080_call_proc_staged_α
                         .size            n00079_line_mark_bx, .-n00079_line_mark_bx
                         .type            n00080_call_proc_staged_bx, @function
 n00080_call_proc_staged_bx:
@@ -3920,24 +3920,24 @@ n00080_call_proc_staged_α:
                         mov              qword ptr [rsp + 16], rcx
                         mov              rcx, qword ptr [rsp + 88]
                         mov              qword ptr [rsp + 24], rcx
-                        mov              rax, qword ptr [rip + g_rt_gen_procs@GOTPCREL] # the registry jump: the record's fn word (PROC_FN at +8, the 128-byte stride both asserted in rt.c), so a fn re-sealed at run time -- a dynamic predicate's enumerator, a redefinition -- is followed in both media
-                        mov              rax, qword ptr [rax + 0]
+                        mov              rax, qword ptr [rip + g_runtime@GOTPCREL] # the registry jump: the record's fn word (PROC_FN at +8, the 128-byte stride both asserted in rt.c), so a fn re-sealed at run time -- a dynamic predicate's enumerator, a redefinition -- is followed in both media
+                        mov              rax, qword ptr [rax + 17624]
                         mov              rax, qword ptr [rax + 264];          jmp   rax
 .Lcall_proc_staged_α_468_3:
-.Lgcsite_show_46:       mov              rcx, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rcx + 0], 106
+.Lgcsite_show_46:       mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 584], 106
                         lea              r11, [rip + .S0]
-                        mov              rcx, qword ptr [rip + g_file@GOTPCREL]
-                        mov              qword ptr [rcx + 0], r11
+                        mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 600], r11
                         add              rsp, 16
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_468_2
 .Lcall_proc_staged_α_468_4:
-.Lgcsite_show_45:       mov              rcx, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rcx + 0], 106
+.Lgcsite_show_45:       mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 584], 106
                         lea              r11, [rip + .S0]
-                        mov              rcx, qword ptr [rip + g_file@GOTPCREL]
-                        mov              qword ptr [rcx + 0], r11
+                        mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 600], r11
                         add              rsp, 16
                         mov              eax, 104
                         xor              edx, edx
@@ -3950,11 +3950,11 @@ n00080_call_proc_staged_α:
 .Lcall_proc_staged_α_468_999:
                                                                               jmp   n00081_deref_α
 n00080_call_proc_staged_β:
-                        mov              rcx, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rcx + 0], 106
+                        mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 584], 106
                         lea              r11, [rip + .S0]
-                        mov              rcx, qword ptr [rip + g_file@GOTPCREL]
-                        mov              qword ptr [rcx + 0], r11
+                        mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 600], r11
                         add              rsp, 16
                         add              rsp, 176;                            jmp   show_ω
                         .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Lcall_proc_staged_β_468_0: .quad .Lcall_proc_staged_β_468_0_s; .popsection
@@ -3968,7 +3968,7 @@ n00081_deref_α:           sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 16]            # call
                         mov              rsi, qword ptr [rsp + 24]            # d
                         call             rt_deref@PLT
-.Lgcsite_show_48:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_48:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_469_999
                         add              rsp, 16
                         add              rsp, 192;                            jmp   show_ω
@@ -3981,7 +3981,7 @@ n00081_deref_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_show_47:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_47:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00082_binop_α
                         .size            n00081_deref_bx, .-n00081_deref_bx
                         .type            n00082_binop_bx, @function
@@ -3995,7 +3995,7 @@ n00082_binop_α:           sub              rsp, 16
                         call             qword ptr [rip + str_concat_fracdigit_d@GOTPCREL]
 .Lgcsite_show_51:       cmp              al, 255;                             jne   .Lbinop_vd_470_23
                         call             c_str_concat_fracdigit_d@PLT
-.Lgcsite_show_50:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_50:       mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lbinop_vd_470_23:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
                         push             rax                                  # gc_poll bb_binop_concat_slot.cpp:70
@@ -4005,7 +4005,7 @@ n00082_binop_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_show_49:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_49:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              eax, dword ptr [rsp + 0]             # result
                         cmp              al, 104;                             jne   .Lbinop_α_470_999
                         add              rsp, 16
@@ -4048,7 +4048,7 @@ n00086_deref_α:           sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]            # var_ref
                         mov              rsi, qword ptr [rsp + 40]            # d
                         call             rt_deref@PLT
-.Lgcsite_show_53:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_53:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_475_999
                         add              rsp, 16
                         add              rsp, 272;                            jmp   show_ω
@@ -4061,7 +4061,7 @@ n00086_deref_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_show_52:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_52:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00087_line_mark_α
                         .size            n00086_deref_bx, .-n00086_deref_bx
                         .type            n00087_line_mark_bx, @function
@@ -4073,8 +4073,8 @@ n00087_line_mark_bx:
                         .long            107
                         .quad            .Lstnof1
                         .popsection
-n00087_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 107;            jmp   n00088_call_proc_staged_α
+n00087_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 107;          jmp   n00088_call_proc_staged_α
                         .size            n00087_line_mark_bx, .-n00087_line_mark_bx
                         .type            n00088_call_proc_staged_bx, @function
 n00088_call_proc_staged_bx:
@@ -4094,24 +4094,24 @@ n00088_call_proc_staged_α:
                         mov              qword ptr [rsp + 16], rcx
                         mov              rcx, qword ptr [rsp + 88]
                         mov              qword ptr [rsp + 24], rcx
-                        mov              rax, qword ptr [rip + g_rt_gen_procs@GOTPCREL] # the registry jump: the record's fn word (PROC_FN at +8, the 128-byte stride both asserted in rt.c), so a fn re-sealed at run time -- a dynamic predicate's enumerator, a redefinition -- is followed in both media
-                        mov              rax, qword ptr [rax + 0]
+                        mov              rax, qword ptr [rip + g_runtime@GOTPCREL] # the registry jump: the record's fn word (PROC_FN at +8, the 128-byte stride both asserted in rt.c), so a fn re-sealed at run time -- a dynamic predicate's enumerator, a redefinition -- is followed in both media
+                        mov              rax, qword ptr [rax + 17624]
                         mov              rax, qword ptr [rax + 264];          jmp   rax
 .Lcall_proc_staged_α_479_3:
-.Lgcsite_show_55:       mov              rcx, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rcx + 0], 107
+.Lgcsite_show_55:       mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 584], 107
                         lea              r11, [rip + .S0]
-                        mov              rcx, qword ptr [rip + g_file@GOTPCREL]
-                        mov              qword ptr [rcx + 0], r11
+                        mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 600], r11
                         add              rsp, 16
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_479_2
 .Lcall_proc_staged_α_479_4:
-.Lgcsite_show_54:       mov              rcx, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rcx + 0], 107
+.Lgcsite_show_54:       mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 584], 107
                         lea              r11, [rip + .S0]
-                        mov              rcx, qword ptr [rip + g_file@GOTPCREL]
-                        mov              qword ptr [rcx + 0], r11
+                        mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 600], r11
                         add              rsp, 16
                         mov              eax, 104
                         xor              edx, edx
@@ -4124,11 +4124,11 @@ n00088_call_proc_staged_α:
 .Lcall_proc_staged_α_479_999:
                                                                               jmp   n00089_deref_α
 n00088_call_proc_staged_β:
-                        mov              rcx, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rcx + 0], 107
+                        mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 584], 107
                         lea              r11, [rip + .S0]
-                        mov              rcx, qword ptr [rip + g_file@GOTPCREL]
-                        mov              qword ptr [rcx + 0], r11
+                        mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 600], r11
                         add              rsp, 16
                         add              rsp, 288;                            jmp   show_ω
                         .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Lcall_proc_staged_β_479_0: .quad .Lcall_proc_staged_β_479_0_s; .popsection
@@ -4142,7 +4142,7 @@ n00089_deref_α:           sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 16]            # call
                         mov              rsi, qword ptr [rsp + 24]            # d
                         call             rt_deref@PLT
-.Lgcsite_show_57:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_57:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_480_999
                         add              rsp, 16
                         add              rsp, 304;                            jmp   show_ω
@@ -4155,7 +4155,7 @@ n00089_deref_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_show_56:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_56:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00090_binop_α
                         .size            n00089_deref_bx, .-n00089_deref_bx
                         .type            n00090_binop_bx, @function
@@ -4169,7 +4169,7 @@ n00090_binop_α:           sub              rsp, 16
                         call             qword ptr [rip + str_concat_fracdigit_d@GOTPCREL]
 .Lgcsite_show_60:       cmp              al, 255;                             jne   .Lbinop_vd_481_24
                         call             c_str_concat_fracdigit_d@PLT
-.Lgcsite_show_59:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_59:       mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lbinop_vd_481_24:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
                         push             rax                                  # gc_poll bb_binop_concat_slot.cpp:70
@@ -4179,7 +4179,7 @@ n00090_binop_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_show_58:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_58:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              eax, dword ptr [rsp + 0]             # result
                         cmp              al, 104;                             jne   .Lbinop_α_481_999
                         add              rsp, 16
@@ -4222,7 +4222,7 @@ n00094_deref_α:           sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]            # var_ref
                         mov              rsi, qword ptr [rsp + 40]            # d
                         call             rt_deref@PLT
-.Lgcsite_show_62:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_62:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_486_999
                         add              rsp, 16
                         add              rsp, 384;                            jmp   show_ω
@@ -4235,7 +4235,7 @@ n00094_deref_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_show_61:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_61:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00095_line_mark_α
                         .size            n00094_deref_bx, .-n00094_deref_bx
                         .type            n00095_line_mark_bx, @function
@@ -4247,8 +4247,8 @@ n00095_line_mark_bx:
                         .long            108
                         .quad            .Lstnof1
                         .popsection
-n00095_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 108;            jmp   n00096_call_proc_staged_α
+n00095_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 108;          jmp   n00096_call_proc_staged_α
                         .size            n00095_line_mark_bx, .-n00095_line_mark_bx
                         .type            n00096_call_proc_staged_bx, @function
 n00096_call_proc_staged_bx:
@@ -4268,24 +4268,24 @@ n00096_call_proc_staged_α:
                         mov              qword ptr [rsp + 16], rcx
                         mov              rcx, qword ptr [rsp + 88]
                         mov              qword ptr [rsp + 24], rcx
-                        mov              rax, qword ptr [rip + g_rt_gen_procs@GOTPCREL] # the registry jump: the record's fn word (PROC_FN at +8, the 128-byte stride both asserted in rt.c), so a fn re-sealed at run time -- a dynamic predicate's enumerator, a redefinition -- is followed in both media
-                        mov              rax, qword ptr [rax + 0]
+                        mov              rax, qword ptr [rip + g_runtime@GOTPCREL] # the registry jump: the record's fn word (PROC_FN at +8, the 128-byte stride both asserted in rt.c), so a fn re-sealed at run time -- a dynamic predicate's enumerator, a redefinition -- is followed in both media
+                        mov              rax, qword ptr [rax + 17624]
                         mov              rax, qword ptr [rax + 264];          jmp   rax
 .Lcall_proc_staged_α_490_3:
-.Lgcsite_show_64:       mov              rcx, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rcx + 0], 108
+.Lgcsite_show_64:       mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 584], 108
                         lea              r11, [rip + .S0]
-                        mov              rcx, qword ptr [rip + g_file@GOTPCREL]
-                        mov              qword ptr [rcx + 0], r11
+                        mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 600], r11
                         add              rsp, 16
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_490_2
 .Lcall_proc_staged_α_490_4:
-.Lgcsite_show_63:       mov              rcx, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rcx + 0], 108
+.Lgcsite_show_63:       mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 584], 108
                         lea              r11, [rip + .S0]
-                        mov              rcx, qword ptr [rip + g_file@GOTPCREL]
-                        mov              qword ptr [rcx + 0], r11
+                        mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 600], r11
                         add              rsp, 16
                         mov              eax, 104
                         xor              edx, edx
@@ -4298,11 +4298,11 @@ n00096_call_proc_staged_α:
 .Lcall_proc_staged_α_490_999:
                                                                               jmp   n00097_deref_α
 n00096_call_proc_staged_β:
-                        mov              rcx, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rcx + 0], 108
+                        mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 584], 108
                         lea              r11, [rip + .S0]
-                        mov              rcx, qword ptr [rip + g_file@GOTPCREL]
-                        mov              qword ptr [rcx + 0], r11
+                        mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 600], r11
                         add              rsp, 16
                         add              rsp, 400;                            jmp   show_ω
                         .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Lcall_proc_staged_β_490_0: .quad .Lcall_proc_staged_β_490_0_s; .popsection
@@ -4316,7 +4316,7 @@ n00097_deref_α:           sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 16]            # call
                         mov              rsi, qword ptr [rsp + 24]            # d
                         call             rt_deref@PLT
-.Lgcsite_show_66:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_66:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_491_999
                         add              rsp, 16
                         add              rsp, 416;                            jmp   show_ω
@@ -4329,7 +4329,7 @@ n00097_deref_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_show_65:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_65:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00098_binop_α
                         .size            n00097_deref_bx, .-n00097_deref_bx
                         .type            n00098_binop_bx, @function
@@ -4343,7 +4343,7 @@ n00098_binop_α:           sub              rsp, 16
                         call             qword ptr [rip + str_concat_fracdigit_d@GOTPCREL]
 .Lgcsite_show_69:       cmp              al, 255;                             jne   .Lbinop_vd_492_25
                         call             c_str_concat_fracdigit_d@PLT
-.Lgcsite_show_68:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_68:       mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lbinop_vd_492_25:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
                         push             rax                                  # gc_poll bb_binop_concat_slot.cpp:70
@@ -4353,7 +4353,7 @@ n00098_binop_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_show_67:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_67:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              eax, dword ptr [rsp + 0]             # result
                         cmp              al, 104;                             jne   .Lbinop_α_492_999
                         add              rsp, 16
@@ -4384,7 +4384,7 @@ n00099_make_list_α:       sub              rsp, 16
                         lea              rdi, [rsp + 0]
                         mov              esi, 4
                         call             rt_make_list@PLT
-.Lgcsite_show_71:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_71:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         add              rsp, 64
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
@@ -4395,7 +4395,7 @@ n00099_make_list_α:       sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_show_70:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_show_70:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00100_return_α
                         .size            n00099_make_list_bx, .-n00099_make_list_bx
                         .type            n00100_return_bx, @function
@@ -4422,8 +4422,8 @@ show_γ:
                         sub              rcx, 1
                         mov              dword ptr [rax + 0], ecx
                         sub              rcx, 1
-                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
-                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 624], rcx
                         pop              rax
                         lea              rsp, [rbp + 1424]
                         mov              rbp, qword ptr [rbp + 1400];         jmp   qword ptr [rsp]
@@ -4437,8 +4437,8 @@ show_ω:
                         sub              rcx, 1
                         mov              dword ptr [rax + 0], ecx
                         sub              rcx, 1
-                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
-                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 624], rcx
                         pop              rax
                         lea              rsp, [rbp + 1424]
                         mov              rbp, qword ptr [rbp + 1400];         jmp   qword ptr [rsp + 8]
@@ -4645,15 +4645,15 @@ FN__arrange:
                         mov              eax, 0                               # GCANCHOR .Lgcmap_arrange qword ptr [rsp + 360]
                         mov              qword ptr [rsp + 440], rbp
                         mov              rbp, rsp
-                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], 1
                         mov              ecx, dword ptr [rax + 0]
                         movsxd           rcx, ecx
                         sub              rcx, 1
-                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
-                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 624], rcx
 arrange_α_body:
                         .type            n00101_line_mark_bx, @function
 n00101_line_mark_bx:
@@ -4667,11 +4667,11 @@ n00101_line_mark_bx:
                         .long            115
                         .quad            .Lstnof1
                         .popsection
-n00101_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 115
-                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+n00101_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 115
+                        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
                         mov              rcx, qword ptr [rip + .Lline_mark_α_515_0]
-                        mov              qword ptr [rax + 0], rcx;            jmp   n00102_var_ref_α
+                        mov              qword ptr [rax + 600], rcx;          jmp   n00102_var_ref_α
                         .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Lline_mark_α_515_0: .quad .Lline_mark_α_515_0_s; .popsection
 .Lline_mark_α_515_0_s:  .string          "deal.icn"
                         .size            n00101_line_mark_bx, .-n00101_line_mark_bx
@@ -4709,7 +4709,7 @@ n00105_deref_α:           sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 48]            # var_ref
                         mov              rsi, qword ptr [rsp + 56]            # d
                         call             rt_deref@PLT
-.Lgcsite_arrange_1:     mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_arrange_1:     mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_522_999
                         add              rsp, 16
                         add              rsp, 48;                             jmp   arrange_ω
@@ -4722,7 +4722,7 @@ n00105_deref_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_arrange_0:     mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_arrange_0:     mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00106_deref_α
                         .size            n00105_deref_bx, .-n00105_deref_bx
                         .type            n00106_deref_bx, @function
@@ -4732,7 +4732,7 @@ n00106_deref_α:           sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 48]            # var_ref
                         mov              rsi, qword ptr [rsp + 56]            # d
                         call             rt_deref@PLT
-.Lgcsite_arrange_3:     mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_arrange_3:     mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_523_999
                         add              rsp, 16
                         add              rsp, 64;                             jmp   arrange_ω
@@ -4745,7 +4745,7 @@ n00106_deref_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_arrange_2:     mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_arrange_2:     mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00107_deref_α
                         .size            n00106_deref_bx, .-n00106_deref_bx
                         .type            n00107_deref_bx, @function
@@ -4755,7 +4755,7 @@ n00107_deref_α:           sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 48]            # var_ref
                         mov              rsi, qword ptr [rsp + 56]            # d
                         call             rt_deref@PLT
-.Lgcsite_arrange_5:     mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_arrange_5:     mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_524_999
                         add              rsp, 16
                         add              rsp, 80;                             jmp   arrange_ω
@@ -4768,7 +4768,7 @@ n00107_deref_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_arrange_4:     mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_arrange_4:     mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00108_line_mark_α
                         .size            n00107_deref_bx, .-n00107_deref_bx
                         .type            n00108_line_mark_bx, @function
@@ -4780,8 +4780,8 @@ n00108_line_mark_bx:
                         .long            115
                         .quad            .Lstnof1
                         .popsection
-n00108_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 115;            jmp   n00109_call_byname_α
+n00108_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 115;          jmp   n00109_call_byname_α
                         .size            n00108_line_mark_bx, .-n00108_line_mark_bx
                         .type            n00109_call_byname_bx, @function
 n00109_call_byname_bx:
@@ -4809,7 +4809,7 @@ n00109_call_byname_α:     sub              rsp, 16
                         mov              edx, 3
                         mov              ecx, 196743
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_arrange_6:     mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_arrange_6:     mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -4825,7 +4825,7 @@ n00109_call_byname_α:     sub              rsp, 16
                         mov              rdx, rsp
                         lea              rcx, [rsp + 16]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_arrange_7:     mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_arrange_7:     mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -4851,7 +4851,7 @@ n00110_lit_charset_α:     sub              rsp, 16
                         mov              rdi, qword ptr [rip + .Llit_charset_α_529_0] # ptr
                         mov              rsi, 1                               # len
                         call             rt_icn_cset_register@PLT
-.Lgcsite_arrange_9:     mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_arrange_9:     mov              r9,  qword ptr [rip + g_rtccb+48]
                         pop              rdx
                         pop              rax
                         push             rax                                  # gc_poll bb_lit_scalar.cpp:124
@@ -4861,7 +4861,7 @@ n00110_lit_charset_α:     sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_arrange_8:     mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_arrange_8:     mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00111_binop_α
                         .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_charset_α_529_0: .quad .Llit_charset_α_529_0_s; .popsection
 .Llit_charset_α_529_0_s:
@@ -4876,7 +4876,7 @@ n00111_binop_α:           sub              rsp, 16
                         mov              rdx, qword ptr [rsp + 16]            # lit_charset
                         mov              rcx, qword ptr [rsp + 24]
                         call             rt_cdiff_strict@PLT
-.Lgcsite_arrange_11:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_arrange_11:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lbinop_α_530_999
                         add              rsp, 16
                         add              rsp, 128;                            jmp   arrange_ω
@@ -4889,7 +4889,7 @@ n00111_binop_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_arrange_10:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_arrange_10:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00112_var_ref_α
                         .size            n00111_binop_bx, .-n00111_binop_bx
                         .type            n00112_var_ref_bx, @function
@@ -4917,7 +4917,7 @@ n00114_deref_α:           sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]            # var_ref
                         mov              rsi, qword ptr [rsp + 40]            # d
                         call             rt_deref@PLT
-.Lgcsite_arrange_13:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_arrange_13:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_535_999
                         add              rsp, 16
                         add              rsp, 176;                            jmp   arrange_ω
@@ -4930,7 +4930,7 @@ n00114_deref_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_arrange_12:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_arrange_12:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00115_deref_α
                         .size            n00114_deref_bx, .-n00114_deref_bx
                         .type            n00115_deref_bx, @function
@@ -4940,7 +4940,7 @@ n00115_deref_α:           sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]            # var_ref
                         mov              rsi, qword ptr [rsp + 40]            # d
                         call             rt_deref@PLT
-.Lgcsite_arrange_15:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_arrange_15:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_536_999
                         add              rsp, 16
                         add              rsp, 192;                            jmp   arrange_ω
@@ -4953,7 +4953,7 @@ n00115_deref_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_arrange_14:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_arrange_14:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00116_line_mark_α
                         .size            n00115_deref_bx, .-n00115_deref_bx
                         .type            n00116_line_mark_bx, @function
@@ -4965,8 +4965,8 @@ n00116_line_mark_bx:
                         .long            115
                         .quad            .Lstnof1
                         .popsection
-n00116_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 115;            jmp   n00117_call_byname_α
+n00116_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 115;          jmp   n00117_call_byname_α
                         .size            n00116_line_mark_bx, .-n00116_line_mark_bx
                         .type            n00117_call_byname_bx, @function
 n00117_call_byname_bx:
@@ -4994,7 +4994,7 @@ n00117_call_byname_α:     sub              rsp, 16
                         mov              edx, 3
                         mov              ecx, 196743
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_arrange_16:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_arrange_16:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -5010,7 +5010,7 @@ n00117_call_byname_α:     sub              rsp, 16
                         mov              rdx, rsp
                         lea              rcx, [rsp + 16]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_arrange_17:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_arrange_17:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -5047,8 +5047,8 @@ arrange_γ:
                         sub              rcx, 1
                         mov              dword ptr [rax + 0], ecx
                         sub              rcx, 1
-                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
-                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 624], rcx
                         pop              rax
                         lea              rsp, [rbp + 480]
                         mov              rbp, qword ptr [rbp + 440];          jmp   qword ptr [rsp]
@@ -5062,8 +5062,8 @@ arrange_ω:
                         sub              rcx, 1
                         mov              dword ptr [rax + 0], ecx
                         sub              rcx, 1
-                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
-                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 624], rcx
                         pop              rax
                         lea              rsp, [rbp + 480]
                         mov              rbp, qword ptr [rbp + 440];          jmp   qword ptr [rsp + 8]
@@ -5134,15 +5134,15 @@ FN__options:
                         mov              eax, 0                               # GCANCHOR .Lgcmap_options qword ptr [rsp + 3128]
                         mov              qword ptr [rsp + 3336], rbp
                         mov              rbp, rsp
-                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], 1
                         mov              ecx, dword ptr [rax + 0]
                         movsxd           rcx, ecx
                         sub              rcx, 1
-                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
-                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 624], rcx
 options_α_body:
                         .type            n00119_line_mark_bx, @function
 n00119_line_mark_bx:
@@ -5156,11 +5156,11 @@ n00119_line_mark_bx:
                         .long            121
                         .quad            .Lstnof1
                         .popsection
-n00119_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 121
-                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+n00119_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 121
+                        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
                         mov              rcx, qword ptr [rip + .Lline_mark_α_712_0]
-                        mov              qword ptr [rax + 0], rcx;            jmp   n00120_line_mark_α
+                        mov              qword ptr [rax + 600], rcx;          jmp   n00120_line_mark_α
                         .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Lline_mark_α_712_0: .quad .Lline_mark_α_712_0_s; .popsection
 .Lline_mark_α_712_0_s:  .string          "deal.icn"
                         .size            n00119_line_mark_bx, .-n00119_line_mark_bx
@@ -5176,8 +5176,8 @@ n00120_line_mark_bx:
                         .long            122
                         .quad            .Lstnof1
                         .popsection
-n00120_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 122;            jmp   n00121_var_ref_α
+n00120_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 122;          jmp   n00121_var_ref_α
                         .size            n00120_line_mark_bx, .-n00120_line_mark_bx
                         .type            n00121_var_ref_bx, @function
 n00121_var_ref_bx:
@@ -5200,7 +5200,7 @@ n00122_nulltest_var_α:    sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 16]            # d
                         mov              rsi, qword ptr [rsp + 24]            # d
                         call             rt_deref@PLT
-.Lgcsite_options_1:     mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_1:     mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lnulltest_var_α_717_998
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n00123_line_mark_α
@@ -5220,7 +5220,7 @@ n00122_nulltest_var_α:    sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_options_0:     mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_0:     mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00124_lit_charset_α
                         .size            n00122_nulltest_var_bx, .-n00122_nulltest_var_bx
                         .type            n00124_lit_charset_bx, @function
@@ -5236,7 +5236,7 @@ n00124_lit_charset_α:     sub              rsp, 16
                         mov              rdi, qword ptr [rip + .Llit_charset_α_718_0] # ptr
                         mov              rsi, 52                              # len
                         call             rt_icn_cset_register@PLT
-.Lgcsite_options_3:     mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_3:     mov              r9,  qword ptr [rip + g_rtccb+48]
                         pop              rdx
                         pop              rax
                         push             rax                                  # gc_poll bb_lit_scalar.cpp:124
@@ -5246,7 +5246,7 @@ n00124_lit_charset_α:     sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_options_2:     mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_2:     mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00125_line_mark_α
                         .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_charset_α_718_0: .quad .Llit_charset_α_718_0_s; .popsection
 .Llit_charset_α_718_0_s:
@@ -5261,8 +5261,8 @@ n00125_line_mark_bx:
                         .long            122
                         .quad            .Lstnof1
                         .popsection
-n00125_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 122;            jmp   n00126_call_byname_α
+n00125_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 122;          jmp   n00126_call_byname_α
                         .size            n00125_line_mark_bx, .-n00125_line_mark_bx
                         .type            n00126_call_byname_bx, @function
 n00126_call_byname_bx:
@@ -5282,7 +5282,7 @@ n00126_call_byname_α:     sub              rsp, 16
                         mov              edx, 1
                         mov              ecx, 393381
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_options_4:     mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_4:     mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -5298,7 +5298,7 @@ n00126_call_byname_α:     sub              rsp, 16
                         mov              rdx, rsp
                         lea              rcx, [rsp + 16]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_options_5:     mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_5:     mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -5322,7 +5322,7 @@ n00127_assign_var_α:      sub              rsp, 16
                         call             qword ptr [rip + rt_assign_var_strict@GOTPCREL]
 .Lgcsite_options_8:     cmp              al, 255;                             jne   .Lassign_var_vd_723_26
                         call             c_rt_assign_var_strict@PLT
-.Lgcsite_options_7:     mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_7:     mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lassign_var_vd_723_26: cmp              al, 104;                             jne   .Lassign_var_α_723_999
                         add              rsp, 16
                         add              rsp, 64;                             jmp   n00123_line_mark_α
@@ -5335,7 +5335,7 @@ n00127_assign_var_α:      sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_options_6:     mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_6:     mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      add              rsp, 80;                             jmp   n00123_line_mark_α
                         .size            n00127_assign_var_bx, .-n00127_assign_var_bx
                         .type            n00123_line_mark_bx, @function
@@ -5350,8 +5350,8 @@ n00123_line_mark_bx:
                         .long            123
                         .quad            .Lstnof1
                         .popsection
-n00123_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 123;            jmp   n00128_line_mark_α
+n00123_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 123;          jmp   n00128_line_mark_α
                         .size            n00123_line_mark_bx, .-n00123_line_mark_bx
                         .type            n00128_line_mark_bx, @function
 n00128_line_mark_bx:
@@ -5362,8 +5362,8 @@ n00128_line_mark_bx:
                         .long            123
                         .quad            .Lstnof1
                         .popsection
-n00128_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 123;            jmp   n00129_call_byname_α
+n00128_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 123;          jmp   n00129_call_byname_α
                         .size            n00128_line_mark_bx, .-n00128_line_mark_bx
                         .type            n00129_call_byname_bx, @function
 n00129_call_byname_bx:
@@ -5378,7 +5378,7 @@ n00129_call_byname_α:     sub              rsp, 16
                         mov              edx, 0
                         mov              ecx, 327847
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_options_9:     mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_9:     mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -5394,7 +5394,7 @@ n00129_call_byname_α:     sub              rsp, 16
                         mov              rdx, rsp
                         lea              rcx, [rsp + 16]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_options_10:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_10:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -5426,8 +5426,8 @@ n00130_line_mark_bx:
                         .long            124
                         .quad            .Lstnof1
                         .popsection
-n00130_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 124;            jmp   n00132_make_list_α
+n00130_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 124;          jmp   n00132_make_list_α
                         .size            n00130_line_mark_bx, .-n00130_line_mark_bx
                         .type            n00132_make_list_bx, @function
 n00132_make_list_bx:
@@ -5436,7 +5436,7 @@ n00132_make_list_α:       sub              rsp, 16
                         xor              edi, edi
                         mov              esi, 0
                         call             rt_make_list@PLT
-.Lgcsite_options_12:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_12:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
                         push             rax                                  # gc_poll bb_make_list.cpp:33
@@ -5446,7 +5446,7 @@ n00132_make_list_α:       sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_options_11:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_11:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00133_assign_α
                         .size            n00132_make_list_bx, .-n00132_make_list_bx
                         .type            n00133_assign_bx, @function
@@ -5470,8 +5470,8 @@ n00134_line_mark_bx:
                         .long            125
                         .quad            .Lstnof1
                         .popsection
-n00134_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 125;            jmp   n00135_bound_α
+n00134_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 125;          jmp   n00135_bound_α
                         .size            n00134_line_mark_bx, .-n00134_line_mark_bx
                         .type            n00135_bound_bx, @function
 n00135_bound_bx:
@@ -5495,7 +5495,7 @@ n00137_deref_α:           sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 16]            # var_ref
                         mov              rsi, qword ptr [rsp + 24]            # d
                         call             rt_deref@PLT
-.Lgcsite_options_14:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_14:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_742_999
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n00138_line_mark_α
@@ -5508,7 +5508,7 @@ n00137_deref_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_options_13:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_13:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00139_line_mark_α
                         .size            n00137_deref_bx, .-n00137_deref_bx
                         .type            n00139_line_mark_bx, @function
@@ -5520,8 +5520,8 @@ n00139_line_mark_bx:
                         .long            125
                         .quad            .Lstnof1
                         .popsection
-n00139_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 125;            jmp   n00140_call_byname_α
+n00139_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 125;          jmp   n00140_call_byname_α
                         .size            n00139_line_mark_bx, .-n00139_line_mark_bx
                         .type            n00140_call_byname_bx, @function
 n00140_call_byname_bx:
@@ -5541,7 +5541,7 @@ n00140_call_byname_α:     sub              rsp, 16
                         mov              edx, 1
                         mov              ecx, 196728
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_options_15:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_15:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -5557,7 +5557,7 @@ n00140_call_byname_α:     sub              rsp, 16
                         mov              rdx, rsp
                         lea              rcx, [rsp + 16]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_options_16:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_16:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -5587,8 +5587,8 @@ n00142_line_mark_bx:
                         .long            126
                         .quad            .Lstnof1
                         .popsection
-n00142_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 126;            jmp   n00143_var_α
+n00142_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 126;          jmp   n00143_var_α
                         .size            n00142_line_mark_bx, .-n00142_line_mark_bx
                         .type            n00143_var_bx, @function
 n00143_var_bx:
@@ -5607,7 +5607,7 @@ n00144_scan_enter_α:      sub              rsp, 16
                         mov              rdi, qword ptr [rbp + 3040]          # lo
                         mov              rsi, qword ptr [rbp + 3048]          # hi
                         call             rt_scan_enter@PLT
-.Lgcsite_options_18:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_18:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -5624,7 +5624,7 @@ n00144_scan_enter_α:      sub              rsp, 16
                         mov              edx, 0
                         lea              rcx, [rsp + 32]
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_options_17:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_17:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              rax, qword ptr [rsp + 8]
                         mov              rdx, qword ptr [rsp + 24]
                         add              rsp, 32
@@ -5671,30 +5671,30 @@ n00148_scan_α:            sub              rsp, 16
                         mov              dword ptr [rbp + 448], r14d
                         mov              dword ptr [rbp + 436], r15d
                         call             rt_scan_live_subj@PLT
-.Lgcsite_options_23:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_23:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rbp + 440], rax
                         mov              dword ptr [rbp + 432], 2
                         mov              rdi, qword ptr [rbp + 392]           # outer_sigma
                         mov              rsi, qword ptr [rbp + 400]           # outer_delta
                         mov              rdx, qword ptr [rbp + 408]           # outer_len
                         call             rt_scan_leave@PLT
-.Lgcsite_options_22:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_22:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rbp + 392]
                         mov              r14, qword ptr [rbp + 400]
                         mov              r15, qword ptr [rbp + 408];          jmp   n00145_unmark_α
 n00148_scan_β:            call             rt_scan_sync_in@PLT
-.Lgcsite_options_21:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_21:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rbp + 400], rax
                         mov              rdi, qword ptr [rbp + 440]           # subj
                         mov              esi, dword ptr [rbp + 436]           # len
                         call             rt_scan_reenter_live@PLT
-.Lgcsite_options_20:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_20:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, rax
                         mov              r15, rdx
                         mov              r14d, dword ptr [rbp + 448]
                         mov              rdi, r14                             # delta
                         call             rt_scan_sync_out@PLT
-.Lgcsite_options_19:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_19:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         add              rsp, 16;                             jmp   n00146_disjunction_β
                         .size            n00148_scan_bx, .-n00148_scan_bx
                         .type            n00152_conjunction_bx, @function
@@ -5712,8 +5712,8 @@ n00151_line_mark_bx:
                         .long            146
                         .quad            .Lstnof1
                         .popsection
-n00151_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 146;            jmp   n00153_var_ref_α
+n00151_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 146;          jmp   n00153_var_ref_α
 n00151_line_mark_β:                                                             jmp   n00153_var_ref_α
                         .size            n00151_line_mark_bx, .-n00151_line_mark_bx
                         .type            n00153_var_ref_bx, @function
@@ -5741,7 +5741,7 @@ n00155_deref_α:           sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]            # var_ref
                         mov              rsi, qword ptr [rsp + 40]            # d
                         call             rt_deref@PLT
-.Lgcsite_options_25:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_25:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_765_999
                         add              rsp, 16
                         add              rsp, 32;                             jmp   n00150_scan_α
@@ -5754,7 +5754,7 @@ n00155_deref_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_options_24:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_24:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00156_deref_α
                         .size            n00155_deref_bx, .-n00155_deref_bx
                         .type            n00156_deref_bx, @function
@@ -5764,7 +5764,7 @@ n00156_deref_α:           sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]            # var_ref
                         mov              rsi, qword ptr [rsp + 40]            # d
                         call             rt_deref@PLT
-.Lgcsite_options_27:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_27:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_766_999
                         add              rsp, 16
                         add              rsp, 48;                             jmp   n00150_scan_α
@@ -5777,7 +5777,7 @@ n00156_deref_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_options_26:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_26:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00157_line_mark_α
                         .size            n00156_deref_bx, .-n00156_deref_bx
                         .type            n00157_line_mark_bx, @function
@@ -5789,8 +5789,8 @@ n00157_line_mark_bx:
                         .long            146
                         .quad            .Lstnof1
                         .popsection
-n00157_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 146;            jmp   n00158_call_byname_α
+n00157_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 146;          jmp   n00158_call_byname_α
                         .size            n00157_line_mark_bx, .-n00157_line_mark_bx
                         .type            n00158_call_byname_bx, @function
 n00158_call_byname_bx:
@@ -5814,7 +5814,7 @@ n00158_call_byname_α:     sub              rsp, 16
                         mov              edx, 2
                         mov              ecx, 196758
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_options_28:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_28:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -5830,7 +5830,7 @@ n00158_call_byname_α:     sub              rsp, 16
                         mov              rdx, rsp
                         lea              rcx, [rsp + 16]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_options_29:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_29:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -5876,7 +5876,7 @@ n00159_scan_match_α:      sub              rsp, 16
                         mov              rdx, 1
                         push             r12
                         call             memcmp@PLT
-.Lgcsite_options_30:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_30:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         pop              r12
                         test             eax, eax;                            je    .Lscan_match_α_773_999
                         add              rsp, 16;                             jmp   n00147_lit_string_β
@@ -5896,7 +5896,7 @@ n00160_scan_tab_α:        sub              rsp, 16
                         call             qword ptr [rip + core_icn_int_operand_ok@GOTPCREL]
 .Lgcsite_options_37:    cmp              eax, -2;                             jne   .Lscan_tab_vd_775_27
                         call             c_core_icn_int_operand_ok@PLT
-.Lgcsite_options_36:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_36:    mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lscan_tab_vd_775_27:   test             eax, eax;                            jne   .Lscan_tab_α_775_997
                         add              rsp, 16
                         add              rsp, 32;                             jmp   .Ldisjunction_ω_567_af
@@ -5915,13 +5915,13 @@ n00160_scan_tab_α:        sub              rsp, 16
                         mov              edx, 0
                         lea              rcx, [rsp + 32]
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_options_35:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_35:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 8]
                         add              rsp, 32
 1:                      mov              rdi, qword ptr [rsp + 16]            # lo
                         mov              rsi, qword ptr [rsp + 24]            # hi
                         call             core_icn_to_int_check@PLT
-.Lgcsite_options_34:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_34:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -5938,7 +5938,7 @@ n00160_scan_tab_α:        sub              rsp, 16
                         mov              edx, 0
                         lea              rcx, [rsp + 32]
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_options_33:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_33:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 8]
                         mov              rax, qword ptr [rsp + 16]
                         add              rsp, 32
@@ -5979,7 +5979,7 @@ n00160_scan_tab_α:        sub              rsp, 16
                         mov              edx, 0
                         lea              rcx, [rsp + 32]
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_options_31:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_31:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 8]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -6008,8 +6008,8 @@ n00162_line_mark_bx:
                         .long            127
                         .quad            .Lstnof1
                         .popsection
-n00162_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 127;            jmp   n00163_scan_pos_α
+n00162_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 127;          jmp   n00163_scan_pos_α
                         .size            n00162_line_mark_bx, .-n00162_line_mark_bx
                         .type            n00163_scan_pos_bx, @function
 n00163_scan_pos_bx:
@@ -6061,8 +6061,8 @@ n00166_line_mark_bx:
                         .long            128
                         .quad            .Lstnof1
                         .popsection
-n00166_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 128;            jmp   n00167_line_mark_α
+n00166_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 128;          jmp   n00167_line_mark_α
                         .size            n00166_line_mark_bx, .-n00166_line_mark_bx
                         .type            n00167_line_mark_bx, @function
 n00167_line_mark_bx:
@@ -6076,8 +6076,8 @@ n00167_line_mark_bx:
                         .long            128
                         .quad            .Lstnof1
                         .popsection
-n00167_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 128;            jmp   n00168_disjunction_α
+n00167_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 128;          jmp   n00168_disjunction_α
                         .size            n00167_line_mark_bx, .-n00167_line_mark_bx
                         .type            n00168_disjunction_bx, @function
 n00168_disjunction_bx:
@@ -6109,8 +6109,8 @@ n00170_line_mark_bx:
                         .long            129
                         .quad            .Lstnof1
                         .popsection
-n00170_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 129;            jmp   n00171_bound_α
+n00170_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 129;          jmp   n00171_bound_α
                         .size            n00170_line_mark_bx, .-n00170_line_mark_bx
                         .type            n00171_bound_bx, @function
 n00171_bound_bx:
@@ -6136,8 +6136,8 @@ n00173_line_mark_bx:
                         .long            129
                         .quad            .Lstnof1
                         .popsection
-n00173_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 129;            jmp   n00174_scan_move_α
+n00173_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 129;          jmp   n00174_scan_move_α
                         .size            n00173_line_mark_bx, .-n00173_line_mark_bx
                         .type            n00174_scan_move_bx, @function
 n00174_scan_move_bx:
@@ -6180,7 +6180,7 @@ n00174_scan_move_α:       sub              rsp, 16
                         mov              edx, 0
                         lea              rcx, [rsp + 32]
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_options_38:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_38:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 8]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -6208,8 +6208,8 @@ n00176_line_mark_bx:
                         .long            130
                         .quad            .Lstnof1
                         .popsection
-n00176_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 130;            jmp   n00149_disjunction_α
+n00176_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 130;          jmp   n00149_disjunction_α
                         .size            n00176_line_mark_bx, .-n00176_line_mark_bx
                         .type            n00149_disjunction_bx, @function
 n00149_disjunction_bx:
@@ -6242,8 +6242,8 @@ n00180_line_mark_bx:
                         .long            144
                         .quad            .Lstnof1
                         .popsection
-n00180_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 144;            jmp   n00181_lit_string_α
+n00180_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 144;          jmp   n00181_lit_string_α
 n00180_line_mark_β:                                                             jmp   n00181_lit_string_α
                         .size            n00180_line_mark_bx, .-n00180_line_mark_bx
                         .type            n00181_lit_string_bx, @function
@@ -6273,7 +6273,7 @@ n00183_deref_α:           sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 16]            # var_ref
                         mov              rsi, qword ptr [rsp + 24]            # d
                         call             rt_deref@PLT
-.Lgcsite_options_41:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_41:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_808_999
                         add              rsp, 16
                         add              rsp, 32;                             jmp   n00178_unmark_α
@@ -6286,7 +6286,7 @@ n00183_deref_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_options_40:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_40:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00184_line_mark_α
                         .size            n00183_deref_bx, .-n00183_deref_bx
                         .type            n00184_line_mark_bx, @function
@@ -6298,8 +6298,8 @@ n00184_line_mark_bx:
                         .long            144
                         .quad            .Lstnof1
                         .popsection
-n00184_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 144;            jmp   n00185_call_byname_α
+n00184_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 144;          jmp   n00185_call_byname_α
                         .size            n00184_line_mark_bx, .-n00184_line_mark_bx
                         .type            n00185_call_byname_bx, @function
 n00185_call_byname_bx:
@@ -6323,7 +6323,7 @@ n00185_call_byname_α:     sub              rsp, 16
                         mov              edx, 2
                         mov              ecx, 262308
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_options_42:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_42:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -6339,7 +6339,7 @@ n00185_call_byname_α:     sub              rsp, 16
                         mov              rdx, rsp
                         lea              rcx, [rsp + 16]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_options_43:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_43:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -6386,7 +6386,7 @@ n00187_deref_α:           sub              rsp, 16
                         mov              rdi, qword ptr [rbp + 2128]          # var_ref
                         mov              rsi, qword ptr [rbp + 2136]          # d
                         call             rt_deref@PLT
-.Lgcsite_options_45:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_45:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_817_999
                         add              rsp, 16;                             jmp   n00186_var_ref_β
 .Lderef_α_817_999:      mov              qword ptr [rsp + 0], rax             # result
@@ -6398,7 +6398,7 @@ n00187_deref_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_options_44:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_44:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00188_deref_α
 n00187_deref_β:           add              rsp, 16;                             jmp   n00186_var_ref_β
                         .size            n00187_deref_bx, .-n00187_deref_bx
@@ -6409,7 +6409,7 @@ n00188_deref_α:           sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]            # var_ref
                         mov              rsi, qword ptr [rsp + 40]            # d
                         call             rt_deref@PLT
-.Lgcsite_options_47:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_47:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_818_999
                         add              rsp, 16;                             jmp   n00187_deref_β
 .Lderef_α_818_999:      mov              qword ptr [rsp + 0], rax             # result
@@ -6421,7 +6421,7 @@ n00188_deref_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_options_46:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_46:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00189_line_mark_α
 n00188_deref_β:           add              rsp, 16;                             jmp   n00187_deref_β
                         .size            n00188_deref_bx, .-n00188_deref_bx
@@ -6434,8 +6434,8 @@ n00189_line_mark_bx:
                         .long            130
                         .quad            .Lstnof1
                         .popsection
-n00189_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 130;            jmp   n00190_call_gen_α
+n00189_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 130;          jmp   n00190_call_gen_α
                         .size            n00189_line_mark_bx, .-n00189_line_mark_bx
                         .type            n00190_call_gen_bx, @function
 n00190_call_gen_bx:
@@ -6452,7 +6452,7 @@ n00190_call_gen_α:        sub              rsp, 16
                         mov              qword ptr [rbp + 2112], 0
                         mov              rdi, r14                             # delta
                         call             rt_scan_sync_out@PLT
-.Lgcsite_options_48:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_48:    mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lcall_gen_α_821_60:    .section         .rodata
 .Lcall_gen_α_bynamegenfn284: .string          "find"
                         .section         .text
@@ -6477,12 +6477,12 @@ n00190_call_gen_α:        sub              rsp, 16
                         mov              rdx, rsp
                         lea              rcx, [rsp + 16]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_options_50:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_50:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
                         add              rsp, 32
-1:                      mov              r9,  qword ptr [rip + rtccb+48]
+1:                      mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rbp + 2064], rax
                         mov              qword ptr [rbp + 2072], rdx
                         cmp              al, 104;                             jne   .Lcall_gen_α_821_999
@@ -6521,7 +6521,7 @@ n00192_coerce_numeric_α:  sub              rsp, 16
                         call             qword ptr [rip + rt_coerce_num2_d@GOTPCREL]
 .Lgcsite_options_53:    cmp              al, 255;                             jne   .Lcoerce_numeric_vd_824_28
                         call             c_rt_coerce_num2_d@PLT
-.Lgcsite_options_52:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_52:    mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lcoerce_numeric_vd_824_28:
                         push             rax                                  # gc_poll bb_coerce_numeric.cpp:45
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
@@ -6530,7 +6530,7 @@ n00192_coerce_numeric_α:  sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_options_51:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_51:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              eax, dword ptr [rsp + 0]             # result
                         cmp              al, 104;                             jne   .Lcoerce_numeric_α_824_999
                         add              rsp, 16
@@ -6573,7 +6573,7 @@ n00193_binop_α:           sub              rsp, 16
                         mov              rdx, qword ptr [rsp + 32]            # lit_integer
                         mov              rcx, qword ptr [rsp + 40]
                         call             rt_add_big@PLT
-.Lgcsite_options_55:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_55:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lbinop_α_825_999
                         add              rsp, 16;                             jmp   n00192_coerce_numeric_β
 .Lbinop_α_825_999:      mov              qword ptr [rsp + 0], rax             # result
@@ -6585,7 +6585,7 @@ n00193_binop_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_options_54:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_54:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00194_assign_α
 n00193_binop_β:           add              rsp, 16;                             jmp   n00192_coerce_numeric_β
                         .size            n00193_binop_bx, .-n00193_binop_bx
@@ -6606,8 +6606,8 @@ n00195_line_mark_bx:
                         .long            131
                         .quad            .Lstnof1
                         .popsection
-n00195_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 131;            jmp   n00196_var_ref_α
+n00195_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 131;          jmp   n00196_var_ref_α
                         .size            n00195_line_mark_bx, .-n00195_line_mark_bx
                         .type            n00196_var_ref_bx, @function
 n00196_var_ref_bx:
@@ -6634,7 +6634,7 @@ n00198_subscript_α:       sub              rsp, 16
                         call             qword ptr [rip + rt_subscript_var_strict@GOTPCREL]
 .Lgcsite_options_58:    cmp              al, 255;                             jne   .Lsubscript_vd_833_29
                         call             c_rt_subscript_var_strict@PLT
-.Lgcsite_options_57:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_57:    mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lsubscript_vd_833_29:  cmp              al, 104;                             jne   .Lsubscript_α_833_999
                         add              rsp, 16
                         add              rsp, 144;                            jmp   n00178_unmark_α
@@ -6647,7 +6647,7 @@ n00198_subscript_α:       sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_options_56:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_56:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00179_disjunction_α
                         .size            n00198_subscript_bx, .-n00198_subscript_bx
                         .type            n00179_disjunction_bx, @function
@@ -6683,7 +6683,7 @@ n00200_assign_var_α:      sub              rsp, 16
                         call             qword ptr [rip + rt_assign_var_strict@GOTPCREL]
 .Lgcsite_options_61:    cmp              al, 255;                             jne   .Lassign_var_vd_836_30
                         call             c_rt_assign_var_strict@PLT
-.Lgcsite_options_60:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_60:    mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lassign_var_vd_836_30: cmp              al, 104;                             jne   .Lassign_var_α_836_999
                         add              rsp, 16
                         add              rsp, 160;                            jmp   n00178_unmark_α
@@ -6696,7 +6696,7 @@ n00200_assign_var_α:      sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_options_59:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_59:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [rbp + 672], rax
                         mov              rax, qword ptr [rsp + 8]
@@ -6733,7 +6733,7 @@ n00199_lit_charset_α:     sub              rsp, 16
                         mov              rdi, qword ptr [rip + .Llit_charset_α_838_0] # ptr
                         mov              rsi, 3                               # len
                         call             rt_icn_cset_register@PLT
-.Lgcsite_options_63:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_63:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         pop              rdx
                         pop              rax
                         push             rax                                  # gc_poll bb_lit_scalar.cpp:124
@@ -6743,7 +6743,7 @@ n00199_lit_charset_α:     sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_options_62:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_62:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00203_var_ref_α
 n00199_lit_charset_β:     add              rsp, 16;                             jmp   .Ldisjunction_ω_616_af
                         .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_charset_α_838_0: .quad .Llit_charset_α_838_0_s; .popsection
@@ -6780,7 +6780,7 @@ n00205_subscript_α:       sub              rsp, 16
                         call             qword ptr [rip + rt_subscript_val_strict@GOTPCREL]
 .Lgcsite_options_69:    cmp              al, 255;                             jne   .Lsubscript_vd_843_32
                         call             c_rt_subscript_val_strict@PLT
-.Lgcsite_options_68:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_68:    mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lsubscript_vd_843_32:  cmp              al, 255;                             jne   .Lsubscript_α_843_4
                         mov              eax, 1;                              jmp   .Lsubscript_α_843_1
 .Lsubscript_α_843_4:    push             rax
@@ -6798,7 +6798,7 @@ n00205_subscript_α:       sub              rsp, 16
                         lea              rdx, [rsp + 16]
                         lea              rcx, [rsp + 32]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_options_67:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_67:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              rax, qword ptr [rsp + 0]
                         mov              rdx, qword ptr [rsp + 8]
                         mov              r13, qword ptr [rsp + 16]
@@ -6807,7 +6807,7 @@ n00205_subscript_α:       sub              rsp, 16
 .Lsubscript_α_843_2:    call             qword ptr [rip + rt_subscript_var_strict@GOTPCREL]
 .Lgcsite_options_66:    cmp              al, 255;                             jne   .Lsubscript_vd_843_31
                         call             c_rt_subscript_var_strict@PLT
-.Lgcsite_options_65:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_65:    mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lsubscript_vd_843_31:  push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -6823,7 +6823,7 @@ n00205_subscript_α:       sub              rsp, 16
                         lea              rdx, [rsp + 16]
                         lea              rcx, [rsp + 32]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_options_64:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_64:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              rax, qword ptr [rsp + 0]
                         mov              rdx, qword ptr [rsp + 8]
                         mov              r13, qword ptr [rsp + 16]
@@ -6841,7 +6841,7 @@ n00206_deref_α:           sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 16]            # subscript
                         mov              rsi, qword ptr [rsp + 24]            # d
                         call             rt_deref@PLT
-.Lgcsite_options_71:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_71:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_844_999
                         add              rsp, 16
                         add              rsp, 48;                             jmp   .Ldisjunction_ω_616_af
@@ -6854,7 +6854,7 @@ n00206_deref_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_options_70:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_70:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00207_assign_α
 n00206_deref_β:           add              rsp, 16
                         add              rsp, 48;                             jmp   .Ldisjunction_ω_616_af
@@ -6885,7 +6885,7 @@ n00209_deref_α:           sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 16]            # var_ref
                         mov              rsi, qword ptr [rsp + 24]            # d
                         call             rt_deref@PLT
-.Lgcsite_options_73:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_73:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_848_999
                         add              rsp, 16;                             jmp   n00208_var_ref_β
 .Lderef_α_848_999:      mov              qword ptr [rsp + 0], rax             # result
@@ -6897,7 +6897,7 @@ n00209_deref_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_options_72:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_72:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00210_line_mark_α
 n00209_deref_β:           add              rsp, 16;                             jmp   n00208_var_ref_β
                         .size            n00209_deref_bx, .-n00209_deref_bx
@@ -6910,8 +6910,8 @@ n00210_line_mark_bx:
                         .long            132
                         .quad            .Lstnof1
                         .popsection
-n00210_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 132;            jmp   n00211_call_byname_α
+n00210_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 132;          jmp   n00211_call_byname_α
                         .size            n00210_line_mark_bx, .-n00210_line_mark_bx
                         .type            n00211_call_byname_bx, @function
 n00211_call_byname_bx:
@@ -6928,7 +6928,7 @@ n00211_call_byname_α:     sub              rsp, 16
                         mov              qword ptr [rsp + 24], rax
                         mov              rdi, r14                             # delta
                         call             rt_scan_sync_out@PLT
-.Lgcsite_options_74:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_74:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         .section         .rodata
 .Lcall_byname_α_bynamefnzd305: .string          "any"
                         .section         .text
@@ -6938,14 +6938,14 @@ n00211_call_byname_α:     sub              rsp, 16
                         mov              edx, 2
                         mov              ecx, 196712
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_options_75:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_75:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         push             rdx
                         call             rt_scan_sync_in@PLT
-.Lgcsite_options_77:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_77:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r14, rax
                         call             rt_scan_live_subj@PLT
-.Lgcsite_options_76:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_76:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, rax
                         pop              rdx
                         pop              rax
@@ -6964,7 +6964,7 @@ n00211_call_byname_α:     sub              rsp, 16
                         mov              rdx, rsp
                         lea              rcx, [rsp + 16]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_options_78:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_78:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -6988,8 +6988,8 @@ n00212_line_mark_bx:
                         .long            133
                         .quad            .Lstnof1
                         .popsection
-n00212_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 133;            jmp   n00213_disjunction_α
+n00212_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 133;          jmp   n00213_disjunction_α
                         .size            n00212_line_mark_bx, .-n00212_line_mark_bx
                         .type            n00213_disjunction_bx, @function
 n00213_disjunction_bx:
@@ -7041,8 +7041,8 @@ n00219_line_mark_bx:
                         .long            135
                         .quad            .Lstnof1
                         .popsection
-n00219_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 135;            jmp   n00220_var_α
+n00219_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 135;          jmp   n00220_var_α
                         .size            n00219_line_mark_bx, .-n00219_line_mark_bx
                         .type            n00220_var_bx, @function
 n00220_var_bx:
@@ -7119,7 +7119,7 @@ n00227_binop_test_α:      sub              rsp, 16
                         call             qword ptr [rip + rt_jct_relop@GOTPCREL]
 .Lgcsite_options_82:    cmp              al, 255;                             jne   .Lbinop_test_vd_865_33
                         call             c_rt_jct_relop@PLT
-.Lgcsite_options_81:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_81:    mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lbinop_test_vd_865_33: push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -7136,7 +7136,7 @@ n00227_binop_test_α:      sub              rsp, 16
                         mov              edx, 0
                         lea              rcx, [rsp + 32]
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_options_80:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_80:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 8]
                         mov              rax, qword ptr [rsp + 16]
                         add              rsp, 32
@@ -7153,7 +7153,7 @@ n00227_binop_test_α:      sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_options_79:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_79:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00228_line_mark_α
                         .size            n00227_binop_test_bx, .-n00227_binop_test_bx
                         .type            n00228_line_mark_bx, @function
@@ -7165,8 +7165,8 @@ n00228_line_mark_bx:
                         .long            139
                         .quad            .Lstnof1
                         .popsection
-n00228_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 139;            jmp   n00224_disjunction_α
+n00228_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 139;          jmp   n00224_disjunction_α
                         .size            n00228_line_mark_bx, .-n00228_line_mark_bx
                         .type            n00224_disjunction_bx, @function
 n00224_disjunction_bx:
@@ -7241,7 +7241,7 @@ n00233_deref_α:           sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]            # var_ref
                         mov              rsi, qword ptr [rsp + 40]            # d
                         call             rt_deref@PLT
-.Lgcsite_options_84:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_84:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_874_999
                         add              rsp, 16;                             jmp   n00232_lit_string_β
 .Lderef_α_874_999:      mov              qword ptr [rsp + 0], rax             # result
@@ -7253,7 +7253,7 @@ n00233_deref_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_options_83:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_83:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00234_line_mark_α
 n00233_deref_β:           add              rsp, 16;                             jmp   n00232_lit_string_β
                         .size            n00233_deref_bx, .-n00233_deref_bx
@@ -7266,8 +7266,8 @@ n00234_line_mark_bx:
                         .long            140
                         .quad            .Lstnof1
                         .popsection
-n00234_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 140;            jmp   n00235_call_byname_α
+n00234_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 140;          jmp   n00235_call_byname_α
                         .size            n00234_line_mark_bx, .-n00234_line_mark_bx
                         .type            n00235_call_byname_bx, @function
 n00235_call_byname_bx:
@@ -7295,7 +7295,7 @@ n00235_call_byname_α:     sub              rsp, 16
                         mov              edx, 3
                         mov              ecx, 262308
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_options_85:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_85:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -7311,7 +7311,7 @@ n00235_call_byname_α:     sub              rsp, 16
                         mov              rdx, rsp
                         lea              rcx, [rsp + 16]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_options_86:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_86:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -7346,7 +7346,7 @@ n00236_deref_α:           sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 16]            # var_ref
                         mov              rsi, qword ptr [rsp + 24]            # d
                         call             rt_deref@PLT
-.Lgcsite_options_88:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_88:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_881_999
                         add              rsp, 16;                             jmp   n00229_var_ref_β
 .Lderef_α_881_999:      mov              qword ptr [rsp + 0], rax             # result
@@ -7358,7 +7358,7 @@ n00236_deref_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_options_87:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_87:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00237_line_mark_α
 n00236_deref_β:           add              rsp, 16;                             jmp   n00229_var_ref_β
                         .size            n00236_deref_bx, .-n00236_deref_bx
@@ -7371,8 +7371,8 @@ n00237_line_mark_bx:
                         .long            139
                         .quad            .Lstnof1
                         .popsection
-n00237_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 139;            jmp   n00238_call_byname_α
+n00237_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 139;          jmp   n00238_call_byname_α
                         .size            n00237_line_mark_bx, .-n00237_line_mark_bx
                         .type            n00238_call_byname_bx, @function
 n00238_call_byname_bx:
@@ -7392,7 +7392,7 @@ n00238_call_byname_α:     sub              rsp, 16
                         mov              edx, 1
                         mov              ecx, 262297
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_options_89:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_89:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -7408,7 +7408,7 @@ n00238_call_byname_α:     sub              rsp, 16
                         mov              rdx, rsp
                         lea              rcx, [rsp + 16]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_options_90:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_90:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -7450,7 +7450,7 @@ n00239_binop_test_α:      sub              rsp, 16
                         call             qword ptr [rip + rt_jct_relop@GOTPCREL]
 .Lgcsite_options_94:    cmp              al, 255;                             jne   .Lbinop_test_vd_887_34
                         call             c_rt_jct_relop@PLT
-.Lgcsite_options_93:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_93:    mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lbinop_test_vd_887_34: push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -7467,7 +7467,7 @@ n00239_binop_test_α:      sub              rsp, 16
                         mov              edx, 0
                         lea              rcx, [rsp + 32]
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_options_92:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_92:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 8]
                         mov              rax, qword ptr [rsp + 16]
                         add              rsp, 32
@@ -7484,7 +7484,7 @@ n00239_binop_test_α:      sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_options_91:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_91:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00240_line_mark_α
                         .size            n00239_binop_test_bx, .-n00239_binop_test_bx
                         .type            n00240_line_mark_bx, @function
@@ -7496,8 +7496,8 @@ n00240_line_mark_bx:
                         .long            137
                         .quad            .Lstnof1
                         .popsection
-n00240_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 137;            jmp   n00223_disjunction_α
+n00240_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 137;          jmp   n00223_disjunction_α
                         .size            n00240_line_mark_bx, .-n00240_line_mark_bx
                         .type            n00223_disjunction_bx, @function
 n00223_disjunction_bx:
@@ -7572,7 +7572,7 @@ n00245_deref_α:           sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]            # var_ref
                         mov              rsi, qword ptr [rsp + 40]            # d
                         call             rt_deref@PLT
-.Lgcsite_options_96:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_96:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_896_999
                         add              rsp, 16;                             jmp   n00244_lit_string_β
 .Lderef_α_896_999:      mov              qword ptr [rsp + 0], rax             # result
@@ -7584,7 +7584,7 @@ n00245_deref_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_options_95:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_95:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00246_line_mark_α
 n00245_deref_β:           add              rsp, 16;                             jmp   n00244_lit_string_β
                         .size            n00245_deref_bx, .-n00245_deref_bx
@@ -7597,8 +7597,8 @@ n00246_line_mark_bx:
                         .long            138
                         .quad            .Lstnof1
                         .popsection
-n00246_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 138;            jmp   n00247_call_byname_α
+n00246_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 138;          jmp   n00247_call_byname_α
                         .size            n00246_line_mark_bx, .-n00246_line_mark_bx
                         .type            n00247_call_byname_bx, @function
 n00247_call_byname_bx:
@@ -7626,7 +7626,7 @@ n00247_call_byname_α:     sub              rsp, 16
                         mov              edx, 3
                         mov              ecx, 262308
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_options_97:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_97:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -7642,7 +7642,7 @@ n00247_call_byname_α:     sub              rsp, 16
                         mov              rdx, rsp
                         lea              rcx, [rsp + 16]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_options_98:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_98:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -7677,7 +7677,7 @@ n00248_deref_α:           sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 16]            # var_ref
                         mov              rsi, qword ptr [rsp + 24]            # d
                         call             rt_deref@PLT
-.Lgcsite_options_100:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_100:   mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_903_999
                         add              rsp, 16;                             jmp   n00241_var_ref_β
 .Lderef_α_903_999:      mov              qword ptr [rsp + 0], rax             # result
@@ -7689,7 +7689,7 @@ n00248_deref_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_options_99:    mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_99:    mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00249_line_mark_α
 n00248_deref_β:           add              rsp, 16;                             jmp   n00241_var_ref_β
                         .size            n00248_deref_bx, .-n00248_deref_bx
@@ -7702,8 +7702,8 @@ n00249_line_mark_bx:
                         .long            137
                         .quad            .Lstnof1
                         .popsection
-n00249_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 137;            jmp   n00250_call_byname_α
+n00249_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 137;          jmp   n00250_call_byname_α
                         .size            n00249_line_mark_bx, .-n00249_line_mark_bx
                         .type            n00250_call_byname_bx, @function
 n00250_call_byname_bx:
@@ -7723,7 +7723,7 @@ n00250_call_byname_α:     sub              rsp, 16
                         mov              edx, 1
                         mov              ecx, 458878
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_options_101:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_101:   mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -7739,7 +7739,7 @@ n00250_call_byname_α:     sub              rsp, 16
                         mov              rdx, rsp
                         lea              rcx, [rsp + 16]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_options_102:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_102:   mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -7781,7 +7781,7 @@ n00251_binop_test_α:      sub              rsp, 16
                         call             qword ptr [rip + rt_jct_relop@GOTPCREL]
 .Lgcsite_options_106:   cmp              al, 255;                             jne   .Lbinop_test_vd_909_35
                         call             c_rt_jct_relop@PLT
-.Lgcsite_options_105:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_105:   mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lbinop_test_vd_909_35: push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -7798,7 +7798,7 @@ n00251_binop_test_α:      sub              rsp, 16
                         mov              edx, 0
                         lea              rcx, [rsp + 32]
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_options_104:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_104:   mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 8]
                         mov              rax, qword ptr [rsp + 16]
                         add              rsp, 32
@@ -7815,7 +7815,7 @@ n00251_binop_test_α:      sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_options_103:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_103:   mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00252_var_α
                         .size            n00251_binop_test_bx, .-n00251_binop_test_bx
                         .type            n00252_var_bx, @function
@@ -7853,7 +7853,7 @@ n00254_deref_α:           sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 16]            # var_ref
                         mov              rsi, qword ptr [rsp + 24]            # d
                         call             rt_deref@PLT
-.Lgcsite_options_108:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_108:   mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_915_999
                         add              rsp, 16;                             jmp   n00253_var_ref_β
 .Lderef_α_915_999:      mov              qword ptr [rsp + 0], rax             # result
@@ -7865,7 +7865,7 @@ n00254_deref_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_options_107:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_107:   mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00255_line_mark_α
 n00254_deref_β:           add              rsp, 16;                             jmp   n00253_var_ref_β
                         .size            n00254_deref_bx, .-n00254_deref_bx
@@ -7878,8 +7878,8 @@ n00255_line_mark_bx:
                         .long            134
                         .quad            .Lstnof1
                         .popsection
-n00255_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 134;            jmp   n00256_call_byname_α
+n00255_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 134;          jmp   n00256_call_byname_α
                         .size            n00255_line_mark_bx, .-n00255_line_mark_bx
                         .type            n00256_call_byname_bx, @function
 n00256_call_byname_bx:
@@ -7903,7 +7903,7 @@ n00256_call_byname_α:     sub              rsp, 16
                         mov              edx, 2
                         mov              ecx, 262308
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_options_109:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_109:   mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -7919,7 +7919,7 @@ n00256_call_byname_α:     sub              rsp, 16
                         mov              rdx, rsp
                         lea              rcx, [rsp + 16]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_options_110:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_110:   mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -7953,7 +7953,7 @@ n00257_deref_α:           sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 16]            # var_ref
                         mov              rsi, qword ptr [rsp + 24]            # d
                         call             rt_deref@PLT
-.Lgcsite_options_112:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_112:   mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_922_999
                         add              rsp, 16;                             jmp   n00217_var_ref_β
 .Lderef_α_922_999:      mov              qword ptr [rsp + 0], rax             # result
@@ -7965,7 +7965,7 @@ n00257_deref_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_options_111:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_111:   mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00258_line_mark_α
 n00257_deref_β:           add              rsp, 16;                             jmp   n00217_var_ref_β
                         .size            n00257_deref_bx, .-n00257_deref_bx
@@ -7978,8 +7978,8 @@ n00258_line_mark_bx:
                         .long            133
                         .quad            .Lstnof1
                         .popsection
-n00258_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 133;            jmp   n00259_call_byname_α
+n00258_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 133;          jmp   n00259_call_byname_α
                         .size            n00258_line_mark_bx, .-n00258_line_mark_bx
                         .type            n00259_call_byname_bx, @function
 n00259_call_byname_bx:
@@ -7999,7 +7999,7 @@ n00259_call_byname_α:     sub              rsp, 16
                         mov              edx, 1
                         mov              ecx, 196728
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_options_113:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_113:   mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -8015,7 +8015,7 @@ n00259_call_byname_α:     sub              rsp, 16
                         mov              rdx, rsp
                         lea              rcx, [rsp + 16]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_options_114:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_114:   mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -8064,8 +8064,8 @@ n00261_line_mark_bx:
                         .long            133
                         .quad            .Lstnof1
                         .popsection
-n00261_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 133;            jmp   n00216_scan_tab_α
+n00261_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 133;          jmp   n00216_scan_tab_α
                         .size            n00261_line_mark_bx, .-n00261_line_mark_bx
                         .type            n00216_scan_tab_bx, @function
 n00216_scan_tab_bx:
@@ -8107,7 +8107,7 @@ n00216_scan_tab_α:        sub              rsp, 16
                         mov              edx, 0
                         lea              rcx, [rsp + 32]
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_options_115:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_115:   mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 8]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -8129,7 +8129,7 @@ n00262_binop_test_α:      sub              rsp, 16
                         call             qword ptr [rip + rt_jct_relop@GOTPCREL]
 .Lgcsite_options_122:   cmp              al, 255;                             jne   .Lbinop_test_vd_933_37
                         call             c_rt_jct_relop@PLT
-.Lgcsite_options_121:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_121:   mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lbinop_test_vd_933_37: push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -8146,7 +8146,7 @@ n00262_binop_test_α:      sub              rsp, 16
                         mov              edx, 0
                         lea              rcx, [rsp + 32]
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_options_120:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_120:   mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 8]
                         mov              rax, qword ptr [rsp + 16]
                         add              rsp, 32
@@ -8157,7 +8157,7 @@ n00262_binop_test_α:      sub              rsp, 16
                         call             qword ptr [rip + rt_str_coerce@GOTPCREL]
 .Lgcsite_options_119:   cmp              al, 255;                             jne   .Lbinop_test_vd_933_36
                         call             c_rt_str_coerce@PLT
-.Lgcsite_options_118:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_118:   mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lbinop_test_vd_933_36: mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
                         push             rax                                  # gc_poll bb_binop_relop_val.cpp:67
@@ -8167,7 +8167,7 @@ n00262_binop_test_α:      sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_options_117:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_117:   mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [rbp + 1536], rax
                         mov              rax, qword ptr [rsp + 8]
@@ -8188,8 +8188,8 @@ n00263_line_mark_bx:
                         .long            129
                         .quad            .Lstnof1
                         .popsection
-n00263_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 129
+n00263_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 129
                         mov              rsp, qword ptr [rbp + 696]
                         add              rsp, 32;                             jmp   n00171_bound_α
                         .size            n00263_line_mark_bx, .-n00263_line_mark_bx
@@ -8200,14 +8200,14 @@ n00150_scan_α:            sub              rsp, 16
                         mov              dword ptr [rbp + 496], r14d
                         mov              dword ptr [rbp + 484], r15d
                         call             rt_scan_live_subj@PLT
-.Lgcsite_options_124:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_124:   mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rbp + 488], rax
                         mov              dword ptr [rbp + 480], 2
                         mov              rdi, qword ptr [rbp + 392]           # outer_sigma
                         mov              rsi, qword ptr [rbp + 400]           # outer_delta
                         mov              rdx, qword ptr [rbp + 408]           # outer_len
                         call             rt_scan_leave@PLT
-.Lgcsite_options_123:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_123:   mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rbp + 392]
                         mov              r14, qword ptr [rbp + 400]
                         mov              r15, qword ptr [rbp + 408];          jmp   n00145_unmark_α
@@ -8240,7 +8240,7 @@ n00264_scan_match_α:      sub              rsp, 16
                         mov              rdx, 1
                         push             r12
                         call             memcmp@PLT
-.Lgcsite_options_125:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_125:   mov              r9,  qword ptr [rip + g_rtccb+48]
                         pop              r12
                         test             eax, eax;                            je    .Lscan_match_α_942_999
                         add              rsp, 16;                             jmp   n00169_lit_string_β
@@ -8260,7 +8260,7 @@ n00265_scan_tab_α:        sub              rsp, 16
                         call             qword ptr [rip + core_icn_int_operand_ok@GOTPCREL]
 .Lgcsite_options_132:   cmp              eax, -2;                             jne   .Lscan_tab_vd_944_38
                         call             c_core_icn_int_operand_ok@PLT
-.Lgcsite_options_131:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_131:   mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lscan_tab_vd_944_38:   test             eax, eax;                            jne   .Lscan_tab_α_944_997
                         add              rsp, 16
                         add              rsp, 32;                             jmp   .Ldisjunction_ω_587_af
@@ -8279,13 +8279,13 @@ n00265_scan_tab_α:        sub              rsp, 16
                         mov              edx, 0
                         lea              rcx, [rsp + 32]
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_options_130:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_130:   mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 8]
                         add              rsp, 32
 1:                      mov              rdi, qword ptr [rsp + 16]            # lo
                         mov              rsi, qword ptr [rsp + 24]            # hi
                         call             core_icn_to_int_check@PLT
-.Lgcsite_options_129:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_129:   mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -8302,7 +8302,7 @@ n00265_scan_tab_α:        sub              rsp, 16
                         mov              edx, 0
                         lea              rcx, [rsp + 32]
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_options_128:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_128:   mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 8]
                         mov              rax, qword ptr [rsp + 16]
                         add              rsp, 32
@@ -8343,7 +8343,7 @@ n00265_scan_tab_α:        sub              rsp, 16
                         mov              edx, 0
                         lea              rcx, [rsp + 32]
                         call             rt_gc_point_arr_c@PLT
-.Lgcsite_options_126:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_126:   mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 8]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -8373,8 +8373,8 @@ n00267_line_mark_bx:
                         .long            128
                         .quad            .Lstnof1
                         .popsection
-n00267_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 128;            jmp   n00268_scan_pos_α
+n00267_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 128;          jmp   n00268_scan_pos_α
                         .size            n00267_line_mark_bx, .-n00267_line_mark_bx
                         .type            n00268_scan_pos_bx, @function
 n00268_scan_pos_bx:
@@ -8413,14 +8413,14 @@ n00270_scan_α:            sub              rsp, 16
                         mov              dword ptr [rbp + 2400], r14d
                         mov              dword ptr [rbp + 2388], r15d
                         call             rt_scan_live_subj@PLT
-.Lgcsite_options_134:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_134:   mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rbp + 2392], rax
                         mov              dword ptr [rbp + 2384], 2
                         mov              rdi, qword ptr [rbp + 392]           # outer_sigma
                         mov              rsi, qword ptr [rbp + 400]           # outer_delta
                         mov              rdx, qword ptr [rbp + 408]           # outer_len
                         call             rt_scan_leave@PLT
-.Lgcsite_options_133:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_133:   mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rbp + 392]
                         mov              r14, qword ptr [rbp + 400]
                         mov              r15, qword ptr [rbp + 408];          jmp   n00271_var_α
@@ -8461,8 +8461,8 @@ n00274_line_mark_bx:
                         .long            125
                         .quad            .Lstnof1
                         .popsection
-n00274_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 125;            jmp   n00135_bound_α
+n00274_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 125;          jmp   n00135_bound_α
                         .size            n00274_line_mark_bx, .-n00274_line_mark_bx
                         .type            n00138_line_mark_bx, @function
 n00138_line_mark_bx:
@@ -8476,8 +8476,8 @@ n00138_line_mark_bx:
                         .long            148
                         .quad            .Lstnof1
                         .popsection
-n00138_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 148;            jmp   n00275_bound_α
+n00138_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 148;          jmp   n00275_bound_α
                         .size            n00138_line_mark_bx, .-n00138_line_mark_bx
                         .type            n00275_bound_bx, @function
 n00275_bound_bx:
@@ -8510,7 +8510,7 @@ n00278_deref_α:           sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 16]            # var_ref
                         mov              rsi, qword ptr [rsp + 24]            # d
                         call             rt_deref@PLT
-.Lgcsite_options_136:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_136:   mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_969_999
                         add              rsp, 16
                         add              rsp, 32;                             jmp   n00279_line_mark_α
@@ -8523,7 +8523,7 @@ n00278_deref_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_options_135:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_135:   mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00280_line_mark_α
                         .size            n00278_deref_bx, .-n00278_deref_bx
                         .type            n00280_line_mark_bx, @function
@@ -8535,8 +8535,8 @@ n00280_line_mark_bx:
                         .long            148
                         .quad            .Lstnof1
                         .popsection
-n00280_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 148;            jmp   n00281_call_byname_α
+n00280_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 148;          jmp   n00281_call_byname_α
                         .size            n00280_line_mark_bx, .-n00280_line_mark_bx
                         .type            n00281_call_byname_bx, @function
 n00281_call_byname_bx:
@@ -8556,7 +8556,7 @@ n00281_call_byname_α:     sub              rsp, 16
                         mov              edx, 1
                         mov              ecx, 262292
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_options_137:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_137:   mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -8572,7 +8572,7 @@ n00281_call_byname_α:     sub              rsp, 16
                         mov              rdx, rsp
                         lea              rcx, [rsp + 16]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_options_138:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_138:   mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -8592,7 +8592,7 @@ n00282_deref_α:           sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 64]            # var_ref
                         mov              rsi, qword ptr [rsp + 72]            # d
                         call             rt_deref@PLT
-.Lgcsite_options_140:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_140:   mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_974_999
                         add              rsp, 16
                         add              rsp, 64;                             jmp   n00279_line_mark_α
@@ -8605,7 +8605,7 @@ n00282_deref_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_options_139:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_139:   mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00283_line_mark_α
                         .size            n00282_deref_bx, .-n00282_deref_bx
                         .type            n00283_line_mark_bx, @function
@@ -8617,8 +8617,8 @@ n00283_line_mark_bx:
                         .long            148
                         .quad            .Lstnof1
                         .popsection
-n00283_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 148;            jmp   n00284_call_byname_α
+n00283_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 148;          jmp   n00284_call_byname_α
                         .size            n00283_line_mark_bx, .-n00283_line_mark_bx
                         .type            n00284_call_byname_bx, @function
 n00284_call_byname_bx:
@@ -8642,7 +8642,7 @@ n00284_call_byname_α:     sub              rsp, 16
                         mov              edx, 2
                         mov              ecx, 262293
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_options_141:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_141:   mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -8658,7 +8658,7 @@ n00284_call_byname_α:     sub              rsp, 16
                         mov              rdx, rsp
                         lea              rcx, [rsp + 16]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_options_142:   mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_options_142:   mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -8688,8 +8688,8 @@ n00279_line_mark_bx:
                         .long            149
                         .quad            .Lstnof1
                         .popsection
-n00279_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 149;            jmp   n00286_var_α
+n00279_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 149;          jmp   n00286_var_α
                         .size            n00279_line_mark_bx, .-n00279_line_mark_bx
                         .type            n00286_var_bx, @function
 n00286_var_bx:
@@ -8719,8 +8719,8 @@ options_γ:
                         sub              rcx, 1
                         mov              dword ptr [rax + 0], ecx
                         sub              rcx, 1
-                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
-                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 624], rcx
                         pop              rax
                         lea              rsp, [rbp + 3376]
                         mov              rbp, qword ptr [rbp + 3336];         jmp   qword ptr [rsp]
@@ -8734,8 +8734,8 @@ options_ω:
                         sub              rcx, 1
                         mov              dword ptr [rax + 0], ecx
                         sub              rcx, 1
-                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
-                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 624], rcx
                         pop              rax
                         lea              rsp, [rbp + 3376]
                         mov              rbp, qword ptr [rbp + 3336];         jmp   qword ptr [rsp + 8]
@@ -9116,15 +9116,15 @@ FN__shuffle:
                         mov              eax, 0                               # GCANCHOR .Lgcmap_shuffle qword ptr [rsp + 216]
                         mov              qword ptr [rsp + 280], rbp
                         mov              rbp, rsp
-                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], 1
                         mov              ecx, dword ptr [rax + 0]
                         movsxd           rcx, ecx
                         sub              rcx, 1
-                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
-                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 624], rcx
 shuffle_α_body:
                         .type            n00288_line_mark_bx, @function
 n00288_line_mark_bx:
@@ -9139,11 +9139,11 @@ n00288_line_mark_bx:
                         .long            155
                         .quad            .Lstnof1
                         .popsection
-n00288_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 155
-                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+n00288_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 155
+                        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
                         mov              rcx, qword ptr [rip + .Lline_mark_α_1002_0]
-                        mov              qword ptr [rax + 0], rcx;            jmp   n00289_var_ref_α
+                        mov              qword ptr [rax + 600], rcx;          jmp   n00289_var_ref_α
                         .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Lline_mark_α_1002_0: .quad .Lline_mark_α_1002_0_s; .popsection
 .Lline_mark_α_1002_0_s: .string          "deal.icn"
                         .size            n00288_line_mark_bx, .-n00288_line_mark_bx
@@ -9163,7 +9163,7 @@ n00290_deref_α:           sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 16]            # var_ref
                         mov              rsi, qword ptr [rsp + 24]            # d
                         call             rt_deref@PLT
-.Lgcsite_shuffle_1:     mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_shuffle_1:     mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_1005_999
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n00291_line_mark_α
@@ -9176,7 +9176,7 @@ n00290_deref_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_shuffle_0:     mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_shuffle_0:     mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00292_line_mark_α
                         .size            n00290_deref_bx, .-n00290_deref_bx
                         .type            n00292_line_mark_bx, @function
@@ -9189,8 +9189,8 @@ n00292_line_mark_bx:
                         .long            155
                         .quad            .Lstnof1
                         .popsection
-n00292_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 155;            jmp   n00293_call_byname_α
+n00292_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 155;          jmp   n00293_call_byname_α
                         .size            n00292_line_mark_bx, .-n00292_line_mark_bx
                         .type            n00293_call_byname_bx, @function
 n00293_call_byname_bx:
@@ -9210,7 +9210,7 @@ n00293_call_byname_α:     sub              rsp, 16
                         mov              edx, 1
                         mov              ecx, 393381
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_shuffle_2:     mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_shuffle_2:     mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -9226,7 +9226,7 @@ n00293_call_byname_α:     sub              rsp, 16
                         mov              rdx, rsp
                         lea              rcx, [rsp + 16]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_shuffle_3:     mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_shuffle_3:     mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -9261,8 +9261,8 @@ n00291_line_mark_bx:
                         .long            156
                         .quad            .Lstnof1
                         .popsection
-n00291_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 156;            jmp   n00295_var_ref_α
+n00291_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 156;          jmp   n00295_var_ref_α
                         .size            n00291_line_mark_bx, .-n00291_line_mark_bx
                         .type            n00295_var_ref_bx, @function
 n00295_var_ref_bx:
@@ -9282,7 +9282,7 @@ n00296_iterate_α:         sub              rsp, 16
                         mov              rsi, qword ptr [rsp + 24]            # obj
                         lea              rdx, [rsp + 80]                      # cur
                         call             rt_list_bang_var_at@PLT
-.Lgcsite_shuffle_5:     mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_shuffle_5:     mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
                         cmp              al, 104;                             jne   .Literate_α_1016_999
@@ -9295,7 +9295,7 @@ n00296_iterate_α:         sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_shuffle_4:     mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_shuffle_4:     mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00298_var_ref_α
 n00296_iterate_β:         inc              qword ptr [rsp + 80];                jmp   .Literate_α_1016_0
                         .size            n00296_iterate_bx, .-n00296_iterate_bx
@@ -9316,7 +9316,7 @@ n00299_random_α:          sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 16]
                         mov              rsi, qword ptr [rsp + 24]
                         call             rt_random_var_strict@PLT
-.Lgcsite_shuffle_7:     mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_shuffle_7:     mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lrandom_α_1019_999
                         add              rsp, 16;                             jmp   n00298_var_ref_β
 .Lrandom_α_1019_999:    mov              qword ptr [rsp + 0], rax
@@ -9328,7 +9328,7 @@ n00299_random_α:          sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_shuffle_6:     mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_shuffle_6:     mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00300_swap_var_α
                         .size            n00299_random_bx, .-n00299_random_bx
                         .type            n00300_swap_var_bx, @function
@@ -9340,7 +9340,7 @@ n00300_swap_var_α:        sub              rsp, 16
                         mov              rdx, qword ptr [rsp + 16]            # vb
                         mov              rcx, qword ptr [rsp + 24]            # vb
                         call             rt_swap_var@PLT
-.Lgcsite_shuffle_9:     mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_shuffle_9:     mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lswap_var_α_1020_999
                         add              rsp, 16
                         add              rsp, 64;                             jmp   n00297_line_mark_α
@@ -9353,7 +9353,7 @@ n00300_swap_var_α:        sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_shuffle_8:     mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_shuffle_8:     mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      add              rsp, 48;                             jmp   n00296_iterate_β
                         .size            n00300_swap_var_bx, .-n00300_swap_var_bx
                         .type            n00297_line_mark_bx, @function
@@ -9369,8 +9369,8 @@ n00297_line_mark_bx:
                         .long            157
                         .quad            .Lstnof1
                         .popsection
-n00297_line_mark_α:       mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 157;            jmp   n00301_var_α
+n00297_line_mark_α:       mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 157;          jmp   n00301_var_α
                         .size            n00297_line_mark_bx, .-n00297_line_mark_bx
                         .type            n00301_var_bx, @function
 n00301_var_bx:
@@ -9400,8 +9400,8 @@ shuffle_γ:
                         sub              rcx, 1
                         mov              dword ptr [rax + 0], ecx
                         sub              rcx, 1
-                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
-                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 624], rcx
                         pop              rax
                         lea              rsp, [rbp + 304]
                         mov              rbp, qword ptr [rbp + 280];          jmp   qword ptr [rsp]
@@ -9415,8 +9415,8 @@ shuffle_ω:
                         sub              rcx, 1
                         mov              dword ptr [rax + 0], ecx
                         sub              rcx, 1
-                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
-                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 624], rcx
                         pop              rax
                         lea              rsp, [rbp + 304]
                         mov              rbp, qword ptr [rbp + 280];          jmp   qword ptr [rsp + 8]
@@ -10380,7 +10380,7 @@ main_α:
                         mov              eax, 0                               # GCANCHOR .Lgcmap_main qword ptr [rsp + 1016]
                         mov              qword ptr [rsp + 1160], rbp
                         mov              rbp, rsp
-                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              rax, qword ptr [rip + g_call_args@GOTPCREL]
                         mov              ecx, dword ptr [rax + 12]
                         mov              rax, qword ptr [rax + 0]
@@ -10396,8 +10396,8 @@ main_α:
                         mov              ecx, dword ptr [rax + 0]
                         movsxd           rcx, ecx
                         sub              rcx, 1
-                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
-                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 624], rcx
 main_α_body:
                         .type            n00303_call_direct_bx, @function
 n00303_call_direct_bx:
@@ -10406,7 +10406,7 @@ n00303_call_direct_α:    sub              rsp, 16
                         lea              rdi, [rsp + 0]
                         mov              esi, 0
                         call             rt_quit_trap_300@PLT
-.Lgcsite_main_0:        mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_0:        mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -10422,7 +10422,7 @@ n00303_call_direct_α:    sub              rsp, 16
                         mov              rdx, rsp
                         lea              rcx, [rsp + 16]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_main_1:        mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_1:        mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -10448,11 +10448,11 @@ n00304_line_mark_bx:
                         .long            51
                         .quad            .Lstnof1
                         .popsection
-n00304_line_mark_α:      mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 51
-                        mov              rax, qword ptr [rip + g_file@GOTPCREL]
+n00304_line_mark_α:      mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 51
+                        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
                         mov              rcx, qword ptr [rip + .Lline_mark_α_1096_0]
-                        mov              qword ptr [rax + 0], rcx;            jmp   n00305_line_mark_α
+                        mov              qword ptr [rax + 600], rcx;          jmp   n00305_line_mark_α
                         .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Lline_mark_α_1096_0: .quad .Lline_mark_α_1096_0_s; .popsection
 .Lline_mark_α_1096_0_s: .string          "deal.icn"
                         .size            n00304_line_mark_bx, .-n00304_line_mark_bx
@@ -10469,8 +10469,8 @@ n00305_line_mark_bx:
                         .long            53
                         .quad            .Lstnof1
                         .popsection
-n00305_line_mark_α:      mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 53;             jmp   n00306_lit_charset_α
+n00305_line_mark_α:      mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 53;           jmp   n00306_lit_charset_α
                         .size            n00305_line_mark_bx, .-n00305_line_mark_bx
                         .type            n00306_lit_charset_bx, @function
 n00306_lit_charset_bx:
@@ -10485,7 +10485,7 @@ n00306_lit_charset_α:    sub              rsp, 16
                         mov              rdi, qword ptr [rip + .Llit_charset_α_1099_0] # ptr
                         mov              rsi, 52                              # len
                         call             rt_icn_cset_register@PLT
-.Lgcsite_main_3:        mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_3:        mov              r9,  qword ptr [rip + g_rtccb+48]
                         pop              rdx
                         pop              rax
                         push             rax                                  # gc_poll bb_lit_scalar.cpp:124
@@ -10495,7 +10495,7 @@ n00306_lit_charset_α:    sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_2:        mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_2:        mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00307_line_mark_α
                         .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_charset_α_1099_0: .quad .Llit_charset_α_1099_0_s; .popsection
 .Llit_charset_α_1099_0_s:
@@ -10511,8 +10511,8 @@ n00307_line_mark_bx:
                         .long            53
                         .quad            .Lstnof1
                         .popsection
-n00307_line_mark_α:      mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 53;             jmp   n00308_call_byname_α
+n00307_line_mark_α:      mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 53;           jmp   n00308_call_byname_α
                         .size            n00307_line_mark_bx, .-n00307_line_mark_bx
                         .type            n00308_call_byname_bx, @function
 n00308_call_byname_bx:
@@ -10532,7 +10532,7 @@ n00308_call_byname_α:    sub              rsp, 16
                         mov              edx, 1
                         mov              ecx, 393381
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_main_4:        mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_4:        mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -10548,7 +10548,7 @@ n00308_call_byname_α:    sub              rsp, 16
                         mov              rdx, rsp
                         lea              rcx, [rsp + 16]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_main_5:        mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_5:        mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -10591,8 +10591,8 @@ n00309_line_mark_bx:
                         .long            54
                         .quad            .Lstnof1
                         .popsection
-n00309_line_mark_α:      mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 54;             jmp   n00312_var_α
+n00309_line_mark_α:      mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 54;           jmp   n00312_var_α
                         .size            n00309_line_mark_bx, .-n00309_line_mark_bx
                         .type            n00312_var_bx, @function
 n00312_var_bx:
@@ -10612,7 +10612,7 @@ n00313_unop_α:           sub              rsp, 16
                         call             qword ptr [rip + rt_size_d@GOTPCREL]
 .Lgcsite_main_8:        cmp              al, 255;                             jne   .Lunop_vd_1109_39
                         call             c_rt_size_d@PLT
-.Lgcsite_main_7:        mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_7:        mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lunop_vd_1109_39:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
                         push             rax                                  # gc_poll bb_unop.cpp:37
@@ -10622,7 +10622,7 @@ n00313_unop_α:           sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_6:        mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_6:        mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00314_lit_integer_α
                         .size            n00313_unop_bx, .-n00313_unop_bx
                         .type            n00314_lit_integer_bx, @function
@@ -10656,7 +10656,7 @@ n00315_coerce_numeric_α: sub              rsp, 16
                         call             qword ptr [rip + rt_coerce_num2_d@GOTPCREL]
 .Lgcsite_main_11:       cmp              al, 255;                             jne   .Lcoerce_numeric_vd_1112_40
                         call             c_rt_coerce_num2_d@PLT
-.Lgcsite_main_10:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_10:       mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lcoerce_numeric_vd_1112_40:
                         push             rax                                  # gc_poll bb_coerce_numeric.cpp:45
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
@@ -10665,7 +10665,7 @@ n00315_coerce_numeric_α: sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_9:        mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_9:        mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              eax, dword ptr [rsp + 0]             # result
                         cmp              al, 104;                             jne   .Lcoerce_numeric_α_1112_999
                         add              rsp, 16
@@ -10684,7 +10684,7 @@ n00316_binop_α:          sub              rsp, 16
                         call             qword ptr [rip + rt_div_strict@GOTPCREL]
 .Lgcsite_main_14:       cmp              al, 255;                             jne   .Lbinop_vd_1113_41
                         call             c_rt_div_strict@PLT
-.Lgcsite_main_13:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_13:       mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lbinop_vd_1113_41:     cmp              al, 104;                             jne   .Lbinop_α_1113_999
                         add              rsp, 16
                         add              rsp, 64;                             jmp   n00317_line_mark_α
@@ -10697,7 +10697,7 @@ n00316_binop_α:          sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_12:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_12:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00318_assign_α
                         .size            n00316_binop_bx, .-n00316_binop_bx
                         .type            n00318_assign_bx, @function
@@ -10730,8 +10730,8 @@ n00317_line_mark_bx:
                         .long            55
                         .quad            .Lstnof1
                         .popsection
-n00317_line_mark_α:      mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 55;             jmp   n00320_lit_string_α
+n00317_line_mark_α:      mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 55;           jmp   n00320_lit_string_α
                         .size            n00317_line_mark_bx, .-n00317_line_mark_bx
                         .type            n00320_lit_string_bx, @function
 n00320_lit_string_bx:
@@ -10767,8 +10767,8 @@ n00322_line_mark_bx:
                         .long            56
                         .quad            .Lstnof1
                         .popsection
-n00322_line_mark_α:      mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 56;             jmp   n00323_lit_string_α
+n00322_line_mark_α:      mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 56;           jmp   n00323_lit_string_α
                         .size            n00322_line_mark_bx, .-n00322_line_mark_bx
                         .type            n00323_lit_string_bx, @function
 n00323_lit_string_bx:
@@ -10798,7 +10798,7 @@ n00325_deref_α:          sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 16]            # var_ref
                         mov              rsi, qword ptr [rsp + 24]            # d
                         call             rt_deref@PLT
-.Lgcsite_main_16:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_16:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_1125_999
                         add              rsp, 16
                         add              rsp, 32;                             jmp   n00326_line_mark_α
@@ -10811,7 +10811,7 @@ n00325_deref_α:          sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_15:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_15:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00327_line_mark_α
                         .size            n00325_deref_bx, .-n00325_deref_bx
                         .type            n00327_line_mark_bx, @function
@@ -10824,8 +10824,8 @@ n00327_line_mark_bx:
                         .long            56
                         .quad            .Lstnof1
                         .popsection
-n00327_line_mark_α:      mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 56;             jmp   n00328_call_byname_α
+n00327_line_mark_α:      mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 56;           jmp   n00328_call_byname_α
                         .size            n00327_line_mark_bx, .-n00327_line_mark_bx
                         .type            n00328_call_byname_bx, @function
 n00328_call_byname_bx:
@@ -10849,7 +10849,7 @@ n00328_call_byname_α:    sub              rsp, 16
                         mov              edx, 2
                         mov              ecx, 262299
                         call             rt_call_arr_bl_strict@PLT
-.Lgcsite_main_17:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_17:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -10865,7 +10865,7 @@ n00328_call_byname_α:    sub              rsp, 16
                         mov              rdx, rsp
                         lea              rcx, [rsp + 16]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_main_18:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_18:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
@@ -10900,8 +10900,8 @@ n00326_line_mark_bx:
                         .long            57
                         .quad            .Lstnof1
                         .popsection
-n00326_line_mark_α:      mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 57;             jmp   n00330_lit_charset_α
+n00326_line_mark_α:      mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 57;           jmp   n00330_lit_charset_α
                         .size            n00326_line_mark_bx, .-n00326_line_mark_bx
                         .type            n00330_lit_charset_bx, @function
 n00330_lit_charset_bx:
@@ -10916,7 +10916,7 @@ n00330_lit_charset_α:    sub              rsp, 16
                         mov              rdi, qword ptr [rip + .Llit_charset_α_1133_0] # ptr
                         mov              rsi, 26                              # len
                         call             rt_icn_cset_register@PLT
-.Lgcsite_main_20:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_20:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         pop              rdx
                         pop              rax
                         push             rax                                  # gc_poll bb_lit_scalar.cpp:124
@@ -10926,7 +10926,7 @@ n00330_lit_charset_α:    sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_19:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_19:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00331_lit_integer_α
                         .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_charset_α_1133_0: .quad .Llit_charset_α_1133_0_s; .popsection
 .Llit_charset_α_1133_0_s:
@@ -10984,7 +10984,7 @@ n00333_binop_α:          sub              rsp, 16
                         mov              rdx, qword ptr [rsp + 16]            # var
                         mov              rcx, qword ptr [rsp + 24]
                         call             c_rt_add@PLT
-.Lgcsite_main_22:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_22:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lbinop_α_1136_999
                         add              rsp, 16
                         add              rsp, 48;                             jmp   n00335_line_mark_α
@@ -10997,7 +10997,7 @@ n00333_binop_α:          sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_21:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_21:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00334_subscript_α
                         .size            n00333_binop_bx, .-n00333_binop_bx
                         .type            n00334_subscript_bx, @function
@@ -11011,7 +11011,7 @@ n00334_subscript_α:      sub              rsp, 16
                         mov              r8, qword ptr [rsp + 16]             # binop
                         mov              r9, qword ptr [rsp + 24]
                         call             subscript_get2_ext_strict@PLT
-.Lgcsite_main_24:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_24:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lsubscript_α_1137_999
                         add              rsp, 16
                         add              rsp, 64;                             jmp   n00335_line_mark_α
@@ -11024,7 +11024,7 @@ n00334_subscript_α:      sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_23:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_23:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00336_assign_α
                         .size            n00334_subscript_bx, .-n00334_subscript_bx
                         .type            n00336_assign_bx, @function
@@ -11049,8 +11049,8 @@ n00335_line_mark_bx:
                         .long            59
                         .quad            .Lstnof1
                         .popsection
-n00335_line_mark_α:      mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 59;             jmp   n00337_var_ref_α
+n00335_line_mark_α:      mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 59;           jmp   n00337_var_ref_α
                         .size            n00335_line_mark_bx, .-n00335_line_mark_bx
                         .type            n00337_var_ref_bx, @function
 n00337_var_ref_bx:
@@ -11080,7 +11080,7 @@ n00339_deref_α:          sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]            # var_ref
                         mov              rsi, qword ptr [rsp + 40]            # d
                         call             rt_deref@PLT
-.Lgcsite_main_26:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_26:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_1144_999
                         add              rsp, 16
                         add              rsp, 32;                             jmp   n00340_line_mark_α
@@ -11093,7 +11093,7 @@ n00339_deref_α:          sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_25:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_25:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00341_line_mark_α
                         .size            n00339_deref_bx, .-n00339_deref_bx
                         .type            n00341_line_mark_bx, @function
@@ -11106,8 +11106,8 @@ n00341_line_mark_bx:
                         .long            59
                         .quad            .Lstnof1
                         .popsection
-n00341_line_mark_α:      mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 59;             jmp   n00342_call_proc_staged_α
+n00341_line_mark_α:      mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 59;           jmp   n00342_call_proc_staged_α
                         .size            n00341_line_mark_bx, .-n00341_line_mark_bx
                         .type            n00342_call_proc_staged_bx, @function
 n00342_call_proc_staged_bx:
@@ -11127,24 +11127,24 @@ n00342_call_proc_staged_α:
                         mov              qword ptr [rsp + 16], rcx
                         mov              rcx, qword ptr [rsp + 88]
                         mov              qword ptr [rsp + 24], rcx
-                        mov              rax, qword ptr [rip + g_rt_gen_procs@GOTPCREL] # the registry jump: the record's fn word (PROC_FN at +8, the 128-byte stride both asserted in rt.c), so a fn re-sealed at run time -- a dynamic predicate's enumerator, a redefinition -- is followed in both media
-                        mov              rax, qword ptr [rax + 0]
+                        mov              rax, qword ptr [rip + g_runtime@GOTPCREL] # the registry jump: the record's fn word (PROC_FN at +8, the 128-byte stride both asserted in rt.c), so a fn re-sealed at run time -- a dynamic predicate's enumerator, a redefinition -- is followed in both media
+                        mov              rax, qword ptr [rax + 17624]
                         mov              rax, qword ptr [rax + 392];          jmp   rax
 .Lcall_proc_staged_α_1148_3:
-.Lgcsite_main_28:       mov              rcx, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rcx + 0], 59
+.Lgcsite_main_28:       mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 584], 59
                         lea              r11, [rip + .S0]
-                        mov              rcx, qword ptr [rip + g_file@GOTPCREL]
-                        mov              qword ptr [rcx + 0], r11
+                        mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 600], r11
                         add              rsp, 16
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1148_2
 .Lcall_proc_staged_α_1148_4:
-.Lgcsite_main_27:       mov              rcx, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rcx + 0], 59
+.Lgcsite_main_27:       mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 584], 59
                         lea              r11, [rip + .S0]
-                        mov              rcx, qword ptr [rip + g_file@GOTPCREL]
-                        mov              qword ptr [rcx + 0], r11
+                        mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 600], r11
                         add              rsp, 16
                         mov              eax, 104
                         xor              edx, edx
@@ -11157,11 +11157,11 @@ n00342_call_proc_staged_α:
 .Lcall_proc_staged_α_1148_999:
                                                                               jmp   n00343_deref_α
 n00342_call_proc_staged_β:
-                        mov              rcx, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rcx + 0], 59
+                        mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 584], 59
                         lea              r11, [rip + .S0]
-                        mov              rcx, qword ptr [rip + g_file@GOTPCREL]
-                        mov              qword ptr [rcx + 0], r11
+                        mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 600], r11
                         add              rsp, 16
                         add              rsp, 48;                             jmp   n00340_line_mark_α
                         .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Lcall_proc_staged_β_1148_0: .quad .Lcall_proc_staged_β_1148_0_s; .popsection
@@ -11175,7 +11175,7 @@ n00343_deref_α:          sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 16]            # call
                         mov              rsi, qword ptr [rsp + 24]            # d
                         call             rt_deref@PLT
-.Lgcsite_main_30:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_30:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_1149_999
                         add              rsp, 16
                         add              rsp, 64;                             jmp   n00340_line_mark_α
@@ -11188,7 +11188,7 @@ n00343_deref_α:          sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_29:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_29:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00344_assign_α
                         .size            n00343_deref_bx, .-n00343_deref_bx
                         .type            n00344_assign_bx, @function
@@ -11213,8 +11213,8 @@ n00340_line_mark_bx:
                         .long            60
                         .quad            .Lstnof1
                         .popsection
-n00340_line_mark_α:      mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 60;             jmp   n00345_disjunction_α
+n00340_line_mark_α:      mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 60;           jmp   n00345_disjunction_α
                         .size            n00340_line_mark_bx, .-n00340_line_mark_bx
                         .type            n00345_disjunction_bx, @function
 n00345_disjunction_bx:
@@ -11262,8 +11262,8 @@ n00349_line_mark_bx:
                         .long            61
                         .quad            .Lstnof1
                         .popsection
-n00349_line_mark_α:      mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 61;             jmp   n00350_var_ref_α
+n00349_line_mark_α:      mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 61;           jmp   n00350_var_ref_α
                         .size            n00349_line_mark_bx, .-n00349_line_mark_bx
                         .type            n00350_var_ref_bx, @function
 n00350_var_ref_bx:
@@ -11299,7 +11299,7 @@ n00352_subscript_α:      sub              rsp, 16
                         call             qword ptr [rip + rt_subscript_val_strict@GOTPCREL]
 .Lgcsite_main_36:       cmp              al, 255;                             jne   .Lsubscript_vd_1161_43
                         call             c_rt_subscript_val_strict@PLT
-.Lgcsite_main_35:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_35:       mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lsubscript_vd_1161_43: cmp              al, 255;                             jne   .Lsubscript_α_1161_4
                         mov              eax, 1;                              jmp   .Lsubscript_α_1161_1
 .Lsubscript_α_1161_4:   push             rax
@@ -11317,7 +11317,7 @@ n00352_subscript_α:      sub              rsp, 16
                         lea              rdx, [rsp + 16]
                         lea              rcx, [rsp + 32]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_main_34:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_34:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              rax, qword ptr [rsp + 0]
                         mov              rdx, qword ptr [rsp + 8]
                         mov              r13, qword ptr [rsp + 16]
@@ -11326,7 +11326,7 @@ n00352_subscript_α:      sub              rsp, 16
 .Lsubscript_α_1161_2:   call             qword ptr [rip + rt_subscript_var_strict@GOTPCREL]
 .Lgcsite_main_33:       cmp              al, 255;                             jne   .Lsubscript_vd_1161_42
                         call             c_rt_subscript_var_strict@PLT
-.Lgcsite_main_32:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_32:       mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lsubscript_vd_1161_42: push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -11342,7 +11342,7 @@ n00352_subscript_α:      sub              rsp, 16
                         lea              rdx, [rsp + 16]
                         lea              rcx, [rsp + 32]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_main_31:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_31:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              rax, qword ptr [rsp + 0]
                         mov              rdx, qword ptr [rsp + 8]
                         mov              r13, qword ptr [rsp + 16]
@@ -11361,7 +11361,7 @@ n00354_deref_α:          sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 16]            # subscript
                         mov              rsi, qword ptr [rsp + 24]            # d
                         call             rt_deref@PLT
-.Lgcsite_main_38:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_38:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_1162_999
                         add              rsp, 16
                         add              rsp, 48;                             jmp   n00353_line_mark_α
@@ -11374,7 +11374,7 @@ n00354_deref_α:          sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_37:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_37:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00355_unop_test_α
                         .size            n00354_deref_bx, .-n00354_deref_bx
                         .type            n00355_unop_test_bx, @function
@@ -11400,7 +11400,7 @@ n00356_kw_assign_α:      sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 16]            # v
                         mov              rsi, qword ptr [rsp + 24]            # v
                         call             rt_keyword_random_set@PLT
-.Lgcsite_main_39:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_39:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lkw_assign_α_1164_999
                         add              rsp, 16
                         add              rsp, 80;                             jmp   n00353_line_mark_α
@@ -11421,8 +11421,8 @@ n00353_line_mark_bx:
                         .long            63
                         .quad            .Lstnof1
                         .popsection
-n00353_line_mark_α:      mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 63;             jmp   n00357_lit_integer_α
+n00353_line_mark_α:      mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 63;           jmp   n00357_lit_integer_α
                         .size            n00353_line_mark_bx, .-n00353_line_mark_bx
                         .type            n00357_lit_integer_bx, @function
 n00357_lit_integer_bx:
@@ -11447,7 +11447,7 @@ n00359_to_α:             sub              rsp, 32
                         call             qword ptr [rip + core_icn_int_operand_ok@GOTPCREL]
 .Lgcsite_main_49:       cmp              eax, -2;                             jne   .Lto_vd_1171_45
                         call             c_core_icn_int_operand_ok@PLT
-.Lgcsite_main_48:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_48:       mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lto_vd_1171_45:        test             eax, eax;                            jne   .Lto_α_1171_996
                         add              rsp, 32
                         add              rsp, 16;                             jmp   main_ω
@@ -11458,13 +11458,13 @@ n00359_to_α:             sub              rsp, 32
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_47:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_47:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              rdi, qword ptr [rsp + 1024]          # var
                         mov              rsi, qword ptr [rsp + 1032]
                         call             qword ptr [rip + core_icn_int_operand_ok@GOTPCREL]
 .Lgcsite_main_46:       cmp              eax, -2;                             jne   .Lto_vd_1171_44
                         call             c_core_icn_int_operand_ok@PLT
-.Lgcsite_main_45:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_45:       mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lto_vd_1171_44:        test             eax, eax;                            jne   .Lto_α_1171_997
                         add              rsp, 32
                         add              rsp, 16;                             jmp   main_ω
@@ -11475,11 +11475,11 @@ n00359_to_α:             sub              rsp, 32
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_44:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_44:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              rdi, qword ptr [rsp + 32]            # lit_integer
                         mov              rsi, qword ptr [rsp + 40]            # hi
                         call             core_icn_to_int_check@PLT
-.Lgcsite_main_43:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_43:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 112], rax
                         push             rax                                  # gc_poll bb_to.cpp:104
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
@@ -11488,11 +11488,11 @@ n00359_to_α:             sub              rsp, 32
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_42:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_42:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              rdi, qword ptr [rsp + 1024]          # var
                         mov              rsi, qword ptr [rsp + 1032]          # hi
                         call             core_icn_to_int_check@PLT
-.Lgcsite_main_41:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_41:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 120], rax
 .Lto_α_1171_0:          mov              rax, qword ptr [rsp + 112]
                         mov              rcx, qword ptr [rsp + 120]
@@ -11508,7 +11508,7 @@ n00359_to_α:             sub              rsp, 32
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_40:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_40:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00360_bound_α
 n00359_to_β:             inc              qword ptr [rsp + 112];               jno   .Lto_β_1171_999
                         add              rsp, 32
@@ -11531,8 +11531,8 @@ n00361_line_mark_bx:
                         .long            64
                         .quad            .Lstnof1
                         .popsection
-n00361_line_mark_α:      mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 64;             jmp   n00362_line_mark_α
+n00361_line_mark_α:      mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 64;           jmp   n00362_line_mark_α
                         .size            n00361_line_mark_bx, .-n00361_line_mark_bx
                         .type            n00362_line_mark_bx, @function
 n00362_line_mark_bx:
@@ -11544,8 +11544,8 @@ n00362_line_mark_bx:
                         .long            64
                         .quad            .Lstnof1
                         .popsection
-n00362_line_mark_α:      mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 64;             jmp   n00363_call_proc_staged_α
+n00362_line_mark_α:      mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 64;           jmp   n00363_call_proc_staged_α
                         .size            n00362_line_mark_bx, .-n00362_line_mark_bx
                         .type            n00363_call_proc_staged_bx, @function
 n00363_call_proc_staged_bx:
@@ -11557,24 +11557,24 @@ n00363_call_proc_staged_α:
                         lea              rcx, [rip + .Lcall_proc_staged_α_1179_3]
                         push             rcx
                         sub              rsp, 0
-                        mov              rax, qword ptr [rip + g_rt_gen_procs@GOTPCREL] # the registry jump: the record's fn word (PROC_FN at +8, the 128-byte stride both asserted in rt.c), so a fn re-sealed at run time -- a dynamic predicate's enumerator, a redefinition -- is followed in both media
-                        mov              rax, qword ptr [rax + 0]
+                        mov              rax, qword ptr [rip + g_runtime@GOTPCREL] # the registry jump: the record's fn word (PROC_FN at +8, the 128-byte stride both asserted in rt.c), so a fn re-sealed at run time -- a dynamic predicate's enumerator, a redefinition -- is followed in both media
+                        mov              rax, qword ptr [rax + 17624]
                         mov              rax, qword ptr [rax + 8];            jmp   rax
 .Lcall_proc_staged_α_1179_3:
-.Lgcsite_main_51:       mov              rcx, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rcx + 0], 64
+.Lgcsite_main_51:       mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 584], 64
                         lea              r11, [rip + .S0]
-                        mov              rcx, qword ptr [rip + g_file@GOTPCREL]
-                        mov              qword ptr [rcx + 0], r11
+                        mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 600], r11
                         add              rsp, 16
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   .Lcall_proc_staged_α_1179_2
 .Lcall_proc_staged_α_1179_4:
-.Lgcsite_main_50:       mov              rcx, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rcx + 0], 64
+.Lgcsite_main_50:       mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 584], 64
                         lea              r11, [rip + .S0]
-                        mov              rcx, qword ptr [rip + g_file@GOTPCREL]
-                        mov              qword ptr [rcx + 0], r11
+                        mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 600], r11
                         add              rsp, 16
                         mov              eax, 104
                         xor              edx, edx
@@ -11587,11 +11587,11 @@ n00363_call_proc_staged_α:
 .Lcall_proc_staged_α_1179_999:
                                                                               jmp   n00365_deref_α
 n00363_call_proc_staged_β:
-                        mov              rcx, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rcx + 0], 64
+                        mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 584], 64
                         lea              r11, [rip + .S0]
-                        mov              rcx, qword ptr [rip + g_file@GOTPCREL]
-                        mov              qword ptr [rcx + 0], r11
+                        mov              rcx, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rcx + 600], r11
                         add              rsp, 16
                         add              rsp, -32;                            jmp   n00364_unmark_α
                         .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Lcall_proc_staged_β_1179_0: .quad .Lcall_proc_staged_β_1179_0_s; .popsection
@@ -11605,7 +11605,7 @@ n00365_deref_α:          sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 16]            # call
                         mov              rsi, qword ptr [rsp + 24]            # d
                         call             rt_deref@PLT
-.Lgcsite_main_53:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_53:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_1180_999
                         add              rsp, 16
                         add              rsp, -16;                            jmp   n00364_unmark_α
@@ -11618,7 +11618,7 @@ n00365_deref_α:          sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_52:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_52:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00364_unmark_α
                         .size            n00365_deref_bx, .-n00365_deref_bx
                         .type            n00364_unmark_bx, @function
@@ -11636,8 +11636,8 @@ n00366_line_mark_bx:
                         .long            63
                         .quad            .Lstnof1
                         .popsection
-n00366_line_mark_α:      mov              rax, qword ptr [rip + g_line@GOTPCREL]
-                        mov              qword ptr [rax + 0], 63;             jmp   n00359_to_β
+n00366_line_mark_α:      mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 584], 63;           jmp   n00359_to_β
                         .size            n00366_line_mark_bx, .-n00366_line_mark_bx
                         .type            n00348_lit_integer_bx, @function
 n00348_lit_integer_bx:
@@ -11690,7 +11690,7 @@ n00368_subscript_α:      sub              rsp, 16
                         call             qword ptr [rip + rt_subscript_val_strict@GOTPCREL]
 .Lgcsite_main_59:       cmp              al, 255;                             jne   .Lsubscript_vd_1189_47
                         call             c_rt_subscript_val_strict@PLT
-.Lgcsite_main_58:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_58:       mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lsubscript_vd_1189_47: cmp              al, 255;                             jne   .Lsubscript_α_1189_4
                         mov              eax, 1;                              jmp   .Lsubscript_α_1189_1
 .Lsubscript_α_1189_4:   push             rax
@@ -11708,7 +11708,7 @@ n00368_subscript_α:      sub              rsp, 16
                         lea              rdx, [rsp + 16]
                         lea              rcx, [rsp + 32]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_main_57:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_57:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              rax, qword ptr [rsp + 0]
                         mov              rdx, qword ptr [rsp + 8]
                         mov              r13, qword ptr [rsp + 16]
@@ -11717,7 +11717,7 @@ n00368_subscript_α:      sub              rsp, 16
 .Lsubscript_α_1189_2:   call             qword ptr [rip + rt_subscript_var_strict@GOTPCREL]
 .Lgcsite_main_56:       cmp              al, 255;                             jne   .Lsubscript_vd_1189_46
                         call             c_rt_subscript_var_strict@PLT
-.Lgcsite_main_55:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_55:       mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lsubscript_vd_1189_46: push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
@@ -11733,7 +11733,7 @@ n00368_subscript_α:      sub              rsp, 16
                         lea              rdx, [rsp + 16]
                         lea              rcx, [rsp + 32]
                         call             rt_gc_point_arr_probe_c@PLT
-.Lgcsite_main_54:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_54:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              rax, qword ptr [rsp + 0]
                         mov              rdx, qword ptr [rsp + 8]
                         mov              r13, qword ptr [rsp + 16]
@@ -11751,7 +11751,7 @@ n00369_deref_α:          sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 16]            # subscript
                         mov              rsi, qword ptr [rsp + 24]            # d
                         call             rt_deref@PLT
-.Lgcsite_main_61:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_61:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lderef_α_1190_999
                         add              rsp, 16
                         add              rsp, 48;                             jmp   .Ldisjunction_ω_1068_af
@@ -11764,7 +11764,7 @@ n00369_deref_α:          sub              rsp, 16
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_60:       mov              r9,  qword ptr [rip + rtccb+48]
+.Lgcsite_main_60:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                                                                            jmp   n00370_unop_test_α
 n00369_deref_β:          add              rsp, 16
                         add              rsp, 48;                             jmp   .Ldisjunction_ω_1068_af
@@ -11804,8 +11804,8 @@ main_γ:
                         sub              rcx, 1
                         mov              dword ptr [rax + 0], ecx
                         sub              rcx, 1
-                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
-                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 624], rcx
                         pop              rax
                         lea              rsp, [rbp + 1168]
                         mov              rbp, qword ptr [rbp + 1160];         jmp   qword ptr [rsp]
@@ -11819,8 +11819,8 @@ main_ω:
                         sub              rcx, 1
                         mov              dword ptr [rax + 0], ecx
                         sub              rcx, 1
-                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
-                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+                        mov              qword ptr [rax + 624], rcx
                         pop              rax
                         lea              rsp, [rbp + 1168]
                         mov              rbp, qword ptr [rbp + 1160];         jmp   qword ptr [rsp + 8]
