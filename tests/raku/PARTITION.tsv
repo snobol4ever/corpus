@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1060 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=50 clusters=49 chunks=11 sizes=100,100,100,100,100,100,100,100,100,100,10
+# shape: entries=1061 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=50 clusters=49 chunks=11 sizes=100,100,100,100,100,100,100,100,100,100,11
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:07	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:07	family:ladder	
@@ -338,7 +338,7 @@ sub_hash_6	chunk:07	feat:sigil_hash	sigil_hash sub
 sub_hash_8	chunk:07	feat:sigil_hash	sigil_hash sub
 test_interp_leading_var	chunk:10	family:test_raku_interp_leading_var	
 test_interp_only_var	chunk:10	family:test_raku_interp_only_var	
-test_interp_simple	chunk:10	family:test_raku_interp_simple	
+test_interp_simple	chunk:11	family:test_raku_interp_simple	
 test_interp_trailing_lit	chunk:11	family:test_raku_interp_trailing_lit	
 test_print_basic	chunk:11	family:test_raku_print_basic	
 array_14	chunk:04	feat:sigil_array	sigil_array
@@ -672,7 +672,7 @@ while_3	chunk:09	feat:while	if while
 class_method_replace_10	chunk:09	feat:method	method
 class_method_replace_11	chunk:09	feat:method	method
 class_method_replace_14	chunk:09	feat:method	method
-class_method_replace_6	chunk:09	feat:method	method
+class_method_replace_6	chunk:10	feat:method	method
 class_method_replace_7	chunk:10	feat:method	method
 class_replace_1	chunk:02	feat:has	has
 class_replace_2	chunk:02	feat:has	has
@@ -906,6 +906,7 @@ ladder__rung05_hashes_a_colon_pair_used_as_a_value_is_a_pair_in_a_hash_a_list_an
 ladder__rung13_classes_a_forward_declared_class_stub_gives_way_to_the_full_class_and_typed_attributes_stay_attributes	chunk:02	feat:has	has method range_op
 sub_junction_say_replace_1	chunk:10	feat:junction	if junction say sub
 ladder__rung03_strings_the_method_assign_form_inside_an_expression_stores_and_yields_the_new_value	chunk:08	feat:string_concat	say sigil_array string_concat sub
+ladder__rung04_arrays_push_unshift_append_prepend_splice_shift_and_pop_on_a_number_die_and_push_of_an_array_literal_lives	chunk:09	feat:try	for for_with_say sigil_array try
 when_while_replace_1	chunk:10	feat:unless	if unless when while
 ladder__rung02_arithmetic_power_assigned_and_compound_assigned	chunk:09	feat:sub_with_return	return sigil_array sub sub_with_return
 sub_for_say_replace_1	chunk:05	feat:for_with_say	for for_with_say say sub
