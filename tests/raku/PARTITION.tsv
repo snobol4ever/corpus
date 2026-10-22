@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1028 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=46 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,82
+# shape: entries=1029 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=46 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,83
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:08	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:08	family:ladder	
@@ -77,7 +77,7 @@ ladder__rung03_strings_control_escapes	chunk:08	family:ladder
 ladder__rung13_classes_new_on_a_builtin_type_int_num_str_array_list_hash_builds_its_value	chunk:08	family:ladder	
 hash_14	chunk:06	feat:sigil_hash	sigil_hash
 hash_3	chunk:06	feat:sigil_hash	sigil_hash
-ladder__rung03_strings_multi_concat	chunk:06	feat:string_concat	string_concat
+ladder__rung03_strings_multi_concat	chunk:07	feat:string_concat	string_concat
 ladder__rung09_string_methods_split_method	chunk:10	feat:split	split
 say_15	chunk:03	feat:say	say
 say_16	chunk:03	feat:say	say
@@ -464,7 +464,7 @@ ladder__rung19_block_methcall_sort_by_key	chunk:10	feat:sort	sigil_array sort
 multi_2	chunk:08	feat:multi	multi return
 range_array_1	chunk:08	feat:range_op	range_op sigil_array
 range_array_11	chunk:08	feat:range_op	range_op sigil_array
-range_array_12	chunk:08	feat:range_op	range_op sigil_array
+range_array_12	chunk:09	feat:range_op	range_op sigil_array
 range_array_2	chunk:09	feat:range_op	range_op sigil_array
 range_array_3	chunk:09	feat:range_op	range_op sigil_array
 range_array_4	chunk:09	feat:range_op	range_op sigil_array
@@ -799,13 +799,13 @@ test_stmt_pfx_FIRST	chunk:04	feat:for_with_say	for for_with_say range_op say
 test_stmt_pfx_LAST	chunk:04	feat:for_with_say	for for_with_say range_op say
 test_stmt_pfx_NEXT	chunk:04	feat:for_with_say	for for_with_say range_op say
 ladder__rung19_block_methcall_on_a_range	chunk:10	feat:grep	grep map range_op say
-say_try_die_5	chunk:09	feat:die	die say string_concat try
+say_try_die_5	chunk:10	feat:die	die say string_concat try
 test_nested_if_while	chunk:09	feat:while	if say while
 ladder__rung13_classes	chunk:07	feat:method	method return
 ladder__rung13_classes_named_arg_constructor	chunk:02	feat:has	has method
 ladder__rung14_roles_smartmatch	chunk:09	feat:smartmatch	smartmatch string_concat
 say_try_die_7	chunk:10	feat:die	die say string_concat try
-ladder__rung14_roles	chunk:07	feat:method	method return
+ladder__rung14_roles	chunk:08	feat:method	method return
 ladder__rung14_roles_override	chunk:08	feat:method	method return
 sub_for_say_1	chunk:05	feat:for_with_say	for for_with_say say sub
 ladder__rung06_control_with_orwith_and_without_test_definedness_and_bind_the_topic	chunk:08	feat:sub_with_return	return sub sub_with_return
@@ -822,6 +822,7 @@ ladder__rung04_arrays_a_non_literal_left_of_xx_is_a_thunk_evaluated_once_per_rep
 ladder__rung19_block_methcall_sort_by_a_two_arg_comparator_block_past_64_elements	chunk:10	feat:sort	range_op say sigil_array sort
 sub_say_5	chunk:07	feat:string_concat	say string_concat sub
 benchmark_spinner	chunk:10	feat:for	for sigil_array sub
+ladder__rung15_blocks_a_my_declaration_without_a_value_keeps_what_a_begin_check_init_or_enter_phaser_stored	chunk:06	feat:sigil_hash	sigil_array sigil_hash string_concat
 ladder__rung02_arithmetic_rat_smartmatch_truthiness_function_forms_and_type_checks	chunk:09	feat:smartmatch	say smartmatch string_concat
 sub_range_say_replace_1	chunk:09	feat:range_op	range_op say sub
 benchmark_rc-dragon-curve	chunk:05	feat:for_with_say	for for_with_say range_op
