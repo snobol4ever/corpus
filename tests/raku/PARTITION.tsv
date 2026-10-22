@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1044 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=48 clusters=49 chunks=10 sizes=100,100,100,100,100,100,100,100,100,96
+# shape: entries=1045 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=48 clusters=49 chunks=10 sizes=100,100,100,100,100,100,100,100,100,97
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:07	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:07	family:ladder	
@@ -627,7 +627,7 @@ ladder__rung06_control_elsif_chain	core	core	elsif if
 ladder__rung07_subs	chunk:08	feat:sub_with_return	return sub sub_with_return
 ladder__rung15_blocks_grep	chunk:10	feat:grep	grep sigil_array
 ladder__rung15_blocks_map	chunk:09	feat:map	map sigil_array
-loop_2	chunk:09	feat:loop	if loop
+loop_2	chunk:10	feat:loop	if loop
 loop_3	chunk:10	feat:loop	if loop
 say_89	chunk:08	feat:string_concat	say string_concat
 say_replace_18	chunk:02	feat:has	has say
@@ -815,6 +815,7 @@ say_try_die_7	chunk:10	feat:die	die say string_concat try
 ladder__rung14_roles	chunk:07	feat:return	method return
 ladder__rung14_roles_override	chunk:07	feat:return	method return
 sub_for_say_1	chunk:05	feat:for_with_say	for for_with_say say sub
+ladder__rung15_blocks_reduce_with_a_block_of_three_or_more_parameters_takes_that_many_items_a_step	chunk:09	feat:range_op	range_op say sigil_array string_concat
 ladder__rung06_control_with_orwith_and_without_test_definedness_and_bind_the_topic	chunk:08	feat:sub_with_return	return sub sub_with_return
 ladder__rung07_subs_an_array_parameter_assigned_to_a_scalar_or_chosen_by_a_ternary	chunk:06	feat:join	join sigil_array sub
 ladder__rung08_for_a_destructuring_signature_takes_types_smileys_and_traits	chunk:07	feat:sigil_hash	for for_with_say sigil_hash
