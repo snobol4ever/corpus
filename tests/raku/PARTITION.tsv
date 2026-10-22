@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1040 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=47 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,93
+# shape: entries=1041 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=47 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,94
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:07	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:07	family:ladder	
@@ -72,7 +72,7 @@ ladder__rung03_strings_hex_escapes	chunk:07	family:ladder
 simple_program_11	chunk:01	family:smoke	
 ladder__rung16_bool_relops_tap_ok_argument	chunk:07	family:ladder	
 ladder__rung17_compare_ops_is_approx_tolerance	chunk:07	family:ladder	
-ladder__rung01_variables_program_and_file_name_the_source_file_in_both_modes	chunk:07	family:ladder	
+ladder__rung01_variables_program_and_file_name_the_source_file_in_both_modes	chunk:08	family:ladder	
 ladder__rung03_strings_control_escapes	chunk:08	family:ladder	
 ladder__rung13_classes_new_on_a_builtin_type_int_num_str_array_list_hash_builds_its_value	chunk:08	family:ladder	
 hash_14	chunk:07	feat:sigil_hash	sigil_hash
@@ -395,6 +395,7 @@ simple_assign_90	chunk:02	family:smoke
 simple_assign_94	chunk:02	family:smoke	
 ladder__rung02_arithmetic	chunk:08	family:ladder	
 ladder__rung02_int_promotes_past_int64	chunk:08	family:ladder	
+ladder__rung03_strings_like_and_unlike_match_the_string_an_instance_with_its_own_str_gives	chunk:05	feat:method	method
 ladder__rung07_subs_a_named_placeholder_is_a_named_parameter	chunk:08	feat:string_concat	string_concat sub
 token_1	chunk:10	feat:token	regex token
 sub_say_4	chunk:05	feat:sub	say sub
@@ -655,7 +656,7 @@ sub_say_12	chunk:08	feat:string_concat	say string_concat sub
 sub_say_7	chunk:08	feat:string_concat	say string_concat sub
 sub_say_8	chunk:05	feat:sub	say sub
 test_if_basic	chunk:06	feat:if	if say
-test_if_cmp_eq	chunk:06	feat:if	if say
+test_if_cmp_eq	chunk:07	feat:if	if say
 test_if_else	chunk:07	feat:if	if say
 test_while_basic	chunk:09	feat:while	say while
 while_1	chunk:09	feat:while	if while
@@ -776,7 +777,7 @@ class_method_replace_3	chunk:05	feat:method	if method
 class_method_replace_4	chunk:05	feat:method	if method
 class_method_replace_5	chunk:05	feat:method	method return
 class_method_replace_8	chunk:05	feat:method	method return
-class_method_replace_9	chunk:05	feat:method	method return
+class_method_replace_9	chunk:06	feat:method	method return
 class_method_say_replace_18	chunk:06	feat:method	method say
 class_say_replace_15	chunk:02	feat:has	has say
 class_say_replace_26	chunk:02	feat:has	has say
@@ -895,7 +896,7 @@ ladder__rung04_arrays_hash_of_a_list_flattens_it_and_an_odd_number_of_elements_t
 ladder__rung05_hashes_a_colon_pair_used_as_a_value_is_a_pair_in_a_hash_a_list_and_a_scalar	chunk:07	feat:sigil_hash	say sigil_array sigil_hash sub
 sub_junction_say_replace_1	chunk:09	feat:junction	if junction say sub
 when_while_replace_1	chunk:10	feat:unless	if unless when while
-ladder__rung02_arithmetic_power_assigned_and_compound_assigned	chunk:08	feat:sub_with_return	return sigil_array sub sub_with_return
+ladder__rung02_arithmetic_power_assigned_and_compound_assigned	chunk:09	feat:sub_with_return	return sigil_array sub sub_with_return
 sub_for_say_replace_1	chunk:05	feat:for_with_say	for for_with_say say sub
 sub_say_try_replace_1	core	core	die if say sub try
 scrip_test_rk_given	chunk:10	feat:given	given range_op say sub when
@@ -988,7 +989,7 @@ ladder__rung15_blocks_a_closure_in_a_sub_reads_an_enum_value_and_a_constant_that
 ladder__rung19_block_methcall_sort_by_a_one_arg_key_block_past_64_elements	core	core	map range_op say sigil_array sort sub
 sub_for_while_replace_1	chunk:09	feat:loop	for for_with_say loop say sub while
 ladder__rung07_subs_an_infix_multi_on_objects_is_entered_from_the_relop_boxes_in_value_and_condition_context	core	core	feed_op has if multi sub
-sub_for_loop_replace_1	chunk:09	feat:loop	for for_with_say loop say sigil_array sub
+sub_for_loop_replace_1	chunk:10	feat:loop	for for_with_say loop say sigil_array sub
 sub_for_range_replace_1	chunk:05	feat:for_with_say	for for_with_say range_op say sigil_array sub
 class_method_say_replace_15	chunk:03	feat:has	has method return say string_concat
 scrip_test_rk_seq_consumers_arr	chunk:06	feat:join	for for_with_say join say sigil_array sub
