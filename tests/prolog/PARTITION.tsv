@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=571 features=38 ubiquitous=3(write nl directive) distinctive=35 core=54 clusters=65 chunks=6 sizes=100,100,100,100,100,17
+# shape: entries=572 features=38 ubiquitous=3(write nl directive) distinctive=35 core=54 clusters=65 chunks=6 sizes=100,100,100,100,100,18
 entry	part	cluster	shells
 write_family_writeln_1	chunk:01	family:ladder	
 directive_32	chunk:06	family:rung22_write_canonical	
@@ -148,7 +148,7 @@ directive_73	chunk:05	family:rung29
 directive_77	chunk:05	family:rung29	
 directive_85	chunk:01	family:ladder	
 directive_86	chunk:01	family:ladder	
-directive_87	chunk:05	family:cut_in_a_disjunction_arm_after_a_guard_then_the_last_call	
+directive_87	chunk:06	family:cut_in_a_disjunction_arm_after_a_guard_then_the_last_call	
 evaluable_float_fractional_part_1	chunk:01	family:ladder	
 evaluable_float_integer_part_1	chunk:01	family:ladder	
 evaluable_pi_e_constants_1	chunk:01	family:ladder	
@@ -163,7 +163,7 @@ directive_1	chunk:06	family:hello
 directive_14	chunk:05	family:probe_plz	
 directive_33	chunk:04	family:rung23	
 directive_34	chunk:04	family:rung23	
-directive_37	chunk:04	family:rung23	
+directive_37	chunk:05	family:rung23	
 directive_48	chunk:05	family:rung24_string_io	
 directive_50	chunk:05	family:rung24_string_io	
 directive_59	chunk:05	family:rung25_term_string	
@@ -568,6 +568,7 @@ assertz_retract_ite_1	chunk:04	feat:assert_then_retract	assert_then_retract asse
 catch_assertz_abolish_1	core	core	abolish assertz catch unify
 catch_ite_directive_replace_2	core	core	catch if_then_else unify var
 catch_throw_directive_replace_1	core	core	catch catch_with_throw throw unify
+findall_cut_ite_replace_1	chunk:04	feat:findall	cut findall if_then_else unify
 retract_retract_clause_with_body_1	core	core	assert_then_retract assertz catch if_then_else retract
 findall_bagof_setof_2	core	core	bagof findall if_then_else setof unify
 termops_directive_1	core	core	arg copy_term functor succ unify univ

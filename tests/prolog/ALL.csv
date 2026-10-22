@@ -565,8 +565,9 @@ rank,entry,origin,family,kind,xfail,n_lines,heap_kb,stack_kb,compile_args,run_ar
 564,catch_assertz_abolish_1,rung15_abolish_abolish_existing,rung15_abolish_abolish_existing,block,0,13,131072,4096,,,0,0,0,0,0,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
 565,catch_ite_directive_replace_2,rung79_stream_permission__rung79_stream_permission,rung79_stream_permission,block,0,17,131072,4096,,,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,1,0,0,1,0,0,0
 566,catch_throw_directive_replace_1,rung31_bridge_catch_05_var_goal_throw__05_var_goal_throw,rung31_bridge_catch_05_var_goal_throw,block,0,17,131072,4096,,,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,1,0
-567,retract_retract_clause_with_body_1,ladder__rung10_retract_retract_clause_with_body,ladder,block,0,3,131072,4096,,,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,1
-568,findall_bagof_setof_2,rung58_findall_disj__rung58_findall_disj,rung58_findall_disj,block,0,6,131072,4096,,,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,1,0,0,1,0,0,0
-569,termops_directive_1,ladder__rung06_term_construct_sort,ladder,block,0,2,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0,0,0,1,1,0,1,0,0,0
-570,functor_ite_univ_1,rung09__rung09_builtins_builtins,rung09,block,0,18,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,1,0,1,0,0,0,1,0,0,0,0,0,1,0,1,1,0,1,0,0,0
-571,benchmark_meta_qsort,benchmark_prolog_meta_qsort__meta_qsort,benchmark_prolog_meta_qsort,block,0,30,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,1,0,0,0,1,0,0,0,1,0,1,1,1,0,1,1,0,0,0
+567,findall_cut_ite_replace_1,a_fresh_variable_passed_in_a_last_call_is_globalized_so_the_frame_is_released,a_fresh_variable_passed_in_a_last_call_is_globalized_so_the_frame_is_released,block,0,18,131072,4096,,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,1,0,1,0,0,1,0,0,0
+568,retract_retract_clause_with_body_1,ladder__rung10_retract_retract_clause_with_body,ladder,block,0,3,131072,4096,,,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,1
+569,findall_bagof_setof_2,rung58_findall_disj__rung58_findall_disj,rung58_findall_disj,block,0,6,131072,4096,,,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,1,0,0,1,0,0,0
+570,termops_directive_1,ladder__rung06_term_construct_sort,ladder,block,0,2,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0,0,0,1,1,0,1,0,0,0
+571,functor_ite_univ_1,rung09__rung09_builtins_builtins,rung09,block,0,18,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,1,0,1,0,0,0,1,0,0,0,0,0,1,0,1,1,0,1,0,0,0
+572,benchmark_meta_qsort,benchmark_prolog_meta_qsort__meta_qsort,benchmark_prolog_meta_qsort,block,0,30,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,1,0,0,0,1,0,0,0,1,0,1,1,1,0,1,1,0,0,0

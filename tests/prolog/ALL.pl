@@ -4727,21 +4727,40 @@ main :-
     G = risky(99),
     catch(G, _, write(caught)),
     nl.
-%---------------------------------------- 567 retract_retract_clause_with_body_1
+%------------------------------------------------- 567 findall_cut_ite_replace_1
+:- initialization(main).
+lv(0, _) :- !.
+lv(N, _) :- N1 is N - 1, lv(N1, _).
+lx(0, _) :- !.
+lx(N, _) :- N1 is N - 1, X = _, lx(N1, X).
+t2(0) :- !, write(same2), nl.
+t2(N) :- N1 is N - 1, t2b(F, F, N1).
+t2b(X, Y, N) :- ( X == Y -> true ; write(diff), nl ), X = Y, t2(N).
+p(X) :- q(Y), r(Y, X).
+q(_).
+r(Y, f(Y)).
+cp(X) :- member(M, [1, 2]), rr(_, X, M).
+rr(Y, f(Y, M), M) :- Y = M.
+fz :- freeze(X, (write(woke(X)), nl)), u(X, 3).
+u(X, 0) :- !, X = 1.
+u(X, N) :- N1 is N - 1, u(X, N1).
+main :- lv(1000000, _), write(lv), nl, lx(1000000, _), write(lx), nl, t2(100000),
+        p(A), A = f(Z), Z = 5, write(A), nl, findall(X, cp(X), L), write(L), nl, fz, write(done), nl.
+%---------------------------------------- 568 retract_retract_clause_with_body_1
 :- dynamic(u10a/1).
 :- initialization(main).
 main :- assertz((u10a(X) :- X > 100)), retract((u10a(_) :- _ > 100)), (catch(u10a(200),_,fail) -> write(yes) ; write(no)), nl.
-%----------------------------------------------------- 568 findall_bagof_setof_2
+%----------------------------------------------------- 569 findall_bagof_setof_2
 :- initialization(main).
 main :-
     findall(X, (X=1;X=2;X=3), La), write(La), nl,
     ( findall(Y, (Y=4;Y=5), Lb) -> write(Lb) ; write(none) ), nl,
     ( bagof(Z, (Z=6;Z=7;Z=8), Lc) -> write(Lc) ; write(none) ), nl,
     ( setof(W, (W=3;W=1;W=2;W=1), Ld) -> write(Ld) ; write(none) ), nl.
-%------------------------------------------------------- 569 termops_directive_1
+%------------------------------------------------------- 570 termops_directive_1
 :- initialization(main).
 main :- functor(f(a,b), Nm, Ar), arg(1, f(a,b), A1), T =.. [g, 1, 2], copy_term(h(X,X,_), Cp), numbervars(Cp, 0, End), succ(3, S), plus(2, 3, P), sort([c,a,b,a], Srt), write(Nm), nl, write(Ar), nl, write(A1), nl, write(T), nl, write(Cp), nl, write(End), nl, write(S), nl, write(P), nl, write(Srt), nl.
-%-------------------------------------------------------- 570 functor_ite_univ_1
+%-------------------------------------------------------- 571 functor_ite_univ_1
 % rung09_builtins — functor/3, arg/3, =../2, type tests
 % Expected output: foo 2  b  [foo,a,b]  yes yes no no
 :- initialization(main).
@@ -4760,7 +4779,7 @@ main :-
     ( integer(42)   -> write(yes) ; write(no) ), nl,
     ( atom(42)      -> write(yes) ; write(no) ), nl,
     ( integer(hello)-> write(yes) ; write(no) ), nl.
-%------------------------------------------------------ 571 benchmark_meta_qsort
+%------------------------------------------------------ 572 benchmark_meta_qsort
 % meta_qsort — a meta-interpreter running the Warren qsort benchmark (van Roy suite).
 % Bottleneck: clause/call indirection through interpret/1-2 (meta-level dispatch).
 % Source: SWI-Prolog/bench (meta_qsort, Ralph M. Haygood). Prints ok on success.
