@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1049 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=48 clusters=49 chunks=11 sizes=100,100,100,100,100,100,100,100,100,100,1
+# shape: entries=1050 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=48 clusters=49 chunks=11 sizes=100,100,100,100,100,100,100,100,100,100,2
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:07	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:07	family:ladder	
@@ -56,7 +56,7 @@ simple_program_8	chunk:01	family:smoke
 test_print_str	chunk:10	family:test_raku_print_str	
 test_say_int	chunk:10	family:test_raku_say_int	
 test_say_str	chunk:10	family:test_raku_say_str	
-test_use_revision	chunk:10	family:test_raku_use_revision	
+test_use_revision	chunk:11	family:test_raku_use_revision	
 ladder__rung00_hello_print_no_newline	chunk:07	family:ladder	
 ladder__rung02_arithmetic_negative_operands	chunk:07	family:ladder	
 simple_assign_44	chunk:01	family:smoke	
@@ -75,6 +75,7 @@ ladder__rung17_compare_ops_is_approx_tolerance	chunk:07	family:ladder
 ladder__rung01_variables_program_and_file_name_the_source_file_in_both_modes	chunk:07	family:ladder	
 ladder__rung03_strings_control_escapes	chunk:07	family:ladder	
 ladder__rung13_classes_new_on_a_builtin_type_int_num_str_array_list_hash_builds_its_value	chunk:07	family:ladder	
+ladder__rung02_arithmetic_a_rational_compares_and_calculates_with_a_numeric_string	chunk:07	family:ladder	
 hash_14	chunk:07	feat:sigil_hash	sigil_hash
 hash_3	chunk:07	feat:sigil_hash	sigil_hash
 ladder__rung03_strings_multi_concat	chunk:08	feat:string_concat	string_concat
@@ -416,7 +417,7 @@ ladder__rung19_block_methcall_topic	chunk:09	feat:map	map say
 ladder__rung20_paren_group_chained	chunk:09	feat:map	join map say
 ladder__rung20_paren_group_topic	chunk:09	feat:map	map say
 loop_1	chunk:09	feat:loop	loop
-loop_replace_1	chunk:09	feat:loop	loop
+loop_replace_1	chunk:10	feat:loop	loop
 loop_replace_2	chunk:10	feat:loop	loop
 say_14	chunk:03	feat:say	say
 say_18	chunk:03	feat:say	say
@@ -467,7 +468,7 @@ multi_2	chunk:08	feat:multi	multi return
 range_array_1	chunk:08	feat:range_op	range_op sigil_array
 range_array_11	chunk:08	feat:range_op	range_op sigil_array
 range_array_12	chunk:08	feat:range_op	range_op sigil_array
-range_array_2	chunk:08	feat:range_op	range_op sigil_array
+range_array_2	chunk:09	feat:range_op	range_op sigil_array
 range_array_3	chunk:09	feat:range_op	range_op sigil_array
 range_array_4	chunk:09	feat:range_op	range_op sigil_array
 range_array_5	chunk:09	feat:range_op	range_op sigil_array
@@ -867,7 +868,7 @@ multi_sub_say_2	chunk:08	feat:multi	multi say string_concat sub
 say_try_die_6	chunk:10	feat:die	die if say try
 sub_array_9	chunk:08	feat:sub_with_return	return sigil_array string_concat sub sub_with_return
 class_method_say_replace_31	chunk:07	feat:return	method return say
-class_method_say_replace_33	chunk:07	feat:return	method return say
+class_method_say_replace_33	chunk:08	feat:return	method return say
 class_method_say_replace_34	chunk:08	feat:return	method return say
 class_method_say_replace_47	chunk:08	feat:return	method return say
 class_method_say_replace_48	chunk:08	feat:return	method return say
