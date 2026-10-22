@@ -7046,7 +7046,7 @@ n00220_to_α:              sub              rsp, 32
 .Lto_vd_688_25:         test             eax, eax;                            jne   .Lto_α_688_996
                         add              rsp, 32
                         add              rsp, 16;                             jmp   n00221_line_mark_α
-.Lto_α_688_996:         push             rax                                  # gc_poll bb_to.cpp:35
+.Lto_α_688_996:         push             rax                                  # gc_poll bb_to.cpp:36
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -7063,7 +7063,7 @@ n00220_to_α:              sub              rsp, 32
 .Lto_vd_688_24:         test             eax, eax;                            jne   .Lto_α_688_997
                         add              rsp, 32
                         add              rsp, 16;                             jmp   n00221_line_mark_α
-.Lto_α_688_997:         push             rax                                  # gc_poll bb_to.cpp:35
+.Lto_α_688_997:         push             rax                                  # gc_poll bb_to.cpp:36
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -7076,7 +7076,7 @@ n00220_to_α:              sub              rsp, 32
                         call             core_icn_to_int_check@PLT
 .Lgcsite_generate_35:   mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rbp + 80], rax
-                        push             rax                                  # gc_poll bb_to.cpp:106
+                        push             rax                                  # gc_poll bb_to.cpp:104
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -7096,7 +7096,7 @@ n00220_to_α:              sub              rsp, 32
                         add              rsp, 16;                             jmp   n00221_line_mark_α
 .Lto_α_688_998:         mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:126
+                        push             rax                                  # gc_poll bb_to.cpp:124
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -7853,7 +7853,7 @@ n00246_iterate_α:         sub              rsp, 16
                         mov              qword ptr [rsp + 8], rdx
                         cmp              al, 104;                             jne   .Literate_α_761_999
                         add              rsp, 16;                             jmp   n00247_line_mark_α
-.Literate_α_761_999:    push             rax                                  # gc_poll bb_iterate.cpp:32
+.Literate_α_761_999:    push             rax                                  # gc_poll bb_iterate.cpp:34
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -10585,7 +10585,7 @@ n00351_iterate_α:         sub              rsp, 16
                         mov              qword ptr [rsp + 8], rdx
                         cmp              al, 104;                             jne   .Literate_α_1027_999
                         add              rsp, 16;                             jmp   n00352_line_mark_α
-.Literate_α_1027_999:   push             rax                                  # gc_poll bb_iterate.cpp:32
+.Literate_α_1027_999:   push             rax                                  # gc_poll bb_iterate.cpp:34
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -12941,7 +12941,7 @@ n00463_iterate_α:        sub              rsp, 16
                         mov              qword ptr [rsp + 8], rdx
                         cmp              al, 104;                             jne   .Literate_α_1320_999
                         add              rsp, 16;                             jmp   n00462_var_β
-.Literate_α_1320_999:   push             rax                                  # gc_poll bb_iterate.cpp:32
+.Literate_α_1320_999:   push             rax                                  # gc_poll bb_iterate.cpp:34
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -13386,9 +13386,9 @@ n00487_assign_α:         mov              rax, qword ptr [rsp + 0]             
                         .type            n00488_conjunction_bx, @function
 n00488_conjunction_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n00488_conjunction_α:    mov              rax, qword ptr [rbp + 1424]
+n00488_conjunction_α:    mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [rbp + 1408], rax
-                        mov              rax, qword ptr [rbp + 1432]
+                        mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [rbp + 1416], rax
                         mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [rbp + 1376], rax
@@ -15907,9 +15907,9 @@ n00573_assign_α:         mov              rax, qword ptr [rsp + 0]             
                         .type            n00574_conjunction_bx, @function
 n00574_conjunction_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n00574_conjunction_α:    mov              rax, qword ptr [rbp + 848]
+n00574_conjunction_α:    mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [rbp + 832], rax
-                        mov              rax, qword ptr [rbp + 856]
+                        mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [rbp + 840], rax
                         mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [rbp + 800], rax
@@ -25825,7 +25825,7 @@ n00953_iterate_α:        sub              rsp, 16
                         cmp              al, 104;                             jne   .Literate_α_2576_999
                         add              rsp, 16
                         add              rsp, -64;                            jmp   n00954_unmark_α
-.Literate_α_2576_999:   push             rax                                  # gc_poll bb_iterate.cpp:32
+.Literate_α_2576_999:   push             rax                                  # gc_poll bb_iterate.cpp:34
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax

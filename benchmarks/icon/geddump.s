@@ -6800,9 +6800,9 @@ n00224_assign_α:          mov              rax, qword ptr [rsp + 0]            
                         .type            n00225_conjunction_bx, @function
 n00225_conjunction_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n00225_conjunction_α:     mov              rax, qword ptr [rbp + 1312]
+n00225_conjunction_α:     mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [rbp + 1296], rax
-                        mov              rax, qword ptr [rbp + 1320]
+                        mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [rbp + 1304], rax
                         mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [rbp + 1264], rax
@@ -9532,7 +9532,7 @@ n00309_iterate_α:         sub              rsp, 16
                         cmp              al, 104;                             jne   .Literate_α_923_999
                         add              rsp, 16
                         add              rsp, 16;                             jmp   .Ldisjunction_ω_903_af
-.Literate_α_923_999:    push             rax                                  # gc_poll bb_iterate.cpp:32
+.Literate_α_923_999:    push             rax                                  # gc_poll bb_iterate.cpp:34
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -9767,33 +9767,33 @@ gedwalk_ω:
                         .quad            11529514111083741480
                         .quad            .Lgccode_gedwalk_5
                         .quad            .Lgcsite_gedwalk_4-.Lgccode_gedwalk_5
-                        .quad            68719476737
+                        .quad            1236950712321
                         .quad            .Lgcsite_gedwalk_3-.Lgccode_gedwalk_5
-                        .quad            68719476737
+                        .quad            1236950712321
                         .quad            .Lgcsite_gedwalk_2-.Lgccode_gedwalk_5
-                        .quad            206158430209
+                        .quad            1236950712321
                         .quad            .Lgcsite_gedwalk_1-.Lgccode_gedwalk_5
-                        .quad            68719476737
+                        .quad            1236950712321
                         .quad            .Lgcsite_gedwalk_0-.Lgccode_gedwalk_5
-                        .quad            206158430209
+                        .quad            1236950712321
                         .quad            .Lgcsite_gedwalk_6-.Lgccode_gedwalk_5
-                        .quad            137438953473
+                        .quad            1236950712321
                         .quad            .Lgcsite_gedwalk_5-.Lgccode_gedwalk_5
-                        .quad            137438953473
+                        .quad            1236950712321
                         .quad            .Lgcsite_gedwalk_11-.Lgccode_gedwalk_5
-                        .quad            377957122050
+                        .quad            1236950712322
                         .quad            .Lgcsite_gedwalk_10-.Lgccode_gedwalk_5
-                        .quad            377957122049
+                        .quad            1236950712321
                         .quad            .Lgcsite_gedwalk_9-.Lgccode_gedwalk_5
-                        .quad            377957122050
+                        .quad            1236950712322
                         .quad            .Lgcsite_gedwalk_8-.Lgccode_gedwalk_5
-                        .quad            274877906945
+                        .quad            1236950712321
                         .quad            .Lgcsite_gedwalk_7-.Lgccode_gedwalk_5
-                        .quad            206158430209
+                        .quad            1236950712321
                         .quad            .Lgcsite_gedwalk_13-.Lgccode_gedwalk_5
-                        .quad            274877906945
+                        .quad            1236950712321
                         .quad            .Lgcsite_gedwalk_12-.Lgccode_gedwalk_5
-                        .quad            274877906945
+                        .quad            1236950712321
                         .popsection
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgccode_gedsub_6:
@@ -10027,7 +10027,7 @@ n00321_iterate_α:         sub              rsp, 16
                         cmp              al, 104;                             jne   .Literate_α_988_999
                         add              rsp, 16
                         add              rsp, 16;                             jmp   gedsub_ω
-.Literate_α_988_999:    push             rax                                  # gc_poll bb_iterate.cpp:32
+.Literate_α_988_999:    push             rax                                  # gc_poll bb_iterate.cpp:34
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -11046,129 +11046,129 @@ gedsub_ω:
                         .quad            11529514111083742040
                         .quad            .Lgccode_gedsub_6
                         .quad            .Lgcsite_gedsub_4-.Lgccode_gedsub_6
-                        .quad            68719476737
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_3-.Lgccode_gedsub_6
-                        .quad            68719476737
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_2-.Lgccode_gedsub_6
-                        .quad            206158430209
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_1-.Lgccode_gedsub_6
-                        .quad            68719476737
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_0-.Lgccode_gedsub_6
-                        .quad            206158430209
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_6-.Lgccode_gedsub_6
-                        .quad            137438953473
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_5-.Lgccode_gedsub_6
-                        .quad            137438953473
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_11-.Lgccode_gedsub_6
-                        .quad            206158430209
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_10-.Lgccode_gedsub_6
-                        .quad            206158430209
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_9-.Lgccode_gedsub_6
-                        .quad            343597383681
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_8-.Lgccode_gedsub_6
-                        .quad            206158430209
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_7-.Lgccode_gedsub_6
-                        .quad            343597383681
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_17-.Lgccode_gedsub_6
-                        .quad            274877906945
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_16-.Lgccode_gedsub_6
-                        .quad            274877906945
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_15-.Lgccode_gedsub_6
-                        .quad            412316860417
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_14-.Lgccode_gedsub_6
-                        .quad            274877906945
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_13-.Lgccode_gedsub_6
-                        .quad            274877906945
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_12-.Lgccode_gedsub_6
-                        .quad            274877906945
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_20-.Lgccode_gedsub_6
-                        .quad            343597383681
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_19-.Lgccode_gedsub_6
-                        .quad            343597383681
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_18-.Lgccode_gedsub_6
-                        .quad            343597383681
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_26-.Lgccode_gedsub_6
-                        .quad            481036337153
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_25-.Lgccode_gedsub_6
-                        .quad            481036337153
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_24-.Lgccode_gedsub_6
-                        .quad            618475290625
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_23-.Lgccode_gedsub_6
-                        .quad            481036337153
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_22-.Lgccode_gedsub_6
-                        .quad            481036337153
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_21-.Lgccode_gedsub_6
-                        .quad            481036337153
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_28-.Lgccode_gedsub_6
-                        .quad            755914244097
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_27-.Lgccode_gedsub_6
-                        .quad            755914244097
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_30-.Lgccode_gedsub_6
-                        .quad            824633720833
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_29-.Lgccode_gedsub_6
-                        .quad            824633720833
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_31-.Lgccode_gedsub_6
-                        .quad            1030792151041
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_32-.Lgccode_gedsub_6
-                        .quad            1168231104513
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_55-.Lgccode_gedsub_6
-                        .quad            962072674305
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_54-.Lgccode_gedsub_6
-                        .quad            962072674305
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_53-.Lgccode_gedsub_6
-                        .quad            962072674305
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_52-.Lgccode_gedsub_6
-                        .quad            1133871366146
+                        .quad            3642132398082
                         .quad            .Lgcsite_gedsub_51-.Lgccode_gedsub_6
-                        .quad            1133871366145
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_50-.Lgccode_gedsub_6
-                        .quad            1133871366145
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_49-.Lgccode_gedsub_6
-                        .quad            1133871693825
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_48-.Lgccode_gedsub_6
-                        .quad            1133871693825
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_47-.Lgccode_gedsub_6
-                        .quad            1133871366146
+                        .quad            3642132398082
                         .quad            .Lgcsite_gedsub_46-.Lgccode_gedsub_6
-                        .quad            1133871693825
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_45-.Lgccode_gedsub_6
-                        .quad            1133871693825
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_44-.Lgccode_gedsub_6
-                        .quad            1133871366146
+                        .quad            3642132398082
                         .quad            .Lgcsite_gedsub_43-.Lgccode_gedsub_6
-                        .quad            1133871693825
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_42-.Lgccode_gedsub_6
-                        .quad            1133871693825
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_41-.Lgccode_gedsub_6
-                        .quad            962072674305
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_40-.Lgccode_gedsub_6
-                        .quad            1030792478721
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_39-.Lgccode_gedsub_6
-                        .quad            137439281153
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_38-.Lgccode_gedsub_6
-                        .quad            962072674305
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_37-.Lgccode_gedsub_6
-                        .quad            962072674305
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_36-.Lgccode_gedsub_6
-                        .quad            962072674305
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_35-.Lgccode_gedsub_6
-                        .quad            962072674305
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_34-.Lgccode_gedsub_6
-                        .quad            1030792151041
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_33-.Lgccode_gedsub_6
-                        .quad            962072674305
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_57-.Lgccode_gedsub_6
-                        .quad            1030792151041
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_56-.Lgccode_gedsub_6
-                        .quad            1030792151041
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_59-.Lgccode_gedsub_6
-                        .quad            274877906945
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_58-.Lgccode_gedsub_6
-                        .quad            274877906945
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_60-.Lgccode_gedsub_6
-                        .quad            412316860417
+                        .quad            3642132398081
                         .quad            .Lgcsite_gedsub_61-.Lgccode_gedsub_6
-                        .quad            549755813889
+                        .quad            3642132398081
                         .popsection
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgccode_gedval_7:
@@ -11667,65 +11667,65 @@ gedval_ω:
                         .quad            11529514111083741448
                         .quad            .Lgccode_gedval_7
                         .quad            .Lgcsite_gedval_22-.Lgccode_gedval_7
-                        .quad            137438953473
+                        .quad            1099511758849
                         .quad            .Lgcsite_gedval_21-.Lgccode_gedval_7
-                        .quad            137438953473
+                        .quad            1099511758849
                         .quad            .Lgcsite_gedval_20-.Lgccode_gedval_7
-                        .quad            137438953473
+                        .quad            1099511758849
                         .quad            .Lgcsite_gedval_19-.Lgccode_gedval_7
-                        .quad            309237645314
+                        .quad            1099511758850
                         .quad            .Lgcsite_gedval_18-.Lgccode_gedval_7
-                        .quad            309237645313
+                        .quad            1099511758849
                         .quad            .Lgcsite_gedval_17-.Lgccode_gedval_7
-                        .quad            309237645313
+                        .quad            1099511758849
                         .quad            .Lgcsite_gedval_16-.Lgccode_gedval_7
-                        .quad            309237972993
+                        .quad            1099511758849
                         .quad            .Lgcsite_gedval_15-.Lgccode_gedval_7
-                        .quad            309237972993
+                        .quad            1099511758849
                         .quad            .Lgcsite_gedval_14-.Lgccode_gedval_7
-                        .quad            309237645314
+                        .quad            1099511758850
                         .quad            .Lgcsite_gedval_13-.Lgccode_gedval_7
-                        .quad            309237972993
+                        .quad            1099511758849
                         .quad            .Lgcsite_gedval_12-.Lgccode_gedval_7
-                        .quad            309237972993
+                        .quad            1099511758849
                         .quad            .Lgcsite_gedval_11-.Lgccode_gedval_7
-                        .quad            309237645314
+                        .quad            1099511758850
                         .quad            .Lgcsite_gedval_10-.Lgccode_gedval_7
-                        .quad            309237972993
+                        .quad            1099511758849
                         .quad            .Lgcsite_gedval_9-.Lgccode_gedval_7
-                        .quad            309237972993
+                        .quad            1099511758849
                         .quad            .Lgcsite_gedval_8-.Lgccode_gedval_7
-                        .quad            137438953473
+                        .quad            1099511758849
                         .quad            .Lgcsite_gedval_7-.Lgccode_gedval_7
-                        .quad            206158757889
+                        .quad            1099511758849
                         .quad            .Lgcsite_gedval_6-.Lgccode_gedval_7
-                        .quad            327681
+                        .quad            1099511758849
                         .quad            .Lgcsite_gedval_5-.Lgccode_gedval_7
-                        .quad            137438953473
+                        .quad            1099511758849
                         .quad            .Lgcsite_gedval_4-.Lgccode_gedval_7
-                        .quad            137438953473
+                        .quad            1099511758849
                         .quad            .Lgcsite_gedval_3-.Lgccode_gedval_7
-                        .quad            137438953473
+                        .quad            1099511758849
                         .quad            .Lgcsite_gedval_2-.Lgccode_gedval_7
-                        .quad            137438953473
+                        .quad            1099511758849
                         .quad            .Lgcsite_gedval_1-.Lgccode_gedval_7
-                        .quad            206158430209
+                        .quad            1099511758849
                         .quad            .Lgcsite_gedval_0-.Lgccode_gedval_7
-                        .quad            137438953473
+                        .quad            1099511758849
                         .quad            .Lgcsite_gedval_24-.Lgccode_gedval_7
-                        .quad            206158430209
+                        .quad            1099511758849
                         .quad            .Lgcsite_gedval_23-.Lgccode_gedval_7
-                        .quad            206158430209
+                        .quad            1099511758849
                         .quad            .Lgcsite_gedval_29-.Lgccode_gedval_7
-                        .quad            274877906945
+                        .quad            1099511758849
                         .quad            .Lgcsite_gedval_28-.Lgccode_gedval_7
-                        .quad            274877906945
+                        .quad            1099511758849
                         .quad            .Lgcsite_gedval_27-.Lgccode_gedval_7
-                        .quad            412316860417
+                        .quad            1099511758849
                         .quad            .Lgcsite_gedval_26-.Lgccode_gedval_7
-                        .quad            274877906945
+                        .quad            1099511758849
                         .quad            .Lgcsite_gedval_25-.Lgccode_gedval_7
-                        .quad            412316860417
+                        .quad            1099511758849
                         .popsection
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgccode_gedref_8:
@@ -12241,65 +12241,65 @@ gedref_ω:
                         .quad            11529514111083741464
                         .quad            .Lgccode_gedref_8
                         .quad            .Lgcsite_gedref_22-.Lgccode_gedref_8
-                        .quad            137438953473
+                        .quad            1168231235585
                         .quad            .Lgcsite_gedref_21-.Lgccode_gedref_8
-                        .quad            137438953473
+                        .quad            1168231235585
                         .quad            .Lgcsite_gedref_20-.Lgccode_gedref_8
-                        .quad            137438953473
+                        .quad            1168231235585
                         .quad            .Lgcsite_gedref_19-.Lgccode_gedref_8
-                        .quad            309237645314
+                        .quad            1168231235586
                         .quad            .Lgcsite_gedref_18-.Lgccode_gedref_8
-                        .quad            309237645313
+                        .quad            1168231235585
                         .quad            .Lgcsite_gedref_17-.Lgccode_gedref_8
-                        .quad            309237645313
+                        .quad            1168231235585
                         .quad            .Lgcsite_gedref_16-.Lgccode_gedref_8
-                        .quad            309237972993
+                        .quad            1168231235585
                         .quad            .Lgcsite_gedref_15-.Lgccode_gedref_8
-                        .quad            309237972993
+                        .quad            1168231235585
                         .quad            .Lgcsite_gedref_14-.Lgccode_gedref_8
-                        .quad            309237645314
+                        .quad            1168231235586
                         .quad            .Lgcsite_gedref_13-.Lgccode_gedref_8
-                        .quad            309237972993
+                        .quad            1168231235585
                         .quad            .Lgcsite_gedref_12-.Lgccode_gedref_8
-                        .quad            309237972993
+                        .quad            1168231235585
                         .quad            .Lgcsite_gedref_11-.Lgccode_gedref_8
-                        .quad            309237645314
+                        .quad            1168231235586
                         .quad            .Lgcsite_gedref_10-.Lgccode_gedref_8
-                        .quad            309237972993
+                        .quad            1168231235585
                         .quad            .Lgcsite_gedref_9-.Lgccode_gedref_8
-                        .quad            309237972993
+                        .quad            1168231235585
                         .quad            .Lgcsite_gedref_8-.Lgccode_gedref_8
-                        .quad            137438953473
+                        .quad            1168231235585
                         .quad            .Lgcsite_gedref_7-.Lgccode_gedref_8
-                        .quad            206158757889
+                        .quad            1168231235585
                         .quad            .Lgcsite_gedref_6-.Lgccode_gedref_8
-                        .quad            327681
+                        .quad            1168231235585
                         .quad            .Lgcsite_gedref_5-.Lgccode_gedref_8
-                        .quad            137438953473
+                        .quad            1168231235585
                         .quad            .Lgcsite_gedref_4-.Lgccode_gedref_8
-                        .quad            137438953473
+                        .quad            1168231235585
                         .quad            .Lgcsite_gedref_3-.Lgccode_gedref_8
-                        .quad            137438953473
+                        .quad            1168231235585
                         .quad            .Lgcsite_gedref_2-.Lgccode_gedref_8
-                        .quad            137438953473
+                        .quad            1168231235585
                         .quad            .Lgcsite_gedref_1-.Lgccode_gedref_8
-                        .quad            206158430209
+                        .quad            1168231235585
                         .quad            .Lgcsite_gedref_0-.Lgccode_gedref_8
-                        .quad            137438953473
+                        .quad            1168231235585
                         .quad            .Lgcsite_gedref_24-.Lgccode_gedref_8
-                        .quad            206158430209
+                        .quad            1168231235585
                         .quad            .Lgcsite_gedref_23-.Lgccode_gedref_8
-                        .quad            206158430209
+                        .quad            1168231235585
                         .quad            .Lgcsite_gedref_29-.Lgccode_gedref_8
-                        .quad            274877906945
+                        .quad            1168231235585
                         .quad            .Lgcsite_gedref_28-.Lgccode_gedref_8
-                        .quad            274877906945
+                        .quad            1168231235585
                         .quad            .Lgcsite_gedref_27-.Lgccode_gedref_8
-                        .quad            412316860417
+                        .quad            1168231235585
                         .quad            .Lgcsite_gedref_26-.Lgccode_gedref_8
-                        .quad            274877906945
+                        .quad            1168231235585
                         .quad            .Lgcsite_gedref_25-.Lgccode_gedref_8
-                        .quad            412316860417
+                        .quad            1168231235585
                         .popsection
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgccode_gedfnf_9:
@@ -22791,7 +22791,7 @@ n00721_iterate_α:        sub              rsp, 16
                         cmp              al, 104;                             jne   .Literate_α_2280_999
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n00720_line_mark_α
-.Literate_α_2280_999:   push             rax                                  # gc_poll bb_iterate.cpp:32
+.Literate_α_2280_999:   push             rax                                  # gc_poll bb_iterate.cpp:34
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -23536,7 +23536,7 @@ n00756_iterate_α:        sub              rsp, 16
                         mov              qword ptr [rsp + 8], rdx
                         cmp              al, 104;                             jne   .Literate_α_2339_999
                         add              rsp, 16;                             jmp   n00757_line_mark_α
-.Literate_α_2339_999:   push             rax                                  # gc_poll bb_iterate.cpp:32
+.Literate_α_2339_999:   push             rax                                  # gc_poll bb_iterate.cpp:34
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -23791,7 +23791,7 @@ n00766_iterate_α:        sub              rsp, 16
                         mov              qword ptr [rsp + 8], rdx
                         cmp              al, 104;                             jne   .Literate_α_2354_999
                         add              rsp, 16;                             jmp   main_ω
-.Literate_α_2354_999:   push             rax                                  # gc_poll bb_iterate.cpp:32
+.Literate_α_2354_999:   push             rax                                  # gc_poll bb_iterate.cpp:34
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
