@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1059 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=49 clusters=49 chunks=11 sizes=100,100,100,100,100,100,100,100,100,100,10
+# shape: entries=1060 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=50 clusters=49 chunks=11 sizes=100,100,100,100,100,100,100,100,100,100,10
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:07	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:07	family:ladder	
@@ -1023,6 +1023,7 @@ class_multi_sub_replace_6	chunk:08	feat:multi	has multi return say sub sub_with_
 class_multi_sub_replace_7	chunk:08	feat:multi	has multi return say sub sub_with_return
 ladder__rung09_regex_match_methods_agree_with_rakudo	core	core	join map regex regex_with_smartmatch smartmatch string_concat token
 benchmark_rc-perfect-shuffle	chunk:10	feat:loop	if loop range_op return sigil_array sub sub_with_return
+ladder__rung12_exceptions_a_call_that_resolves_to_no_routine_raises_a_catchable_exception_inside_try_and_eval	core	core	for for_with_say regex smartmatch string_concat sub try
 scrip_test_rk_array_literal	chunk:07	feat:join	for for_with_say join range_op say sigil_array sub
 sub_smartmatch_say_replace_1	chunk:09	feat:smartmatch	if range_op regex say smartmatch string_concat sub
 ladder__rung04_arrays_pop_and_shift_inside_an_expression_still_remove_the_element	chunk:05	feat:for_with_say	for for_with_say range_op say sigil_array string_concat sub
