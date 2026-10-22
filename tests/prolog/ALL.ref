@@ -1431,11 +1431,14 @@ after
 [1,2,3]
 %---------------------------------------- 498 clause_reflect_fails_on_no_match_1
 no
-%---------------------------------------- 499 repeat_repeat_bounded_by_counter_1
+%--------------------------------------------------- 499 findall_catch_between_1
+caught(resource_error(stack))
+after
+%---------------------------------------- 500 repeat_repeat_bounded_by_counter_1
 3
-%--------------------------------------------------- 500 catch_throw_directive_4
+%--------------------------------------------------- 501 catch_throw_directive_4
 caught error(type_error(integer,foo),context)
-%------------------------------------------- 501 write_canonical_writeq_format_1
+%------------------------------------------- 502 write_canonical_writeq_format_1
 a
 'B c'
 [1,2]
@@ -1444,60 +1447,60 @@ done1
    x
 p-q
 back
-%---------------------------------------------------------- 502 catch_cut_list_1
+%---------------------------------------------------------- 503 catch_cut_list_1
 caught(resource_error(stack))
 after
-%--------------------------------------------------- 503 catch_throw_directive_2
+%--------------------------------------------------- 504 catch_throw_directive_2
 outer mine
-%---------------------------------------------------- 504 forall_ite_directive_1
+%---------------------------------------------------- 505 forall_ite_directive_1
 all_even
 not_all2
 vacuous_true
-%------------------------------------------------ 505 last_call_nreverse_large_1
+%------------------------------------------------ 506 last_call_nreverse_large_1
 [30,29,28,27,26,25,24,23,22,21,20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1]
-%------------------------------------------------ 506 op_ite_directive_replace_2
+%------------------------------------------------ 507 op_ite_directive_replace_2
 yes
 yes
 yes
-%----------------------------------------------- 507 assertz_retract_directive_1
+%----------------------------------------------- 508 assertz_retract_directive_1
 25
-%----------------------------------------------- 508 findall_directive_replace_1
+%----------------------------------------------- 509 findall_directive_replace_1
 []
-%-------------------------------------------------- 509 call_directive_replace_3
+%-------------------------------------------------- 510 call_directive_replace_3
 4
-%--------------------------------------------------- 510 catch_assertz_abolish_2
+%--------------------------------------------------- 511 catch_assertz_abolish_2
 existence_error(procedure,dog/1)
-%--------------------------------------------- 511 catch_ite_directive_replace_1
+%--------------------------------------------- 512 catch_ite_directive_replace_1
 failed
-%------------------------------------------------------------- 512 catch_throw_1
+%------------------------------------------------------------- 513 catch_throw_1
 42 hello
-%----------------------------------------------- 513 findall_directive_replace_3
+%----------------------------------------------- 514 findall_directive_replace_3
 [2,4,6]
-%----------------------------------------------- 514 findall_directive_replace_5
+%----------------------------------------------- 515 findall_directive_replace_5
 [20,30]
-%----------------------------------------------------------- 515 op_ite_format_1
+%----------------------------------------------------------- 516 op_ite_format_1
 600 xfx
 300 fy
 yes
-%------------------------------------------------- 516 writeq_format_directive_2
+%------------------------------------------------- 517 writeq_format_directive_2
 'quoted atom'
 x=42
 foo(bar)
 done
-%---------------------------------------------- 517 call_ite_directive_replace_1
+%---------------------------------------------- 518 call_ite_directive_replace_1
 succeeded
-%----------------------------------------------- 518 findall_directive_replace_2
+%----------------------------------------------- 519 findall_directive_replace_2
 [a,b,c]
-%------------------------------------------------------------- 519 catch_throw_2
+%------------------------------------------------------------- 520 catch_throw_2
 inner_caught
-%------------------------------------------------------- 520 cut_ite_directive_2
+%------------------------------------------------------- 521 cut_ite_directive_2
 yes
 no
-%----------------------------------------------- 521 findall_directive_replace_4
+%----------------------------------------------- 522 findall_directive_replace_4
 [red,green,blue]
-%----------------------------------------------- 522 ite_naf_directive_replace_1
+%----------------------------------------------- 523 ite_naf_directive_replace_1
 succeeded
-%------------------------------------------------------------- 523 ite_replace_2
+%------------------------------------------------------------- 524 ite_replace_2
 t1_differ
 t2_eq
 t3_unify
@@ -1506,23 +1509,23 @@ t5_differ
 t6_unbound
 t7_differ
 done
-%----------------------------------------- 524 catch_functor_directive_replace_1
+%----------------------------------------- 525 catch_functor_directive_replace_1
 42
-%---------------------------------------------------- 525 dcg_ite_list_replace_1
+%---------------------------------------------------- 526 dcg_ite_list_replace_1
 123
-%----------------------------------------------------------- 526 op_ite_format_2
+%----------------------------------------------------------- 527 op_ite_format_2
 700 xfx
 200 xfy
 500 fy
 400 yf
 yes
 no
-%------------------------------------------------------- 527 catch_ite_replace_1
+%------------------------------------------------------- 528 catch_ite_replace_1
 perm(output,stream)
 
 nl1_ok
 w2okw2_after
-%----------------------------------------------------------------- 528 cut_ite_1
+%----------------------------------------------------------------- 529 cut_ite_1
 compound_yes
 var_yes
 list_yes
@@ -1532,15 +1535,15 @@ shared_yes
 oper_yes
 cyclic(no)
 done
-%----------------------------------------------- 529 ite_naf_directive_replace_2
+%----------------------------------------------- 530 ite_naf_directive_replace_2
 failed
-%-------------------------------------------------------- 530 benchmark_queens_8
+%-------------------------------------------------------- 531 benchmark_queens_8
 [4,2,7,3,6,8,5,1]
-%-------------------------------------------------------------- 531 benchmark_mu
+%-------------------------------------------------------------- 532 benchmark_mu
 ok
-%---------------------------------------------------- 532 dcg_ite_list_replace_2
+%---------------------------------------------------- 533 dcg_ite_list_replace_2
 9
-%---------------------------------------------------- 533 ite_writeq_directive_1
+%---------------------------------------------------- 534 ite_writeq_directive_1
 [102,111,111]
 [49,50,51]
 [45,52,50]
@@ -1551,11 +1554,11 @@ hello
 ''
 roundtrip_ok
 done
-%------------------------------------------------------ 534 scrip_test_wordcount
+%------------------------------------------------------ 535 scrip_test_wordcount
 9
-%---------------------------------------------------------- 535 benchmark_queens
+%---------------------------------------------------------- 536 benchmark_queens
 [10,8,11,4,7,16,6,15,12,14,9,13,2,5,3,1]
-%---------------------------------------------- 536 scrip_test_coverage_net_gaps
+%---------------------------------------------- 537 scrip_test_coverage_net_gaps
 13
 7
 30
@@ -1566,7 +1569,7 @@ hello
 a
 b
 c
-%---------------------------------------------------- 537 test_coverage_net_gaps
+%---------------------------------------------------- 538 test_coverage_net_gaps
 13
 7
 30
@@ -1577,7 +1580,7 @@ hello
 a
 b
 c
-%-------------------------------------------- 538 test_rung10_programs_puzzle_20
+%-------------------------------------------- 539 test_rung10_programs_puzzle_20
 adams=historian reads=davis
 brown=playwright reads=adams
 clark=poet reads=brown
@@ -1594,9 +1597,9 @@ adams=playwright reads=davis
 brown=poet reads=adams
 clark=novelist reads=brown
 davis=historian reads=clark
-%-------------------------------------------- 539 test_rung10_programs_puzzle_17
+%-------------------------------------------- 540 test_rung10_programs_puzzle_17
 Ed=dorothy Frank=carol George=alice Harry=betty
-%---------------------------------------------- 540 scrip_test_coverage_pl_nodes
+%---------------------------------------------- 541 scrip_test_coverage_pl_nodes
 start
 7
 7
@@ -1611,7 +1614,7 @@ red
 green
 blue
 done
-%---------------------------------------------------- 541 test_coverage_pl_nodes
+%---------------------------------------------------- 542 test_coverage_pl_nodes
 start
 7
 7
@@ -1626,61 +1629,61 @@ red
 green
 blue
 done
-%-------------------------------------------- 542 test_rung10_programs_puzzle_16
+%-------------------------------------------- 543 test_rung10_programs_puzzle_16
 Brakeman=art Conductor=pete Engineer=tom Fireman=john
-%-------------------------------------------- 543 test_rung10_programs_puzzle_18
+%-------------------------------------------- 544 test_rung10_programs_puzzle_18
 Day=wednesday Abbott=hardware Briggs=bank Culver=grocery Denny=shoe
-%-------------------------------------------- 544 test_rung10_programs_puzzle_15
+%-------------------------------------------- 545 test_rung10_programs_puzzle_15
 Vernon=doctor sec=coulter Wilson=architect sec=ainsley Yates=lawyer sec=barnette
-%------------------------------------------- 545 if_then_else_condition_throws_1
+%------------------------------------------- 546 if_then_else_condition_throws_1
 propagated
-%------------------------------------------------------ 546 typetest_directive_1
+%------------------------------------------------------ 547 typetest_directive_1
 <
 ok
-%----------------------------------------- 547 abolish_abolish_removes_clauses_1
+%----------------------------------------- 548 abolish_abolish_removes_clauses_1
 gone
-%----------------------------------------------------- 548 assertz_clause_call_1
+%----------------------------------------------------- 549 assertz_clause_call_1
 hello
-%----------------------------------------------- 549 assertz_retract_directive_2
+%----------------------------------------------- 550 assertz_retract_directive_2
 [2]
-%------------------------------------------------------- 550 retract_backtrack_1
+%------------------------------------------------------- 551 retract_backtrack_1
 []
-%----------------------------------------------- 551 retract_erase_first_match_1
+%----------------------------------------------- 552 retract_erase_first_match_1
 [2]
-%----------------------------------------------- 552 retract_fails_on_no_match_1
+%----------------------------------------------- 553 retract_fails_on_no_match_1
 no
-%----------------------------------- 553 retract_resatisfiable_on_backtracking_1
+%----------------------------------- 554 retract_resatisfiable_on_backtracking_1
 []
-%-------------------------------------------- 554 retract_retract_then_findall_1
+%-------------------------------------------- 555 retract_retract_then_findall_1
 [1,3]
-%--------------------------------------------------------- 555 between_ite_naf_1
+%--------------------------------------------------------- 556 between_ite_naf_1
 found(-3)
 even(2)
 even(4)
 n(1)
 n(3)
 n(4)
-%---------------------------------------------- 556 copy_term_ite_list_replace_1
+%---------------------------------------------- 557 copy_term_ite_list_replace_1
 shared
 independent
 [A|B]
-%----------------------------------------------------- 557 findall_bagof_setof_1
+%----------------------------------------------------- 558 findall_bagof_setof_1
 no_setof
 no_bagof
 []
 [a-1,a-9,b-2,b-1]
-%----------------------------------------------------------- 558 ite_univ_list_1
+%----------------------------------------------------------- 559 ite_univ_list_1
 yes
 no
 yes
 yes
 no
 1
-%---------------------------------------------------- 559 forall_catch_assertz_1
+%---------------------------------------------------- 560 forall_catch_assertz_1
 existence_error(procedure,cat/1)
 tweety
 polly
-%------------------------------------------------------- 560 ite_writeq_format_1
+%------------------------------------------------------- 561 ite_writeq_format_1
 'foo(x,y)'
 'a-b'
 foo(1,2)
@@ -1691,11 +1694,11 @@ abc
 'x!y'
 goal_failed
 done
-%----------------------------------------------------- 561 assertz_retract_ite_1
+%----------------------------------------------------- 562 assertz_retract_ite_1
 empty
-%--------------------------------------------------- 562 catch_assertz_abolish_1
+%--------------------------------------------------- 563 catch_assertz_abolish_1
 existence_error(procedure,fact/1)
-%--------------------------------------------- 563 catch_ite_directive_replace_2
+%--------------------------------------------- 564 catch_ite_directive_replace_2
 getchar_on_write=perm(input,stream)
 getcode_on_write=perm(input,stream)
 peekchar_on_write=perm(input,stream)
@@ -1705,16 +1708,16 @@ putchar_on_read=perm(output,stream)
 putcode_on_read=perm(output,stream)
 putbyte_on_read=perm(output,stream)
 done
-%------------------------------------------- 564 catch_throw_directive_replace_1
+%------------------------------------------- 565 catch_throw_directive_replace_1
 caught
-%---------------------------------------- 565 retract_retract_clause_with_body_1
+%---------------------------------------- 566 retract_retract_clause_with_body_1
 no
-%----------------------------------------------------- 566 findall_bagof_setof_2
+%----------------------------------------------------- 567 findall_bagof_setof_2
 [1,2,3]
 [4,5]
 [6,7,8]
 [1,2,3]
-%------------------------------------------------------- 567 termops_directive_1
+%------------------------------------------------------- 568 termops_directive_1
 f
 2
 a
@@ -1724,7 +1727,7 @@ h(A,A,B)
 4
 5
 [a,b,c]
-%-------------------------------------------------------- 568 functor_ite_univ_1
+%-------------------------------------------------------- 569 functor_ite_univ_1
 foo 2
 b
 [foo,a,b]
@@ -1732,5 +1735,5 @@ yes
 yes
 no
 no
-%------------------------------------------------------ 569 benchmark_meta_qsort
+%------------------------------------------------------ 570 benchmark_meta_qsort
 ok
