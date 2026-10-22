@@ -152,7 +152,7 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 151,xsb/ai_tests/xsb_test_ai,swi_tests__xsb/ai_tests/xsb_test_ai,swi_tests,63,0,0,131072,4096,,
 152,xsb/attv_tests/xsb_test_attv,swi_tests__xsb/attv_tests/xsb_test_attv,swi_tests,89,0,0,131072,4096,,
 153,xsb/basic_tests/xsb_test_basics,swi_tests__xsb/basic_tests/xsb_test_basics,swi_tests,78,0,0,131072,65536,,
-154,xsb/delay_tests/xsb_test_delay,swi_tests__xsb/delay_tests/xsb_test_delay,swi_tests,198,0,0,131072,65536,,
+154,xsb/delay_tests/xsb_test_delay,swi_tests__xsb/delay_tests/xsb_test_delay,swi_tests,198,0,0,131072,131072,,
 155,xsb/incremental_tests/xsb_test_incremental,swi_tests__xsb/incremental_tests/xsb_test_incremental,swi_tests,107,0,0,131072,4096,,
 156,xsb/neg_tests/xsb_test_neg,swi_tests__xsb/neg_tests/xsb_test_neg,swi_tests,104,0,0,131072,4096,,
 157,xsb/nonmt_tests/xsb_test_nonmt,swi_tests__xsb/nonmt_tests/xsb_test_nonmt,swi_tests,88,0,0,131072,4096,,
