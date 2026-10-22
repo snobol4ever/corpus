@@ -4779,7 +4779,33 @@ main :-
     ( integer(42)   -> write(yes) ; write(no) ), nl,
     ( atom(42)      -> write(yes) ; write(no) ), nl,
     ( integer(hello)-> write(yes) ; write(no) ), nl.
-%------------------------------------------------------ 572 benchmark_meta_qsort
+%---------------------------------------------- 572 copy_term_call_cut_replace_1
+:- initialization(main).
+deep(0) :- !.
+deep(N) :- N1 is N - 1, deep(N1), true.
+u(X, Y) :- unify_with_occurs_check(X, Y).
+r1(X, Y) :- Z = _, X = Z, Y = Z.
+r5(X, Y) :- u(X, L), u(Y, L).
+r6(X) :- mk(L), u(X, L).
+mk(_).
+chk(Name, X, Y) :- deep(2000), X = v(Name), deep(2000), write(Y), nl.
+t1 :- r1(X, Y), chk(r1, X, Y).
+t2 :- u(X, Y), chk(oc, X, Y).
+t3 :- call(=, X, Y), chk(call3, X, Y).
+t4 :- G = (X = Y), call(G), chk(built, X, Y).
+t5 :- r5(X, Y), chk(r5, X, Y).
+t6 :- r6(X), deep(2000), X = v(r6), write(X), nl.
+t7 :- T = f(A), u(A, X), chk(heapstack, X, T).
+t8 :- T = f(A, B), u(A, B), chk(heapheap, A, T).
+t9 :- copy_term(f(_, _), f(C, D)), u(C, D), chk(copy, C, D).
+t10 :- freeze(A, (write(woke(A)), nl)), u(A, B), B = 3.
+t11 :- ( u(X, Y), fail ; true ), X = 1, ( var(Y) -> write(undone) ; write(kept) ), nl.
+t12 :- T = f(P, Q), ( member(_, [1, 2]), u(P, Q), fail ; true ), P = 5, ( var(Q) -> write(q_unbound) ; write(q_bound) ), nl.
+t13 :- T = f(P, Q), member(M, [1, 2]), u(P, Q), M = 2, P = M, write(T), nl.
+t14 :- u(X, Y), u(Y, Z), u(Z, X), X = 7, write(Y-Z), nl.
+t15 :- T = g(A, B, C), u(C, B), u(B, A), A = z, write(T), nl.
+main :- t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, write(done), nl.
+%------------------------------------------------------ 573 benchmark_meta_qsort
 % meta_qsort — a meta-interpreter running the Warren qsort benchmark (van Roy suite).
 % Bottleneck: clause/call indirection through interpret/1-2 (meta-level dispatch).
 % Source: SWI-Prolog/bench (meta_qsort, Ralph M. Haygood). Prints ok on success.

@@ -1751,5 +1751,22 @@ yes
 yes
 no
 no
-%------------------------------------------------------ 572 benchmark_meta_qsort
+%---------------------------------------------- 572 copy_term_call_cut_replace_1
+v(r1)
+v(oc)
+v(call3)
+v(built)
+v(r5)
+v(r6)
+f(v(heapstack))
+f(v(heapheap),v(heapheap))
+v(copy)
+woke(3)
+undone
+q_unbound
+f(2,2)
+7-7
+g(z,z,z)
+done
+%------------------------------------------------------ 573 benchmark_meta_qsort
 ok
