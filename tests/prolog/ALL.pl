@@ -3794,7 +3794,20 @@ main :-
     G = double(21, R),
     catch(G, _, fail),
     write(R), nl.
-%---------------------------------------------------- 526 dcg_ite_list_replace_1
+%---------------------------------------------- 526 cut_list_directive_replace_1
+:- initialization(main).
+p([], _) :- !.
+p([E|T0], [E|T]) :- p(T0, T).
+q(X) :- X = [_|_], !.
+nx(S0, S1, S0) :- S1 is S0 + 1.
+t1 :- freeze(Z, (write(w1), nl)), p([a], Z).
+t2 :- freeze(Z, (write(w2), nl)), q(Z).
+t3 :- freeze(L, (L = [H|_], H = 1)), length(R, 1), p(R, L), write(R), nl.
+t4 :- lazy_list(nx, 0, L), L = [A, B|_], !, write(A-B), nl.
+t5 :- call_residue_vars((freeze(X, true), member(_, [a, b]), !), Vs), length(Vs, N), write(r5(N)), nl, X = 1.
+t6 :- call_residue_vars((member(_, [a, b]), freeze(_, true), !), Vs), length(Vs, N), write(r6(N)), nl.
+main :- t1, t2, t3, t4, t5, t6, write(done), nl.
+%---------------------------------------------------- 527 dcg_ite_list_replace_1
 :- initialization(main).
 
 digits([D|Ds]) --> digit(D), digits(Ds).
@@ -3807,7 +3820,7 @@ main :-
         atom_codes(A, Ds), write(A)
     ; write(fail)
     ), nl.
-%----------------------------------------------------------- 527 op_ite_format_2
+%----------------------------------------------------------- 528 op_ite_format_2
 :- op(700, xfx, ===).
 :- op(200, xfy, likes).
 :- op(500, fy, myp).
@@ -3820,7 +3833,7 @@ main :-
     ( current_op(P4, T4, myq) -> format("~w ~w~n", [P4, T4]) ; write(none), nl ),
     ( current_op(700, xfx, ===) -> write(yes) ; write(no) ), nl,
     ( current_op(_, _, nosuchop) -> write(yes) ; write(no) ), nl.
-%------------------------------------------------------- 528 catch_ite_replace_1
+%------------------------------------------------------- 529 catch_ite_replace_1
 :- initialization(main).
 main :-
     open('/tmp/rung83_probe.txt', write, S0), close(S0),
@@ -3835,7 +3848,7 @@ main :-
     G3 = write(user_output, w2ok),
     ( catch(G3, _, fail) -> write(w2_after) ; write(w2_fail) ), nl.
 main :- write(main_failed), nl.
-%----------------------------------------------------------------- 529 cut_ite_1
+%----------------------------------------------------------------- 530 cut_ite_1
 :- initialization(main).
 main :-
     ( acyclic_term(foo(a,b,c)) -> write(compound_yes) ; write(compound_no) ), nl,
@@ -3850,7 +3863,7 @@ main :-
 make_cycle(X) :- X = f(X).
 acyc(T, yes) :- acyclic_term(T), !.
 acyc(_, no).
-%----------------------------------------------- 530 ite_naf_directive_replace_2
+%----------------------------------------------- 531 ite_naf_directive_replace_2
 % rung32_bridge_negation/02_var_goal_neg_fails — \+ Var where Var=true.
 % Discriminating test: pre-bridge default-arm silent-success would dispatch
 % the inner goal as 'succeed' (the silent-success bug), so \+ would correctly
@@ -3866,7 +3879,7 @@ main :-
     G = true,
     ( \+ G -> write(succeeded) ; write(failed) ),
     nl.
-%-------------------------------------------------------- 531 benchmark_queens_8
+%-------------------------------------------------------- 532 benchmark_queens_8
 % queens_8 — place 8 non-attacking queens (van Roy suite).
 % Bottleneck: nondeterministic search, backtracking, list permutation.
 % Source: SWI-Prolog/bench. Prints the first solution.
@@ -3886,7 +3899,7 @@ not_attack([Y|Ys], X, N) :-
         not_attack(Ys, X, N1).
 sel(X, [X|T], T).
 sel(X, [H|T], [H|Rest]) :- sel(X, T, Rest).
-%-------------------------------------------------------------- 532 benchmark_mu
+%-------------------------------------------------------------- 533 benchmark_mu
 % mu — prove the MU-math theorem muiiu (Hofstadter GEB; van Roy suite).
 % Bottleneck: depth-bounded search + list rewriting via the four MU rules.
 % Source: SWI-Prolog/bench (mu). Prints ok if the theorem is proved.
@@ -3908,7 +3921,7 @@ rule4([u,u|X], X).
 rule4([H|X], [H|Y]) :- rule4(X, Y).
 my_append([], X, X).
 my_append([A|B], X, [A|B1]) :- my_append(B, X, B1).
-%---------------------------------------------------- 533 dcg_ite_list_replace_2
+%---------------------------------------------------- 534 dcg_ite_list_replace_2
 % SCRIP DEMO2 -- Word Count (Prolog section)
 % Idiom: DCG rules tokenise char list; phrase/3 counts words
 :- initialization(main, main).
@@ -3930,7 +3943,7 @@ count_words(Str, N) :-
 main :-
     count_words("the quick brown fox jumps over the lazy dog", N),
     write(N), nl.
-%---------------------------------------------------- 534 ite_writeq_directive_1
+%---------------------------------------------------- 535 ite_writeq_directive_1
 :- initialization(main).
 main :-
     name(foo, C1),
@@ -3952,7 +3965,7 @@ main :-
     ( name(bar, [0'b,0'a,0'r]) -> writeq(roundtrip_ok) ; writeq(roundtrip_fail) ), nl,
     write(done), nl,
     halt.
-%------------------------------------------------------ 535 scrip_test_wordcount
+%------------------------------------------------------ 536 scrip_test_wordcount
 % SCRIP DEMO2 -- Word Count (Prolog section)
 % Idiom: DCG rules tokenise char list; phrase/3 counts words
 :- initialization(main, main).
@@ -3974,7 +3987,7 @@ count_words(Str, N) :-
 main :-
     count_words("the quick brown fox jumps over the lazy dog", N),
     write(N), nl.
-%---------------------------------------------------------- 536 benchmark_queens
+%---------------------------------------------------------- 537 benchmark_queens
 % queens — place 16 non-attacking queens, first solution (GNU examples).
 % Bottleneck: nondeterministic search with deep backtracking; exercises a
 % recursive list generator (range/3 with a clause cut), selection (sel/3), and
@@ -3998,7 +4011,7 @@ sel([X|Xs], Xs, X).
 sel([Y|Ys], [Y|Zs], X) :- sel(Ys, Zs, X).
 range(N, N, [N]) :- !.
 range(M, N, [M|Ns]) :- M < N, M1 is M + 1, range(M1, N, Ns).
-%---------------------------------------------- 537 scrip_test_coverage_net_gaps
+%---------------------------------------------- 538 scrip_test_coverage_net_gaps
 % coverage_net_gaps.pro — exercises Prolog IR nodes missing from prolog_emit_net.c
 % Covers: AST_ADD AST_SUB AST_MPY AST_DIV AST_ILIT AST_FLIT AST_CUT AST_TRAIL_MARK AST_TRAIL_UNWIND AST_UNIFY
 % (AST_QLIT AST_VART AST_FNC AST_CLAUSE AST_CHOICE already handled in prolog_emit_net.c)
@@ -4042,7 +4055,7 @@ main :-
     member(X, [a, b, c]),
     write(X), nl,
     fail ; true.
-%---------------------------------------------------- 538 test_coverage_net_gaps
+%---------------------------------------------------- 539 test_coverage_net_gaps
 % coverage_net_gaps.pro — exercises Prolog IR nodes missing from prolog_emit_net.c
 % Covers: E_ADD E_SUB E_MPY E_DIV E_ILIT E_FLIT E_CUT E_TRAIL_MARK E_TRAIL_UNWIND E_UNIFY
 % (E_QLIT E_VART E_FNC E_CLAUSE E_CHOICE already handled in prolog_emit_net.c)
@@ -4086,7 +4099,7 @@ main :-
     member(X, [a, b, c]),
     write(X), nl,
     fail ; true.
-%-------------------------------------------- 539 test_rung10_programs_puzzle_20
+%-------------------------------------------- 540 test_rung10_programs_puzzle_20
 %-------------------------------------------------------------------------------
 % 20
 % Adams, Brown, Clark, and Davis: historian, poet, novelist, playwright.
@@ -4140,7 +4153,7 @@ display(PrAd,RdAd,PrBr,RdBr,PrCl,RdCl,PrDa,RdDa) :-
     write('brown='), write(PrBr), write(' reads='), write(RdBr), write('\n'),
     write('clark='), write(PrCl), write(' reads='), write(RdCl), write('\n'),
     write('davis='), write(PrDa), write(' reads='), write(RdDa), write('\n').
-%-------------------------------------------- 540 test_rung10_programs_puzzle_17
+%-------------------------------------------- 541 test_rung10_programs_puzzle_17
 %-------------------------------------------------------------------------------
 % 17
 % Ed, Frank, George, and Harry took their wives to the Country Club dance.
@@ -4198,7 +4211,7 @@ differ(_, _, _, _).
 
 differ(X, X) :- !, fail.
 differ(_, _).
-%---------------------------------------------- 541 scrip_test_coverage_pl_nodes
+%---------------------------------------------- 542 scrip_test_coverage_pl_nodes
 % coverage_pl_nodes.pl — exercises every Prolog IR node kind
 % Covers: AST_CLAUSE AST_CHOICE AST_UNIFY AST_CUT AST_FNC AST_QLIT AST_ILIT AST_FLIT
 %         AST_VART AST_ADD AST_SUB AST_MPY AST_DIV AST_TRAIL_MARK AST_TRAIL_UNWIND
@@ -4257,7 +4270,7 @@ trail_test.
 :- unify_test(hello, hello), write(unified), nl.
 :- trail_test.
 :- write(done), nl.
-%---------------------------------------------------- 542 test_coverage_pl_nodes
+%---------------------------------------------------- 543 test_coverage_pl_nodes
 % coverage_pl_nodes.pl — exercises every Prolog IR node kind
 % Covers: E_CLAUSE E_CHOICE E_UNIFY E_CUT E_FNC E_QLIT E_ILIT E_FLIT
 %         E_VART E_ADD E_SUB E_MPY E_DIV E_TRAIL_MARK E_TRAIL_UNWIND
@@ -4316,7 +4329,7 @@ trail_test.
 :- unify_test(hello, hello), write(unified), nl.
 :- trail_test.
 :- write(done), nl.
-%-------------------------------------------- 543 test_rung10_programs_puzzle_16
+%-------------------------------------------- 544 test_rung10_programs_puzzle_16
 %-------------------------------------------------------------------------------
 % 16
 % The crew of a train consists of a brakeman, conductor, engineer, and fireman
@@ -4382,7 +4395,7 @@ display(Brakeman, Conductor, Engineer, Fireman) :-
     write(' Engineer='),  write(Engineer),
     write(' Fireman='),   write(Fireman),
     write('\n').
-%-------------------------------------------- 544 test_rung10_programs_puzzle_18
+%-------------------------------------------- 545 test_rung10_programs_puzzle_18
 %-------------------------------------------------------------------------------
 % 18
 % In Luncyville the shoe store is closed every Monday, the hardware store every
@@ -4453,7 +4466,7 @@ display(Today, SAb, SBr, SCu, SDe) :-
     write(' Culver='), write(SCu),
     write(' Denny='),  write(SDe),
     write('\n').
-%-------------------------------------------- 545 test_rung10_programs_puzzle_15
+%-------------------------------------------- 546 test_rung10_programs_puzzle_15
 %-------------------------------------------------------------------------------
 % 15
 % Vernon, Wilson, and Yates are an architect, a doctor, and a lawyer with
@@ -4550,51 +4563,51 @@ display(OVernon, SVernon, OWilson, SWilson, OYates, SYates) :-
     write(' Wilson='), write(OWilson),  write(' sec='), write(SWilson),
     write(' Yates='),  write(OYates),   write(' sec='), write(SYates),
     write('\n').
-%------------------------------------------- 546 if_then_else_condition_throws_1
+%------------------------------------------- 547 if_then_else_condition_throws_1
 :- initialization(main).
 main :- catch(( throw(oops) -> write(yes) ; write(no) ), oops, write(propagated)), nl.
-%------------------------------------------------------ 547 typetest_directive_1
+%------------------------------------------------------ 548 typetest_directive_1
 :- initialization(main).
 main :- a == a, a \== b, a @< b, b @> a, a @=< a, b @>= a, compare(O, 1, 2), atom(foo), number(3), integer(3), float(1.5), atomic(foo), var(_), nonvar(foo), compound(f(x)), callable(foo), write(O), nl, write(ok), nl.
-%----------------------------------------- 548 abolish_abolish_removes_clauses_1
+%----------------------------------------- 549 abolish_abolish_removes_clauses_1
 :- dynamic(aa10a/1).
 :- initialization(main).
 main :- assertz(aa10a(1)), assertz(aa10a(2)), abolish(aa10a/1), catch((findall(X,aa10a(X),L), write(L)), _, write(gone)), nl.
-%----------------------------------------------------- 549 assertz_clause_call_1
+%----------------------------------------------------- 550 assertz_clause_call_1
 :- initialization(main).
 main :- assertz((greet :- write(hello), nl)),
         ( clause(greet, Body) -> call(Body) ; write(noclause), nl ).
-%----------------------------------------------- 550 assertz_retract_directive_2
+%----------------------------------------------- 551 assertz_retract_directive_2
 :- dynamic(f/1).
 :- initialization(main).
 main :- assertz(f(1)), assertz(f(2)), retract(f(1)), findall(X, f(X), L), write(L), nl.
-%------------------------------------------------------- 551 retract_backtrack_1
+%------------------------------------------------------- 552 retract_backtrack_1
 :- dynamic(h/1).
 :- initialization(main).
 main :- assertz(h(1)), assertz(h(2)), assertz(h(3)), (retract(h(_)), fail ; true), findall(X, h(X), L), write(L), nl.
-%----------------------------------------------- 552 retract_erase_first_match_1
+%----------------------------------------------- 553 retract_erase_first_match_1
 :- dynamic(s10a/1).
 :- initialization(main).
 main :- assertz(s10a(1)), assertz(s10a(2)), retract(s10a(1)), findall(X,s10a(X),L), write(L), nl.
-%----------------------------------------------- 553 retract_fails_on_no_match_1
+%----------------------------------------------- 554 retract_fails_on_no_match_1
 :- dynamic(v10a/1).
 :- initialization(main).
 main :- assertz(v10a(1)), (retract(v10a(2)) -> write(yes) ; write(no)), nl.
-%----------------------------------- 554 retract_resatisfiable_on_backtracking_1
+%----------------------------------- 555 retract_resatisfiable_on_backtracking_1
 :- dynamic(t10a/1).
 :- initialization(main).
 main :- assertz(t10a(1)), assertz(t10a(2)), assertz(t10a(3)), (retract(t10a(_)), fail ; true), findall(X,t10a(X),L), write(L), nl.
-%-------------------------------------------- 555 retract_retract_then_findall_1
+%-------------------------------------------- 556 retract_retract_then_findall_1
 :- dynamic(w10a/1).
 :- initialization(main).
 main :- assertz(w10a(1)), assertz(w10a(2)), assertz(w10a(3)), retract(w10a(2)), findall(X,w10a(X),L), write(L), nl.
-%--------------------------------------------------------- 556 between_ite_naf_1
+%--------------------------------------------------------- 557 between_ite_naf_1
 :- initialization(main).
 main :-
     ( member(X,[1,2,-3]), \+ X>0, write(found(X)), nl, fail ; true ),
     ( member(A,[1,2,3,4]), (A mod 2 =:= 0 -> true ; fail), write(even(A)), nl, fail ; true ),
     ( between(1,4,N), \+ (N =:= 2), write(n(N)), nl, fail ; true ).
-%---------------------------------------------- 557 copy_term_ite_list_replace_1
+%---------------------------------------------- 558 copy_term_ite_list_replace_1
 % copy_term/2: fresh copy with new variables
 :- initialization(main).
 main :-
@@ -4603,7 +4616,7 @@ main :-
     X = original,
     ( A == original -> write(aliased) ; write(independent) ), nl,
     copy_term([H|T], Copy), numbervars(Copy, 0, _), write(Copy), nl.
-%----------------------------------------------------- 558 findall_bagof_setof_1
+%----------------------------------------------------- 559 findall_bagof_setof_1
 :- initialization(main).
 num(1).
 num(2).
@@ -4614,7 +4627,7 @@ main :-
     write(F), nl,
     keysort([b-2, a-1, b-1, a-9], K),
     write(K), nl.
-%----------------------------------------------------------- 559 ite_univ_list_1
+%----------------------------------------------------------- 560 ite_univ_list_1
 % compound/1, atomic/1, is_list/1 style checks via =..
 :- initialization(main).
 main :-
@@ -4625,7 +4638,7 @@ main :-
     ( atomic(foo(a))   -> write(yes) ; write(no) ), nl,
     T = p(1,p(2,p(3,nil))),
     T =.. [p, H | _], write(H), nl.
-%---------------------------------------------------- 560 forall_catch_assertz_1
+%---------------------------------------------------- 561 forall_catch_assertz_1
 :- initialization(main).
 
 main :-
@@ -4637,7 +4650,7 @@ main :-
     catch(cat(_), error(E, _), true),
     write(E), nl,
     forall(bird(X), (write(X), nl)).
-%------------------------------------------------------- 561 ite_writeq_format_1
+%------------------------------------------------------- 562 ite_writeq_format_1
 :- initialization(main).
 main :-
     write_to_atom(A1, foo(x,y)), writeq(A1), nl,
@@ -4650,7 +4663,7 @@ main :-
     format(atom(A8), "~w!~w", [x,y]), writeq(A8), nl,
     ( with_output_to(atom(_), fail) -> write(unexpected) ; write(goal_failed) ), nl,
     write(done), nl.
-%----------------------------------------------------- 562 assertz_retract_ite_1
+%----------------------------------------------------- 563 assertz_retract_ite_1
 :- initialization(main).
 :- assertz(item(a)).
 :- assertz(item(b)).
@@ -4664,7 +4677,7 @@ retract_loop.
 main :-
     retract_loop,
     ( item(_) -> write(notempty) ; write(empty) ), nl.
-%--------------------------------------------------- 563 catch_assertz_abolish_1
+%--------------------------------------------------- 564 catch_assertz_abolish_1
 % abolish/1 removes the predicate, so the later call is a call to an UNKNOWN procedure.
 % Under the ISO default unknown=error that raises existence_error -- it does NOT fail.
 % The setup lives in the initialization goal, not in load-time `:- assertz(...)` directives:
@@ -4678,7 +4691,7 @@ main :-
     abolish(fact/1),
     catch(fact(_), error(E, _), true),
     write(E), nl.
-%--------------------------------------------- 564 catch_ite_directive_replace_2
+%--------------------------------------------- 565 catch_ite_directive_replace_2
 :- initialization(main).
 t(N, G) :- ( catch(G, error(E,_), true) -> ( var(E) -> write(N=success) ; E = permission_error(Op,Ty,_), write(N=perm(Op,Ty)) ) ; write(N=failed) ), nl.
 main :-
@@ -4696,7 +4709,7 @@ main :-
     close(R),
     write(done), nl,
     halt.
-%------------------------------------------- 565 catch_throw_directive_replace_1
+%------------------------------------------- 566 catch_throw_directive_replace_1
 % rung31_bridge_catch/05_var_goal_throw — goal-as-var throws; catch recovers.
 % Bridge requirement: when the dispatched goal throws via the synth-EXPR path,
 % the throw must propagate to catch/3's setjmp boundary, not be swallowed by
@@ -4714,21 +4727,21 @@ main :-
     G = risky(99),
     catch(G, _, write(caught)),
     nl.
-%---------------------------------------- 566 retract_retract_clause_with_body_1
+%---------------------------------------- 567 retract_retract_clause_with_body_1
 :- dynamic(u10a/1).
 :- initialization(main).
 main :- assertz((u10a(X) :- X > 100)), retract((u10a(_) :- _ > 100)), (catch(u10a(200),_,fail) -> write(yes) ; write(no)), nl.
-%----------------------------------------------------- 567 findall_bagof_setof_2
+%----------------------------------------------------- 568 findall_bagof_setof_2
 :- initialization(main).
 main :-
     findall(X, (X=1;X=2;X=3), La), write(La), nl,
     ( findall(Y, (Y=4;Y=5), Lb) -> write(Lb) ; write(none) ), nl,
     ( bagof(Z, (Z=6;Z=7;Z=8), Lc) -> write(Lc) ; write(none) ), nl,
     ( setof(W, (W=3;W=1;W=2;W=1), Ld) -> write(Ld) ; write(none) ), nl.
-%------------------------------------------------------- 568 termops_directive_1
+%------------------------------------------------------- 569 termops_directive_1
 :- initialization(main).
 main :- functor(f(a,b), Nm, Ar), arg(1, f(a,b), A1), T =.. [g, 1, 2], copy_term(h(X,X,_), Cp), numbervars(Cp, 0, End), succ(3, S), plus(2, 3, P), sort([c,a,b,a], Srt), write(Nm), nl, write(Ar), nl, write(A1), nl, write(T), nl, write(Cp), nl, write(End), nl, write(S), nl, write(P), nl, write(Srt), nl.
-%-------------------------------------------------------- 569 functor_ite_univ_1
+%-------------------------------------------------------- 570 functor_ite_univ_1
 % rung09_builtins — functor/3, arg/3, =../2, type tests
 % Expected output: foo 2  b  [foo,a,b]  yes yes no no
 :- initialization(main).
@@ -4747,7 +4760,7 @@ main :-
     ( integer(42)   -> write(yes) ; write(no) ), nl,
     ( atom(42)      -> write(yes) ; write(no) ), nl,
     ( integer(hello)-> write(yes) ; write(no) ), nl.
-%------------------------------------------------------ 570 benchmark_meta_qsort
+%------------------------------------------------------ 571 benchmark_meta_qsort
 % meta_qsort — a meta-interpreter running the Warren qsort benchmark (van Roy suite).
 % Bottleneck: clause/call indirection through interpret/1-2 (meta-level dispatch).
 % Source: SWI-Prolog/bench (meta_qsort, Ralph M. Haygood). Prints ok on success.

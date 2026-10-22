@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=570 features=38 ubiquitous=3(write nl directive) distinctive=35 core=54 clusters=65 chunks=6 sizes=100,100,100,100,100,16
+# shape: entries=571 features=38 ubiquitous=3(write nl directive) distinctive=35 core=54 clusters=65 chunks=6 sizes=100,100,100,100,100,17
 entry	part	cluster	shells
 write_family_writeln_1	chunk:01	family:ladder	
 directive_32	chunk:06	family:rung22_write_canonical	
@@ -46,7 +46,7 @@ directive_29	chunk:05	family:rung21_char_type
 directive_39	chunk:05	family:rung23_arith_ext	
 directive_40	chunk:05	family:rung23_arith_ext	
 directive_41	chunk:05	family:rung23_arith_ext	
-directive_43	chunk:04	family:rung24	
+directive_43	chunk:05	family:rung24	
 directive_44	chunk:05	family:rung24	
 directive_45	chunk:05	family:rung24	
 directive_46	chunk:05	family:rung24	
@@ -104,7 +104,7 @@ directive_30	chunk:05	family:rung21_char_type
 directive_31	chunk:05	family:rung21_char_type	
 directive_66	chunk:05	family:rung26_copy_concat	
 directive_83	chunk:01	family:ladder	
-directive_88	chunk:05	family:cut_in_a_disjunction_arm_then_a_fresh_local_bound_after_it	
+directive_88	chunk:06	family:cut_in_a_disjunction_arm_then_a_fresh_local_bound_after_it	
 directive_89	chunk:06	family:cut_in_a_disjunction_arm_then_is_on_the_head_argument	
 directive_90	chunk:06	family:cut_in_a_disjunction_arm_with_no_alternative_left	
 disjunction_both_branches_1	chunk:01	family:ladder	
@@ -251,7 +251,7 @@ ite_condition_fails_1	chunk:02	feat:if_then_else	if_then_else
 ofi_ignore_of_failing_goal_1	chunk:02	feat:if_then_else	if_then_else
 ofi_ignore_succeeds_1	chunk:02	feat:unify	unify
 ofi_once_of_failing_goal_1	chunk:02	feat:if_then_else	if_then_else
-repeat_repeat_with_cut_1	chunk:02	feat:cut	cut
+repeat_repeat_with_cut_1	chunk:03	feat:cut	cut
 streams_current_input_1	chunk:02	feat:if_then_else	if_then_else
 streams_stream_term_1	chunk:02	feat:unify	unify
 sub_atom_empty_substring_1	chunk:02	feat:if_then_else	if_then_else
@@ -304,7 +304,7 @@ ite_directive_9	chunk:02	feat:if_then_else	if_then_else
 last_call_accumulator_loop_1	chunk:03	feat:cut	cut
 last_call_tail_recursive_count_1	chunk:03	feat:cut	cut
 lastcall_directive_1	chunk:03	feat:cut	cut
-list_directive_1	chunk:03	feat:list_cons	list_cons
+list_directive_1	chunk:02	feat:list_cons	list_cons
 rung04_cut_with_disjunction	chunk:03	feat:cut	cut
 abolish_1	chunk:05	feat:abolish	abolish
 bagof_setof_caret_existential_1	chunk:05	feat:setof	setof
@@ -321,7 +321,7 @@ ite_directive_10	chunk:02	feat:if_then_else	if_then_else
 misc17_current_predicate_1	chunk:02	feat:if_then_else	if_then_else
 rung04_cut_with_clause_choice	chunk:03	feat:cut	cut
 streamio_stream_property_1	chunk:02	feat:if_then_else	if_then_else
-termio_current_op_1	chunk:03	feat:findall	findall
+termio_current_op_1	chunk:04	feat:findall	findall
 catch_directive_2	chunk:03	feat:catch	catch
 cut_directive_10	chunk:03	feat:cut	cut
 cut_directive_4	chunk:03	feat:cut	cut
@@ -527,6 +527,7 @@ findall_directive_replace_4	chunk:05	feat:findall_with_var_goal	findall findall_
 ite_naf_directive_replace_1	chunk:04	feat:negation	if_then_else negation unify
 ite_replace_2	chunk:05	feat:var	if_then_else unify var
 catch_functor_directive_replace_1	core	core	catch functor unify
+cut_list_directive_replace_1	chunk:03	feat:list_cons	cut list_cons unify
 dcg_ite_list_replace_1	core	core	dcg if_then_else list_cons
 op_ite_format_2	core	core	format if_then_else op
 catch_ite_replace_1	chunk:03	feat:catch	catch if_then_else unify
