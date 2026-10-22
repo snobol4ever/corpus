@@ -1229,7 +1229,7 @@ n9_binop_α:             sub              rsp, 16
                         add              rsp, 16;                             jmp   n8_lit_integer_β
 .Lbinop_α_74_999:       mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:246
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:255
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1710,7 +1710,7 @@ n32_call_apply_α:       sub              rsp, 16
                         mov              rdx, rsp                             # pend
                         call             rt_tweak_open@PLT
 .Lgcsite_main_51:       mov              r9,  qword ptr [rip + g_rtccb+48]
-                        push             rax                                  # gc_poll bb_glue_flat.cpp:261
+                        push             rax                                  # gc_poll bb_glue_flat.cpp:262
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1910,7 +1910,7 @@ n32_call_apply_α:       sub              rsp, 16
                         mov              esi, 1
                         sub              rsp, 112
                         mov              rdx, rsp
-                        call             rt_eval_open@PLT
+                        call             rt_eval_open_raise@PLT
 .Lgcsite_main_36:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         push             rax
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
@@ -2204,7 +2204,7 @@ n33_binop_α:            sub              rsp, 16
                         add              rsp, 32;                             jmp   n31_var_β
 .Lbinop_α_107_999:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:246
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:255
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2437,7 +2437,7 @@ n45_binop_α:            sub              rsp, 16
                         add              rsp, 16;                             jmp   n44_lit_integer_β
 .Lbinop_α_124_999:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:246
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:255
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2627,7 +2627,7 @@ main_β:
 #-----------------------------------------------------------------------------------------------------------------------
 main_γ:
                         call             sno_setexit_fire_on_end@PLT
-.Lgcsite_main_74:       push             rax                                  # gc_poll bb_glue_flat.cpp:56
+.Lgcsite_main_74:       push             rax                                  # gc_poll bb_glue_flat.cpp:57
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
