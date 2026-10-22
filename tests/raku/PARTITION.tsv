@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1059 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=49 clusters=49 chunks=11 sizes=100,100,100,100,100,100,100,100,100,100,10
+# shape: entries=1058 features=37 ubiquitous=2(my sigil_scalar) distinctive=35 core=48 clusters=49 chunks=11 sizes=100,100,100,100,100,100,100,100,100,100,10
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:07	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:07	family:ladder	
@@ -1002,7 +1002,6 @@ ladder__rung14_roles_a_role_declares_regexes_and_attributes_beside_methods	core	
 ladder__rung15_blocks_a_closure_in_a_sub_reads_an_enum_value_and_a_constant_that_sub_declares	core	core	grep join map say sigil_array sub
 ladder__rung19_block_methcall_sort_by_a_one_arg_key_block_past_64_elements	core	core	map range_op say sigil_array sort sub
 sub_for_while_replace_1	chunk:10	feat:loop	for for_with_say loop say sub while
-ladder__rung07_subs_an_infix_multi_on_objects_is_entered_from_the_relop_boxes_in_value_and_condition_context	core	core	feed_op has if multi sub
 sub_for_loop_replace_1	chunk:10	feat:loop	for for_with_say loop say sigil_array sub
 sub_for_range_replace_1	chunk:05	feat:for_with_say	for for_with_say range_op say sigil_array sub
 class_method_say_replace_15	chunk:03	feat:has	has method return say string_concat
