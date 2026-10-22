@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1032 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=46 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,86
+# shape: entries=1033 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=46 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,87
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:07	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:07	family:ladder	
@@ -627,7 +627,7 @@ loop_2	chunk:09	feat:loop	if loop
 loop_3	chunk:09	feat:loop	if loop
 say_89	chunk:08	feat:string_concat	say string_concat
 say_replace_18	chunk:02	feat:has	has say
-say_try_die_2	chunk:09	feat:die	die say try
+say_try_die_2	chunk:10	feat:die	die say try
 simple_assign_62	core	core	elsif if
 simple_assign_63	core	core	elsif if
 simple_assign_64	chunk:10	feat:elsif	elsif if
@@ -873,6 +873,7 @@ token_say_replace_1	chunk:10	feat:token	if regex say token
 class_method_sort_replace_1	chunk:10	feat:sort	method return sort
 ladder__rung04_arrays_a_seq_over_an_infinite_range_is_lazy_and_says_dots	chunk:10	feat:grep	grep map range_op say
 ladder__rung04_arrays_an_array_is_one_mutable_object_an_element_store_writes_it_in_place_for_every_name_that_holds_it	chunk:05	feat:for_with_say	for for_with_say sigil_array sub
+ladder__rung13_classes_a_class_literal_written_with_leading_colons_is_the_class_type_object	chunk:09	feat:smartmatch	say smartmatch string_concat
 ladder__rung15_blocks_a_list_holding_a_lazy_gather_renders_after_its_seq_is_reified_not_during	chunk:05	feat:for_with_say	for for_with_say string_concat sub
 ladder__rung08_for_a_pointy_block_body_resumes_the_range_at_its_own_depth_each_pass	chunk:05	feat:for_with_say	for for_with_say range_op sigil_array
 benchmark_divide-and-conquer	chunk:05	feat:for_with_say	for for_with_say if sub
