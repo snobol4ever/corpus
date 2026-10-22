@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1038 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=47 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,91
+# shape: entries=1039 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=47 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,92
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:07	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:07	family:ladder	
@@ -73,7 +73,7 @@ simple_program_11	chunk:01	family:smoke
 ladder__rung16_bool_relops_tap_ok_argument	chunk:07	family:ladder	
 ladder__rung17_compare_ops_is_approx_tolerance	chunk:07	family:ladder	
 ladder__rung01_variables_program_and_file_name_the_source_file_in_both_modes	chunk:07	family:ladder	
-ladder__rung03_strings_control_escapes	chunk:07	family:ladder	
+ladder__rung03_strings_control_escapes	chunk:08	family:ladder	
 ladder__rung13_classes_new_on_a_builtin_type_int_num_str_array_list_hash_builds_its_value	chunk:08	family:ladder	
 hash_14	chunk:07	feat:sigil_hash	sigil_hash
 hash_3	chunk:07	feat:sigil_hash	sigil_hash
@@ -144,7 +144,7 @@ test_stmt_pfx_INIT	chunk:03	feat:say	say
 test_stmt_pfx_once	chunk:03	feat:say	say
 test_stmt_pfx_quietly	chunk:03	feat:say	say
 test_stmt_pfx_react	chunk:03	feat:say	say
-test_try_basic	chunk:09	feat:try	try
+test_try_basic	chunk:10	feat:try	try
 ladder__rung07_subs_implicit_return_bare_literal_tail	chunk:05	feat:sub	sub
 say_90	chunk:03	feat:say	say
 simple_assign_46	chunk:01	family:smoke	
@@ -432,7 +432,7 @@ say_79	chunk:03	feat:say	say
 simple_assign_127	chunk:08	feat:string_concat	string_concat
 simple_assign_27	chunk:10	feat:return	return
 sub_6	chunk:05	feat:sub	sub
-test_seq_op	chunk:08	feat:range_op	range_op sigil_array
+test_seq_op	chunk:09	feat:range_op	range_op sigil_array
 array_37	chunk:08	feat:string_concat	sigil_array string_concat
 array_45	chunk:06	feat:if	if sigil_array
 array_say_9	chunk:04	feat:sigil_array	say sigil_array
@@ -655,7 +655,7 @@ sub_say_7	chunk:08	feat:string_concat	say string_concat sub
 sub_say_8	chunk:05	feat:sub	say sub
 test_if_basic	chunk:06	feat:if	if say
 test_if_cmp_eq	chunk:06	feat:if	if say
-test_if_else	chunk:06	feat:if	if say
+test_if_else	chunk:07	feat:if	if say
 test_while_basic	chunk:09	feat:while	say while
 while_1	chunk:09	feat:while	if while
 while_2	chunk:09	feat:while	if while
@@ -776,7 +776,7 @@ class_method_replace_4	chunk:05	feat:method	if method
 class_method_replace_5	chunk:05	feat:method	method return
 class_method_replace_8	chunk:05	feat:method	method return
 class_method_replace_9	chunk:05	feat:method	method return
-class_method_say_replace_18	chunk:05	feat:method	method say
+class_method_say_replace_18	chunk:06	feat:method	method say
 class_say_replace_15	chunk:02	feat:has	has say
 class_say_replace_26	chunk:02	feat:has	has say
 class_say_replace_27	chunk:02	feat:has	has say
@@ -960,6 +960,7 @@ benchmark_rc-forest-fire-stringify	chunk:05	feat:for_with_say	for for_with_say s
 class_method_replace_1	chunk:02	feat:has	has method return string_concat
 sub_for_array_replace_1	chunk:05	feat:for_with_say	for for_with_say say sigil_array sub
 ladder__rung04_arrays_a_caret_range_keeps_its_endpoints_numifies_and_smartmatches_as_rakudo_does	chunk:09	feat:smartmatch	range_op say sigil_array smartmatch string_concat
+ladder__rung13_classes_can_returns_invokable_methods_found_up_the_parents_and_knows_a_builtin_methods_name	chunk:05	feat:for_with_say	for for_with_say method string_concat
 benchmark_point_class_add2	chunk:09	feat:while	for has method while
 benchmark_send-more-money-loops	core	core	if loop string_concat unless while
 smartmatch_say_4	chunk:09	feat:smartmatch	if range_op regex say smartmatch string_concat
