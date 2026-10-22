@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=568 features=38 ubiquitous=3(write nl directive) distinctive=35 core=54 clusters=65 chunks=6 sizes=100,100,100,100,100,14
+# shape: entries=569 features=38 ubiquitous=3(write nl directive) distinctive=35 core=54 clusters=65 chunks=6 sizes=100,100,100,100,100,15
 entry	part	cluster	shells
 write_family_writeln_1	chunk:01	family:ladder	
 directive_32	chunk:06	family:rung22_write_canonical	
@@ -48,7 +48,7 @@ directive_40	chunk:05	family:rung23_arith_ext
 directive_41	chunk:05	family:rung23_arith_ext	
 directive_43	chunk:04	family:rung24	
 directive_44	chunk:04	family:rung24	
-directive_45	chunk:04	family:rung24	
+directive_45	chunk:05	family:rung24	
 directive_46	chunk:05	family:rung24	
 directive_47	chunk:05	family:rung24	
 directive_53	chunk:05	family:rung25	
@@ -106,7 +106,7 @@ directive_66	chunk:05	family:rung26_copy_concat
 directive_83	chunk:01	family:ladder	
 directive_88	chunk:05	family:cut_in_a_disjunction_arm_then_a_fresh_local_bound_after_it	
 directive_89	chunk:05	family:cut_in_a_disjunction_arm_then_is_on_the_head_argument	
-directive_90	chunk:05	family:cut_in_a_disjunction_arm_with_no_alternative_left	
+directive_90	chunk:06	family:cut_in_a_disjunction_arm_with_no_alternative_left	
 disjunction_both_branches_1	chunk:01	family:ladder	
 disjunction_in_rule_body_1	chunk:01	family:ladder	
 fact_anonymous_var_arg_1	chunk:01	family:ladder	
@@ -392,7 +392,7 @@ call_directive_1	chunk:03	feat:call	call unify
 call_n_call_of_conjunction_1	chunk:03	feat:call	call unify
 clause_ite_1	chunk:05	feat:clause	clause if_then_else
 findall_directive_5	chunk:04	feat:between	between findall
-findall_findall_over_disjunction_1	chunk:03	feat:findall	findall unify
+findall_findall_over_disjunction_1	chunk:04	feat:findall	findall unify
 findall_nested_findall_1	chunk:04	feat:between	between findall
 ite_nested_ite_1	chunk:02	feat:unify	if_then_else unify
 neg_fails_on_succeeding_goal_1	chunk:04	feat:negation	if_then_else negation
@@ -503,6 +503,7 @@ clause_reflect_fails_on_no_match_1	chunk:05	feat:clause	assertz clause if_then_e
 repeat_repeat_bounded_by_counter_1	chunk:04	feat:assertz	assertz findall if_then_else
 catch_throw_directive_4	chunk:04	feat:catch_with_throw	catch catch_with_throw throw
 write_canonical_writeq_format_1	core	core	format write_canonical writeq
+catch_cut_list_1	chunk:03	feat:list_cons	catch cut list_cons
 catch_throw_directive_2	chunk:04	feat:catch_with_throw	catch catch_with_throw throw
 forall_ite_directive_1	core	core	forall if_then_else unify
 last_call_nreverse_large_1	core	core	between findall list_cons
