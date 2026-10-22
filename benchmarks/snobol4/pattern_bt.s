@@ -244,7 +244,7 @@ n7_match_lit_β:         sub              r14d, 3;                             j
                         .section         .data.rel.ro
                         .p2align         4
 .Lthk_.LTp0:            .quad            .LTp0
-                        .long            112, 1
+                        .long            0, 1
                         .section         .text
                         .intel_syntax    noprefix
                         .globl           main
@@ -1068,7 +1068,7 @@ __label_names:
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgccode_main_1:
 main_α:
-                        mov              eax, 0                               # GCANCHOR .Lgcmap_main qword ptr [rsp$ + 504]
+                        mov              eax, 0                               # GCANCHOR .Lgcmap_main qword ptr [rsp$ + 8]
 main_α_body:
                         sub              rsp, 0
                         .type            n24_call_direct_bx, @function
@@ -2293,7 +2293,7 @@ n50_match_end_α:        mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
 .Lmatch_end_α_108_61:   lea              rdi, [rsp + 112]                     # pend
                         call             rt_trace_pend_run@PLT
 .Lgcsite_main_43:       mov              r9,  qword ptr [rip + rtccb+48]
-                        push             rax                                  # gc_poll bb_glue_flat.cpp:292
+                        push             rax                                  # gc_poll bb_glue_flat.cpp:321
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2305,7 +2305,7 @@ n50_match_end_α:        mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
 .Lmatch_end_α_108_62:   lea              rdi, [rsp + 112]                     # pend
                         call             rt_trace_pend_close@PLT
 .Lgcsite_main_41:       mov              r9,  qword ptr [rip + rtccb+48]
-                        push             rax                                  # gc_poll bb_glue_flat.cpp:296
+                        push             rax                                  # gc_poll bb_glue_flat.cpp:325
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2748,7 +2748,7 @@ main_β:
 main_γ:
                         add              rsp, 0
                         call             sno_setexit_fire_on_end@PLT
-.Lgcsite_main_84:       push             rax                                  # gc_poll bb_glue_flat.cpp:51
+.Lgcsite_main_84:       push             rax                                  # gc_poll bb_glue_flat.cpp:57
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2769,16 +2769,11 @@ main_ω:
                         .pushsection     .data.rel.ro,"aw",@progbits
                         .p2align         3
 .Lgcmap_main:
-                        .quad            2200369712474
+                        .quad            70065933658
                         .quad            38654705664
                         .quad            .Lgcmap_main_s
-                        .quad            496
-                        .quad            5
-                        .quad            123145302310912
-                        .quad            8800387989616
-                        .quad            17600775979128
-                        .quad            79169132167304
-                        .quad            316659348799696
+                        .quad            0
+                        .quad            0
 .Lgcmap_main_s:         .string          "main"
                         .popsection
                         .pushsection     .data.rel.ro,"aw",@progbits
