@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 :- table groundPattern/2 as incremental.
 :- import variant_get_residual/2 from tables.

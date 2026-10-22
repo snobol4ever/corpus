@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 test:- forall(p(X),q(X)),writeln('forall(p(X),q(X)) succeeded'),fail.
 test:- forall(q(X),p(X)),writeln('forall(q(X),p(X)) succeeded'),fail.

@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program that goes into an infinite loop.  Also check what happens
 % when both interp_g/1 and interp/1 are tabled (used to give error

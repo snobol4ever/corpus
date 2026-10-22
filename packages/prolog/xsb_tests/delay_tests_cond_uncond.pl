@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %--------------------------------------------------------------------------
 %  This example tests the behaviour of the emulator when both a
 %  conditional and an unconditional answer are derived for certain

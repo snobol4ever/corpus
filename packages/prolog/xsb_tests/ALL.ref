@@ -8498,7 +8498,7 @@ functor_size(200)
 list_size(300)
 type_test_size(20)
 %---------------------------------------------- 192 prolog_tests_test_termtoatom
-'$VAR'(_6254)
+'$VAR'(_10430)
 _901
 %---------------------------------------------- 193 prolog_tests_test_write_read
 'ERROR'(+(?,?),'$VAR'(0))

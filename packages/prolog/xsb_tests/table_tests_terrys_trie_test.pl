@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 /* I finally got around to looking at Michaels issue about the
 slowness of trie_unintern(_nr).  As he noted, there was an unnecessary
 list traversal in internLeaf() which made things very slow.  I fixed

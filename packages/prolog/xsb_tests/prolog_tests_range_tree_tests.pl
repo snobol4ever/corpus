@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import range_call/4, range_assert/3, print_rt/1, range_retractall/4
 	from range_trees.
 :- import for/3 from basics.

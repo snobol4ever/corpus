@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program that causes a segmentation fault (because the parent tabled
 % choice point register is wrongly updated).

@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program that causes a bus error when memory allocation is big.
 % It is a simplified version of program interp4.

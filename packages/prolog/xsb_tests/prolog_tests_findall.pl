@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 % This tests findall/3 and heap expansion: should
 % better be run with default global/local stack size.
 

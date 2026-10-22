@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 :- table t_inc_1/1 as subsumptive, incremental.
 :- dynamic p/1 as incremental.

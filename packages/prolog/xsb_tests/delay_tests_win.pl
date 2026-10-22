@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %-----------------------------------------------------------------------
 %  The classical stalemate game.  For the query ?- win(X) <- Cond. it
 %  should produce the answers:

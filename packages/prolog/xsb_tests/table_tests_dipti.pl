@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 /*
 Dipti sent me the following program that is a very short pure Datalog
 program for which XSB gives the wrong answer.  I haven't seen a bug

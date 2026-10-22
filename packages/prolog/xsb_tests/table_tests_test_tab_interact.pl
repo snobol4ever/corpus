@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 % TES: not all of the possible double-tabling errors are caught yet.  For instance,
 % table foo/1 as incremental.

@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 % Don't abstract -- no finite model.
 ?- set_prolog_flag(max_table_subgoal_size,10).
 

@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 :- import interrupt_with_goal/1 from mutex_xsb.
 test:- p(1000).

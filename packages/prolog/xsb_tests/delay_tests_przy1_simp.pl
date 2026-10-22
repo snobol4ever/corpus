@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %
 % From Przymusinska and Przymusinski (weakly stratified paper).
 % Example of a program that has a well-founded (and unique stable)

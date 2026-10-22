@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- compiler_options([spec_off]).
 
 :- import print_sdg_info/0,print_sdg_info_modes/0,print_sdg_info_functor/0 from tables.

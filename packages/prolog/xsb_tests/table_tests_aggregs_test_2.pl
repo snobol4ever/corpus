@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 test:- p1(X,Y),writeln(p1(X,Y)),fail.
 test:- p2(X,Y),writeln(p2(X,Y)),fail.

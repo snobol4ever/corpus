@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 % This file tests newExtTerm/1 and retractallExtTerm/1 for
 % hasAttr_ext, newExtTerm/1 for minAttr_ext, and checks cross
 % dependencies for minAttr_ext and hasAttr_ext. 

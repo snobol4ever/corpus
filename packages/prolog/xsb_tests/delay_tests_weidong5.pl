@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program for which ANSWER COMPLETION is needed.  I am not sure about
 % the answers (probably everything is undefined).

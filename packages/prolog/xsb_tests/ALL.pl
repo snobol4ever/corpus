@@ -1,4 +1,5 @@
 %-------------------------------------------------------- 1 attv_tests_attv_test
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 /* File:      attv_test.P
 ** Author(s): Baoqiu Cui
 ** 
@@ -129,6 +130,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %---------------------------------------------------- 2 attv_tests_copyterm_attv
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 /* File:      copyterm_attv.P
 ** Author(s): Baoqiu Cui, Swift
 **
@@ -233,6 +235,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------------- 3 attv_tests_findall_attv
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 /* File:      findall_attv.P
 ** Author(s): Baoqiu Cui
 **
@@ -272,6 +275,7 @@ xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_mess
 p(iii).
 ?- writeln(loaded).
 %-------------------------------------------------------- 5 basic_tests_gpp_test
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %% tests complex xpp option
 :- compiler_options([xpp_on(gpp,gpp)]).
 
@@ -289,6 +293,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %---------------------------------------------------------- 6 basic_tests_interp
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 %:- export interp/1.
 
@@ -342,6 +347,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %---------------------------------------------------------- 7 basic_tests_tcyl11
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 :- ['tcyl-24-24-2'].
 
@@ -362,6 +368,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((tw(1)))).
 %---------------------------------------------------------- 8 basic_tests_tcyl12
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 :- ['tcyl-24-24-2'].
 
@@ -382,6 +389,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((tw(1)))).
 %---------------------------------------------------------- 9 basic_tests_testsg
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- [acyl,'tcyl-24-24-2'].
 
 :- table sg/2.
@@ -403,6 +411,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((tw))).
 %-------------------------------------------------------- 10 basic_tests_thstr13
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- table a/2, b/2, c/2.
 
 tw :- tw1; tw2; tw3; true.
@@ -440,6 +449,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((tw))).
 %-------------------------------------------------------- 11 basic_tests_thstr23
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- table a/2.
 :- table b/2.
 
@@ -475,6 +485,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((tw1))).
 %-------------------------------------------------------- 12 basic_tests_thstr43
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- table a/2.
 
 tw :- ((a(a,D) ; a(b,D) ; a(c,D)),write(D),nl ; a(Q,W),write(a(Q,W)),nl), fail.
@@ -500,6 +511,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((tw))).
 %--------------------------------------------------------- 13 basic_tests_tsing1
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- table a/2.
 
 tw :- a(X,Y),write(X),write(' '),write(Y),write('   '),fail.
@@ -518,6 +530,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((a(X,Y),write(X),write(' '),write(Y),nl,fail))).
 %-------------------------------------------------------- 14 basic_tests_tsstr13
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import tfindall/3, abolish_table_pred/1 from tables.
 :- import numbervars/3 from num_vars.
 
@@ -557,6 +570,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((testcombo))).
 %-------------------------------------------------------- 15 basic_tests_tsstr23
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import set_pil_on/0,set_pil_off/0,
 	tfindall/3,abolish_table_pred/1  from tables.
 :- import numbervars/3 from num_vars.
@@ -612,6 +626,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((testcombo))).
 %-------------------------------------------------------- 16 basic_tests_tsstr33
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import set_pil_on/0,set_pil_off/0,
 	  tfindall/3,
 	  abolish_table_pred/1  from tables.
@@ -683,6 +698,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((testcombo))).
 %--------------------------------------------------------- 17 basic_tests_tstr11
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import numbervars/3 from num_vars.
 
 :- table a/2.
@@ -731,6 +747,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((tw,fail))).
 %--------------------------------------------------------- 18 basic_tests_tstr12
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import numbervars/3 from num_vars.
 
 :- table a/2.
@@ -767,6 +784,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((testcombo))).
 %--------------------------------------------------------- 19 basic_tests_tstr13
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- table a/2.
 
 tw :- a(X,Y),write(X),write(' '),write(Y),nl,fail.
@@ -818,6 +836,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((tw))).
 %--------------------------------------------------------- 20 basic_tests_tstr21
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import numbervars/3 from num_vars.
 
 :- table a/2.
@@ -866,6 +885,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((tw,fail))).
 %--------------------------------------------------------- 21 basic_tests_tstr22
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 :- table(a/2).
 :- import numbervars/3 from num_vars.
@@ -902,6 +922,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((testcombo))).
 %--------------------------------------------------------- 22 basic_tests_tstr23
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- table a/2.
 
 tw :- a(X,Y),write(X),write(' '),write(Y),nl,fail.
@@ -953,6 +974,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((tw))).
 %--------------------------------------------------------- 23 basic_tests_tstr31
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import numbervars/3 from num_vars.
 
 :- table(a/2).
@@ -1005,6 +1027,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((tw,fail))).
 %--------------------------------------------------------- 24 basic_tests_tstr32
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import numbervars/3 from num_vars.
 
 :- table(a/2).
@@ -1041,6 +1064,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((testcombo))).
 %--------------------------------------------------------- 25 basic_tests_tstr33
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- table a/2.
 
 tw :- a(X,Y), write(X), write(' '), write(Y), nl, fail.
@@ -1092,6 +1116,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((tw))).
 %--------------------------------------------------------- 26 basic_tests_tstr51
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import numbervars/3 from num_vars.
 
 :- table(a/2).
@@ -1144,6 +1169,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((tw,fail))).
 %--------------------------------------------------------- 27 basic_tests_tstr52
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import numbervars/3 from num_vars.
 
 :- table(a/2).
@@ -1180,6 +1206,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((testcombo))).
 %--------------------------------------------------------- 28 basic_tests_tstr53
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- table a/2.
 
 tw :- a(X,Y),write(X),write(' '),write(Y),nl,fail.
@@ -1231,6 +1258,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((tw))).
 %--------------------------------------------------------- 29 basic_tests_tstr61
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import numbervars/3 from num_vars.
 
 :- table a/2.
@@ -1283,6 +1311,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((tw,fail))).
 %--------------------------------------------------------- 30 basic_tests_tstr62
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import numbervars/3 from num_vars.
 
 :- table a/2.
@@ -1322,6 +1351,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((testcombo))).
 %--------------------------------------------------------- 31 basic_tests_tstr63
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- table a/2.
 
 tw :- a(X,Y),write(X),write(' '),write(Y),nl,fail.
@@ -1406,6 +1436,7 @@ p(_,_):- fail.
 q(_,_):- fail.
 
 %---------------------------------------- 34 constraint_tests_test_constraintLib
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 :- import numbervars/1 from num_vars.
 :- import when/2,unifiable/3 from constraintLib.
@@ -1480,6 +1511,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------------- 35 delay_tests_abol_susp1
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %----------------------------------------------------------------------
 % Tests abolishing suspensions and early completion.  The idea is that
 % negation suspensions should not be abolished and early completion 
@@ -1513,6 +1545,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------------- 36 delay_tests_abol_susp2
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %----------------------------------------------------------------------
 % Tests abolishing suspensions and early completion.  The idea is that
 % negation suspensions should not be abolished and early completion 
@@ -1546,6 +1579,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------- 37 delay_tests_ac_tests
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 /**
 My example from below, with Annie's suggestion for single scc.
 [[p1,p1],[p1,not r1],[q1,s1,q1],[s1,not p1],[r1,not q1],[q1,p2],
@@ -1996,6 +2030,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------ 38 delay_tests_delay_var
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %-----------------------------------------------------------------------
 % To test delay lists with variables.
 %-----------------------------------------------------------------------
@@ -2069,6 +2104,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------ 39 delay_tests_dynstrat2
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program that is dynamically stratified but not dynamically stratified
 % from left-to-right.  It shows that delay is necessary for the correct
@@ -2113,6 +2149,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------ 40 delay_tests_dynstrat3
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %--------------------------------------------------------------
 % Program that requires some simplification.
 % Its well-founded model is two valued:
@@ -2159,6 +2196,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------ 41 delay_tests_dynstrat4
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %--------------------------------------------------------------
 % Program that requires a fair amount of simplification (only
 % negative though).  Its well-founded model is two valued:
@@ -2204,6 +2242,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------------- 42 delay_tests_fa
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import length/2 from basics.
 :- import get_residual/2 from tables.
 
@@ -2231,6 +2270,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------------------- 43 delay_tests_fr19
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program that used to give wrong results.
 %
@@ -2262,6 +2302,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------------------- 44 delay_tests_fr20
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program that used to give wrong results.
 %
@@ -2293,6 +2334,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------------------- 45 delay_tests_fr21
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program that used to give wrong results.
 %
@@ -2324,6 +2366,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------------------- 46 delay_tests_fr22
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program that used to give wrong results.
 %
@@ -2355,6 +2398,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------------------- 47 delay_tests_fr23
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program that used to give wrong results.
 %
@@ -2390,6 +2434,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------------------- 48 delay_tests_fr24
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program that causes a segmentation fault (because the parent tabled
 % choice point register is wrongly updated).
@@ -2429,6 +2474,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------------------- 49 delay_tests_fr25
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program that used to give wrong results.
 %
@@ -2460,6 +2506,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------------------- 50 delay_tests_fr26
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program that I thought it gave wrong results.
 %
@@ -2498,6 +2545,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------------------- 51 delay_tests_fr27
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program that used to give wrong results.
 %
@@ -2529,6 +2577,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------------------- 52 delay_tests_fr28
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program that used to give wrong results.
 %
@@ -2560,6 +2609,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------------------- 53 delay_tests_fr29
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program that used to give wrong results.
 %
@@ -2593,6 +2643,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------------------- 54 delay_tests_fr30
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program that used to give wrong results (shows the need for junking
 % answers at new_answer_dealloc time).
@@ -2626,6 +2677,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------------ 55 delay_tests_fr4
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program that used to give wrong results.
 %
@@ -2657,6 +2709,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------------ 56 delay_tests_fr5
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program that used to give wrong results.
 %
@@ -2687,6 +2740,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------------ 57 delay_tests_fr6
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program that used to give wrong results.
 %
@@ -2717,6 +2771,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------------ 58 delay_tests_fr7
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program that used to give wrong results.
 %
@@ -2748,6 +2803,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------------ 59 delay_tests_fr8
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program that used to give wrong results.
 %
@@ -2778,6 +2834,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------------ 60 delay_tests_fr9
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program that used to give wrong results.
 %
@@ -2808,6 +2865,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------------ 61 delay_tests_gfp
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 test :- tnot(tnot_gfpg(q(4,4))),writeln(yes),fail.
 test :- pr.
 
@@ -2927,6 +2985,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %-------------------------------------------------------- 62 delay_tests_interp0
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- table interp_g/1.
 
 interp([]).
@@ -2948,6 +3007,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %-------------------------------------------------------- 63 delay_tests_interp1
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- dynamic rule/2.
 
 :- table interp_g/1.
@@ -2984,6 +3044,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------- 64 delay_tests_interp10
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program that gives wrong results.
 %
@@ -3031,6 +3092,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------- 65 delay_tests_interp11
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program that gives wrong results.
 %
@@ -3079,6 +3141,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------- 66 delay_tests_interp12
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program that gives wrong results because it requires answer completion.
 %
@@ -3127,6 +3190,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------- 67 delay_tests_interp13
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program that gives wrong results because it requires answer completion.
 %
@@ -3175,6 +3239,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------- 68 delay_tests_interp14
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program that gives wrong results because it requires answer completion.
 %
@@ -3223,6 +3288,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------- 69 delay_tests_interp15
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program that gives wrong results because it requires answer completion.
 %
@@ -3271,6 +3337,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %-------------------------------------------------------- 70 delay_tests_interp2
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program that used to give wrong results.
 %
@@ -3314,6 +3381,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %-------------------------------------------------------- 71 delay_tests_interp3
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program that goes into an infinite loop.  Also check what happens
 % when both interp_g/1 and interp/1 are tabled (used to give error
@@ -3363,6 +3431,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %-------------------------------------------------------- 72 delay_tests_interp4
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program that according to David causes a bus error.
 %
@@ -3415,6 +3484,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %-------------------------------------------------------- 73 delay_tests_interp5
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program that might be gining wrong results.
 %
@@ -3467,6 +3537,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %-------------------------------------------------------- 74 delay_tests_interp6
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program that might be gining wrong results.
 %
@@ -3519,6 +3590,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %-------------------------------------------------------- 75 delay_tests_interp7
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program that used to give wrong results.
 %
@@ -3563,6 +3635,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %-------------------------------------------------------- 76 delay_tests_interp8
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Model T = {q}, F = {p,r}, U = {}.
 %------------------------------------------------------------------------
@@ -3606,6 +3679,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %-------------------------------------------------------- 77 delay_tests_interp9
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program that causes a bus error when memory allocation is big.
 % It is a simplified version of program interp4.
@@ -3654,6 +3728,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------ 78 delay_tests_nonstrat1
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 test :- a, fail.
 test :- b, fail.
 test :- c, fail.
@@ -3688,6 +3763,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------ 79 delay_tests_nonstrat2
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- table a/0, b/0, a/1, b/1.
 
 test :- a, fail.
@@ -3728,6 +3804,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------------- 80 delay_tests_p1
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program for which everything is undefined.
 %------------------------------------------------------------------------
@@ -3760,6 +3837,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------------- 81 delay_tests_p2
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program for which everything is undefined.
 %------------------------------------------------------------------------
@@ -3792,6 +3870,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------------- 82 delay_tests_p3
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program for which everything is undefined.
 %------------------------------------------------------------------------
@@ -3824,6 +3903,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------------- 83 delay_tests_p4
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program for which everything is undefined.
 %------------------------------------------------------------------------
@@ -3856,6 +3936,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------------- 84 delay_tests_p5
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program in which {p,q} should fail while {r} should succeed.
 % Needs negative simplification (for the answer of r).
@@ -3889,6 +3970,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %---------------------------------------------------------- 85 delay_tests_przy1
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %
 % From Przymusinska and Przymusinski (weakly stratified paper).
 % Example of a program that has a well-founded (and unique stable)
@@ -3918,6 +4000,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------------- 86 delay_tests_przy1_simp
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %
 % From Przymusinska and Przymusinski (weakly stratified paper).
 % Example of a program that has a well-founded (and unique stable)
@@ -3960,6 +4043,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------ 87 delay_tests_residual1
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import numbervars/1 from num_vars.
 :- import get_residual/2 from tables.
 /*
@@ -4085,6 +4169,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %---------------------------------------------------------- 88 delay_tests_ross1
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 test :- p(X), writeln(X), fail ; true.
 
 %-----------------------------------------------------------------------
@@ -4102,6 +4187,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------------- 89 delay_tests_sel_unsusp
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %----------------------------------------------------------------------
 %  Requires only negative simplification.
 %----------------------------------------------------------------------
@@ -4134,6 +4220,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %---------------------------------------------------- 90 delay_tests_tabsimp_seq
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 /* Added this test to ensure that we check for stack reallocation
    before placing a completion suspension choice point. */
@@ -4161,6 +4248,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test(20000)))).
 %-------------------------------------------------------- 91 delay_tests_two_ary
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %-----------------------------------------------------------------------
 % Tests printing of delay lists.
 %-----------------------------------------------------------------------
@@ -4183,6 +4271,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %-------------------------------------------------------- 92 delay_tests_ullman3
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %
 % The well-founded model is: {t(1), ~t(2), t(3)}
 % Ground atoms t(4), t(5), and t(6) have ``unknown'' truth value.
@@ -4233,6 +4322,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------- 93 delay_tests_weidong2
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program for which ANSWER COMPLETION is needed (according to Weidong).
 %------------------------------------------------------------------------
@@ -4265,6 +4355,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------- 94 delay_tests_weidong3
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program for which ANSWER COMPLETION is needed (it should have only
 % one answer for p).
@@ -4298,6 +4389,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------- 95 delay_tests_weidong4
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program for which ANSWER COMPLETION is needed.
 %------------------------------------------------------------------------
@@ -4331,6 +4423,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------- 96 delay_tests_weidong5
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program for which ANSWER COMPLETION is needed.  I am not sure about
 % the answers (probably everything is undefined).
@@ -4365,6 +4458,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------- 97 delay_tests_weidong6
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program for which ANSWER COMPLETION is needed.  I am not sure about
 % the answers (probably everything is undefined).
@@ -4400,6 +4494,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------- 98 delay_tests_weidong7
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program for which non-trivial ANSWER COMPLETION is needed.
 %------------------------------------------------------------------------
@@ -4439,6 +4534,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------- 99 delay_tests_weidong8
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 % Program for which non-trivial ANSWER COMPLETION is needed.
 %------------------------------------------------------------------------
@@ -4478,6 +4574,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %--------------------------------------------------------- 100 float_tests_roots
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %---------------------------------------------------------------
 % Tests comparisons of numbers with floating points.
 %---------------------------------------------------------------
@@ -4509,6 +4606,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------ 101 float_tests_roots_int_comp
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %---------------------------------------------------------------
 % Tests comparisons of numbers with integers.
 %---------------------------------------------------------------
@@ -4540,6 +4638,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------------------- 102 float_tests_vac
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %---------------------------------------------------------------
 % General test for floating point number manipulation.
 %---------------------------------------------------------------
@@ -4591,6 +4690,7 @@ eql_true(X,Y) :-
 ?- writeln('Asserting:'), eql_true(X,Y), fail.
 ?- writeln('Results:'), eql1(X,Y), fail.
 %----------------------------------------------------- 104 foreign_tests_cinter2
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 %% why is this following necessary?
 :- xsb_configuration(compiler, CC), consult(zero, [CC]).
@@ -4631,6 +4731,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %---------------------------------------------- 105 incremental_tests_inc_atc_gc
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- table p/1 as incremental.
 
 p(1).
@@ -4647,6 +4748,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %---------------------------------------- 106 incremental_tests_incremental_rule
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 :- import incr_assert/1,incr_retract/1 from increval.
 
@@ -4676,6 +4778,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------ 107 incremental_tests_incremental_rule_alt
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 :- import incr_assert/1,incr_retract/1 from increval.
 
@@ -4709,6 +4812,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %-------------------------------------------- 108 incremental_tests_s_inc_atc_gc
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- table p/1 as subsumptive, incremental.
 
 p(1).
@@ -4725,6 +4829,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %-------------------------------------- 109 incremental_tests_s_incremental_rule
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 :- import incr_assert/1,incr_retract/1 from increval.
 
@@ -4754,6 +4859,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------ 110 incremental_tests_s_test_abolish_incremental_call_single
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 :- import numbervars/1 from num_vars.
 :- import incr_assert/1 from increval.
@@ -4826,6 +4932,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %--------------------------- 111 incremental_tests_s_test_abolish_nonincremental
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- compiler_options([spec_off]).
 
 test:- reset,fail.
@@ -4888,6 +4995,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %--------------------------------------- 112 incremental_tests_s_test_directives
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 test:- test_dirs.
 test_dirs:-  writeln('-----'),
@@ -4998,6 +5106,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------- 113 incremental_tests_s_test_idg_abstract
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import incr_trans_depends/2,incr_assert/1 from increval.
 :- import numbervars/1 from num_vars.
 
@@ -5025,6 +5134,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %--------------------------------------- 114 incremental_tests_s_test_invalidate
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import incr_retract/1,incr_retractall/1,incr_assert/1 from increval.
 
 test:- t_1(X),incr_retract(d_1(1)),t_1(Y),writeln(one(t_1(X),t_1(Y))),fail.
@@ -5061,6 +5171,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------- 115 incremental_tests_s_test_maxans
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 % restraint works for incr
 % updates work for incr *under* the barrier
 :- import start_forest_view/1 from tables.
@@ -5126,6 +5237,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------- 116 incremental_tests_s_test_set_pp
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import set_predicate_property/2 from curr_sym.
 :- import xsb_error_get_message/2,xsb_error_get_tag/2 from error_handler.
 :- import numbervars/1 from num_vars.
@@ -5219,6 +5331,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %-------------------- 117 incremental_tests_test_abolish_incremental_call_single
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 :- import numbervars/1 from num_vars.
 :- import incr_assert/1 from increval.
@@ -5291,6 +5404,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------- 118 incremental_tests_test_abolish_nonincremental
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- compiler_options([spec_off]).
 
 test:- reset,fail.
@@ -5353,6 +5467,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------- 119 incremental_tests_test_directives
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 test:- test_dirs.
 test_dirs:-  writeln('-----'),
@@ -5458,6 +5573,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------- 120 incremental_tests_test_goal_interrupt
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 :- import interrupt_with_goal/1 from mutex_xsb.
 test:- p(1000).
@@ -5474,6 +5590,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %--------------------------------------- 121 incremental_tests_test_idg_abstract
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import incr_trans_depends/2,incr_assert/1 from increval.
 :- import numbervars/1 from num_vars.
 
@@ -5501,6 +5618,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------- 122 incremental_tests_test_invalidate
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import incr_retract/1,incr_retractall/1,incr_assert/1 from increval.
 
 test:- t_1(X),incr_retract(d_1(1)),t_1(Y),writeln(one(t_1(X),t_1(Y))),fail.
@@ -5537,6 +5655,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %--------------------------------------------- 123 incremental_tests_test_maxans
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 % restraint works for incr
 % updates work for incr *under* the barrier
 :- import start_forest_view/1 from tables.
@@ -5602,6 +5721,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %--------------------------------------------- 124 incremental_tests_test_set_pp
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import set_predicate_property/2 from curr_sym.
 :- import xsb_error_get_message/2,xsb_error_get_tag/2 from error_handler.
 :- import numbervars/1 from num_vars.
@@ -5695,6 +5815,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------- 125 incremental_tests_test_tc
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 /* Not a test of incremental tabling, but put here so its not tested by mt engine */
 
 :- import timed_call/2,abort_level/1 from standard.
@@ -5788,6 +5909,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------ 126 neg_tests_ldynstrat0
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 test :- a, fail.
 test :- b, fail.
 test :-
@@ -5809,6 +5931,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------ 127 neg_tests_ldynstrat1
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 test :- a, fail.
 test :- b, fail.
 test :- c, fail.
@@ -5834,6 +5957,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------ 128 neg_tests_ldynstrat2
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 test :- a, fail.
 test :- b, fail.
 test :- c, fail.
@@ -5864,6 +5988,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------ 129 neg_tests_ldynstrat3
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import get_returns_for_call/2 from tables.
 
 test :- a, fail.
@@ -5898,6 +6023,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------ 130 neg_tests_ldynstrat4
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import get_returns_for_call/2 from tables.
 
 test :- a, fail.
@@ -5932,6 +6058,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------------------- 131 neg_tests_lmod1
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 test :- a, fail.
 test :-
 	( a -> writeln('a is true') ; writeln('a is false') ),
@@ -5958,6 +6085,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %---------------------------------------------------------- 132 neg_tests_lmod10
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 test :- a, fail.
 test :-
 	( a -> writeln('a is true') ; writeln('a is false') ),
@@ -6002,6 +6130,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------------------- 133 neg_tests_lmod2
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 test :- a, fail.
 test :-
 	( a -> writeln('a is true') ; writeln('a is false') ),
@@ -6028,6 +6157,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------------------- 134 neg_tests_lmod3
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 test :- a, fail.
 test :-
 	( a -> writeln('a is true') ; writeln('a is false') ),
@@ -6073,6 +6203,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------------------- 135 neg_tests_lmod4
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 test :- a, fail.
 test :-
 	( a -> writeln('a is true') ; writeln('a is false') ),
@@ -6103,6 +6234,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------------------- 136 neg_tests_lmod5
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 test :- a, fail.
 test :-
 	( a -> writeln('a is true') ; writeln('a is false') ),
@@ -6143,6 +6275,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------------------- 137 neg_tests_lmod6
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 test :- a, fail.
 test :-
 	( a -> writeln('a is true') ; writeln('a is false') ),
@@ -6174,6 +6307,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------------------- 138 neg_tests_lmod7
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 test :- a, fail.
 test :-
 	( a -> writeln('a is true') ; writeln('a is false') ),
@@ -6208,6 +6342,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------------------- 139 neg_tests_lmod8
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 test :- a, fail.
 test :-
 	( a -> writeln('a is true') ; writeln('a is false') ),
@@ -6247,6 +6382,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------------------- 140 neg_tests_lmod9
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 test :- a, fail.
 test :-
 	( a -> writeln('a is true') ; writeln('a is false') ),
@@ -6291,6 +6427,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------------ 141 neg_tests_mod1
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 test :- a, fail.
 test :-
 	( a -> writeln('a is true') ; writeln('a is false') ),
@@ -6321,6 +6458,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------------ 142 neg_tests_neg1
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- table p/0, q/0, p/1, q/1.
 
 test :-
@@ -6339,6 +6477,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------------ 143 neg_tests_neg2
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 test :- a, fail.
 test :- a(0), fail.
 test :- test_prop, test_datalog.
@@ -6405,6 +6544,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------------ 144 neg_tests_neg3
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 test :- a, fail.
 test :-
 	( a -> writeln('a is true') ; writeln('a is false') ),
@@ -6427,6 +6567,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------------------- 145 neg_tests_przy2
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %
 % From Przymusinska and Przymusinski (weakly stratified paper).
 % Example of a program that has a well-founded (and unique stable)
@@ -6459,6 +6600,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %--------------------------------------------------------- 146 neg_tests_ullman1
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %
 % The well-founded model is two valued {p, ~q, ~r, s, ~t, ~u}
 %
@@ -6498,6 +6640,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %--------------------------------------------------------- 147 neg_tests_ullman2
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %
 % The well-founded model is two valued {~t(1), t(2), ~t(3), ~t(4), ~t(5)}
 %
@@ -6526,6 +6669,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %-------------------------------------------------- 148 nonmt_tests_cmu_sei_0050
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 test:- solve.
 
 :-dynamic factNOTConstructor/1as incremental.
@@ -6559,6 +6703,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %--------------------------------------------------- 149 nonmt_tests_cmu_sei_083
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 % Tests multiple updates/find_visitors with the same subgoal
 
@@ -6631,6 +6776,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------- 150 nonmt_tests_test_goal_interrupt
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 :- import interrupt_with_goal/1 from mutex_xsb.
 test:- p(1000).
@@ -6647,6 +6793,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------- 151 nonmt_tests_test_invalidate
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import incr_retract/1,incr_retractall/1,incr_assert/1 from increval.
 
 test:- t_1(X),incr_retract(d_1(1)),t_1(Y),writeln(one(t_1(X),t_1(Y))),fail.
@@ -6683,6 +6830,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %--------------------------------------------------- 152 nonmt_tests_test_maxans
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 % restraint works for incr
 % updates work for incr *under* the barrier
 :- import start_forest_view/1 from tables.
@@ -6748,6 +6896,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %--------------------------------------------------- 153 nonmt_tests_test_set_pp
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import set_predicate_property/2 from curr_sym.
 :- import xsb_error_get_message/2,xsb_error_get_tag/2 from error_handler.
 :- import numbervars/1 from num_vars.
@@ -6841,6 +6990,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------- 154 nonmt_tests_test_tc
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 /* Not a test of incremental tabling, but put here so its not tested by mt engine */
 
 :- import timed_call/2,abort_level/1 from standard.
@@ -6934,6 +7084,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------------- 155 prolog_tests_arith_op
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 test :- evl1(1+2), evl2, evl3, fail.
 test:- t1(X), writeln(t1(X)),fail.
@@ -6978,6 +7129,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %--------------------------------------------------- 156 prolog_tests_call_tests
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import for/3 from basics.
 :- import for/2, for/1 from basics.  %% note that these do not exist and are not called,
 				% but are used to get the basics module for call/n
@@ -7005,6 +7157,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------ 157 prolog_tests_cinter2
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- (windows_os -> shell('nmake /f MakefileCinter2') ; true).
 
 :- xsb_configuration(compiler, CC), consult(zero, [CC]).
@@ -7045,6 +7198,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------------- 158 prolog_tests_con_char
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 test:- 
 	writeln(0'\\ ),
@@ -7063,6 +7217,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------ 159 prolog_tests_findall
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 % This tests findall/3 and heap expansion: should
 % better be run with default global/local stack size.
 
@@ -7079,6 +7234,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %-------------------------------------------------------- 160 prolog_tests_first
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 :- import append/3,length/2 from basics.
 :- import abolish_table_info/0 from machine.
@@ -7116,6 +7272,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %-------------------------------------------------- 161 prolog_tests_format_test
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 :- import format/2 from format.
 
@@ -7142,6 +7299,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------- 162 prolog_tests_functor4_tests
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import functor/4 from standard.
 :- import numbervars/1 from num_vars.
 :- import term_new_mod/3 from machine.
@@ -7397,6 +7555,7 @@ smt_trie_mod('foobar1:entities/HC0002D58/serif_typer/a5274', 'aida:justifiedBy',
 smt_trie_mod('foobar1:entities/HC0002D58/serif_typer/a5274', 'aida:link', '_:d946acbb95baea495d1450d52e5d4c45') . 
 smt_trie_mod('foobar1:entities/HC0002D58/serif_typer/a5274', 'aida:system', 'http://www.foobar.com/aida_ta1') . 
 %------------------------------------------- 169 prolog_tests_large_arity_prolog
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import numbervars/1 from num_vars.
 :- import length/2,member/2 from basics.
 :- import unifiable/3 from constraintLib.
@@ -7546,6 +7705,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------- 170 prolog_tests_listing_test
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 test:- assert(p(1)),assert(p(2)),assert(p(3)),listing(p/1).
 
@@ -7554,6 +7714,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------- 171 prolog_tests_mf_obj
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 /* This file is used to compile all the test files for multifile directive */
  
 :- mc(mf_file1,[]).
@@ -7575,6 +7736,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((do))).
 %------------------------------------ 172 prolog_tests_mod_dyn_tests_test_dynmod
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import numbervars/1 from num_vars.
 my_writeln(Term) :-
 	(do_all
@@ -7607,6 +7769,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %--------------------------------- 173 prolog_tests_mod_dyn_tests_test_dynmod_im
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import numbervars/1 from num_vars.
 my_writeln(Term) :-
 	(do_all
@@ -7644,6 +7807,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %--------------------------------- 174 prolog_tests_mod_file_tests_test_mod_file
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 test :- shell('rm -f *.xwam'),fail.
 
@@ -7686,6 +7850,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------ 175 prolog_tests_mod_file_tests_test_mod_file_im
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 test :- shell('rm -f *.xwam'),fail.
 
@@ -7735,6 +7900,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %---------------------------------------------------------- 176 prolog_tests_n2c
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 /*
  * Checks whether the number_codes/2, number_chars/2, number_digits/2 
  * implemented in C works. 
@@ -7820,6 +7986,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------------- 177 prolog_tests_newfirst
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 :- import append/3,length/2 from basics.
 :- import abolish_table_info/0 from machine.
@@ -7855,6 +8022,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------- 178 prolog_tests_parmod_tests_test_parmod
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %:- ensure_loaded(persistent_tables_package).
 %:- import abolish_persistent_table_calls/1 from persistent_tables.
 
@@ -7929,6 +8097,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %---------------------------------- 179 prolog_tests_parmod_tests_test_parmod_im
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import abolish_persistent_table_calls/1 from persistent_tables.
 
 test :- shell('rm -f *.xwam'),fail.
@@ -8013,6 +8182,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------- 180 prolog_tests_pip_write_term
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 % Tests for write_term/2 options based on PIP 0105 (temp-sandbox/0105-write-options.md)
 % and the ISO test harness in temp-sandbox/test_harness_iso.pl.
 %
@@ -8042,6 +8212,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %---------------------------------------------- 181 prolog_tests_prolog_db_tests
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import new_db/1, assert_in_db/2, assert_in_db/3, in_db/2 from prolog_db.
 :- import load_in_db/2, pure_in_db/2 from prolog_db.
 :- import compare_size_db/3 from prolog_db.
@@ -8701,6 +8872,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %-------------------------------------------- 182 prolog_tests_spec_tbl_fold_bug
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 :- table tabled_p/3.
 
@@ -8719,6 +8891,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %--------------------------------------------------------- 183 prolog_tests_std2
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import subsumes_chk/2 from subsumes.
 
 test :- 
@@ -8785,6 +8958,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %---------------------------------------------- 184 prolog_tests_test_aggregates
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 /* Test to make sure we can find prolog_commons */
 
@@ -8804,6 +8978,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------- 185 prolog_tests_test_cond_comp
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 test:- [test_cond_comp].
 
@@ -8888,6 +9063,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %---------------------------------------------------- 186 prolog_tests_test_dphc
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import numbervars/1 from num_vars.
 :- import dynamic_pred_has_clauses/2 from assert.
 
@@ -8918,6 +9094,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %-------------------------------------------------- 187 prolog_tests_test_forall
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 test:- forall(p(X),q(X)),writeln('forall(p(X),q(X)) succeeded'),fail.
 test:- forall(q(X),p(X)),writeln('forall(q(X),p(X)) succeeded'),fail.
@@ -8947,6 +9124,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %---------------------------------------- 188 prolog_tests_test_large_atom_codes
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 test:-
      test1,
@@ -29295,6 +29473,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------- 189 prolog_tests_test_precision
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 /* test of precision in the compiler.
    dont know how it will work on 64-bits. */
@@ -29315,6 +29494,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %-------------------------------------------- 190 prolog_tests_test_read_integer
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 % ISO
 test:- X = 0b110,writeln(iso_number_base(110,b,X)),fail.
@@ -29367,6 +29547,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------- 191 prolog_tests_test_term_size
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import for/3 from basics.
 
 test:- 
@@ -29416,6 +29597,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %---------------------------------------------- 192 prolog_tests_test_termtoatom
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 :- import term_to_atom/2,term_to_atom/3 from string.
 
@@ -29472,6 +29654,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %---------------------------------------------- 193 prolog_tests_test_write_read
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import numbervars/1 from num_vars.
 
 test :-
@@ -29559,6 +29742,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------ 194 prolog_tests_unsafe1
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- compiler_options([xpp_on]).
 #include "extensions_xsb.h"
 
@@ -29585,6 +29769,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------ 195 prolog_tests_unsafe2
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- compiler_options([xpp_on]).
 #include "extensions_xsb.h"
 
@@ -29615,6 +29800,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------ 196 prolog_tests_varcond
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- compiler_options([xpp_on]).
 #include "extensions_xsb.h"
 
@@ -29646,6 +29832,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------- 197 prolog_tests_wttest
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 :- import write_term/2 from write_term.
 
@@ -29682,6 +29869,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------ 198 retract_tests_boyer_assert
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import get_calls/3, get_returns/2, trie_dynamic/1, trie_assert/1 from tables.
 
 boyer:- wff(Wff),
@@ -30078,6 +30266,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((boyer))).
 %----------------------------------------------- 199 retract_tests_test_retra_gc
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 
 :- import gc_dynamic/1 from standard.
@@ -30139,6 +30328,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------- 200 retract_tests_test_retra_gc_fancy
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 :- import gc_dynamic/1 from standard.
 
@@ -30191,6 +30381,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------- 201 retract_tests_test_retra_gc_noind
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 :- import gc_dynamic/1 from standard.
 
@@ -30244,6 +30435,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------- 202 sub_table_tests_abol_test
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %-------------------------------------------------------------------------
 % Created by Kostis Sagonas to test the basic functionality of tabling
 % built-in predicates abolish_table_pred/1.
@@ -30297,6 +30489,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------ 203 sub_table_tests_abol_test3
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 /* Tests DTF creation and garbage collection of two tables for the
  same predicate. */
@@ -30337,6 +30530,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------- 204 sub_table_tests_abol_test3a
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 /* Tests DTF creation and garbage collection of two tables for
 different predicates. */
@@ -30380,6 +30574,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------- 205 sub_table_tests_abol_test3b
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 /* Tests DTF creation and garbage collection of two tables for
 different predicates. */
@@ -30425,6 +30620,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------------- 206 sub_table_tests_dipti
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 /*
 Dipti sent me the following program that is a very short pure Datalog
 program for which XSB gives the wrong answer.  I haven't seen a bug
@@ -30482,6 +30678,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------- 207 sub_table_tests_pps
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- compiler_options([spec_off]).
 
 %?- xsb_flag(verboseness,3).
@@ -30525,6 +30722,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %---------------------------------------- 208 sub_table_tests_recursive_aboltest
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 % stress tests correct gc of layered abolishes of the same predicate
 
@@ -30561,6 +30759,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------------- 209 sub_table_tests_testh
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- compiler_options([spec_off]).
 
 :- [cycle].
@@ -30587,6 +30786,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((time2048))).
 %---------------------------------------------------- 210 sub_table_tests_tfinda
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- table p1/0, q1/0, p2/0, q2/0.
 
 
@@ -30606,6 +30806,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %--------------------------------------------------- 211 sub_table_tests_unw_tr1
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 test :- sentence(_, _, _), fail.
 test :- nl.
 
@@ -30713,6 +30914,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------------- 212 table_tests_abol_test
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %-------------------------------------------------------------------------
 % Created by Kostis Sagonas to test the basic functionality of tabling
 % built-in predicates abolish_table_pred/1.
@@ -30766,6 +30968,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %---------------------------------------------------- 213 table_tests_abol_test3
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 /* Tests DTF creation and garbage collection of two tables for the
  same predicate. */
@@ -30806,6 +31009,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %--------------------------------------------------- 214 table_tests_abol_test3a
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 /* Tests DTF creation and garbage collection of two tables for
 different predicates. */
@@ -30849,6 +31053,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %--------------------------------------------------- 215 table_tests_abol_test3b
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 /* Tests DTF creation and garbage collection of two tables for
 different predicates. */
@@ -30894,6 +31099,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------- 216 table_tests_abolish_cascade
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import find_components/1, find_forward_dependencies/1, find_backward_dependencies/1, 
 	find_answers/1
 from tables.
@@ -30969,6 +31175,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------ 217 table_tests_abolish_cascade_pred
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import find_components/1, find_forward_dependencies/1, find_backward_dependencies/1, 
 	find_answers/1
 from tables.
@@ -31066,6 +31273,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------- 218 table_tests_abolish_cycle
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import numbervars/1 from num_vars.
 :- compiler_options([spec_off]).
 
@@ -31100,6 +31308,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %--------------------------------------------------- 219 table_tests_abolish_dag
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import numbervars/1 from num_vars.
 
 test:- restart,fail.
@@ -31165,6 +31374,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %--------------------------------------------------------- 220 table_tests_dipti
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 /*
 Dipti sent me the following program that is a very short pure Datalog
 program for which XSB gives the wrong answer.  I haven't seen a bug
@@ -31222,6 +31432,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------------------- 221 table_tests_ins
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------
 :- [sets, correct].
 %------------------------------------------------------
@@ -31299,6 +31510,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %-------------------------------------------- 222 table_tests_large_arity_tables
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import numbervars/1 from num_vars.
 
 :- table subg_term/1.
@@ -31331,6 +31543,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %----------------------------------------------------------- 223 table_tests_pps
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- compiler_options([spec_off]).
 
 %?- xsb_flag(verboseness,3).
@@ -31374,6 +31587,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %-------------------------------------------- 224 table_tests_pred_abolish_cycle
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import numbervars/1 from num_vars.
 :- compiler_options([spec_off]).
 
@@ -31442,6 +31656,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %---------------------------------------------- 225 table_tests_pred_abolish_dag
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import numbervars/1 from num_vars.
 
 test:- restart,fail.
@@ -31549,6 +31764,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %-------------------------------------------- 226 table_tests_recursive_aboltest
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 % stress tests correct gc of layered abolishes of the same predicate
 
@@ -31585,6 +31801,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------- 227 table_tests_tabbug1
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- table p/1.
 
 p(X) :- X = a, p(X).
@@ -31601,6 +31818,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %-------------------------------------------- 228 table_tests_test_brat_ansdepth
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- compiler_options([spec_off]).
 
 :- set_prolog_flag(max_table_answer_size_action, bounded_rationality).
@@ -31742,6 +31960,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------ 229 table_tests_test_brat_ansdepth_i
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- compiler_options([spec_off]).
 
 :- set_prolog_flag(max_table_answer_size_action, bounded_rationality).
@@ -31876,6 +32095,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------- 230 table_tests_test_cyclic_tabling
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import close_open_tables/1 from machine.
 
 ?- set_prolog_flag(max_table_answer_size,25).
@@ -31917,6 +32137,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------- 231 table_tests_test_get_call
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 :- import get_call/3 from tables.
 :- import numbervars/1 from num_vars.
@@ -31942,6 +32163,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %--------------------------------------- 232 table_tests_test_large_tabled_terms
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 /* Test of handling large subgoals and answers */
 
@@ -32037,6 +32259,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %---------------------------------------------- 233 table_tests_test_maxans_decl
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import between/3 from basics.
 :- import numbervars/1 from num_vars.
 
@@ -32051,6 +32274,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------- 234 table_tests_test_negcycle
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 :- table p/1.
 p(_X).
@@ -32125,6 +32349,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------ 235 table_tests_test_table_as_intern
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- compiler_options([spec_off]).
 
 test:- 	  buildlist(100000,_L), writeln(table_as_intern_working).
@@ -32153,6 +32378,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %---------------------------------------------- 236 table_tests_test_table_index
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import xsb_error_get_tag/2,xsb_error_get_message/2 from error_handler.
 
 :- table p/2 as index(0).
@@ -32213,6 +32439,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------ 237 table_tests_test_tda
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 /* 
  Need to test out doubles for p3/p7
@@ -32428,6 +32655,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %---------------------------------------------------- 238 table_tests_test_tda_i
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 /* 
  Need to test out doubles for p3/p7
@@ -32643,6 +32871,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------ 239 table_tests_test_trans_bug
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 
 test:- p(a),fail.
@@ -32659,6 +32888,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------- 240 table_tests_test_trievars
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 :- import new_trie/1, trie_intern/2,trie_interned/2 from intern.
 :- import trie_intern/4 from intern.
@@ -32749,6 +32979,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %--------------------------------------------------------- 241 table_tests_testh
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- compiler_options([spec_off]).
 
 :- [cycle].
@@ -32775,6 +33006,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((time2048))).
 %-------------------------------------------------------- 242 table_tests_tfinda
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- table p2/0, q2/0.
 
 
@@ -32794,6 +33026,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------ 243 table_tests_trassert
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 /*
    Simple tests for trie asserts: More will be added as and
    when thought of.
@@ -32962,6 +33195,7 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0.
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------- 244 table_tests_unw_tr1
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 % Don't abstract -- no finite model.
 ?- set_prolog_flag(max_table_subgoal_size,10).
 

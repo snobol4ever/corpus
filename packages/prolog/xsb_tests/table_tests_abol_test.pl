@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %-------------------------------------------------------------------------
 % Created by Kostis Sagonas to test the basic functionality of tabling
 % built-in predicates abolish_table_pred/1.

@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %-----------------------------------------------------------------------
 %  Programs that tests insertion of duplicate delay lists.  It is
 %  dynamically stratified and its model should be WFM = {q, ~r}.

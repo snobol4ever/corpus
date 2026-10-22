@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 % Checks mem_calloc for structure manager expansion
 :- dynamic message_ball/1.
 :- import misc_error/1,xsb_error_get_message/2 from error_handler.

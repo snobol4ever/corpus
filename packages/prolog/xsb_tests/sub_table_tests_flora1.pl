@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 /*
 Folks, if you fix the arithmetic exception bug, then here is a real program
 with a known set of answers. (The program you have was cut out of that

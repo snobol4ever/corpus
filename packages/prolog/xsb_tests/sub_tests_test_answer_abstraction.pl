@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %This tests that a general call may be undefined, although a specific call may be definite.
 
 :- table p1/1.

@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import new_db/1, assert_in_db/2, assert_in_db/3, in_db/2 from prolog_db.
 :- import load_in_db/2, pure_in_db/2 from prolog_db.
 :- import compare_size_db/3 from prolog_db.

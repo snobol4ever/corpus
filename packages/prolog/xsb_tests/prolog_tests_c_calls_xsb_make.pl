@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %% Compile the C program that calls XSB using the flags in xsb_configuration.
 %% Execute the C program, which calls and compiles XSB
 

@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 % This file tests newIntRule/3 and retractallIntRule/2 for
 % hasAttr_int, newIntRule/23 for minAttr_int, and checks cross
 % dependencies for minAttr_int and hasAttr_int. 

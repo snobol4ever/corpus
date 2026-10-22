@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 /*
  * Checks whether the number_codes/2, number_chars/2, number_digits/2 
  * implemented in C works. 

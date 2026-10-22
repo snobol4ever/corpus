@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %:- ensure_loaded(persistent_tables_package).
 %:- import abolish_persistent_table_calls/1 from persistent_tables.
 

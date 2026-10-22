@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import close_open_tables/1 from machine.
 
 ?- set_prolog_flag(max_table_answer_size,25).

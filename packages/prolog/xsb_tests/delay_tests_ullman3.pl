@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %
 % The well-founded model is: {t(1), ~t(2), t(3)}
 % Ground atoms t(4), t(5), and t(6) have ``unknown'' truth value.

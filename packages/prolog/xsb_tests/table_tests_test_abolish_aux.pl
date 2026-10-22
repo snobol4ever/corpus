@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import xsb_error_get_message/2,xsb_error_get_tag/2 from error_handler.
 
 % this test makes sure we properly abolish auxiliary predicates, like

@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %% This compiles the examples below on Unix
 :- import compile_windows_c_to_exe/1 from foreign.
 :- import copy/2, rm/1 from shell.

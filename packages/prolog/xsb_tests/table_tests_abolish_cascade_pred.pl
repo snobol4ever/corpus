@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import find_components/1, find_forward_dependencies/1, find_backward_dependencies/1, 
 	find_answers/1
 from tables.

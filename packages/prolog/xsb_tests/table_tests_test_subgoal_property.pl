@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 :- import subgoal_property/2 from curr_sym.
 :- table t_1a/1, t_1b/1, t_2a/1, t_2b/1, t_2c/1, t_3/1 as incremental.

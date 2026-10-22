@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 /* Tests DTF creation and garbage collection of two tables for
 different predicates, when one of the predicates has a valid table.*/

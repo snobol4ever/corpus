@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 % get_call_from_sf(SF,Call):- 
 % Lost pos/neg depends; need to get terminal preds,scc levels
 

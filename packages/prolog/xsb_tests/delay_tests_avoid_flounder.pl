@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %--------------------------------------------------------------------------
 %  Currently, this test is quite pointless...  Unfortunately, I do not
 %  know of a good way of testing floundering (or have a variant of SLG

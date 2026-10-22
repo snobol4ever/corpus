@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 /* This is a rewrite of a test constructed for eager incremental
 tabling, so its name is perhaps misleading. It now tests incr_invalid_subgoals/1.  */

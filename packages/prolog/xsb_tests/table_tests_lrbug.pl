@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 /* corrected in common system by 3/10/97: XSB Version 1.6.2 (97/2/3) */
 /* bug: query
 	interp(t(0,6),1,[]),writeln(yes),fail.

@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- index(hitb/2, [1+2,2,1], 5388).
 
 :- export completeBody/2, test/0.

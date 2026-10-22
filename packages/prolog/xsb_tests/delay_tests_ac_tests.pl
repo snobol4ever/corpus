@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 /**
 My example from below, with Annie's suggestion for single scc.
 [[p1,p1],[p1,not r1],[q1,s1,q1],[s1,not p1],[r1,not q1],[q1,p2],

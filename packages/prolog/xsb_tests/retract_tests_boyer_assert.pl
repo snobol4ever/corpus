@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import get_calls/3, get_returns/2, trie_dynamic/1, trie_assert/1 from tables.
 
 boyer:- wff(Wff),

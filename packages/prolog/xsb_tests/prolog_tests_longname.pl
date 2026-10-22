@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 test :- load_dyn(longatom), writeln('Longnames OK').
 
 % DRIVER (appended by the vendoring, CEO-700): XSB prolog_tests/test.sh runs gentest.sh longname "test."

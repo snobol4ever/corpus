@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 /* Not a test of incremental tabling, but put here so its not tested by mt engine */
 
 :- import timed_call/2,abort_level/1 from standard.

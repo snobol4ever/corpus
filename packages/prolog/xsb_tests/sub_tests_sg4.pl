@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 go :- ['Driver'], sg('XY','Data/tree').
 
 % DRIVER (appended by the vendoring, CEO-700): XSB sub_tests/test.sh runs gentest.sh sg4 "go."

@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import for/3 from basics.
 :- import for/2, for/1 from basics.  %% note that these do not exist and are not called,
 				% but are used to get the basics module for call/n

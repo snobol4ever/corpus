@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 test :- tnot(tnot_gfpg(q(4,4))),writeln(yes),fail.
 test :- pr.
 

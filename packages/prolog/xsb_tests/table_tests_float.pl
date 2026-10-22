@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 % TLS in anticipation of compiler option decls in file.
 :- compile(float1,[spec_off]),[float1].

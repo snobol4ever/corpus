@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 /* This file is used to compile all the test files for multifile directive */
  
 :- mc(mf_file1,[]).

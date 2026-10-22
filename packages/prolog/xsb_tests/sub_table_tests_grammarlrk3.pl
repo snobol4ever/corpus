@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 /* explore building ``LR(k)'' tables using intern, and using them.
 
 This doesn't quite do it the way I'd like.  It doesn't use the

@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import file_open/3, file_flush/2, file_seek/4, file_close/1 from file_io.
 :- import file_truncate/3, print_file_contents/1 from file_io.
 :- import file_write/2 from xsb_writ.

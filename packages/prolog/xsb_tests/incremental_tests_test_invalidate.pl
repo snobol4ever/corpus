@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import incr_retract/1,incr_retractall/1,incr_assert/1 from increval.
 
 test:- t_1(X),incr_retract(d_1(1)),t_1(Y),writeln(one(t_1(X),t_1(Y))),fail.

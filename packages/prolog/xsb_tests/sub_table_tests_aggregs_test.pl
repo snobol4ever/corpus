@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import bagReduce/4, bagPO/3, bagPOv/2, bagOf/2, 
 	bagMin/2, bagMax/2, bagSum/2, bagCount/2, bagAvg/2, bagPO/4,
 	filterReduce/4, filterPO/3, filterPO/2, filterPOA/4,

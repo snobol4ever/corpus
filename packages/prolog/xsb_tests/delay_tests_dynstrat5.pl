@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 %------------------------------------------------------------------------
 %  Dynamically stratified program in which p is FALSE no matter what!
 %------------------------------------------------------------------------

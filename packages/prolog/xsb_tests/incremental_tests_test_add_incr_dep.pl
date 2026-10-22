@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import add_incr_dependency/1 from increval.
 :- import incr_directly_depends/2 from increval.
 :- import numbervars/1 from num_vars.

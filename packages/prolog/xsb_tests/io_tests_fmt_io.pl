@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 tst1 :- fmt_write("akjdd %s %d %3.*f\n", a(sdshdhdf, 1345, 2, 24.987)).
 tst2 :- fmt_write("akjdd %s \nk %*.2d %2.3f kkk\n",

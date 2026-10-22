@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import set_unify/2 from set_unify.
 :- import numbervars/1 from num_vars.
 :- import normalize_result/2 from can_mono.

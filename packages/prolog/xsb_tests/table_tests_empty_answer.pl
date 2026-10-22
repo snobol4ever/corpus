@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 /* Juliana Freire - March 25th, 96
  * tests whether the checking for deleted answers works correctly
  */

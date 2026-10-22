@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 % Tests for write_term/2 options based on PIP 0105 (temp-sandbox/0105-write-options.md)
 % and the ISO test harness in temp-sandbox/test_harness_iso.pl.
 %

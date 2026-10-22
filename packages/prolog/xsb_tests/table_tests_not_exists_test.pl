@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 :- import psc_get_incr/2,term_psc/2,term_new_mod/3 from machine.
 :- import sk_not/1 from tables.

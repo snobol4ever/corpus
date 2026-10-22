@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- table dl/0, p/1, q/2, r/2, t/1.
 
 p(a) :- q(_X,_Y), tnot(p(a)).

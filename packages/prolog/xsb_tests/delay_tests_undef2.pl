@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 /*===========================================================================
 
   In the following A1 is the answer of s1, A21 and A22 the answers of s2(X,Y),

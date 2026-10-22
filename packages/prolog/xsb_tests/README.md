@@ -32,6 +32,21 @@ active line does, and the appended comment says so: the goal's leading consult l
 the same sort, so a tabled predicate's answers grade as a set, as XSB grades them. An error the goal raises is printed to standard
 error and the lines written before it are kept. The ref is swipl's output of the driven program.
 
+THE DIALECT MARKER (hq_packages 2026-10-22, measured the same day): every program that carries a driver begins with the line `:- use_module(library(lists)).` (the FIRST line: with the marker last, in the
+driver block, mode 4 printed nothing for table_tests_abol_test while mode 3 was right -- a SCRIP divergence by the marker's position, observed and not yet rowed). These programs are graded against
+swipl, and SCRIP reads a program as SWI-Prolog only when it carries a module/2 or use_module directive; without one it reads the ISO/GNU default (double_quotes codes, GNU's padding in format ~Ns,
+no SWI listing/1, GNU's portray_clause and residual printing). The marker states what the oracle already is: swipl's output is unchanged (the refs are identical but one: test_termtoatom prints swipl's
+numeric variable name, `_6254` became `_10430` because the program grew a line -- an answer nobody can match), no entry that passed changed (165 of 166 entries unchanged, the 166th reads a companion
+data file), and seven were cured (format_test, listing_test, newfirst, abolish_cycle, abolish_dag, abol_test, pred_abolish_cycle). The container was rebuilt with `util_build_package_suite.py --lang prolog`
+(244 absorbed, 663 excluded, balanced, a rebuild twice agreed); ALL.csv differs from before only in n_lines (+1, 234 rows) and PARTITION.tsv was rebuilt.
+
+THE DIALECT MARKER (hq_packages 2026-10-22, measured the same day): every appended driver is preceded by `:- use_module(library(lists)).`. These programs are graded against swipl, and SCRIP reads a
+program as SWI-Prolog only when it carries a module/2 or use_module directive; without one it reads the ISO/GNU default (double_quotes codes, GNU's padding in format ~Ns, no SWI listing/1, GNU's
+portray_clause and residual printing). The marker states what the oracle already is, changes no output of swipl (the refs are identical but one: test_termtoatom prints swipl's numeric variable
+name, `_6254` became `_10430` because the program grew a line -- an answer nobody can match) and changed no entry that passed (165 of 166 entries unchanged, the 166th reads a companion data
+file); it cured seven (format_test, listing_test, newfirst, abolish_cycle, abolish_dag, abol_test, pred_abolish_cycle). The container was rebuilt with `util_build_package_suite.py --lang prolog --twice`
+(244 absorbed, 663 excluded, balanced); ALL.csv differs from before only in n_lines (+1, 234 rows) and PARTITION.tsv was rebuilt.
+
 MEASURED 2026-10-10 on basic_tests, the reason for the sort: graded on swipl's unsorted output, 23 of the 27 programs SCRIP did not
 match differed only in the order of tabled answers (identical once sorted); with the sorting driver SCRIP grades 23 of 28 in both modes.
 

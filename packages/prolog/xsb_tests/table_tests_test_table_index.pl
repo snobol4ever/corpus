@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 :- import xsb_error_get_tag/2,xsb_error_get_message/2 from error_handler.
 
 :- table p/2 as index(0).

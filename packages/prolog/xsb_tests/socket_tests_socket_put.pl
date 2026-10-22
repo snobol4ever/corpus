@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 :- import spawn_process/5, process_control/2, process_status/2 from shell.
 :- import slash/1 from machine.

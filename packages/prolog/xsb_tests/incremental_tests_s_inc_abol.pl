@@ -1,3 +1,4 @@
+:- use_module(library(lists)).   % the dialect marker (see README): the oracle is swipl, so SCRIP reads this program as SWI-Prolog does
 
 :- import trie_create/2, trie_intern/2, incr_trie_intern/2, 
 	trie_interned/2 from intern.
