@@ -19030,7 +19030,7 @@ n00687_binop_α:          sub              rsp, 16
                         add              rsp, 16;                             jmp   n00686_coerce_numeric_β
 .Lbinop_α_1960_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:246
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:255
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
