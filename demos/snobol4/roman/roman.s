@@ -833,7 +833,7 @@ __label_names:
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgccode_main_0:
 main_α:
-                        mov              eax, 0                               # GCANCHOR .Lgcmap_main qword ptr [rsp$ + 1288]
+                        mov              eax, 0                               # GCANCHOR .Lgcmap_main qword ptr [rsp$ + 8]
 main_α_body:
                         sub              rsp, 0
                         .type            n0_call_direct_bx, @function
@@ -1727,7 +1727,7 @@ n13_match_end_α:        mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
 .Lmatch_end_α_130_61:   lea              rdi, [rsp + 112]                     # pend
                         call             rt_trace_pend_run@PLT
 .Lgcsite_main_20:       mov              r9,  qword ptr [rip + rtccb+48]
-                        push             rax                                  # gc_poll bb_glue_flat.cpp:292
+                        push             rax                                  # gc_poll bb_glue_flat.cpp:321
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1739,7 +1739,7 @@ n13_match_end_α:        mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
 .Lmatch_end_α_130_62:   lea              rdi, [rsp + 112]                     # pend
                         call             rt_trace_pend_close@PLT
 .Lgcsite_main_18:       mov              r9,  qword ptr [rip + rtccb+48]
-                        push             rax                                  # gc_poll bb_glue_flat.cpp:296
+                        push             rax                                  # gc_poll bb_glue_flat.cpp:325
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2850,7 +2850,7 @@ n29_match_end_α:        mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
 .Lmatch_end_α_154_61:   lea              rdi, [rsp + 112]                     # pend
                         call             rt_trace_pend_run@PLT
 .Lgcsite_main_85:       mov              r9,  qword ptr [rip + rtccb+48]
-                        push             rax                                  # gc_poll bb_glue_flat.cpp:292
+                        push             rax                                  # gc_poll bb_glue_flat.cpp:321
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2862,7 +2862,7 @@ n29_match_end_α:        mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
 .Lmatch_end_α_154_62:   lea              rdi, [rsp + 112]                     # pend
                         call             rt_trace_pend_close@PLT
 .Lgcsite_main_83:       mov              r9,  qword ptr [rip + rtccb+48]
-                        push             rax                                  # gc_poll bb_glue_flat.cpp:296
+                        push             rax                                  # gc_poll bb_glue_flat.cpp:325
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -4497,7 +4497,7 @@ main_β:
 main_γ:
                         add              rsp, 0
                         call             sno_setexit_fire_on_end@PLT
-.Lgcsite_main_159:      push             rax                                  # gc_poll bb_glue_flat.cpp:51
+.Lgcsite_main_159:      push             rax                                  # gc_poll bb_glue_flat.cpp:57
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -4518,26 +4518,11 @@ main_ω:
                         .pushsection     .data.rel.ro,"aw",@progbits
                         .p2align         3
 .Lgcmap_main:
-                        .quad            5567624072538
+                        .quad            70065933658
                         .quad            38654705664
                         .quad            .Lgcmap_main_s
-                        .quad            1280
-                        .quad            15
-                        .quad            52776558133248
-                        .quad            8800387989552
-                        .quad            17600775979064
-                        .quad            61576946122824
-                        .quad            87960930222208
-                        .quad            8804682957008
-                        .quad            8800387989720
-                        .quad            35184372089056
-                        .quad            8800387989760
-                        .quad            17600775979272
-                        .quad            79169132167448
-                        .quad            35184372089184
-                        .quad            8804682957184
-                        .quad            8800387989896
-                        .quad            967570232443280
+                        .quad            0
+                        .quad            0
 .Lgcmap_main_s:         .string          "main"
                         .popsection
                         .pushsection     .data.rel.ro,"aw",@progbits
@@ -4882,7 +4867,7 @@ module_init:
                         .quad            0
                         .long            0
                         .long            0
-                        .long            1280
+                        .long            0
                         .long            16
                         .long            0
                         .long            0
@@ -4902,7 +4887,7 @@ module_init:
                         .quad            0
                         .long            0
                         .long            0
-                        .long            1280
+                        .long            0
                         .long            16
                         .long            0
                         .long            0

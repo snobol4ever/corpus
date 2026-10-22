@@ -815,7 +815,7 @@ __label_names:
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgccode_main_0:
 main_α:
-                        mov              eax, 0                               # GCANCHOR .Lgcmap_main qword ptr [rsp$ + 280]
+                        mov              eax, 0                               # GCANCHOR .Lgcmap_main qword ptr [rsp$ + 8]
 main_α_body:
                         .type            n0_call_direct_bx, @function
 n0_call_direct_bx:
@@ -1495,7 +1495,7 @@ n13_match_end_α:        mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
 .Lmatch_end_α_44_61:    lea              rdi, [rsp + 112]                     # pend
                         call             rt_trace_pend_run@PLT
 .Lgcsite_main_16:       mov              r9,  qword ptr [rip + rtccb+48]
-                        push             rax                                  # gc_poll bb_glue_flat.cpp:292
+                        push             rax                                  # gc_poll bb_glue_flat.cpp:321
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1507,7 +1507,7 @@ n13_match_end_α:        mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
 .Lmatch_end_α_44_62:    lea              rdi, [rsp + 112]                     # pend
                         call             rt_trace_pend_close@PLT
 .Lgcsite_main_14:       mov              r9,  qword ptr [rip + rtccb+48]
-                        push             rax                                  # gc_poll bb_glue_flat.cpp:296
+                        push             rax                                  # gc_poll bb_glue_flat.cpp:325
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1714,7 +1714,7 @@ main_β:
 #-----------------------------------------------------------------------------------------------------------------------
 main_γ:
                         call             sno_setexit_fire_on_end@PLT
-.Lgcsite_main_48:       push             rax                                  # gc_poll bb_glue_flat.cpp:51
+.Lgcsite_main_48:       push             rax                                  # gc_poll bb_glue_flat.cpp:57
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1734,19 +1734,11 @@ main_ω:
                         .pushsection     .data.rel.ro,"aw",@progbits
                         .p2align         3
 .Lgcmap_main:
-                        .quad            1238297038170
+                        .quad            70065933658
                         .quad            38654705664
                         .quad            .Lgcmap_main_s
-                        .quad            272
-                        .quad            8
-                        .quad            52776558133248
-                        .quad            8800387989552
-                        .quad            17600775979064
-                        .quad            61576946122824
-                        .quad            70368744177792
-                        .quad            8804682956992
-                        .quad            8800387989704
-                        .quad            70368744177872
+                        .quad            0
+                        .quad            0
 .Lgcmap_main_s:         .string          "main"
                         .popsection
                         .pushsection     .data.rel.ro,"aw",@progbits
