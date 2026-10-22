@@ -17998,7 +17998,39 @@ END
         OUTPUT = 'PASS'                         :(END)
 FAIL    OUTPUT = 'FAIL'
 END
-*--------------------------------- 2071 user_function_arbno_any_replace_branch_1
+*------------------------------------------- 2071 code_eval_eval_fence_replace_1
+* The keywords whose values never change (&ABORT &ALPHABET &ARB &BAL &FAIL &FENCE &LCASE &REM &SUCCEED &UCASE) are constants to the
+* compiler: an operator or a pre-evaluated function given one is evaluated as the text is compiled, left to right, and its error refuses
+* the text, so EVAL fails with that error's number and a CODE is refused before it runs; a keyword that can change is not folded. Found
+* by the infinite_snobol4 generator against sbl -bf ('{vc}(g){d}' -&FENCE ANY(''), ERROR 10; snobol4dotnet aacfdac).
+        &ERRLIMIT = 20
+        &ERRTYPE = 0
+        V = EVAL("'a' -&FENCE ANY('')")
+        OUTPUT = '1 ' &ERRTYPE
+        &ERRTYPE = 0
+        V = EVAL("-&FENCE LEN(-1)")
+        OUTPUT = '2 ' &ERRTYPE
+        &ERRTYPE = 0
+        V = EVAL("1 + &ALPHABET")
+        OUTPUT = '3 ' &ERRTYPE
+        &ERRTYPE = 0
+        V = EVAL("LEN(&LCASE)")
+        OUTPUT = '4 ' &ERRTYPE
+        &ERRTYPE = 0
+        V = EVAL("&ARB | -&REM")
+        OUTPUT = '5 ' &ERRTYPE
+        &ERRTYPE = 0
+        V = EVAL("-&ANCHOR ANY('')")
+        OUTPUT = '6 ' &ERRTYPE
+        &ERRTYPE = 0
+        C = CODE(" OUTPUT = 'ran'; V = &UCASE * 2")
+        OUTPUT = '7 ' &ERRTYPE ' ' DATATYPE(C)
+        &ERRTYPE = 0
+        V = EVAL("SIZE(&ALPHABET) SIZE(&UCASE)")
+        OUTPUT = '8 ' &ERRTYPE ' ' V
+        OUTPUT = 'limit ' &ERRLIMIT
+END
+*--------------------------------- 2072 user_function_arbno_any_replace_branch_1
 * A conditional capture into an element of a stored pattern reaches the end-of-match commit through composed patterns, an alternation that
 * fails, an ARBNO, and a deferred function that allocates enough between the capture and the commit for the collector to move the array.
 	arr = ARRAY(3)
@@ -18039,7 +18071,7 @@ jend	p = 'y' . arr[2]
 	'ay' alt
 	OUTPUT = 'A1=' arr[1] ' A2=' arr[2]
 END
-*---------------------------------------- 2072 arbno_span_break_replace_branch_2
+*---------------------------------------- 2073 arbno_span_break_replace_branch_2
 * json-match -- TIME-BASED: fixed ms budget, count iterations.
 * workload: full recursive JSON grammar over 631 KB of twitter.json.
 * PURE MATCH -- no captures, no side effects: isolates pattern throughput from the
@@ -18093,7 +18125,7 @@ N1	'{"a": 1}' ? json	:F(N2)
 	OUTPUT = 'leading-one MATCH'	:(END)
 N2	OUTPUT = 'leading-one FAIL'
 END
-*---------------------------------------- 2073 user_function_eval_fence_branch_1
+*---------------------------------------- 2074 user_function_eval_fence_branch_1
         $('Z' 'Z') = 1
         nl = CHAR(10)
         tab = CHAR(9)
@@ -18132,7 +18164,7 @@ SEND
 NO        OUTPUT = 'nomatch'
 DONE
 END
-*--------------------------------- 2074 user_function_eval_span_replace_branch_2
+*--------------------------------- 2075 user_function_eval_span_replace_branch_2
 *     expr_eval.sno - Expression evaluator using pattern side-effects.
 *     Recursive descent parser built entirely from SNOBOL4 patterns.
 *     Tests: DEFINE, TABLE, NRETURN, *func() side-effect patterns, EVAL,
@@ -18190,7 +18222,7 @@ loop     line     =  INPUT                         :F(END)
          OUTPUT   =  Pop()                         :(loop)
 error    OUTPUT   = 'Bad INPUT, try again'         :(loop)
 END
-*--------------------------------- 2075 user_function_eval_span_replace_branch_3
+*--------------------------------- 2076 user_function_eval_span_replace_branch_3
 *     expr_eval.sno - Expression evaluator using pattern side-effects.
 *     Recursive descent parser built entirely from SNOBOL4 patterns.
 *     Tests: DEFINE, TABLE, NRETURN, *func() side-effect patterns, EVAL,
@@ -18248,7 +18280,7 @@ loop     line     =  INPUT                         :F(END)
          OUTPUT   =  Pop()                         :(loop)
 error    OUTPUT   = 'Bad input, try again'         :(loop)
 END
-*---------------------------------- 2076 user_function_eval_pos_replace_branch_1
+*---------------------------------- 2077 user_function_eval_pos_replace_branch_1
 *------------------------------------------------------------------------------
                 DATA('list(n,a)')
                 DEFINE('ListValue(x,place)')
@@ -18343,7 +18375,7 @@ StackEnd    p = POS(0) Init_list("'bank'") Push_list("'BANK'") 'ab' Push_list('t
         OUTPUT = 'MATCH size=' ListSize(bank)  :(END)
 NO      OUTPUT = 'FAIL'
 END
-*--------------------------------- 2077 user_function_eval_span_replace_branch_1
+*--------------------------------- 2078 user_function_eval_span_replace_branch_1
 *  alpha_scan_pollution.sno -- witness for row m3-executes-three-times-m4-on-beauty
 *  (FINDING-2026-08-22-m3-run-only-is-alpha-cell-scan-pollution.md).
 *  Body = corpus/crosscheck/control/expr_eval.sno UNCHANGED (a small recursive-descent
@@ -18719,7 +18751,7 @@ loop     line     =  INPUT                         :F(END)
          OUTPUT   =  Pop()                         :(loop)
 error    OUTPUT   = 'Bad INPUT, try again'         :(loop)
 END
-*------------------------------- 2078 user_function_arbno_fence_replace_branch_2
+*------------------------------- 2079 user_function_arbno_fence_replace_branch_2
 * A conditional capture into an element sits inside FENCE(p), a FENCE'd ARBNO and a nested FENCE of a stored pattern, and the end-of-match commit runs after the
 * fence's gamma with a deferred function allocating 100 arrays in between, so the head cell the commit reads through must survive the fence's pop.
 	arr = ARRAY(3)
@@ -18753,7 +18785,7 @@ jend	p1 = FENCE('a' . arr[1]) *junk() 'b'
 	'dedef' r6
 	OUTPUT = 'r6 A1=' arr[1] ' Tf=' tbl['f']
 END
-*---------------------------------------------------------- 2079 benchmark_roman
+*---------------------------------------------------------- 2080 benchmark_roman
 * roman -- converts integers to Roman numerals and prints them.
 * bottleneck: recursive function dispatch; RPOS/LEN/BREAK patterns; REPLACE.
 * The kernel converts a DIFFERENT integer each iteration (1001..1000+N) rather than a
@@ -18788,7 +18820,7 @@ RTAB    OUTPUT = K ' -> ' ROMAN(K)
         K = LT(K, 1010) K + 1                           :S(RTAB)
         OUTPUT = 'total numeral length for 1001..1200 = ' ROMAN_RUN(200)
 END
-*---------------------------------------- 2080 user_function_eval_arbno_branch_1
+*---------------------------------------- 2081 user_function_eval_arbno_branch_1
         $('Z' 'Z') = 1
         nl = CHAR(10)
         tab = CHAR(9)
@@ -18828,7 +18860,7 @@ SEND
 NO        OUTPUT = 'nomatch'
 DONE
 END
-*-------------------------------- 2081 user_function_eval_arbno_replace_branch_2
+*-------------------------------- 2082 user_function_eval_arbno_replace_branch_2
 START
 -INCLUDE 'global.inc'
 -INCLUDE 'case.inc'
@@ -18878,7 +18910,7 @@ XEND
 NO                OUTPUT         =  'nomatch'
 DONE
 END
-*-------------------------------- 2082 user_function_fence_span_replace_branch_1
+*-------------------------------- 2083 user_function_fence_span_replace_branch_1
 *
 *  SPITBOL TEST PROGRAM #4 -- SYNTACTIC RECOGNIZER FOR SPITBOL, decomposed into the master by cfo
 *  2026-09-13 on CEO-725 (Lon, in-chat to ceo: "You should do all 8 SPITBOL test programs").
@@ -18994,7 +19026,7 @@ ENDGAME  EOF   =   1                                   :(ANALYZE)
 *
 OPT      OPT   =   NULL | PATTERN                      :(RETURN)
 END
-*-------------------------------------------------------------- 2083 demo_porter
+*-------------------------------------------------------------- 2084 demo_porter
 *// ---------------------------------------------------------------------------------------------------------
 *// porter.sno — Porter (1980) stemming algorithm in SNOBOL4
 *//
@@ -19412,7 +19444,7 @@ stm_end
 NEXT           word           =  INPUT                              :F(END)
                OUTPUT         =  stemmer(word)                      :(NEXT)
 END
-*--------------------------------------------------------- 2084 benchmark_porter
+*--------------------------------------------------------- 2085 benchmark_porter
 *// ---------------------------------------------------------------------------------------------------------
 *// porter.sno — Porter (1980) stemming algorithm in SNOBOL4
 *//
@@ -19850,7 +19882,7 @@ PORTER_END
 PNEXT          OUTPUT         =  stemmer(WORDS[PJ])
                PJ             =  LT(PJ, NW) PJ + 1                  :S(PNEXT)
 END
-*--------------------------------------------------- 2085 benchmark_calculator-1
+*--------------------------------------------------- 2086 benchmark_calculator-1
         DEFINE('EMIT()')
         DEFINE('PSH()')
         DEFINE('DRF(nm)')
@@ -19928,7 +19960,7 @@ bad     t1 = TIME()
         OUTPUT = 'Boo!'
         TERMINAL = 'match_ms=' (t1 - t0) / 1000000
 END
-*--------------------------------------------------- 2086 benchmark_calculator-2
+*--------------------------------------------------- 2087 benchmark_calculator-2
 *------------------------------------------------------------------------------
 * calculator-2.sno — precedence calculator, Variant 2: LEFT associativity
 * (Lon, 2026-07-24).  Same atoms/factors as calculator-1; terms and
@@ -20036,7 +20068,7 @@ bad     t1 = TIME()
         OUTPUT = 'Boo!'
         TERMINAL = 'match_ms=' (t1 - t0) / 1000000
 END
-*-------------------------------- 2087 user_function_arbno_span_replace_branch_3
+*-------------------------------- 2088 user_function_arbno_span_replace_branch_3
 *------------------------------------------------------------------------------
 * claws5.sno — CLAWS5 POS-tagged corpus tokenizer
 * ENG 685, Lon Cherryholmes Sr.
@@ -20153,7 +20185,7 @@ main_fail      OUTPUT          =  'Pattern match failed'    :(END)
 main_err       OUTPUT          =  'Could not read CLAWS5inTASA.dat'
 *------------------------------------------------------------------------------
 END
-*------------------------------- 2088 user_function_arbno_fence_replace_branch_1
+*------------------------------- 2089 user_function_arbno_fence_replace_branch_1
 *  claws5_table_flat1 -- minimal witness, row table-flat-1level-segv (FINDING-2026-08-21-s199).
 *  Flattens claws5's 3-level counts[number][word][tag] table build to ONE level, counts[word],
 *  keeping the SAME grammar shape (FENCE/ARBNO + a deferred *token() callout) claws5 itself uses.
@@ -20183,7 +20215,7 @@ token_end
 bad     OUTPUT = 'MATCH-FAILED'
 done
 END
-*---------------------------------------------- 2089 scrip_test_treebank-prepend
+*---------------------------------------------- 2090 scrip_test_treebank-prepend
 *------------------------------------------------------------------------------
 * treebank.sno — Penn Treebank s-expression parser
 * ENG 685, Lon Cherryholmes Sr.
@@ -20349,7 +20381,7 @@ main_fail      OUTPUT         =  'Pattern match failed'     :(END)
 main_err       OUTPUT         =  'Could not read VBGinTASA.dat'
 *------------------------------------------------------------------------------
 END
-*-------------------------------------------------------------- 2090 demo_claws5
+*-------------------------------------------------------------- 2091 demo_claws5
 *------------------------------------------------------------------------------
         DEFINE('token()')  :(token_end)
 token   num = +num
@@ -20379,7 +20411,7 @@ token_end
         OUTPUT  =   'matched bytes=' SIZE(src)  :(END)
 error   OUTPUT  =   'Pattern match failed'
 END
-*--------------------------------------------------------- 2091 benchmark_claws5
+*--------------------------------------------------------- 2092 benchmark_claws5
 *------------------------------------------------------------------------------
         DEFINE('token()')  :(token_end)
 token   num = +num
@@ -20422,7 +20454,7 @@ CLAWS5_END
 *BENCH kernel=CLAWS5 check=1 bud=1000 flr=20
         OUTPUT = CLAWS5(1)
 END
-*------------------------------------------------------------ 2092 demo_treebank
+*------------------------------------------------------------ 2093 demo_treebank
 *------------------------------------------------------------------------------
                 DATA('list(n,a)')
                 DEFINE('ListValue(x,place)')
@@ -20545,7 +20577,7 @@ StackEnd        delim           =   SPAN(' ' CHAR(10))
                 OUTPUT          =   'matched bytes=' SIZE(src)  :(END)
 error           OUTPUT          =   'Pattern match failed'
 END
-*-------------------------------- 2093 user_function_eval_arbno_replace_branch_1
+*-------------------------------- 2094 user_function_eval_arbno_replace_branch_1
 * json -- TIME-BASED: fixed ms budget, count iterations.
 * workload: 631 KB of twitter.json parsed into real TABLEs/ARRAYs; check is the full node census.
 * DESERIALIZING -- the -match sibling runs the same grammar with NO captures; the delta
@@ -20855,7 +20887,7 @@ ZBODY_END
 	ZSRC = '["s","s"]'
 	OUTPUT = 'two-element ' ZBODY(1)
 END
-*---------------------------------------------------------------- 2094 demo_json
+*---------------------------------------------------------------- 2095 demo_json
 *------------------------------------------------------------------------------
 * json.sno - JSON DE-SERIALIZER: RFC-8259 text -> native SNOBOL4 data structures.
 * ENG 685, Lon Cherryholmes Sr.
@@ -21150,7 +21182,7 @@ fail            t1              =   TIME()
                 TERMINAL        =   'match_ms=' (t1 - t0) / 1000000
 *------------------------------------------------------------------------------
 END
-*----------------------------------------------------------- 2095 benchmark_json
+*----------------------------------------------------------- 2096 benchmark_json
 *------------------------------------------------------------------------------
 * json.sno - JSON DE-SERIALIZER: RFC-8259 text -> native SNOBOL4 data structures.
 * ENG 685, Lon Cherryholmes Sr.
@@ -21471,7 +21503,7 @@ fail            t1              =   TIME()
                 TERMINAL        =   'match_ms=' (t1 - t0) / 1000000
 *------------------------------------------------------------------------------
 END
-*--------------------------- 2096 len_imm_capture_keyword_replace_branch_1 XFAIL
+*--------------------------- 2097 len_imm_capture_keyword_replace_branch_1 XFAIL
 * LEN(*'z') reads its argument when the match reaches it, and a non-integer there is error 47, which ends the match: the statement fails
 * once, &ERRLIMIT drops by one, and the immediate assignment made before it stands.
         &ERRLIMIT = 10
