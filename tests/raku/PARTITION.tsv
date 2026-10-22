@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1039 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=47 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,92
+# shape: entries=1040 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=47 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,93
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:07	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:07	family:ladder	
@@ -583,6 +583,7 @@ scrip_test_rk_join	chunk:06	feat:join	join say sub
 ladder__rung09_string_methods_sub_forms_and_chomp_crlf	chunk:08	feat:string_concat	string_concat
 say_19	chunk:03	feat:say	say
 ladder__rung02_arithmetic_rat_counts_and_tolerances_in_the_test_module_plan_skip_is_approx	chunk:09	feat:range_op	range_op sigil_array
+ladder__rung04_arrays_a_collection_type_object_called_with_one_argument_coerces_it	chunk:09	feat:range_op	range_op
 benchmark_string-escape	chunk:08	feat:string_concat	string_concat
 ladder__rung03_strings_the_method_assign_form_with_no_space_stores_the_result_back_in_the_variable	chunk:04	feat:sigil_array	sigil_array
 simple_assign_24	chunk:08	feat:string_concat	string_concat
@@ -1005,7 +1006,7 @@ class_multi_sub_replace_4	chunk:08	feat:multi	has multi return say sub sub_with_
 class_multi_sub_replace_6	chunk:08	feat:multi	has multi return say sub sub_with_return
 class_multi_sub_replace_7	chunk:08	feat:multi	has multi return say sub sub_with_return
 ladder__rung09_regex_match_methods_agree_with_rakudo	core	core	join map regex regex_with_smartmatch smartmatch string_concat token
-benchmark_rc-perfect-shuffle	chunk:09	feat:loop	if loop range_op return sigil_array sub sub_with_return
+benchmark_rc-perfect-shuffle	chunk:10	feat:loop	if loop range_op return sigil_array sub sub_with_return
 scrip_test_rk_array_literal	chunk:06	feat:join	for for_with_say join range_op say sigil_array sub
 sub_smartmatch_say_replace_1	chunk:09	feat:smartmatch	if range_op regex say smartmatch string_concat sub
 ladder__rung09_regex_quote_adverbs_and_interpolation_agree_with_rakudo	chunk:09	feat:smartmatch	if join regex say sigil_array smartmatch string_concat
