@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1061 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=50 clusters=49 chunks=11 sizes=100,100,100,100,100,100,100,100,100,100,11
+# shape: entries=1062 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=50 clusters=49 chunks=11 sizes=100,100,100,100,100,100,100,100,100,100,12
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:07	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:07	family:ladder	
@@ -337,7 +337,7 @@ sub_hash_5	chunk:07	feat:sigil_hash	sigil_hash sub
 sub_hash_6	chunk:07	feat:sigil_hash	sigil_hash sub
 sub_hash_8	chunk:07	feat:sigil_hash	sigil_hash sub
 test_interp_leading_var	chunk:10	family:test_raku_interp_leading_var	
-test_interp_only_var	chunk:10	family:test_raku_interp_only_var	
+test_interp_only_var	chunk:11	family:test_raku_interp_only_var	
 test_interp_simple	chunk:11	family:test_raku_interp_simple	
 test_interp_trailing_lit	chunk:11	family:test_raku_interp_trailing_lit	
 test_print_basic	chunk:11	family:test_raku_print_basic	
@@ -509,7 +509,7 @@ simple_assign_93	chunk:06	feat:if	if
 simple_assign_95	chunk:06	feat:if	if
 simple_assign_96	chunk:10	feat:unless	unless
 sub_14	chunk:08	feat:string_concat	string_concat sub
-sub_23	chunk:08	feat:sub_with_return	return sub sub_with_return
+sub_23	chunk:09	feat:sub_with_return	return sub sub_with_return
 sub_25	chunk:09	feat:sub_with_return	return sub sub_with_return
 sub_28	chunk:05	feat:sub	sub
 sub_31	chunk:09	feat:sub_with_return	return sub sub_with_return
@@ -671,7 +671,7 @@ while_2	chunk:09	feat:while	if while
 while_3	chunk:09	feat:while	if while
 class_method_replace_10	chunk:09	feat:method	method
 class_method_replace_11	chunk:09	feat:method	method
-class_method_replace_14	chunk:09	feat:method	method
+class_method_replace_14	chunk:10	feat:method	method
 class_method_replace_6	chunk:10	feat:method	method
 class_method_replace_7	chunk:10	feat:method	method
 class_replace_1	chunk:02	feat:has	has
@@ -844,7 +844,7 @@ ladder__rung07_subs_a_sub_declared_in_a_module_is_called_and_referenced_by_its_q
 sub_range_say_replace_1	chunk:08	feat:range_op	range_op say sub
 ladder__rung12_exceptions_a_die_in_the_condition_of_if_or_unless_aborts_the_statement	chunk:10	feat:unless	if try unless
 benchmark_rc-dragon-curve	chunk:05	feat:for_with_say	for for_with_say range_op
-ladder__rung07_subs_a_multi_family_constrained_by_subsets_and_where_clauses_dispatches	chunk:09	feat:try	multi say sub try
+ladder__rung07_subs_a_multi_family_constrained_by_subsets_and_where_clauses_dispatches	chunk:08	feat:multi	multi say sub try
 sub_array_say_replace_1	chunk:05	feat:sub	say sigil_array sub
 scrip_test_rk_str22	chunk:06	feat:if	if say sub
 class_array_say_replace_1	chunk:02	feat:has	has say sigil_array
@@ -1013,6 +1013,7 @@ scrip_test_rk_subs	core	core	if multi return say string_concat sub sub_with_retu
 method_sub_for_replace_1	chunk:05	feat:for_with_say	for for_with_say method say sigil_array sub
 ladder__rung02_arithmetic_power_in_every_right_hand_side_position	chunk:09	feat:while	return sigil_array sigil_hash sub sub_with_return while
 sub_junction_smartmatch_1	core	core	if junction range_op regex say smartmatch string_concat sub
+ladder__rung12_exceptions_fail_returns_a_failure_that_is_undefined_handled_by_its_methods_and_thrown_when_sunk_and_shift_and_pop_of_an_empty_array_return_one	chunk:09	feat:try	say sigil_array smartmatch string_concat sub try
 ladder__rung01_variables_a_package_variable_is_declared_with_our_and_read_by_its_qualified_name	core	core	method our sigil_array sigil_hash sub
 multi_sub_smartmatch_replace_1	core	core	if multi range_op regex say smartmatch string_concat sub
 ladder__rung04_arrays_binding_an_array_to_an_element_aliases_it_and_pop_shift_a_zen_slice_and_an_element_store_value_agree_with_rakudo	chunk:05	feat:for_with_say	for for_with_say if range_op sigil_array sub

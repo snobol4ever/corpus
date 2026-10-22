@@ -3562,7 +3562,24 @@ anchor ok
 anchor long ok
 anchor empty ok
 rk_re33 ok
-#- 1012 ladder__rung01_variables_a_package_variable_is_declared_with_our_and_read_by_its_qualified_name
+#- 1012 ladder__rung12_exceptions_fail_returns_a_failure_that_is_undefined_handled_by_its_methods_and_thrown_when_sunk_and_shift_and_pop_of_an_empty_array_return_one
+Failure False True
+X::AdHoc boom
+False True
+False dor undef
+custom Failed
+True
+sink threw: boom
+False boom
+Failure Failure Failure
+X::Cannot::Empty: Cannot pop from an empty Array
+dflt
+1 4 2
+died
+died
+2
+end
+#- 1013 ladder__rung01_variables_a_package_variable_is_declared_with_our_and_read_by_its_qualified_name
 5
 3
 7
@@ -3577,7 +3594,7 @@ rk_re33 ok
 41
 3
 d
-#------------------------------------------- 1013 multi_sub_smartmatch_replace_1
+#------------------------------------------- 1014 multi_sub_smartmatch_replace_1
 nondigit ok
 digits not \D ok
 nonspace ok
@@ -3599,7 +3616,7 @@ full anchor ok
 anchor mismatch ok
 empty anchor ok
 rk_re38 ok
-#- 1014 ladder__rung04_arrays_binding_an_array_to_an_element_aliases_it_and_pop_shift_a_zen_slice_and_an_element_store_value_agree_with_rakudo
+#- 1015 ladder__rung04_arrays_binding_an_array_to_an_element_aliases_it_and_pop_shift_a_zen_slice_and_an_element_store_value_agree_with_rakudo
 [[1, 2, 9], [3, 4]]
 3 [[1, 2, 9], [4]]
 [1, 2, 3]
@@ -3610,23 +3627,23 @@ rk_re38 ok
 210
 15
 22
-#------------------------------------------------ 1015 class_multi_sub_replace_2
+#------------------------------------------------ 1016 class_multi_sub_replace_2
 11
 22
-#------------------------------------------------ 1016 class_multi_sub_replace_3
+#------------------------------------------------ 1017 class_multi_sub_replace_3
 12
 2
 35
-#------------------------------------------------ 1017 class_multi_sub_replace_5
+#------------------------------------------------ 1018 class_multi_sub_replace_5
 True
-#------------------------------------------------ 1018 class_multi_sub_replace_4
+#------------------------------------------------ 1019 class_multi_sub_replace_4
 500
 450
-#------------------------------------------------ 1019 class_multi_sub_replace_6
+#------------------------------------------------ 1020 class_multi_sub_replace_6
 30
-#------------------------------------------------ 1020 class_multi_sub_replace_7
+#------------------------------------------------ 1021 class_multi_sub_replace_7
 30
-#--------------------- 1021 ladder__rung09_regex_match_methods_agree_with_rakudo
+#--------------------- 1022 ladder__rung09_regex_match_methods_agree_with_rakudo
 0:a b c d
 0:a b c d
 wc:a|0:b|wc:c
@@ -3638,9 +3655,9 @@ wc:a|~: |0:b|~: |wc:c
 ｢bar｣
 ｢aa｣
 ｢abab｣
-#--------------------------------------------- 1022 benchmark_rc-perfect-shuffle
+#--------------------------------------------- 1023 benchmark_rc-perfect-shuffle
 8
-#- 1023 ladder__rung12_exceptions_a_call_that_resolves_to_no_routine_raises_a_catchable_exception_inside_try_and_eval
+#- 1024 ladder__rung12_exceptions_a_call_that_resolves_to_no_routine_raises_a_catchable_exception_inside_try_and_eval
 e(): X::Undeclared
 pi("x"): X::Undeclared
 tau(): X::Undeclared
@@ -3652,7 +3669,7 @@ named
 False
 42
 end
-#---------------------------------------------- 1024 scrip_test_rk_array_literal
+#---------------------------------------------- 1025 scrip_test_rk_array_literal
 10
 20
 30
@@ -3665,14 +3682,14 @@ end
 a
 b
 c
-#--------------------------------------------- 1025 sub_smartmatch_say_replace_1
+#--------------------------------------------- 1026 sub_smartmatch_say_replace_1
 ｢John｣
 ｢John｣
 ｢Smith｣
 ｢99｣
 no match ok
 rk_re34 ok
-#- 1026 ladder__rung04_arrays_pop_and_shift_inside_an_expression_still_remove_the_element
+#- 1027 ladder__rung04_arrays_pop_and_shift_inside_an_expression_still_remove_the_element
 5
 3
 10
@@ -3691,7 +3708,7 @@ rk_re34 ok
 14
 10
 1
-#--- 1027 ladder__rung09_regex_quote_adverbs_and_interpolation_agree_with_rakudo
+#--- 1028 ladder__rung09_regex_quote_adverbs_and_interpolation_agree_with_rakudo
 ｢ABC｣
 ｢ABC｣
 ｢ABC｣
@@ -3715,7 +3732,7 @@ topic match
 True
 ｢abbc｣
 ｢abbc｣
-#--------------------------------------------- 1028 sub_smartmatch_say_replace_2
+#--------------------------------------------- 1029 sub_smartmatch_say_replace_2
 ｢John｣
 ｢John｣
 ｢Smith｣
@@ -3723,7 +3740,7 @@ True
 ｢John｣
 ｢Smith｣
 rk_re35 ok
-#------------------------------------------- 1029 sub_regex_smartmatch_replace_1
+#------------------------------------------- 1030 sub_regex_smartmatch_replace_1
 match World ok
 match Hello ok
 no match xyz ok
@@ -3732,7 +3749,7 @@ empty no match ok
 start match ok
 end match ok
 5
-#- 1030 ladder__rung13_classes_a_class_body_runs_where_it_is_declared_and_its_lexicals_are_each_class_own_and_seen_by_its_methods
+#- 1031 ladder__rung13_classes_a_class_body_runs_where_it_is_declared_and_its_lexicals_are_each_class_own_and_seen_by_its_methods
 before
 in the body
 after
@@ -3747,10 +3764,10 @@ after
 1/2
 2/4
 4
-#--------------------------------------------- 1031 class_method_multi_replace_3
+#--------------------------------------------- 1032 class_method_multi_replace_3
 base-int:7
 sub-str:yo
-#- 1032 ladder__rung03_strings_a_method_call_with_parentheses_interpolates_in_a_double_quoted_string
+#- 1033 ladder__rung03_strings_a_method_call_with_parentheses_interpolates_in_a_double_quoted_string
 x 1,2,3 y
 m 2,4,6 z
 n I,I,I z
@@ -3758,7 +3775,7 @@ q S r
 (2,3,4,)
 [2, 4, 6]
 sq: 1 4 9 16
-#- 1033 ladder__rung11_junctions_a_junction_in_boolean_context_collapses_and_star_smartmatch_against_a_type_is_a_whatevercode
+#- 1034 ladder__rung11_junctions_a_junction_in_boolean_context_collapses_and_star_smartmatch_against_a_type_is_a_whatevercode
 (True False)
 (1)
 False
@@ -3772,10 +3789,10 @@ True
 no
 yes
 False
-#------------------------------------- 1034 benchmark_rc-self-describing-numbers
+#------------------------------------- 1035 benchmark_rc-self-describing-numbers
 1210
 2020
-#---- 1035 ladder__rung09_regex_a_match_statement_in_a_sub_returns_to_its_caller
+#---- 1036 ladder__rung09_regex_a_match_statement_in_a_sub_returns_to_its_caller
 void
 ｢y｣
 assigned
@@ -3783,7 +3800,7 @@ loop
 loop
 done
 end
-#- 1036 ladder__rung08_for_a_for_loop_over_the_topic_restores_the_outer_topic_when_it_ends_by_exhaustion_last_or_return
+#- 1037 ladder__rung08_for_a_for_loop_over_the_topic_restores_the_outer_topic_when_it_ends_by_exhaustion_last_or_return
 False
 ab
 outer
@@ -3794,7 +3811,7 @@ outer
 outer
 12
 outer
-#- 1037 ladder__rung10_given_a_when_arm_in_a_block_or_sub_body_and_a_given_or_if_as_a_value
+#- 1038 ladder__rung10_given_a_when_arm_in_a_block_or_sub_body_and_a_given_or_if_as_a_value
 done
 one
 two
@@ -3815,7 +3832,7 @@ x
 1
 1
 2
-#- 1038 ladder__rung04_arrays_xx_repeats_its_left_side_unflattened_and_a_range_in_a_comma_list_is_one_range_element
+#- 1039 ladder__rung04_arrays_xx_repeats_its_left_side_unflattened_and_a_range_in_a_comma_list_is_one_range_element
 ((1 a) (1 a))
 ([1 2] [1 2])
 (1 2 1 2)
@@ -3836,7 +3853,7 @@ x
 1..2
 5
 (2 2)
-#- 1039 ladder__rung09_regex_a_failed_match_statement_does_not_end_its_loop_or_sub_body
+#- 1040 ladder__rung09_regex_a_failed_match_statement_does_not_end_its_loop_or_sub_body
 loop
 loop
 subrule
@@ -3845,16 +3862,16 @@ in sub
 twice
 False
 end
-#------------------------------------------------- 1040 benchmark_insertion-sort
+#------------------------------------------------- 1041 benchmark_insertion-sort
 0
-#---------------------------------------------- 1041 sub_when_junction_replace_1
+#---------------------------------------------- 1042 sub_when_junction_replace_1
 any-hit
 all-hit
 none-hit
 one-hit
 pipe-hit
 amp-hit
-#-------------------------------------------------- 1042 benchmark_rc-mandelbrot
+#-------------------------------------------------- 1043 benchmark_rc-mandelbrot
 . , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @           . , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @
 . , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @          . , ; * $ # @. , ; * $ # @ . , ; * $ # @ . , ; * $ # @. , ; * $ # @  . , ; * $ # @. , ; * $ # @. , ; * $ # @
 . , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @         . , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @ . , ; * $ # @   . , ; * $ # @. , ; * $ # @. , ; * $ # @  . , ; * $ # @
@@ -3876,9 +3893,9 @@ amp-hit
 . , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @         . , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @ . , ; * $ # @   . , ; * $ # @. , ; * $ # @. , ; * $ # @  . , ; * $ # @
 . , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @          . , ; * $ # @. , ; * $ # @ . , ; * $ # @ . , ; * $ # @. , ; * $ # @  . , ; * $ # @. , ; * $ # @. , ; * $ # @
 . , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @           . , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @. , ; * $ # @
-#------------------------------------------------ 1043 benchmark_point_class_add
+#------------------------------------------------ 1044 benchmark_point_class_add
 6500001.5 9500002.5
-#- 1044 ladder__rung09_regex_grammars_protos_actions_and_lexical_regexes_agree_with_rakudo
+#- 1045 ladder__rung09_regex_grammars_protos_actions_and_lexical_regexes_agree_with_rakudo
 ｢aaa｣
 ｢bb｣
 ｢cc｣
@@ -3909,11 +3926,11 @@ no
 ｢ab｣
  x => ｢ab｣
   y => ｢b｣
-#----------------------------------------------------- 1045 benchmark_merge-sort
+#----------------------------------------------------- 1046 benchmark_merge-sort
 0
-#----------------------------------------------- 1046 benchmark_point_class_add1
+#----------------------------------------------- 1047 benchmark_point_class_add1
 6500001.5 9500002.5
-#- 1047 ladder__rung02_arithmetic_rat_as_an_argument_a_receiver_and_a_container_element_agrees_with_rakudo
+#- 1048 ladder__rung02_arithmetic_rat_as_an_argument_a_receiver_and_a_container_element_agrees_with_rakudo
 (13 14 15 16 17 18 19 10 11 12)
 (13 14 15 16 17 18 19)
 ((10 11 12) (13 14 15) (16 17 18))
@@ -3959,7 +3976,7 @@ True
 1.5
 (1.5)
 1.5
-#- 1048 ladder__rung07_subs_a_subset_is_a_type_and_a_where_clause_checks_a_parameter
+#- 1049 ladder__rung07_subs_a_subset_is_a_type_and_a_where_clause_checks_a_parameter
 True
 False
 True
@@ -3992,7 +4009,7 @@ True
 False
 True
 False
-#---------------------------------------------------- 1049 scrip_test_rk_given18
+#---------------------------------------------------- 1050 scrip_test_rk_given18
 zero
 one
 many
@@ -4006,7 +4023,7 @@ got-one
 got-two
 got-other
 got-other
-#- 1050 ladder__rung10_given_a_when_arm_is_its_own_node_a_given_binds_the_topic_and_a_matched_when_leaves_the_block
+#- 1051 ladder__rung10_given_a_when_arm_is_its_own_node_a_given_binds_the_topic_and_a_matched_when_leaves_the_block
 7
 w
 pre
@@ -4021,7 +4038,7 @@ other c
 AB
 zeroonemany
 caught x
-#- 1051 ladder__rung04_arrays_an_infinite_or_whatever_ended_range_is_lazy_where_it_is_iterated_and_a_range_value_where_it_is_held
+#- 1052 ladder__rung04_arrays_an_infinite_or_whatever_ended_range_is_lazy_where_it_is_iterated_and_a_range_value_where_it_is_held
 (1 2 3)
 (1 2 3)
 1
@@ -4045,7 +4062,7 @@ True
 (1 1)
 (0 0 0 0)
 [(a 0) (b 0)]
-#- 1052 ladder__rung05_hashes_a_hash_slice_reads_assigns_tests_and_deletes_several_keys
+#- 1053 ladder__rung05_hashes_a_hash_slice_reads_assigns_tests_and_deletes_several_keys
 2
 [1 2]
 2
@@ -4070,7 +4087,7 @@ c,d
 x1,y2,z3
 d,u
 6
-#- 1053 ladder__rung02_arithmetic_rat_in_the_builtins_index_range_x_floor_abs_sqrt_sprintf_int_and_caret
+#- 1054 ladder__rung02_arithmetic_rat_in_the_builtins_index_range_x_floor_abs_sqrt_sprintf_int_and_caret
 20
 20
 abab
@@ -4154,7 +4171,7 @@ True
 110
 115
 99.999999
-#----------------- 1054 ladder__rung09_regex_engine_captures_1_agree_with_rakudo
+#----------------- 1055 ladder__rung09_regex_engine_captures_1_agree_with_rakudo
 M 0 2 <ab> 0=<b> x=<a>
 M 0 3 <abc> 0=<b> 1=<c> x=<abc>
 M 0 1 <a> x=<a>
@@ -4201,7 +4218,7 @@ M 0 2 <12> alpha=[] digit=[<1>,<2>]
 M 0 5 <1,2,3> digit=[<1>,<2>,<3>]
 M 0 5 <1,2,3> 0=[<1>,<2>,<3>]
 M 0 5 <1,2,3> d=[<1>,<2>,<3>] digit=[<1>,<2>,<3>]
-#-------------- 1055 ladder__rung09_regex_engine_quantifiers_1_agree_with_rakudo
+#-------------- 1056 ladder__rung09_regex_engine_quantifiers_1_agree_with_rakudo
 M 0 3 <aaa>
 M 0 4 <aaab>
 M 0 3 <aaa>
@@ -4229,7 +4246,7 @@ M 0 1 <a>
 M 1 3 <ab>
 M 0 1 <a>
 M 0 2 <ab>
-#------------------- 1056 ladder__rung09_regex_engine_sigspace_agree_with_rakudo
+#------------------- 1057 ladder__rung09_regex_engine_sigspace_agree_with_rakudo
 M 0 3 <a b>
 NO
 M 0 5 <a   b>
@@ -4265,7 +4282,7 @@ M 0 2 <Ab> 0=<A>
 NO
 M 0 3 <aBc>
 NO
-#--------------------- 1057 ladder__rung09_regex_engine_batch2_agree_with_rakudo
+#--------------------- 1058 ladder__rung09_regex_engine_batch2_agree_with_rakudo
 NO
 M 0 1 <a> alpha=<a>
 M 2 3 <c> alpha=<c> ident=<c>
@@ -4307,7 +4324,7 @@ M 0 2 <bc>
 M 0 2 <ab>
 M 0 0 <> alpha=[]
 M 0 3 <ab1> alpha=[<a>,<b>] digit=<1>
-#------------------- 1058 ladder__rung09_regex_engine_basics_1_agree_with_rakudo
+#------------------- 1059 ladder__rung09_regex_engine_basics_1_agree_with_rakudo
 M 2 5 <abc>
 M 1 4 <aaa>
 M 0 4 <aaab>
@@ -4357,7 +4374,7 @@ M 0 2 <ab> alpha=[<a>,<b>] x=[<a>,<b>]
 M 0 4 <a1b2> alpha=[<a>,<b>] digit=[<1>,<2>]
 M 0 3 <FOO>
 M 0 3 <fOo>
-#------------------- 1059 ladder__rung09_regex_engine_basics_2_agree_with_rakudo
+#------------------- 1060 ladder__rung09_regex_engine_basics_2_agree_with_rakudo
 NO
 M 0 5 <a   b>
 M 1 5 <   b>
@@ -4407,7 +4424,7 @@ M 0 2 <a1> alpha=<a> digit=<1>
 M 0 4 <abcd>
 M 0 3 <a b> 0=<a> 1=<b>
 M 0 3 <a b>
-#------------------- 1060 ladder__rung09_regex_engine_basics_3_agree_with_rakudo
+#------------------- 1061 ladder__rung09_regex_engine_basics_3_agree_with_rakudo
 M 0 3 <  a> ws=<  >
 M 0 1 <a>
 M 0 3 <123>
@@ -4457,7 +4474,7 @@ M 0 4 <.abc>
 M 0 4 <^abc>
 M 0 5 <(abc)>
 M 0 5 <[abc]>
-#------------------ 1061 ladder__rung09_regex_engine_classes_1_agree_with_rakudo
+#------------------ 1062 ladder__rung09_regex_engine_classes_1_agree_with_rakudo
 M 0 2 <a->
 M 0 2 <a->
 M 1 2 <->
