@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1043 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=48 clusters=49 chunks=10 sizes=100,100,100,100,100,100,100,100,100,95
+# shape: entries=1044 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=48 clusters=49 chunks=10 sizes=100,100,100,100,100,100,100,100,100,96
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:07	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:07	family:ladder	
@@ -166,6 +166,7 @@ ladder__rung11_junctions_operator	chunk:06	feat:if	if
 ladder__rung07_subs_lowercase_main_is_an_ordinary_sub	chunk:05	feat:sub	sub
 ladder__rung12_exceptions	chunk:10	feat:try	try
 ladder__rung12_exceptions_die_message	chunk:10	feat:try	try
+ladder__rung14_roles_does_ok_asks_the_does_method	chunk:07	family:ladder	
 ladder__rung02_arithmetic_rat_exact_with_big_numerators_and_the_64_bit_denominator_limit	chunk:03	feat:say	say
 array_30	chunk:03	feat:sigil_array	sigil_array
 array_31	chunk:03	feat:sigil_array	sigil_array
@@ -470,7 +471,7 @@ range_array_2	chunk:08	feat:range_op	range_op sigil_array
 range_array_3	chunk:08	feat:range_op	range_op sigil_array
 range_array_4	chunk:08	feat:range_op	range_op sigil_array
 range_array_5	chunk:08	feat:range_op	range_op sigil_array
-range_array_6	chunk:08	feat:range_op	range_op sigil_array
+range_array_6	chunk:09	feat:range_op	range_op sigil_array
 range_array_7	chunk:09	feat:range_op	range_op sigil_array
 range_array_8	chunk:09	feat:range_op	range_op sigil_array
 range_array_9	chunk:09	feat:range_op	range_op sigil_array
@@ -627,7 +628,7 @@ ladder__rung07_subs	chunk:08	feat:sub_with_return	return sub sub_with_return
 ladder__rung15_blocks_grep	chunk:10	feat:grep	grep sigil_array
 ladder__rung15_blocks_map	chunk:09	feat:map	map sigil_array
 loop_2	chunk:09	feat:loop	if loop
-loop_3	chunk:09	feat:loop	if loop
+loop_3	chunk:10	feat:loop	if loop
 say_89	chunk:08	feat:string_concat	say string_concat
 say_replace_18	chunk:02	feat:has	has say
 say_try_die_2	chunk:10	feat:die	die say try
@@ -868,7 +869,7 @@ class_method_say_replace_33	chunk:07	feat:return	method return say
 class_method_say_replace_34	chunk:07	feat:return	method return say
 class_method_say_replace_47	chunk:07	feat:return	method return say
 class_method_say_replace_48	chunk:07	feat:return	method return say
-class_method_say_replace_49	chunk:07	feat:return	method return say
+class_method_say_replace_49	chunk:08	feat:return	method return say
 class_method_say_replace_52	chunk:08	feat:return	method return say
 class_sub_say_replace_1	chunk:02	feat:has	has say sub
 for_array_say_4	chunk:05	feat:for_with_say	for for_with_say say sigil_array
