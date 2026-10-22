@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1033 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=46 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,87
+# shape: entries=1034 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=46 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,88
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:07	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:07	family:ladder	
@@ -144,7 +144,7 @@ test_stmt_pfx_INIT	chunk:03	feat:say	say
 test_stmt_pfx_once	chunk:03	feat:say	say
 test_stmt_pfx_quietly	chunk:03	feat:say	say
 test_stmt_pfx_react	chunk:03	feat:say	say
-test_try_basic	chunk:10	feat:try	try
+test_try_basic	chunk:09	feat:try	try
 ladder__rung07_subs_implicit_return_bare_literal_tail	chunk:05	feat:sub	sub
 say_90	chunk:03	feat:say	say
 simple_assign_46	chunk:01	family:smoke	
@@ -159,13 +159,13 @@ ladder__rung17_compare_ops_leg	chunk:03	feat:say	say
 ladder__rung17_compare_ops_numeric	chunk:03	feat:say	say
 simple_assign_49	chunk:08	feat:string_concat	string_concat
 ladder__rung02_arithmetic_e_and_tau_terms	chunk:03	feat:say	say
-ladder__rung12_exceptions_no_catch	chunk:10	feat:try	try
+ladder__rung12_exceptions_no_catch	chunk:09	feat:try	try
 ladder__rung16_bool_relops	chunk:03	feat:say	say
 say_63	chunk:03	feat:say	say
 ladder__rung11_junctions_operator	chunk:06	feat:if	if
 ladder__rung07_subs_lowercase_main_is_an_ordinary_sub	chunk:05	feat:sub	sub
-ladder__rung12_exceptions	chunk:10	feat:try	try
-ladder__rung12_exceptions_die_message	chunk:10	feat:try	try
+ladder__rung12_exceptions	chunk:09	feat:try	try
+ladder__rung12_exceptions_die_message	chunk:09	feat:try	try
 ladder__rung02_arithmetic_rat_exact_with_big_numerators_and_the_64_bit_denominator_limit	chunk:03	feat:say	say
 array_30	chunk:03	feat:sigil_array	sigil_array
 array_31	chunk:03	feat:sigil_array	sigil_array
@@ -194,7 +194,7 @@ ladder__rung19_block_methcall_chained	chunk:09	feat:map	map say
 ladder__rung19_block_methcall_grep	chunk:10	feat:grep	grep say
 ladder__rung20_paren_group_grep	chunk:10	feat:grep	grep say
 ladder__rung20_paren_group_placeholder	chunk:09	feat:map	map say
-say_die_1	chunk:09	feat:die	die say
+say_die_1	chunk:10	feat:die	die say
 simple_assign_100	chunk:01	family:smoke	
 simple_assign_102	chunk:01	family:smoke	
 simple_assign_105	chunk:01	family:smoke	
@@ -478,8 +478,8 @@ say_13	chunk:03	feat:say	say
 say_66	chunk:03	feat:say	say
 say_91	chunk:03	feat:say	say
 say_replace_21	chunk:03	feat:say	say
-say_try_die_1	chunk:09	feat:die	die say try
-say_try_die_4	chunk:09	feat:die	die say try
+say_try_die_1	chunk:10	feat:die	die say try
+say_try_die_4	chunk:10	feat:die	die say try
 simple_assign_120	chunk:06	feat:if	if
 simple_assign_121	chunk:10	feat:unless	unless
 simple_assign_122	chunk:10	feat:unless	unless
@@ -539,7 +539,7 @@ ladder__rung20_paren_group_list	chunk:06	feat:join	join
 multi_1	chunk:08	feat:multi	multi return
 multi_sub_1	chunk:08	feat:multi	multi sub
 say_54	chunk:03	feat:say	say
-say_try_die_3	chunk:09	feat:die	die say try
+say_try_die_3	chunk:10	feat:die	die say try
 simple_assign_107	chunk:06	feat:if	if
 simple_assign_119	chunk:06	feat:if	if
 simple_assign_40	chunk:08	feat:string_concat	string_concat
@@ -825,6 +825,7 @@ ladder__rung19_block_methcall_sort_by_a_two_arg_comparator_block_past_64_element
 sub_say_5	chunk:08	feat:string_concat	say string_concat sub
 benchmark_spinner	chunk:10	feat:for	for sigil_array sub
 ladder__rung15_blocks_a_my_declaration_without_a_value_keeps_what_a_begin_check_init_or_enter_phaser_stored	chunk:07	feat:sigil_hash	sigil_array sigil_hash string_concat
+ladder__rung07_subs_a_literal_passed_to_an_is_rw_parameter_throws_x_parameter_rw	chunk:10	feat:try	sigil_array sub try
 ladder__rung02_arithmetic_rat_smartmatch_truthiness_function_forms_and_type_checks	chunk:09	feat:smartmatch	say smartmatch string_concat
 sub_range_say_replace_1	chunk:09	feat:range_op	range_op say sub
 benchmark_rc-dragon-curve	chunk:05	feat:for_with_say	for for_with_say range_op
