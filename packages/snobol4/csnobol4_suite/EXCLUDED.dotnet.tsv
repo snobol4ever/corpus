@@ -1,0 +1,9 @@
+# EXCLUDED.dotnet.tsv -- csnobol4_suite: the programs that leave snobol4dotnet's denominator ALONE, read by lib_excluded.sh and util_score_row.py only
+# while S4E_ENGINE is dotnet (ceo CEO-1864 (4), 2026-10-21; landed by the coo on CEO-1872). SCRIP's rows and the jvm engine's never read it.
+# Class LON_UNICODE_BY_DESIGN (ceo CEO-1859, Lon, verbatim: "Continue having snobol4dotnet support Unicode as designed."): OUTPUT and SIZE stay
+# character-based in snobol4dotnet, so a program whose ONLY difference from sbl -bf is bytes against characters leaves this engine's denominator,
+# its evidence the measured difference. 8bit2 is not here: sbl -bf refuses it (ERROR 230, illegal character), and it is NOT_SPITBOL_DIALECT in
+# EXCLUDED.tsv for every engine already.
+# FORMAT: name<TAB>LON_UNICODE_BY_DESIGN<TAB>the measured byte-versus-character difference (60+ chars)
+8bit.sno	LON_UNICODE_BY_DESIGN	measured 2026-10-21 on snobol4dotnet f5c6ffe against sbl -bf, both rc 0, 3 lines each: line 2 prints CHAR(128) and CHAR(255) as the bytes 0x80 0xFF under sbl and as the characters U+0080 U+00FF, UTF-8 C2 80 C3 BF, under snobol4dotnet (21 bytes against 23); every other byte equal
+alph.sno	LON_UNICODE_BY_DESIGN	measured 2026-10-21 on snobol4dotnet f5c6ffe against sbl -bf, both rc 0, 7 lines each: OUTPUT = &ALPHABET writes its upper 128 characters (128-255) as one byte each under sbl and as two-byte UTF-8 under snobol4dotnet (321 bytes against 449, the 128 extra bytes all on line 2); every other byte equal

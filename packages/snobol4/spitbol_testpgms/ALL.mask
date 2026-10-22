@@ -1,5 +1,8 @@
 # ALL.mask -- CEO-409 line masks for spitbol_testpgms, declared beside the data (RULES.md; ceo CEO-409, CEO-1293, CEO-1316).
 # FORMAT: entry<TAB>pattern<TAB>reason; pattern is a python regex, L<n>, or ORACLE-ONLY:<exact line>. An empty reason is REFUSED.
+# ⭐ An optional fourth column engine=NAME[,NAME] offers a row only to the engines it names (ceo CEO-1864 (1)). The six test1 rows
+# below are SCRIP's alone, engine=scrip: SCRIP keeps VALUE (CEO-1293), while sbl -bf and snobol4dotnet raise error 22 at statement
+# 137 (CEO-1858 (3)), so a port is graded on the oracle's whole stream, the trap line and the four counts included.
 #
 # ⭐ EARNED BY RULING, NOT BY NONDETERMINISM (ceo CEO-1293, 2026-09-26; CEO-1316, 2026-09-27): Lon, in-chat to hq_snobol4,
 # "Keep the VALUE function we like new features." test1's statement 137, TEST = DIFFER(VALUE('B'),B) STARS, is a SNOBOL4+
@@ -10,9 +13,10 @@
 # line one side lacks. An ORACLE-ONLY row removes ONE line, matched by exact text, from the oracle's stream only; a missing or extra
 # line on our side still reds, and the kind is admitted only for the CEO-1293 kept-enhancement class (its reason must cite CEO-1293).
 # The four count rows are ordinary replace masks: both sides print the line, the numbers differ by one.
-test1	ORACLE-ONLY:****  ERROR AT  137      &ERRTYPE =      22 ****	CEO-1293 kept enhancement, Lon: "Keep the VALUE function we like new features." -- statement 137, DIFFER(VALUE('B'),B): sbl -bf has no VALUE and traps error 22, we define it, so this trap line is the oracle's alone
-test1	^\*\*\*\*    NUMBER OF ERRORS DETECTED +\d+    \*\*\*\*$	CEO-1293: the program's trap count, which the one statement-137 trap moves by one (29 in sbl -bf, 28 here)
-test1	^DIAGNOSTICS = \d+$	CEO-1293: the same trap count as the program's DIAGNOSTICS variable in its end-of-run DUMP
-test1	^&ERRLIMIT = \d+$	CEO-1293: &ERRLIMIT counts down once per trapped error, so the one statement-137 trap moves it by one (975 vs 976)
-test1	^&TRACE = \d+$	CEO-1293: the program's ERRORS handler decrements &TRACE once per trap, so it moves by the same one (999971 vs 999972)
-test1	^&STCOUNT = \d+$	CEO-1293: &STCOUNT counts the statements executed, and sbl -bf's statement-137 VALUE trap moves the count by three, the statements of its ERRORS handler that ours never enters (370 vs 367; measured equal, 367 both, with the VALUE call replaced by $'B')
+test1	ORACLE-ONLY:****  ERROR AT  137      &ERRTYPE =      22 ****	CEO-1293 kept enhancement, Lon: "Keep the VALUE function we like new features." -- statement 137, DIFFER(VALUE('B'),B): sbl -bf has no VALUE and traps error 22, we define it, so this trap line is the oracle's alone	engine=scrip
+test1	^\*\*\*\*    NUMBER OF ERRORS DETECTED +\d+    \*\*\*\*$	CEO-1293: the program's trap count, which the one statement-137 trap moves by one (29 in sbl -bf, 28 here)	engine=scrip
+test1	^DIAGNOSTICS = \d+$	CEO-1293: the same trap count as the program's DIAGNOSTICS variable in its end-of-run DUMP	engine=scrip
+test1	^&ERRLIMIT = \d+$	CEO-1293: &ERRLIMIT counts down once per trapped error, so the one statement-137 trap moves it by one (975 vs 976)	engine=scrip
+test1	^&TRACE = \d+$	CEO-1293: the program's ERRORS handler decrements &TRACE once per trap, so it moves by the same one (999971 vs 999972)	engine=scrip
+test1	^&STCOUNT = \d+$	CEO-1293: &STCOUNT counts the statements executed, and sbl -bf's statement-137 VALUE trap moves the count by three, the statements of its ERRORS handler that ours never enters (370 vs 367; measured equal, 367 both, with the VALUE call replaced by $'B')	engine=scrip
+test2	^(macro spitbol|snobol4dotnet) version [0-9][0-9.a-z]*$	CEO-1344 ORACLE-IDENTITY (CEO-1352, the -LIST listing's version line takes an identity mask; CEO-1858 item 4 and CEO-1864 (3): sbl refuses test2 at compile and prints its listing page on stdout, whose version line names the engine -- "macro spitbol version 4.0f" under sbl -bf, "snobol4dotnet version 0.1" under snobol4dotnet, which keeps its own name; read only by a port's compile-refusal arm, since SCRIP refuses with nothing on stdout)
