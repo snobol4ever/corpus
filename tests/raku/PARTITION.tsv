@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1025 features=37 ubiquitous=2(my sigil_scalar) distinctive=35 core=44 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,81
+# shape: entries=1026 features=37 ubiquitous=2(my sigil_scalar) distinctive=35 core=45 clusters=48 chunks=10 sizes=100,100,100,100,100,100,100,100,100,81
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:08	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:08	family:ladder	
@@ -1002,6 +1002,7 @@ class_method_multi_replace_3	core	core	method multi return say string_concat sub
 ladder__rung03_strings_a_method_call_with_parentheses_interpolates_in_a_double_quoted_string	chunk:09	feat:map	for for_with_say join map range_op sigil_array smartmatch string_concat
 ladder__rung11_junctions_a_junction_in_boolean_context_collapses_and_star_smartmatch_against_a_type_is_a_whatevercode	core	core	grep if junction map say sigil_array smartmatch string_concat
 benchmark_rc-self-describing-numbers	core	core	for for_with_say if range_op return sigil_array sub sub_with_return
+ladder__rung09_regex_a_match_statement_in_a_sub_returns_to_its_caller	core	core	for for_with_say loop range_op regex smartmatch string_concat sub
 ladder__rung08_for_a_for_loop_over_the_topic_restores_the_outer_topic_when_it_ends_by_exhaustion_last_or_return	core	core	for for_with_say if range_op return sigil_array sub sub_with_return
 ladder__rung10_given_a_when_arm_in_a_block_or_sub_body_and_a_given_or_if_as_a_value	core	core	for for_with_say given if range_op sub when while
 ladder__rung04_arrays_xx_repeats_its_left_side_unflattened_and_a_range_in_a_comma_list_is_one_range_element	chunk:09	feat:map	for for_with_say map range_op say sigil_array smartmatch string_concat
