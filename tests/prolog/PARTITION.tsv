@@ -1,9 +1,9 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=563 features=38 ubiquitous=3(write nl directive) distinctive=35 core=54 clusters=61 chunks=6 sizes=100,100,100,100,100,9
+# shape: entries=568 features=38 ubiquitous=3(write nl directive) distinctive=35 core=54 clusters=65 chunks=6 sizes=100,100,100,100,100,14
 entry	part	cluster	shells
 write_family_writeln_1	chunk:01	family:ladder	
-directive_32	chunk:05	family:rung22_write_canonical	
+directive_32	chunk:06	family:rung22_write_canonical	
 format_directive_1	chunk:04	feat:format	format
 format_directive_2	chunk:04	feat:format	format
 format_directive_3	chunk:04	feat:format	format
@@ -49,7 +49,7 @@ directive_41	chunk:05	family:rung23_arith_ext
 directive_43	chunk:04	family:rung24	
 directive_44	chunk:04	family:rung24	
 directive_45	chunk:04	family:rung24	
-directive_46	chunk:04	family:rung24	
+directive_46	chunk:05	family:rung24	
 directive_47	chunk:05	family:rung24	
 directive_53	chunk:05	family:rung25	
 directive_54	chunk:05	family:rung25	
@@ -104,6 +104,9 @@ directive_30	chunk:05	family:rung21_char_type
 directive_31	chunk:05	family:rung21_char_type	
 directive_66	chunk:05	family:rung26_copy_concat	
 directive_83	chunk:01	family:ladder	
+directive_88	chunk:05	family:cut_in_a_disjunction_arm_then_a_fresh_local_bound_after_it	
+directive_89	chunk:05	family:cut_in_a_disjunction_arm_then_is_on_the_head_argument	
+directive_90	chunk:05	family:cut_in_a_disjunction_arm_with_no_alternative_left	
 disjunction_both_branches_1	chunk:01	family:ladder	
 disjunction_in_rule_body_1	chunk:01	family:ladder	
 fact_anonymous_var_arg_1	chunk:01	family:ladder	
@@ -126,7 +129,7 @@ sub_atom_directive_1	chunk:01	family:ladder
 zero_arity_dispatch_1	chunk:01	family:ladder	
 clause_choice_two_clauses_distinct_heads_1	chunk:01	family:ladder	
 directive_13	chunk:05	family:probe_plz	
-directive_16	chunk:05	family:rung01	
+directive_16	chunk:06	family:rung01	
 directive_35	chunk:04	family:rung23	
 directive_36	chunk:04	family:rung23	
 directive_49	chunk:05	family:rung24_string_io	
@@ -145,6 +148,7 @@ directive_73	chunk:05	family:rung29
 directive_77	chunk:05	family:rung29	
 directive_85	chunk:01	family:ladder	
 directive_86	chunk:01	family:ladder	
+directive_87	chunk:05	family:cut_in_a_disjunction_arm_after_a_guard_then_the_last_call	
 evaluable_float_fractional_part_1	chunk:01	family:ladder	
 evaluable_float_integer_part_1	chunk:01	family:ladder	
 evaluable_pi_e_constants_1	chunk:01	family:ladder	
@@ -155,7 +159,7 @@ rung03_disjunction_with_clause_choice	chunk:01	family:ladder
 write_canonical_directive_2	chunk:05	feat:write_canonical	write_canonical
 write_canonical_directive_3	chunk:05	feat:write_canonical	write_canonical
 clause_choice_first_solution_only_1	chunk:01	family:ladder	
-directive_1	chunk:05	family:hello	
+directive_1	chunk:06	family:hello	
 directive_14	chunk:05	family:probe_plz	
 directive_33	chunk:04	family:rung23	
 directive_34	chunk:04	family:rung23	
@@ -199,7 +203,7 @@ simple_program_102	chunk:05	family:rung39_atom_iso
 simple_program_90	chunk:05	family:rung18_succ_plus	
 termio_current_char_conversion_1	chunk:02	family:ladder	
 termio_write_term_numbervars_1	chunk:02	feat:unify	unify
-directive_17	chunk:05	family:rung02_facts_facts	
+directive_17	chunk:06	family:rung02_facts_facts	
 simple_program_103	chunk:05	family:rung39_atom_iso	
 simple_program_97	chunk:05	family:rung36_arith_edge	
 directive_19	chunk:04	family:rung12_atom_builtins	
@@ -218,7 +222,7 @@ simple_program_105	chunk:06	family:rung82_writeln
 directive_80	chunk:06	family:rung74_dec10_io	
 directive_81	chunk:06	family:rung80_dec10_streams	
 directive_79	chunk:06	family:rung72_unget	
-directive_18	chunk:05	family:rung08_recursion_recursion	
+directive_18	chunk:06	family:rung08_recursion_recursion	
 test_rung10_programs_puzzle_10	chunk:02	feat:unify	unify
 arith_compare_ge_1	chunk:02	feat:if_then_else	if_then_else
 arith_compare_gt_1	chunk:02	feat:if_then_else	if_then_else
@@ -226,7 +230,7 @@ arith_compare_le_1	chunk:02	feat:if_then_else	if_then_else
 arith_compare_lt_1	chunk:02	feat:if_then_else	if_then_else
 arith_directive_1	chunk:02	feat:unify	unify
 arith_eval_negation_1	chunk:02	feat:unify	unify
-arith_eval_zero_divisor_error_1	chunk:02	feat:catch	catch
+arith_eval_zero_divisor_error_1	chunk:03	feat:catch	catch
 between_backtrack_all_values_1	chunk:04	feat:between	between
 catch_throw_catch_of_succeeding_goal_1	chunk:03	feat:catch	catch
 catch_throw_error_term_from_builtin_1	chunk:03	feat:catch	catch
@@ -247,7 +251,7 @@ ite_condition_fails_1	chunk:02	feat:if_then_else	if_then_else
 ofi_ignore_of_failing_goal_1	chunk:02	feat:if_then_else	if_then_else
 ofi_ignore_succeeds_1	chunk:02	feat:unify	unify
 ofi_once_of_failing_goal_1	chunk:02	feat:if_then_else	if_then_else
-repeat_repeat_with_cut_1	chunk:03	feat:cut	cut
+repeat_repeat_with_cut_1	chunk:02	feat:cut	cut
 streams_current_input_1	chunk:02	feat:if_then_else	if_then_else
 streams_stream_term_1	chunk:02	feat:unify	unify
 sub_atom_empty_substring_1	chunk:02	feat:if_then_else	if_then_else
@@ -415,12 +419,13 @@ between_ite_directive_1	chunk:04	feat:between	between if_then_else
 call_n_call_of_variable_goal_1	chunk:03	feat:call	call unify
 clause_reflect_reflect_fact_body_true_1	chunk:05	feat:clause	assertz clause
 clause_reflect_reflect_rule_body_1	chunk:05	feat:clause	assertz clause
-determinism_semidet_1	chunk:03	feat:findall	findall if_then_else
+determinism_semidet_1	chunk:04	feat:findall	findall if_then_else
 erriso_permission_error_1	chunk:05	feat:retract	catch retract
 format_directive_7	chunk:04	feat:atom	atom format
 ite_naf_directive_1	chunk:04	feat:negation	if_then_else negation
 retract_ite_1	chunk:05	feat:retract	if_then_else retract
 assertz_ite_1	chunk:04	feat:assertz	assertz if_then_else
+cut_directive_11	chunk:03	feat:cut	cut unify
 ite_directive_4	chunk:04	feat:atom	atom if_then_else
 bagof_setof_free_variable_grouping_1	chunk:05	feat:bagof	bagof findall
 call_n_call_of_cut_is_local_1	chunk:03	feat:call	call cut
