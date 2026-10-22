@@ -18102,7 +18102,41 @@ loop     line     =  INPUT                         :F(END)
          OUTPUT   =  Pop()                         :(loop)
 error    OUTPUT   = 'Bad INPUT, try again'         :(loop)
 END
-*---------------------------------------------------------- 2021 benchmark_roman
+*------------------------------- 2021 user_function_arbno_fence_replace_branch_2
+* A conditional capture into an element sits inside FENCE(p), a FENCE'd ARBNO and a nested FENCE of a stored pattern, and the end-of-match commit runs after the
+* fence's gamma with a deferred function allocating 100 arrays in between, so the head cell the commit reads through must survive the fence's pop.
+	arr = ARRAY(3)
+	tbl = TABLE()
+	DEFINE('junk()s,b,i')	:(jend)
+junk	s = DUPL('x', 3000)
+	b = ARRAY(100)
+	i = 0
+jl	i = LT(i,100) i + 1	:F(jd)
+	b[i] = s i	:(jl)
+jd	junk = ''	:(RETURN)
+jend	p1 = FENCE('a' . arr[1]) *junk() 'b'
+	'ab' p1
+	OUTPUT = 'p1 A1=' arr[1]
+	arr[1] = 'none'
+	p2 = FENCE(ARBNO(ANY('ab') . arr[3]) 'c') *junk() ''
+	'abac' p2
+	OUTPUT = 'p2 A3=' arr[3]
+	p3 = 'x' FENCE(('y' . arr[2]) | ('z' . arr[2])) *junk() 'q'
+	'xzq' p3
+	OUTPUT = 'p3 A2=' arr[2]
+	p4 = ('k' . tbl['k']) FENCE(ARBNO(ANY('mn') $ arr[1]) ('e' . tbl['e'])) *junk() ''
+	'kmne' p4
+	OUTPUT = 'p4 Tk=' tbl['k'] ' Te=' tbl['e'] ' A1=' arr[1]
+	p5 = FENCE(FENCE('u' . arr[1]) 'v' . arr[2])
+	q5 = p5 *junk() 'w' . arr[3]
+	'uvw' q5
+	OUTPUT = 'q5 A1=' arr[1] ' A2=' arr[2] ' A3=' arr[3]
+	p6 = ARBNO(FENCE('d' . arr[1]) 'e')
+	r6 = p6 *junk() 'f' . tbl['f']
+	'dedef' r6
+	OUTPUT = 'r6 A1=' arr[1] ' Tf=' tbl['f']
+END
+*---------------------------------------------------------- 2022 benchmark_roman
 * roman -- converts integers to Roman numerals and prints them.
 * bottleneck: recursive function dispatch; RPOS/LEN/BREAK patterns; REPLACE.
 * The kernel converts a DIFFERENT integer each iteration (1001..1000+N) rather than a
@@ -18137,7 +18171,7 @@ RTAB    OUTPUT = K ' -> ' ROMAN(K)
         K = LT(K, 1010) K + 1                           :S(RTAB)
         OUTPUT = 'total numeral length for 1001..1200 = ' ROMAN_RUN(200)
 END
-*---------------------------------------- 2022 user_function_eval_arbno_branch_1
+*---------------------------------------- 2023 user_function_eval_arbno_branch_1
         $('Z' 'Z') = 1
         nl = CHAR(10)
         tab = CHAR(9)
@@ -18177,7 +18211,7 @@ SEND
 NO        OUTPUT = 'nomatch'
 DONE
 END
-*-------------------------------- 2023 user_function_eval_arbno_replace_branch_2
+*-------------------------------- 2024 user_function_eval_arbno_replace_branch_2
 START
 -INCLUDE 'global.inc'
 -INCLUDE 'case.inc'
@@ -18227,7 +18261,7 @@ XEND
 NO                OUTPUT         =  'nomatch'
 DONE
 END
-*-------------------------------- 2024 user_function_fence_span_replace_branch_1
+*-------------------------------- 2025 user_function_fence_span_replace_branch_1
 *
 *  SPITBOL TEST PROGRAM #4 -- SYNTACTIC RECOGNIZER FOR SPITBOL, decomposed into the master by cfo
 *  2026-09-13 on CEO-725 (Lon, in-chat to ceo: "You should do all 8 SPITBOL test programs").
@@ -18343,7 +18377,7 @@ ENDGAME  EOF   =   1                                   :(ANALYZE)
 *
 OPT      OPT   =   NULL | PATTERN                      :(RETURN)
 END
-*-------------------------------------------------------------- 2025 demo_porter
+*-------------------------------------------------------------- 2026 demo_porter
 *// ---------------------------------------------------------------------------------------------------------
 *// porter.sno — Porter (1980) stemming algorithm in SNOBOL4
 *//
@@ -18761,7 +18795,7 @@ stm_end
 NEXT           word           =  INPUT                              :F(END)
                OUTPUT         =  stemmer(word)                      :(NEXT)
 END
-*--------------------------------------------------------- 2026 benchmark_porter
+*--------------------------------------------------------- 2027 benchmark_porter
 *// ---------------------------------------------------------------------------------------------------------
 *// porter.sno — Porter (1980) stemming algorithm in SNOBOL4
 *//
@@ -19199,7 +19233,7 @@ PORTER_END
 PNEXT          OUTPUT         =  stemmer(WORDS[PJ])
                PJ             =  LT(PJ, NW) PJ + 1                  :S(PNEXT)
 END
-*--------------------------------------------------- 2027 benchmark_calculator-1
+*--------------------------------------------------- 2028 benchmark_calculator-1
         DEFINE('EMIT()')
         DEFINE('PSH()')
         DEFINE('DRF(nm)')
@@ -19277,7 +19311,7 @@ bad     t1 = TIME()
         OUTPUT = 'Boo!'
         TERMINAL = 'match_ms=' (t1 - t0) / 1000000
 END
-*--------------------------------------------------- 2028 benchmark_calculator-2
+*--------------------------------------------------- 2029 benchmark_calculator-2
 *------------------------------------------------------------------------------
 * calculator-2.sno — precedence calculator, Variant 2: LEFT associativity
 * (Lon, 2026-07-24).  Same atoms/factors as calculator-1; terms and
@@ -19385,7 +19419,7 @@ bad     t1 = TIME()
         OUTPUT = 'Boo!'
         TERMINAL = 'match_ms=' (t1 - t0) / 1000000
 END
-*-------------------------------- 2029 user_function_arbno_span_replace_branch_3
+*-------------------------------- 2030 user_function_arbno_span_replace_branch_3
 *------------------------------------------------------------------------------
 * claws5.sno — CLAWS5 POS-tagged corpus tokenizer
 * ENG 685, Lon Cherryholmes Sr.
@@ -19502,7 +19536,7 @@ main_fail      OUTPUT          =  'Pattern match failed'    :(END)
 main_err       OUTPUT          =  'Could not read CLAWS5inTASA.dat'
 *------------------------------------------------------------------------------
 END
-*------------------------------- 2030 user_function_arbno_fence_replace_branch_1
+*------------------------------- 2031 user_function_arbno_fence_replace_branch_1
 *  claws5_table_flat1 -- minimal witness, row table-flat-1level-segv (FINDING-2026-08-21-s199).
 *  Flattens claws5's 3-level counts[number][word][tag] table build to ONE level, counts[word],
 *  keeping the SAME grammar shape (FENCE/ARBNO + a deferred *token() callout) claws5 itself uses.
@@ -19532,7 +19566,7 @@ token_end
 bad     OUTPUT = 'MATCH-FAILED'
 done
 END
-*---------------------------------------------- 2031 scrip_test_treebank-prepend
+*---------------------------------------------- 2032 scrip_test_treebank-prepend
 *------------------------------------------------------------------------------
 * treebank.sno — Penn Treebank s-expression parser
 * ENG 685, Lon Cherryholmes Sr.
@@ -19698,7 +19732,7 @@ main_fail      OUTPUT         =  'Pattern match failed'     :(END)
 main_err       OUTPUT         =  'Could not read VBGinTASA.dat'
 *------------------------------------------------------------------------------
 END
-*-------------------------------------------------------------- 2032 demo_claws5
+*-------------------------------------------------------------- 2033 demo_claws5
 *------------------------------------------------------------------------------
         DEFINE('token()')  :(token_end)
 token   num = +num
@@ -19728,7 +19762,7 @@ token_end
         OUTPUT  =   'matched bytes=' SIZE(src)  :(END)
 error   OUTPUT  =   'Pattern match failed'
 END
-*--------------------------------------------------------- 2033 benchmark_claws5
+*--------------------------------------------------------- 2034 benchmark_claws5
 *------------------------------------------------------------------------------
         DEFINE('token()')  :(token_end)
 token   num = +num
@@ -19771,7 +19805,7 @@ CLAWS5_END
 *BENCH kernel=CLAWS5 check=1 bud=1000 flr=20
         OUTPUT = CLAWS5(1)
 END
-*------------------------------------------------------------ 2034 demo_treebank
+*------------------------------------------------------------ 2035 demo_treebank
 *------------------------------------------------------------------------------
                 DATA('list(n,a)')
                 DEFINE('ListValue(x,place)')
@@ -19894,7 +19928,7 @@ StackEnd        delim           =   SPAN(' ' CHAR(10))
                 OUTPUT          =   'matched bytes=' SIZE(src)  :(END)
 error           OUTPUT          =   'Pattern match failed'
 END
-*-------------------------------- 2035 user_function_eval_arbno_replace_branch_1
+*-------------------------------- 2036 user_function_eval_arbno_replace_branch_1
 * json -- TIME-BASED: fixed ms budget, count iterations.
 * workload: 631 KB of twitter.json parsed into real TABLEs/ARRAYs; check is the full node census.
 * DESERIALIZING -- the -match sibling runs the same grammar with NO captures; the delta
@@ -20204,7 +20238,7 @@ ZBODY_END
 	ZSRC = '["s","s"]'
 	OUTPUT = 'two-element ' ZBODY(1)
 END
-*---------------------------------------------------------------- 2036 demo_json
+*---------------------------------------------------------------- 2037 demo_json
 *------------------------------------------------------------------------------
 * json.sno - JSON DE-SERIALIZER: RFC-8259 text -> native SNOBOL4 data structures.
 * ENG 685, Lon Cherryholmes Sr.
@@ -20499,7 +20533,7 @@ fail            t1              =   TIME()
                 TERMINAL        =   'match_ms=' (t1 - t0) / 1000000
 *------------------------------------------------------------------------------
 END
-*----------------------------------------------------------- 2037 benchmark_json
+*----------------------------------------------------------- 2038 benchmark_json
 *------------------------------------------------------------------------------
 * json.sno - JSON DE-SERIALIZER: RFC-8259 text -> native SNOBOL4 data structures.
 * ENG 685, Lon Cherryholmes Sr.
