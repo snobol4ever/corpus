@@ -2004,3 +2004,400 @@ this
 is
 a
 test
+*---------------------------------------------------------------------- 65 conv2
+* spitbol folds typenames when &case set!!
+	OUTPUT = CONVERT(3,"REAL")
+END
+*---------------------------------------------------------------------- 66 diag1
+*-title	snobol test program #1 -- diagnostics phase one
+*
+*	 this is a standard test program for spitbol which tests
+*	 out functions,	operators and datatype manipulations
+*
+	 &DUMP = 2
+	 TRACE(.test)
+	 &TRACE	= 1000000
+	 stars =		     '	error detected		***'
+	 &ERRLIMIT = 1000
+	 SETEXIT(.errors)
+	 OUTPUT	= '************************************************'
+	 OUTPUT	= '****	s n o b o l	 d i a g n o s t i c s ****'
+	 OUTPUT	= '****		 p h a s e    o	n e	       ****'
+	 OUTPUT	= '************************************************'
+	 OUTPUT	= '****	 any trace output indicates an error   ****'
+	 OUTPUT	= '************************************************'
+-EJECT
+*
+*	 test replace function
+*
+	 test =	DIFFER(REPLACE('axxbyyy','xy','01'),'a00b111') stars
+	 a = REPLACE(&ALPHABET,'xy','ab')
+	 test =	DIFFER(REPLACE('axy',&ALPHABET,a),'aab') stars
+*
+*	 test convert function
+*
+	 test =	DIFFER(CONVERT('12','INTEGER') , 12) stars
+	 test =	DIFFER(CONVERT(2.5,'INTEGER'),2)       stars
+	 test =	DIFFER(CONVERT(2,'REAL'),2.0) stars
+	 test =	DIFFER(CONVERT('.2','REAL'),0.2) stars
+*
+*	 test datatype function
+*
+	 test =	DIFFER(DATATYPE('jkl'),'STRING') stars
+	 test =	DIFFER(DATATYPE(12),'INTEGER') stars
+	 test =	DIFFER(DATATYPE(1.33),'REAL') stars
+	 test =	DIFFER(DATATYPE(null),'STRING')	stars
+-EJECT
+*
+*	 test arithmetic operators
+*
+	 test =	DIFFER(3 + 2,5)	stars
+	 test =	DIFFER(3 - 2,1)	stars
+	 test =	DIFFER(3 * 2,6)	stars
+	 test =	DIFFER(5 / 2,2)	stars
+	 test =	DIFFER(2 ** 3,8) stars
+	 test =	DIFFER(3 + 1,4)	stars
+	 test =	DIFFER(3 - 1,2)	stars
+	 test =	DIFFER('3' + 2,5) stars
+	 test =	DIFFER(3 + '-2',1) stars
+	 test =	DIFFER('1' + '0',1) stars
+	 test =	DIFFER(5 + null,5) stars
+	 test =	DIFFER(-5,0 - 5) stars
+	 test =	DIFFER(+'4',4) stars
+	 test =	DIFFER(2.0 + 3.0,5.0) stars
+	 test =	DIFFER(3.0 - 1.0,2.0) stars
+	 test =	DIFFER(3.0 * 2.0,6.0) stars
+	 test =	DIFFER(3.0 / 2.0,1.5) stars
+	 test =	DIFFER(3.0 ** 3,27.0) stars
+	 test =	DIFFER(-1.0,0.0	- 1.0) stars
+*
+*	 test mixed mode
+*
+	 test =	DIFFER(1 + 2.0,3.0) stars
+	 test =	DIFFER(3.0 / 2,1.5) stars
+-EJECT
+*
+*	 test functions
+*
+*	 first,	a simple test of a factorial function
+*
+	 DEFINE('fact(n)')		    :(factend)
+fact	 fact =	EQ(n,1)	1	  :s(RETURN)
+	 fact =	n * fact(n - 1)		    :(RETURN)
+factend	 test =	NE(fact(5),120)	stars
+	 test =	DIFFER(OPSYN(.facto,'fact')) stars
+	 test =	DIFFER(facto(4),24) stars
+*
+*	 see if	alternate entry	point works ok
+*
+	 DEFINE('fact2(n)',.fact2ent)	    :(fact2endf)
+fact2ent fact2 = EQ(n,1) 1	  :s(RETURN)
+	 fact2 = n * fact2(n - 1) :(RETURN)
+fact2endf OUTPUT = NE(fact(6),720) stars
+*
+*	 test function redefinition and	case of	argument = func	name
+*
+	 test =	DIFFER(DEFINE('fact(fact)','fact3')) stars
+.					    :(fact2end)
+fact3	 fact =	NE(fact,1) fact	* fact(fact - 1)
+.					    :(RETURN)
+fact2end
+	 test =	NE(fact(4),24) stars
+*
+*	 test out locals
+*
+	 DEFINE('lfunc(a,b,c)d,e,f')	    :(lfuncend)
+lfunc	 test =	~(IDENT(a,'a') IDENT(b,'b') IDENT(c,'c')) stars
+	 test =	~(IDENT(d) IDENT(e) IDENT(f)) stars
+	 a = 'aa' ; b =	'bb' ; c = 'cc'	; d = 'dd' ; e = 'ee' ;	f = 'ff'
+.				  :(RETURN)
+lfuncend aa = 'a' ; bb = 'b' ; cc = 'c'
+	 d = 'd' ; e = 'e' ; f = 'f'
+	 a = 'x' ; b = 'y' ; c = 'z'
+	 test =	DIFFER(lfunc(aa,bb,cc))	stars
+	 test =	~(IDENT(a,'x') IDENT(b,'y') IDENT(c,'z')) stars
+	 test =	~(IDENT(aa,'a')	IDENT(bb,'b') IDENT(cc,'c')) stars
+	 test =	~(IDENT(d,'d') IDENT(e,'e') IDENT(f,'f')) stars
+*
+*	 test nreturn
+*
+	 DEFINE('ntest()')		    :(endntest)
+ntest	 ntest = .a			    :(NRETURN)
+endntest a = 27
+	 test =	DIFFER(ntest(),27) stars
+.	       :f(st59)		   ;st59
+	 ntest() = 26
+.	       :f(st60)		   ;st60
+	 test =	DIFFER(a,26) stars
+-EJECT
+*
+*	 continue test of functions
+*
+*
+*	 test failure return
+*
+	 DEFINE('failure()')		    :(failend)
+failure				  :(FRETURN)
+failend	 test =	failure() stars
+-EJECT
+*
+*	 test opsyn for	operators
+*
+	 OPSYN('@',.DUPL,2)
+	 OPSYN('|',.SIZE,1)
+	 test =	DIFFER('a' @ 4,'aaaa') stars
+	 test =	DIFFER(|'string',6) stars
+*
+*	 test out array	facility
+*
+	 a = ARRAY(3)
+	 test =	DIFFER(a[1]) stars
+	 a[2] =	4.5
+	 test =	DIFFER(a[2],4.5) stars
+	 test =	?a[4] stars
+	 test =	?a[0] stars
+	 test =	DIFFER(PROTOTYPE(a),'3') stars
+	 b = ARRAY(3,10)
+	 test =	DIFFER(b[2],10)	stars
+	 b = ARRAY('3')
+	 b[2] =	'a'
+	 test =	DIFFER(b[2],'a') stars
+	 c = ARRAY('2,2')
+	 c[1,2]	= '*'
+	 test =	DIFFER(c[1,2],'*') stars
+	 test =	DIFFER(PROTOTYPE(c),'2,2') stars
+	 d = ARRAY('-1:1,2')
+	 d[-1,1] = 0
+	 test =	DIFFER(d[-1,1],0) stars
+	 test =	?d[-2,1] stars
+	 test =	?d[2,1]	stars
+-EJECT
+*
+*	 test program defined datatype functions
+*
+	 DATA('node(val,lson,rson)')
+	 a = node('x','y','z')
+	 test =	DIFFER(DATATYPE(a),'NODE') stars
+	 test =	DIFFER(val(a),'x') stars
+	 b = node()
+	 test =	DIFFER(rson(b))	stars
+	 lson(b) = a
+	 test =	DIFFER(rson(lson(b)),'z') stars
+	 test =	DIFFER(VALUE('b'),b) stars
+*
+*	 test multiple use of field function name
+*
+	 DATA('clunk(value,lson)')
+	 test =	DIFFER(rson(lson(b)),'z') stars
+	 test =	DIFFER(VALUE('b'),b) stars
+	 c = clunk('a','b')
+	 test =	DIFFER(lson(c),'b') stars
+-EJECT
+*
+*	 test numerical	predicates
+*
+	 test =	LT(5,4)	stars
+	 test =	LT(4,4)	stars
+	 test =	~LT(4,5) stars
+	 test =	LE(5,2)	stars
+	 test =	~LE(4,4) stars
+	 test =	~LE(4,10) stars
+	 test =	EQ(4,5)	stars
+	 test =	EQ(5,4)	stars
+	 test =	~EQ(5,5) stars
+	 test =	NE(4,4)	stars
+	 test =	~NE(4,6) stars
+	 test =	~NE(6,4) stars
+	 test =	GT(4,6)	stars
+	 test =	GT(4,4)	stars
+	 test =	~GT(5,2) stars
+	 test =	GE(5,7)	stars
+	 test =	~GE(4,4) stars
+	 test =	~GE(7,5) stars
+	 test =	NE(4,5 - 1) stars
+	 test =	GT(4,3 + 1) stars
+	 test =	LE(20,5	+ 6) stars
+	 test =	EQ(1.0,2.0) stars
+	 test =	GT(-2.0,-1.0) stars
+	 test =	GT(-3.0,4.0) stars
+	 test =	NE('12',12) stars
+	 test =	NE('12',12.0) stars
+	 test =	~CONVERT(bal,'PATTERN')	stars
+-EJECT
+*
+*	 test integer
+*
+	 test =	INTEGER('abc') stars
+	 test =	~INTEGER(12) stars
+	 test =	~INTEGER('12') stars
+*
+*	 test size
+*
+	 test =	NE(SIZE('abc'),3) stars
+	 test =	NE(SIZE(12),2) stars
+	 test =	NE(SIZE(null),0) stars
+*
+*	 test lgt
+*
+	 test =	LGT('abc','xyz') stars
+	 test =	LGT('abc','abc') stars
+	 test =	~LGT('xyz','abc') stars
+	 test =	LGT(null,'abc')	stars
+	 test =	~LGT('abc',null) stars
+*
+*	 test indirect addressing
+*
+	 test =	DIFFER($'bal',bal) stars
+	 test =	DIFFER($.BAL,bal) stars
+	 $'qq' = 'x'
+	 test =	DIFFER(qq,'x') stars
+	 test =	DIFFER($'garbage') stars
+	 a = ARRAY(3)
+	 a[2] =	'x'
+	 test =	DIFFER($.a[2],'x') stars
+*
+*	 test concatenation
+*
+	 test =	DIFFER('a' 'b','ab')	    stars
+	 test =	DIFFER('a' 'b' 'c','abc') stars
+	 test =	DIFFER(1 2,'12') stars
+	 test =	DIFFER(2 2 2,'222') stars
+	 test =	DIFFER(1 3.4,'13.4') stars
+	 test =	DIFFER(bal null,bal)	    stars
+	 test =	DIFFER(null bal,bal) stars
+-EJECT
+*
+*	 test remdr
+*
+	 test =	DIFFER(REMDR(10,3),1) stars
+	 test =	DIFFER(REMDR(11,10),1) stars
+*
+*	 test dupl
+*
+	 test =	DIFFER(DUPL('abc',2),'abcabc') stars
+	 test =	DIFFER(DUPL(null,10),null) stars
+	 test =	DIFFER(DUPL('abcdefg',0),null) stars
+	 test =	DIFFER(DUPL(1,10),'1111111111')	 stars
+*
+*	 test table facility
+*
+	 t = TABLE(10)
+	 test =	DIFFER(t['cat']) stars
+	 t['cat'] = 'dog'
+	 test =	DIFFER(t['cat'],'dog')	 stars
+	 t[7] =	45
+	 test =	DIFFER(t[7],45)	  stars
+	 test =	DIFFER(t['cat'],'dog')	stars
+	 ta = CONVERT(t,'ARRAY')
+	 test =	DIFFER(PROTOTYPE(ta),'2,2') stars
+	 ata = CONVERT(ta,'TABLE')
+	 test =	DIFFER(ata[7],45) stars
+	 test =	DIFFER(ata['cat'],'dog') stars
+*
+*	 test item function
+*
+	 aaa = ARRAY(10)
+	 ITEM(aaa,1) = 5
+	 test =	DIFFER(ITEM(aaa,1),5) stars
+	 test =	DIFFER(aaa[1],5) stars
+	 aaa[2]	= 22
+	 test =	DIFFER(ITEM(aaa,2),22) stars
+	 ama = ARRAY('2,2,2,2')
+	 ITEM(ama,1,2,1,2) = 1212
+	 test =	DIFFER(ITEM(ama,1,2,1,2),1212) stars
+	 test =	DIFFER(ama[1,2,1,2],1212) stars
+	 ama[2,1,2,1] =	2121
+	 test =	DIFFER(ITEM(ama,2,1,2,1),2121) stars
+-EJECT
+*
+*	 test eval
+*
+	 expr =	*('abc'	'def')
+	 test =	DIFFER(EVAL(expr),'abcdef') stars
+	 q = 'qqq'
+	 sexp =	*q
+	 test =	DIFFER(EVAL(sexp),'qqq') stars
+	 fexp =	*IDENT(1,2)
+	 test =	EVAL(fexp) stars
+*
+*	 test arg
+*
+jlab	 DEFINE('jlab(a,b,c)d,e,f')
+	 test =	DIFFER(ARG(.jlab,1),'A') stars
+	 test =	DIFFER(ARG(.jlab,3),'C') stars
+	 test =	ARG(.jlab,0) stars
+	 test =	ARG(.jlab,4) stars
+*
+*	 test local
+*
+	 test =	DIFFER(LOCAL(.jlab,1),'D') stars
+	 test =	DIFFER(LOCAL(.jlab,3),'F') stars
+	 test =	LOCAL(.jlab,0) stars
+	 test =	LOCAL(.jlab,4) stars
+*
+*	 test apply
+*
+	 test =	APPLY(.EQ,1,2) stars
+	 test =	~APPLY(.EQ,1,1)	stars
+	 test =	~IDENT(APPLY(.TRIM,'abc	'),'abc') stars
+-EJECT
+*
+*	 final processing
+*
+	 OUTPUT	= '************************************************'
+	 diagnostics = 1000000 - &TRACE
+	 EQ(diagnostics,0)	  :s(terminate)
+	 &DUMP = 2
+	 OUTPUT	= '****	   number of errors detected  '
+.				  diagnostics '	   ****'
+	 OUTPUT	= '****	e n d	 o f	 d i a g n o s t i c s ****'
+	 OUTPUT	= '************************************************'
+.					    :(END)
+terminate OUTPUT = '**** n o	 e r r o r s	d e t e	c t e d	****'
+	 OUTPUT	= '****	e n d	 o f	 d i a g n o s t i c s ****'
+	 OUTPUT	= '************************************************'
+ :(END)
+*
+*	 error handling	routine
+*
+errors	 EQ(&ERRTYPE,0)                     :(CONTINUE)
+	 OUTPUT	= '****	 error at '
+.	 lpad(&LASTNO,4)   '	  &errtype = ' lpad(&ERRTYPE,7,' ')
+.					    ' ****'
+	 &TRACE	= &TRACE - 1
+	 SETEXIT(.errors)		    :(CONTINUE)
+END
+*------------------------------------------------------------------------ 67 ord
+	DEFINE("TEST(C)O,SC,CC")			:(ETEST)
+TEST	C = 'A'
+	O = ORD(C)
+	SC = SUBSTR(C,1,1)
+	CC = CHAR(O)
+	OUTPUT = IDENT(CC,SC) 'OK'
+							:(RETURN)
+ETEST
+
+* test for all characters in &ALPHABET??
+	TEST('A')
+	TEST('XYZ')
+	TEST(CHAR(0))
+	TEST(CHAR(255))
+	TEST('')
+	OUTPUT = ORD() 'SHOULD NOT HAPPEN'
+END
+*---------------------------------------------------------------------- 68 space
+	OUTPUT = CONVERT(" ", .INTEGER)
+	OUTPUT = CONVERT(" ", .REAL)
+END
+*--------------------------------------------------------------------- 69 space2
+-PLUSOPS 0
+	OUTPUT = CONVERT(" ", .INTEGER)
+	OUTPUT = CONVERT(" ", .REAL)
+END
+*-------------------------------------------------------------------- 70 rewind1
+COPY	OUTPUT = INPUT		:s(COPY)
+	REWIND(5)
+copy2	OUTPUT = INPUT		:s(copy2)
+END
+hello
+world
