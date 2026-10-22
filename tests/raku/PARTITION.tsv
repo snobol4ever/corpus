@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1045 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=48 clusters=49 chunks=10 sizes=100,100,100,100,100,100,100,100,100,97
+# shape: entries=1046 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=48 clusters=49 chunks=10 sizes=100,100,100,100,100,100,100,100,100,98
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:07	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:07	family:ladder	
@@ -607,7 +607,7 @@ join_array_say_1	chunk:06	feat:join	join say sigil_array
 ladder__rung08_for_loop	chunk:04	feat:for_with_say	for for_with_say range_op
 ladder__rung08_for_loop_nested_for	chunk:04	feat:for_with_say	for for_with_say range_op
 loop_replace_3	chunk:09	feat:loop	if loop
-loop_replace_4	chunk:09	feat:loop	if loop
+loop_replace_4	chunk:10	feat:loop	if loop
 split_array_say_1	core	core	say sigil_array split
 class_method_3	chunk:10	feat:unless	method unless
 class_method_say_5	chunk:07	feat:return	method return say
@@ -952,6 +952,7 @@ ladder__rung15_blocks_map_grep_first_named_sub_and_n_arity_blocks	core	core	grep
 ladder__rung13_classes_inheritance	chunk:09	feat:range_op	method range_op return string_concat
 ladder__rung16_bool_bool_pick_and_bool_roll_are_a_coin	chunk:09	feat:smartmatch	for for_with_say sigil_hash smartmatch string_concat
 sub_for_range_replace_2	chunk:05	feat:for_with_say	for for_with_say range_op say sub
+ladder__rung09_regex_a_smartmatch_against_a_code_value_held_in_a_hash_element_or_a_variable_calls_it	chunk:09	feat:smartmatch	say sigil_array sigil_hash smartmatch string_concat
 scrip_test_rk_unique_sum	chunk:05	feat:for_with_say	for for_with_say say sigil_array sub
 ladder__rung13_classes_a_typed_declaration_with_dot_assign_calls_the_type_and_a_colon_variable_pair_is_a_named_pair	chunk:07	feat:sigil_hash	has method sigil_hash sub
 sub_for_array_1	chunk:05	feat:for_with_say	for for_with_say say sigil_array sub
