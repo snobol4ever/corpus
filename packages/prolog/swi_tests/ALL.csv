@@ -158,5 +158,5 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 157,xsb/nonmt_tests/xsb_test_nonmt,swi_tests__xsb/nonmt_tests/xsb_test_nonmt,swi_tests,88,0,0,131072,4096,,
 158,xsb/ptq/xsb_test_ptq,swi_tests__xsb/ptq/xsb_test_ptq,swi_tests,152,0,0,131072,4096,,
 159,xsb/sub_tests/xsb_test_sub,swi_tests__xsb/sub_tests/xsb_test_sub,swi_tests,112,0,0,131072,4096,,
-160,xsb/table_tests/xsb_test_tables,swi_tests__xsb/table_tests/xsb_test_tables,swi_tests,108,0,0,131072,4096,,
+160,xsb/table_tests/xsb_test_tables,swi_tests__xsb/table_tests/xsb_test_tables,swi_tests,108,0,0,196608,8192,,
 161,xsb/wfs_tests/xsb_test_wfs,swi_tests__xsb/wfs_tests/xsb_test_wfs,swi_tests,176,0,0,131072,4096,,
