@@ -21637,18 +21637,18 @@ END
 *  the name of a deferred expression is .X for a variable, else a name evaluated by name each time it is used
         &ERRLIMIT = 20
         A = ARRAY(3)
-        A<1> = 'one'
-        A<2> = 'two'
+        A[1] = 'one'
+        A[2] = 'two'
         X = 'x'
         I = 1
-        N = .*A<I>
+        N = .*A[I]
         I = 2
         OUTPUT = '1 ' $N
         M = .*SIZE(X)
         X = 'xyz'
         OUTPUT = '2 ' $M
         $N = 'set'
-        OUTPUT = '3 ' A<1> ' ' A<2>
+        OUTPUT = '3 ' A[1] ' ' A[2]
         $M = 5                                  :S(Y4)
         OUTPUT = '4 F ' &ERRTYPE                :(E4)
 Y4      OUTPUT = '4 S ' X
@@ -21656,15 +21656,15 @@ E4      K = .*X
         $K = 'via'
         OUTPUT = '5 ' X ' ' (IDENT(K, .X) 'ident', 'differ')
         OUTPUT = '6 ' DATATYPE(.*(X 'q')) ' ' $.*(X 'q')
-        'abc' ? LEN(1) . $(.*A<3>)
-        OUTPUT = '7 ' A<3>
+        'abc' ? LEN(1) . $(.*A[3])
+        OUTPUT = '7 ' A[3]
         J = .*$'X'
         OUTPUT = '8 ' (IDENT(J, .X) 'ident', 'differ') ' ' $J
         L = .*F()
         OUTPUT = '9 ' DATATYPE(L)
         OUTPUT = '10 ' $L                       :S(E10)
         OUTPUT = '10 F ' &ERRTYPE
-E10     OUTPUT = '11 ' (CONVERT(.*X, 'STRING'), 'no text') ' ' (CONVERT(.*A<1>, 'STRING'), 'no text') ' '
+E10     OUTPUT = '11 ' (CONVERT(.*X, 'STRING'), 'no text') ' ' (CONVERT(.*A[1], 'STRING'), 'no text') ' '
 +              (CONVERT(.*SIZE(X), 'STRING'), 'no text')
 END
 *----------------------------------- 2104 len_table_array_replace_branch_2 XFAIL
@@ -21697,10 +21697,10 @@ Y6      OUTPUT = '6 S ' DATATYPE(V)
 E6      OUTPUT = '7 ' (IDENT(A, CONVERT(A, 'ARRAY')) 'same', 'differ') ' '
 +              (IDENT(T, CONVERT(T, 'TABLE')) 'same', 'differ') ' ' (IDENT(P, CONVERT(P, 'PATTERN')) 'same', 'differ')
         B = CONVERT(A, 'ARRAY')
-        B<1> = 'set'
+        B[1] = 'set'
         U = CONVERT(T, 'TABLE')
-        U<'k'> = 'kv'
-        OUTPUT = '8 ' A<1> ' ' T<'k'>
+        U['k'] = 'kv'
+        OUTPUT = '8 ' A[1] ' ' T['k']
         'abc' ? CONVERT(P, 'PATTERN') . W
         OUTPUT = '9 ' W ' ' CONVERT(X, 'STRING') ' ' CONVERT(N, 'INTEGER') + 1
 END
@@ -21710,39 +21710,39 @@ END
         A = ARRAY(2)
         P = LEN(1)
         E = *X
-        T<A> = 'arr'
-        T<P> = 'pat'
-        T<E> = 'exp'
-        T<3> = 'int'
-        T<2.5> = 'real'
-        OUTPUT = '1 [' T<A> '] [' T<P> '] [' T<E> '] [' T<COPY(A)> ']'
+        T[A] = 'arr'
+        T[P] = 'pat'
+        T[E] = 'exp'
+        T[3] = 'int'
+        T[2.5] = 'real'
+        OUTPUT = '1 [' T[A] '] [' T[P] '] [' T[E] '] [' T[COPY(A)] ']'
         C = CONVERT(T, 'ARRAY')
         I = 0
 L       I = I + 1
-        OUTPUT = '2 ' DATATYPE(C<I, 1>) ' ' C<I, 2>          :S(L)
-        OUTPUT = '3 ' (IDENT(C<1, 1>, A) 'ident', 'differ')
+        OUTPUT = '2 ' DATATYPE(C[I, 1]) ' ' C[I, 2]          :S(L)
+        OUTPUT = '3 ' (IDENT(C[1, 1], A) 'ident', 'differ')
         Q = P
-        OUTPUT = '4 [' T<Q> '] [' T<LEN(1)> ']'
+        OUTPUT = '4 [' T[Q] '] [' T[LEN(1)] ']'
         N = .&TRACE
-        T<N> = 'kwN'
-        OUTPUT = '5 [' T<N> ']'
+        T[N] = 'kwN'
+        OUTPUT = '5 [' T[N] ']'
         T = TABLE()
         A = ARRAY(3)
-        T<.X> = 'nameX'
-        OUTPUT = 'n1 [' T<.X> '] [' T<'X'> ']'
-        T<'Y'> = 'strY'
-        OUTPUT = 'n2 [' T<.Y> '] [' T<'Y'> ']'
-        T<.A<1>> = 'el1'
-        OUTPUT = 'n3 [' T<.A<1>> '] [' T<.A<2>> '] [' T<''> ']'
-        T<.&TRACE> = 'kw'
-        OUTPUT = 'n4 [' T<.&TRACE> '] [' T<'&trace'> '] [' T<'&TRACE'> ']'
-        N = .*A<1>
-        T<N> = 'deferred'
-        OUTPUT = 'n5 [' T<N> '] [' T<.*A<1>> '] [' T<.A<1>> ']'
+        T[.X] = 'nameX'
+        OUTPUT = 'n1 [' T[.X] '] [' T['X'] ']'
+        T['Y'] = 'strY'
+        OUTPUT = 'n2 [' T[.Y] '] [' T['Y'] ']'
+        T[.A[1]] = 'el1'
+        OUTPUT = 'n3 [' T[.A[1]] '] [' T[.A[2]] '] [' T[''] ']'
+        T[.&TRACE] = 'kw'
+        OUTPUT = 'n4 [' T[.&TRACE] '] [' T['&trace'] '] [' T['&TRACE'] ']'
+        N = .*A[1]
+        T[N] = 'deferred'
+        OUTPUT = 'n5 [' T[N] '] [' T[.*A[1]] '] [' T[.A[1]] ']'
         C = CONVERT(T, 'ARRAY')
         I = 0
 L2      I = I + 1
-        OUTPUT = 'n6 ' DATATYPE(C<I, 1>) ' ' C<I, 2>          :S(L2)
+        OUTPUT = 'n6 ' DATATYPE(C[I, 1]) ' ' C[I, 2]          :S(L2)
 END
 *-------------------------------- 2106 code_eval_eval_len_replace_branch_1 XFAIL
 *  the name of a keyword has no text: $ reads and assigns through it, but it is no string, number or pattern
@@ -21786,7 +21786,7 @@ E12     OUTPUT = '13 ' (LGT(N, 'a') 'gt', 'not')
         OUTPUT = '14 F ' &ERRTYPE
 E14     OUTPUT = '15 ' (IDENT(N, N) 'ident', 'differ') ' ' (DIFFER(N, '&ERRTEXT') 'differs', 'same')
         A = ARRAY(2)
-        OUTPUT = .A<1>                  :S(E16)
+        OUTPUT = .A[1]                  :S(E16)
         OUTPUT = '16 F ' &ERRTYPE
 E16     OUTPUT = '17 ' (LGT(N, 'a') 'gt', 'not ' &ERRTYPE)
 END
