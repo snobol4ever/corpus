@@ -5,3 +5,5 @@
 # entry declares that exit code here, so an undeclared nonzero rc is a FAIL and not a silent pass.
 ladder__rung23_keyword_and_system_variables_code_exit_value	4
 ladder__rung23_keyword_and_system_variables_stlimit_halts_a_loop_body	1
+# simple_output_151 (cfo 2026-10-23, CEO-1926, Lon in-chat to the cfo: "You should fix any incorrect REF files."): NullFn never assigns its own name, so its NRETURN hands back the null string; the oracle (scrip --transpile, then sbl -bf) stops there with ERROR 243 "function result in nreturn is not name", so the ref is the stdout before the fatal and the halt is graded by rc, as stlimit_halts_a_loop_body is (the block's line and statement numbers are the transpile's, never the .sc's). The old sixth line "nreturn ok" was the source header's hand-written expectation, never the oracle's.
+simple_output_151	1
