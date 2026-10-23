@@ -1,0 +1,568 @@
+# ORACLE_RUNS.tsv -- xsb_tests: one row per vendored program XSB's own test scripts run, recorded by running them (harness
+# util_xsb_oracle_runs.py record, twice; runs) with a recording XEMU in front of xsb_bin(), ceo CEO-1927. The builder (CONTRACT.tsv
+# oracle=xsb-gentest) cuts each ref from this run: name, dir (below CONTRACT.tsv's upstream), kind (gentest: [FILE]. tell(temp). CMD.
+# told.; wfs: [wfs_test]. CMD told.), file, cmd, emu_args (shell-quoted, as the script passed them), script.
+ai_tests_cs_o	ai_tests	gentest	cs_o	test.	-e segfault_handler\(warn\).	ai_tests/test.sh
+ai_tests_cs_r	ai_tests	gentest	cs_r	test.	-e segfault_handler\(warn\).	ai_tests/test.sh
+ai_tests_disj	ai_tests	gentest	disj	test.	-e segfault_handler\(warn\).	ai_tests/test.sh
+ai_tests_gabriel	ai_tests	gentest	gabriel	test.	-e segfault_handler\(warn\).	ai_tests/test.sh
+ai_tests_kalah	ai_tests	gentest	kalah	test.	-e segfault_handler\(warn\).	ai_tests/test.sh
+ai_tests_peep	ai_tests	gentest	peep	test.	-e segfault_handler\(warn\).	ai_tests/test.sh
+ai_tests_pg	ai_tests	gentest	pg	test.	-e segfault_handler\(warn\).	ai_tests/test.sh
+ai_tests_plan	ai_tests	gentest	plan	test.	-e segfault_handler\(warn\).	ai_tests/test.sh
+ai_tests_qsort	ai_tests	gentest	qsort	test.	-e segfault_handler\(warn\).	ai_tests/test.sh
+ai_tests_queens	ai_tests	gentest	queens	test.	-e segfault_handler\(warn\).	ai_tests/test.sh
+ai_tests_read	ai_tests	gentest	read	test.	-e segfault_handler\(warn\).	ai_tests/test.sh
+attv_tests_assert_attv	attv_tests	gentest	assert_attv	test.	-e segfault_handler\(warn\).	attv_tests/test.sh
+attv_tests_attv_test	attv_tests	gentest	attv_test	test.	-e segfault_handler\(warn\).	attv_tests/test.sh
+attv_tests_attvar_assert_regalloc	attv_tests	gentest	attvar_assert_regalloc	test.	-e segfault_handler\(warn\).	attv_tests/test.sh
+attv_tests_copyterm_attv	attv_tests	gentest	copyterm_attv	test.	-e segfault_handler\(warn\).	attv_tests/test.sh
+attv_tests_fd1	attv_tests	gentest	fd1	test.	-e segfault_handler\(warn\).	attv_tests/test.sh
+attv_tests_findall_attv	attv_tests	gentest	findall_attv	test.	-e segfault_handler\(warn\).	attv_tests/test.sh
+attv_tests_general	attv_tests	gentest	general	test.	-e segfault_handler\(warn\).	attv_tests/test.sh
+attv_tests_ret_attv	attv_tests	gentest	ret_attv	test.	-e segfault_handler\(warn\).	attv_tests/test.sh
+attv_tests_trie_assert_attv	attv_tests	gentest	trie_assert_attv	test.	-e segfault_handler\(warn\).	attv_tests/test.sh
+attv_tests_trie_intern_attv	attv_tests	gentest	trie_intern_attv	test.	-e segfault_handler\(warn\).	attv_tests/test.sh
+basic_tests_ensure_loaded_tst	basic_tests	gentest	ensure_loaded_tst	test.	-e segfault_handler\(warn\).	basic_tests/test.sh
+basic_tests_gpp_test	basic_tests	gentest	gpp_test	test.	-e segfault_handler\(warn\).	basic_tests/test.sh
+basic_tests_interp	basic_tests	gentest	interp	test.	-e segfault_handler\(warn\).	basic_tests/test.sh
+basic_tests_preproc_opt_preproc_test	basic_tests/preproc-opt	gentest	preproc_test	test.	--quietload --nofeedback -e segfault_handler\(warn\).	basic_tests/test.sh
+basic_tests_tcyl11	basic_tests	gentest	tcyl11	['tcyl-24-24-2'],tw(1).	-e segfault_handler\(warn\).	basic_tests/test.sh
+basic_tests_tcyl12	basic_tests	gentest	tcyl12	['tcyl-24-24-2'],tw(1).	-e segfault_handler\(warn\).	basic_tests/test.sh
+basic_tests_testsg	basic_tests	gentest	testsg	[acyl,'tcyl-24-24-2'],tw.	-e segfault_handler\(warn\).	basic_tests/test.sh
+basic_tests_thstr13	basic_tests	gentest	thstr13	tw.	-e segfault_handler\(warn\).	basic_tests/test.sh
+basic_tests_thstr23	basic_tests	gentest	thstr23	tw1.	-e segfault_handler\(warn\).	basic_tests/test.sh
+basic_tests_thstr43	basic_tests	gentest	thstr43	tw.	-e segfault_handler\(warn\).	basic_tests/test.sh
+basic_tests_tsing1	basic_tests	gentest	tsing1	a(X,Y),write(X),write(' '),write(Y),nl,fail.	-e segfault_handler\(warn\).	basic_tests/test.sh
+basic_tests_tsstr13	basic_tests	gentest	tsstr13	testcombo.	-e segfault_handler\(warn\).	basic_tests/test.sh
+basic_tests_tsstr23	basic_tests	gentest	tsstr23	testcombo.	-e segfault_handler\(warn\).	basic_tests/test.sh
+basic_tests_tsstr33	basic_tests	gentest	tsstr33	testcombo.	-e segfault_handler\(warn\).	basic_tests/test.sh
+basic_tests_tstr11	basic_tests	gentest	tstr11	tw,fail.	-e segfault_handler\(warn\).	basic_tests/test.sh
+basic_tests_tstr12	basic_tests	gentest	tstr12	testcombo.	-e segfault_handler\(warn\).	basic_tests/test.sh
+basic_tests_tstr13	basic_tests	gentest	tstr13	tw.	-e segfault_handler\(warn\).	basic_tests/test.sh
+basic_tests_tstr21	basic_tests	gentest	tstr21	tw,fail.	-e segfault_handler\(warn\).	basic_tests/test.sh
+basic_tests_tstr22	basic_tests	gentest	tstr22	testcombo.	-e segfault_handler\(warn\).	basic_tests/test.sh
+basic_tests_tstr23	basic_tests	gentest	tstr23	tw.	-e segfault_handler\(warn\).	basic_tests/test.sh
+basic_tests_tstr31	basic_tests	gentest	tstr31	tw,fail.	-e segfault_handler\(warn\).	basic_tests/test.sh
+basic_tests_tstr32	basic_tests	gentest	tstr32	testcombo.	-e segfault_handler\(warn\).	basic_tests/test.sh
+basic_tests_tstr33	basic_tests	gentest	tstr33	tw.	-e segfault_handler\(warn\).	basic_tests/test.sh
+basic_tests_tstr51	basic_tests	gentest	tstr51	tw,fail.	-e segfault_handler\(warn\).	basic_tests/test.sh
+basic_tests_tstr52	basic_tests	gentest	tstr52	testcombo.	-e segfault_handler\(warn\).	basic_tests/test.sh
+basic_tests_tstr53	basic_tests	gentest	tstr53	tw.	-e segfault_handler\(warn\).	basic_tests/test.sh
+basic_tests_tstr61	basic_tests	gentest	tstr61	tw,fail.	-e segfault_handler\(warn\).	basic_tests/test.sh
+basic_tests_tstr62	basic_tests	gentest	tstr62	testcombo.	-e segfault_handler\(warn\).	basic_tests/test.sh
+basic_tests_tstr63	basic_tests	gentest	tstr63	tw.	-e segfault_handler\(warn\).	basic_tests/test.sh
+cdf_tests_checks	cdf_tests	gentest	checks	testreturns.	-e segfault_handler\(warn\).	cdf_tests/test.sh
+cdf_tests_dlQuery	cdf_tests	gentest	dlQuery	testreturns.	-e segfault_handler\(warn\).	cdf_tests/test.sh
+cdf_tests_type0QueryExt	cdf_tests	gentest	type0QueryExt	testreturns.	-e segfault_handler\(warn\).	cdf_tests/test.sh
+cdf_tests_type0QueryInt	cdf_tests	gentest	type0QueryInt	testreturns.	-e segfault_handler\(warn\).	cdf_tests/test.sh
+cdf_tests_updateDL	cdf_tests	gentest	updateDL	testreturns.	-e segfault_handler\(warn\).	cdf_tests/test.sh
+cdf_tests_updateExt	cdf_tests	gentest	updateExt	testreturns.	-e segfault_handler\(warn\).	cdf_tests/test.sh
+cdf_tests_updateInt	cdf_tests	gentest	updateInt	testreturns.	-e segfault_handler\(warn\).	cdf_tests/test.sh
+constraint_tests_callsubs_constraints	constraint_tests	gentest	callsubs_constraints	test.	-e segfault_handler\(warn\).	constraint_tests/test.sh
+constraint_tests_clprtest	constraint_tests	gentest	clprtest	test.	-e segfault_handler\(warn\).	constraint_tests/test.sh
+constraint_tests_gctest	constraint_tests	gentest	gctest	test.	-e segfault_handler\(warn\).	constraint_tests/test.sh
+constraint_tests_residualAttv	constraint_tests	gentest	residualAttv	test.	-e segfault_handler\(warn\).	constraint_tests/test.sh
+constraint_tests_tab_constraint	constraint_tests	gentest	tab_constraint	test.	-e segfault_handler\(warn\).	constraint_tests/test.sh
+constraint_tests_test_bounds	constraint_tests	gentest	test_bounds	test.	-e segfault_handler\(warn\).	constraint_tests/test.sh
+constraint_tests_test_constraintLib	constraint_tests	gentest	test_constraintLib	test.	-e segfault_handler\(warn\).	constraint_tests/test.sh
+constraint_tests_testlightmeal	constraint_tests	gentest	testlightmeal	test.	-e segfault_handler\(warn\).	constraint_tests/test.sh
+constraint_tests_testsetarg	constraint_tests	gentest	testsetarg	test.	-e segfault_handler\(warn\).	constraint_tests/test.sh
+constraint_tests_timetest	constraint_tests	gentest	timetest	test.	-e segfault_handler\(warn\).	constraint_tests/test.sh
+delay_tests_abol_susp1	delay_tests	gentest	abol_susp1	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_abol_susp2	delay_tests	gentest	abol_susp2	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_ac_tests	delay_tests	gentest	ac_tests	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_asl_dupl	delay_tests	gentest	asl_dupl	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_avoid_flounder	delay_tests	gentest	avoid_flounder	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_cond_uncond	delay_tests	gentest	cond_uncond	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_delay_var	delay_tests	gentest	delay_var	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_dl_dupl	delay_tests	gentest	dl_dupl	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_dret_test	delay_tests	gentest	dret_test	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_dynstrat1	delay_tests	gentest	dynstrat1	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_dynstrat2	delay_tests	gentest	dynstrat2	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_dynstrat3	delay_tests	gentest	dynstrat3	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_dynstrat4	delay_tests	gentest	dynstrat4	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_dynstrat5	delay_tests	gentest	dynstrat5	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_dynstrat6	delay_tests	gentest	dynstrat6	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_dynstrat7	delay_tests	gentest	dynstrat7	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_fa	delay_tests	gentest	fa	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_fr1	delay_tests	gentest	fr1	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_fr19	delay_tests	gentest	fr19	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_fr2	delay_tests	gentest	fr2	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_fr20	delay_tests	gentest	fr20	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_fr21	delay_tests	gentest	fr21	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_fr22	delay_tests	gentest	fr22	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_fr23	delay_tests	gentest	fr23	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_fr24	delay_tests	gentest	fr24	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_fr25	delay_tests	gentest	fr25	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_fr26	delay_tests	gentest	fr26	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_fr27	delay_tests	gentest	fr27	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_fr28	delay_tests	gentest	fr28	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_fr29	delay_tests	gentest	fr29	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_fr3	delay_tests	gentest	fr3	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_fr30	delay_tests	gentest	fr30	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_fr4	delay_tests	gentest	fr4	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_fr5	delay_tests	gentest	fr5	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_fr6	delay_tests	gentest	fr6	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_fr7	delay_tests	gentest	fr7	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_fr8	delay_tests	gentest	fr8	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_fr9	delay_tests	gentest	fr9	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_gfp	delay_tests	gentest	gfp	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_interp0	delay_tests	gentest	interp0	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_interp1	delay_tests	gentest	interp1	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_interp10	delay_tests	gentest	interp10	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_interp11	delay_tests	gentest	interp11	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_interp12	delay_tests	gentest	interp12	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_interp13	delay_tests	gentest	interp13	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_interp14	delay_tests	gentest	interp14	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_interp15	delay_tests	gentest	interp15	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_interp2	delay_tests	gentest	interp2	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_interp4	delay_tests	gentest	interp4	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_interp5	delay_tests	gentest	interp5	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_interp6	delay_tests	gentest	interp6	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_interp7	delay_tests	gentest	interp7	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_interp8	delay_tests	gentest	interp8	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_interp9	delay_tests	gentest	interp9	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_nonstrat1	delay_tests	gentest	nonstrat1	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_nonstrat2	delay_tests	gentest	nonstrat2	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_p1	delay_tests	gentest	p1	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_p2	delay_tests	gentest	p2	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_p3	delay_tests	gentest	p3	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_p4	delay_tests	gentest	p4	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_p5	delay_tests	gentest	p5	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_pos_simpl1	delay_tests	gentest	pos_simpl1	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_przy1	delay_tests	gentest	przy1	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_przy1_simp	delay_tests	gentest	przy1_simp	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_residual1	delay_tests	gentest	residual1	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_ross1	delay_tests	gentest	ross1	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_seg1	delay_tests	gentest	seg1	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_seg2	delay_tests	gentest	seg2	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_seg3	delay_tests	gentest	seg3	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_seg4	delay_tests	gentest	seg4	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_seg5	delay_tests	gentest	seg5	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_sel_unsusp	delay_tests	gentest	sel_unsusp	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_simpl_win	delay_tests	gentest	simpl_win	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_tabsimp_seq	delay_tests	gentest	tabsimp_seq	test(20000).	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_two_ary	delay_tests	gentest	two_ary	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_ullman3	delay_tests	gentest	ullman3	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_undef1	delay_tests	gentest	undef1	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_undef2	delay_tests	gentest	undef2	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_weidong2	delay_tests	gentest	weidong2	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_weidong3	delay_tests	gentest	weidong3	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_weidong4	delay_tests	gentest	weidong4	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_weidong5	delay_tests	gentest	weidong5	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_weidong6	delay_tests	gentest	weidong6	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_weidong7	delay_tests	gentest	weidong7	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_weidong8	delay_tests	gentest	weidong8	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_win	delay_tests	gentest	win	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+delay_tests_wmay_winbug	delay_tests	gentest	wmay_winbug	test.	-e segfault_handler\(warn\).	delay_tests/test.sh
+float_tests_assert_test	float_tests	gentest	assert_test	test.	-e segfault_handler\(warn\).	float_tests/test.sh
+float_tests_read_test	float_tests	gentest	read_test	test.	-e segfault_handler\(warn\).	float_tests/test.sh
+float_tests_roots	float_tests	gentest	roots	test.	-e segfault_handler\(warn\).	float_tests/test.sh
+float_tests_roots_int_comp	float_tests	gentest	roots_int_comp	test.	-e segfault_handler\(warn\).	float_tests/test.sh
+float_tests_vac	float_tests	gentest	vac	test.	-e segfault_handler\(warn\).	float_tests/test.sh
+foreign_tests_c_calls_xsb_make	foreign_tests	gentest	c_calls_xsb_make	test.	-e segfault_handler\(warn\).	foreign_tests/test.sh
+foreign_tests_cfixedstring_make	foreign_tests	gentest	cfixedstring_make	test.	-e segfault_handler\(warn\).	foreign_tests/test.sh
+foreign_tests_cinter1	foreign_tests	gentest	cinter1	test.	-e segfault_handler\(warn\).	foreign_tests/test.sh
+foreign_tests_cinter2	foreign_tests	gentest	cinter2	test.	-e segfault_handler\(warn\).	foreign_tests/test.sh
+foreign_tests_cregs_make	foreign_tests	gentest	cregs_make	test.	-e segfault_handler\(warn\).	foreign_tests/test.sh
+foreign_tests_cvarconstr_make	foreign_tests	gentest	cvarconstr_make	test.	''	foreign_tests/test.sh
+foreign_tests_cvarstring_make	foreign_tests	gentest	cvarstring_make	test.	-e segfault_handler\(warn\).	foreign_tests/test.sh
+foreign_tests_fibp	foreign_tests	gentest	fibp	test.	-e segfault_handler\(warn\).	foreign_tests/test.sh
+foreign_tests_test_importas	foreign_tests	gentest	test_importas	test.	-e segfault_handler\(warn\).	foreign_tests/test.sh
+incremental_tests_inc_abol	incremental_tests	gentest	inc_abol	test.	-e segfault_handler\(warn\).	incremental_tests/test.sh
+incremental_tests_inc_atc	incremental_tests	gentest	inc_atc	test.	-e segfault_handler\(warn\).	incremental_tests/test.sh
+incremental_tests_inc_atc_gc	incremental_tests	gentest	inc_atc_gc	test.	-e segfault_handler\(warn\).	incremental_tests/test.sh
+incremental_tests_inc_atc_gc_tricky	incremental_tests	gentest	inc_atc_gc_tricky	test.	-e segfault_handler\(warn\).	incremental_tests/test.sh
+incremental_tests_inc_trie_alt	incremental_tests	gentest	inc_trie_alt	test.	-e segfault_handler\(warn\).	incremental_tests/test.sh
+incremental_tests_inc_trie_dyn	incremental_tests	gentest	inc_trie_dyn	test.	-e segfault_handler\(warn\).	incremental_tests/test.sh
+incremental_tests_incr_scc	incremental_tests	gentest	incr_scc	test.	-l -e segfault_handler\(warn\).	incremental_tests/test.sh
+incremental_tests_incr_test_romero	incremental_tests	gentest	incr_test_romero	test.	-l -e segfault_handler\(warn\).	incremental_tests/test.sh
+incremental_tests_incremental	incremental_tests	gentest	incremental	test.	-e segfault_handler\(warn\).	incremental_tests/test.sh
+incremental_tests_incremental1	incremental_tests	gentest	incremental1	test.	-e segfault_handler\(warn\).	incremental_tests/test.sh
+incremental_tests_incremental_rule	incremental_tests	gentest	incremental_rule	test.	-e segfault_handler\(warn\).	incremental_tests/test.sh
+incremental_tests_incremental_rule_alt	incremental_tests	gentest	incremental_rule_alt	test.	-e segfault_handler\(warn\).	incremental_tests/test.sh
+incremental_tests_incremental_trie	incremental_tests	gentest	incremental_trie	test.	-e segfault_handler\(warn\).	incremental_tests/test.sh
+incremental_tests_s_inc_abol	incremental_tests	gentest	s_inc_abol	test.	-e segfault_handler\(warn\).	incremental_tests/stest.sh
+incremental_tests_s_inc_atc	incremental_tests	gentest	s_inc_atc	test.	-e segfault_handler\(warn\).	incremental_tests/stest.sh
+incremental_tests_s_inc_atc_gc	incremental_tests	gentest	s_inc_atc_gc	test.	-e segfault_handler\(warn\).	incremental_tests/stest.sh
+incremental_tests_s_inc_atc_gc_tricky	incremental_tests	gentest	s_inc_atc_gc_tricky	test.	-e segfault_handler\(warn\).	incremental_tests/stest.sh
+incremental_tests_s_inc_trie_alt	incremental_tests	gentest	s_inc_trie_alt	test.	-e segfault_handler\(warn\).	incremental_tests/stest.sh
+incremental_tests_s_inc_trie_dyn	incremental_tests	gentest	s_inc_trie_dyn	test.	-e segfault_handler\(warn\).	incremental_tests/stest.sh
+incremental_tests_s_incr_scc	incremental_tests	gentest	s_incr_scc	test.	-l -e segfault_handler\(warn\).	incremental_tests/stest.sh
+incremental_tests_s_incr_test_romero	incremental_tests	gentest	s_incr_test_romero	test.	-l -e segfault_handler\(warn\).	incremental_tests/stest.sh
+incremental_tests_s_incremental	incremental_tests	gentest	s_incremental	test.	-e segfault_handler\(warn\).	incremental_tests/stest.sh
+incremental_tests_s_incremental1	incremental_tests	gentest	s_incremental1	test.	-e segfault_handler\(warn\).	incremental_tests/stest.sh
+incremental_tests_s_incremental_rule	incremental_tests	gentest	s_incremental_rule	test.	-e segfault_handler\(warn\).	incremental_tests/stest.sh
+incremental_tests_s_incremental_rule_alt	incremental_tests	gentest	s_incremental_rule_alt	test.	-e segfault_handler\(warn\).	incremental_tests/stest.sh
+incremental_tests_s_incremental_trie	incremental_tests	gentest	s_incremental_trie	test.	-e segfault_handler\(warn\).	incremental_tests/stest.sh
+incremental_tests_s_test_abolish_incremental_call_single	incremental_tests	gentest	s_test_abolish_incremental_call_single	test.	-l -e segfault_handler\(warn\).	incremental_tests/stest.sh
+incremental_tests_s_test_abolish_nonincremental	incremental_tests	gentest	s_test_abolish_nonincremental	test.	-l -e segfault_handler\(warn\).	incremental_tests/stest.sh
+incremental_tests_s_test_declarations	incremental_tests	gentest	s_test_declarations	test.	-e segfault_handler\(warn\).	incremental_tests/stest.sh
+incremental_tests_s_test_directives	incremental_tests	gentest	s_test_directives	test.	-e segfault_handler\(warn\).	incremental_tests/stest.sh
+incremental_tests_s_test_idg_abstract	incremental_tests	gentest	s_test_idg_abstract	test.	-e segfault_handler\(warn\).	incremental_tests/stest.sh
+incremental_tests_s_test_inc_switch	incremental_tests	gentest	s_test_inc_switch	test.	-e segfault_handler\(warn\).	incremental_tests/stest.sh
+incremental_tests_s_test_incr_depends	incremental_tests	gentest	s_test_incr_depends	test.	-e segfault_handler\(warn\).	incremental_tests/stest.sh
+incremental_tests_s_test_incr_depends_2	incremental_tests	gentest	s_test_incr_depends_2	test.	-e segfault_handler\(warn\).	incremental_tests/stest.sh
+incremental_tests_s_test_introspection	incremental_tests	gentest	s_test_introspection	test.	-l -e segfault_handler\(warn\).	incremental_tests/stest.sh
+incremental_tests_s_test_invalidate	incremental_tests	gentest	s_test_invalidate	test.	-l -e segfault_handler\(warn\).	incremental_tests/stest.sh
+incremental_tests_s_test_iso_basic	incremental_tests	gentest	s_test_iso_basic	test.	-l -e segfault_handler\(warn\).	incremental_tests/stest.sh
+incremental_tests_s_test_iso_hash	incremental_tests	gentest	s_test_iso_hash	test.	-l -e segfault_handler\(warn\).	incremental_tests/stest.sh
+incremental_tests_s_test_iso_mult_visit	incremental_tests	gentest	s_test_iso_mult_visit	test.	-l -e segfault_handler\(warn\).	incremental_tests/stest.sh
+incremental_tests_s_test_iso_undef	incremental_tests	gentest	s_test_iso_undef	test.	-l -e segfault_handler\(warn\).	incremental_tests/stest.sh
+incremental_tests_s_test_lazy	incremental_tests	gentest	s_test_lazy	test.	-l -e segfault_handler\(warn\).	incremental_tests/stest.sh
+incremental_tests_s_test_set_pp	incremental_tests	gentest	s_test_set_pp	test.	-l -e segfault_handler\(warn\).	incremental_tests/stest.sh
+incremental_tests_s_test_sound_updates	incremental_tests	gentest	s_test_sound_updates	test.	-l -e segfault_handler\(warn\).	incremental_tests/stest.sh
+incremental_tests_s_test_table_errors	incremental_tests	gentest	s_test_table_errors	test.	-l -e segfault_handler\(warn\).	incremental_tests/stest.sh
+incremental_tests_s_test_visitors	incremental_tests	gentest	s_test_visitors	test.	-l -e segfault_handler\(warn\).	incremental_tests/stest.sh
+incremental_tests_s_test_wfs_update	incremental_tests	gentest	s_test_wfs_update	test.	-l -e segfault_handler\(warn\).	incremental_tests/stest.sh
+incremental_tests_test_abolish_incremental_call_single	incremental_tests	gentest	test_abolish_incremental_call_single	test.	-l -e segfault_handler\(warn\).	incremental_tests/test.sh
+incremental_tests_test_abolish_nonincremental	incremental_tests	gentest	test_abolish_nonincremental	test.	-l -e segfault_handler\(warn\).	incremental_tests/test.sh
+incremental_tests_test_add_incr_dep	incremental_tests	gentest	test_add_incr_dep	test.	-l -e segfault_handler\(warn\).	incremental_tests/test.sh
+incremental_tests_test_declarations	incremental_tests	gentest	test_declarations	test.	-e segfault_handler\(warn\).	incremental_tests/test.sh
+incremental_tests_test_directives	incremental_tests	gentest	test_directives	test.	-e segfault_handler\(warn\).	incremental_tests/test.sh
+incremental_tests_test_idg_abstract	incremental_tests	gentest	test_idg_abstract	test.	-e segfault_handler\(warn\).	incremental_tests/test.sh
+incremental_tests_test_inc_switch	incremental_tests	gentest	test_inc_switch	test.	-e segfault_handler\(warn\).	incremental_tests/test.sh
+incremental_tests_test_incr_depends	incremental_tests	gentest	test_incr_depends	test.	-e segfault_handler\(warn\).	incremental_tests/test.sh
+incremental_tests_test_incr_depends_2	incremental_tests	gentest	test_incr_depends_2	test.	-e segfault_handler\(warn\).	incremental_tests/test.sh
+incremental_tests_test_sound_updates	incremental_tests	gentest	test_sound_updates	test.	-l -e segfault_handler\(warn\).	incremental_tests/test.sh
+incremental_tests_test_table_errors	incremental_tests	gentest	test_table_errors	test.	-l -e segfault_handler\(warn\).	incremental_tests/test.sh
+incremental_tests_test_visitors	incremental_tests	gentest	test_visitors	test.	-l -e segfault_handler\(warn\).	incremental_tests/test.sh
+incremental_tests_test_wfs_mult_upd	incremental_tests	gentest	test_wfs_mult_upd	test.	-l -e segfault_handler\(warn\).	incremental_tests/test.sh
+incremental_tests_test_wfs_update	incremental_tests	gentest	test_wfs_update	test.	-l -e segfault_handler\(warn\).	incremental_tests/test.sh
+io_tests_fmt_io	io_tests	gentest	fmt_io	test.	-e segfault_handler\(warn\).	io_tests/test.sh
+io_tests_io_basics	io_tests	gentest	io_basics	test.	-e segfault_handler\(warn\).	io_tests/test.sh
+io_tests_test_proc_files	io_tests	gentest	test_proc_files	test.	-e segfault_handler\(warn\).	io_tests/test.sh
+json_tests_jsontest	json_tests	gentest	jsontest	test.	-e segfault_handler\(warn\).	json_tests/test.sh
+minizinc_mzn_examples	minizinc	gentest	mzn_examples	test.	-e segfault_handler\(warn\).	minizinc/test.sh
+neg_tests_ldynstrat0	neg_tests	gentest	ldynstrat0	test.	-e segfault_handler\(warn\).	neg_tests/test.sh
+neg_tests_ldynstrat1	neg_tests	gentest	ldynstrat1	test.	-e segfault_handler\(warn\).	neg_tests/test.sh
+neg_tests_ldynstrat2	neg_tests	gentest	ldynstrat2	test.	-e segfault_handler\(warn\).	neg_tests/test.sh
+neg_tests_ldynstrat3	neg_tests	gentest	ldynstrat3	test.	-e segfault_handler\(warn\).	neg_tests/test.sh
+neg_tests_ldynstrat4	neg_tests	gentest	ldynstrat4	test.	-e segfault_handler\(warn\).	neg_tests/test.sh
+neg_tests_lmod1	neg_tests	gentest	lmod1	test.	-e segfault_handler\(warn\).	neg_tests/test.sh
+neg_tests_lmod10	neg_tests	gentest	lmod10	test.	-e segfault_handler\(warn\).	neg_tests/test.sh
+neg_tests_lmod11	neg_tests	gentest	lmod11	test.	-e segfault_handler\(warn\).	neg_tests/test.sh
+neg_tests_lmod2	neg_tests	gentest	lmod2	test.	-e segfault_handler\(warn\).	neg_tests/test.sh
+neg_tests_lmod3	neg_tests	gentest	lmod3	test.	-e segfault_handler\(warn\).	neg_tests/test.sh
+neg_tests_lmod4	neg_tests	gentest	lmod4	test.	-e segfault_handler\(warn\).	neg_tests/test.sh
+neg_tests_lmod5	neg_tests	gentest	lmod5	test.	-e segfault_handler\(warn\).	neg_tests/test.sh
+neg_tests_lmod6	neg_tests	gentest	lmod6	test.	-e segfault_handler\(warn\).	neg_tests/test.sh
+neg_tests_lmod7	neg_tests	gentest	lmod7	test.	-e segfault_handler\(warn\).	neg_tests/test.sh
+neg_tests_lmod8	neg_tests	gentest	lmod8	test.	-e segfault_handler\(warn\).	neg_tests/test.sh
+neg_tests_lmod9	neg_tests	gentest	lmod9	test.	-e segfault_handler\(warn\).	neg_tests/test.sh
+neg_tests_mod1	neg_tests	gentest	mod1	test.	-e segfault_handler\(warn\).	neg_tests/test.sh
+neg_tests_neg1	neg_tests	gentest	neg1	test.	-e segfault_handler\(warn\).	neg_tests/test.sh
+neg_tests_neg2	neg_tests	gentest	neg2	test.	-e segfault_handler\(warn\).	neg_tests/test.sh
+neg_tests_neg3	neg_tests	gentest	neg3	test.	-e segfault_handler\(warn\).	neg_tests/test.sh
+neg_tests_przy2	neg_tests	gentest	przy2	test.	-e segfault_handler\(warn\).	neg_tests/test.sh
+neg_tests_q7	neg_tests	gentest	q7	test.	-e segfault_handler\(warn\).	neg_tests/test.sh
+neg_tests_ullman1	neg_tests	gentest	ullman1	test.	-e segfault_handler\(warn\).	neg_tests/test.sh
+neg_tests_ullman2	neg_tests	gentest	ullman2	test.	-e segfault_handler\(warn\).	neg_tests/test.sh
+nonmt_tests_cmu_sei_0050	nonmt_tests	gentest	cmu_sei_0050	test.	-l -e segfault_handler\(warn\).	nonmt_tests/test.sh
+nonmt_tests_cmu_sei_083	nonmt_tests	gentest	cmu_sei_083	test.	-l -e segfault_handler\(warn\).	nonmt_tests/test.sh
+nonmt_tests_cmu_sei_a46d	nonmt_tests	gentest	cmu_sei_a46d	test.	-l -e segfault_handler\(warn\).	nonmt_tests/test.sh
+nonmt_tests_test_dynopq	nonmt_tests	gentest	test_dynopq	test.	-e segfault_handler\(warn\).	nonmt_tests/test.sh
+nonmt_tests_test_goal_interrupt	nonmt_tests	gentest	test_goal_interrupt	test.	-l -e segfault_handler\(warn\).	nonmt_tests/test.sh
+nonmt_tests_test_introspection	nonmt_tests	gentest	test_introspection	test.	-l -e segfault_handler\(warn\).	nonmt_tests/test.sh
+nonmt_tests_test_invalidate	nonmt_tests	gentest	test_invalidate	test.	-l -e segfault_handler\(warn\).	nonmt_tests/test.sh
+nonmt_tests_test_iso_attr	nonmt_tests	gentest	test_iso_attr	test.	-l -e segfault_handler\(warn\).	nonmt_tests/test.sh
+nonmt_tests_test_iso_basic	nonmt_tests	gentest	test_iso_basic	test.	-l -e segfault_handler\(warn\).	nonmt_tests/test.sh
+nonmt_tests_test_iso_hash	nonmt_tests	gentest	test_iso_hash	test.	-l -e segfault_handler\(warn\).	nonmt_tests/test.sh
+nonmt_tests_test_iso_mult_visit	nonmt_tests	gentest	test_iso_mult_visit	test.	-l -e segfault_handler\(warn\).	nonmt_tests/test.sh
+nonmt_tests_test_iso_undef	nonmt_tests	gentest	test_iso_undef	test.	-l -e segfault_handler\(warn\).	nonmt_tests/test.sh
+nonmt_tests_test_lazy	nonmt_tests	gentest	test_lazy	test.	-l -e segfault_handler\(warn\).	nonmt_tests/test.sh
+nonmt_tests_test_maxans	nonmt_tests	gentest	test_maxans	test.	-l -e segfault_handler\(warn\).	nonmt_tests/test.sh
+nonmt_tests_test_memory_ovrflw_1	nonmt_tests	gentest	test_memory_ovrflw_1	first_test.	-e segfault_handler\(warn\).	nonmt_tests/test.sh
+nonmt_tests_test_memory_ovrflw_2	nonmt_tests	gentest	test_memory_ovrflw_2	second_test.	-e segfault_handler\(warn\).	nonmt_tests/test.sh
+nonmt_tests_test_recomputable	nonmt_tests	gentest	test_recomputable	test.	-l -e segfault_handler\(warn\).	nonmt_tests/test.sh
+nonmt_tests_test_set_pp	nonmt_tests	gentest	test_set_pp	test.	-l -e segfault_handler\(warn\).	nonmt_tests/test.sh
+nonmt_tests_test_tc	nonmt_tests	gentest	test_tc	test.	-e segfault_handler\(warn\).	nonmt_tests/test.sh
+nonmt_tests_test_trip	nonmt_tests	gentest	test_trip	test.	-l -e segfault_handler\(warn\).	nonmt_tests/test.sh
+nonmt_tests_test_trip_mem	nonmt_tests	gentest	test_trip_mem	test.	-l -e segfault_handler\(warn\).	nonmt_tests/test.sh
+nonmt_tests_test_trip_susp_reset	nonmt_tests	gentest	test_trip_susp_reset	test.	-l -e segfault_handler\(warn\).	nonmt_tests/test.sh
+prolog_tests_altindex	prolog_tests	gentest	altindex	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_arith_op	prolog_tests	gentest	arith_op	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_call_tests	prolog_tests	gentest	call_tests	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_con_char	prolog_tests	gentest	con_char	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_conv_fun	prolog_tests	gentest	conv_fun	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_findall	prolog_tests	gentest	findall	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_first	prolog_tests	gentest	first	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_format_test	prolog_tests	gentest	format_test	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_functor4_tests	prolog_tests	gentest	functor4_tests	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_gctest	prolog_tests	gentest	gctest	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_include_test	prolog_tests	gentest	include_test	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_inline	prolog_tests	gentest	inline	go.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_large_arity_prolog	prolog_tests	gentest	large_arity_prolog	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_listing_test	prolog_tests	gentest	listing_test	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_longname	prolog_tests	gentest	longname	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_mf_obj	prolog_tests	gentest	mf_obj	do.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_mf_test1	prolog_tests	gentest	mf_test1	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_mod_dyn_tests_test_dynmod	prolog_tests/mod_dyn_tests	gentest	test_dynmod	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_mod_dyn_tests_test_dynmod_im	prolog_tests/mod_dyn_tests	gentest	test_dynmod_im	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_mod_file_tests_test_mod_file	prolog_tests/mod_file_tests	gentest	test_mod_file	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_mod_file_tests_test_mod_file_im	prolog_tests/mod_file_tests	gentest	test_mod_file_im	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_n2c	prolog_tests	gentest	n2c	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_newfirst	prolog_tests	gentest	newfirst	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_parmod_tests_test_parmod	prolog_tests/parmod_tests	gentest	test_parmod	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_parmod_tests_test_parmod_im	prolog_tests/parmod_tests	gentest	test_parmod_im	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_pip_0110_format_test	prolog_tests	gentest	pip_0110_format_test	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_pip_write_term	prolog_tests	gentest	pip_write_term	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_prolog_db_tests	prolog_tests	gentest	prolog_db_tests	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_range_tree_tests	prolog_tests	gentest	range_tree_tests	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_readstrtest	prolog_tests	gentest	readstrtest	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_spec_tbl_fold_bug	prolog_tests	gentest	spec_tbl_fold_bug	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_std1	prolog_tests	gentest	std1	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_std2	prolog_tests	gentest	std2	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_test_aggregates	prolog_tests	gentest	test_aggregates	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_test_arith_errors	prolog_tests	gentest	test_arith_errors	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_test_ascii_atom	prolog_tests	gentest	test_ascii_atom	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_test_ascii_getput	prolog_tests	gentest	test_ascii_getput	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_test_ascii_readwrite	prolog_tests	gentest	test_ascii_readwrite	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_test_charset	prolog_tests	gentest	test_charset	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_test_cleanup	prolog_tests	gentest	test_cleanup	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_test_cond_comp	prolog_tests	gentest	test_cond_comp	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_test_cycle	prolog_tests	gentest	test_cycle	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_test_dphc	prolog_tests	gentest	test_dphc	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_test_float_io_precision	prolog_tests	gentest	test_float_io_precision	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_test_forall	prolog_tests	gentest	test_forall	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_test_immutable	prolog_tests	gentest	test_immutable	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_test_immutable2	prolog_tests	gentest	test_immutable2	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_test_iso8601	prolog_tests	gentest	test_iso8601	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_test_large_atom_codes	prolog_tests	gentest	test_large_atom_codes	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_test_load_dyn_et_al	prolog_tests	gentest	test_load_dyn_et_al	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_test_modules	prolog_tests	gentest	test_modules	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_test_precision	prolog_tests	gentest	test_precision	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_test_read_integer	prolog_tests	gentest	test_read_integer	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_test_sprint_term	prolog_tests	gentest	test_sprint_term	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_test_term_depth	prolog_tests	gentest	test_term_depth	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_test_term_size	prolog_tests	gentest	test_term_size	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_test_termtoatom	prolog_tests	gentest	test_termtoatom	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_test_utf8_atom	prolog_tests	gentest	test_utf8_atom	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_test_utf8_getput	prolog_tests	gentest	test_utf8_getput	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_test_utf8_readwrite	prolog_tests	gentest	test_utf8_readwrite	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_test_write_read	prolog_tests	gentest	test_write_read	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_unsafe1	prolog_tests	gentest	unsafe1	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_unsafe2	prolog_tests	gentest	unsafe2	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_uwoc	prolog_tests	gentest	uwoc	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_varcond	prolog_tests	gentest	varcond	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+prolog_tests_wttest	prolog_tests	gentest	wttest	test.	-e segfault_handler\(warn\).	prolog_tests/test.sh
+regmatch_tests_regtest	regmatch_tests	gentest	regtest	test.	-e segfault_handler\(warn\).	regmatch_tests/test.sh
+regmatch_tests_wildtest	regmatch_tests	gentest	wildtest	test.	-e segfault_handler\(warn\).	regmatch_tests/test.sh
+retract_tests_boyer_assert	retract_tests	gentest	boyer_assert	boyer.	-e segfault_handler\(warn\).	retract_tests/test.sh
+retract_tests_load_backsuite	retract_tests	gentest	load_backsuite	test.	-e segfault_handler\(warn\).	retract_tests/test.sh
+retract_tests_test_retr_gc_fancy	retract_tests	gentest	test_retr_gc_fancy	test.	-e segfault_handler\(warn\).	retract_tests/test.sh
+retract_tests_test_retr_gc_noind	retract_tests	gentest	test_retr_gc_noind	test.	-e segfault_handler\(warn\).	retract_tests/test.sh
+retract_tests_test_retra_gc	retract_tests	gentest	test_retra_gc	test.	-e segfault_handler\(warn\).	retract_tests/test.sh
+retract_tests_test_retra_gc_fancy	retract_tests	gentest	test_retra_gc_fancy	test.	-e segfault_handler\(warn\).	retract_tests/test.sh
+retract_tests_test_retra_gc_noind	retract_tests	gentest	test_retra_gc_noind	test.	-e segfault_handler\(warn\).	retract_tests/test.sh
+retract_tests_test_retra_gc_nongen_fancy	retract_tests	gentest	test_retra_gc_nongen_fancy	test.	-e segfault_handler\(warn\).	retract_tests/test.sh
+retract_tests_test_retract_gc	retract_tests	gentest	test_retract_gc	test.	-e segfault_handler\(warn\).	retract_tests/test.sh
+retract_tests_testretract	retract_tests	gentest	testretract	test.	-e segfault_handler\(warn\).	retract_tests/test.sh
+socket_tests_socket_msg	socket_tests	gentest	socket_msg	test.	-e segfault_handler\(warn\).	socket_tests/test.sh
+socket_tests_socket_put	socket_tests	gentest	socket_put	test.	-e segfault_handler\(warn\).	socket_tests/test.sh
+socket_tests_socket_stream	socket_tests	gentest	socket_stream	test.	-e segfault_handler\(warn\).	socket_tests/test.sh
+sub_tests_decker	sub_tests	gentest	decker	go.	-m 10000 -c 60000 -o 4000 -e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_drtc1	sub_tests	gentest	drtc1	go.	-e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_drtc2	sub_tests	gentest	drtc2	go.	-e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_drtc3	sub_tests	gentest	drtc3	go.	-e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_drtc4	sub_tests	gentest	drtc4	go.	-e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_drtc5	sub_tests	gentest	drtc5	go.	-e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_drtc6	sub_tests	gentest	drtc6	go.	-e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_drtc7	sub_tests	gentest	drtc7	go.	-e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_drtc8	sub_tests	gentest	drtc8	go.	-e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_floratest	sub_tests	gentest	floratest	go.	-m 1500 -c 5000 -o 2000 -e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_genome1	sub_tests	gentest	genome1	go.	-e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_genome2	sub_tests	gentest	genome2	go.	-e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_genome3	sub_tests	gentest	genome3	go.	-e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_lrtc1	sub_tests	gentest	lrtc1	go.	-e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_lrtc2	sub_tests	gentest	lrtc2	go.	-e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_lrtc3	sub_tests	gentest	lrtc3	go.	-e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_lrtc4	sub_tests	gentest	lrtc4	go.	-e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_lrtc5	sub_tests	gentest	lrtc5	go.	-e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_lrtc6	sub_tests	gentest	lrtc6	go.	-e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_lrtc7	sub_tests	gentest	lrtc7	go.	-e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_lrtc8	sub_tests	gentest	lrtc8	go.	-e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_pilegaard	sub_tests	gentest	pilegaard	test.	-e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_rrtc1	sub_tests	gentest	rrtc1	go.	-e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_rrtc2	sub_tests	gentest	rrtc2	go.	-e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_rrtc3	sub_tests	gentest	rrtc3	go.	-e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_rrtc4	sub_tests	gentest	rrtc4	go.	-e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_rrtc5	sub_tests	gentest	rrtc5	go.	-e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_rrtc6	sub_tests	gentest	rrtc6	go.	-e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_rrtc7	sub_tests	gentest	rrtc7	go.	-e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_rrtc8	sub_tests	gentest	rrtc8	go.	-e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_sg1	sub_tests	gentest	sg1	go.	-e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_sg2	sub_tests	gentest	sg2	go.	-e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_sg3	sub_tests	gentest	sg3	go.	-e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_sg4	sub_tests	gentest	sg4	go.	-e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_sg5	sub_tests	gentest	sg5	go.	-e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_sg6	sub_tests	gentest	sg6	go.	-e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_sg7	sub_tests	gentest	sg7	go.	-e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_sg8	sub_tests	gentest	sg8	go.	-e segfault_handler\(warn\). -S	sub_tests/test.sh
+sub_tests_test_answer_abstraction	sub_tests	gentest	test_answer_abstraction	test.	-e segfault_handler\(warn\). -S	sub_tests/test.sh
+table_tests_abol_test	table_tests	gentest	abol_test	test.	-e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_abol_test2	table_tests	gentest	abol_test2	test.	-e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_abol_test2a	table_tests	gentest	abol_test2a	test.	-e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_abol_test3	table_tests	gentest	abol_test3	test.	-e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_abol_test3a	table_tests	gentest	abol_test3a	test.	-e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_abol_test3b	table_tests	gentest	abol_test3b	test.	-e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_abol_test3c	table_tests	gentest	abol_test3c	test.	-e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_abolish_cascade	table_tests	gentest	abolish_cascade	test.	-e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_abolish_cascade_pred	table_tests	gentest	abolish_cascade_pred	test.	-e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_abolish_cycle	table_tests	gentest	abolish_cycle	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_abolish_dag	table_tests	gentest	abolish_dag	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_abolish_neg_cycle	table_tests	gentest	abolish_neg_cycle	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_abolish_neg_dag	table_tests	gentest	abolish_neg_dag	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_aggregs_test	table_tests	gentest	aggregs_test	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_aggregs_test_2	table_tests	gentest	aggregs_test_2	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_atc_test	table_tests	gentest	atc_test	test.	-e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_bulk_trie_test	table_tests	gentest	bulk_trie_test	test.	-e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_concomp	table_tests	gentest	concomp	t, d1, d2.	-e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_dipti	table_tests	gentest	dipti	test.	-e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_empty_answer	table_tests	gentest	empty_answer	test.	-e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_expand	table_tests	gentest	expand	test.	-e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_float	table_tests	gentest	float	test.	-e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_flora1	table_tests	gentest	flora1	test.	-e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_get_resid	table_tests	gentest	get_resid	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_grammarlrk3	table_tests	gentest	grammarlrk3	test.	-e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_hirc	table_tests	gentest	hirc	tc(manage)(X,Y),write(X),write(' '),write(Y),nl,fail.	-e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_ins	table_tests	gentest	ins	test.	-e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_internt	table_tests	gentest	internt	test.	-e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_large_arity_tables	table_tests	gentest	large_arity_tables	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_large_arity_tries	table_tests	gentest	large_arity_tries	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_lrbug	table_tests	gentest	lrbug	test.	-e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_not_exists_test	table_tests	gentest	not_exists_test	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_pps	table_tests	gentest	pps	test.	-e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_pred_abolish_cycle	table_tests	gentest	pred_abolish_cycle	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_pred_abolish_dag	table_tests	gentest	pred_abolish_dag	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_recursive_aboltest	table_tests	gentest	recursive_aboltest	test.	-e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_tabbug1	table_tests	gentest	tabbug1	test.	-e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_terrys_trie_test	table_tests	gentest	terrys_trie_test	test.	-e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_3vwfs_1	table_tests	gentest	test_3vwfs_1	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_abolish_aux	table_tests	gentest	test_abolish_aux	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_answer_sccs	table_tests	gentest	test_answer_sccs	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_answerdepth	table_tests	gentest	test_answerdepth	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_answerdepth_i	table_tests	gentest	test_answerdepth_i	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_as_mod	table_tests	gentest	test_as_mod	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_brat_ansdepth	table_tests	gentest	test_brat_ansdepth	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_brat_ansdepth_i	table_tests	gentest	test_brat_ansdepth_i	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_calldepth	table_tests	gentest	test_calldepth	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_check_variant	table_tests	gentest	test_check_variant	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_cut_over_tables	table_tests	gentest	test_cut_over_tables	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_cyclic_tabling	table_tests	gentest	test_cyclic_tabling	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_cyclic_tries	table_tests	gentest	test_cyclic_tries	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_dynamic	table_tests	gentest	test_dynamic	test.	-e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_euv	table_tests	gentest	test_euv	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_fl_analyze_scc	table_tests	gentest	test_fl_analyze_scc	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_flounder	table_tests	gentest	test_flounder	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_floundering_cleanup	table_tests	gentest	test_floundering_cleanup	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_get_call	table_tests	gentest	test_get_call	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_get_idg_info	table_tests	gentest	test_get_idg_info	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_intern_combo	table_tests	gentest	test_intern_combo	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_intern_seq	table_tests	gentest	test_intern_seq	test.	-e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_just	table_tests	gentest	test_just	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_large_tabled_terms	table_tests	gentest	test_large_tabled_terms	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_maxans_decl	table_tests	gentest	test_maxans_decl	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_mf_index	table_tests	gentest	test_mf_index	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_model_tv	table_tests	gentest	test_model_tv	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_negcycle	table_tests	gentest	test_negcycle	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_not3_wcs	table_tests	gentest	test_not3_wcs	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_sdg_preds	table_tests	gentest	test_sdg_preds	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_sdg_print	table_tests	gentest	test_sdg_print	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_subgoal_property	table_tests	gentest	test_subgoal_property	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_tab_interact	table_tests	gentest	test_tab_interact	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_table_as_intern	table_tests	gentest	test_table_as_intern	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_table_cycles	table_tests	gentest	test_table_cycles	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_table_dump	table_tests	gentest	test_table_dump	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_table_index	table_tests	gentest	test_table_index	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_td_incomp	table_tests	gentest	test_td_incomp	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_tda	table_tests	gentest	test_tda	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_tda_i	table_tests	gentest	test_tda_i	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_trans_bug	table_tests	gentest	test_trans_bug	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_trie_property	table_tests	gentest	test_trie_property	test.	-e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_trievars	table_tests	gentest	test_trievars	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_unknown	table_tests	gentest	test_unknown	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_wcs_1	table_tests	gentest	test_wcs_1	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_wcs_simpl	table_tests	gentest	test_wcs_simpl	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_test_wcs_wfs	table_tests	gentest	test_wcs_wfs	test.	-l -e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_testdyntable	table_tests	gentest	testdyntable	test.	-e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_testh	table_tests	gentest	testh	time2048.	-e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_tfinda	table_tests	gentest	tfinda	test.	-e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_trassert	table_tests	gentest	trassert	test.	-e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_trdyn	table_tests	gentest	trdyn	test.	-e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_trdynctest	table_tests	gentest	trdynctest	test.	-e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_trdyntest	table_tests	gentest	trdyntest	test.	-e segfault_handler\(warn\).	table_tests/test.sh
+table_tests_unw_tr1	table_tests	gentest	unw_tr1	test.	-e segfault_handler\(warn\).	table_tests/test.sh
+wfs_tests_p06	wfs_tests	wfs	p06	test(p06).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p07	wfs_tests	wfs	p07	test(p07).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p08	wfs_tests	wfs	p08	test(p08).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p09	wfs_tests	wfs	p09	test(p09).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p10	wfs_tests	wfs	p10	test(p10).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p11	wfs_tests	wfs	p11	test(p11).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p12	wfs_tests	wfs	p12	test(p12).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p13	wfs_tests	wfs	p13	test(p13).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p14	wfs_tests	wfs	p14	test(p14).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p15	wfs_tests	wfs	p15	test(p15).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p16	wfs_tests	wfs	p16	test(p16).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p17	wfs_tests	wfs	p17	test(p17).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p18	wfs_tests	wfs	p18	test(p18).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p19	wfs_tests	wfs	p19	test(p19).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p20	wfs_tests	wfs	p20	test(p20).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p21	wfs_tests	wfs	p21	test(p21).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p22	wfs_tests	wfs	p22	test(p22).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p23	wfs_tests	wfs	p23	test(p23).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p24	wfs_tests	wfs	p24	test(p24).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p25	wfs_tests	wfs	p25	test(p25).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p26	wfs_tests	wfs	p26	test(p26).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p27	wfs_tests	wfs	p27	test(p27).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p29	wfs_tests	wfs	p29	test(p29).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p30	wfs_tests	wfs	p30	test(p30).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p31	wfs_tests	wfs	p31	test(p31).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p32	wfs_tests	wfs	p32	test(p32).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p33	wfs_tests	wfs	p33	test(p33).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p34	wfs_tests	wfs	p34	test(p34).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p35	wfs_tests	wfs	p35	test(p35).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p36	wfs_tests	wfs	p36	test(p36).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p37	wfs_tests	wfs	p37	test(p37).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p39	wfs_tests	wfs	p39	test(p39).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p40	wfs_tests	wfs	p40	test(p40).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p42	wfs_tests	wfs	p42	test(p42).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p43	wfs_tests	wfs	p43	test(p43).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p44	wfs_tests	wfs	p44	test(p44).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p45	wfs_tests	wfs	p45	test(p45).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p46	wfs_tests	wfs	p46	test(p46).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p47	wfs_tests	wfs	p47	test(p47).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p48	wfs_tests	wfs	p48	test(p48).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p49	wfs_tests	wfs	p49	test(p49).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p50	wfs_tests	wfs	p50	test(p50).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p51	wfs_tests	wfs	p51	test(p51).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p52	wfs_tests	wfs	p52	test(p52).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p52a	wfs_tests	wfs	p52a	test(p52a).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p53	wfs_tests	wfs	p53	test(p53).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p54	wfs_tests	wfs	p54	test(p54).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p55	wfs_tests	wfs	p55	test(p55).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p56	wfs_tests	wfs	p56	test(p56).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p57	wfs_tests	wfs	p57	test(p57).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p58	wfs_tests	wfs	p58	test(p58).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p59	wfs_tests	wfs	p59	test(p59).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p60	wfs_tests	wfs	p60	test(p60).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p62	wfs_tests	wfs	p62	test(p62).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p63	wfs_tests	wfs	p63	test(p63).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p64	wfs_tests	wfs	p64	test(p64).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p65	wfs_tests	wfs	p65	test(p65).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p66	wfs_tests	wfs	p66	test(p66).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p67	wfs_tests	wfs	p67	test(p67).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p77	wfs_tests	wfs	p77	test(p77).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p78	wfs_tests	wfs	p78	test(p78).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p79	wfs_tests	wfs	p79	test(p79).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p80	wfs_tests	wfs	p80	test(p80).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p81	wfs_tests	wfs	p81	test(p81).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p82	wfs_tests	wfs	p82	test(p82).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p83	wfs_tests	wfs	p83	test(p83).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p84	wfs_tests	wfs	p84	test(p84).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p85	wfs_tests	wfs	p85	test(p85).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p86	wfs_tests	wfs	p86	test(p86).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p89	wfs_tests	wfs	p89	test(p89).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p90	wfs_tests	wfs	p90	test(p90).	-e segfault_handler\(warn\).	wfs_tests/test.sh
+wfs_tests_p91	wfs_tests	wfs	p91	test(p91).	-e segfault_handler\(warn\).	wfs_tests/test.sh

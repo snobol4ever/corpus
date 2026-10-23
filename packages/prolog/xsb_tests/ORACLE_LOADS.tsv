@@ -1,0 +1,154 @@
+# ORACLE_LOADS.tsv -- xsb_tests: every vendored file XSB 5.0.0 OPENED while its own test scripts ran a program other than the file itself
+# (harness util_xsb_oracle_runs.py record --strace; loaders, 2026-10-23, ceo CEO-1927): name<TAB>count<TAB>loaders (NAME.pl, or a
+# script's own run). A CONTAINERS.tsv LOADED_BY row's first word re-derives from here (util_container_or_library.py verify).
+ai_tests_can_mono	12	ai_tests_cs_o.pl | ai_tests_cs_r.pl | ai_tests_disj.pl | ai_tests_gabriel.pl | ai_tests_kalah.pl | ai_tests_peep.pl | ai_tests_pg.pl | ai_tests_plan.pl | ai_tests_qsort.pl | ai_tests_queens.pl | ai_tests_read.pl | ai_tests/test.sh (its own run of [can_mono].)
+ai_tests_set_basics_mono	12	ai_tests_cs_o.pl | ai_tests_cs_r.pl | ai_tests_disj.pl | ai_tests_gabriel.pl | ai_tests_kalah.pl | ai_tests_peep.pl | ai_tests_pg.pl | ai_tests_plan.pl | ai_tests_qsort.pl | ai_tests_queens.pl | ai_tests_read.pl | ai_tests/test.sh (its own run of [can_mono].)
+ai_tests_set_unify	12	ai_tests_cs_o.pl | ai_tests_cs_r.pl | ai_tests_disj.pl | ai_tests_gabriel.pl | ai_tests_kalah.pl | ai_tests_peep.pl | ai_tests_pg.pl | ai_tests_plan.pl | ai_tests_qsort.pl | ai_tests_queens.pl | ai_tests_read.pl | ai_tests/test.sh (its own run of [can_mono].)
+attv_tests_fd	1	attv_tests_fd1.pl
+basic_tests_acyl	1	basic_tests_testsg.pl
+basic_tests_ensure_loaded_aux	1	basic_tests_ensure_loaded_tst.pl
+basic_tests_preproc_opt_optcompile	1	basic_tests_preproc_opt_preproc_test.pl
+basic_tests_preproc_opt_optstructures	1	basic_tests_preproc_opt_preproc_test.pl
+basic_tests_preproc_opt_progr	1	basic_tests_preproc_opt_preproc_test.pl
+basic_tests_tcyl_24_24_2	3	basic_tests_tcyl11.pl | basic_tests_tcyl12.pl | basic_tests_testsg.pl
+cdf_tests_check_testdir_cdf_extensional	1	cdf_tests_checks.pl
+cdf_tests_dl_testdir_cdf_extensional	2	cdf_tests_dlQuery.pl | cdf_tests_updateDL.pl
+cdf_tests_dl_testdir_cdf_intensional	2	cdf_tests_dlQuery.pl | cdf_tests_updateDL.pl
+cdf_tests_test_utils	7	cdf_tests_checks.pl | cdf_tests_dlQuery.pl | cdf_tests_type0QueryExt.pl | cdf_tests_type0QueryInt.pl | cdf_tests_updateDL.pl | cdf_tests_updateExt.pl | cdf_tests_updateInt.pl
+cdf_tests_type0_testdir_cdf_extensional	2	cdf_tests_type0QueryExt.pl | cdf_tests_updateExt.pl
+cdf_tests_type0_testdir_cdf_intensional	2	cdf_tests_type0QueryInt.pl | cdf_tests_updateInt.pl
+cdf_tests_type0_testdir_initialization_file	2	cdf_tests_type0QueryInt.pl | cdf_tests_updateInt.pl
+foreign_tests_c_calls_xsb	1	foreign_tests_c_calls_xsb_make.pl
+foreign_tests_clprtest	1	foreign_tests_cvarconstr_make.pl
+foreign_tests_compile_xeddis	1	foreign_tests/test.sh (its own run of -e catch\(consult\(compile_xeddis\)\,Ball\,\(write)
+foreign_tests_edb	3	foreign_tests_cfixedstring_make.pl | foreign_tests_cregs_make.pl | foreign_tests_cvarstring_make.pl
+incremental_tests_inc_trie_alt_1	1	incremental_tests_inc_trie_alt.pl
+incremental_tests_incremental1_1	2	incremental_tests_incremental1.pl | incremental_tests_s_incremental1.pl
+incremental_tests_incremental_trie_1	1	incremental_tests_incremental_trie.pl
+incremental_tests_s_inc_trie_alt_1	1	incremental_tests_s_inc_trie_alt.pl
+incremental_tests_s_incremental_trie_1	1	incremental_tests_s_incremental_trie.pl
+io_tests_pf_prolog	1	io_tests_test_proc_files.pl
+janus_tests_jns_plg_benches	1	janus_tests/test.sh (its own run of --quietload -e \[jns_plg_benches\]\,bench\,halt.)
+janus_tests_test_janus_plg	1	janus_tests/test.sh (its own run of -e segfault_handler\(warn\). -e \[test_janus_plg\])
+janus_tests_test_janus_py	1	janus_tests/test.sh (its own run of [test_janus_py].)
+janus_tests_test_py_pp	1	janus_tests/test.sh (its own run of -e segfault_handler\(warn\). -e \[test_py_pp\]\,te)
+neg_tests_genome	1	neg_tests_q7.pl
+nonmt_tests_verbose_attr	1	nonmt_tests_test_iso_attr.pl
+prolog_tests_bad_syntax	1	prolog_tests_test_load_dyn_et_al.pl
+prolog_tests_format_tests_test_harness_iso	1	prolog_tests_pip_0110_format_test.pl
+prolog_tests_immut	2	prolog_tests_test_immutable.pl | prolog_tests_test_immutable2.pl
+prolog_tests_immut_a	2	prolog_tests_test_immutable.pl | prolog_tests_test_immutable2.pl
+prolog_tests_immut_b	1	prolog_tests_test_immutable.pl
+prolog_tests_inctest1	1	prolog_tests_include_test.pl
+prolog_tests_inctest2	1	prolog_tests_include_test.pl
+prolog_tests_index_t2	1	prolog_tests_altindex.pl
+prolog_tests_kb_dync1	1	prolog_tests_test_load_dyn_et_al.pl
+prolog_tests_kb_dync2	1	prolog_tests_test_load_dyn_et_al.pl
+prolog_tests_kb_dync_mod	1	prolog_tests_test_load_dyn_et_al.pl
+prolog_tests_kb_no_export	1	prolog_tests_test_load_dyn_et_al.pl
+prolog_tests_kb_trie	1	prolog_tests_test_load_dyn_et_al.pl
+prolog_tests_kb_trie_mod	1	prolog_tests_test_load_dyn_et_al.pl
+prolog_tests_load_dyn_tables	1	prolog_tests_test_load_dyn_et_al.pl
+prolog_tests_load_dyn_xform	1	prolog_tests_test_load_dyn_et_al.pl
+prolog_tests_longatom	1	prolog_tests_longname.pl
+prolog_tests_m1	1	prolog_tests_test_modules.pl
+prolog_tests_m2	1	prolog_tests_test_modules.pl
+prolog_tests_mf_file1	2	prolog_tests_mf_obj.pl | prolog_tests_mf_test1.pl
+prolog_tests_mf_file2	2	prolog_tests_mf_obj.pl | prolog_tests_mf_test1.pl
+prolog_tests_mf_file3	1	prolog_tests_mf_test1.pl
+prolog_tests_mf_file4	1	prolog_tests_mf_test1.pl
+prolog_tests_mf_file5	2	prolog_tests_mf_obj.pl | prolog_tests_mf_test1.pl
+prolog_tests_mf_hilog1	2	prolog_tests_mf_obj.pl | prolog_tests_mf_test1.pl
+prolog_tests_mf_hilog2	2	prolog_tests_mf_obj.pl | prolog_tests_mf_test1.pl
+prolog_tests_mod_dyn_tests_modp_file	2	prolog_tests_mod_dyn_tests_test_dynmod.pl | prolog_tests_mod_dyn_tests_test_dynmod_im.pl
+prolog_tests_mod_dyn_tests_modp_filec	2	prolog_tests_mod_dyn_tests_test_dynmod.pl | prolog_tests_mod_dyn_tests_test_dynmod_im.pl
+prolog_tests_mod_file_tests_father_file	2	prolog_tests_mod_file_tests_test_mod_file.pl | prolog_tests_mod_file_tests_test_mod_file_im.pl
+prolog_tests_mod_file_tests_modp_file	2	prolog_tests_mod_file_tests_test_mod_file.pl | prolog_tests_mod_file_tests_test_mod_file_im.pl
+prolog_tests_mod_file_tests_modq_file	1	prolog_tests_mod_file_tests_test_mod_file.pl
+prolog_tests_mod_file_tests_modr_file	2	prolog_tests_mod_file_tests_test_mod_file.pl | prolog_tests_mod_file_tests_test_mod_file_im.pl
+prolog_tests_mod_file_tests_mother_us_file	2	prolog_tests_mod_file_tests_test_mod_file.pl | prolog_tests_mod_file_tests_test_mod_file_im.pl
+prolog_tests_mod_file_tests_parent_file	2	prolog_tests_mod_file_tests_test_mod_file.pl | prolog_tests_mod_file_tests_test_mod_file_im.pl
+prolog_tests_mod_file_tests_parmodtst_file	1	prolog_tests_mod_file_tests_test_mod_file.pl
+prolog_tests_mod_file_tests_union_file	2	prolog_tests_mod_file_tests_test_mod_file.pl | prolog_tests_mod_file_tests_test_mod_file_im.pl
+prolog_tests_non_canon	1	prolog_tests_test_load_dyn_et_al.pl
+prolog_tests_nonimmut_b	2	prolog_tests_test_immutable.pl | prolog_tests_test_immutable2.pl
+prolog_tests_parmod_tests_QParMod	2	prolog_tests_parmod_tests_test_parmod.pl | prolog_tests_parmod_tests_test_parmod_im.pl
+prolog_tests_parmod_tests_TESTQUOTE	2	prolog_tests_parmod_tests_test_parmod.pl | prolog_tests_parmod_tests_test_parmod_im.pl
+prolog_tests_parmod_tests_TTSTUSRMD	2	prolog_tests_parmod_tests_test_parmod.pl | prolog_tests_parmod_tests_test_parmod_im.pl
+prolog_tests_parmod_tests_TTSTUSRMD2	1	prolog_tests_parmod_tests_test_parmod.pl
+prolog_tests_parmod_tests_afile	2	prolog_tests_parmod_tests_test_parmod.pl | prolog_tests_parmod_tests_test_parmod_im.pl
+prolog_tests_parmod_tests_bfile	2	prolog_tests_parmod_tests_test_parmod.pl | prolog_tests_parmod_tests_test_parmod_im.pl
+prolog_tests_parmod_tests_born_in	2	prolog_tests_parmod_tests_test_parmod.pl | prolog_tests_parmod_tests_test_parmod_im.pl
+prolog_tests_parmod_tests_callQParMod	2	prolog_tests_parmod_tests_test_parmod.pl | prolog_tests_parmod_tests_test_parmod_im.pl
+prolog_tests_parmod_tests_call_testquote	2	prolog_tests_parmod_tests_test_parmod.pl | prolog_tests_parmod_tests_test_parmod_im.pl
+prolog_tests_parmod_tests_docim	2	prolog_tests_parmod_tests_test_parmod.pl | prolog_tests_parmod_tests_test_parmod_im.pl
+prolog_tests_parmod_tests_father	2	prolog_tests_parmod_tests_test_parmod.pl | prolog_tests_parmod_tests_test_parmod_im.pl
+prolog_tests_parmod_tests_join	2	prolog_tests_parmod_tests_test_parmod.pl | prolog_tests_parmod_tests_test_parmod_im.pl
+prolog_tests_parmod_tests_mother_dsw	2	prolog_tests_parmod_tests_test_parmod.pl | prolog_tests_parmod_tests_test_parmod_im.pl
+prolog_tests_parmod_tests_mother_pap	2	prolog_tests_parmod_tests_test_parmod.pl | prolog_tests_parmod_tests_test_parmod_im.pl
+prolog_tests_parmod_tests_mother_us	2	prolog_tests_parmod_tests_test_parmod.pl | prolog_tests_parmod_tests_test_parmod_im.pl
+prolog_tests_parmod_tests_parent	2	prolog_tests_parmod_tests_test_parmod.pl | prolog_tests_parmod_tests_test_parmod_im.pl
+prolog_tests_parmod_tests_parmodtst	2	prolog_tests_parmod_tests_test_parmod.pl | prolog_tests_parmod_tests_test_parmod_im.pl
+prolog_tests_parmod_tests_pm_subdir_ttstusrmduc	2	prolog_tests_parmod_tests_test_parmod.pl | prolog_tests_parmod_tests_test_parmod_im.pl
+prolog_tests_parmod_tests_pm_subdir_umod_p	2	prolog_tests_parmod_tests_test_parmod.pl | prolog_tests_parmod_tests_test_parmod_im.pl
+prolog_tests_parmod_tests_test_mod	2	prolog_tests_parmod_tests_test_parmod.pl | prolog_tests_parmod_tests_test_parmod_im.pl
+prolog_tests_parmod_tests_trans_close	2	prolog_tests_parmod_tests_test_parmod.pl | prolog_tests_parmod_tests_test_parmod_im.pl
+prolog_tests_parmod_tests_union	2	prolog_tests_parmod_tests_test_parmod.pl | prolog_tests_parmod_tests_test_parmod_im.pl
+prolog_tests_parmod_tests_usrmd	2	prolog_tests_parmod_tests_test_parmod.pl | prolog_tests_parmod_tests_test_parmod_im.pl
+prolog_tests_prolog_db_tests2	1	prolog_tests_prolog_db_tests.pl
+prolog_tests_test_ascii_atom_1	1	prolog_tests_test_ascii_atom.pl
+prolog_tests_test_ascii_getput_1	1	prolog_tests_test_ascii_getput.pl
+prolog_tests_test_ascii_readwrite_1	1	prolog_tests_test_ascii_readwrite.pl
+prolog_tests_test_utf8_atom_1	1	prolog_tests_test_utf8_atom.pl
+prolog_tests_test_utf8_getput_1	1	prolog_tests_test_utf8_getput.pl
+prolog_tests_test_utf8_readwrite_1	1	prolog_tests_test_utf8_readwrite.pl
+prolog_tests_unicode_facts	2	prolog_tests_test_ascii_readwrite.pl | prolog_tests_test_utf8_readwrite.pl
+prolog_tests_unicode_facts_c	1	prolog_tests_test_ascii_readwrite.pl
+prolog_tests_war	1	prolog_tests_inline.pl
+ptq_parser	3	ptq/test.sh (its own run of [parser].) | ptq/test.sh (its own run of [ptq,ptq_out].) | ptq/test.sh (its own run of [ptqlred,ptq_out].)
+ptq_ptq	1	ptq/test.sh (its own run of [ptq,ptq_out].)
+ptq_ptq_out	2	ptq/test.sh (its own run of [ptq,ptq_out].) | ptq/test.sh (its own run of [ptqlred,ptq_out].)
+ptq_ptqlred	1	ptq/test.sh (its own run of [ptqlred,ptq_out].)
+retract_tests_backsuite	1	retract_tests_load_backsuite.pl
+retract_tests_testretract1	1	retract_tests_testretract.pl
+retract_tests_testretract2	1	retract_tests_testretract.pl
+retract_tests_testretract3	1	retract_tests_testretract.pl
+retract_tests_testretract4	1	retract_tests_testretract.pl
+retract_tests_testretract5	1	retract_tests_testretract.pl
+sem_tests_sem_dnf	5	sem_tests/test.sh (its own run of [sem_lex,semantica,sem_pretty,sem_dnf,sem_pe].) | sem_tests/test.sh (its own run of [sem_parse, sem_pe].) | sem_tests/test.sh (its own run of [sem_pe].) | sem_tests/test.sh (its own run of [semantica,sem_pe,basics].) | sem_tests/test.sh (its own run of [semantica,sem_pe].)
+sem_tests_sem_lex	5	sem_tests/test.sh (its own run of [sem_lex,semantica,sem_pretty,sem_dnf,sem_pe].) | sem_tests/test.sh (its own run of [sem_parse, sem_pe].) | sem_tests/test.sh (its own run of [sem_parse].) | sem_tests/test.sh (its own run of [semantica,sem_pe,basics].) | sem_tests/test.sh (its own run of [semantica,sem_pe].)
+sem_tests_sem_parse	5	sem_tests/test.sh (its own run of [sem_parse, sem_pe].) | sem_tests/test.sh (its own run of [sem_parse].) | sem_tests/test.sh (its own run of [sem_pe].) | sem_tests/test.sh (its own run of [semantica,sem_pe,basics].) | sem_tests/test.sh (its own run of [semantica,sem_pe].)
+sem_tests_sem_pe	5	sem_tests/test.sh (its own run of [sem_lex,semantica,sem_pretty,sem_dnf,sem_pe].) | sem_tests/test.sh (its own run of [sem_parse, sem_pe].) | sem_tests/test.sh (its own run of [sem_pe].) | sem_tests/test.sh (its own run of [semantica,sem_pe,basics].) | sem_tests/test.sh (its own run of [semantica,sem_pe].)
+sem_tests_sem_pretty	5	sem_tests/test.sh (its own run of [sem_lex,semantica,sem_pretty,sem_dnf,sem_pe].) | sem_tests/test.sh (its own run of [sem_parse, sem_pe].) | sem_tests/test.sh (its own run of [sem_pe].) | sem_tests/test.sh (its own run of [semantica,sem_pe,basics].) | sem_tests/test.sh (its own run of [semantica,sem_pe].)
+sem_tests_semantica	5	sem_tests/test.sh (its own run of [sem_lex,semantica,sem_pretty,sem_dnf,sem_pe].) | sem_tests/test.sh (its own run of [sem_parse, sem_pe].) | sem_tests/test.sh (its own run of [sem_pe].) | sem_tests/test.sh (its own run of [semantica,sem_pe,basics].) | sem_tests/test.sh (its own run of [semantica,sem_pe].)
+socket_tests_auxiliary_msgClient	1	socket_tests_socket_msg.pl
+socket_tests_auxiliary_msgServer	1	socket_tests_socket_msg.pl
+socket_tests_auxiliary_putClient	1	socket_tests_socket_put.pl
+socket_tests_auxiliary_putServer	1	socket_tests_socket_put.pl
+socket_tests_auxiliary_streamClient	1	socket_tests_socket_stream.pl
+socket_tests_auxiliary_streamServer	1	socket_tests_socket_stream.pl
+sub_tests_Data_chain	13	sub_tests_drtc1.pl | sub_tests_drtc2.pl | sub_tests_drtc3.pl | sub_tests_genome1.pl | sub_tests_lrtc1.pl | sub_tests_lrtc2.pl | sub_tests_lrtc3.pl | sub_tests_rrtc1.pl | sub_tests_rrtc2.pl | sub_tests_rrtc3.pl | sub_tests_sg1.pl | sub_tests_sg2.pl | sub_tests_sg3.pl
+sub_tests_Data_cycles	9	sub_tests_drtc7.pl | sub_tests_drtc8.pl | sub_tests_genome3.pl | sub_tests_lrtc7.pl | sub_tests_lrtc8.pl | sub_tests_rrtc7.pl | sub_tests_rrtc8.pl | sub_tests_sg7.pl | sub_tests_sg8.pl
+sub_tests_Data_decker_facts	1	sub_tests_decker.pl
+sub_tests_Data_tree	13	sub_tests_drtc4.pl | sub_tests_drtc5.pl | sub_tests_drtc6.pl | sub_tests_genome2.pl | sub_tests_lrtc4.pl | sub_tests_lrtc5.pl | sub_tests_lrtc6.pl | sub_tests_rrtc4.pl | sub_tests_rrtc5.pl | sub_tests_rrtc6.pl | sub_tests_sg4.pl | sub_tests_sg5.pl | sub_tests_sg6.pl
+sub_tests_Driver	37	sub_tests_decker.pl | sub_tests_drtc1.pl | sub_tests_drtc2.pl | sub_tests_drtc3.pl | sub_tests_drtc4.pl | sub_tests_drtc5.pl | sub_tests_drtc6.pl | sub_tests_drtc7.pl | sub_tests_drtc8.pl | sub_tests_floratest.pl | sub_tests_genome1.pl | sub_tests_genome2.pl | sub_tests_genome3.pl | sub_tests_lrtc1.pl | sub_tests_lrtc2.pl | sub_tests_lrtc3.pl | sub_tests_lrtc4.pl | sub_tests_lrtc5.pl | sub_tests_lrtc6.pl | sub_tests_lrtc7.pl | sub_tests_lrtc8.pl | sub_tests_rrtc1.pl | sub_tests_rrtc2.pl | sub_tests_rrtc3.pl | sub_tests_rrtc4.pl | sub_tests_rrtc5.pl | sub_tests_rrtc6.pl | sub_tests_rrtc7.pl | sub_tests_rrtc8.pl | sub_tests_sg1.pl | sub_tests_sg2.pl | sub_tests_sg3.pl | sub_tests_sg4.pl | sub_tests_sg5.pl | sub_tests_sg6.pl | sub_tests_sg7.pl | sub_tests_sg8.pl
+sub_tests_Programs_decker_rules	1	sub_tests_decker.pl
+sub_tests_Programs_flora	1	sub_tests_floratest.pl
+sub_tests_Programs_traversal	35	sub_tests_drtc1.pl | sub_tests_drtc2.pl | sub_tests_drtc3.pl | sub_tests_drtc4.pl | sub_tests_drtc5.pl | sub_tests_drtc6.pl | sub_tests_drtc7.pl | sub_tests_drtc8.pl | sub_tests_genome1.pl | sub_tests_genome2.pl | sub_tests_genome3.pl | sub_tests_lrtc1.pl | sub_tests_lrtc2.pl | sub_tests_lrtc3.pl | sub_tests_lrtc4.pl | sub_tests_lrtc5.pl | sub_tests_lrtc6.pl | sub_tests_lrtc7.pl | sub_tests_lrtc8.pl | sub_tests_rrtc1.pl | sub_tests_rrtc2.pl | sub_tests_rrtc3.pl | sub_tests_rrtc4.pl | sub_tests_rrtc5.pl | sub_tests_rrtc6.pl | sub_tests_rrtc7.pl | sub_tests_rrtc8.pl | sub_tests_sg1.pl | sub_tests_sg2.pl | sub_tests_sg3.pl | sub_tests_sg4.pl | sub_tests_sg5.pl | sub_tests_sg6.pl | sub_tests_sg7.pl | sub_tests_sg8.pl
+table_tests_a	1	table_tests_trdyn.pl
+table_tests_abol_test2_module	2	table_tests_abol_test2.pl | table_tests_abol_test2a.pl
+table_tests_actions	1	table_tests_test_just.pl
+table_tests_as_mod	1	table_tests_test_as_mod.pl
+table_tests_cantrdat	1	table_tests_trdynctest.pl
+table_tests_correct	2	table_tests_ins.pl | table_tests/test.sh (its own run of compile(lists,[sysmod]).)
+table_tests_cycle	2	table_tests_testh.pl | table_tests/test.sh (its own run of compile(lists,[sysmod]).)
+table_tests_edge_dag	1	table_tests_aggregs_test.pl
+table_tests_exec	1	table_tests_expand.pl
+table_tests_float1	1	table_tests_float.pl
+table_tests_kalah_ox	1	table_tests_expand.pl
+table_tests_not_exists_test_mod	1	table_tests_not_exists_test.pl
+table_tests_sets	2	table_tests_ins.pl | table_tests/test.sh (its own run of compile(lists,[sysmod]).)
+table_tests_test_table_index_1	1	table_tests_test_table_index.pl
+table_tests_trdat	1	table_tests_trdyntest.pl
+table_tests_utils	2	table_tests_trassert.pl | table_tests/test.sh (its own run of compile(lists,[sysmod]).)
+wfs_tests_wfs_test	72	wfs_tests_p06.pl | wfs_tests_p07.pl | wfs_tests_p08.pl | wfs_tests_p09.pl | wfs_tests_p10.pl | wfs_tests_p11.pl | wfs_tests_p12.pl | wfs_tests_p13.pl | wfs_tests_p14.pl | wfs_tests_p15.pl | wfs_tests_p16.pl | wfs_tests_p17.pl | wfs_tests_p18.pl | wfs_tests_p19.pl | wfs_tests_p20.pl | wfs_tests_p21.pl | wfs_tests_p22.pl | wfs_tests_p23.pl | wfs_tests_p24.pl | wfs_tests_p25.pl | wfs_tests_p26.pl | wfs_tests_p27.pl | wfs_tests_p29.pl | wfs_tests_p30.pl | wfs_tests_p31.pl | wfs_tests_p32.pl | wfs_tests_p33.pl | wfs_tests_p34.pl | wfs_tests_p35.pl | wfs_tests_p36.pl | wfs_tests_p37.pl | wfs_tests_p39.pl | wfs_tests_p40.pl | wfs_tests_p42.pl | wfs_tests_p43.pl | wfs_tests_p44.pl | wfs_tests_p45.pl | wfs_tests_p46.pl | wfs_tests_p47.pl | wfs_tests_p48.pl | wfs_tests_p49.pl | wfs_tests_p50.pl | wfs_tests_p51.pl | wfs_tests_p52.pl | wfs_tests_p52a.pl | wfs_tests_p53.pl | wfs_tests_p54.pl | wfs_tests_p55.pl | wfs_tests_p56.pl | wfs_tests_p57.pl | wfs_tests_p58.pl | wfs_tests_p59.pl | wfs_tests_p60.pl | wfs_tests_p62.pl | wfs_tests_p63.pl | wfs_tests_p64.pl | wfs_tests_p65.pl | wfs_tests_p66.pl | wfs_tests_p67.pl | wfs_tests_p77.pl | wfs_tests_p78.pl | wfs_tests_p79.pl | wfs_tests_p80.pl | wfs_tests_p81.pl | wfs_tests_p82.pl | wfs_tests_p83.pl | wfs_tests_p84.pl | wfs_tests_p85.pl | wfs_tests_p86.pl | wfs_tests_p89.pl | wfs_tests_p90.pl | wfs_tests_p91.pl

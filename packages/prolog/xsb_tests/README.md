@@ -3,8 +3,24 @@
 XSB's regression test programs, vendored on Lon's word (2026-10-10, in-chat to the ceo, verbatim: "Let's begin making entries for
 demos and test suites."; row prolog-suite-the-xsb-test-programs-vendored-as-a-package-with-swipl-refs-and-graded-as-a-suite-row,
 CEO-1595). One FLAT package, one container (ALL.pl / ALL.ref / ALL.csv, built by SCRIP/scripts/util_build_package_suite.py
-`--lang prolog --twice`), every ref CUT FROM THE ORACLE, swipl -q -- never from XSB's own `<test>_old` expected files, which are not
-vendored (ONE ORACLE).
+`--lang prolog --twice`), every ref CUT FROM THE ORACLE. Since 2026-10-23 the oracle is XSB 5.0.0 itself (§ THE ORACLE IS XSB, below);
+until then it was swipl -q, and the paragraphs on drivers and the dialect marker below date from then.
+
+## THE ORACLE IS XSB (ceo CEO-1927, 2026-10-23)
+
+Lon 2026-10-23 11:3x CDT, in-chat to the cfo, verbatim: *"Since SWIPL does not have all XSB, we should begin to use XSB system as the third
+oracle."* (RULES.md § Oracles, FACT RULE XSB IS THE THIRD PROLOG ORACLE, FOR THE XSB PACKAGE.) CONTRACT.tsv declares it: `oracle xsb-gentest`,
+`upstream /home/resources/prologs/xsb/xsbtests`, `compare ignore-all-space`. Each ref is XSB's answer to the run XSB's OWN test scripts make
+(ORACLE_RUNS.tsv: directory, options, FILE, CMD -- recorded by RUNNING every directory's test.sh, and incremental_tests' stest.sh, the one
+stest.sh testall.sh runs by default, with a recording XEMU in front of xsb_bin(): harness util_xsb_oracle_runs.py record, twice), in a fresh
+copy of the upstream test directory: `[FILE]. tell(temp). CMD. told.` on the stdin of `xsb -e segfault_handler(warn).`, the answer the file
+temp, its non-empty lines sorted -- the same shape the vendored driver xsb_sorted_output prints SCRIP's in. SCRIP's output is graded
+against it ignoring white space within a line, as gentest.sh's `diff -w` does (ALL.csv's compare column). ALL.xsbold names, per entry,
+XSB's answer against the NAME_old XSB ships; the ref is XSB's answer either way (CEO-1927 (1)). Rebuild:
+
+    TIMEOUT=120 python3 ../harness/scripts/util_build_package_suite.py ../corpus/packages/prolog/xsb_tests --lang prolog --twice
+
+ALL.prelude still selects SCRIP's SWI dialect (CEO-1712, chosen when swipl cut the refs); how SCRIP reads XSB's programs is SCRIP's lane.
 
 ## Source and license
 
@@ -53,15 +69,20 @@ match differed only in the order of tabled answers (identical once sorted); with
 
 ## Classes
 
-- CONTAINERS.tsv -- not programs (util_container_or_library.py, verified): a companion a driver loads (LOADED_BY) and files that
-  define nothing (NO_DEFINITION). They leave the shipped population.
-- UNGRADABLE.tsv -- ORACLE_REFUSES: swipl prints nothing for the driven program (XSB-only builtins and syntax: `compiler_options/1`,
-  `auto_table/1`, `index/2`, `load_dyn/1`, the `import ... from ...` directive and HiLog, module-qualified calls into an XSB-loaded
-  file), swipl's own first lines quoted; ORACLE_CONTRACT_NOT_IMPLEMENTED: `compiler_tests`, whose runner diffs XSB's `.xwam` object.
-- UNGRADED.tsv -- NEEDS_DRIVER: files no XSB script drives (helpers, data and variants beside the driven tests); NEEDS_RUNNER_WIRING:
-  a program that loads a sibling by its upstream name (`['Driver']`), which the flat package prefixes, and `wfs_tests`' `pNN` programs,
-  which XSB drives by a shell loop through a harness that loads them by name and writes to a file; TIMEOUT: no answer within 60 s, twice.
+- CONTAINERS.tsv -- not programs (util_container_or_library.py verify re-derives every row): the 8 of 2026-10-11 (2 LOADED_BY by a load
+  directive, 6 NO_DEFINITION), and 148 LOADED_BY a run of XSB's own scripts: a file XSB OPENED while running another program and that its
+  scripts run nowhere themselves (ORACLE_LOADS.tsv, strace of the scripts' runs) -- a library the suite loads, neither a test nor a failure
+  (CEO-1927 (4)).
+- EXCLUDED.tsv -- out of the denominator, each with its measurement: NO_ORACLE_ANSWER (XSB answers differently on two runs, prints nothing
+  where its NAME_old has lines, or its scripts neither run nor open the file) and FAKEABLE_NO_OBSERVABLE (XSB's answer is empty, as its
+  NAME_old is: a silent engine would pass it, CEO-1865).
+- UNGRADED.tsv -- NEEDS_RUNNER_WIRING alone: XSB answers the program in its upstream directory and SCRIP's run needs that directory staged
+  under upstream names -- the 72 wfs_tests pNN (wfs_test.P consults them by name and writes temp) and 60 programs whose XSB run opens a
+  vendored sibling by name, and json_tests_jsontest, whose answer carries a carriage return no ref can hold. Owed (the coo's phase 2); not
+  yet in the table.
+- UNGRADABLE.tsv -- empty: its rows were swipl's refusals.
 
-INVENTORY, MEASURED 2026-10-11 (inventory_line rc 0): 907 files vendored, 8 containers (2 LOADED_BY, 6 NO_DEFINITION); 899 shipped =
-244 graded + 253 UNGRADABLE (249 ORACLE_REFUSES, 4 ORACLE_CONTRACT_NOT_IMPLEMENTED) + 402 UNGRADED (257 NEEDS_DRIVER, 141
-NEEDS_RUNNER_WIRING, 4 TIMEOUT). 556 files carry a driver (40 of them from a line XSB comments out).
+INVENTORY, MEASURED 2026-10-23 (util_build_package_suite.py --twice, XSB 5.0.0): 907 files vendored = 417 graded (in the table, refs cut from
+XSB) + 156 containers + 201 EXCLUDED (194 NO_ORACLE_ANSWER, 7 FAKEABLE_NO_OBSERVABLE) + 133 UNGRADED NEEDS_RUNNER_WIRING. XSB's scripts run
+564 of the vendored programs (ORACLE_RUNS.tsv); of the 417 refs, ALL.xsbold reads 381 MATCH and 32 MATCH-w against NAME_old, and 4 DIFF
+(today's XSB 5.0.0 answers otherwise than the file it ships; the ref is XSB's run, CEO-1927 (1)).
