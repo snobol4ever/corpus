@@ -7,3 +7,6 @@ query(p67,p,[p,q],[],[p]).
 p :- tnot(p).
 p :- q.
 q :- q.
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p67 "test(p67)." -- [wfs_test]. test(p67). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((consult(wfs_test), test(p67), told)).

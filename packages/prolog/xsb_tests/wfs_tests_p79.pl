@@ -12,3 +12,6 @@ q(b).
 r(A) :- q(A), s(A).
 s(b).
 s(c).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p79 "test(p79)." -- [wfs_test]. test(p79). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((consult(wfs_test), test(p79), told)).

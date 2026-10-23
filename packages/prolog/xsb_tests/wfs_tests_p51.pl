@@ -8,3 +8,6 @@ query(p51,p0,[p0,p1,p2],[],[p0,p1,p2]).
 p0 :- tnot(p0), tnot(p1), tnot(p2).
 p1 :- tnot(p1), tnot(p2), tnot(p0).
 p2 :- tnot(p2), tnot(p0), tnot(p1).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p51 "test(p51)." -- [wfs_test]. test(p51). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((consult(wfs_test), test(p51), told)).

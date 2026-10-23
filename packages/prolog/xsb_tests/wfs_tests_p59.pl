@@ -48,3 +48,6 @@ p19 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tno
 p20 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20), tnot(p21), tnot(p22).
 p21 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20), tnot(p21), tnot(p22).
 p22 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20), tnot(p21), tnot(p22).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p59 "test(p59)." -- [wfs_test]. test(p59). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((consult(wfs_test), test(p59), told)).

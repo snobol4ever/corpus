@@ -17,3 +17,6 @@ p :- r, tnot(s).
 q :- p.
 r :- q.
 s :- fail.
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p32 "test(p32)." -- [wfs_test]. test(p32). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((consult(wfs_test), test(p32), told)).

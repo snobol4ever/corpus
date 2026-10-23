@@ -50,3 +50,6 @@ s5 :- tnot(p5), tnot(q5), tnot(r5).
 p5 :- tnot(s5), tnot(r5), q5.
 q5 :- tnot(p5), r5.
 r5 :- tnot(q5), p5.
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p17 "test(p17)." -- [wfs_test]. test(p17). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((consult(wfs_test), test(p17), told)).

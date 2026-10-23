@@ -36,3 +36,6 @@ p13 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tno
 p14 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16).
 p15 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16).
 p16 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p56 "test(p56)." -- [wfs_test]. test(p56). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((consult(wfs_test), test(p56), told)).

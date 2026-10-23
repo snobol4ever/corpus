@@ -16,3 +16,6 @@ t(b6,c6,b7).
 t(b7,c7,b8).
 t(b8,c8,b9).
 t(b9,c9,b10).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p86 "test(p86)." -- [wfs_test]. test(p86). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((consult(wfs_test), test(p86), told)).

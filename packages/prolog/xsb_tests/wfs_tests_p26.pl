@@ -16,3 +16,6 @@ p :- tnot(s), tnot(r), q.
 q :- tnot(p), r.
 r :- tnot(q), p.
 s :- tnot(p), tnot(q), tnot(r).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p26 "test(p26)." -- [wfs_test]. test(p26). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((consult(wfs_test), test(p26), told)).

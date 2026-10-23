@@ -8,3 +8,6 @@ m(a,b).
 m(b,c).
 m(c,d).
 m(b,d).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p11 "test(p11)." -- [wfs_test]. test(p11). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((consult(wfs_test), test(p11), told)).

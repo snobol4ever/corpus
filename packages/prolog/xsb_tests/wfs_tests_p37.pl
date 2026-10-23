@@ -14,3 +14,6 @@ b(1,2).
 b(2,1).
 g(2,3).
 g(3,2).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p37 "test(p37)." -- [wfs_test]. test(p37). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((consult(wfs_test), test(p37), told)).
