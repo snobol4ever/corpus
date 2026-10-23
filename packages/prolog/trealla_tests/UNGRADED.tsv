@@ -1,5 +1,3 @@
 # UNGRADED.tsv -- trealla_tests: the shipped programs owed work before they are graded -- NEEDS_DRIVER (it prints nothing, so a
 # driver must make its result observable) or TIMEOUT (no answer under the build's timeout, twice). name<TAB>CLASS<TAB>evidence.
 # In the published denominator (CEO-1286).
-issues_test1097.pl	NEEDS_RUNNER_WIRING	names a file relative to Trealla's repository root, where Trealla's runner starts; the package harness starts in the package directory: ERROR: issues_test1097.pl:2: Initialization goal raised exception: ERROR: open/4: source_sink `'tests/issues/test1097.tmp'' does not exist (No such file or directory)
-issues_test1114.pl	NEEDS_RUNNER_WIRING	names a file relative to Trealla's repository root, where Trealla's runner starts; the package harness starts in the package directory: ERROR: issues_test1114.pl:12: Initialization goal raised exception: ERROR: open/3: source_sink `'tests/issues/t1114_a'' does not exist (No such file or directory)

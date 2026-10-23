@@ -33,8 +33,8 @@ repository root; swipl runs each with `:- initialization(main)` as written, from
 After the drivers (2026-10-10, 456 shipped): 329 graded -- 30 of them through DRIVERS.tsv, the silent regression tests Trealla grades by
 exit status, whose driver prints whether main/0 succeeded, failed or raised -- 125 UNGRADABLE (122 ORACLE_REFUSES -- Trealla-only libraries
 such as clpz, janus, freeze and dcgs, Trealla-only syntax, goals that fail or raise under swipl, three that fail to load and then run
-past 60 s -- and 3 NONDETERMINISTIC), 2 UNGRADED NEEDS_RUNNER_WIRING (issues_test1097 and issues_test1114 write their fixtures under
-tests/issues/ and read them back from where Trealla's tree puts the program). ⚠ 41 of the graded programs load under swipl with an error on stderr (a
+past 60 s -- and 3 NONDETERMINISTIC), 2 that were UNGRADED NEEDS_RUNNER_WIRING (issues_test1097 and issues_test1114 write their fixtures
+under tests/issues/), measured 2026-10-23 in Trealla's own layout and excluded as NO_ORACLE_ANSWER: neither swipl nor gprolog answers (CEO-1926). ⚠ 41 of the graded programs load under swipl with an error on stderr (a
 Trealla-only library or syntax swipl lacks) and still print: their ref is swipl's output on the part it loaded -- the one oracle's
 answer, as every package here takes it (the builder reads stdout); the names are in the landing that built this.
 
