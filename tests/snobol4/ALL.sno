@@ -10217,7 +10217,7 @@ exhausted
 reached
 END
 *------------------------------ 1592 code_eval_indirect_keyword_replace_branch_1
-*  CODE compiles a cursor assignment whose target is an indirection of the null string, or the null name: the statement is compiled and the failure is at run time
+*  CODE compiles a cursor assignment whose target is an indirection of the null name: the statement is compiled and the failure is at run time
         &ERRLIMIT = 100
         S = ' Y = @$NULL'
         CODE(S)                                         :S(Y1)
@@ -10227,7 +10227,7 @@ E1      S = ' Z = @$NULL'
         CODE(S)                                         :S(Y2)
         OUTPUT = '2 F ' &ERRTYPE                        :(E2)
 Y2      OUTPUT = '2 S'
-E2      S = ' Y = @NULL'
+E2      S = ' Y = @$X  '
         CODE(S)                                         :S(Y3)
         OUTPUT = '3 F ' &ERRTYPE                        :(E3)
 Y3      OUTPUT = '3 S'
