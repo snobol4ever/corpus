@@ -2,14 +2,14 @@
 100-doors-1	iso
 100-doors-2	fpc-default
 4-rings-or-4-squares-puzzle	delphi
+a_b-1	iso
+a_b-2	iso
 a_b-3	iso
 abelian-sandpile-model	delphi
 ackermann-function	iso
 additive-primes	delphi
 aks-test-for-primes	objfpc
 align-columns	objfpc
-amicable-pairs-2	delphi
-amicable-pairs-3	delphi
 anonymous-recursion	iso
 anti-primes	delphi
 arbitrary-precision-integers-included-	fpc-default
@@ -41,6 +41,7 @@ catalan-numbers	iso
 catamorphism	iso
 chinese-remainder-theorem	objfpc
 cholesky-decomposition	objfpc
+closest-pair-problem	delphi
 code-golf	iso
 collections-6	fpc-default
 color-difference-cie-e2000	fpc-default
@@ -49,6 +50,7 @@ comma-quibbling	objfpc
 continued-fraction	delphi
 convex-hull	iso
 conways-game-of-life	delphi
+copy-stdin-to-stdout	iso
 count-how-many-vowels-and-consonants-occur-in-a-string	iso
 count-in-factors	delphi
 count-the-coins-0-1	delphi
@@ -74,7 +76,6 @@ equilibrium-index-2	delphi
 esthetic-numbers	delphi
 euler-method	delphi
 eulers-sum-of-powers-conjecture	delphi
-evolutionary-algorithm	fpc-default
 executable-library-1	fpc-default
 execute-a-markov-algorithm	objfpc
 execute-brain-	fpc-default
@@ -99,6 +100,7 @@ generic-swap-2	objfpc
 greatest-common-divisor-1	objfpc
 greatest-common-divisor	iso
 greatest-subsequential-sum	iso
+guess-the-number-with-feedback-player-	iso
 guess-the-number	iso
 hailstone-sequence	delphi
 hamming-numbers-1	delphi
@@ -119,6 +121,7 @@ host-introspection	iso
 hostname	fpc-default
 http-1	objfpc
 identity-matrix	iso
+input-output-for-pairs-of-numbers	iso
 integer-comparison	iso
 iterated-digits-squaring	objfpc
 jaro-similarity	objfpc
@@ -181,12 +184,12 @@ numerical-integration-adaptive-simpsons-method	fpc-default
 numerical-integration-gauss-legendre-quadrature	iso
 numerical-integration-romberg-integration	iso
 one-dimensional-cellular-automata	delphi
-one-of-n-lines-in-a-file-1	delphi
 palindrome-detection-3	fpc-default
 palindromic-gapful-numbers	delphi
 paraffins-2	objfpc
 pascal-matrix-generation	fpc-default
 pascals-triangle	iso
+password-generator-1	objfpc
 penneys-game	iso
 perceptron	iso
 perlin-noise	fpc-default
@@ -194,6 +197,7 @@ permutations-1	iso
 permutations-derangements	objfpc
 permutations-with-repetitions	delphi
 permutations-with-some-identical-elements	delphi
+permuted-multiples	delphi
 pernicious-numbers	objfpc
 pi	objfpc
 pick-random-element	fpc-default
@@ -202,7 +206,6 @@ positive-decimal-integers-with-the-digit-1-occurring-exactly-twice	iso
 price-fraction	iso
 primality-by-trial-division-1	iso
 primality-by-wilsons-theorem	objfpc
-prime-conspiracy	iso
 priority-queue-1	objfpc
 proper-divisors	delphi
 pythagorean-quadruples-2	fpc-default
@@ -211,7 +214,6 @@ queue-definition	iso
 quine-1	iso
 quine-2	iso
 quine-3	iso
-random-latin-squares	iso
 range-extraction	objfpc
 read-a-specific-line-from-a-file	fpc-default
 regular-expressions	fpc-default
@@ -251,7 +253,6 @@ sorting-algorithms-insertion-sort	objfpc
 sorting-algorithms-merge-sort-1	objfpc
 sorting-algorithms-pancake-sort	iso
 sorting-algorithms-quicksort	objfpc
-sorting-algorithms-stooge-sort	iso
 sorting-algorithms-strand-sort	fpc-default
 soundex	objfpc
 spiral-matrix	iso
@@ -264,6 +265,7 @@ string-append	objfpc
 string-case	fpc-default
 string-concatenation	fpc-default
 string-length	iso
+strip-control-codes-and-extended-characters-from-a-string	fpc-default
 strong-and-weak-primes	iso
 sum-multiples-of-3-and-5-1	iso
 sum-multiples-of-3-and-5-2	iso
@@ -303,7 +305,6 @@ ulam-spiral-for-primes--2	objfpc
 ulam-spiral-for-primes--3	objfpc
 unix-ls	fpc-default
 unprimeable-numbers-1	delphi
-unprimeable-numbers-2	delphi
 user-input-text	fpc-default
 van-der-corput-sequence	delphi
 van-eck-sequence	fpc-default
@@ -311,6 +312,7 @@ vector-products	iso
 vigen-re-cipher	fpc-default
 walk-a-directory-non-recursively	fpc-default
 water-collected-between-towers	delphi
+window-creation-x11	objfpc
 word-wheel	objfpc
 write-language-name-in-3d-ascii	fpc-default
 yin-and-yang	fpc-default

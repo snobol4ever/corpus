@@ -1,17 +1,17 @@
 100-prisoners-1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 100-prisoners-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
-15-puzzle-game: oracle timed out -- non-terminating or too slow for the grading timeout
+15-puzzle-game: the oracle's output passed the harness's bound (S4E_OUTPUT_CAP_MB, 268435456 bytes) and the run was killed -- no answer
 15-puzzle-solver-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 15-puzzle-solver-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 2048: oracle timed out -- non-terminating or too slow for the grading timeout
 21-game: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
-a_b-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-a_b-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 abc-problem: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 add-a-variable-to-a-class-instance-at-runtime-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 add-a-variable-to-a-class-instance-at-runtime-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 almost-prime: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 amicable-pairs-1: the oracle output carries carriage returns -- a ref with CR breaks OUR FILES ARE LF and the harness reader
+amicable-pairs-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+amicable-pairs-3: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 anagrams: oracle produced EMPTY output -- refusing to mint a vacuous ref
 anagrams-deranged-anagrams: oracle produced EMPTY output -- refusing to mint a vacuous ref
 angle-difference-between-two-bearings: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -44,7 +44,6 @@ chaos-game: fpc refuses to compile it in every mode (iso, default, objfpc, delph
 character-codes: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 chinese-zodiac: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 chowla-numbers: oracle timed out -- non-terminating or too slow for the grading timeout
-closest-pair-problem: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 collections-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 collections-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 collections-3: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
@@ -62,9 +61,8 @@ conditional-structures-2: fpc refuses to compile it in every mode (iso, default,
 conditional-structures-3: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 convert-seconds-to-compound-duration: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 copy-a-string: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
-copy-stdin-to-stdout: oracle produced EMPTY output -- refusing to mint a vacuous ref
 count-in-octal-1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
-count-in-octal-2: oracle timed out -- non-terminating or too slow for the grading timeout
+count-in-octal-2: the oracle's output passed the harness's bound (S4E_OUTPUT_CAP_MB, 268435456 bytes) and the run was killed -- no answer
 create-a-file: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 create-a-two-dimensional-array-at-runtime: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 csv-data-manipulation: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -94,6 +92,7 @@ even-or-odd-1: fpc refuses to compile it in every mode (iso, default, objfpc, de
 even-or-odd-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 even-or-odd-3: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 even-or-odd-4: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+evolutionary-algorithm: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 executable-library-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 executable-library-3: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 execute-a-system-command: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
@@ -107,7 +106,7 @@ factorial-4: fpc refuses to compile it in every mode (iso, default, objfpc, delp
 factorions: oracle timed out -- non-terminating or too slow for the grading timeout
 factors-of-an-integer-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 fast-fourier-transform: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
-fasta-format: oracle produced EMPTY output -- refusing to mint a vacuous ref
+fasta-format: the oracle output carries carriage returns -- a ref with CR breaks OUR FILES ARE LF and the harness reader
 faulhabers-triangle: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 fibonacci-matrix-exponentiation: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 fibonacci-sequence-1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
@@ -118,10 +117,10 @@ fibonacci-sequence-5: fpc refuses to compile it in every mode (iso, default, obj
 fibonacci-sequence-6: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 filter: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 find-words-which-contains-more-than-3-e-vowels: oracle produced EMPTY output -- refusing to mint a vacuous ref
-finite-state-machine: oracle timed out -- non-terminating or too slow for the grading timeout
+finite-state-machine: the oracle's output passed the harness's bound (S4E_OUTPUT_CAP_MB, 268435456 bytes) and the run was killed -- no answer
 first-class-functions-use-numbers-analogously: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 first-perfect-square-in-base-n-with-n-unique-digits-1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
-first-perfect-square-in-base-n-with-n-unique-digits-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+first-perfect-square-in-base-n-with-n-unique-digits-2: oracle timed out -- non-terminating or too slow for the grading timeout
 first-power-of-2-that-has-leading-decimal-digits-of-12-1: oracle timed out -- non-terminating or too slow for the grading timeout
 fixed-length-records: oracle produced EMPTY output -- refusing to mint a vacuous ref
 flow-control-structures-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
@@ -138,13 +137,12 @@ greatest-common-divisor-2: fpc refuses to compile it in every mode (iso, default
 greatest-common-divisor-3: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 greatest-common-divisor-4: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 greatest-element-of-a-list: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
-guess-the-number-with-feedback-player-: oracle timed out -- non-terminating or too slow for the grading timeout
 halt-and-catch-fire: oracle produced EMPTY output -- refusing to mint a vacuous ref
 hamming-numbers-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 hamming-numbers-3: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 happy-numbers-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 harshad-or-niven-series: oracle timed out -- non-terminating or too slow for the grading timeout
-hello-world-graphical: oracle timed out -- non-terminating or too slow for the grading timeout
+hello-world-graphical: oracle produced EMPTY output -- refusing to mint a vacuous ref
 hello-world-line-printer: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 hello-world-standard-error: oracle produced EMPTY output -- refusing to mint a vacuous ref
 hexapawn: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
@@ -153,15 +151,14 @@ http-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, t
 https: oracle produced EMPTY output -- refusing to mint a vacuous ref
 humble-numbers: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 hunt-the-wumpus: oracle timed out -- non-terminating or too slow for the grading timeout
-image-noise: oracle timed out -- non-terminating or too slow for the grading timeout
+image-noise: oracle produced EMPTY output -- refusing to mint a vacuous ref
 implicit-type-conversion-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
 implicit-type-conversion-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 increasing-gaps-between-consecutive-niven-numbers: oracle timed out -- non-terminating or too slow for the grading timeout
 increment-a-numerical-string: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 input-loop: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
-input-output-for-pairs-of-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
-integer-sequence-1: oracle timed out -- non-terminating or too slow for the grading timeout
-integer-sequence-2: oracle timed out -- non-terminating or too slow for the grading timeout
+integer-sequence-1: the oracle's output passed the harness's bound (S4E_OUTPUT_CAP_MB, 268435456 bytes) and the run was killed -- no answer
+integer-sequence-2: the oracle's output passed the harness's bound (S4E_OUTPUT_CAP_MB, 268435456 bytes) and the run was killed -- no answer
 isbn13-check-digit: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 isqrt-integer-square-root-of-x: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 keyboard-input-obtain-a-y-or-n-response: oracle timed out -- non-terminating or too slow for the grading timeout
@@ -186,7 +183,7 @@ mandelbrot-set: oracle produced EMPTY output -- refusing to mint a vacuous ref
 maximum-difference-between-adjacent-elements-of-list: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 memory-allocation-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 memory-allocation-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
-menu: oracle timed out -- non-terminating or too slow for the grading timeout
+menu: the oracle's output passed the harness's bound (S4E_OUTPUT_CAP_MB, 268435456 bytes) and the run was killed -- no answer
 mertens-function: oracle timed out -- non-terminating or too slow for the grading timeout
 mian-chowla-sequence: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 modular-exponentiation: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -204,18 +201,18 @@ n-queens-problem-2: oracle timed out -- non-terminating or too slow for the grad
 n-queens-problem-3: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 natural-sorting: the oracle output carries carriage returns -- a ref with CR breaks OUR FILES ARE LF and the harness reader
 next-special-primes: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
-nim-game: oracle timed out -- non-terminating or too slow for the grading timeout
+nim-game: the oracle's output passed the harness's bound (S4E_OUTPUT_CAP_MB, 268435456 bytes) and the run was killed -- no answer
 numbers-whose-count-of-divisors-is-prime: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 numbers-with-prime-digits-whose-sum-is-13-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 numeric-separator-syntax: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 numerical-integration: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+one-of-n-lines-in-a-file-1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 one-of-n-lines-in-a-file-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 opengl: oracle produced EMPTY output -- refusing to mint a vacuous ref
 palindrome-detection-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 palindrome-detection-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 paraffins-1: the oracle output carries carriage returns -- a ref with CR breaks OUR FILES ARE LF and the harness reader
 parameterized-sql-statement: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
-password-generator-1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 password-generator-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 pells-equation: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 percolation-mean-run-density: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
@@ -223,8 +220,7 @@ perfect-numbers: oracle timed out -- non-terminating or too slow for the grading
 perfect-totient-numbers: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 permutations-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 permutations-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
-permuted-multiples: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
-pig-the-dice-game: oracle timed out -- non-terminating or too slow for the grading timeout
+pig-the-dice-game: the oracle's output passed the harness's bound (S4E_OUTPUT_CAP_MB, 268435456 bytes) and the run was killed -- no answer
 pointers-and-references-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
 pointers-and-references-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 population-count-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
@@ -232,6 +228,7 @@ population-count-2: fpc refuses to compile it in every mode (iso, default, objfp
 population-count-3: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 practical-numbers: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 primality-by-trial-division-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+prime-conspiracy: oracle timed out -- non-terminating or too slow for the grading timeout
 primes-whose-sum-of-digits-is-25: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 primorial-numbers-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 primorial-numbers-2: the oracle output carries carriage returns -- a ref with CR breaks OUR FILES ARE LF and the harness reader
@@ -241,6 +238,7 @@ priority-queue-4: fpc refuses to compile it in every mode (iso, default, objfpc,
 program-name: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 program-termination: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 pythagorean-quadruples-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+random-latin-squares: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 random-number-generator-device-: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 random-numbers: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 read-a-configuration-file: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
@@ -263,7 +261,7 @@ safe-primes-and-unsafe-primes: fpc refuses to compile it in every mode (iso, def
 sattolo-cycle: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 scope-modifiers: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 secure-temporary-file: oracle produced EMPTY output -- refusing to mint a vacuous ref
-self-numbers: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+self-numbers: oracle timed out -- non-terminating or too slow for the grading timeout
 semiprime: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 sequence-of-primes-by-trial-division: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 sequence_-smallest-number-greater-than-previous-term-with-exactly-n-divisors: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
@@ -279,7 +277,7 @@ sierpinski-triangle-1: fpc refuses to compile it in every mode (iso, default, ob
 sierpinski-triangle-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 sierpinski-triangle-3: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 sieve-of-eratosthenes: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
-simple-windowed-application: oracle timed out -- non-terminating or too slow for the grading timeout
+simple-windowed-application: oracle produced EMPTY output -- refusing to mint a vacuous ref
 singly-linked-list-element-definition: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 singly-linked-list-element-insertion-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 singly-linked-list-element-insertion-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
@@ -288,7 +286,7 @@ smallest-numbers-1: the oracle answers differently on two runs (time, randomness
 smallest-numbers-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 smarandache-prime-digital-sequence: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 sockets-2: oracle crashed (signal 13)
-solve-hanging-lantern-problem: oracle timed out -- non-terminating or too slow for the grading timeout
+solve-hanging-lantern-problem: the oracle's output passed the harness's bound (S4E_OUTPUT_CAP_MB, 268435456 bytes) and the run was killed -- no answer
 sort-the-letters-of-string-in-alphabetical-order: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 sort-three-variables: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 sorting-algorithms-bubble-sort-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
@@ -298,6 +296,7 @@ sorting-algorithms-merge-sort-2: the oracle answers differently on two runs (tim
 sorting-algorithms-patience-sort: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 sorting-algorithms-shell-sort: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 sorting-algorithms-sleep-sort: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+sorting-algorithms-stooge-sort: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 special-variables-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
 special-variables-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 square-form-factorization: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
@@ -305,7 +304,6 @@ stack: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp
 stair-climbing-puzzle: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 statistics-normal-distribution: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 string-prepend: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
-strip-control-codes-and-extended-characters-from-a-string: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 subleq: oracle timed out -- non-terminating or too slow for the grading timeout
 substring-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 substring-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
@@ -332,10 +330,10 @@ two-sum: the oracle output carries carriage returns -- a ref with CR breaks OUR 
 type-detection: oracle produced EMPTY output -- refusing to mint a vacuous ref
 unique-characters: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 unique-characters-in-each-string: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+unprimeable-numbers-2: oracle timed out -- non-terminating or too slow for the grading timeout
 untouchable-numbers: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 variable-size-set: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 window-creation: oracle produced EMPTY output -- refusing to mint a vacuous ref
-window-creation-x11: oracle timed out -- non-terminating or too slow for the grading timeout
 words-containing-the-substring: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 write-entire-file-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 write-entire-file-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
