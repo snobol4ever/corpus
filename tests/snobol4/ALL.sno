@@ -16752,7 +16752,7 @@ R8      S = " Y = ANY(.&ERRTEXT)"                            :(TRY)
 R9      S = " Y = .*X + 1"                                   :(TRY)
 R10      S = " Y = @X + 1"                                   :(TRY)
 R11      S = " Y = .X 'l'"                                   :(TRY)
-R12      S = " Y = .A<1> + 1"                                :(TRY)
+R12      S = " Y = .A[1] + 1"                                :(TRY)
 R13      S = " Y = .F() + 1"                                 :(TRY)
 R14                                                          :(END)
 TRY     N = N + 1
