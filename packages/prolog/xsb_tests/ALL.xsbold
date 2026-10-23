@@ -226,6 +226,7 @@ incremental_tests_test_wfs_update	MATCH
 io_tests_fmt_io	MATCH
 io_tests_io_basics	MATCH
 io_tests_test_proc_files	MATCH
+json_tests_jsontest	MATCH
 neg_tests_ldynstrat0	MATCH
 neg_tests_ldynstrat1	MATCH
 neg_tests_ldynstrat2	MATCH
@@ -297,6 +298,7 @@ prolog_tests_n2c	MATCH
 prolog_tests_newfirst	MATCH
 prolog_tests_parmod_tests_test_parmod	MATCH-w
 prolog_tests_parmod_tests_test_parmod_im	MATCH-w
+prolog_tests_pip_0110_format_test	MATCH
 prolog_tests_pip_write_term	MATCH
 prolog_tests_range_tree_tests	MATCH-w
 prolog_tests_readstrtest	MATCH-w
@@ -306,6 +308,7 @@ prolog_tests_std2	MATCH
 prolog_tests_test_aggregates	MATCH
 prolog_tests_test_arith_errors	MATCH
 prolog_tests_test_ascii_atom	MATCH
+prolog_tests_test_ascii_getput	MATCH-w
 prolog_tests_test_ascii_readwrite	MATCH-w
 prolog_tests_test_charset	MATCH-w
 prolog_tests_test_cleanup	MATCH
@@ -326,6 +329,8 @@ prolog_tests_test_sprint_term	MATCH
 prolog_tests_test_term_depth	MATCH
 prolog_tests_test_term_size	MATCH
 prolog_tests_test_termtoatom	MATCH
+prolog_tests_test_utf8_atom	MATCH-w
+prolog_tests_test_utf8_getput	MATCH
 prolog_tests_test_utf8_readwrite	MATCH
 prolog_tests_test_write_read	DIFF 74 lines in NAME_old, 72 in XSB's answer
 prolog_tests_unsafe1	MATCH

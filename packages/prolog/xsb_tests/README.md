@@ -77,18 +77,22 @@ match differed only in the order of tabled answers (identical once sorted); with
   (XSB answers differently from run to run -- the 3 socket tests, prolog_db_tests, preproc_test, whose answer carries XSB's own cpu-time load
   messages -- prints nothing where its NAME_old has lines, or its scripts neither run nor open the file) and FAKEABLE_NO_OBSERVABLE (XSB's
   answer is empty, as its NAME_old is: a silent engine would pass it, CEO-1865).
-- STAGED.tsv -- the 128 entries whose SCRIP run is staged in their upstream test directory (corpus_suite_harness.py stage_upstream, the
+- STAGED.tsv -- the 133 entries whose SCRIP run is staged in their upstream test directory (corpus_suite_harness.py stage_upstream, the
   coo's phase 2 of CEO-1927): every vendored file of the entry's test directory written there under its upstream name (as .pl, and under
   its own name), the appended drivers cut off -- the 72 wfs_tests pNN, whose answer is the file temp wfs_test.P writes (answer=temp-sorted;
   their drivers, appended in the same landing, consult wfs_test and run test(pNN) as wfs_tests/test.sh does), and 56 programs whose XSB
   run opens a vendored sibling by its upstream name.
-- UNGRADED.tsv -- NEEDS_RUNNER_WIRING, owed: json_tests_jsontest (its answer carries a carriage return no ref can hold, and it reads
-  data/*.json), pip_0110_format_test (format_tests/format.tst) and three utf8 tests (utf8.txt) -- a data file this package does not vendor.
+- upstream/ -- the data files a staged program reads by its upstream path, vendored at that path below its test directory and staged byte
+  for byte (stage_upstream; the coo, CEO-1926, 2026-10-23): json_tests/data/*.json (39, read by jsontest), prolog_tests/format_tests/format.tst
+  (pip_0110_format_test) and prolog_tests/utf8.txt (CR-LF as XSB ships it; test_ascii_getput, test_utf8_atom, test_utf8_getput), XSB's own
+  bytes (cmp). An answer carrying CR bytes is an answer (ceo CEO-1926): jsontest's ref holds two mid-line CRs, test_utf8_getput's two at end
+  of line, declared with utf8.txt in harness lf_gate_crlf_is_the_subject.tsv.
+- UNGRADED.tsv -- empty: its five NEEDS_RUNNER_WIRING rows (jsontest, pip_0110_format_test and the three utf8 tests) are staged now.
 - UNGRADABLE.tsv -- empty: its rows were swipl's refusals.
 
-INVENTORY, MEASURED 2026-10-23 (util_build_package_suite.py --twice, XSB 5.0.0): 907 files vendored = 545 graded (in the table, refs cut from
-XSB) + 156 containers + 201 EXCLUDED (194 NO_ORACLE_ANSWER, 7 FAKEABLE_NO_OBSERVABLE) + 5 UNGRADED NEEDS_RUNNER_WIRING. XSB's scripts run
-564 of the vendored programs (ORACLE_RUNS.tsv); of the 545 refs, ALL.xsbold reads 500 MATCH and 36 MATCH-w against NAME_old, and 9 DIFF
+INVENTORY, MEASURED 2026-10-23 (util_build_package_suite.py --twice, XSB 5.0.0): 907 files vendored = 550 graded (in the table, refs cut from
+XSB) + 156 containers + 201 EXCLUDED (194 NO_ORACLE_ANSWER, 7 FAKEABLE_NO_OBSERVABLE); 0 UNGRADED. XSB's scripts run
+564 of the vendored programs (ORACLE_RUNS.tsv); of the 550 refs, ALL.xsbold reads 503 MATCH and 38 MATCH-w against NAME_old, and 9 DIFF
 (today's XSB 5.0.0 answers otherwise than the file it ships; the ref is XSB's run, CEO-1927 (1)): float_tests roots, roots_int_comp and vac
 print full float precision; prolog_tests test_write_read writes operator terms -(','(a,b)) where NAME_old has -(?); cdf_tests checks,
 type0QueryExt, updateDL, updateExt and updateInt (a directory XSB's testall.sh does not run by default).
