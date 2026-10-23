@@ -143,6 +143,5 @@ hakank_swi_clique: the oracle answers differently on two runs (time, randomness 
 hakank_swi_curious_set_of_integers: oracle timed out -- non-terminating or too slow for the grading timeout
 hakank_swi_frustration_patience: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 hakank_swi_perfect_square_sequence: oracle timed out -- non-terminating or too slow for the grading timeout
-hakank_swi_shifted_division: oracle timed out -- non-terminating or too slow for the grading timeout
 hakank_swi_talisman_square: oracle timed out -- non-terminating or too slow for the grading timeout
 hakank_utils: oracle produced EMPTY output -- refusing to mint a vacuous ref

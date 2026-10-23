@@ -27543,7 +27543,262 @@ belongs(Belongs) :-
          [1,1,1,0,1,0,0,0,1,1,1,0],
          [0,0,1,1,0,0,1,1,0,0,1,1]].
 :- initialization(go).
-%------------------------------------------------- 223 hakank_swi_sicherman_dice
+%----------------------------------------------- 223 hakank_swi_shifted_division
+/*
+
+  Shifted divsion in SWI Prolog
+
+  https://twitter.com/queued_q/status/1315505135246663682
+  """
+   7903225806451612       7
+   -----------------  =   -
+    9032258064516128      8
+  """
+
+  This is represented as
+
+    x/y = a/b
+
+  Note that a (here 7) is the first digit of x and b (here 8) is the
+  last digit of y. These constraints are what make it interesting problem.
+
+  An "interesting division" is when the number x is without any repetition.
+
+
+  Compare with my Z3 model http://hakank.org/z3/shifted_division.py which has some 
+  more discussions about interestingness etc.
+  
+
+  *  N=2..100: 41.3s Tested in go/0.
+     labeling([ff,enum],[X,Y,A,B,C]) : 402,562,232 inferences, 41.346 CPU in 41.347 seconds (100% CPU, 9736365 Lips)
+
+     Cf my Z3's shifted_division that took 49.9s.
+
+     Example: 
+
+     n=17
+     16666666666666666/66666666666666664 = 1/4
+     repeating:66666666:8
+
+     19999999999999999/99999999999999995 = 1/5
+     repeating:99999999:8
+
+     23529411764705882/35294117647058823 = 2/3
+     Interesting division
+
+     26666666666666666/66666666666666665 = 2/5
+     repeating:66666666:8
+
+     47058823529411764/70588235294117646 = 4/6
+     Interesting division
+
+     48484848484848484/84848484848484847 = 4/7
+     repeating:48484848:8
+
+     49999999999999999/99999999999999998 = 4/8
+     repeating:99999999:8
+
+     65454545454545454/54545454545454545 = 6/5
+     repeating:54545454:8
+
+     74242424242424242/42424242424242424 = 7/4
+     repeating:42424242:8
+
+     87671232876712328/76712328767123287 = 8/7
+     repeating:87671232:8
+
+     95294117647058823/52941176470588235 = 9/5
+     Interesting division
+
+     See go_interesting/0 below for only the interesting divisions.
+
+
+  * N=1231: 2min 32.699s Tested in go2/0.
+    101,215,441 inferences, 152.699 CPU in 152.732 seconds (100% CPU, 662843 Lips)
+
+    Cf Z3's shifted_division that took 2min43.20s
+
+  * N=12345 Tested in go3/0.
+
+    Got 2 solutions in 1000.548 seconds, then stack limit.
+    
+    Note that my Z3 shifted_division model does not give an answer at all on this.
+
+
+  Also see my Picat model http://hakank.org/picat/shifted_division.pi
+
+  Model created by Hakan Kjellerstrand, hakank@gmail.com
+  See also my SWI Prolog page: http://www.hakank.org/swi_prolog/
+
+*/
+:- use_module(library(clpfd)).
+
+go :-
+    % An interesting division is when there's no repeating digits
+    % (defined by the following regexp).
+    re_compile("(\\d{2,})\\1",Re,[]),
+    between(2,100,N),
+    writeln(n=N),
+    nl,
+    shifted_division(N, [X,Y,A,B]),
+    % writeln([x=X,y=Y,a=A,b=B]),
+    format('~d/~d = ~d/~d~n',[X,Y,A,B]),
+    number_string(X,S),
+    (re_matchsub(Re,S,Sub,[]) ->
+        SS = Sub.1,
+        string_length(SS,SSLen),
+        writeln(repeating:SS:SSLen)
+    ;
+        % It can only be interesting if the number is
+        % longer than 4 digit.
+        N > 5 ->
+            writeln("Interesting division")
+        ;
+            true
+    ),
+    nl,
+    fail,
+    
+    nl.
+
+/*
+  Only showing the solutions for N=2..100 (i.e. no fancy stuff): 43.6s
+
+
+  % 402,552,303 inferences, 43.626 CPU in 43.651 seconds (100% CPU, 9227319 Lips)
+
+*/
+go_loop_only :-
+    between(2,100,N),
+    writeln(n=N),
+    nl,
+    shifted_division(N, [X,Y,A,B]),
+    format('~d/~d = ~d/~d~n',[X,Y,A,B]),
+    fail,
+    
+    nl.
+
+
+/*
+  Only show the interesting divisions
+    x/y = a/b
+ i.e. those that does not contain any repetitions in x.
+
+  6: 987804/878048 = 9/8
+  7: 1428571/4285713 = 1/3
+  7: 2857142/8571426 = 2/6
+  7: 3461538/4615384 = 3/4
+  7: 4102564/1025641 = 4/1
+  7: 4571428/5714285 = 4/5
+  7: 5952380/9523808 = 5/8
+  7: 6428571/4285714 = 6/4
+  7: 6923076/9230768 = 6/8
+  7: 7538461/5384615 = 7/5
+  7: 8205128/2051282 = 8/2
+  7: 8311688/3116883 = 8/3
+  9: 876712328/767123287 = 8/7
+ 14: 67924528301886/79245283018867 = 6/7
+ 14: 81012658227848/10126582278481 = 8/1
+ 16: 7903225806451612/9032258064516128 = 7/8
+ 17: 23529411764705882/35294117647058823 = 2/3
+ 17: 47058823529411764/70588235294117646 = 4/6
+ 17: 95294117647058823/52941176470588235 = 9/5
+ 19: 2105263157894736842/1052631578947368421 = 2/1
+ 19: 4210526315789473684/2105263157894736842 = 4/2
+ 19: 6315789473684210526/3157894736842105263 = 6/3
+ 19: 8421052631578947368/4210526315789473684 = 8/4
+ 22: 5813953488372093023255/8139534883720930232557 = 5/7
+ 22: 9418604651162790697674/4186046511627906976744 = 9/4
+ 23: 39130434782608695652173/91304347826086956521737 = 3/7
+ 23: 54347826086956521739130/43478260869565217391304 = 5/4
+ 23: 71014492753623188405797/10144927536231884057971 = 7/1
+ 29: 31034482758620689655172413793/10344827586206896551724137931 = 3/1
+ 29: 62068965517241379310344827586/20689655172413793103448275862 = 6/2
+ 29: 93103448275862068965517241379/31034482758620689655172413793 = 9/3
+ 34: 7313432835820895522388059701492537/3134328358208955223880597014925373 = 7/3
+ 42: 975903614457831325301204819277108433734939/759036144578313253012048192771084337349397 = 9/7
+ 43: 5102040816326530612244897959183673469387755/1020408163265306122448979591836734693877551 = 5/1
+ 45: 910112359550561797752808988764044943820224719/101123595505617977528089887640449438202247191 = 9/1
+ 47: 53191489361702127659574468085106382978723404255/31914893617021276595744680851063829787234042553 = 5/3
+ 59: 61016949152542372881355932203389830508474576271186440677966/10169491525423728813559322033898305084745762711864406779661 = 6/1
+
+*/ 
+go_interesting :-
+    % An interesting division is when there's no repeating digits
+    % (defined by the following regexp).
+    re_compile("(\\d{2,})\\1",Re,[]),
+    between(5,100,N),
+    shifted_division(N, [X,Y,A,B]),
+    % writeln([x=X,y=Y,a=A,b=B]),
+    number_string(X,S),
+    (re_match(Re,S) ->
+        true
+    ;
+        format('~d: ~d/~d = ~d/~d~n',[N, X,Y,A,B])
+    ),
+    fail,
+    nl.
+
+/*
+  Printing all 23 solutions for 1231 digit numbers.
+
+  101,215,441 inferences, 152.699 CPU in 152.732 seconds (100% CPU, 662843 Lips)
+
+*/
+go2 :-
+        N = 1231,
+        shifted_division(N, [X,Y,A,B]),
+        writeln([X,Y,A,B]),
+        fail,
+        
+        nl.
+
+/*
+   After 1000s it has solved two instances
+   199...99,99..5
+   and
+   166..6,66..4
+   and then it stopped with
+   144,307,765 inferences, 1000.537 CPU in 1000.548 seconds (100% CPU, 144230 Lips)
+   ERROR: Stack limit (1.0Gb) exceeded
+
+   Time to find the first solution: 
+   % 79,598,205 inferences, 399.911 CPU in 399.917 seconds (100% CPU, 199040 Lips)
+
+
+   Note that Z3 couldn't handle this size at all.
+
+*/
+go3 :-
+        N = 12345,
+        shifted_division(N, [X,Y,A,B]),
+        writeln([X,Y,A,B]),
+        % fail,        
+        nl.
+
+
+shifted_division(N, [X,Y,A,B]) :-
+        N1 is N-1,
+        N2 is N-2,
+        CMin is 10^(N2),
+        CMax is 10^(N1)-1,
+        C in CMin..CMax,        % The common number
+        XYMin is 10^(N1),
+        XYMax is 10^N-1,
+        [X,Y] ins XYMin..XYMax,
+        [A,B] ins 0..9,
+
+        X #= C + A*10^(N1),
+        Y #= 10*C + B,
+        
+        X*B #= A*Y,
+        X #\= Y,
+        % Timing for N=2..100
+        % labeling([ffc,up,bisect],[X,Y,A,B,C]). % 660,277,452 inferences, 88.431 CPU in 88.598 seconds (100% CPU, 7466572 Lips)
+        labeling([ff,enum],[X,Y,A,B,C]). % 402,552,273 inferences, 44.291 CPU in 44.497 seconds (100% CPU, 9088888 Lips)
+        % labeling([ffc,enum],[X,Y,A,B,C]). % 402,576,193 inferences, 44.328 CPU in 44.420 seconds (100% CPU, 9081817 Lips)
+:- initialization(go).
+%------------------------------------------------- 224 hakank_swi_sicherman_dice
 /*
 
   Sicherman Dice problem in SWI Prolog
@@ -27668,7 +27923,7 @@ dist_k([[I,J]|IJs],K,X1,X2,Sum0,Sum) :-
         dist_k(IJs,K,X1,X2,Sum1,Sum).
 
 :- initialization(go).
-%------------------------------------------------- 224 hakank_swi_ski_assignment
+%------------------------------------------------- 225 hakank_swi_ski_assignment
 /*
 
   Ski assignment in SWI Prolog
@@ -27731,7 +27986,7 @@ check_heights([I|Is],X,SkierHeights,SkiHeights,Sum0,Sum) :-
         check_heights(Is,X,SkierHeights,SkiHeights,Sum1,Sum).
         
 :- initialization(go).
-%---------------------------------------------------- 225 hakank_swi_sliding_sum
+%---------------------------------------------------- 226 hakank_swi_sliding_sum
 /*
 
   Global constraint sliding sum in SWI Prolog
@@ -27825,7 +28080,7 @@ go2 :-
 go2.
 
 :- initialization(go).
-%--------------------------------------------- 226 hakank_swi_smugglers_knapsack
+%--------------------------------------------- 227 hakank_swi_smugglers_knapsack
 /*
 
   Smuggler's knapsack problem  in SWI Prolog
@@ -27885,7 +28140,7 @@ smuggler([W,P,C,Profit,Capacity],Capacity) :-
         
         labeling([max(Profit)],[W,P,C,Profit,Capacity]).
 :- initialization(go).
-%---------------------------------------------------------- 227 hakank_swi_sonet
+%---------------------------------------------------------- 228 hakank_swi_sonet
 /*
 
   SONET problem in SWI Prolog
@@ -27983,7 +28238,7 @@ capacity_ring(RingsRow,CapacityNode) :-
         S #=< CapacityNode.
         
 :- initialization(go).
-%---------------------------------------------------- 228 hakank_swi_spreadsheet
+%---------------------------------------------------- 229 hakank_swi_spreadsheet
 /*
 
   Simple spreadsheet (using clpr) in SWI Prolog
@@ -28024,7 +28279,7 @@ go :-
 
       nl.
 :- initialization(go).
-%--------------------------------------- 229 hakank_swi_square_root_of_wonderful
+%--------------------------------------- 230 hakank_swi_square_root_of_wonderful
 /*
 
   Square root of WONDERFUL in SWI Prolog
@@ -28066,7 +28321,7 @@ go :-
         writeln(wonderful:WONDERFUL),
         writeln(ooddf:OODDF).
 :- initialization(go).
-%------------------------------------------------ 230 hakank_swi_stable_marriage
+%------------------------------------------------ 231 hakank_swi_stable_marriage
 /*
 
   Stable marriage in SWI Prolog
@@ -28702,7 +28957,7 @@ W =
 [57,1,92,78,46,77,58,33,83,98,97,31,3,35,5,40,2,86,51,72,41,17,95,96,94,26,32,45,9,82,70,55,38,39,100,44,71,36,65,73,18,81,20,14,29,23,15,52,88,43,6,59,69,13,75,42,90,84,24,37,67,79,85,8,87,50,56,76,4,53,27,62,19,47,34,68,89,16,30,60,7,11,66,80,21,25,28,22,74,64,61,48,10,12,91,49,93,99,63,54],
 [78,85,6,99,59,74,46,98,29,61,18,15,69,35,30,53,17,65,72,7,64,42,10,34,91,51,40,67,56,96,37,45,68,97,47,57,76,31,77,28,66,13,33,73,38,49,43,58,92,21,88,24,55,32,82,26,27,84,2,12,93,3,11,60,87,94,16,41,52,80,22,75,50,89,25,86,1,19,14,62,23,20,100,44,36,39,79,48,5,63,70,4,83,8,71,9,81,90,54,95]].
 :- initialization(go).
-%-------------------------------------------------------- 231 hakank_swi_steiner
+%-------------------------------------------------------- 232 hakank_swi_steiner
 /*
 
   Steiner triplets in SWI Prolog
@@ -28867,7 +29122,7 @@ sum_union([S1|S1s],[S2|S2s],CardCommon0,CardCommon) :-
         CardCommon1 #= CardCommon0 + B,
         sum_union(S1s,S2s,CardCommon1,CardCommon).        
 :- initialization(go).
-%------------------------------------------------------- 232 hakank_swi_strimko2
+%------------------------------------------------------- 233 hakank_swi_strimko2
 /*
 
   Strimko puzzle in SWI Prolog
@@ -29033,7 +29288,7 @@ problem(70,Streams,Placed) :-
                     [4,1,2],
                     [5,4,5]].
 :- initialization(go).
-%------------------------------------------------- 233 hakank_swi_stuckey_seesaw
+%------------------------------------------------- 234 hakank_swi_stuckey_seesaw
 /*
 
   Seesaw problem in SWI Prolog
@@ -29101,7 +29356,7 @@ apart(X, Y, N) :-
    (X #>= Y + N) #\/ (Y #>= X + N).
 
 :- initialization(go).
-%----------------------------------------------------- 234 hakank_swi_subset_sum
+%----------------------------------------------------- 235 hakank_swi_subset_sum
 /*
 
   Subset sum problem in SWI Prolog
@@ -29153,7 +29408,7 @@ go :-
     nl.
 
 :- initialization(go).
-%---------------------------------------------------- 235 hakank_swi_subset_sum2
+%---------------------------------------------------- 236 hakank_swi_subset_sum2
 /*
 
   Subset sum problem in SWI Prolog
@@ -29343,7 +29598,7 @@ go2 :-
 
                  
 :- initialization(go).
-%--------------------------------------------------------- 236 hakank_swi_sudoku
+%--------------------------------------------------------- 237 hakank_swi_sudoku
 /*
 
   Sudoku in SWI Prolog
@@ -32683,7 +32938,7 @@ problem(hardest_ever,P,3) :-
 [_,_,7, _,_,_, 3,_,_]].
 
 :- initialization(go).
-%--------------------------------------------------- 237 hakank_swi_survo_puzzle
+%--------------------------------------------------- 238 hakank_swi_survo_puzzle
 /*
 
   Survo puzzle in SWI Prolog
@@ -32860,7 +33115,7 @@ problem(6, RowSums, ColSums, Problem) :-
                   [_, _, _, _],
                   [_, _, _, _]].
 :- initialization(go).
-%----------------------------------------------- 238 hakank_swi_telephone_number
+%----------------------------------------------- 239 hakank_swi_telephone_number
 /*
 
   Telephone number in SWI Prolog
@@ -32931,7 +33186,7 @@ a(N,Res) :-
         Res #= N1Res + N1* N2Res.
 
 :- initialization(go).
-%---------------------------------------------- 239 hakank_swi_the_family_puzzle
+%---------------------------------------------- 240 hakank_swi_the_family_puzzle
 /*
 
   The Family Puzzle in SWI Prolog
@@ -33040,7 +33295,7 @@ lookup_list(I,Ls,S,V) :-
    nth1(I, Ls, E),
    nth1(E, S, V).
 :- initialization(go).
-%-------------------------------------------------------- 240 hakank_swi_timpkin
+%-------------------------------------------------------- 241 hakank_swi_timpkin
 /*
 
   Mrs Timpkin's Age in SWI Prolog
@@ -33078,7 +33333,7 @@ timpkin([mr_timpkin=T,mrs_timpkin=W]) :-
 
    label(LD).
 :- initialization(go).
-%--------------------------------------------------------- 241 hakank_swi_to_num
+%--------------------------------------------------------- 242 hakank_swi_to_num
 /*
 
   to_num in SWI Prolog.
@@ -33162,7 +33417,7 @@ to_num_([H|T],I,Len,Base,Num0,Num) :-
         to_num_(T,I1,Len,Base,Num1,Num).
 */
 :- initialization(go).
-%--------------------------------------------------- 242 hakank_swi_torn_numbers
+%--------------------------------------------------- 243 hakank_swi_torn_numbers
 /*
 
   Torn numbers  in SWI Prolog
@@ -33206,7 +33461,7 @@ torn(LD, Sum) :-
         Sum * Sum #= D3 * 1000 + D2 * 100 + D1 * 10 + D0,
         labeling([], LD).
 :- initialization(go).
-%--------------------------------------- 243 hakank_swi_tourist_site_competition
+%--------------------------------------- 244 hakank_swi_tourist_site_competition
 /*
 
   Tourist Site Competition in SWI Prolog
@@ -33395,7 +33650,7 @@ print_assignments(X,SitesStr,JudgesStr) :-
 
 
 :- initialization(go).
-%------------------------------------------------- 244 hakank_swi_traffic_lights
+%------------------------------------------------- 245 hakank_swi_traffic_lights
 /*
 
   Traffic lights problem in SWI Prolog.
@@ -33503,7 +33758,7 @@ print_result(V,P) :-
         writeln(Flatten),
         writeln(Result).
 :- initialization(go).
-%------------------------------------------------------------ 245 hakank_swi_tsp
+%------------------------------------------------------------ 246 hakank_swi_tsp
 /*
 
   Traveling salesperson problem in SWI Prolog
@@ -33835,7 +34090,7 @@ generate_random_matrix_zero_diag(N,MaxVal,Matrix) :-
                 ),
                 Matrix).
 :- initialization(go).
-%---------------------------------------------------- 246 hakank_swi_tunapalooza
+%---------------------------------------------------- 247 hakank_swi_tunapalooza
 /*
 
   Tunapalooza puzzle (Dell Logic Puzzles) in SWI Prolog
@@ -33957,7 +34212,7 @@ go :-
 
 go.
 :- initialization(go).
-%--------------------------------------------------- 247 hakank_swi_twin_letters
+%--------------------------------------------------- 248 hakank_swi_twin_letters
 /*
 
   Twin letters in SWI Prolog
@@ -34059,7 +34314,7 @@ twin(LD) :-
         labeling([enum],Vars),
         nl.
 :- initialization(go).
-%-------------------------------------------------------- 248 hakank_swi_volsay1
+%-------------------------------------------------------- 249 hakank_swi_volsay1
 /*
 
   Volsay problem in SWI Prolog
@@ -34098,7 +34353,7 @@ go :-
    writeln(max_val=MaxVal),
    nl.
 :- initialization(go).
-%-------------------------------------------------------- 249 hakank_swi_volsay2
+%-------------------------------------------------------- 250 hakank_swi_volsay2
 /*
 
   Volsay problem in SWI Prolog
@@ -34138,7 +34393,7 @@ go :-
    writeln(max_val=MaxVal),
    nl.
 :- initialization(go).
-%-------------------------------------------------------- 250 hakank_swi_volsay3
+%-------------------------------------------------------- 251 hakank_swi_volsay3
 /*
 
   Volsay problem in SWI Prolog
@@ -34181,7 +34436,7 @@ go :-
    writeln(max_val=MaxVal),
    nl.
 :- initialization(go).
-%--------------------------------------------------- 251 hakank_swi_war_or_peace
+%--------------------------------------------------- 252 hakank_swi_war_or_peace
 /*
 
   War or Peace problem in SWI Prolog
@@ -34303,7 +34558,7 @@ sum_line([K|Ks],X,I,J,Sum0,Sum) :-
         sum_line(Ks,X,I,J,Sum1,Sum).
         
 :- initialization(go).
-%------------------------------------------------------ 252 hakank_swi_warehouse
+%------------------------------------------------------ 253 hakank_swi_warehouse
 /*
 
   Warehouse location problem in SWI Prolog
@@ -34425,7 +34680,7 @@ total_cost([O|Os],Fixed,TotalCost0,TotalCost) :-
         TotalCost1 #= TotalCost0 + Fixed * O,
         total_cost(Os,Fixed,TotalCost1,TotalCost).
 :- initialization(go).
-%---------------------------------------------------------- 253 hakank_swi_water
+%---------------------------------------------------------- 254 hakank_swi_water
 /*
 
   Water jugs problem in SWI Prolog
@@ -34552,7 +34807,7 @@ legal_move([V1,V2],Action,S1) :-
         Action = (transfer_1_to_2=(W1,W2)),
         S1=[W1,W2].    
 :- initialization(go).
-%---------------------------------------------- 254 hakank_swi_who_killed_agatha
+%---------------------------------------------- 255 hakank_swi_who_killed_agatha
 /*
 
   Who killed agatha? (The Dreadsbury Mansion Murder Mystery) in SWI Prolog
@@ -34764,7 +35019,7 @@ check6([I|L],Hates) :-
         HI1 + HI2 + HI3 #=< 2,
         check6(L,Hates).
 :- initialization(go).
-%------------------------------------------ 255 hakank_swi_who_killed_the_bosmer
+%------------------------------------------ 256 hakank_swi_who_killed_the_bosmer
 /*
 
   Who killed the Bosmer logic puzzle in SWI Prolog
@@ -34833,7 +35088,7 @@ print_solution(SpeaksTruth,Guilty,T) :-
         SpeaksTruth == 1 -> format("Speaks truth: ~w~n",[T]) ; true.
         
 :- initialization(go).
-%--------------------------------------------------------- 256 hakank_swi_wordle
+%--------------------------------------------------------- 257 hakank_swi_wordle
 /*
 
   Wordle solver in SWI Prolog
@@ -35036,7 +35291,7 @@ strlen(Len,Word) :-
 
 
 :- initialization(go).
-%----------------------------------------------------- 257 hakank_swi_wordle_dcg
+%----------------------------------------------------- 258 hakank_swi_wordle_dcg
 /*
 
   Wordle solver using DCG in SWI Prolog
@@ -35225,7 +35480,7 @@ empty() :-
 
 wordle_words --> ("a",("b",("a",("ck";"se";"te");"b",("ey";"ot");"o",("de";"rt";"ut";"ve");"hor";"ide";"led";"use";"yss");"c",("orn";"rid";"tor";"ute");"d",("a",("ge";"pt");"m","i",("n";"t");"o",("r",("e";"n");"be";"pt");"ept";"ult");"f",("o",("ot";"ul");"fix";"ire";"ter");"g",("a",("in";"pe";"te");"i",("le";"ng");"o",("ny";"ra");"ent";"low";"ree");"i",("der";"sle");"l",("i",("bi";"en";"gn";"ke";"ve");"l",("o",("t";"w";"y");"ay";"ey");"o",("n",("e";"g");"ft";"of";"ud");"t",("ar";"er");"arm";"bum";"ert";"gae";"pha");"m",("a",("ss";"ze");"b",("er";"le");"i",("ss";"ty");"p","l",("e";"y");"end";"ong";"use");"n",("g",("e",("l";"r");"le";"ry";"st");"n",("ex";"oy";"ul");"ime";"kle";"ode";"tic";"vil");"p",("p","l",("e";"y");"art";"hid";"ing";"nea";"ron";"tly");"r",("o",("ma";"se");"r",("ay";"ow");"bor";"dor";"ena";"gue";"ise";"mor";"son";"tsy");"s",("s",("ay";"et");"cot";"hen";"ide";"kew");"t",("o",("ll";"ne");"tic");"u",("d","i",("o";"t");"gur";"nty");"v",("ail";"ert";"ian";"oid");"w",("a",("r",("d";"e");"it";"ke";"sh");"ful";"oke");"x","i",("o",("m";"n");"al");"head";"orta";"zure");"b",("a",("d",("ge";"ly");"g",("el";"gy");"l",("er";"my");"n",("al";"jo");"r",("ge";"on");"s",("i",("c";"l";"n";"s");"al";"te");"t",("ch";"he";"on";"ty");"con";"ker";"wdy";"you");"e",("a",("ch";"dy";"rd";"st");"e",("ch";"fy");"g",("a",("n";"t");"et";"in";"un");"l",("l",("e";"y");"ch";"ie";"ow");"r",("et";"ry";"th");"fit";"ing";"nch";"set";"tel";"vel";"zel");"i",("l",("ge";"ly");"n","g",("e";"o");"r",("ch";"th");"ble";"cep";"ddy";"got";"ome";"son";"tty");"l",("a",("n",("d";"k");"ck";"de";"me";"re";"st";"ze");"e",("a",("k";"t");"e",("d";"p");"nd";"ss");"i",("n",("d";"k");"mp";"ss";"tz");"o",("o",("d";"m");"at";"ck";"ke";"nd";"wn");"u",("r",("b";"t");"er";"ff";"nt";"sh"));"o",("a",("rd";"st");"n",("ey";"go";"us");"o",("t",("h";"y");"z",("e";"y");"by";"st");"r",("ax";"ne");"s",("om";"sy");"u",("gh";"le";"nd");"bby";"tch";"wel";"xer");"r",("a",("i",("d";"n");"s",("h";"s");"v",("e";"o");"w",("l";"n");"ce";"ke";"nd");"e",("a",("d";"k");"ed");"i",("n",("e";"g";"k";"y");"ar";"be";"ck";"de";"ef";"sk");"o",("o",("d";"k";"m");"ad";"il";"ke";"th";"wn");"u",("nt";"sh";"te"));"u",("d",("dy";"ge");"g",("gy";"le");"i","l",("d";"t");"l",("ge";"ky";"ly");"n",("ch";"ny");"r",("ly";"nt";"st");"s",("ed";"hy");"t",("ch";"te");"xom";"yer");"ylaw");"c",("a",("b",("al";"by";"in";"le");"c",("ao";"he";"ti");"d",("dy";"et");"m","e",("l";"o");"n",("o",("e";"n");"al";"dy";"ny");"p",("er";"ut");"r",("at";"go";"ol";"ry";"ve");"t",("ch";"er";"ty");"u",("lk";"se");"gey";"irn";"ste";"vil");"e",("ase";"dar";"llo");"h",("a",("f",("e";"f");"i",("n";"r");"r",("d";"m";"t");"s",("e";"m");"lk";"mp";"nt";"os");"e",("a",("p";"t");"e",("k";"r");"s",("s";"t");"ck");"i",("l",("d";"i";"l");"ck";"de";"ef";"me";"na";"rp");"o",("r",("d";"e");"ck";"ir";"ke";"se");"u",("ck";"mp";"nk";"rn";"te"));"i",("v","i",("c";"l");"der";"gar";"nch";"rca");"l",("a",("n",("g";"k");"s",("h";"p";"s");"ck";"im";"mp");"e",("a",("n";"r";"t");"ft";"rk");"i",("n",("g";"k");"ck";"ff";"mb");"o",("u",("d";"t");"ak";"ck";"ne";"se";"th";"ve";"wn");"u",("ck";"ed";"mp";"ng"));"o",("a",("ch";"st");"l","o",("n";"r");"m",("et";"fy";"ic";"ma");"n",("ch";"do";"ic");"r",("al";"er";"ny");"u",("ch";"gh";"ld";"nt";"pe";"rt");"v","e",("n";"r";"t";"y");"bra";"coa";"pse";"wer";"yly");"r",("a",("n",("e";"k");"s",("h";"s");"z",("e";"y");"ck";"ft";"mp";"te";"ve";"wl");"e",("a",("k";"m");"e",("d";"k";"p");"p",("e";"t");"s",("s";"t");"do";"me");"i",("e",("d";"r");"m",("e";"p");"ck";"sp");"o",("n",("e";"y");"w",("d";"n");"ak";"ck";"ok";"ss";"up");"u",("m",("b";"p");"s",("h";"t");"de";"el");"ypt");"u",("r",("v",("e";"y");"io";"ly";"ry";"se");"bic";"min";"tie");"y",("ber";"cle";"nic"));"d",("a",("i",("ly";"ry";"sy");"n",("ce";"dy");"ddy";"lly";"tum";"unt");"e",("a",("lt";"th");"b",("u",("g";"t");"ar";"it");"c",("a",("l";"y");"o",("r";"y");"ry");"i",("gn";"ty");"l",("ay";"ta";"ve");"m",("on";"ur");"n",("im";"se");"p",("ot";"th");"t",("er";"ox");"fer";"rby";"uce";"vil");"i",("n",("g",("o";"y");"er");"r",("ge";"ty");"t",("t",("o";"y");"ch");"ary";"cey";"git";"lly";"mly";"ode";"sco";"ver";"zzy");"o",("d","g",("e";"y");"n",("or";"ut");"u",("bt";"gh");"w",("dy";"el";"ny";"ry");"gma";"ing";"lly";"pey";"zen");"r",("a",("w",("l";"n");"ft";"in";"ke";"ma";"nk";"pe");"e",("a",("d";"m");"ss");"i",("e",("d";"r");"ft";"ll";"nk";"ve");"o",("o",("l";"p");"it";"ll";"ne";"ss";"ve";"wn");"u",("id";"nk");"y",("er";"ly"));"u",("m",("my";"py");"s",("ky";"ty");"chy";"lly";"nce";"tch";"vet");"w",("e","l",("l";"t");"arf");"ying");"e",("a",("g",("er";"le");"r",("ly";"th");"t","e",("n";"r");"sel");"d","i",("ct";"fy");"l",("e",("ct";"gy");"i",("de";"te");"ate";"bow";"der";"fin";"ope";"ude");"m",("b","e",("d";"r");"ail";"cee";"pty");"n",("e","m",("a";"y");"t",("er";"ry");"act";"dow";"joy";"nui";"sue";"voy");"p","o",("ch";"xy");"q","u",("al";"ip");"r",("ase";"ect";"ode";"ror";"upt");"s",("say";"ter");"t",("h",("er";"ic";"os");"ude");"v",("e",("nt";"ry");"ade";"ict";"oke");"x",("a",("ct";"lt");"i",("le";"st");"t",("ol";"ra");"cel";"ert";"pel";"ult");"bony";"clat";"erie";"gret";"ight";"ject";"king";"ying");"f",("a",("i",("nt";"ry";"th");"n",("cy";"ny");"t",("al";"ty");"u",("lt";"na");"ble";"cet";"lse";"rce";"vor");"e",("l",("la";"on");"m",("me";"ur");"r",("al";"ry");"t",("al";"ch";"id";"us");"ast";"cal";"ign";"nce";"ver";"wer");"i",("b",("er";"re");"e",("ld";"nd";"ry");"f","t",("h";"y");"l",("e",("r";"t");"ly";"my";"th");"n",("al";"ch";"er");"cus";"ght";"rst";"shy";"xer";"zzy");"l",("a",("i",("l";"r");"k",("e";"y");"s",("h";"k");"ck";"me";"nk";"re");"e",("ck";"et";"sh");"i",("n",("g";"t");"ck";"er";"rt");"o",("o",("d";"r");"u",("r";"t");"at";"ck";"ra";"ss";"wn");"u",("n",("g";"k");"ff";"id";"ke";"me";"sh";"te");"yer");"o",("c",("al";"us");"l",("io";"ly");"r",("g",("e";"o");"t",("e";"h";"y");"ay";"ce";"um");"amy";"ggy";"ist";"und";"yer");"r",("a",("il";"me";"nk";"ud");"e",("e",("d";"r");"ak";"sh");"i",("ar";"ed";"ll";"sk";"tz");"o",("n",("d";"t");"ck";"st";"th";"wn";"ze");"uit");"u",("n",("gi";"ky";"ny");"r",("or";"ry");"dge";"gue";"lly";"ssy";"zzy");"jord");"g",("a",("m",("er";"ma";"ut");"u",("dy";"ge";"nt";"ze");"y",("er";"ly");"ffe";"ily";"ssy";"vel";"wky";"zer");"e",("e",("ky";"se");"n",("ie";"re");"cko");"h","o",("st";"ul");"i",("r",("ly";"th");"v","e",("n";"r");"ant";"ddy";"psy");"l",("a",("de";"nd";"re";"ss";"ze");"e","a",("m";"n");"i",("de";"nt");"o",("at";"be";"om";"ry";"ss";"ve");"yph");"n",("ash";"ome");"o",("l",("em";"ly");"n",("ad";"er");"o",("dy";"ey";"fy";"se");"u",("ge";"rd");"dly";"ing";"rge");"r",("a",("i",("l";"n");"n",("d";"t");"p",("e";"h");"s",("p";"s");"v",("e";"y");"ce";"de";"ft";"te";"ze");"e",("e",("d";"n";"t");"at");"i",("m",("e";"y");"ef";"ll";"nd";"pe");"o",("u",("p";"t");"w",("l";"n");"an";"in";"om";"pe";"ss";"ve");"u",("el";"ff";"nt"));"u",("a",("rd";"va");"e","s",("s";"t");"i",("l",("d";"e";"t");"de";"se");"l",("ch";"ly");"m",("bo";"my");"s","t",("o";"y");"ppy");"ypsy");"h",("a",("r",("dy";"em";"py";"ry";"sh");"s","t",("e";"y");"t",("ch";"er");"u",("nt";"te");"v",("en";"oc");"bit";"iry";"lve";"ndy";"ppy";"zel");"e",("a",("r",("d";"t");"v",("e";"y");"dy";"th");"l",("ix";"lo");"dge";"fty";"ist";"nce";"ron");"i",("p","p",("o";"y");"lly";"nge";"tch");"o",("n",("ey";"or");"r",("de";"ny";"se");"t",("el";"ly");"u",("nd";"se");"v","e",("l";"r");"ard";"bby";"ist";"lly";"mer";"wdy");"u",("m",("an";"id";"or";"ph";"us");"n",("ch";"ky");"s",("ky";"sy");"rry";"tch");"y",("dro";"ena";"men";"per"));"i",("c","i",("ly";"ng");"d",("i","o",("m";"t");"eal";"ler";"yll");"m",("p",("el";"ly");"age";"bue");"n",("e",("pt";"rt");"l",("ay";"et");"t",("er";"ro");"ane";"box";"cur";"dex";"fer";"got";"ner";"put");"r",("ate";"ony");"s",("let";"sue");"gloo";"liac";"onic";"tchy";"vory");"j",("a",("unt";"zzy");"e",("lly";"rky";"tty";"wel");"o",("i",("nt";"st");"ker";"lly";"ust");"u",("i","c",("e";"y");"m",("bo";"py");"n","t",("a";"o");"dge";"ror");"iffy");"k",("a",("ppa";"rma";"yak");"i",("nky";"osk";"tty");"n",("a",("ck";"ve");"e",("e",("d";"l");"ad";"lt");"o",("ck";"ll";"wn");"ife");"ebab";"haki";"oala";"rill");"l",("a",("b",("el";"or");"d",("en";"le");"n",("ce";"ky");"p",("el";"se");"r",("ge";"va");"t",("ch";"er";"he";"te");"ger";"sso";"ugh";"yer");"e",("a",("s",("e";"h";"t");"ch";"fy";"ky";"nt";"pt";"rn";"ve");"e",("ch";"ry");"g",("al";"gy");"m",("on";"ur");"v","e",("l";"r");"dge";"fty";"per");"i",("m",("bo";"it");"n",("e",("n";"r");"go");"v",("er";"id");"bel";"ege";"ght";"ken";"lac";"pid";"the");"o",("a",("my";"th");"c",("al";"us");"g","i",("c";"n");"o",("py";"se");"u","s",("e";"y");"w",("er";"ly");"bby";"dge";"fty";"rry";"ser";"ver";"yal");"u",("c",("id";"ky");"m",("en";"py");"n",("ar";"ch";"ge");"r",("ch";"id");"pus";"sty");"y",("ing";"mph";"nch";"ric");"lama");"m",("a",("c",("aw";"ho";"ro");"d",("am";"ly");"g",("ic";"ma");"m",("m",("a";"y");"bo");"n",("g",("a";"e";"o";"y");"i",("a";"c");"ly";"or");"r",("ch";"ry";"sh");"s",("on";"se");"t",("ch";"ey");"y",("be";"or");"fia";"ize";"jor";"ker";"ple";"uve";"xim");"e",("a",("ly";"nt";"ty");"d",("i",("a";"c");"al");"l",("ee";"on");"r",("cy";"ge";"it";"ry");"t",("al";"er";"ro");"cca");"i",("d",("ge";"st");"n",("ce";"er";"im";"or";"ty";"us");"s",("er";"sy");"cro";"ght";"lky";"mic";"rth");"o",("d",("e",("l";"m");"al");"l",("ar";"dy");"n",("ey";"th");"o",("dy";"se");"r",("al";"on";"ph");"t",("el";"if";"or";"to");"u",("n",("d";"t");"lt";"rn";"se";"th");"v",("er";"ie");"cha";"gul";"ist";"ssy";"wer");"u",("c",("ky";"us");"r",("al";"ky");"s",("hy";"ic";"ky";"ty");"ddy";"lch";"mmy";"nch");"yrrh");"n",("a",("s",("al";"ty");"v",("al";"el");"dir";"ive";"nny";"tal");"e",("r",("dy";"ve");"w",("er";"ly");"edy";"igh";"ver");"i",("c",("er";"he");"n",("ja";"ny";"th");"ece";"ght");"o",("b","l",("e";"y");"i","s",("e";"y");"mad";"ose";"rth";"sey";"tch";"vel");"u",("dge";"rse";"tty");"y",("lon";"mph"));"o",("c",("t",("al";"et");"cur";"ean");"d","d",("er";"ly");"f",("f",("al";"er");"ten");"l",("d","e",("n";"r");"ive");"m",("bre";"ega");"n",("ion";"set");"p",("i",("ne";"um");"era";"tic");"r",("bit";"der";"gan");"t",("her";"ter");"u",("t",("do";"er";"go");"ght";"nce");"v",("a",("ry";"te");"ert";"ine";"oid");"w",("ing";"ner");"aken";"bese";"xide";"zone");"p",("a",("l",("er";"sy");"n",("el";"ic";"sy");"p",("al";"er");"r",("er";"ka";"ry";"se";"ty");"s","t",("a";"e";"y");"t",("ch";"io";"sy";"ty");"y","e",("e";"r");"ddy";"gan";"int";"use");"e",("a",("c",("e";"h");"rl");"n",("n",("e";"y");"al";"ce");"r",("ch";"il";"ky");"s",("ky";"to");"t",("al";"ty");"can";"dal");"h",("o",("n",("e";"y");"to");"ase");"i",("e",("ce";"ty");"n",("ch";"ey";"ky";"to");"t",("ch";"hy");"x",("el";"ie");"ano";"cky";"ggy";"lot";"per";"que";"vot";"zza");"l",("a",("i",("d";"n";"t");"n",("e";"k";"t");"ce";"te";"za");"e","a",("d";"t");"i","e",("d";"r");"u",("m",("b";"e";"p");"ck";"nk";"sh"));"o",("i",("nt";"se");"l",("ar";"ka";"yp");"s",("er";"it";"se");"u",("ch";"nd";"ty");"esy";"ker";"och";"ppy";"rch";"wer");"r",("a",("nk";"wn");"e",("en";"ss");"i",("c",("e";"k");"m",("e";"o");"de";"ed";"nt";"or";"sm";"vy";"ze");"o",("n",("e";"g");"be";"of";"se";"ud";"ve";"wl";"xy");"u",("de";"ne"));"u",("l",("py";"se");"p",("al";"il";"py");"r",("e",("e";"r");"ge";"se");"bic";"dgy";"ffy";"nch";"shy";"tty");"salm";"ygmy");"q","u",("a",("r",("k";"t");"s",("h";"i");"ck";"il";"ke";"lm");"e",("e",("n";"r");"ll";"ry";"st";"ue");"i",("l",("l";"t");"ck";"et";"rk";"te");"o","t",("a";"e";"h"));"r",("a",("b",("bi";"id");"d",("i",("i";"o");"ar");"i",("ny";"se");"l",("ly";"ph");"n",("ch";"dy";"ge");"t",("io";"ty");"cer";"jah";"men";"pid";"rer";"spy";"ven";"yon";"zor");"e",("a",("c",("h";"t");"dy";"lm";"rm");"b",("u",("s";"t");"ar";"el");"c",("u",("r";"t");"ap");"f",("er";"it");"l",("a",("x";"y");"ic");"n",("al";"ew");"p",("ay";"el";"ly");"s",("et";"in");"t",("r",("o";"y");"ch");"v",("el";"ue");"edy";"gal";"hab";"ign";"mit";"run";"use");"h",("ino";"yme");"i",("d",("er";"ge");"g",("ht";"id";"or");"p","e",("n";"r");"s",("e",("n";"r");"ky");"v",("e",("r";"t");"al");"fle";"nse");"o",("a",("ch";"st");"b",("in";"ot");"g",("er";"ue");"o",("my";"st");"u",("g",("e";"h");"nd";"se";"te");"w",("dy";"er");"cky";"deo";"tor";"ver";"yal");"u",("d",("dy";"er");"m",("ba";"or");"gby";"ler";"pee";"ral";"sty"));"s",("a",("l",("v",("e";"o");"ad";"ly";"on";"sa";"ty");"n",("dy";"er");"t",("in";"yr");"u",("c",("e";"y");"na";"te");"v",("o",("r";"y");"vy");"dly";"fer";"int";"ppy";"ssy");"c",("a",("l",("d";"e";"p";"y");"r",("e";"f";"y");"mp";"nt");"e","n",("e";"t");"o",("r",("e";"n");"u",("r";"t");"ff";"ld";"ne";"op";"pe";"wl");"r",("a",("m";"p");"e",("e";"w");"u",("b";"m"));"ion";"uba");"e",("r",("if";"um";"ve");"v","e",("n";"r");"dan";"edy";"gue";"ize";"men";"nse";"pia";"tup";"wer");"h",("a",("d",("e";"y");"k",("e";"y");"l",("e";"l";"t");"r",("d";"e";"k";"p");"ck";"ft";"me";"nk";"pe";"ve";"wl");"e",("e",("n";"p";"r";"t");"l",("f";"l");"ar";"ik");"i",("n",("e";"y");"r",("e";"k";"t");"ed";"ft");"o",("o",("k";"t");"r",("e";"n";"t");"w",("n";"y");"al";"ck";"ne";"ut";"ve");"r",("u",("b";"g");"ew");"u",("ck";"nt";"sh");"yly");"i",("e",("ge";"ve");"g",("ht";"ma");"l",("ky";"ly");"n",("ce";"ew";"ge");"x","t",("h";"y");"ren";"ssy");"k",("i",("er";"ff";"ll";"mp";"rt");"u",("l",("k";"l");"nk");"ate");"l",("a",("n",("g";"t");"ck";"in";"sh";"te";"ve");"e",("e",("k";"p";"t");"pt");"i",("c",("e";"k");"m",("e";"y");"n",("g";"k");"de");"o",("op";"pe";"sh";"th");"u",("n",("g";"k");"mp";"rp";"sh");"yly");"m",("a",("ck";"ll";"rt";"sh");"e",("l",("l";"t");"ar");"i",("t",("e";"h");"le";"rk");"o",("k",("e";"y");"ck";"te"));"n",("a",("k",("e";"y");"r",("e";"l");"ck";"il");"e",("ak";"er");"i",("de";"ff";"pe");"o",("r",("e";"t");"op";"ut";"wy");"u",("ck";"ff"));"o",("l",("ar";"id";"ve");"n",("ar";"ic");"o","t",("h";"y");"u",("nd";"th");"apy";"ber";"ggy";"rry";"wer");"p",("a",("r",("e";"k");"ce";"de";"nk";"sm";"wn");"e",("a",("k";"r");"l",("l";"t");"n",("d";"t");"ck";"ed";"rm");"i",("c",("e";"y");"e",("d";"l");"k",("e";"y");"l",("l";"t");"n",("e";"y");"re";"te");"l",("at";"it");"o",("o",("f";"k";"l";"n");"r",("e";"t");"il";"ke";"ut");"r",("ay";"ee";"ig");"u",("r",("n";"t");"nk"));"q","u",("a",("d";"t");"ib");"t",("a",("i",("d";"n";"r");"l",("e";"k";"l");"n",("d";"k");"r",("e";"k";"t");"ck";"ff";"ge";"ke";"mp";"sh";"te";"ve");"e",("a",("d";"k";"l";"m");"e",("d";"l";"p";"r");"in";"rn");"i",("l",("l";"t");"n",("g";"k";"t");"ck";"ff");"o",("n",("e";"y");"o",("d";"l";"p");"r",("e";"k";"m";"y");"ck";"ic";"ke";"le";"mp";"ut";"ve");"r",("a",("p";"w";"y");"ip";"ut");"u",("n",("g";"k";"t");"ck";"dy";"ff";"mp");"yle");"u",("i",("ng";"te");"l",("ky";"ly");"r",("er";"ge";"ly");"ave";"gar";"mac";"nny";"per";"shi");"w",("a",("m",("i";"p");"rm";"sh";"th");"e",("a",("r";"t");"e",("p";"t");"ll";"pt");"i",("n",("e";"g");"ft";"ll";"rl";"sh");"o",("o",("n";"p");"r",("d";"e";"n"));"ung");"y",("nod";"rup"));"t",("a",("b",("by";"le";"oo");"c",("it";"ky");"k","e",("n";"r");"l",("ly";"on");"n","g",("o";"y");"p",("er";"ir");"r",("dy";"ot");"s","t",("e";"y");"ffy";"int";"mer";"tty";"unt";"wny");"e",("a",("ch";"ry";"se");"n",("et";"or";"se";"th");"p",("ee";"id");"r",("ra";"se");"ddy";"eth";"mpo";"sty");"h",("e",("ft";"ir";"me";"re";"se";"ta");"i",("n",("g";"k");"ck";"ef";"gh";"rd");"o",("ng";"rn";"se");"r",("e",("e";"w");"o",("b";"w");"um");"u","m",("b";"p");"ank";"yme");"i",("g",("er";"ht");"m",("er";"id");"t",("an";"he";"le");"ara";"bia";"dal";"lde";"psy");"o",("d",("ay";"dy");"n",("al";"ga";"ic");"p",("az";"ic");"r",("ch";"so";"us");"t",("al";"em");"u",("ch";"gh");"w","e",("l";"r");"x","i",("c";"n");"ast";"ken";"oth");"r",("a",("c",("e";"k";"t");"i",("l";"n";"t");"de";"mp";"sh";"wl");"e",("a",("d";"t");"nd");"i",("a",("d";"l");"c",("e";"k");"be";"ed";"pe";"te");"o",("ll";"op";"pe";"ut";"ve");"u",("c",("e";"k");"s",("s";"t");"er";"ly";"mp";"nk";"th");"yst");"u",("b",("al";"er");"l",("ip";"le");"mor";"nic";"rbo";"tor");"w",("e",("e",("d";"t");"ak");"i",("ce";"ne";"rl";"st";"xt");"ang");"ying");"u",("l",("cer";"tra");"n",("c",("le";"ut");"d",("er";"id";"ue");"f",("ed";"it");"i",("t",("e";"y");"fy";"on");"t","i",("e";"l");"lit";"met";"set";"wed";"zip");"p",("per";"set");"r",("ban";"ine");"s",("u",("al";"rp");"age";"her";"ing");"t",("ile";"ter");"dder";"mbra");"v",("a",("l",("et";"id";"or";"ue";"ve");"p",("id";"or");"u",("lt";"nt");"gue");"e",("n",("om";"ue");"r",("s",("e";"o");"ge";"ve");"gan");"i",("g",("il";"or");"r",("al";"us");"s",("it";"or";"ta");"car";"deo";"lla";"nyl";"ola";"per";"tal";"vid";"xen");"o",("i",("ce";"la");"cal";"dka";"gue";"mit";"ter";"uch";"wel");"ying");"w",("a",("g",("er";"on");"i",("st";"ve");"t",("ch";"er");"cky";"fer";"ltz";"rty";"ste";"ver";"xen");"e",("a",("ry";"ve");"i",("gh";"rd");"l",("ch";"sh");"dge";"edy";"nch");"h",("a",("ck";"le";"rf");"e",("at";"el";"lp";"re");"i",("n",("e";"y");"ch";"ff";"le";"rl";"sk";"te");"o",("le";"op";"se"));"i",("d",("e",("n";"r");"ow";"th");"n",("c",("e";"h");"dy");"s",("er";"py");"t",("ch";"ty");"eld";"ght";"lly";"mpy");"o",("m",("an";"en");"o",("dy";"er";"ly";"zy");"r",("s",("e";"t");"dy";"ld";"ry";"th");"u",("ld";"nd");"ken";"ven");"r",("a",("ck";"th");"e",("ak";"ck";"st");"i",("ng";"st";"te");"o",("ng";"te");"ung";"yly"));"y",("e","a",("rn";"st");"o","u",("ng";"th");"acht";"ield");"z",("e",("bra";"sty");"onal")).
 :- initialization(go).
-%----------------------------------------------------------- 258 hakank_swi_xkcd
+%----------------------------------------------------------- 259 hakank_swi_xkcd
 /*
 
   xkcd's knapsack/subset-sum problem in SWI Prolog
@@ -35256,7 +35511,7 @@ xkcd(X) :-
         scalar_product(Prices, X, #=, Total),
         label(X).
 :- initialization(go).
-%------------------------------------------------- 259 hakank_swi_young_tableaux
+%------------------------------------------------- 260 hakank_swi_young_tableaux
 /*
 
   Young tableaux and partition in SWI Prolog
@@ -35432,7 +35687,7 @@ print_row([E|Row],N) :-
         print_row(Row,N).
 
 :- initialization(go).
-%---------------------------------------------------------- 260 hakank_swi_zebra
+%---------------------------------------------------------- 261 hakank_swi_zebra
 /*
 
   Zebra puzzle in SWI Prolog
@@ -35518,7 +35773,7 @@ go :-
    format("The ~w owns the zebra\n", ZebraNat),
    format("The ~w drinks water\n", WaterNat).
 :- initialization(go).
-%------------------------------------------------------------------ 261 p1_lists
+%------------------------------------------------------------------ 262 p1_lists
 % 1.01 (*) Find the last element of a list.
 
 % Example:
@@ -35920,7 +36175,7 @@ list_concat([L|Ls], R) :- is_list(L), list_concat(Ls, Ls_), append(L, Ls_, R).
 % DRIVER (appended by the vendoring, CEO-700): the file defines the P-99 problems and states their examples in comments;
 % this goal runs those examples: the commented example query of every list problem 1.01-1.22 and 1.26-1.28 on its own data (1.04 and 1.05 in the code's argument order, my_length([a,b,c],X) and my_reverse/2), plus all 20 combinations of 1.26 via findall
 :- initialization(forall(member(D_G, [my_last(X,[a,b,c,d]), last_but_one(X,[a,b,c,d]), element_at(X,[a,b,c,d],3), my_length([a,b,c],X), my_reverse([a,b,c,d],X), is_palindrome([x,a,m,a,x]), is_palindrome([a,b,c]), my_flatten([a,[b,[c,d],e]],X), compress([a,a,a,a,b,c,c,a,a,d,e,e,e,e],X), pack([a,a,a,a,b,c,c,a,a,d,e,e,e,e],X), encode([a,a,a,a,b,c,c,a,a,d,e,e,e,e],X), encode_modified([a,a,a,a,b,c,c,a,a,d,e,e,e,e],X), decode([[4,a],[1,b],[2,c],[2,a],[1,d],[4,e]],X), encode_direct([a,a,a,a,b,c,c,a,a,d,e,e,e,e],X), dupli([a,b,c,c,d],X), dupli([a,b,c],3,X), drop_every([a,b,c,d,e,f,g,h,i,k],3,X), split([a,b,c,d,e,f,g],3,L1,L2), slice([a,b,c,d,e,f,g,h,i,k],3,7,L1), rotate([a,b,c,d,e,f,g,h],3,X), rotate([a,b,c,d,e,f,g,h],-2,X), remove_at(X,[a,b,c,d],2,L1), insert_at(alfa,[a,b,c,d],2,L1), range(4,9,L1), combination(3,[a,b,c,d,e,f],L1), findall(L1,combination(3,[a,b,c,d,e,f],L1),L2), group3([aldo,beat,carla,david,evi,flip,gary,hugo,ida],X,L1,L2), group([aldo,beat,carla,david,evi,flip,gary,hugo,ida],[2,2,5],X), lsort([[a,b,c],[d,e],[f,g,h],[d,e],[i,j,k,l],[m,n],[o]],L1), lfsort([[a,b,c],[d,e],[f,g,h],[d,e],[i,j,k,l],[m,n],[o]],L1)]), (copy_term(D_G, D_C), (D_C = out(D_P) -> \+ \+ (numbervars(D_P, 0, _), print(D_P), nl), catch((once(D_P) -> true ; print(no), nl), error(D_F, _), (print(error(D_F)), nl)) ; D_C = count(D_Q) -> catch((findall(D_Q, D_Q, D_L0), sort(D_L0, D_L1), length(D_L1, D_N), D_R = count(D_Q, D_N)), error(D_F, _), D_R = error(D_Q, D_F)), numbervars(D_R, 0, _), print(D_R), nl ; catch((once(D_C) -> D_R = D_C ; D_R = no(D_C)), error(D_F, _), D_R = error(D_C, D_F)), numbervars(D_R, 0, _), print(D_R), nl)))).
-%------------------------------------------------------------- 262 p2_arithmetic
+%------------------------------------------------------------- 263 p2_arithmetic
 % 2.01 (**) Determine whether a given number is prime.
 
 % Example:
@@ -36135,7 +36390,7 @@ totient_phi_test(N) :-
 % DRIVER (appended by the vendoring, CEO-700): the file defines the P-99 problems and states their examples in comments;
 % this goal runs those examples: the commented examples of 2.01-2.10 (is_prime(7), prime_factors(315), goldbach(28), goldbach_list(9,20) and (1,2000,50), gcd(36,63), coprime(35,64), phi(10)) and phi(10090) of 2.11 by both methods without time/1; 2.04-2.06 print the caught ISO error because the file calls an undefined prime_sieve/2
 :- initialization(forall(member(D_G, [is_prime(7), findall(P,(between(1,50,P),is_prime(P)),L), prime_factors(315,L), prime_factors_mult(315,L), primes_in_range(10,50,L), goldbach(28,L), out(goldbach_list(9,20)), out(goldbach_list(1,2000,50)), gcd(36,63,G), G is gcd(36,63), coprime(35,64), totient_phi(10,P), totient_phi_2(10,P), totient_phi(10090,P), totient_phi_2(10090,P)]), (copy_term(D_G, D_C), (D_C = out(D_P) -> \+ \+ (numbervars(D_P, 0, _), print(D_P), nl), catch((once(D_P) -> true ; print(no), nl), error(D_F, _), (print(error(D_F)), nl)) ; D_C = count(D_Q) -> catch((findall(D_Q, D_Q, D_L0), sort(D_L0, D_L1), length(D_L1, D_N), D_R = count(D_Q, D_N)), error(D_F, _), D_R = error(D_Q, D_F)), numbervars(D_R, 0, _), print(D_R), nl ; catch((once(D_C) -> D_R = D_C ; D_R = no(D_C)), error(D_F, _), D_R = error(D_C, D_F)), numbervars(D_R, 0, _), print(D_R), nl)))).
-%-------------------------------------------------------- 263 p3_logic_and_codes
+%-------------------------------------------------------- 264 p3_logic_and_codes
 % 3.01 (**) Truth tables for logical expressions.
 % Define predicates and/2, or/2, nand/2, nor/2, xor/2, impl/2 and equ/2 (for
 % logical equivalence) which succeed or fail according to the result of their
@@ -36312,7 +36567,7 @@ prepend_all_codes(P, [hc(S, C)|Xs], [hc(S, C_)|Ys]) :-
 % DRIVER (appended by the vendoring, CEO-700): the file defines the P-99 problems and states their examples in comments;
 % this goal runs those examples: the three commented truth tables (3.01 prefix, 3.02 operators, 3.03 table2 in three variables), the gray codes C(1)..C(4) of 3.04 and the huffman code of 3.05's frequency table
 :- initialization(forall(member(D_G, [out(table(A,B,and(A,or(A,B)))), out(table(A,B,A and (A or not B))), out(table2([A,B,C],A and (B or C) equ A and B or A and C)), gray(1,C), gray(2,C), gray(3,C), gray(4,C), huffman([fr(a,45),fr(b,13),fr(c,12),fr(d,16),fr(e,9),fr(f,5)],C)]), (copy_term(D_G, D_C), (D_C = out(D_P) -> \+ \+ (numbervars(D_P, 0, _), print(D_P), nl), catch((once(D_P) -> true ; print(no), nl), error(D_F, _), (print(error(D_F)), nl)) ; D_C = count(D_Q) -> catch((findall(D_Q, D_Q, D_L0), sort(D_L0, D_L1), length(D_L1, D_N), D_R = count(D_Q, D_N)), error(D_F, _), D_R = error(D_Q, D_F)), numbervars(D_R, 0, _), print(D_R), nl ; catch((once(D_C) -> D_R = D_C ; D_R = no(D_C)), error(D_F, _), D_R = error(D_C, D_F)), numbervars(D_R, 0, _), print(D_R), nl)))).
-%----------------------------------------------------------- 264 p4_binary_trees
+%----------------------------------------------------------- 265 p4_binary_trees
 % 4.01 (*) Check whether a given term represents a binary tree.
 % Write a predicate istree/1 which succeeds if and only if its argument is a
 % Prolog term representing a binary tree.
@@ -36831,7 +37086,7 @@ tree_dotstring_(t(X, L, R), [X|DL]-H) :-
 % DRIVER (appended by the vendoring, CEO-700): the file defines the P-99 problems and states their examples in comments;
 % this goal runs those examples: 4.01-4.18 on P-99 data: the commented istree/cbal_tree(4)/construct/test_symmetric/sym_cbal_trees(5)/hbal_tree(3) examples, the 57-node and 15-node counts the problems ask for, the 4.16 tree a(b(d,e),c(,f(g,))) for leaves/internals/levels/strings/orders/dotstring, and P-99's p64 and p65 figure trees for the three layouts
 :- initialization((T16 = t(a,t(b,t(d,nil,nil),t(e,nil,nil)),t(c,nil,t(f,t(g,nil,nil),nil))), T64 = t(n,t(k,t(c,t(a,nil,nil),t(h,t(g,t(e,nil,nil),nil),nil)),t(m,nil,nil)),t(u,t(p,nil,t(s,t(q,nil,nil),nil)),nil)), T65 = t(n,t(k,t(c,t(a,nil,nil),t(e,t(d,nil,nil),t(g,nil,nil))),t(m,nil,nil)),t(u,t(p,nil,t(q,nil,nil)),nil)), forall(member(D_G, [istree(t(a,t(b,nil,nil),nil)), istree(t(a,t(b,nil,nil))), findall(T,cbal_tree(4,T),L), symmetric(t(x,t(x,nil,nil),t(x,nil,nil))), symmetric(T16), construct([3,2,5,7,1],T), test_symmetric([5,3,18,1,4,12,21]), test_symmetric([3,2,5,7,4]), sym_cbal_trees(5,L), sym_cbal_trees_count(57,N), hbal_tree(3,T), count(hbal_tree(3,T)), findall(H-N,(between(0,6,H),minNodes(H,N)),L), maxHeight(15,H), hbal_tree_nodes(15,T), count_hbal_trees(15,N), count_leaves(T16,N), leaves(T16,L), internals(T16,L), atlevel(T16,3,L), complete_binary_tree(6,T), layout_binary_tree(T64,T), layout_binary_tree2(T65,T), layout_binary_tree3(T65,T), tree_string(T16,S), tree_string(T,'a(b(d,e),c(,f(g,)))'), tree_string2(T16,S), tree_string2(T,'a(b(d,e),c(,f(g,)))'), preorder(T16,S), inorder(T16,S), preorder(T,abdecfg), pre_in_tree(abdecfg,dbeacgf,T), preorder_dl(T16,S), inorder_dl(T16,S), pre_in_tree_dl(abdecfg,dbeacgf,T), tree_dotstring(T16,S), tree_dotstring(T,'abd..e..c.fg...')]), (copy_term(D_G, D_C), (D_C = out(D_P) -> \+ \+ (numbervars(D_P, 0, _), print(D_P), nl), catch((once(D_P) -> true ; print(no), nl), error(D_F, _), (print(error(D_F)), nl)) ; D_C = count(D_Q) -> catch((findall(D_Q, D_Q, D_L0), sort(D_L0, D_L1), length(D_L1, D_N), D_R = count(D_Q, D_N)), error(D_F, _), D_R = error(D_Q, D_F)), numbervars(D_R, 0, _), print(D_R), nl ; catch((once(D_C) -> D_R = D_C ; D_R = no(D_C)), error(D_F, _), D_R = error(D_C, D_F)), numbervars(D_R, 0, _), print(D_R), nl))))).
-%--------------------------------------------------------- 265 p5_multiway_trees
+%--------------------------------------------------------- 266 p5_multiway_trees
 :- use_module(library(yall)).
 :- use_module(library(apply)).
 :- use_module(library(apply_macros)).
@@ -36959,7 +37214,7 @@ children_ltl([C|Cs], L-L2) :- tree_ltl_(C, L-L1), children_ltl(Cs, L1-L2).
 % DRIVER (appended by the vendoring, CEO-700): the file defines the P-99 problems and states their examples in comments;
 % this goal runs those examples: 5.01-5.06 on the P-99 figure tree afg^^c^bd^e^^^: istree, nnodes of the commented t(a,[t(f,[])]) and of the figure, node string both ways, internal path length (9), bottom-up order, and the lispy token list of the commented example forwards and backwards
 :- initialization((TM = t(a,[t(f,[t(g,[])]),t(c,[]),t(b,[t(d,[]),t(e,[])])]), forall(member(D_G, [istree(TM), nnodes(t(a,[t(f,[])]),N), nnodes(TM,N), tree('afg^^c^bd^e^^^',T), tree(L,TM), ipl(TM,N), bottom_up(TM,L), tree_ltl(t(a,[t(b,[t(c,[])])]),L), tree_ltl(TM,L), tree_ltl(T,['(',a,'(',b,c,')',')'])]), (copy_term(D_G, D_C), (D_C = out(D_P) -> \+ \+ (numbervars(D_P, 0, _), print(D_P), nl), catch((once(D_P) -> true ; print(no), nl), error(D_F, _), (print(error(D_F)), nl)) ; D_C = count(D_Q) -> catch((findall(D_Q, D_Q, D_L0), sort(D_L0, D_L1), length(D_L1, D_N), D_R = count(D_Q, D_N)), error(D_F, _), D_R = error(D_Q, D_F)), numbervars(D_R, 0, _), print(D_R), nl ; catch((once(D_C) -> D_R = D_C ; D_R = no(D_C)), error(D_F, _), D_R = error(D_C, D_F)), numbervars(D_R, 0, _), print(D_R), nl))))).
-%----------------------------------------------------------------- 266 p6_graphs
+%----------------------------------------------------------------- 267 p6_graphs
 :- use_module(library(apply)).
 :- use_module(library(apply_macros)).
 :- use_module(library(assoc)).
@@ -37395,7 +37650,7 @@ check_not_found(K, N, G) :- \+ (
 % DRIVER (appended by the vendoring, CEO-700): the file defines the P-99 problems and states their examples in comments;
 % this goal runs those examples: 6.01's twelve conversions (ec/gt/al/hf, both flow orders) on each of the file's three example graphs, then paths, cycles, degree, Welsh-Powell colouring, dfs, components and bipartiteness on the file's graphs, spanning trees on the file's graph and on P-99's 6.04 figure graph (distinct count), Prim's ms_tree on P-99's 6.05 labelled figure graph, isomorphism, and the 3-regular 6-node graphs of 6.11
 :- initialization((EC1 = [edge(h,g),edge(k,f),edge(f,b),edge(b,c),edge(c,f)], EC2 = [arc(s,u),arc(u,r),arc(s,r),arc(u,s),arc(v,u)], EC3 = [arc(m,q,7),arc(p,q,9),arc(p,m,5)], GT1 = graph([b,c,d,f,g,h,k],[e(b,c),e(b,f),e(c,f),e(f,k),e(g,h)]), GT2 = digraph([r,s,t,u,v],[a(s,r),a(s,u),a(u,r),a(u,s),a(v,u)]), GT3 = digraph([k,m,p,q],[a(m,q,7),a(p,m,5),a(p,q,9)]), AL1 = [n(b,[c,f]),n(c,[b,f]),n(d,[]),n(f,[b,c,k]),n(g,[h]),n(h,[g]),n(k,[f])], AL2 = [n(r,[]),n(s,[r,u]),n(t,[]),n(u,[r]),n(v,[u])], AL3 = [n(k,[]),n(m,[q/7]),n(p,[m/5,q/9]),n(q,[])], HF1 = [b-c,f-c,g-h,d,f-b,k-f,h-g], HF2 = [s>r,t,u>r,s>u,u>s,v>u], HF3 = [p>q/9,m>q/7,k,p>m/5], G83 = graph([a,b,c,d,e,f,g,h],[e(a,b),e(a,d),e(b,c),e(b,e),e(c,e),e(d,e),e(d,f),e(d,g),e(e,h),e(f,g),e(g,h)]), G84 = graph([a,b,c,d,e,f,g,h],[e(a,b,5),e(a,d,3),e(b,c,2),e(b,e,4),e(c,e,6),e(d,e,7),e(d,f,4),e(d,g,3),e(e,h,5),e(f,g,4),e(g,h,1)]), forall(member(D_G, [ec_gt(EC1,X), ec_gt(X,GT1), gt_al(GT1,X), gt_al(X,AL1), gt_hf(GT1,X), gt_hf(X,HF1), ec_al(EC1,X), ec_al(X,AL1), ec_hf(EC1,X), ec_hf(X,HF1), al_hf(AL1,X), al_hf(X,HF1), ec_gt(EC2,X), ec_gt(X,GT2), gt_al(GT2,X), gt_al(X,AL2), gt_hf(GT2,X), gt_hf(X,HF2), ec_al(EC2,X), ec_al(X,AL2), ec_hf(EC2,X), ec_hf(X,HF2), al_hf(AL2,X), al_hf(X,HF2), ec_gt(EC3,X), ec_gt(X,GT3), gt_al(GT3,X), gt_al(X,AL3), gt_hf(GT3,X), gt_hf(X,HF3), ec_al(EC3,X), ec_al(X,AL3), ec_hf(EC3,X), ec_hf(X,HF3), al_hf(AL3,X), al_hf(X,HF3), findall(P,path(AL1,b,k,P),L), findall(P,path(AL2,s,r,P),L), findall(P,path(AL3,p,q,P),L), findall(P,cycle(AL1,b,P),L), findall(P,cycle(AL2,s,P),L), s_tree(GT1,X), is_connected(GT1), is_tree(GT1), s_tree(G83,X), count(s_tree(G83,X)), is_connected(G83), is_tree(G83), (s_tree(G83,X),is_tree(X)), ms_tree(GT3,X,S), ms_tree(G84,X,S), isomorphic(GT1,graph([1,2,3,4,5,6,7],[e(1,2),e(1,4),e(2,4),e(4,7),e(5,6)]),I), isomorphic(GT1,G83), isomorphic(GT2,GT2,I), degree(AL1,f,N), degree_sort(AL1,X), chromatic_number(AL1,N), (welsh_powell(AL1,C),close_dl(C),count_colors(C,N)), dfs(AL1,b,X), dfs(AL2,s,X), connected_components(AL1,X), connected_components(AL2,X), is_bipartite(AL1), is_bipartite([n(g,[h]),n(h,[g])]), (findall(X,k_regular(3,6,X),L),length(L,N))]), (copy_term(D_G, D_C), (D_C = out(D_P) -> \+ \+ (numbervars(D_P, 0, _), print(D_P), nl), catch((once(D_P) -> true ; print(no), nl), error(D_F, _), (print(error(D_F)), nl)) ; D_C = count(D_Q) -> catch((findall(D_Q, D_Q, D_L0), sort(D_L0, D_L1), length(D_L1, D_N), D_R = count(D_Q, D_N)), error(D_F, _), D_R = error(D_Q, D_F)), numbervars(D_R, 0, _), print(D_R), nl ; catch((once(D_C) -> D_R = D_C ; D_R = no(D_C)), error(D_F, _), D_R = error(D_C, D_F)), numbervars(D_R, 0, _), print(D_R), nl))))).
-%---------------------------------------------------------- 267 p7_miscellaneous
+%---------------------------------------------------------- 268 p7_miscellaneous
 :- use_module(library(readutil)).
 :- ensure_loaded(p6_graphs).
 

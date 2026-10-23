@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=267 features=26 ubiquitous=5(package findall nl unify directive) distinctive=21 core=18 clusters=72 chunks=3 sizes=100,100,49
+# shape: entries=268 features=26 ubiquitous=5(package findall nl unify directive) distinctive=21 core=18 clusters=72 chunks=3 sizes=100,100,50
 entry	part	cluster	shells
 hakank_sicstus_clique	core	core	cut format if_then_else list_cons write
 hakank_sicstus_diet1	chunk:02	feat:write	write
@@ -34,7 +34,7 @@ hakank_swi_allpartitions	chunk:02	feat:if_then_else	if_then_else
 hakank_swi_alphametic	chunk:01	feat:list_cons	list_cons
 hakank_swi_alphametic3	chunk:01	feat:list_cons	list_cons
 hakank_swi_among	chunk:02	family:hakank_swi_among	
-hakank_swi_among_seq	chunk:02	family:hakank_swi_among_seq	
+hakank_swi_among_seq	chunk:03	family:hakank_swi_among_seq	
 hakank_swi_arch_friends	chunk:03	family:hakank_swi_arch_friends	
 hakank_swi_assignment	core	core	between format if_then_else list_cons var
 hakank_swi_averbach_1_2	chunk:03	family:hakank_swi_averbach	
@@ -224,6 +224,7 @@ hakank_swi_set_covering3	chunk:02	feat:if_then_else	between format if_then_else
 hakank_swi_set_covering4	chunk:02	feat:if_then_else	between format if_then_else
 hakank_swi_set_covering_deployment	chunk:01	feat:list_cons	between format if_then_else list_cons
 hakank_swi_set_covering_skiena	chunk:02	feat:if_then_else	format if_then_else
+hakank_swi_shifted_division	chunk:02	feat:if_then_else	between format if_then_else
 hakank_swi_sicherman_dice	chunk:02	feat:format	format
 hakank_swi_ski_assignment	chunk:01	feat:list_cons	list_cons
 hakank_swi_sliding_sum	chunk:03	family:hakank_swi_sliding_sum	

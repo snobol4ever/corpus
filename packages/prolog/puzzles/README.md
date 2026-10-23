@@ -47,12 +47,16 @@ nothing under swipl -q; the 257 programs DRIVERS.tsv names carry one appended li
   container with its swipl ref and out of the published denominator (Lon, CEO-579: "Do not count the FD as failures for us."; CEO-1593),
   struck the day SCRIP's Prolog carries a finite-domain solver.
 - UNGRADABLE.tsv -- NONDETERMINISTIC: swipl answers differently on two runs (`util_build_package_suite.py --twice`).
-- UNGRADED.tsv -- TIMEOUT (no answer under the build's 60 s, twice) and NEEDS_DRIVER (a module that defines no entry); debt, in the
+- UNGRADED.tsv -- TIMEOUT (no answer under the build's 120 s, twice; 60 s before 2026-10-23) and NEEDS_DRIVER (a module that defines no entry); debt, in the
   denominator unless EXCLUDED.tsv names it (CEO-1286). The two CLP(R) programs (mortgage, spreadsheet) are graded and stay in as debt.
 
 ## Rebuild
 
-    TIMEOUT=60 python3 SCRIP/scripts/util_build_package_suite.py corpus/packages/prolog/puzzles --lang prolog --twice
+    TIMEOUT=120 python3 ../harness/scripts/util_build_package_suite.py ../corpus/packages/prolog/puzzles --lang prolog --twice   # from SCRIP/
+
+TIMEOUT=120 since 2026-10-23 (the coo, CEO-1926): hakank_swi_shifted_division answers in 55.2 s under swipl 9.0.4 at load 8 -- inside the
+old 60 s by a margin the box's load erases (it read TIMEOUT on 10-10) -- and is absorbed at 120 s, its 138606-byte answer the same on
+both runs; every other entry rebuilt byte-identical.
 
 The suite row is the coo's instrument (CEO-1342), minted from this package: `container_package_run prolog pl puzzles <dir> <gate>`
 (lib_container_package_runner.sh), as the Rosetta rows.
