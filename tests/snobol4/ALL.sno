@@ -21627,7 +21627,7 @@ Y6      OUTPUT = '6 S [' V ']'
 E6      'abc' ? LEN(1) . $(.*$*Y) LEN(1) . *$*Y
         OUTPUT = '7 ' X
 END
-*--------------------------------------- 2103 code_eval_eval_len_replace_1 XFAIL
+*--------------------------------------------- 2103 code_eval_eval_len_replace_1
 *  COPY of a pattern, an expression or a code is a distinct one, not IDENT to its argument, and works as it does;
 *  a string, a number or a name is its own copy
         P = LEN(1)
