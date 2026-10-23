@@ -2095,4 +2095,4 @@ rank,entry,origin,family,kind,xfail,n_lines,heap_kb,stack_kb,compile_args,run_ar
 2094,user_function_eval_arbno_replace_branch_1,probe_ptj2__ptj1_arbno_defer_nonterminating,probe_ptj2,block,0,309,131072,4096,--stlimit,,1,0,1,1,1,0,0,1,1,1,1,0,0,0,0,1,0,1,1,1,0,0,1,0,1,0,1,0,1,0,1,0,1,1,1,1,1,1,1,1
 2095,demo_json,demo_snobol4_json__json,demo_snobol4_json,block,0,294,131072,4096,--stlimit,,1,0,1,1,1,0,0,1,1,1,1,0,0,0,0,1,0,1,1,1,0,0,1,1,1,0,1,1,1,0,1,0,1,1,1,1,1,1,1,1
 2096,benchmark_json,benchmark_snobol4_json__json,benchmark_snobol4_json,block,0,320,131072,4096,--stlimit,,1,0,1,1,1,0,0,1,1,1,1,0,0,0,0,1,0,1,1,1,0,0,1,1,1,0,1,1,1,0,1,0,1,1,1,1,1,1,1,1
-2097,len_imm_capture_keyword_replace_branch_1,len_of_a_non_integer_at_match_time_is_error_47,len_of_a_non_integer_at_match_time_is_error_47,block,1,7,131072,4096,,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0,0
+2097,len_imm_capture_keyword_replace_branch_1,len_of_a_non_integer_at_match_time_is_error_47,len_of_a_non_integer_at_match_time_is_error_47,block,0,7,131072,4096,,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0,0

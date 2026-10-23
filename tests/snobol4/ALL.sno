@@ -21503,7 +21503,7 @@ fail            t1              =   TIME()
                 TERMINAL        =   'match_ms=' (t1 - t0) / 1000000
 *------------------------------------------------------------------------------
 END
-*--------------------------- 2097 len_imm_capture_keyword_replace_branch_1 XFAIL
+*--------------------------- 2097 len_imm_capture_keyword_replace_branch_1
 * LEN(*'z') reads its argument when the match reaches it, and a non-integer there is error 47, which ends the match: the statement fails
 * once, &ERRLIMIT drops by one, and the immediate assignment made before it stands.
         &ERRLIMIT = 10
