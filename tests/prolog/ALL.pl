@@ -4836,3 +4836,6 @@ define(qsort([],R,R),true).
 define(partition([X|L],Y,[X|L1],L2),(X=<Y,!,partition(L,Y,L1,L2))).
 define(partition([X|L],Y,L1,[X|L2]),(partition(L,Y,L1,L2))).
 define(partition([],_,[],[]),true).
+%- 574 ladder__rung05_ite_nested_in_a_disjunction_then_arm_first_writes_its_variables
+main :- ( ( X = 1 -> Y = 2, fail ; true ) ; write(outer) ), nl.
+:- initialization(main).

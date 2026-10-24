@@ -1770,3 +1770,5 @@ g(z,z,z)
 done
 %------------------------------------------------------ 573 benchmark_meta_qsort
 ok
+%- 574 ladder__rung05_ite_nested_in_a_disjunction_then_arm_first_writes_its_variables
+outer

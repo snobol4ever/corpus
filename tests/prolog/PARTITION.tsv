@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=573 features=38 ubiquitous=3(write nl directive) distinctive=35 core=52 clusters=65 chunks=6 sizes=100,100,100,100,100,21
+# shape: entries=574 features=38 ubiquitous=3(write nl directive) distinctive=35 core=52 clusters=65 chunks=6 sizes=100,100,100,100,100,22
 entry	part	cluster	shells
 write_family_writeln_1	chunk:01	family:ladder	
 directive_32	chunk:06	family:rung22_write_canonical	
@@ -161,7 +161,7 @@ write_canonical_directive_3	chunk:05	feat:write_canonical	write_canonical
 clause_choice_first_solution_only_1	chunk:01	family:ladder	
 directive_1	chunk:06	family:hello	
 directive_14	chunk:05	family:probe_plz	
-directive_33	chunk:04	family:rung23	
+directive_33	chunk:05	family:rung23	
 directive_34	chunk:05	family:rung23	
 directive_37	chunk:05	family:rung23	
 directive_48	chunk:05	family:rung24_string_io	
@@ -304,7 +304,7 @@ ite_directive_9	chunk:02	feat:if_then_else	if_then_else
 last_call_accumulator_loop_1	chunk:03	feat:cut	cut
 last_call_tail_recursive_count_1	chunk:03	feat:cut	cut
 lastcall_directive_1	chunk:03	feat:cut	cut
-list_directive_1	chunk:02	feat:list_cons	list_cons
+list_directive_1	chunk:03	feat:list_cons	list_cons
 rung04_cut_with_disjunction	chunk:03	feat:cut	cut
 abolish_1	chunk:05	feat:abolish	abolish
 bagof_setof_caret_existential_1	chunk:05	feat:setof	setof
@@ -315,7 +315,7 @@ declarations_multifile_1	chunk:03	feat:findall	findall
 evaluable_type_error_on_non_evaluable_1	chunk:03	feat:catch	catch
 findall_collect_all_1	chunk:03	feat:findall	findall
 findall_directive_1	chunk:03	feat:findall	findall
-findall_directive_3	chunk:03	feat:findall	findall
+findall_directive_3	chunk:04	feat:findall	findall
 indexing_indexed_vs_var_first_arg_1	chunk:04	feat:findall	findall
 ite_directive_10	chunk:02	feat:if_then_else	if_then_else
 misc17_current_predicate_1	chunk:02	feat:if_then_else	if_then_else
@@ -434,7 +434,7 @@ copy_term_ite_directive_replace_2	chunk:05	feat:copy_term	copy_term if_then_else
 ite_list_directive_1	chunk:03	feat:list_cons	if_then_else list_cons
 ite_replace_1	chunk:02	feat:unify	if_then_else unify
 ofi_forall_all_hold_1	core	core	forall if_then_else
-ofi_forall_counterexample_1	chunk:05	feat:forall	forall if_then_else
+ofi_forall_counterexample_1	chunk:06	feat:forall	forall if_then_else
 op_ite_directive_replace_1	chunk:05	feat:op	if_then_else op
 catch_between_directive_1	chunk:04	feat:between	between catch
 cut_ite_directive_1	chunk:03	feat:cut	cut if_then_else
@@ -575,3 +575,4 @@ termops_directive_1	core	core	arg copy_term functor succ unify univ
 functor_ite_univ_1	core	core	arg atom functor if_then_else unify univ
 copy_term_call_cut_replace_1	core	core	call copy_term cut if_then_else unify var
 benchmark_meta_qsort	core	core	cut if_then_else list_cons negation nonvar number unify var
+ladder__rung05_ite_nested_in_a_disjunction_then_arm_first_writes_its_variables	chunk:02	feat:unify	if_then_else unify
