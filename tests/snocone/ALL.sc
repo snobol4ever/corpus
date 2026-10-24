@@ -59,245 +59,245 @@ OUTPUT = "hello"   " "   "world";
 /*--------------------------------- 30 ladder__rung24_output_associated_write */
 OUTPUT = 'first write to the predefined OUTPUT association';
 OUTPUT = 'second write, same association, output accumulates by line';
-/*------------------------------------------------------- 31 simple_output_10 */
+/*------------------------------------------------------ 31 simple_output_104 */
+i = 2; j = 3;
+OUTPUT = (LT(i, j) 'first', GT(i, j) 'second', 'third');
+/*------------------------------------------------------- 32 simple_output_11 */
+// A01_hello.sc — minimal output test
+OUTPUT = 'hello world';
+/*------------------------------------------------------- 33 simple_output_12 */
+// A01_integer.sc — output integer literal
+OUTPUT = 42;
+/*------------------------------------------------------ 34 simple_output_135 */
+// hello.sc - Minimal output test.
+OUTPUT = 'hello world';
+/*------------------------------------------------------ 35 simple_output_137 */
+// 001 - Output a string literal
+OUTPUT = 'hello world';
+/*------------------------------------------------------ 36 simple_output_138 */
+// 002 - Output an integer literal
+OUTPUT = 42;
+/*------------------------------------------------------ 37 simple_output_139 */
+// 003 - Output a real literal
+OUTPUT = 3.14;
+/*------------------------------------------------------- 38 simple_output_14 */
+// A01_real.sc — output real literal
+OUTPUT = 3.14;
+/*------------------------------------------------------ 39 simple_output_143 */
+// 008 - Double-quoted string literal
+OUTPUT = "hello world";
+/*------------------------------------------------------ 40 simple_output_154 */
+x = 42;
+OUTPUT = x;
+/*------------------------------------------------------ 41 simple_output_157 */
+OUTPUT = LT(5, 3) 'should-not-print';
+OUTPUT = 'after';
+/*------------------------------------------------------ 42 simple_output_165 */
+greet: OUTPUT = 'first';
+OUTPUT = 'second';
+/*------------------------------------------------------ 43 simple_output_169 */
+x = 2;
+if (GT(x, 3)) { OUTPUT = 'big'; } else { OUTPUT = 'small'; }
+/*------------------------------------------------------ 44 simple_output_170 */
+x = 5;
+if (EQ(x, 1)) { OUTPUT = 'one'; } else if (EQ(x, 5)) { OUTPUT = 'five'; } else { OUTPUT = 'other'; }
+/*------------------------------------------------------ 45 simple_output_171 */
+i = 1;
+while (LE(i, 5)) { OUTPUT = i; i = i + 1; }
+/*------------------------------------------------------ 46 simple_output_175 */
+x = 42;
+OUTPUT = x;
+/*------------------------------------------------------ 47 simple_output_184 */
+s = 'hello';
+OUTPUT = (s ? 'hel') 'X';
+/*------------------------------------------------------ 48 simple_output_190 */
+OUTPUT = LT(5, 3) 'should-not-print';
+OUTPUT = 'after';
+/*------------------------------------------------------- 49 simple_output_20 */
+// A03_add.sc — integer addition
+OUTPUT = 1 + 2;
+/*------------------------------------------------------ 50 simple_output_205 */
+/* a block comment */
+OUTPUT = 'after-block-comment';
+/*------------------------------------------------------ 51 simple_output_206 */
+// a line comment
+OUTPUT = 'after-line-comment';
+/*------------------------------------------------------- 52 simple_output_21 */
+// A03_divide.sc — real division
+OUTPUT = 10 / 4;
+/*------------------------------------------------------- 53 simple_output_22 */
+// A03_exponent.sc — exponentiation (^ operator in Snocone)
+OUTPUT = 2 ^ 8;
+/*------------------------------------------------------ 54 simple_output_229 */
+i = 5; j = 3;
+OUTPUT = (LT(i, j) 'first', GT(i, j) 'second', 'third');
+/*------------------------------------------------------- 55 simple_output_23 */
+// A03_multiply.sc — integer multiplication
+OUTPUT = 6 * 7;
+/*------------------------------------------------------ 56 simple_output_230 */
+i = 3; j = 3;
+OUTPUT = (LT(i, j) 'first', GT(i, j) 'second', 'third');
+/*------------------------------------------------------- 57 simple_output_24 */
+// A03_subtract.sc — integer subtraction
+OUTPUT = 10 - 3;
+/*------------------------------------------------------- 58 simple_output_26 */
+// A04_concat_int.sc — concatenate integer and string
+OUTPUT = 42   ' items';
+/*------------------------------------------------------- 59 simple_output_27 */
+// A04_concat_three.sc — concatenate three string literals
+OUTPUT = 'a'   'b'   'c';
+/*------------------------------------------------------- 60 simple_output_28 */
+// A04_concat_two.sc — concatenate two string literals
+OUTPUT = 'hello'   ' world';
+/*------------------------------------------------------- 61 simple_output_32 */
+// A06_substr.sc — SUBSTR extracts substring
+OUTPUT = SUBSTR('hello world', 7, 5);
+/*------------------------------------------------------- 62 simple_output_39 */
+// A08_lpad.sc — LPAD pads string on left
+OUTPUT = LPAD('hi', 6);
+/*------------------------------------------------------- 63 simple_output_60 */
+// hello.sc - Minimal output test.
+OUTPUT = 'hello world';
+/*------------------------------------------------------- 64 simple_output_62 */
+// 001 - Output a string literal
+OUTPUT = 'hello world';
+/*------------------------------------------------------- 65 simple_output_63 */
+// 002 - Output an integer literal
+OUTPUT = 42;
+/*------------------------------------------------------- 66 simple_output_64 */
+// 003 - Output a real literal
+OUTPUT = 3.14;
+/*------------------------------------------------------- 67 simple_output_68 */
+// 008 - Double-quoted string literal
+OUTPUT = "hello world";
+/*------------------------------------------------------- 68 simple_output_10 */
 // A01_empty_string.sc — output of empty string produces blank line
 OUTPUT = '';
 OUTPUT = 'done';
-/*------------------------------------------------------ 32 simple_output_104 */
-i = 2; j = 3;
-OUTPUT = (LT(i, j) 'first', GT(i, j) 'second', 'third');
-/*------------------------------------------------------- 33 simple_output_11 */
-// A01_hello.sc — minimal output test
-OUTPUT = 'hello world';
-/*------------------------------------------------------- 34 simple_output_12 */
-// A01_integer.sc — output integer literal
-OUTPUT = 42;
-/*------------------------------------------------------ 35 simple_output_134 */
-// empty_string.sc - Output of null string produces blank line.
-OUTPUT = '';
-OUTPUT = 'done';
-/*------------------------------------------------------ 36 simple_output_135 */
-// hello.sc - Minimal output test.
-OUTPUT = 'hello world';
-/*------------------------------------------------------ 37 simple_output_137 */
-// 001 - Output a string literal
-OUTPUT = 'hello world';
-/*------------------------------------------------------ 38 simple_output_138 */
-// 002 - Output an integer literal
-OUTPUT = 42;
-/*------------------------------------------------------ 39 simple_output_139 */
-// 003 - Output a real literal
-OUTPUT = 3.14;
-/*------------------------------------------------------- 40 simple_output_14 */
-// A01_real.sc — output real literal
-OUTPUT = 3.14;
-/*------------------------------------------------------ 41 simple_output_140 */
-// 004 - Output empty string produces blank line
-OUTPUT = '';
-OUTPUT = 'done';
-/*------------------------------------------------------ 42 simple_output_142 */
-// 007 - Uninitialized variable outputs empty line
-OUTPUT = x;
-OUTPUT = 'done';
-/*------------------------------------------------------ 43 simple_output_143 */
-// 008 - Double-quoted string literal
-OUTPUT = "hello world";
-/*------------------------------------------------------ 44 simple_output_154 */
-x = 42;
-OUTPUT = x;
-/*------------------------------------------------------ 45 simple_output_157 */
-OUTPUT = LT(5, 3) 'should-not-print';
-OUTPUT = 'after';
-/*------------------------------------------------------ 46 simple_output_165 */
-greet: OUTPUT = 'first';
-OUTPUT = 'second';
-/*------------------------------------------------------ 47 simple_output_169 */
-x = 2;
-if (GT(x, 3)) { OUTPUT = 'big'; } else { OUTPUT = 'small'; }
-/*------------------------------------------------------ 48 simple_output_170 */
-x = 5;
-if (EQ(x, 1)) { OUTPUT = 'one'; } else if (EQ(x, 5)) { OUTPUT = 'five'; } else { OUTPUT = 'other'; }
-/*------------------------------------------------------ 49 simple_output_171 */
-i = 1;
-while (LE(i, 5)) { OUTPUT = i; i = i + 1; }
-/*------------------------------------------------------ 50 simple_output_175 */
-x = 42;
-OUTPUT = x;
-/*------------------------------------------------------ 51 simple_output_184 */
-s = 'hello';
-OUTPUT = (s ? 'hel') 'X';
-/*------------------------------------------------------ 52 simple_output_190 */
-OUTPUT = LT(5, 3) 'should-not-print';
-OUTPUT = 'after';
-/*------------------------------------------------------- 53 simple_output_20 */
-// A03_add.sc — integer addition
-OUTPUT = 1 + 2;
-/*------------------------------------------------------ 54 simple_output_205 */
-/* a block comment */
-OUTPUT = 'after-block-comment';
-/*------------------------------------------------------ 55 simple_output_206 */
-// a line comment
-OUTPUT = 'after-line-comment';
-/*------------------------------------------------------- 56 simple_output_21 */
-// A03_divide.sc — real division
-OUTPUT = 10 / 4;
-/*------------------------------------------------------- 57 simple_output_22 */
-// A03_exponent.sc — exponentiation (^ operator in Snocone)
-OUTPUT = 2 ^ 8;
-/*------------------------------------------------------ 58 simple_output_229 */
-i = 5; j = 3;
-OUTPUT = (LT(i, j) 'first', GT(i, j) 'second', 'third');
-/*------------------------------------------------------- 59 simple_output_23 */
-// A03_multiply.sc — integer multiplication
-OUTPUT = 6 * 7;
-/*------------------------------------------------------ 60 simple_output_230 */
-i = 3; j = 3;
-OUTPUT = (LT(i, j) 'first', GT(i, j) 'second', 'third');
-/*------------------------------------------------------- 61 simple_output_24 */
-// A03_subtract.sc — integer subtraction
-OUTPUT = 10 - 3;
-/*------------------------------------------------------- 62 simple_output_26 */
-// A04_concat_int.sc — concatenate integer and string
-OUTPUT = 42   ' items';
-/*------------------------------------------------------- 63 simple_output_27 */
-// A04_concat_three.sc — concatenate three string literals
-OUTPUT = 'a'   'b'   'c';
-/*------------------------------------------------------- 64 simple_output_28 */
-// A04_concat_two.sc — concatenate two string literals
-OUTPUT = 'hello'   ' world';
-/*------------------------------------------------------- 65 simple_output_32 */
-// A06_substr.sc — SUBSTR extracts substring
-OUTPUT = SUBSTR('hello world', 7, 5);
-/*------------------------------------------------------- 66 simple_output_39 */
-// A08_lpad.sc — LPAD pads string on left
-OUTPUT = LPAD('hi', 6);
-/*------------------------------------------------------- 67 simple_output_59 */
-// empty_string.sc - Output of null string produces blank line.
-OUTPUT = '';
-OUTPUT = 'done';
-/*------------------------------------------------------- 68 simple_output_60 */
-// hello.sc - Minimal output test.
-OUTPUT = 'hello world';
-/*------------------------------------------------------- 69 simple_output_62 */
-// 001 - Output a string literal
-OUTPUT = 'hello world';
-/*------------------------------------------------------- 70 simple_output_63 */
-// 002 - Output an integer literal
-OUTPUT = 42;
-/*------------------------------------------------------- 71 simple_output_64 */
-// 003 - Output a real literal
-OUTPUT = 3.14;
-/*------------------------------------------------------- 72 simple_output_65 */
-// 004 - Output empty string produces blank line
-OUTPUT = '';
-OUTPUT = 'done';
-/*------------------------------------------------------- 73 simple_output_67 */
-// 007 - Uninitialized variable outputs empty line
-OUTPUT = x;
-OUTPUT = 'done';
-/*------------------------------------------------------- 74 simple_output_68 */
-// 008 - Double-quoted string literal
-OUTPUT = "hello world";
-/*------------------------------------------------------ 75 simple_output_127 */
+/*------------------------------------------------------ 69 simple_output_127 */
 // 009 - Assign string to variable, output it
 x = 'hello';
 OUTPUT = x;
-/*------------------------------------------------------ 76 simple_output_128 */
+/*------------------------------------------------------ 70 simple_output_128 */
 // 010 - Assign integer to variable, output it
 n = 42;
 OUTPUT = n;
-/*------------------------------------------------------ 77 simple_output_132 */
+/*------------------------------------------------------ 71 simple_output_132 */
 // 014 - Indirect assignment via dollar
 $'x' = 'hello';
 OUTPUT = x;
-/*------------------------------------------------------ 78 simple_output_133 */
+/*------------------------------------------------------ 72 simple_output_133 */
 // 016 - Direct assignment to OUTPUT special variable
 OUTPUT = 'alpha';
 OUTPUT = 'beta';
-/*------------------------------------------------------ 79 simple_output_156 */
+/*------------------------------------------------------ 73 simple_output_134 */
+// empty_string.sc - Output of null string produces blank line.
+OUTPUT = '';
+OUTPUT = 'done';
+/*------------------------------------------------------ 74 simple_output_140 */
+// 004 - Output empty string produces blank line
+OUTPUT = '';
+OUTPUT = 'done';
+/*------------------------------------------------------ 75 simple_output_142 */
+// 007 - Uninitialized variable outputs empty line
+OUTPUT = x;
+OUTPUT = 'done';
+/*------------------------------------------------------ 76 simple_output_156 */
 a = 'foo';
 b = 'bar';
 OUTPUT = a b;
-/*------------------------------------------------------ 80 simple_output_159 */
+/*------------------------------------------------------ 77 simple_output_159 */
 OUTPUT = 42;
 OUTPUT = 'hello';
 OUTPUT = "world";
-/*------------------------------------------------------- 81 simple_output_16 */
+/*------------------------------------------------------- 78 simple_output_16 */
 // A02_assign_integer.sc — assign integer to variable, output it
 n = 42;
 OUTPUT = n;
-/*------------------------------------------------------ 82 simple_output_162 */
+/*------------------------------------------------------ 79 simple_output_162 */
 x = 5;
 OUTPUT = -x;
 OUTPUT = -x + 10;
-/*------------------------------------------------------ 83 simple_output_167 */
+/*------------------------------------------------------ 80 simple_output_167 */
 OUTPUT = 'before end';
 goto END;
 OUTPUT = 'never printed';
-/*------------------------------------------------------ 84 simple_output_168 */
+/*------------------------------------------------------ 81 simple_output_168 */
 x = 5;
 if (GT(x, 3)) { OUTPUT = 'big'; }
 OUTPUT = 'done';
-/*------------------------------------------------------ 85 simple_output_186 */
+/*------------------------------------------------------ 82 simple_output_186 */
 a = 'foo';
 b = 'bar';
 OUTPUT = a b;
-/*------------------------------------------------------- 86 simple_output_19 */
+/*------------------------------------------------------- 83 simple_output_19 */
 // A02_assign_string.sc — assign string to variable, output it
 x = 'hello';
 OUTPUT = x;
-/*-------------------------------------------------------- 87 simple_output_2 */
+/*-------------------------------------------------------- 84 simple_output_2 */
 OUTPUT = 'hello';
 OUTPUT = 'world';
 OUTPUT = 42;
-/*------------------------------------------------------ 88 simple_output_202 */
+/*------------------------------------------------------ 85 simple_output_202 */
 struct point { x, y }
 p = point(3, 4);
 OUTPUT = x(p);
-/*------------------------------------------------------ 89 simple_output_203 */
+/*------------------------------------------------------ 86 simple_output_203 */
 struct pt2 { a, b }
 q = pt2(7, 8);
 OUTPUT = b(q);
-/*------------------------------------------------------ 90 simple_output_213 */
+/*------------------------------------------------------ 87 simple_output_213 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: while+continue over LT(i,5) skipping EQ(i,3); twin is the idiomatic SPITBOL goto form with a BARE trailing FIN label before END (rung13's proven side-effect-free fallback -- a trailing OUTPUT='' would emit a spurious blank line the .sc program does not) */
 i = 0;
 while (LT(i, 5)) { i = i + 1; if (EQ(i, 3)) { continue; } OUTPUT = i; }
-/*------------------------------------------------------ 91 simple_output_221 */
+/*------------------------------------------------------ 88 simple_output_221 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: factorial of 5 by self-call, report.md:730 'Procedures are recursive.' The twin branches to a base-case label when the predicate succeeds and falls through to the recursive arm otherwise. NOTE: this prose names the transfer operators instead of spelling them, because a twin comment is absorbed INTO the graded block and IS scanned by the feature-flag deriver. */
 function fact(n) { if (LE(n, 1)) { fact = 1; return; } fact = n * fact(n - 1); return; }
 OUTPUT = fact(5);
-/*------------------------------------------------------ 92 simple_output_222 */
+/*------------------------------------------------------ 89 simple_output_222 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: report.md:697-699, 'If a procedure is called with too few arguments, extra null strings are supplied as necessary.' The brackets around each parameter are load-bearing: without them a missing argument and an empty one are indistinguishable in the output. */
 function f(x, y) { f = '[' x ']' '[' y ']'; return; }
 OUTPUT = f('one');
-/*------------------------------------------------------ 93 simple_output_223 */
+/*------------------------------------------------------ 90 simple_output_223 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: report.md:700-701, 'If called with too many arguments, the extras are quietly ignored.' Two extra arguments are passed and only the first is used; 'quietly' is graded as much as 'ignored', since a diagnostic on the extras would move rc or stderr and red this witness. */
 function f(x) { f = x; return; }
 OUTPUT = f('a', 'b', 'c');
-/*------------------------------------------------------- 94 simple_output_25 */
+/*------------------------------------------------------- 91 simple_output_25 */
 // A04_concat_assign.sc — concat on right side of assignment
 x = 'foo'   'bar';
 OUTPUT = x;
-/*------------------------------------------------------- 95 simple_output_29 */
+/*------------------------------------------------------- 92 simple_output_29 */
 // A04_concat_var.sc — concatenate variable with string literal
 x = 'hello';
 OUTPUT = x   ' world';
-/*------------------------------------------------------- 96 simple_output_52 */
+/*------------------------------------------------------- 93 simple_output_52 */
 // 009 - Assign string to variable, output it
 x = 'hello';
 OUTPUT = x;
-/*------------------------------------------------------- 97 simple_output_53 */
+/*------------------------------------------------------- 94 simple_output_53 */
 // 010 - Assign integer to variable, output it
 n = 42;
 OUTPUT = n;
-/*------------------------------------------------------- 98 simple_output_57 */
+/*------------------------------------------------------- 95 simple_output_57 */
 // 014 - Indirect assignment via dollar
 $'x' = 'hello';
 OUTPUT = x;
-/*------------------------------------------------------- 99 simple_output_58 */
+/*------------------------------------------------------- 96 simple_output_58 */
 // 016 - Direct assignment to OUTPUT special variable
 OUTPUT = 'alpha';
 OUTPUT = 'beta';
+/*------------------------------------------------------- 97 simple_output_59 */
+// empty_string.sc - Output of null string produces blank line.
+OUTPUT = '';
+OUTPUT = 'done';
+/*------------------------------------------------------- 98 simple_output_65 */
+// 004 - Output empty string produces blank line
+OUTPUT = '';
+OUTPUT = 'done';
+/*------------------------------------------------------- 99 simple_output_67 */
+// 007 - Uninitialized variable outputs empty line
+OUTPUT = x;
+OUTPUT = 'done';
 /*------------------------------------------------------ 100 simple_output_91 */
 N = 42;
 OUTPUT = "value="   N;
@@ -337,228 +337,228 @@ OUTPUT = y;
 OUTPUT = 'line one';
 OUTPUT = 'line two';
 OUTPUT = 'line three';
-/*----------------------------------------------------- 108 simple_output_130 */
-// 012 - Assign null (empty right side)
-x = 'something';
-x = '';
-OUTPUT = x;
-OUTPUT = 'done';
-/*----------------------------------------------------- 109 simple_output_131 */
+/*----------------------------------------------------- 108 simple_output_131 */
 // 013 - Overwrite variable, output second value
 x = 'first';
 x = 'second';
 OUTPUT = x;
-/*----------------------------------------------------- 110 simple_output_136 */
+/*----------------------------------------------------- 109 simple_output_136 */
 // multi.sc - Multiple sequential output statements.
 OUTPUT = 'line one';
 OUTPUT = 'line two';
 OUTPUT = 'line three';
-/*----------------------------------------------------- 111 simple_output_141 */
+/*----------------------------------------------------- 110 simple_output_141 */
 // 005 - Multiple output statements produce multiple lines
 OUTPUT = 'line one';
 OUTPUT = 'line two';
 OUTPUT = 'line three';
-/*------------------------------------------------------ 112 simple_output_15 */
+/*------------------------------------------------------ 111 simple_output_15 */
 // A02_assign_chain.sc — chain assignment x=a, y=x, output y
 x = 'alpha';
 y = x;
 OUTPUT = y;
-/*----------------------------------------------------- 113 simple_output_155 */
+/*----------------------------------------------------- 112 simple_output_155 */
 OUTPUT = 2 + 3;
 OUTPUT = 10 - 4;
 OUTPUT = 6 * 7;
 OUTPUT = 20 / 4;
-/*----------------------------------------------------- 114 simple_output_160 */
+/*----------------------------------------------------- 113 simple_output_160 */
 // leading line comment, produces no output
 OUTPUT = 'before'; // trailing comment
 /* a block comment */
 OUTPUT = 'after';
-/*----------------------------------------------------- 115 simple_output_161 */
+/*----------------------------------------------------- 114 simple_output_161 */
 x = 1;
 X = 2;
 OUTPUT = x;
 OUTPUT = X;
-/*------------------------------------------------------ 116 simple_output_17 */
-// A02_assign_null.sc — assign null, output blank line
-x = 'something';
-x =;
-OUTPUT = x;
-OUTPUT = 'done';
-/*----------------------------------------------------- 117 simple_output_172 */
+/*----------------------------------------------------- 115 simple_output_172 */
 i = 1;
 do { OUTPUT = i; i = i + 1; } while (LE(i, 3));
 i = 10;
 do { OUTPUT = 'once'; } while (LT(i, 0));
-/*------------------------------------------------------ 118 simple_output_18 */
+/*------------------------------------------------------ 116 simple_output_18 */
 // A02_assign_overwrite.sc — overwrite variable, output second value
 x = 'first';
 x = 'second';
 OUTPUT = x;
-/*----------------------------------------------------- 119 simple_output_204 */
+/*----------------------------------------------------- 117 simple_output_204 */
 struct pt3 { m, n }
 r = pt3(1, 2);
 m(r) = 99;
 OUTPUT = m(r);
-/*----------------------------------------------------- 120 simple_output_207 */
+/*----------------------------------------------------- 118 simple_output_207 */
 x = 1;
 X = 2;
 OUTPUT = x;
 OUTPUT = X;
-/*----------------------------------------------------- 121 simple_output_212 */
+/*----------------------------------------------------- 119 simple_output_212 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: while+break over LT(i,10) with EQ(i,4) exit; twin is the idiomatic SPITBOL goto form (FIN label shares its line with the real OUTPUT='done' statement, per rung12/13 D5 fallback) */
 i = 0;
 while (LT(i, 10)) { i = i + 1; if (EQ(i, 4)) { break; } OUTPUT = i; }
 OUTPUT = 'done';
-/*----------------------------------------------------- 122 simple_output_216 */
+/*----------------------------------------------------- 120 simple_output_216 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: a two-argument procedure whose result is delivered by assigning to the procedure's own name, called twice so the result cannot be a one-shot constant. The twin is the idiomatic SPITBOL declaration with a BARE trailing FIN label before END (rung13's proven side-effect-free fallback -- a trailing empty assignment would emit a blank line the .sc program does not). */
 function add(a, b) { add = a + b; return; }
 OUTPUT = add(3, 4);
 OUTPUT = add(10, 20);
-/*----------------------------------------------------- 123 simple_output_219 */
+/*----------------------------------------------------- 121 simple_output_219 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: a procedure returning a NAME, so the call itself is an assignment target and storing through it writes the named variable. The prior-art ladder/prog/fn_nreturn.sc put an indirection operator in FRONT of that call and was carried for months as known bug D7; SPITBOL itself raises ERROR 239 on that shape, so D7 was a faulty test and never a scrip defect -- the call is already a name, and indirecting a name again is the error. */
 function mkname() { mkname = .target; nreturn; }
 mkname() = 'stored';
 OUTPUT = target;
-/*----------------------------------------------------- 124 simple_output_225 */
+/*----------------------------------------------------- 122 simple_output_225 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: SPITBOL has no augmented assignment; the twin is the desugaring x = x - e. OPERAND ORDER is what this ref grades: 10 reduced by 3 is 7, where the reversed reading would give -7, so a lowering that swapped the operands could not pass this ref even though it would still look like subtraction. */
 x = 10;
 x -= 3;
 OUTPUT = x;
-/*----------------------------------------------------- 125 simple_output_226 */
+/*----------------------------------------------------- 123 simple_output_226 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: SPITBOL has no augmented assignment; the twin is the desugaring x = x * e. Multiplication is commutative so operand order cannot be graded here, and what the ref distinguishes is the OPERATOR itself: on this input the five augmented forms give 20, 12, 8, 5 and 100 respectively, no two alike, so 20 can only be produced by multiplication. */
 x = 10;
 x *= 2;
 OUTPUT = x;
-/*----------------------------------------------------- 126 simple_output_227 */
+/*----------------------------------------------------- 124 simple_output_227 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: SPITBOL has no augmented assignment; the twin is the desugaring x = x / e. Two properties in one ref. Operand order (10 divided by 4 is 2, where the reversed reading gives 0) and INTEGER TRUNCATION (2, not 2.5) -- division here is integer division, so a lowering that promoted to a real would print 2.5 and red. The inputs were chosen so the quotient is inexact; an exact one would have graded neither property. */
 x = 10;
 x /= 4;
 OUTPUT = x;
-/*----------------------------------------------------- 127 simple_output_228 */
+/*----------------------------------------------------- 125 simple_output_228 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: SPITBOL has no augmented assignment; the twin is the desugaring x = x ^ e. Operand order is the whole point: 3 raised to 2 is 9 where the reversed reading gives 8, and those are precisely the two answers a wrong lowering would choose between. That SPITBOL accepts the same caret spelling as this dialect was verified directly against the oracle rather than assumed. */
 x = 3;
 x ^= 2;
 OUTPUT = x;
-/*----------------------------------------------------- 128 simple_output_231 */
+/*----------------------------------------------------- 126 simple_output_231 */
 i = 3; j = 3;
 x = 'untouched';
 x = (LT(i, j) 'first', GT(i, j) 'second');
 OUTPUT = x;
-/*------------------------------------------------------ 129 simple_output_42 */
+/*------------------------------------------------------ 127 simple_output_42 */
 // A10_capture_delete.sc — replace match with empty (deletion)
 x = 'hello world';
 x ? ' world' = '';
 OUTPUT = x;
-/*------------------------------------------------------ 130 simple_output_43 */
+/*------------------------------------------------------ 128 simple_output_43 */
 // A10_capture_replace.sc — pattern replacement (subject pat = replacement)
 x = 'hello world';
 x ? 'world' = 'there';
 OUTPUT = x;
-/*------------------------------------------------------ 131 simple_output_54 */
+/*------------------------------------------------------ 129 simple_output_54 */
 // 011 - Chain assignment x=a, y=x, output y
 x = 'alpha';
 y = x;
 OUTPUT = y;
-/*------------------------------------------------------ 132 simple_output_55 */
-// 012 - Assign null (empty right side)
-x = 'something';
-x = '';
-OUTPUT = x;
-OUTPUT = 'done';
-/*------------------------------------------------------ 133 simple_output_56 */
+/*------------------------------------------------------ 130 simple_output_56 */
 // 013 - Overwrite variable, output second value
 x = 'first';
 x = 'second';
 OUTPUT = x;
-/*------------------------------------------------------ 134 simple_output_61 */
+/*------------------------------------------------------ 131 simple_output_61 */
 // multi.sc - Multiple sequential output statements.
 OUTPUT = 'line one';
 OUTPUT = 'line two';
 OUTPUT = 'line three';
-/*------------------------------------------------------ 135 simple_output_66 */
+/*------------------------------------------------------ 132 simple_output_66 */
 // 005 - Multiple output statements produce multiple lines
 OUTPUT = 'line one';
 OUTPUT = 'line two';
 OUTPUT = 'line three';
-/*------------------------------------------------------ 136 simple_output_81 */
+/*------------------------------------------------------ 133 simple_output_81 */
 // B03_for_basic.sc — basic for loop counts 1 to 3
 for (i = 1; LE(i, 3); i = i + 1) {
     OUTPUT = i;
 }
-/*------------------------------------------------------ 137 simple_output_87 */
+/*------------------------------------------------------ 134 simple_output_87 */
 FIRST = "Hello";
 LAST = "World";
 FULL = FIRST   ", "   LAST   "!";
 OUTPUT = FULL;
-/*------------------------------------------------------ 138 simple_output_89 */
+/*------------------------------------------------------ 135 simple_output_89 */
 A = "foo";
 B = "bar";
 C = "baz";
 OUTPUT = A   "-"   B   "-"   C;
-/*------------------------------------------------------ 139 simple_output_90 */
+/*------------------------------------------------------ 136 simple_output_90 */
 X = "hello";
 OUTPUT = ""   X;
 OUTPUT = X   "";
 OUTPUT = ""   "";
-/*------------------------------------------------------ 140 simple_output_98 */
+/*------------------------------------------------------ 137 simple_output_98 */
 // B07_caret_assign: x ^= n raises x to power n
 x = 3;
 x ^= 4;
 OUTPUT = x;
-/*----------------------------------------------------- 141 simple_output_105 */
+/*----------------------------------------------------- 138 simple_output_105 */
 // B08_struct_basic: define struct, create instance, access fields
 struct point { x, y }
 p = point(3, 4);
 OUTPUT = x(p);
 OUTPUT = y(p);
-/*----------------------------------------------------- 142 simple_output_163 */
+/*----------------------------------------------------- 139 simple_output_130 */
+// 012 - Assign null (empty right side)
+x = 'something';
+x = '';
+OUTPUT = x;
+OUTPUT = 'done';
+/*----------------------------------------------------- 140 simple_output_163 */
 count = 0;
 count = ?(LT(2, 9)) count + 1;
 OUTPUT = count;
 count = ?(LT(9, 2)) count + 1;
 OUTPUT = count;
-/*----------------------------------------------------- 143 simple_output_166 */
+/*----------------------------------------------------- 141 simple_output_166 */
 n = 3;
 loop: OUTPUT = n;
 n = n - 1;
 if (LT(0, n)) { goto loop; }
 OUTPUT = 'done';
-/*----------------------------------------------------- 144 simple_output_183 */
+/*------------------------------------------------------ 142 simple_output_17 */
+// A02_assign_null.sc — assign null, output blank line
+x = 'something';
+x =;
+OUTPUT = x;
+OUTPUT = 'done';
+/*----------------------------------------------------- 143 simple_output_183 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: SPITBOL has no chained assignment, so the twin is three separate assignments producing identical output */
 a = b = c = 7;
 OUTPUT = a;
 OUTPUT = b;
 OUTPUT = c;
-/*----------------------------------------------------- 145 simple_output_185 */
+/*----------------------------------------------------- 144 simple_output_185 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: SNOBOL4 has no if-block, so the twin expresses the same branch with a goto label; the guarded assignment and the printed result are identical */
 s = 'hello';
 r = 'no';
 if (s ? 'ell') { r = 'yes'; }
 OUTPUT = r;
-/*------------------------------------------------------ 146 simple_output_30 */
+/*------------------------------------------------------ 145 simple_output_30 */
 // A05_data_define.sc — DATA type: define, create, access fields
 DATA('complex(real,imag)');
 x = complex(3, -2);
 OUTPUT = real(x);
 OUTPUT = imag(x);
-/*------------------------------------------------------ 147 simple_output_40 */
+/*------------------------------------------------------ 146 simple_output_40 */
 // A09_lexical.sc — Lexical string comparison builtins
 if (LGT('b', 'a')) { OUTPUT = 'b > a'; }
 if (LLT('a', 'b')) { OUTPUT = 'a < b'; }
 if (LEQ('cat', 'cat')) { OUTPUT = 'cat = cat'; }
 if (LNE('cat', 'dog')) { OUTPUT = 'cat != dog'; }
-/*------------------------------------------------------ 148 simple_output_41 */
+/*------------------------------------------------------ 147 simple_output_41 */
 // A10_capture_conditional.sc — match succeeds, output result
 x = 'hello';
 if (x ? 'hello') {
     OUTPUT = 'found';
 }
-/*------------------------------------------------------ 149 simple_output_45 */
+/*------------------------------------------------------ 148 simple_output_45 */
 // A13_define_entry_label.sc — procedure with explicit name (bumpit)
 function bumpit(v) {
     return v + 1;
 }
 OUTPUT = bumpit(41);
+/*------------------------------------------------------ 149 simple_output_55 */
+// 012 - Assign null (empty right side)
+x = 'something';
+x = '';
+OUTPUT = x;
+OUTPUT = 'done';
 /*------------------------------------------------------- 150 simple_output_6 */
 i = 1;
 while (LE(i, 5)) {
