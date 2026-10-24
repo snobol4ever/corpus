@@ -149,8 +149,8 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 148,delay_tests_weidong8,xsb_tests__delay_tests_weidong8,xsb_tests,39,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0
 149,delay_tests_win,xsb_tests__delay_tests_win,xsb_tests,43,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,1,1,0,0,1,0,0,0
 150,delay_tests_wmay_winbug,xsb_tests__delay_tests_wmay_winbug,xsb_tests,28,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
-151,float_tests_assert_test,xsb_tests__float_tests_assert_test,xsb_tests,12,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
-152,float_tests_read_test,xsb_tests__float_tests_read_test,xsb_tests,18,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,1,0,1,0,0,0
+151,float_tests_assert_test,xsb_tests__float_tests_assert_test,xsb_tests,12,0,0,131072,4096,,,ignore-all-space,upstream,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+152,float_tests_read_test,xsb_tests__float_tests_read_test,xsb_tests,18,0,0,131072,4096,,,ignore-all-space,upstream,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,1,0,1,0,0,0
 153,float_tests_roots,xsb_tests__float_tests_roots,xsb_tests,31,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
 154,float_tests_roots_int_comp,xsb_tests__float_tests_roots_int_comp,xsb_tests,31,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
 155,float_tests_vac,xsb_tests__float_tests_vac,xsb_tests,24,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,1,0,1,0,0,1,0,0,0

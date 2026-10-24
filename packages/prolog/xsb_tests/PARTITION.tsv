@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=580 features=41 ubiquitous=7(package compare forall catch write nl directive) distinctive=34 core=34 clusters=135 chunks=6 sizes=100,100,100,100,100,46
+# shape: entries=580 features=41 ubiquitous=7(package compare forall catch write nl directive) distinctive=34 core=35 clusters=133 chunks=6 sizes=100,100,100,100,100,45
 entry	part	cluster	shells
 ai_tests_cs_o	chunk:03	feat:list_cons	list_cons unify
 ai_tests_cs_r	chunk:03	feat:list_cons	list_cons unify
@@ -11,7 +11,7 @@ ai_tests_peep	chunk:03	feat:list_cons	list_cons unify
 ai_tests_pg	chunk:03	feat:list_cons	list_cons unify
 ai_tests_plan	chunk:03	feat:list_cons	list_cons unify
 ai_tests_qsort	chunk:03	feat:list_cons	list_cons unify
-ai_tests_queens	chunk:03	feat:list_cons	list_cons unify
+ai_tests_queens	chunk:04	feat:list_cons	list_cons unify
 ai_tests_read	core	core	atom list_cons unify var
 attv_tests_assert_attv	core	core	assert assert_then_retract call if_then_else nonvar retract unify var
 attv_tests_attv_test	chunk:05	feat:var	cut if_then_else list_cons nonvar unify var
@@ -44,7 +44,7 @@ basic_tests_tstr22	chunk:04	feat:writeq	unify writeq
 basic_tests_tstr23	chunk:04	family:basic_tests_tstr	
 basic_tests_tstr31	chunk:04	feat:writeq	unify writeq
 basic_tests_tstr32	chunk:04	feat:writeq	unify writeq
-basic_tests_tstr33	chunk:04	family:basic_tests_tstr	
+basic_tests_tstr33	chunk:05	family:basic_tests_tstr	
 basic_tests_tstr51	chunk:04	feat:writeq	unify writeq
 basic_tests_tstr52	chunk:04	feat:writeq	unify writeq
 basic_tests_tstr53	chunk:05	family:basic_tests_tstr	
@@ -152,8 +152,8 @@ delay_tests_weidong7	chunk:01	feat:if_then_else	if_then_else
 delay_tests_weidong8	chunk:01	feat:if_then_else	if_then_else
 delay_tests_win	chunk:04	feat:negation	if_then_else negation unify
 delay_tests_wmay_winbug	chunk:05	family:delay_tests_wmay_winbug	
-float_tests_assert_test	chunk:05	family:float_tests_assert_test	
-float_tests_read_test	chunk:06	feat:univ	cut unify univ
+float_tests_assert_test	chunk:02	feat:stage	stage
+float_tests_read_test	core	core	cut stage unify univ
 float_tests_roots	chunk:04	feat:unify	unify
 float_tests_roots_int_comp	chunk:04	feat:unify	unify
 float_tests_vac	chunk:03	feat:cut	cut if_then_else unify
@@ -375,7 +375,7 @@ sub_tests_lrtc6	chunk:02	feat:stage	stage
 sub_tests_lrtc7	chunk:02	feat:stage	stage
 sub_tests_lrtc8	chunk:02	feat:stage	stage
 sub_tests_pilegaard	chunk:04	feat:setof	setof unify
-sub_tests_rrtc1	chunk:02	feat:stage	stage
+sub_tests_rrtc1	chunk:03	feat:stage	stage
 sub_tests_rrtc2	chunk:03	feat:stage	stage
 sub_tests_rrtc3	chunk:03	feat:stage	stage
 sub_tests_rrtc4	chunk:03	feat:stage	stage
