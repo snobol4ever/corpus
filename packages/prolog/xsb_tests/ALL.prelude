@@ -5,3 +5,9 @@
 # declaration of the oracle that answers it, not a compatibility switch.
 :- use_module(library(lists)).
 :- set_prolog_flag(double_quotes, string).
+# CEO-1958 (the ceo 2026-10-24, on the cfo's ask under CEO-1927): XSB 5.0.0 cuts this package's refs, so the prelude declares the three operators
+# XSB's own reader holds (syslib/file_op.P: import fy 1050, export fx 1100, from xfx 1040) that the programs' module directives are written in --
+# 611 :- import ... from ... lines and 9 :- export ... lines; SCRIP's import/1 and export/1 already answer the directive.
+:- op(1050, fy, import).
+:- op(1100, fx, export).
+:- op(1040, xfx, from).
