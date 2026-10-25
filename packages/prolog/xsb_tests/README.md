@@ -84,13 +84,16 @@ match differed only in the order of tabled answers (identical once sorted); with
   (XSB answers differently from run to run -- the 3 socket tests, prolog_db_tests, preproc_test, whose answer carries XSB's own cpu-time load
   messages -- prints nothing where its NAME_old has lines, or its scripts neither run nor open the file) and FAKEABLE_NO_OBSERVABLE (XSB's
   answer is empty, as its NAME_old is: a silent engine would pass it, CEO-1865).
-- STAGED.tsv -- the 146 entries whose SCRIP run is staged in their upstream test directory (corpus_suite_harness.py stage_upstream, the
+- STAGED.tsv -- the 181 entries whose SCRIP run is staged in their upstream test directory (corpus_suite_harness.py stage_upstream, the
   coo's phase 2 of CEO-1927): every vendored file of the entry's test directory written there under its upstream name (as .pl, and under
   its own name), the appended drivers cut off -- the 72 wfs_tests pNN, whose answer is the file temp wfs_test.P writes (answer=temp-sorted;
   their drivers, appended in the same landing, consult wfs_test and run test(pNN) as wfs_tests/test.sh does), and 56 programs whose XSB
   run opens a vendored sibling by its upstream name; and (hq_icon 2026-10-24) the 11 ai_tests programs XSB's ai_tests/test.sh runs, each of
   which imports normalize_result/2 from can_mono and set_unify/2 from set_unify by upstream name -- SCRIP's static compile loads a module
   imported from a file beside the program (M.H, then M.P), as XSB's loader does.
+  And (hq_icon 2026-10-24) the 35 red programs ORACLE_LOADS.tsv names as LOADERS that phase 2 left flat -- each opens a vendored sibling by
+  its upstream name in XSB's own run (longname's load_dyn(longatom), the mod_file/parmod/mod_dyn module tests, the table_tests that consult a
+  data or module file) -- so every loader of the strace evidence now runs in its upstream directory.
 - upstream/ -- the data files a staged program reads by its upstream path, vendored at that path below its test directory and staged byte
   for byte (stage_upstream; the coo, CEO-1926, 2026-10-23): json_tests/data/*.json (39, read by jsontest), prolog_tests/format_tests/format.tst
   (pip_0110_format_test) and prolog_tests/utf8.txt (CR-LF as XSB ships it; test_ascii_getput, test_utf8_atom, test_utf8_getput), XSB's own

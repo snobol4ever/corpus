@@ -1,15 +1,15 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=580 features=41 ubiquitous=7(package compare forall catch write nl directive) distinctive=34 core=34 clusters=133 chunks=6 sizes=100,100,100,100,100,46
+# shape: entries=580 features=41 ubiquitous=7(package compare forall catch write nl directive) distinctive=34 core=32 clusters=122 chunks=6 sizes=100,100,100,100,100,48
 entry	part	cluster	shells
-ai_tests_cs_o	chunk:03	feat:list_cons	list_cons stage unify
-ai_tests_cs_r	chunk:03	feat:list_cons	list_cons stage unify
-ai_tests_disj	chunk:03	feat:list_cons	list_cons stage unify
-ai_tests_gabriel	chunk:03	feat:list_cons	list_cons stage unify
-ai_tests_kalah	chunk:03	feat:list_cons	list_cons stage unify
-ai_tests_peep	chunk:03	feat:list_cons	list_cons stage unify
-ai_tests_pg	chunk:03	feat:list_cons	list_cons stage unify
-ai_tests_plan	chunk:03	feat:list_cons	list_cons stage unify
+ai_tests_cs_o	chunk:04	feat:list_cons	list_cons stage unify
+ai_tests_cs_r	chunk:04	feat:list_cons	list_cons stage unify
+ai_tests_disj	chunk:04	feat:list_cons	list_cons stage unify
+ai_tests_gabriel	chunk:04	feat:list_cons	list_cons stage unify
+ai_tests_kalah	chunk:04	feat:list_cons	list_cons stage unify
+ai_tests_peep	chunk:04	feat:list_cons	list_cons stage unify
+ai_tests_pg	chunk:04	feat:list_cons	list_cons stage unify
+ai_tests_plan	chunk:04	feat:list_cons	list_cons stage unify
 ai_tests_qsort	chunk:04	feat:list_cons	list_cons stage unify
 ai_tests_queens	chunk:04	feat:list_cons	list_cons stage unify
 ai_tests_read	core	core	atom list_cons stage unify var
@@ -17,15 +17,15 @@ attv_tests_assert_attv	core	core	assert assert_then_retract call if_then_else no
 attv_tests_attv_test	chunk:05	feat:var	cut if_then_else list_cons nonvar unify var
 attv_tests_attvar_assert_regalloc	chunk:03	feat:assert	assert unify
 attv_tests_copyterm_attv	core	core	copy_term nonvar unify
-attv_tests_fd1	chunk:02	feat:stage	stage unify
+attv_tests_fd1	chunk:01	feat:stage	stage unify
 attv_tests_findall_attv	core	core	findall findall_with_var_goal nonvar unify writeq
 attv_tests_general	chunk:04	feat:unify	unify
 attv_tests_ret_attv	chunk:04	feat:unify	unify
 attv_tests_trie_assert_attv	chunk:05	feat:nonvar	assert nonvar unify
 attv_tests_trie_intern_attv	chunk:05	feat:nonvar	nonvar unify
-basic_tests_ensure_loaded_tst	chunk:05	family:basic_tests_ensure_loaded_tst	
+basic_tests_ensure_loaded_tst	chunk:01	feat:stage	stage
 basic_tests_gpp_test	chunk:05	family:basic_tests_gpp_test	
-basic_tests_interp	core	core	cut list_cons unify writeq
+basic_tests_interp	chunk:04	feat:writeq	cut list_cons unify writeq
 basic_tests_tcyl11	chunk:05	family:basic_tests_tcyl	
 basic_tests_tcyl12	chunk:05	family:basic_tests_tcyl	
 basic_tests_testsg	chunk:05	family:basic_tests_testsg	
@@ -38,7 +38,7 @@ basic_tests_tsstr23	chunk:04	feat:writeq	list_cons unify writeq
 basic_tests_tsstr33	chunk:04	feat:findall_with_var_goal	call findall_with_var_goal
 basic_tests_tstr11	chunk:04	feat:writeq	unify writeq
 basic_tests_tstr12	chunk:04	feat:writeq	unify writeq
-basic_tests_tstr13	chunk:04	family:basic_tests_tstr	
+basic_tests_tstr13	chunk:05	family:basic_tests_tstr	
 basic_tests_tstr21	chunk:04	feat:writeq	unify writeq
 basic_tests_tstr22	chunk:04	feat:writeq	unify writeq
 basic_tests_tstr23	chunk:05	family:basic_tests_tstr	
@@ -51,13 +51,13 @@ basic_tests_tstr53	chunk:05	family:basic_tests_tstr
 basic_tests_tstr61	chunk:04	feat:writeq	unify writeq
 basic_tests_tstr62	chunk:04	feat:writeq	unify writeq
 basic_tests_tstr63	chunk:05	family:basic_tests_tstr	
-cdf_tests_checks	chunk:02	feat:stage	stage unify
-cdf_tests_dlQuery	chunk:02	feat:stage	stage
-cdf_tests_type0QueryExt	chunk:02	feat:stage	stage unify
-cdf_tests_type0QueryInt	chunk:02	feat:stage	stage unify
-cdf_tests_updateDL	chunk:02	feat:stage	stage
-cdf_tests_updateExt	chunk:02	feat:stage	stage unify
-cdf_tests_updateInt	chunk:02	feat:stage	stage unify
+cdf_tests_checks	chunk:01	feat:stage	stage unify
+cdf_tests_dlQuery	chunk:01	feat:stage	stage
+cdf_tests_type0QueryExt	chunk:01	feat:stage	stage unify
+cdf_tests_type0QueryInt	chunk:01	feat:stage	stage unify
+cdf_tests_updateDL	chunk:01	feat:stage	stage
+cdf_tests_updateExt	chunk:01	feat:stage	stage unify
+cdf_tests_updateInt	chunk:01	feat:stage	stage unify
 constraint_tests_callsubs_constraints	chunk:05	feat:nonvar	nonvar unify
 constraint_tests_clprtest	chunk:03	feat:cut	cut if_then_else list_cons unify
 constraint_tests_gctest	chunk:03	feat:cut	cut
@@ -84,7 +84,7 @@ delay_tests_dynstrat4	chunk:01	feat:if_then_else	if_then_else unify
 delay_tests_dynstrat5	chunk:01	feat:if_then_else	if_then_else
 delay_tests_dynstrat6	chunk:01	feat:if_then_else	if_then_else
 delay_tests_dynstrat7	chunk:01	feat:if_then_else	if_then_else unify
-delay_tests_fa	chunk:04	feat:findall	findall
+delay_tests_fa	chunk:05	feat:findall	findall
 delay_tests_fr1	chunk:01	feat:if_then_else	if_then_else unify
 delay_tests_fr19	chunk:01	feat:if_then_else	if_then_else unify
 delay_tests_fr2	chunk:01	feat:if_then_else	if_then_else unify
@@ -152,25 +152,25 @@ delay_tests_weidong7	chunk:01	feat:if_then_else	if_then_else
 delay_tests_weidong8	chunk:01	feat:if_then_else	if_then_else
 delay_tests_win	chunk:04	feat:negation	if_then_else negation unify
 delay_tests_wmay_winbug	chunk:05	family:delay_tests_wmay_winbug	
-float_tests_assert_test	chunk:02	feat:stage	stage
-float_tests_read_test	core	core	cut stage unify univ
+float_tests_assert_test	chunk:01	feat:stage	stage
+float_tests_read_test	chunk:06	feat:univ	cut stage unify univ
 float_tests_roots	chunk:04	feat:unify	unify
 float_tests_roots_int_comp	chunk:04	feat:unify	unify
 float_tests_vac	chunk:03	feat:cut	cut if_then_else unify
-foreign_tests_c_calls_xsb_make	chunk:04	feat:negation	negation unify
-foreign_tests_cfixedstring_make	chunk:04	feat:negation	negation
+foreign_tests_c_calls_xsb_make	chunk:04	feat:negation	negation stage unify
+foreign_tests_cfixedstring_make	chunk:04	feat:negation	negation stage
 foreign_tests_cinter1	chunk:05	family:foreign_tests_cinter	
 foreign_tests_cinter2	chunk:04	feat:call	call
-foreign_tests_cregs_make	chunk:04	feat:negation	negation
-foreign_tests_cvarconstr_make	chunk:04	feat:negation	negation
-foreign_tests_cvarstring_make	chunk:04	feat:negation	negation
+foreign_tests_cregs_make	chunk:04	feat:negation	negation stage
+foreign_tests_cvarconstr_make	chunk:04	feat:negation	negation stage
+foreign_tests_cvarstring_make	chunk:04	feat:negation	negation stage
 foreign_tests_fibp	chunk:01	feat:if_then_else	if_then_else unify
 foreign_tests_test_importas	chunk:05	family:foreign_tests_test_importas	
 incremental_tests_inc_abol	chunk:03	feat:assert	assert
 incremental_tests_inc_atc	chunk:03	feat:assert_then_retract	assert_then_retract unify
 incremental_tests_inc_atc_gc	chunk:05	family:incremental_tests_inc_atc_gc	
 incremental_tests_inc_atc_gc_tricky	chunk:03	feat:assert	assert
-incremental_tests_inc_trie_alt	chunk:02	feat:stage	stage
+incremental_tests_inc_trie_alt	chunk:01	feat:stage	stage
 incremental_tests_inc_trie_dyn	chunk:03	feat:assert_then_retract	assert assert_then_retract
 incremental_tests_incr_scc	core	core	functor if_then_else negation unify write_canonical
 incremental_tests_incr_test_romero	chunk:03	feat:assert_then_retract	assert assert_then_retract cut unify
@@ -201,17 +201,17 @@ incremental_tests_s_test_inc_switch	chunk:05	family:incremental_tests_s_test_inc
 incremental_tests_s_test_incr_depends	chunk:03	feat:assert	assert
 incremental_tests_s_test_incr_depends_2	chunk:05	family:incremental_tests_s_test_incr_depends	
 incremental_tests_s_test_introspection	chunk:05	family:incremental_tests_s_test_introspection	
-incremental_tests_s_test_invalidate	chunk:03	feat:assert_then_retract	assert_then_retract
+incremental_tests_s_test_invalidate	chunk:04	feat:assert_then_retract	assert_then_retract
 incremental_tests_s_test_iso_basic	core	core	arg assert call cut functor if_then_else list_cons setof unify
-incremental_tests_s_test_iso_hash	core	core	arg assert call cut functor if_then_else list_cons setof unify
-incremental_tests_s_test_iso_mult_visit	core	core	arg assert call cut functor if_then_else list_cons setof unify
+incremental_tests_s_test_iso_hash	chunk:04	feat:setof	arg assert call cut functor if_then_else list_cons setof unify
+incremental_tests_s_test_iso_mult_visit	chunk:04	feat:setof	arg assert call cut functor if_then_else list_cons setof unify
 incremental_tests_s_test_iso_undef	chunk:04	feat:setof	arg assert call cut functor if_then_else list_cons setof unify
-incremental_tests_s_test_lazy	chunk:03	feat:assert_then_retract	assert_then_retract unify
+incremental_tests_s_test_lazy	chunk:04	feat:assert_then_retract	assert_then_retract unify
 incremental_tests_s_test_set_pp	chunk:01	feat:if_then_else	if_then_else unify
-incremental_tests_s_test_sound_updates	chunk:04	feat:findall	cut findall
+incremental_tests_s_test_sound_updates	chunk:05	feat:findall	cut findall
 incremental_tests_s_test_table_errors	chunk:05	family:incremental_tests_s_test_table_errors	
 incremental_tests_s_test_visitors	chunk:05	feat:functor	cut functor if_then_else
-incremental_tests_s_test_wfs_update	chunk:03	feat:assert_then_retract	assert_then_retract
+incremental_tests_s_test_wfs_update	chunk:04	feat:assert_then_retract	assert_then_retract
 incremental_tests_test_abolish_incremental_call_single	chunk:05	family:incremental_tests_test_abolish_incremental_call_single	
 incremental_tests_test_abolish_nonincremental	chunk:05	feat:arg	arg functor
 incremental_tests_test_add_incr_dep	chunk:03	feat:cut	cut unify
@@ -221,15 +221,15 @@ incremental_tests_test_idg_abstract	chunk:05	family:incremental_tests_test_idg_a
 incremental_tests_test_inc_switch	chunk:05	family:incremental_tests_test_inc_switch	
 incremental_tests_test_incr_depends	chunk:03	feat:assert	assert
 incremental_tests_test_incr_depends_2	chunk:05	family:incremental_tests_test_incr_depends	
-incremental_tests_test_sound_updates	chunk:04	feat:findall	cut findall
+incremental_tests_test_sound_updates	chunk:05	feat:findall	cut findall
 incremental_tests_test_table_errors	chunk:05	family:incremental_tests_test_table_errors	
 incremental_tests_test_visitors	chunk:05	feat:functor	cut functor if_then_else
-incremental_tests_test_wfs_mult_upd	chunk:03	feat:assert_then_retract	assert_then_retract unify
-incremental_tests_test_wfs_update	chunk:03	feat:assert_then_retract	assert_then_retract
+incremental_tests_test_wfs_mult_upd	chunk:04	feat:assert_then_retract	assert_then_retract unify
+incremental_tests_test_wfs_update	chunk:04	feat:assert_then_retract	assert_then_retract
 io_tests_fmt_io	chunk:01	feat:if_then_else	if_then_else unify
 io_tests_io_basics	chunk:01	feat:if_then_else	if_then_else
-io_tests_test_proc_files	chunk:04	feat:negation	list_cons negation unify
-json_tests_jsontest	chunk:02	feat:stage	if_then_else stage unify
+io_tests_test_proc_files	chunk:04	feat:negation	list_cons negation stage unify
+json_tests_jsontest	chunk:01	feat:if_then_else	if_then_else stage unify
 neg_tests_ldynstrat0	chunk:01	feat:if_then_else	if_then_else
 neg_tests_ldynstrat1	chunk:01	feat:if_then_else	if_then_else
 neg_tests_ldynstrat2	chunk:01	feat:if_then_else	if_then_else
@@ -251,22 +251,22 @@ neg_tests_neg1	chunk:01	feat:if_then_else	if_then_else
 neg_tests_neg2	chunk:01	feat:if_then_else	if_then_else unify
 neg_tests_neg3	chunk:01	feat:if_then_else	if_then_else
 neg_tests_przy2	chunk:01	feat:if_then_else	if_then_else unify
-neg_tests_q7	chunk:04	feat:negation	negation unify
+neg_tests_q7	chunk:04	feat:negation	negation stage unify
 neg_tests_ullman1	chunk:01	feat:if_then_else	if_then_else
 neg_tests_ullman2	chunk:01	feat:if_then_else	if_then_else
 nonmt_tests_cmu_sei_0050	core	core	assert assert_then_retract if_then_else list_cons retract
 nonmt_tests_cmu_sei_083	chunk:04	feat:findall_with_var_goal	assert_then_retract findall_with_var_goal if_then_else setof
-nonmt_tests_cmu_sei_a46d	chunk:04	feat:retract	assert assert_then_retract if_then_else list_cons retract
+nonmt_tests_cmu_sei_a46d	chunk:05	feat:retract	assert assert_then_retract if_then_else list_cons retract
 nonmt_tests_test_dynopq	chunk:05	family:nonmt_tests_test_dynopq	
 nonmt_tests_test_goal_interrupt	chunk:03	feat:cut	cut if_then_else unify
-nonmt_tests_test_introspection	chunk:04	feat:findall	findall
-nonmt_tests_test_invalidate	chunk:03	feat:assert_then_retract	assert_then_retract
-nonmt_tests_test_iso_attr	chunk:04	feat:setof	arg assert call cut functor if_then_else list_cons setof unify
+nonmt_tests_test_introspection	chunk:05	feat:findall	findall
+nonmt_tests_test_invalidate	chunk:04	feat:assert_then_retract	assert_then_retract
+nonmt_tests_test_iso_attr	core	core	arg assert call cut functor if_then_else list_cons setof stage unify
 nonmt_tests_test_iso_basic	chunk:04	feat:setof	arg assert call cut functor if_then_else list_cons setof unify
 nonmt_tests_test_iso_hash	chunk:04	feat:setof	arg assert call cut functor if_then_else list_cons setof unify
 nonmt_tests_test_iso_mult_visit	chunk:04	feat:setof	arg assert call cut functor if_then_else list_cons setof unify
 nonmt_tests_test_iso_undef	chunk:04	feat:setof	arg assert call cut functor if_then_else list_cons setof unify
-nonmt_tests_test_lazy	chunk:03	feat:assert_then_retract	assert_then_retract unify
+nonmt_tests_test_lazy	chunk:04	feat:assert_then_retract	assert_then_retract unify
 nonmt_tests_test_maxans	chunk:04	feat:call	assert_then_retract call
 nonmt_tests_test_memory_ovrflw_1	chunk:03	feat:cut	assert cut if_then_else unify
 nonmt_tests_test_memory_ovrflw_2	chunk:03	feat:cut	assert cut if_then_else unify
@@ -276,56 +276,56 @@ nonmt_tests_test_tc	chunk:03	feat:cut	cut if_then_else unify
 nonmt_tests_test_trip	chunk:05	feat:between	between cut
 nonmt_tests_test_trip_mem	chunk:03	feat:cut	assert cut if_then_else unify
 nonmt_tests_test_trip_susp_reset	core	core	assert between if_then_else list_cons
-prolog_tests_altindex	chunk:05	family:prolog_tests_altindex	
+prolog_tests_altindex	chunk:02	feat:stage	stage
 prolog_tests_arith_op	core	core	number unify
 prolog_tests_call_tests	chunk:04	feat:call	call list_cons
 prolog_tests_con_char	chunk:05	family:prolog_tests_con_char	
 prolog_tests_conv_fun	chunk:04	feat:unify	unify
-prolog_tests_findall	chunk:04	feat:findall	findall list_cons
+prolog_tests_findall	chunk:05	feat:findall	findall list_cons
 prolog_tests_first	chunk:05	feat:op	list_cons negation op
 prolog_tests_format_test	core	core	format
 prolog_tests_functor4_tests	chunk:05	feat:functor	call functor if_then_else unify
 prolog_tests_gctest	chunk:03	feat:assert	assert
 prolog_tests_include_test	chunk:02	feat:stage	stage
-prolog_tests_inline	chunk:05	family:prolog_tests_inline	
+prolog_tests_inline	chunk:02	feat:stage	stage
 prolog_tests_large_arity_prolog	core	core	arg assert bagof call copy_term cut findall findall_with_var_goal functor list_cons setof unify univ write_canonical
 prolog_tests_listing_test	chunk:03	feat:assert	assert
-prolog_tests_longname	chunk:05	family:prolog_tests_longname	
+prolog_tests_longname	chunk:02	feat:stage	stage
 prolog_tests_mf_obj	chunk:05	family:prolog_tests_mf_obj	
-prolog_tests_mf_test1	chunk:04	feat:unify	unify
-prolog_tests_mod_dyn_tests_test_dynmod	chunk:04	feat:findall_with_var_goal	findall findall_with_var_goal unify writeq
-prolog_tests_mod_dyn_tests_test_dynmod_im	chunk:04	feat:findall_with_var_goal	findall findall_with_var_goal writeq
-prolog_tests_mod_file_tests_test_mod_file	chunk:04	feat:writeq	unify writeq
-prolog_tests_mod_file_tests_test_mod_file_im	chunk:04	feat:writeq	writeq
+prolog_tests_mf_test1	chunk:02	feat:stage	stage unify
+prolog_tests_mod_dyn_tests_test_dynmod	core	core	findall findall_with_var_goal stage unify writeq
+prolog_tests_mod_dyn_tests_test_dynmod_im	chunk:04	feat:findall_with_var_goal	findall findall_with_var_goal stage writeq
+prolog_tests_mod_file_tests_test_mod_file	chunk:04	feat:writeq	stage unify writeq
+prolog_tests_mod_file_tests_test_mod_file_im	chunk:04	feat:writeq	stage writeq
 prolog_tests_n2c	chunk:03	feat:cut	cut
 prolog_tests_newfirst	chunk:05	feat:op	list_cons negation op
-prolog_tests_parmod_tests_test_parmod	chunk:04	feat:writeq	writeq
-prolog_tests_parmod_tests_test_parmod_im	chunk:04	feat:writeq	writeq
+prolog_tests_parmod_tests_test_parmod	chunk:04	feat:writeq	stage writeq
+prolog_tests_parmod_tests_test_parmod_im	chunk:04	feat:writeq	stage writeq
 prolog_tests_pip_0110_format_test	chunk:02	feat:stage	stage
-prolog_tests_pip_write_term	chunk:05	family:prolog_tests_pip_write_term	
+prolog_tests_pip_write_term	chunk:06	family:prolog_tests_pip_write_term	
 prolog_tests_range_tree_tests	chunk:04	feat:findall_with_var_goal	findall findall_with_var_goal if_then_else
 prolog_tests_readstrtest	chunk:04	feat:call	call cut if_then_else list_cons
-prolog_tests_spec_tbl_fold_bug	chunk:05	family:prolog_tests_spec_tbl_fold_bug	
+prolog_tests_spec_tbl_fold_bug	chunk:06	family:prolog_tests_spec_tbl_fold_bug	
 prolog_tests_std1	chunk:01	feat:if_then_else	if_then_else unify
 prolog_tests_std2	chunk:04	feat:negation	call cut if_then_else list_cons negation unify
-prolog_tests_test_aggregates	chunk:05	family:prolog_tests_test_aggregates	
+prolog_tests_test_aggregates	chunk:06	family:prolog_tests_test_aggregates	
 prolog_tests_test_arith_errors	chunk:04	feat:unify	unify
-prolog_tests_test_ascii_atom	chunk:05	family:prolog_tests_test_ascii_atom	
+prolog_tests_test_ascii_atom	chunk:02	feat:stage	stage
 prolog_tests_test_ascii_getput	chunk:02	feat:stage	stage
-prolog_tests_test_ascii_readwrite	chunk:05	family:prolog_tests_test_ascii_readwrite	
+prolog_tests_test_ascii_readwrite	chunk:02	feat:stage	stage
 prolog_tests_test_charset	core	core	cut findall if_then_else list_cons unify writeq
 prolog_tests_test_cleanup	core	core	catch_with_throw cut throw unify
 prolog_tests_test_cond_comp	chunk:04	feat:unify	unify
 prolog_tests_test_cycle	chunk:01	feat:if_then_else	if_then_else unify
-prolog_tests_test_dphc	chunk:05	family:prolog_tests_test_dphc	
+prolog_tests_test_dphc	chunk:06	family:prolog_tests_test_dphc	
 prolog_tests_test_float_io_precision	chunk:06	family:prolog_tests_test_float_io_precision	
 prolog_tests_test_forall	chunk:06	family:prolog_tests_test_forall	
-prolog_tests_test_immutable	chunk:05	family:prolog_tests_test_immutable	
-prolog_tests_test_immutable2	chunk:05	family:prolog_tests_test_immutable	
+prolog_tests_test_immutable	chunk:02	feat:stage	stage
+prolog_tests_test_immutable2	chunk:02	feat:stage	stage
 prolog_tests_test_iso8601	chunk:01	feat:if_then_else	if_then_else unify
 prolog_tests_test_large_atom_codes	core	core	call dcg if_then_else list_cons unify
-prolog_tests_test_load_dyn_et_al	chunk:04	feat:findall	findall functor unify
-prolog_tests_test_modules	chunk:04	feat:call	call
+prolog_tests_test_load_dyn_et_al	chunk:05	feat:findall	findall functor stage unify
+prolog_tests_test_modules	chunk:04	feat:call	call stage
 prolog_tests_test_precision	chunk:04	feat:unify	unify
 prolog_tests_test_read_integer	chunk:04	feat:unify	unify
 prolog_tests_test_sprint_term	chunk:04	feat:writeq	call list_cons unify writeq
@@ -345,13 +345,13 @@ regmatch_tests_regtest	chunk:04	feat:list_cons	list_cons unify
 regmatch_tests_wildtest	chunk:01	feat:if_then_else	if_then_else
 retract_tests_boyer_assert	core	core	arg asserta cut functor if_then_else list_cons unify
 retract_tests_load_backsuite	chunk:02	feat:stage	stage
-retract_tests_test_retr_gc_fancy	chunk:04	feat:retract	assert assert_then_retract retract unify
-retract_tests_test_retr_gc_noind	chunk:04	feat:retract	assert assert_then_retract retract
+retract_tests_test_retr_gc_fancy	chunk:05	feat:retract	assert assert_then_retract retract unify
+retract_tests_test_retr_gc_noind	chunk:05	feat:retract	assert assert_then_retract retract
 retract_tests_test_retra_gc	core	core	abolish assert assert_then_retract retract
-retract_tests_test_retra_gc_fancy	chunk:04	feat:retract	assert assert_then_retract retract
-retract_tests_test_retra_gc_noind	chunk:04	feat:retract	assert assert_then_retract retract
+retract_tests_test_retra_gc_fancy	chunk:05	feat:retract	assert assert_then_retract retract
+retract_tests_test_retra_gc_noind	chunk:05	feat:retract	assert assert_then_retract retract
 retract_tests_test_retra_gc_nongen_fancy	chunk:03	feat:assert	assert
-retract_tests_test_retract_gc	chunk:04	feat:retract	assert assert_then_retract retract
+retract_tests_test_retract_gc	chunk:05	feat:retract	assert assert_then_retract retract
 retract_tests_testretract	chunk:03	feat:cut	cut stage
 sub_tests_decker	chunk:02	feat:stage	stage
 sub_tests_drtc1	chunk:02	feat:stage	stage
@@ -373,28 +373,28 @@ sub_tests_lrtc4	chunk:02	feat:stage	stage
 sub_tests_lrtc5	chunk:02	feat:stage	stage
 sub_tests_lrtc6	chunk:02	feat:stage	stage
 sub_tests_lrtc7	chunk:02	feat:stage	stage
-sub_tests_lrtc8	chunk:03	feat:stage	stage
+sub_tests_lrtc8	chunk:02	feat:stage	stage
 sub_tests_pilegaard	chunk:04	feat:setof	setof unify
-sub_tests_rrtc1	chunk:03	feat:stage	stage
-sub_tests_rrtc2	chunk:03	feat:stage	stage
-sub_tests_rrtc3	chunk:03	feat:stage	stage
-sub_tests_rrtc4	chunk:03	feat:stage	stage
-sub_tests_rrtc5	chunk:03	feat:stage	stage
-sub_tests_rrtc6	chunk:03	feat:stage	stage
-sub_tests_rrtc7	chunk:03	feat:stage	stage
-sub_tests_rrtc8	chunk:03	feat:stage	stage
-sub_tests_sg1	chunk:03	feat:stage	stage
-sub_tests_sg2	chunk:03	feat:stage	stage
-sub_tests_sg3	chunk:03	feat:stage	stage
-sub_tests_sg4	chunk:03	feat:stage	stage
-sub_tests_sg5	chunk:03	feat:stage	stage
-sub_tests_sg6	chunk:03	feat:stage	stage
-sub_tests_sg7	chunk:03	feat:stage	stage
-sub_tests_sg8	chunk:03	feat:stage	stage
+sub_tests_rrtc1	chunk:02	feat:stage	stage
+sub_tests_rrtc2	chunk:02	feat:stage	stage
+sub_tests_rrtc3	chunk:02	feat:stage	stage
+sub_tests_rrtc4	chunk:02	feat:stage	stage
+sub_tests_rrtc5	chunk:02	feat:stage	stage
+sub_tests_rrtc6	chunk:02	feat:stage	stage
+sub_tests_rrtc7	chunk:02	feat:stage	stage
+sub_tests_rrtc8	chunk:02	feat:stage	stage
+sub_tests_sg1	chunk:02	feat:stage	stage
+sub_tests_sg2	chunk:02	feat:stage	stage
+sub_tests_sg3	chunk:02	feat:stage	stage
+sub_tests_sg4	chunk:02	feat:stage	stage
+sub_tests_sg5	chunk:02	feat:stage	stage
+sub_tests_sg6	chunk:02	feat:stage	stage
+sub_tests_sg7	chunk:02	feat:stage	stage
+sub_tests_sg8	chunk:02	feat:stage	stage
 sub_tests_test_answer_abstraction	chunk:04	feat:unify	unify
-table_tests_abol_test	chunk:05	family:table_tests_abol_test	
-table_tests_abol_test2	chunk:05	family:table_tests_abol_test	
-table_tests_abol_test2a	chunk:06	family:table_tests_abol_testa	
+table_tests_abol_test	chunk:06	family:table_tests_abol_test	
+table_tests_abol_test2	chunk:02	feat:stage	stage
+table_tests_abol_test2a	chunk:02	feat:stage	stage
 table_tests_abol_test3	chunk:03	feat:assert	assert
 table_tests_abol_test3a	chunk:03	feat:assert	assert
 table_tests_abol_test3b	chunk:03	feat:assert	assert
@@ -405,23 +405,23 @@ table_tests_abolish_cycle	chunk:06	family:table_tests_abolish_cycle
 table_tests_abolish_dag	chunk:06	family:table_tests_abolish_dag	
 table_tests_abolish_neg_cycle	chunk:06	family:table_tests_abolish_neg_cycle	
 table_tests_abolish_neg_dag	chunk:06	family:table_tests_abolish_neg_dag	
-table_tests_aggregs_test	core	core	call cut findall findall_with_var_goal if_then_else list_cons negation number unify
+table_tests_aggregs_test	core	core	call cut findall findall_with_var_goal if_then_else list_cons negation number stage unify
 table_tests_aggregs_test_2	chunk:03	feat:cut	cut if_then_else unify
 table_tests_atc_test	chunk:03	feat:assert	assert
 table_tests_bulk_trie_test	chunk:03	feat:cut	cut list_cons
 table_tests_concomp	chunk:04	feat:negation	assert if_then_else negation unify
 table_tests_dipti	chunk:04	feat:unify	unify
 table_tests_empty_answer	chunk:01	feat:if_then_else	if_then_else unify
-table_tests_float	chunk:06	family:table_tests_float	
+table_tests_float	chunk:02	feat:stage	stage
 table_tests_flora1	core	core	arg cut functor if_then_else list_cons nonvar unify univ var
 table_tests_get_resid	chunk:05	feat:var	call list_cons nonvar var
 table_tests_grammarlrk3	core	core	assert_then_retract cut dcg findall if_then_else list_cons negation retract unify
 table_tests_hirc	chunk:06	family:table_tests_hirc	
-table_tests_ins	chunk:04	feat:list_cons	list_cons
+table_tests_ins	chunk:04	feat:list_cons	list_cons stage
 table_tests_large_arity_tables	chunk:05	feat:functor	functor
 table_tests_large_arity_tries	chunk:05	feat:functor	assert functor
 table_tests_lrbug	core	core	arg cut functor if_then_else list_cons negation op unify
-table_tests_not_exists_test	chunk:04	feat:call	call if_then_else unify
+table_tests_not_exists_test	chunk:04	feat:call	call if_then_else stage unify
 table_tests_pps	chunk:03	feat:cut	cut
 table_tests_pred_abolish_cycle	chunk:06	family:table_tests_pred_abolish_cycle	
 table_tests_pred_abolish_dag	chunk:06	family:table_tests_pred_abolish_dag	
@@ -433,7 +433,7 @@ table_tests_test_abolish_aux	chunk:06	family:table_tests_test_abolish_aux
 table_tests_test_answer_sccs	chunk:01	feat:if_then_else	if_then_else unify
 table_tests_test_answerdepth	chunk:04	feat:list_cons	list_cons
 table_tests_test_answerdepth_i	chunk:06	family:table_tests_test_answerdepth_i	
-table_tests_test_as_mod	chunk:03	feat:stage	stage
+table_tests_test_as_mod	chunk:02	feat:stage	stage
 table_tests_test_brat_ansdepth	chunk:06	family:table_tests_test_brat_ansdepth	
 table_tests_test_brat_ansdepth_i	chunk:06	family:table_tests_test_brat_ansdepth_i	
 table_tests_test_calldepth	chunk:06	family:table_tests_test_calldepth	
@@ -449,7 +449,7 @@ table_tests_test_get_call	chunk:06	family:table_tests_test_get_call
 table_tests_test_get_idg_info	chunk:04	feat:setof	list_cons setof unify
 table_tests_test_intern_combo	chunk:06	family:table_tests_test_intern_combo	
 table_tests_test_intern_seq	chunk:03	feat:assert	assert
-table_tests_test_just	chunk:06	family:table_tests_test_just	
+table_tests_test_just	chunk:02	feat:stage	stage
 table_tests_test_large_tabled_terms	chunk:03	feat:cut	cut list_cons unify
 table_tests_test_maxans_decl	chunk:05	feat:between	between
 table_tests_test_mf_index	chunk:06	family:table_tests_test_mf_index	
@@ -463,10 +463,10 @@ table_tests_test_tab_interact	chunk:06	family:table_tests_test_tab_interact
 table_tests_test_table_as_intern	chunk:03	feat:cut	cut list_cons
 table_tests_test_table_cycles	chunk:04	feat:call	assert call if_then_else list_cons unify
 table_tests_test_table_dump	chunk:04	feat:writeq	writeq
-table_tests_test_table_index	chunk:06	family:table_tests_test_table_index	
+table_tests_test_table_index	chunk:02	feat:stage	stage
 table_tests_test_td_incomp	chunk:03	feat:cut	cut if_then_else
-table_tests_test_tda	chunk:04	feat:findall_with_var_goal	findall findall_with_var_goal if_then_else setof unify
-table_tests_test_tda_i	chunk:04	feat:findall_with_var_goal	findall findall_with_var_goal if_then_else setof unify
+table_tests_test_tda	chunk:05	feat:findall_with_var_goal	findall findall_with_var_goal if_then_else setof unify
+table_tests_test_tda_i	chunk:05	feat:findall_with_var_goal	findall findall_with_var_goal if_then_else setof unify
 table_tests_test_trans_bug	chunk:06	family:table_tests_test_trans_bug	
 table_tests_test_trie_property	chunk:06	family:table_tests_test_trie_property	
 table_tests_test_trievars	chunk:05	feat:arg	arg assert functor list_cons
@@ -477,23 +477,23 @@ table_tests_test_wcs_wfs	chunk:06	family:table_tests_test_wcs_wfs
 table_tests_testdyntable	chunk:06	family:table_tests_testdyntable	
 table_tests_testh	chunk:04	feat:unify	unify
 table_tests_tfinda	chunk:01	feat:if_then_else	if_then_else
-table_tests_trassert	core	core	assert_then_retract call cut findall findall_with_var_goal if_then_else negation nonvar unify
-table_tests_trdyn	chunk:06	family:table_tests_trdyn	
+table_tests_trassert	core	core	assert_then_retract call cut findall findall_with_var_goal if_then_else negation nonvar stage unify
+table_tests_trdyn	chunk:02	feat:stage	stage
 table_tests_unw_tr1	core	core	cut dcg if_then_else list_cons nonvar unify univ var
 wfs_tests_p06	core	core	answer stage unify
 wfs_tests_p07	core	core	answer stage unify
-wfs_tests_p08	chunk:01	feat:answer	answer stage unify
-wfs_tests_p09	chunk:01	feat:answer	answer stage unify
-wfs_tests_p10	chunk:01	feat:answer	answer stage unify
-wfs_tests_p11	chunk:01	feat:answer	answer stage unify
-wfs_tests_p12	chunk:01	feat:answer	answer stage unify
-wfs_tests_p13	chunk:01	feat:answer	answer stage unify
-wfs_tests_p14	chunk:01	feat:answer	answer stage unify
-wfs_tests_p15	chunk:01	feat:answer	answer stage unify
-wfs_tests_p16	chunk:01	feat:answer	answer stage unify
-wfs_tests_p17	chunk:01	feat:answer	answer stage unify
-wfs_tests_p18	chunk:01	feat:answer	answer stage unify
-wfs_tests_p19	chunk:01	feat:answer	answer stage unify
+wfs_tests_p08	chunk:02	feat:answer	answer stage unify
+wfs_tests_p09	chunk:02	feat:answer	answer stage unify
+wfs_tests_p10	chunk:02	feat:answer	answer stage unify
+wfs_tests_p11	chunk:02	feat:answer	answer stage unify
+wfs_tests_p12	chunk:02	feat:answer	answer stage unify
+wfs_tests_p13	chunk:02	feat:answer	answer stage unify
+wfs_tests_p14	chunk:02	feat:answer	answer stage unify
+wfs_tests_p15	chunk:02	feat:answer	answer stage unify
+wfs_tests_p16	chunk:02	feat:answer	answer stage unify
+wfs_tests_p17	chunk:02	feat:answer	answer stage unify
+wfs_tests_p18	chunk:02	feat:answer	answer stage unify
+wfs_tests_p19	chunk:02	feat:answer	answer stage unify
 wfs_tests_p20	chunk:02	feat:answer	answer stage unify
 wfs_tests_p21	chunk:02	feat:answer	answer stage unify
 wfs_tests_p22	chunk:02	feat:answer	answer stage unify
@@ -519,39 +519,39 @@ wfs_tests_p44	chunk:02	feat:answer	answer stage unify
 wfs_tests_p45	chunk:02	feat:answer	answer stage unify
 wfs_tests_p46	chunk:02	feat:answer	answer stage unify
 wfs_tests_p47	chunk:02	feat:answer	answer stage unify
-wfs_tests_p48	chunk:02	feat:answer	answer stage unify
-wfs_tests_p49	chunk:02	feat:answer	answer stage unify
-wfs_tests_p50	chunk:02	feat:answer	answer stage unify
-wfs_tests_p51	chunk:02	feat:answer	answer stage unify
-wfs_tests_p52	chunk:02	feat:answer	answer stage unify
-wfs_tests_p52a	chunk:02	feat:answer	answer stage unify
-wfs_tests_p53	chunk:02	feat:answer	answer stage unify
-wfs_tests_p54	chunk:02	feat:answer	answer stage unify
-wfs_tests_p55	chunk:02	feat:answer	answer stage unify
-wfs_tests_p56	chunk:02	feat:answer	answer stage unify
-wfs_tests_p57	chunk:02	feat:answer	answer stage unify
-wfs_tests_p58	chunk:02	feat:answer	answer stage unify
-wfs_tests_p59	chunk:02	feat:answer	answer stage unify
-wfs_tests_p60	chunk:02	feat:answer	answer stage unify
-wfs_tests_p62	chunk:02	feat:answer	answer stage unify
-wfs_tests_p63	chunk:02	feat:answer	answer stage unify
-wfs_tests_p64	chunk:02	feat:answer	answer stage unify
-wfs_tests_p65	chunk:02	feat:answer	answer stage unify
-wfs_tests_p66	chunk:02	feat:answer	answer stage unify
-wfs_tests_p67	chunk:02	feat:answer	answer stage unify
-wfs_tests_p77	chunk:02	feat:answer	answer stage unify
-wfs_tests_p78	chunk:02	feat:answer	answer stage unify
-wfs_tests_p79	chunk:02	feat:answer	answer stage unify
-wfs_tests_p80	chunk:02	feat:answer	answer stage unify
-wfs_tests_p81	chunk:02	feat:answer	answer stage unify
-wfs_tests_p82	chunk:02	feat:answer	answer stage unify
-wfs_tests_p83	chunk:02	feat:answer	answer stage unify
-wfs_tests_p84	chunk:02	feat:answer	answer stage unify
-wfs_tests_p85	chunk:02	feat:answer	answer stage unify
-wfs_tests_p86	chunk:02	feat:answer	answer stage unify
-wfs_tests_p89	chunk:02	feat:answer	answer stage unify
-wfs_tests_p90	chunk:02	feat:answer	answer stage unify
-wfs_tests_p91	chunk:02	feat:answer	answer stage unify
+wfs_tests_p48	chunk:03	feat:answer	answer stage unify
+wfs_tests_p49	chunk:03	feat:answer	answer stage unify
+wfs_tests_p50	chunk:03	feat:answer	answer stage unify
+wfs_tests_p51	chunk:03	feat:answer	answer stage unify
+wfs_tests_p52	chunk:03	feat:answer	answer stage unify
+wfs_tests_p52a	chunk:03	feat:answer	answer stage unify
+wfs_tests_p53	chunk:03	feat:answer	answer stage unify
+wfs_tests_p54	chunk:03	feat:answer	answer stage unify
+wfs_tests_p55	chunk:03	feat:answer	answer stage unify
+wfs_tests_p56	chunk:03	feat:answer	answer stage unify
+wfs_tests_p57	chunk:03	feat:answer	answer stage unify
+wfs_tests_p58	chunk:03	feat:answer	answer stage unify
+wfs_tests_p59	chunk:03	feat:answer	answer stage unify
+wfs_tests_p60	chunk:03	feat:answer	answer stage unify
+wfs_tests_p62	chunk:03	feat:answer	answer stage unify
+wfs_tests_p63	chunk:03	feat:answer	answer stage unify
+wfs_tests_p64	chunk:03	feat:answer	answer stage unify
+wfs_tests_p65	chunk:03	feat:answer	answer stage unify
+wfs_tests_p66	chunk:03	feat:answer	answer stage unify
+wfs_tests_p67	chunk:03	feat:answer	answer stage unify
+wfs_tests_p77	chunk:03	feat:answer	answer stage unify
+wfs_tests_p78	chunk:03	feat:answer	answer stage unify
+wfs_tests_p79	chunk:03	feat:answer	answer stage unify
+wfs_tests_p80	chunk:03	feat:answer	answer stage unify
+wfs_tests_p81	chunk:03	feat:answer	answer stage unify
+wfs_tests_p82	chunk:03	feat:answer	answer stage unify
+wfs_tests_p83	chunk:03	feat:answer	answer stage unify
+wfs_tests_p84	chunk:03	feat:answer	answer stage unify
+wfs_tests_p85	chunk:03	feat:answer	answer stage unify
+wfs_tests_p86	chunk:03	feat:answer	answer stage unify
+wfs_tests_p89	chunk:03	feat:answer	answer stage unify
+wfs_tests_p90	chunk:03	feat:answer	answer stage unify
+wfs_tests_p91	chunk:03	feat:answer	answer stage unify
 basic_tests_ensure_loaded_aux	chunk:05	family:basic_tests_ensure_loaded_aux	
 basic_tests_preproc_opt_preproc_test	chunk:05	family:basic_tests_preproc_opt_preproc_test	
 cdf_tests_comp_testdir_initialization_file	chunk:05	family:cdf_tests_comp_testdir_initialization_file	
@@ -571,7 +571,7 @@ prolog_tests_kb_dync_mod	chunk:05	family:prolog_tests_kb_dync_mod
 prolog_tests_kb_no_export	chunk:05	family:prolog_tests_kb_no_export	
 prolog_tests_kb_trie	chunk:05	family:prolog_tests_kb_trie	
 prolog_tests_kb_trie_mod	chunk:05	family:prolog_tests_kb_trie_mod	
-prolog_tests_prolog_db_tests	chunk:05	family:prolog_tests_prolog_db_tests	
+prolog_tests_prolog_db_tests	chunk:06	family:prolog_tests_prolog_db_tests	
 sub_table_tests_abol_test	chunk:05	family:sub_table_tests_abol_test	
 sub_table_tests_abol_test3	chunk:05	family:sub_table_tests_abol_test	
 sub_table_tests_abol_test3a	chunk:06	family:sub_table_tests_abol_testa	
