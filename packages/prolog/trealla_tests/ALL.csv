@@ -173,7 +173,7 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 172,issues_test1143,trealla_tests__issues_test1143,trealla_tests,37,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,0,0,1,0,0,0
 173,issues_test1149,trealla_tests__issues_test1149,trealla_tests,57,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0
 174,issues_test1150,trealla_tests__issues_test1150,trealla_tests,61,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0
-175,issues_test1151,trealla_tests__issues_test1151,trealla_tests,14,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,1,0,0,0,0,1,0,0,0
+175,issues_test1151,trealla_tests__issues_test1151,trealla_tests,14,0,0,131072,65536,,,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,1,0,0,0,0,1,0,0,0
 176,issues_test1152,trealla_tests__issues_test1152,trealla_tests,24,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,1,0,0,0,0,1,0,1,0
 177,misc_db_concurrency,trealla_tests__misc_db_concurrency,trealla_tests,56,0,0,131072,4096,,,1,0,0,1,0,0,1,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,1,0,0,1
 178,misc_db_purge_window,trealla_tests__misc_db_purge_window,trealla_tests,55,0,0,131072,4096,,,1,0,0,1,0,0,1,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,1,1,0,0,1
