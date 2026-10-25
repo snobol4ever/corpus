@@ -1784,3 +1784,16 @@ g(z,z,z)
 done
 %------------------------------------------------------ 576 benchmark_meta_qsort
 ok
+%- 577 ladder__rung10_predicate_property_answers_meta_predicate_as_swipl_for_a_head_bound_at_run_time
+known-findall(?,0,-)
+findall/3-findall(?,0,-)
+forall/2-forall(0,0)
+catch/3-catch(0,?,0)
+setof/3-setof(?,^,-)
+bagof/3-bagof(?,^,-)
+phrase/2-phrase(//,?)
+maplist/3-maplist(2,?,?)
+assertz/1-assertz(:)
+(\+)/1-(\+0)
+call/1-call(0)
+solve/2-solve(2,-)

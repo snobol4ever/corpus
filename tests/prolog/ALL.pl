@@ -4874,3 +4874,12 @@ define(qsort([],R,R),true).
 define(partition([X|L],Y,[X|L1],L2),(X=<Y,!,partition(L,Y,L1,L2))).
 define(partition([X|L],Y,L1,[X|L2]),(partition(L,Y,L1,L2))).
 define(partition([],_,[],[]),true).
+%- 577 ladder__rung10_predicate_property_answers_meta_predicate_as_swipl_for_a_head_bound_at_run_time
+:- meta_predicate solve(2, -).
+solve(G, X) :- call(G, 1, X).
+spec(H) :- ( predicate_property(H, meta_predicate(M)) -> true ; M = none ), functor(H, N, A), write(N/A-M), nl.
+main :-
+    ( predicate_property(findall(_, _, _), meta_predicate(K)) -> write(known-K) ; write(known-none) ), nl,
+    Hs = [findall(_, _, _), forall(_, _), catch(_, _, _), setof(_, _, _), bagof(_, _, _), phrase(_, _), maplist(_, _, _), assertz(_), \+ _, call(_), solve(_, _)],
+    forall(member(H, Hs), spec(H)).
+:- initialization(main).
