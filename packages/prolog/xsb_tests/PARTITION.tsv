@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=580 features=41 ubiquitous=7(package compare forall catch write nl directive) distinctive=34 core=32 clusters=122 chunks=6 sizes=100,100,100,100,100,48
+# shape: entries=550 features=41 ubiquitous=7(package compare forall catch write nl directive) distinctive=34 core=32 clusters=94 chunks=6 sizes=100,100,100,100,100,18
 entry	part	cluster	shells
 ai_tests_cs_o	chunk:04	feat:list_cons	list_cons stage unify
 ai_tests_cs_r	chunk:04	feat:list_cons	list_cons stage unify
@@ -302,13 +302,13 @@ prolog_tests_newfirst	chunk:05	feat:op	list_cons negation op
 prolog_tests_parmod_tests_test_parmod	chunk:04	feat:writeq	stage writeq
 prolog_tests_parmod_tests_test_parmod_im	chunk:04	feat:writeq	stage writeq
 prolog_tests_pip_0110_format_test	chunk:02	feat:stage	stage
-prolog_tests_pip_write_term	chunk:06	family:prolog_tests_pip_write_term	
+prolog_tests_pip_write_term	chunk:05	family:prolog_tests_pip_write_term	
 prolog_tests_range_tree_tests	chunk:04	feat:findall_with_var_goal	findall findall_with_var_goal if_then_else
 prolog_tests_readstrtest	chunk:04	feat:call	call cut if_then_else list_cons
-prolog_tests_spec_tbl_fold_bug	chunk:06	family:prolog_tests_spec_tbl_fold_bug	
+prolog_tests_spec_tbl_fold_bug	chunk:05	family:prolog_tests_spec_tbl_fold_bug	
 prolog_tests_std1	chunk:01	feat:if_then_else	if_then_else unify
 prolog_tests_std2	chunk:04	feat:negation	call cut if_then_else list_cons negation unify
-prolog_tests_test_aggregates	chunk:06	family:prolog_tests_test_aggregates	
+prolog_tests_test_aggregates	chunk:05	family:prolog_tests_test_aggregates	
 prolog_tests_test_arith_errors	chunk:04	feat:unify	unify
 prolog_tests_test_ascii_atom	chunk:02	feat:stage	stage
 prolog_tests_test_ascii_getput	chunk:02	feat:stage	stage
@@ -317,9 +317,9 @@ prolog_tests_test_charset	core	core	cut findall if_then_else list_cons unify wri
 prolog_tests_test_cleanup	core	core	catch_with_throw cut throw unify
 prolog_tests_test_cond_comp	chunk:04	feat:unify	unify
 prolog_tests_test_cycle	chunk:01	feat:if_then_else	if_then_else unify
-prolog_tests_test_dphc	chunk:06	family:prolog_tests_test_dphc	
-prolog_tests_test_float_io_precision	chunk:06	family:prolog_tests_test_float_io_precision	
-prolog_tests_test_forall	chunk:06	family:prolog_tests_test_forall	
+prolog_tests_test_dphc	chunk:05	family:prolog_tests_test_dphc	
+prolog_tests_test_float_io_precision	chunk:05	family:prolog_tests_test_float_io_precision	
+prolog_tests_test_forall	chunk:05	family:prolog_tests_test_forall	
 prolog_tests_test_immutable	chunk:02	feat:stage	stage
 prolog_tests_test_immutable2	chunk:02	feat:stage	stage
 prolog_tests_test_iso8601	chunk:01	feat:if_then_else	if_then_else unify
@@ -331,7 +331,7 @@ prolog_tests_test_read_integer	chunk:04	feat:unify	unify
 prolog_tests_test_sprint_term	chunk:04	feat:writeq	call list_cons unify writeq
 prolog_tests_test_term_depth	chunk:04	feat:list_cons	list_cons
 prolog_tests_test_term_size	chunk:04	feat:list_cons	list_cons
-prolog_tests_test_termtoatom	chunk:06	family:prolog_tests_test_termtoatom	
+prolog_tests_test_termtoatom	chunk:05	family:prolog_tests_test_termtoatom	
 prolog_tests_test_utf8_atom	chunk:02	feat:stage	stage
 prolog_tests_test_utf8_getput	chunk:02	feat:stage	stage
 prolog_tests_test_utf8_readwrite	chunk:02	feat:stage	stage
@@ -340,7 +340,7 @@ prolog_tests_unsafe1	chunk:05	feat:arg	arg
 prolog_tests_unsafe2	chunk:05	feat:arg	arg
 prolog_tests_uwoc	chunk:04	feat:list_cons	if_then_else list_cons unify
 prolog_tests_varcond	chunk:05	feat:var	arg if_then_else unify var
-prolog_tests_wttest	chunk:06	family:prolog_tests_wttest	
+prolog_tests_wttest	chunk:05	family:prolog_tests_wttest	
 regmatch_tests_regtest	chunk:04	feat:list_cons	list_cons unify
 regmatch_tests_wildtest	chunk:01	feat:if_then_else	if_then_else
 retract_tests_boyer_assert	core	core	arg asserta cut functor if_then_else list_cons unify
@@ -392,19 +392,19 @@ sub_tests_sg6	chunk:02	feat:stage	stage
 sub_tests_sg7	chunk:02	feat:stage	stage
 sub_tests_sg8	chunk:02	feat:stage	stage
 sub_tests_test_answer_abstraction	chunk:04	feat:unify	unify
-table_tests_abol_test	chunk:06	family:table_tests_abol_test	
+table_tests_abol_test	chunk:05	family:table_tests_abol_test	
 table_tests_abol_test2	chunk:02	feat:stage	stage
 table_tests_abol_test2a	chunk:02	feat:stage	stage
 table_tests_abol_test3	chunk:03	feat:assert	assert
 table_tests_abol_test3a	chunk:03	feat:assert	assert
 table_tests_abol_test3b	chunk:03	feat:assert	assert
 table_tests_abol_test3c	chunk:03	feat:assert	assert
-table_tests_abolish_cascade	chunk:06	family:table_tests_abolish_cascade	
+table_tests_abolish_cascade	chunk:05	family:table_tests_abolish_cascade	
 table_tests_abolish_cascade_pred	chunk:04	feat:call	call
-table_tests_abolish_cycle	chunk:06	family:table_tests_abolish_cycle	
-table_tests_abolish_dag	chunk:06	family:table_tests_abolish_dag	
-table_tests_abolish_neg_cycle	chunk:06	family:table_tests_abolish_neg_cycle	
-table_tests_abolish_neg_dag	chunk:06	family:table_tests_abolish_neg_dag	
+table_tests_abolish_cycle	chunk:05	family:table_tests_abolish_cycle	
+table_tests_abolish_dag	chunk:05	family:table_tests_abolish_dag	
+table_tests_abolish_neg_cycle	chunk:05	family:table_tests_abolish_neg_cycle	
+table_tests_abolish_neg_dag	chunk:05	family:table_tests_abolish_neg_dag	
 table_tests_aggregs_test	core	core	call cut findall findall_with_var_goal if_then_else list_cons negation number stage unify
 table_tests_aggregs_test_2	chunk:03	feat:cut	cut if_then_else unify
 table_tests_atc_test	chunk:03	feat:assert	assert
@@ -416,25 +416,25 @@ table_tests_float	chunk:02	feat:stage	stage
 table_tests_flora1	core	core	arg cut functor if_then_else list_cons nonvar unify univ var
 table_tests_get_resid	chunk:05	feat:var	call list_cons nonvar var
 table_tests_grammarlrk3	core	core	assert_then_retract cut dcg findall if_then_else list_cons negation retract unify
-table_tests_hirc	chunk:06	family:table_tests_hirc	
+table_tests_hirc	chunk:05	family:table_tests_hirc	
 table_tests_ins	chunk:04	feat:list_cons	list_cons stage
 table_tests_large_arity_tables	chunk:05	feat:functor	functor
 table_tests_large_arity_tries	chunk:05	feat:functor	assert functor
 table_tests_lrbug	core	core	arg cut functor if_then_else list_cons negation op unify
 table_tests_not_exists_test	chunk:04	feat:call	call if_then_else stage unify
 table_tests_pps	chunk:03	feat:cut	cut
-table_tests_pred_abolish_cycle	chunk:06	family:table_tests_pred_abolish_cycle	
-table_tests_pred_abolish_dag	chunk:06	family:table_tests_pred_abolish_dag	
-table_tests_recursive_aboltest	chunk:06	family:table_tests_recursive_aboltest	
+table_tests_pred_abolish_cycle	chunk:05	family:table_tests_pred_abolish_cycle	
+table_tests_pred_abolish_dag	chunk:05	family:table_tests_pred_abolish_dag	
+table_tests_recursive_aboltest	chunk:05	family:table_tests_recursive_aboltest	
 table_tests_tabbug1	chunk:04	feat:unify	unify
 table_tests_terrys_trie_test	chunk:03	feat:cut	assert cut list_cons unify
 table_tests_test_3vwfs_1	chunk:04	feat:findall_with_var_goal	assert findall findall_with_var_goal if_then_else setof unify
-table_tests_test_abolish_aux	chunk:06	family:table_tests_test_abolish_aux	
+table_tests_test_abolish_aux	chunk:05	family:table_tests_test_abolish_aux	
 table_tests_test_answer_sccs	chunk:01	feat:if_then_else	if_then_else unify
 table_tests_test_answerdepth	chunk:04	feat:list_cons	list_cons
-table_tests_test_answerdepth_i	chunk:06	family:table_tests_test_answerdepth_i	
+table_tests_test_answerdepth_i	chunk:05	family:table_tests_test_answerdepth_i	
 table_tests_test_as_mod	chunk:02	feat:stage	stage
-table_tests_test_brat_ansdepth	chunk:06	family:table_tests_test_brat_ansdepth	
+table_tests_test_brat_ansdepth	chunk:05	family:table_tests_test_brat_ansdepth	
 table_tests_test_brat_ansdepth_i	chunk:06	family:table_tests_test_brat_ansdepth_i	
 table_tests_test_calldepth	chunk:06	family:table_tests_test_calldepth	
 table_tests_test_check_variant	chunk:03	feat:assert	assert
@@ -552,33 +552,3 @@ wfs_tests_p86	chunk:03	feat:answer	answer stage unify
 wfs_tests_p89	chunk:03	feat:answer	answer stage unify
 wfs_tests_p90	chunk:03	feat:answer	answer stage unify
 wfs_tests_p91	chunk:03	feat:answer	answer stage unify
-basic_tests_ensure_loaded_aux	chunk:05	family:basic_tests_ensure_loaded_aux	
-basic_tests_preproc_opt_preproc_test	chunk:05	family:basic_tests_preproc_opt_preproc_test	
-cdf_tests_comp_testdir_initialization_file	chunk:05	family:cdf_tests_comp_testdir_initialization_file	
-cdf_tests_initialization_file	chunk:05	family:cdf_tests_initialization_file	
-delay_tests_interp3	chunk:05	family:delay_tests_interp	
-flora_tests_pending_bugs_eqtest	chunk:05	family:flora_tests_pending_bugs_eqtest	
-incremental_tests_s_test_maxans	chunk:05	family:incremental_tests_s_test_maxans	
-incremental_tests_test_goal_interrupt	chunk:05	family:incremental_tests_test_goal_interrupt	
-incremental_tests_test_invalidate	chunk:05	family:incremental_tests_test_invalidate	
-incremental_tests_test_maxans	chunk:05	family:incremental_tests_test_maxans	
-incremental_tests_test_set_pp	chunk:05	family:incremental_tests_test_set_pp	
-incremental_tests_test_tc	chunk:05	family:incremental_tests_test_tc	
-prolog_tests_cinter2	chunk:05	family:prolog_tests_cinter	
-prolog_tests_kb_dync1	chunk:05	family:prolog_tests_kb_dync	
-prolog_tests_kb_dync2	chunk:05	family:prolog_tests_kb_dync	
-prolog_tests_kb_dync_mod	chunk:05	family:prolog_tests_kb_dync_mod	
-prolog_tests_kb_no_export	chunk:05	family:prolog_tests_kb_no_export	
-prolog_tests_kb_trie	chunk:05	family:prolog_tests_kb_trie	
-prolog_tests_kb_trie_mod	chunk:05	family:prolog_tests_kb_trie_mod	
-prolog_tests_prolog_db_tests	chunk:06	family:prolog_tests_prolog_db_tests	
-sub_table_tests_abol_test	chunk:05	family:sub_table_tests_abol_test	
-sub_table_tests_abol_test3	chunk:05	family:sub_table_tests_abol_test	
-sub_table_tests_abol_test3a	chunk:06	family:sub_table_tests_abol_testa	
-sub_table_tests_abol_test3b	chunk:06	family:sub_table_tests_abol_testb	
-sub_table_tests_dipti	chunk:06	family:sub_table_tests_dipti	
-sub_table_tests_pps	chunk:06	family:sub_table_tests_pps	
-sub_table_tests_recursive_aboltest	chunk:06	family:sub_table_tests_recursive_aboltest	
-sub_table_tests_testh	chunk:06	family:sub_table_tests_testh	
-sub_table_tests_tfinda	chunk:06	family:sub_table_tests_tfinda	
-sub_table_tests_unw_tr1	chunk:06	family:sub_table_tests_unw_tr	
