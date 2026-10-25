@@ -1,18 +1,18 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=580 features=41 ubiquitous=7(package compare forall catch write nl directive) distinctive=34 core=35 clusters=133 chunks=6 sizes=100,100,100,100,100,45
+# shape: entries=580 features=41 ubiquitous=7(package compare forall catch write nl directive) distinctive=34 core=34 clusters=133 chunks=6 sizes=100,100,100,100,100,46
 entry	part	cluster	shells
-ai_tests_cs_o	chunk:03	feat:list_cons	list_cons unify
-ai_tests_cs_r	chunk:03	feat:list_cons	list_cons unify
-ai_tests_disj	chunk:03	feat:list_cons	list_cons unify
-ai_tests_gabriel	chunk:03	feat:list_cons	list_cons unify
-ai_tests_kalah	chunk:03	feat:list_cons	list_cons unify
-ai_tests_peep	chunk:03	feat:list_cons	list_cons unify
-ai_tests_pg	chunk:03	feat:list_cons	list_cons unify
-ai_tests_plan	chunk:03	feat:list_cons	list_cons unify
-ai_tests_qsort	chunk:03	feat:list_cons	list_cons unify
-ai_tests_queens	chunk:04	feat:list_cons	list_cons unify
-ai_tests_read	core	core	atom list_cons unify var
+ai_tests_cs_o	chunk:03	feat:list_cons	list_cons stage unify
+ai_tests_cs_r	chunk:03	feat:list_cons	list_cons stage unify
+ai_tests_disj	chunk:03	feat:list_cons	list_cons stage unify
+ai_tests_gabriel	chunk:03	feat:list_cons	list_cons stage unify
+ai_tests_kalah	chunk:03	feat:list_cons	list_cons stage unify
+ai_tests_peep	chunk:03	feat:list_cons	list_cons stage unify
+ai_tests_pg	chunk:03	feat:list_cons	list_cons stage unify
+ai_tests_plan	chunk:03	feat:list_cons	list_cons stage unify
+ai_tests_qsort	chunk:04	feat:list_cons	list_cons stage unify
+ai_tests_queens	chunk:04	feat:list_cons	list_cons stage unify
+ai_tests_read	core	core	atom list_cons stage unify var
 attv_tests_assert_attv	core	core	assert assert_then_retract call if_then_else nonvar retract unify var
 attv_tests_attv_test	chunk:05	feat:var	cut if_then_else list_cons nonvar unify var
 attv_tests_attvar_assert_regalloc	chunk:03	feat:assert	assert unify
@@ -41,7 +41,7 @@ basic_tests_tstr12	chunk:04	feat:writeq	unify writeq
 basic_tests_tstr13	chunk:04	family:basic_tests_tstr	
 basic_tests_tstr21	chunk:04	feat:writeq	unify writeq
 basic_tests_tstr22	chunk:04	feat:writeq	unify writeq
-basic_tests_tstr23	chunk:04	family:basic_tests_tstr	
+basic_tests_tstr23	chunk:05	family:basic_tests_tstr	
 basic_tests_tstr31	chunk:04	feat:writeq	unify writeq
 basic_tests_tstr32	chunk:04	feat:writeq	unify writeq
 basic_tests_tstr33	chunk:05	family:basic_tests_tstr	
@@ -229,7 +229,7 @@ incremental_tests_test_wfs_update	chunk:03	feat:assert_then_retract	assert_then_
 io_tests_fmt_io	chunk:01	feat:if_then_else	if_then_else unify
 io_tests_io_basics	chunk:01	feat:if_then_else	if_then_else
 io_tests_test_proc_files	chunk:04	feat:negation	list_cons negation unify
-json_tests_jsontest	core	core	if_then_else stage unify
+json_tests_jsontest	chunk:02	feat:stage	if_then_else stage unify
 neg_tests_ldynstrat0	chunk:01	feat:if_then_else	if_then_else
 neg_tests_ldynstrat1	chunk:01	feat:if_then_else	if_then_else
 neg_tests_ldynstrat2	chunk:01	feat:if_then_else	if_then_else
@@ -318,7 +318,7 @@ prolog_tests_test_cleanup	core	core	catch_with_throw cut throw unify
 prolog_tests_test_cond_comp	chunk:04	feat:unify	unify
 prolog_tests_test_cycle	chunk:01	feat:if_then_else	if_then_else unify
 prolog_tests_test_dphc	chunk:05	family:prolog_tests_test_dphc	
-prolog_tests_test_float_io_precision	chunk:05	family:prolog_tests_test_float_io_precision	
+prolog_tests_test_float_io_precision	chunk:06	family:prolog_tests_test_float_io_precision	
 prolog_tests_test_forall	chunk:06	family:prolog_tests_test_forall	
 prolog_tests_test_immutable	chunk:05	family:prolog_tests_test_immutable	
 prolog_tests_test_immutable2	chunk:05	family:prolog_tests_test_immutable	
@@ -373,7 +373,7 @@ sub_tests_lrtc4	chunk:02	feat:stage	stage
 sub_tests_lrtc5	chunk:02	feat:stage	stage
 sub_tests_lrtc6	chunk:02	feat:stage	stage
 sub_tests_lrtc7	chunk:02	feat:stage	stage
-sub_tests_lrtc8	chunk:02	feat:stage	stage
+sub_tests_lrtc8	chunk:03	feat:stage	stage
 sub_tests_pilegaard	chunk:04	feat:setof	setof unify
 sub_tests_rrtc1	chunk:03	feat:stage	stage
 sub_tests_rrtc2	chunk:03	feat:stage	stage

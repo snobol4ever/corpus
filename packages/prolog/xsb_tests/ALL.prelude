@@ -11,3 +11,7 @@
 :- op(1050, fy, import).
 :- op(1100, fx, export).
 :- op(1040, xfx, from).
+# hq_icon 2026-10-24 (CEO-1926, the same reading of CEO-1958): XSB's reader also holds index fy 1100 (syslib/file_op.P), the prefix form of XSB's
+# indexing directive -- 9 :- index Name/Arity-Arg lines in 6 files, ai_tests/can_mono.P's two among them, which every ai_tests program imports
+# from; SCRIP's index/1 answers the directive (an indexing hint, no answer changes).
+:- op(1100, fy, index).

@@ -48,6 +48,6 @@ myclause(p(A,f(B,[g(1),A]),[f(B,[1,A,g(1)])]),true).
 myclause(p(A,f(B,A),[f(B,[1,A])]),true).
 
 % DRIVER (appended by the vendoring, CEO-700): XSB basic_tests/test.sh runs gentest.sh interp "test."
-xsb_nonempty_line(L) :- string_length(L, N), N > 0.
-xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), forall(member(X, L), (write(X), nl)).
+xsb_nonempty_line(L) :- string_length(L, N), N > 0. xsb_write_lines([]). xsb_write_lines([X|Xs]) :- write(X), nl, xsb_write_lines(Xs).
+xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, "\n", "", L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), xsb_write_lines(L).
 :- initialization(xsb_sorted_output((test))).

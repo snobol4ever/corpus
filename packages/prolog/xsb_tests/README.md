@@ -48,6 +48,13 @@ active line does, and the appended comment says so: the goal's leading consult l
 the same sort, so a tabled predicate's answers grade as a set, as XSB grades them. An error the goal raises is printed to standard
 error and the lines written before it are kept. The ref is swipl's output of the driven program.
 
+THE DRIVER PRINTS WITH ITS OWN HELPER (hq_icon 2026-10-24, CEO-1926): xsb_sorted_output printed its sorted lines with
+`forall(member(X, L), (write(X), nl))`, and a program that defines its own member/2 -- ai_tests cs_o, cs_r, kalah, pg and plan define an
+abstract-domain member/2 -- had the driver call the program's member: the driver is the program's own text, so in SCRIP's one namespace
+(as in swipl's user module) a driver may call only what no program defines. It now prints through xsb_write_lines/1, defined on the
+driver's first line so every entry keeps its line count (n_lines unchanged); 1034 driver lines in 557 vendored files and ALL.pl, the same
+two-line substitution, no ref changes (XSB runs its upstream files, which carry no driver).
+
 THE DIALECT MARKER (hq_packages 2026-10-22, measured the same day): every program that carries a driver begins with the line `:- use_module(library(lists)).` (the FIRST line: a marker carrying a long trailing comment,
 placed just before the appended driver clauses, made the compiled mode-4 binary of table_tests_abol_test print nothing while mode 3 was right -- measured; row
 prolog-m4-a-long-comment-after-a-use-module-directive-before-the-clauses-silences-the-program). These programs are graded against
@@ -77,16 +84,19 @@ match differed only in the order of tabled answers (identical once sorted); with
   (XSB answers differently from run to run -- the 3 socket tests, prolog_db_tests, preproc_test, whose answer carries XSB's own cpu-time load
   messages -- prints nothing where its NAME_old has lines, or its scripts neither run nor open the file) and FAKEABLE_NO_OBSERVABLE (XSB's
   answer is empty, as its NAME_old is: a silent engine would pass it, CEO-1865).
-- STAGED.tsv -- the 133 entries whose SCRIP run is staged in their upstream test directory (corpus_suite_harness.py stage_upstream, the
+- STAGED.tsv -- the 146 entries whose SCRIP run is staged in their upstream test directory (corpus_suite_harness.py stage_upstream, the
   coo's phase 2 of CEO-1927): every vendored file of the entry's test directory written there under its upstream name (as .pl, and under
   its own name), the appended drivers cut off -- the 72 wfs_tests pNN, whose answer is the file temp wfs_test.P writes (answer=temp-sorted;
   their drivers, appended in the same landing, consult wfs_test and run test(pNN) as wfs_tests/test.sh does), and 56 programs whose XSB
-  run opens a vendored sibling by its upstream name.
+  run opens a vendored sibling by its upstream name; and (hq_icon 2026-10-24) the 11 ai_tests programs XSB's ai_tests/test.sh runs, each of
+  which imports normalize_result/2 from can_mono and set_unify/2 from set_unify by upstream name -- SCRIP's static compile loads a module
+  imported from a file beside the program (M.H, then M.P), as XSB's loader does.
 - upstream/ -- the data files a staged program reads by its upstream path, vendored at that path below its test directory and staged byte
   for byte (stage_upstream; the coo, CEO-1926, 2026-10-23): json_tests/data/*.json (39, read by jsontest), prolog_tests/format_tests/format.tst
   (pip_0110_format_test) and prolog_tests/utf8.txt (CR-LF as XSB ships it; test_ascii_getput, test_utf8_atom, test_utf8_getput), XSB's own
   bytes (cmp). An answer carrying CR bytes is an answer (ceo CEO-1926): jsontest's ref holds two mid-line CRs, test_utf8_getput's two at end
-  of line, declared with utf8.txt in harness lf_gate_crlf_is_the_subject.tsv.
+  of line, declared with utf8.txt in harness lf_gate_crlf_is_the_subject.tsv. ai_tests/can_mono.H (hq_icon 2026-10-24): XSB's header for
+  can_mono.P, holding its export list and its two imports, which XSB reads before can_mono.P; flat vendoring (.P only) left it out.
 - UNGRADED.tsv -- empty: its five NEEDS_RUNNER_WIRING rows (jsontest, pip_0110_format_test and the three utf8 tests) are staged now.
 - UNGRADABLE.tsv -- empty: its rows were swipl's refusals.
 
