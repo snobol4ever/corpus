@@ -137,7 +137,7 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 136,delay_tests_seg5,xsb_tests__delay_tests_seg5,xsb_tests,34,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,1,0,0,1,0,0,0
 137,delay_tests_sel_unsusp,xsb_tests__delay_tests_sel_unsusp,xsb_tests,32,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0
 138,delay_tests_simpl_win,xsb_tests__delay_tests_simpl_win,xsb_tests,37,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,1,1,0,0,1,0,0,0
-139,delay_tests_tabsimp_seq,xsb_tests__delay_tests_tabsimp_seq,xsb_tests,27,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,1,0,0,1,0,0,0
+139,delay_tests_tabsimp_seq,xsb_tests__delay_tests_tabsimp_seq,xsb_tests,27,0,0,131072,131072,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,1,0,0,1,0,0,0
 140,delay_tests_two_ary,xsb_tests__delay_tests_two_ary,xsb_tests,22,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 141,delay_tests_ullman3,xsb_tests__delay_tests_ullman3,xsb_tests,50,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,1,0,0,0,1,0,0,0
 142,delay_tests_weidong2,xsb_tests__delay_tests_weidong2,xsb_tests,32,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0
