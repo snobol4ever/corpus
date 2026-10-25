@@ -193,8 +193,7 @@ pj_run_one(Suite,Name,Opts,Goal) :- memberchk(sto(rational_trees), Opts), !,
     ->  pj_del_sto(Opts, Rest), pj_run_one(Suite,Name,Rest,Goal)
     ;   pj_inc_skip, format('  skip: ~w:~w  [sto-deferred ~q]~n',[Suite,Name,only(Suite,Name)])
     ).
-pj_run_one(Suite,Name,Opts,_) :- pj_has_sto(Opts), !,
-    pj_inc_skip, format('  skip: ~w:~w  [sto]~n',[Suite,Name]).
+pj_run_one(Suite,Name,Opts,Goal) :- pj_has_sto(Opts), !, pj_del_sto(Opts, Rest), pj_run_one(Suite,Name,Rest,Goal).
 pj_run_one(Suite,Name,Opts,_) :- pj_has_blocked(Opts), !,
     pj_inc_skip, format('  skip: ~w:~w  [blocked]~n',[Suite,Name]).
 /* a test whose condition fails prints NOTHING, as swipl's plunit prints nothing for it (hq_prolog 2026-10-14: a printed skip took an
