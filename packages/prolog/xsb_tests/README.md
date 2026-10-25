@@ -48,6 +48,13 @@ active line does, and the appended comment says so: the goal's leading consult l
 the same sort, so a tabled predicate's answers grade as a set, as XSB grades them. An error the goal raises is printed to standard
 error and the lines written before it are kept. The ref is swipl's output of the driven program.
 
+THE XSB DIALECT (hq_icon 2026-10-25, the cto's ARCH-PROLOG-DIALECTS.md sec 6 (1), CEO-1964/1958): ALL.prelude no longer carries the SWI marker
+and swipl's double_quotes string (both written for swipl's refs); it carries ONE XSB marker, `:- compiler_options([]).`, below XSB's reader
+operators, and SCRIP reads every entry in its XSB dialect -- double_quotes codes as XSB's default, '$dialect' xsb, the marker outranking the
+`:- use_module(library(lists)).` line each vendored file begins with. The driver's split_string/4 takes its separator and pad as atoms ('\n',
+''), which read the same text in every dialect: under codes, "" is [] and SCRIP reads [] as the text "[]", so the pad stripped every line's
+brackets (basic_tests_interp printed 3,2,1 for [3,2,1]); 1034 sites, 557 files and ALL.pl, line counts unchanged.
+
 THE DRIVER PRINTS WITH ITS OWN HELPER (hq_icon 2026-10-24, CEO-1926): xsb_sorted_output printed its sorted lines with
 `forall(member(X, L), (write(X), nl))`, and a program that defines its own member/2 -- ai_tests cs_o, cs_r, kalah, pg and plan define an
 abstract-domain member/2 -- had the driver call the program's member: the driver is the program's own text, so in SCRIP's one namespace

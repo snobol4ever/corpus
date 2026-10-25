@@ -3,8 +3,10 @@
 # dialect, selected the way the swi_tests shim selects it -- the COMPILE-TIME marker the SWI arms read (a use_module directive:
 # prolog_lower.c pl_dialect_marker), not the run-time flag alone -- and with swipl's double_quotes string. It is the program's own
 # declaration of the oracle that answers it, not a compatibility switch.
-:- use_module(library(lists)).
-:- set_prolog_flag(double_quotes, string).
+# hq_icon 2026-10-25 (the cto's ARCH-PROLOG-DIALECTS.md sec 6 (1), the package contract, CEO-1964/1958): the two lines above this note -- the
+# SWI marker and swipl's double_quotes string, written for swipl's refs -- are gone; XSB 5.0.0 cuts the refs, so the prelude carries ONE XSB
+# marker, :- compiler_options([]). (below the operators, which must parse first), and SCRIP reads every entry in its XSB dialect:
+# double_quotes codes as XSB's default, '$dialect' xsb, an XSB marker outranking the use_module line each vendored file begins with.
 # CEO-1958 (the ceo 2026-10-24, on the cfo's ask under CEO-1927): XSB 5.0.0 cuts this package's refs, so the prelude declares the three operators
 # XSB's own reader holds (syslib/file_op.P: import fy 1050, export fx 1100, from xfx 1040) that the programs' module directives are written in --
 # 611 :- import ... from ... lines and 9 :- export ... lines; SCRIP's import/1 and export/1 already answer the directive.
@@ -15,3 +17,4 @@
 # indexing directive -- 9 :- index Name/Arity-Arg lines in 6 files, ai_tests/can_mono.P's two among them, which every ai_tests program imports
 # from; SCRIP's index/1 answers the directive (an indexing hint, no answer changes).
 :- op(1100, fy, index).
+:- compiler_options([]).
