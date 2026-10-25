@@ -1772,3 +1772,13 @@ done
 ok
 %- 574 ladder__rung05_ite_nested_in_a_disjunction_then_arm_first_writes_its_variables
 outer
+%- 575 ladder__rung10_monotonic_tabling_propagates_an_assert_into_its_dependents
+pa_empty
+ret_pa1
+[1]
+pa_valid
+q(4)
+qx_invalid
+[4,6]
+len(9)
+[a-a,a-b,a-c,b-a,b-b,b-c,c-a,c-b,c-c]

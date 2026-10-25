@@ -4839,3 +4839,32 @@ define(partition([],_,[],[]),true).
 %- 574 ladder__rung05_ite_nested_in_a_disjunction_then_arm_first_writes_its_variables
 main :- ( ( X = 1 -> Y = 2, fail ; true ) ; write(outer) ), nl.
 :- initialization(main).
+%- 575 ladder__rung10_monotonic_tabling_propagates_an_assert_into_its_dependents
+:- dynamic da/1 as monotonic.
+:- table pa/1 as monotonic.
+pa(X) :- da(Y), X is Y+1.
+:- dynamic dx/1 as (incremental,monotonic).
+:- table px/1 as monotonic.
+:- table qx/1 as incremental.
+px(X) :- dx(Y), X is Y+1.
+qx(X) :- px(Y), X is Y*2.
+:- table cm/2 as monotonic.
+:- dynamic lm/2 as monotonic.
+cm(X, Y) :- cm(Y, X).
+cm(X, Z) :- cm(X, Y), cm(Y, Z).
+cm(X, Y) :- lm(X, Y).
+main :-
+    ( pa(_) -> writeln(pa_nonempty) ; writeln(pa_empty) ),
+    assert(da(0)),
+    ( get_returns_for_call(pa(_), pa(1)) -> writeln(ret_pa1) ; writeln(no_ret_pa1) ),
+    findall(X, pa(X), L1), writeq(L1), nl,
+    ( incr_is_invalid(pa(_)) -> writeln(pa_invalid) ; writeln(pa_valid) ),
+    assert(dx(1)), qx(Q1), writeq(q(Q1)), nl,
+    assert(dx(2)),
+    ( incr_is_invalid(qx(_)) -> writeln(qx_invalid) ; writeln(qx_valid) ),
+    findall(Q, qx(Q), QL), sort(QL, QS), writeq(QS), nl,
+    ignore(cm(_,_)),
+    assert(lm(a, b)), assert(lm(a, c)),
+    findall(X-Y, cm(X,Y), Pairs), length(Pairs, Len), writeq(len(Len)), nl,
+    sort(Pairs, SP), writeq(SP), nl.
+:- initialization(main).
