@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=2141 features=40 ubiquitous=0() distinctive=40 core=31 clusters=140 chunks=22 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,10
+# shape: entries=2142 features=40 ubiquitous=0() distinctive=40 core=31 clusters=140 chunks=22 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,11
 entry	part	cluster	shells
 simple_assign_1	chunk:19	family:probe_conformance	
 simple_output_10	chunk:19	family:probe_conformance	
@@ -56,7 +56,7 @@ simple_output_23	chunk:19	family:probe_conformance
 simple_output_24	chunk:19	family:probe_conformance	
 simple_output_4	chunk:21	family:feat	
 simple_output_40	chunk:19	family:probe_conformance	
-simple_output_41	chunk:19	family:probe_conformance	
+simple_output_41	chunk:20	family:probe_conformance	
 simple_output_42	chunk:20	family:probe_conformance	
 simple_output_46	chunk:20	family:probe_conformance	
 simple_output_48	chunk:20	family:probe_conformance	
@@ -889,6 +889,7 @@ simple_output_69	chunk:20	family:probe_gimpel
 ladder__rung26_lpad	chunk:18	family:ladder	
 ladder__rung26_rpad	chunk:18	family:ladder	
 ladder__rung27_remdr	chunk:18	family:ladder	
+ladder__rung30_dump	chunk:18	family:ladder	
 simple_output_174	chunk:21	family:crosscheck_rungW02	
 simple_output_191	chunk:21	family:scrip_test_snobol4_control_new_031_goto_unconditional	
 simple_output_225	chunk:21	family:scrip_test_snobol4_assign_012_assign_null	
@@ -906,7 +907,7 @@ simple_output_61	chunk:21	family:probe_csnobol4_triage
 simple_output_64	chunk:21	family:probe_csnobol4_triage	
 simple_output_92	chunk:21	family:feat_f21_io_fd_assoc	
 simple_output_150	chunk:21	family:crosscheck_rung2	
-simple_output_153	chunk:20	family:crosscheck_rung3	
+simple_output_153	chunk:21	family:crosscheck_rung3	
 simple_output_176	chunk:21	family:crosscheck_rungW07	
 simple_output_184	chunk:21	family:rtx_func_11_include	
 simple_output_299	chunk:18	family:ladder	
@@ -932,7 +933,7 @@ simple_output_163	chunk:20	family:crosscheck_rung9
 simple_output_165	chunk:20	family:crosscheck_rung9	
 simple_output_166	chunk:20	family:crosscheck_rung9	
 simple_output_253	chunk:22	family:scrip_test_snobol4_rung3_311_concat_numeric	
-simple_output_252	chunk:21	family:scrip_test_snobol4_rung3_310_concat_strings	
+simple_output_252	chunk:22	family:scrip_test_snobol4_rung3_310_concat_strings	
 simple_output_306	chunk:21	family:data_redefinition_adds_field_to_existing_type	
 simple_output_164	chunk:20	family:crosscheck_rung9	
 simple_output_167	chunk:20	family:crosscheck_rung9	
@@ -1240,7 +1241,7 @@ defer_2	chunk:20	feat:deferred_eval	deferred_eval goto_success
 imm_capture_2	chunk:05	feat:imm_assign	goto_success imm_assign
 imm_capture_keyword_1	chunk:05	feat:imm_assign	imm_assign keyword_ref
 len_3	chunk:19	feat:LEN	LEN goto_success
-notany_2	chunk:18	feat:NOTANY	NOTANY goto_success
+notany_2	chunk:19	feat:NOTANY	NOTANY goto_success
 span_3	chunk:09	feat:SPAN	SPAN goto_success
 user_function_42	chunk:01	feat:arith	DEFINE arith
 user_function_code_eval_1	chunk:14	feat:CODE	CODE DEFINE
