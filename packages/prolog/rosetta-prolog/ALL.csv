@@ -261,7 +261,7 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 260,map-range,rosetta-prolog__map-range,rosetta-prolog,13,0,0,131072,4096,,,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 261,mastermind,rosetta-prolog__mastermind,rosetta-prolog,104,1,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,1,0,1,1,1,0,1,1,0,0,0
 262,matrix-multiplication,rosetta-prolog__matrix-multiplication,rosetta-prolog,14,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
-263,maximum-triangle-path-sum,rosetta-prolog__maximum-triangle-path-sum,rosetta-prolog,43,0,0,131072,262144,,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0
+263,maximum-triangle-path-sum,rosetta-prolog__maximum-triangle-path-sum,rosetta-prolog,43,0,0,131072,524288,,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0
 264,menu-1,rosetta-prolog__menu-1,rosetta-prolog,20,1,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,1,0,0,0,1,0,0,0,0,0,0,1,0,0,0
 265,merge-and-aggregate-datasets-1,rosetta-prolog__merge-and-aggregate-datasets-1,rosetta-prolog,39,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 266,mersenne-primes,rosetta-prolog__mersenne-primes,rosetta-prolog,19,0,0,131072,4096,,,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,1,0,1,1,0,0,0
