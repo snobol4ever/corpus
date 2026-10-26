@@ -1,0 +1,5 @@
+# triangulation TSV -- 20261026T140651Z -- TOL_PCT=10 (flat, UNBAKED) -- never hand-edit, regenerate via bench_triangulate_pascal.sh
+kernel	engine	angle1_rate	angle2_rate	ratio	verdict	disk_inblock	disk_oublock
+quick	fpc	6.4599	6.4058	0.9916	AGREE	0	0
+quick	m3	57.2346	57.8951	1.0115	AGREE	0	0
+quick	m4	56.1456	56.8701	1.0129	AGREE	0	0

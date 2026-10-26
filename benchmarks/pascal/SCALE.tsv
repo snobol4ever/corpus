@@ -9,14 +9,14 @@
 # note in bench-rivals-raku-pascal's own task LEDGER for the before/after numbers).
 # Each column independently calibrated once from angle 1's own converged rates, targeting ~1-3s of that
 # engine's own wall time -- re-calibrate by hand if a future engine/hardware change badly over/undershoots.
-# ⛔ scrip_reps (shared m3+m4) for quick is capped at 12, never higher -- row
-# pascal-quick-m3-recursive-reps-cliff-13 (m3 SIGSEGVs at reps>=13). fpc has no such defect and is not capped.
+# quick's scrip_reps was capped at 12 for the m3 crash at reps>=13 (row pascal-quick-m3-recursive-reps-cliff-13); the cliff is gone (ceo CEO-1987,
+# 2026-10-26: fpc's output at reps 12..5000 in m3 and m4, about 58 us/rep), so its count is 2000, n3 = 32000 reps about 2 s.
 # kernel	fpc_reps	scrip_reps
 bubble	12000	5
 intmm	12000	20
 perm	12000	15
 queens	500000	500
-quick	15000	12
+quick	15000	2000
 sieve	80000	60
 towers	6000	150
 # whet (added 2026-09-26, ceo CEO-1281): fpc -O2 about 2 ms/rep, SCRIP -O0 about 310 ms/rep (measured this sitting at reps 1, 4, 16 on fpc and 1, 4 on m3);
