@@ -14641,3 +14641,12 @@ procedure warn(a[])
    errors +:= 1;
    return;
 end
+#------------------------------ 936 ladder__rung09_loops_repeat_return_dead_tail
+procedure f(n)
+    if n > 0 then { repeat return n; write("dead") };
+    return 0;
+end
+procedure main()
+    write(f(1));
+    write(f(0));
+end
