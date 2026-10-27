@@ -206,7 +206,7 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 205,incremental_tests_s_test_lazy,xsb_tests__incremental_tests_s_test_lazy,xsb_tests,129,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,1
 206,incremental_tests_s_test_set_pp,xsb_tests__incremental_tests_s_test_set_pp,xsb_tests,93,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,1,0,0,1,0,0,0
 207,incremental_tests_s_test_sound_updates,xsb_tests__incremental_tests_s_test_sound_updates,xsb_tests,50,0,0,131072,4096,,,ignore-all-space,,,1,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,0,1,0,0,0
-208,incremental_tests_s_test_table_errors,xsb_tests__incremental_tests_s_test_table_errors,xsb_tests,31,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+208,incremental_tests_s_test_table_errors,xsb_tests__incremental_tests_s_test_table_errors,xsb_tests,31,0,0,131072,4096,,,fresh-vars+ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 209,incremental_tests_s_test_visitors,xsb_tests__incremental_tests_s_test_visitors,xsb_tests,88,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,1,0,0,0,0,1,0,0,0
 210,incremental_tests_s_test_wfs_update,xsb_tests__incremental_tests_s_test_wfs_update,xsb_tests,189,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,1
 211,incremental_tests_test_abolish_incremental_call_single,xsb_tests__incremental_tests_test_abolish_incremental_call_single,xsb_tests,72,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
@@ -219,7 +219,7 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 218,incremental_tests_test_incr_depends,xsb_tests__incremental_tests_test_incr_depends,xsb_tests,57,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 219,incremental_tests_test_incr_depends_2,xsb_tests__incremental_tests_test_incr_depends_2,xsb_tests,72,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 220,incremental_tests_test_sound_updates,xsb_tests__incremental_tests_test_sound_updates,xsb_tests,50,0,0,131072,4096,,,ignore-all-space,,,1,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,0,1,0,0,0
-221,incremental_tests_test_table_errors,xsb_tests__incremental_tests_test_table_errors,xsb_tests,39,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+221,incremental_tests_test_table_errors,xsb_tests__incremental_tests_test_table_errors,xsb_tests,39,0,0,131072,4096,,,fresh-vars+ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 222,incremental_tests_test_visitors,xsb_tests__incremental_tests_test_visitors,xsb_tests,88,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,1,0,0,0,0,1,0,0,0
 223,incremental_tests_test_wfs_mult_upd,xsb_tests__incremental_tests_test_wfs_mult_upd,xsb_tests,108,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,1
 224,incremental_tests_test_wfs_update,xsb_tests__incremental_tests_test_wfs_update,xsb_tests,189,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,1
@@ -270,7 +270,7 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 269,nonmt_tests_test_recomputable,xsb_tests__nonmt_tests_test_recomputable,xsb_tests,92,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 270,nonmt_tests_test_set_pp,xsb_tests__nonmt_tests_test_set_pp,xsb_tests,93,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,1,0,0,1,0,0,0
 271,nonmt_tests_test_tc,xsb_tests__nonmt_tests_test_tc,xsb_tests,93,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,1,0,1,0,0,1,0,0,0
-272,nonmt_tests_test_trip,xsb_tests__nonmt_tests_test_trip,xsb_tests,94,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,0,1,0,0,0
+272,nonmt_tests_test_trip,xsb_tests__nonmt_tests_test_trip,xsb_tests,94,0,0,131072,4096,,,fresh-vars+ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,0,1,0,0,0
 273,nonmt_tests_test_trip_mem,xsb_tests__nonmt_tests_test_trip_mem,xsb_tests,93,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,1,0,1,0,0,1,0,0,0
 274,nonmt_tests_test_trip_susp_reset,xsb_tests__nonmt_tests_test_trip_susp_reset,xsb_tests,250,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,1,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0
 275,prolog_tests_altindex,xsb_tests__prolog_tests_altindex,xsb_tests,12,0,0,131072,4096,,,ignore-all-space,upstream,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
@@ -285,7 +285,7 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 284,prolog_tests_gctest,xsb_tests__prolog_tests_gctest,xsb_tests,69,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 285,prolog_tests_include_test,xsb_tests__prolog_tests_include_test,xsb_tests,15,0,0,131072,4096,,,ignore-all-space,upstream,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 286,prolog_tests_inline,xsb_tests__prolog_tests_inline,xsb_tests,10,0,0,131072,4096,,,ignore-all-space,upstream,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
-287,prolog_tests_large_arity_prolog,xsb_tests__prolog_tests_large_arity_prolog,xsb_tests,149,0,0,131072,4096,,,ignore-all-space,,,1,1,1,1,1,0,0,0,0,1,0,0,1,1,1,1,0,0,0,0,1,0,1,0,1,0,0,0,1,0,0,0,1,1,1,1,1,0,0
+287,prolog_tests_large_arity_prolog,xsb_tests__prolog_tests_large_arity_prolog,xsb_tests,149,0,0,131072,4096,,,fresh-vars+ignore-all-space,,,1,1,1,1,1,0,0,0,0,1,0,0,1,1,1,1,0,0,0,0,1,0,1,0,1,0,0,0,1,0,0,0,1,1,1,1,1,0,0
 288,prolog_tests_listing_test,xsb_tests__prolog_tests_listing_test,xsb_tests,8,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 289,prolog_tests_longname,xsb_tests__prolog_tests_longname,xsb_tests,7,0,0,131072,4096,,,ignore-all-space,upstream,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 290,prolog_tests_mf_obj,xsb_tests__prolog_tests_mf_obj,xsb_tests,21,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
@@ -306,7 +306,7 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 305,prolog_tests_std1,xsb_tests__prolog_tests_std1,xsb_tests,36,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,1,0,0,1,0,0,0
 306,prolog_tests_std2,xsb_tests__prolog_tests_std2,xsb_tests,66,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0,1,0,0,0,1,0,1,1,1,0,1,1,0,0,0
 307,prolog_tests_test_aggregates,xsb_tests__prolog_tests_test_aggregates,xsb_tests,19,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
-308,prolog_tests_test_arith_errors,xsb_tests__prolog_tests_test_arith_errors,xsb_tests,90,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
+308,prolog_tests_test_arith_errors,xsb_tests__prolog_tests_test_arith_errors,xsb_tests,90,0,0,131072,4096,,,error-context+ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
 309,prolog_tests_test_ascii_atom,xsb_tests__prolog_tests_test_ascii_atom,xsb_tests,14,0,0,131072,4096,,,ignore-all-space,upstream,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 310,prolog_tests_test_ascii_getput,xsb_tests__prolog_tests_test_ascii_getput,xsb_tests,12,0,0,131072,4096,,,ignore-all-space,upstream,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 311,prolog_tests_test_ascii_readwrite,xsb_tests__prolog_tests_test_ascii_readwrite,xsb_tests,13,0,0,131072,4096,,,ignore-all-space,upstream,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
@@ -328,7 +328,7 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 327,prolog_tests_test_sprint_term,xsb_tests__prolog_tests_test_sprint_term,xsb_tests,43,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,1,0,1,1,0,0,0
 328,prolog_tests_test_term_depth,xsb_tests__prolog_tests_test_term_depth,xsb_tests,48,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,1,1,0,0,0
 329,prolog_tests_test_term_size,xsb_tests__prolog_tests_test_term_size,xsb_tests,49,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,1,1,0,0,0
-330,prolog_tests_test_termtoatom,xsb_tests__prolog_tests_test_termtoatom,xsb_tests,56,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+330,prolog_tests_test_termtoatom,xsb_tests__prolog_tests_test_termtoatom,xsb_tests,56,0,0,131072,4096,,,fresh-vars+ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 331,prolog_tests_test_utf8_atom,xsb_tests__prolog_tests_test_utf8_atom,xsb_tests,13,0,0,131072,4096,,,ignore-all-space,upstream,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 332,prolog_tests_test_utf8_getput,xsb_tests__prolog_tests_test_utf8_getput,xsb_tests,12,0,0,131072,4096,,,ignore-all-space,upstream,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 333,prolog_tests_test_utf8_readwrite,xsb_tests__prolog_tests_test_utf8_readwrite,xsb_tests,12,0,0,131072,4096,,,ignore-all-space,upstream,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
@@ -433,9 +433,9 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 432,table_tests_test_as_mod,xsb_tests__table_tests_test_as_mod,xsb_tests,13,0,0,131072,4096,,,ignore-all-space,upstream,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 433,table_tests_test_brat_ansdepth,xsb_tests__table_tests_test_brat_ansdepth,xsb_tests,141,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 434,table_tests_test_brat_ansdepth_i,xsb_tests__table_tests_test_brat_ansdepth_i,xsb_tests,134,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
-435,table_tests_test_calldepth,xsb_tests__table_tests_test_calldepth,xsb_tests,32,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+435,table_tests_test_calldepth,xsb_tests__table_tests_test_calldepth,xsb_tests,32,0,0,131072,4096,,,error-context+ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 436,table_tests_test_check_variant,xsb_tests__table_tests_test_check_variant,xsb_tests,29,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
-437,table_tests_test_cut_over_tables,xsb_tests__table_tests_test_cut_over_tables,xsb_tests,18,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,0,1,0,0,0
+437,table_tests_test_cut_over_tables,xsb_tests__table_tests_test_cut_over_tables,xsb_tests,18,0,0,131072,4096,,,fresh-vars+ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,0,1,0,0,0
 438,table_tests_test_cyclic_tabling,xsb_tests__table_tests_test_cyclic_tabling,xsb_tests,41,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
 439,table_tests_test_cyclic_tries,xsb_tests__table_tests_test_cyclic_tries,xsb_tests,54,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,1,0,1,1,0,0,0
 440,table_tests_test_dynamic,xsb_tests__table_tests_test_dynamic,xsb_tests,49,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
@@ -451,7 +451,7 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 450,table_tests_test_maxans_decl,xsb_tests__table_tests_test_maxans_decl,xsb_tests,14,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 451,table_tests_test_mf_index,xsb_tests__table_tests_test_mf_index,xsb_tests,29,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 452,table_tests_test_model_tv,xsb_tests__table_tests_test_model_tv,xsb_tests,26,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
-453,table_tests_test_negcycle,xsb_tests__table_tests_test_negcycle,xsb_tests,74,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
+453,table_tests_test_negcycle,xsb_tests__table_tests_test_negcycle,xsb_tests,74,0,0,131072,4096,,,error-context+ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
 454,table_tests_test_not3_wcs,xsb_tests__table_tests_test_not3_wcs,xsb_tests,46,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 455,table_tests_test_sdg_preds,xsb_tests__table_tests_test_sdg_preds,xsb_tests,105,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,1,0,1,1,0,1,0,0,0
 456,table_tests_test_sdg_print,xsb_tests__table_tests_test_sdg_print,xsb_tests,46,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,1,0,0,1,0,0,0
