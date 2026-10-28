@@ -145,7 +145,7 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 144,hakank_swi_handshaking,puzzles__hakank_swi_handshaking,puzzles,282,0,0,131072,4096,,,,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,1,0,1,1,1,0,0
 145,hakank_swi_hanging_weights,puzzles__hakank_swi_hanging_weights,puzzles,74,0,0,131072,4096,,,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
 146,hakank_swi_heterosquare,puzzles__hakank_swi_heterosquare,puzzles,85,0,0,131072,4096,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
-147,hakank_swi_hidato,puzzles__hakank_swi_hidato,puzzles,274,0,0,131072,4096,,,,1,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,1,0,0,1,1,0,0
+147,hakank_swi_hidato,puzzles__hakank_swi_hidato,puzzles,274,0,0,131072,65536,,,,1,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,1,0,0,1,1,0,0
 148,hakank_swi_huey_dewey_louie,puzzles__hakank_swi_huey_dewey_louie,puzzles,47,0,0,131072,4096,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
 149,hakank_swi_inverse,puzzles__hakank_swi_inverse,puzzles,149,0,0,131072,4096,,,,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,1,0,0
 150,hakank_swi_isbn,puzzles__hakank_swi_isbn,puzzles,189,0,0,131072,4096,,,fresh-vars,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,1,0,0,1,0,0,0
