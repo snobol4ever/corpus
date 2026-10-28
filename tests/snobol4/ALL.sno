@@ -22473,3 +22473,53 @@ fail            t1              =   TIME()
                 TERMINAL        =   'match_ms=' (t1 - t0) / 1000000
 *------------------------------------------------------------------------------
 END
+*----------------------- 2148 ladder__rung25_inf_dotnet_failure_before_selection
+* infinite_snobol4 scope=6 seed0=rcs06 batch 2 line 217: dotnet differed from sbl -bf. A failure before a selection fails the
+* expression, and a selection inside another ends at its own parenthesis (alternative evaluation has no rung; this is rung25, a predicate's failure)
+        X = 'old'
+        X = LT(2, 1) (0, 1)                         :S(S1)
+        OUTPUT = '1 failed, X=' X                   :(T2)
+S1      OUTPUT = '1 succeeded, X=' X
+T2      X = IDENT(1, 2) ('a', 'b') 'c'              :S(S2)
+        OUTPUT = '2 failed, X=' X                   :(T3)
+S2      OUTPUT = '2 succeeded, X=' X
+T3      X = ('x', ('y', 'z') 'w')
+        OUTPUT = '3 X=' X
+        X = ((LT(2, 1), 'y'), 'z') 'w'
+        OUTPUT = '4 X=' X
+END
+*---------- 2149 ladder__rung25_inf_dotnet_lexical_compare_second_argument_error
+* infinite_snobol4 scope=6 seed0=rcs06 batch 1 line 393: dotnet differed from sbl -bf. When neither argument of a lexical
+* comparison is a string, the error is the second argument's, as SPITBOL takes the arguments off its stack (LGE(w, $'u'))
+        &ERRLIMIT = 30
+        P = ANY('bcd')
+        T = TABLE()
+        LGE(P, T)
+        OUTPUT = 'LGE ' &ERRTYPE
+        LLT(P, T)
+        OUTPUT = 'LLT ' &ERRTYPE
+        LEQ(P, T)
+        OUTPUT = 'LEQ ' &ERRTYPE
+        LNE(P, 'a')
+        OUTPUT = 'LNE ' &ERRTYPE
+END
+*---------------------- 2150 ladder__rung06_inf_dotnet_element_name_is_no_number
+* infinite_snobol4 scope=6 seed0=rcs06 batch 8 line 109: dotnet differed from sbl -bf. The name of an element or a table
+* entry has no text, so it is no number: RPAD 179, DUPL 90, and CONVERT fails (RPAD('u6', .a[g])); a name of digits is its number
+        &ERRLIMIT = 30
+        A = ARRAY(3)
+        A[1] = 2
+        T = TABLE()
+        T['k'] = 3
+        V = RPAD('u6', .A[1])
+        OUTPUT = '1 ' &ERRTYPE ' [' V ']'
+        &ERRTYPE = 0
+        V = DUPL('ab', .T['k'])
+        OUTPUT = '2 ' &ERRTYPE ' [' V ']'
+        &ERRTYPE = 0
+        V = 'none'
+        V = CONVERT(.A[1], 'INTEGER')
+        OUTPUT = '3 ' &ERRTYPE ' [' V ']'
+        V = DUPL('ab', .$'3')
+        OUTPUT = '4 ' &ERRTYPE ' [' V ']'
+END

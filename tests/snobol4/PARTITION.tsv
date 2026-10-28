@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=2147 features=40 ubiquitous=0() distinctive=40 core=31 clusters=140 chunks=22 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,16
+# shape: entries=2150 features=40 ubiquitous=0() distinctive=40 core=31 clusters=140 chunks=22 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,19
 entry	part	cluster	shells
 simple_assign_1	chunk:19	family:probe_conformance	
 simple_output_10	chunk:19	family:probe_conformance	
@@ -15,14 +15,14 @@ simple_output_108	chunk:20	family:crosscheck_assign
 simple_output_109	chunk:21	family:crosscheck_capture	
 simple_output_110	chunk:21	family:crosscheck_capture	
 simple_output_112	chunk:20	family:crosscheck_comments	
-simple_output_113	chunk:20	family:crosscheck_comments	
+simple_output_113	chunk:21	family:crosscheck_comments	
 simple_output_114	chunk:20	family:crosscheck_concat	
 simple_output_115	chunk:20	family:crosscheck_concat	
 simple_output_116	chunk:20	family:crosscheck_concat	
 simple_output_117	chunk:20	family:crosscheck_concat	
 simple_output_118	chunk:20	family:crosscheck_concat	
 simple_output_119	chunk:20	family:crosscheck_concat	
-simple_output_120	chunk:20	family:crosscheck_control_new	
+simple_output_120	chunk:21	family:crosscheck_control_new	
 simple_output_125	chunk:21	family:crosscheck_control_new	
 simple_output_126	chunk:21	family:crosscheck_control_new	
 simple_output_127	chunk:21	family:crosscheck_data	
@@ -48,9 +48,9 @@ simple_output_177	chunk:21	family:crosscheck_strings
 simple_output_178	chunk:21	family:crosscheck_strings	
 simple_output_179	chunk:21	family:crosscheck_strings	
 simple_output_18	chunk:19	family:probe_conformance	
-simple_output_19	chunk:19	family:probe_conformance	
-simple_output_20	chunk:19	family:probe_conformance	
-simple_output_21	chunk:19	family:probe_conformance	
+simple_output_19	chunk:20	family:probe_conformance	
+simple_output_20	chunk:20	family:probe_conformance	
+simple_output_21	chunk:20	family:probe_conformance	
 simple_output_22	chunk:20	family:probe_conformance	
 simple_output_23	chunk:20	family:probe_conformance	
 simple_output_24	chunk:20	family:probe_conformance	
@@ -72,7 +72,7 @@ simple_output_82	chunk:21	family:probe_setexit
 simple_output_86	chunk:21	family:probe_vlist_select	
 simple_output_88	chunk:21	family:probe_vlist_select	
 simple_output_99	chunk:21	family:crosscheck_arith_new	
-simple_program_2	chunk:20	family:crosscheck_comments	
+simple_program_2	chunk:21	family:crosscheck_comments	
 alt_1	chunk:19	feat:alternation	alternation
 any_1	chunk:07	feat:ANY	ANY
 arbno_1	chunk:08	feat:ARBNO	ARBNO
@@ -87,7 +87,7 @@ call_scope_operator_1	chunk:02	feat:keyword_ref	keyword_ref
 call_scope_sqrt_1	chunk:02	feat:keyword_ref	keyword_ref
 capture_1	chunk:06	feat:cond_assign	cond_assign
 capture_2	chunk:06	feat:cond_assign	cond_assign
-code_eval_1	chunk:13	feat:CODE	CODE
+code_eval_1	chunk:14	feat:CODE	CODE
 datatype_10	chunk:11	feat:DATATYPE	DATATYPE
 datatype_11	chunk:11	feat:DATATYPE	DATATYPE
 datatype_12	chunk:11	feat:DATATYPE	DATATYPE
@@ -167,9 +167,9 @@ size_7	chunk:15	feat:SIZE	SIZE
 size_8	chunk:15	feat:SIZE	SIZE
 span_1	chunk:09	feat:SPAN	SPAN
 span_2	chunk:09	feat:SPAN	SPAN
-table_1	chunk:14	feat:TABLE	TABLE
-table_2	chunk:14	feat:TABLE	TABLE
-table_3	chunk:14	feat:TABLE	TABLE
+table_1	chunk:13	feat:TABLE	TABLE
+table_2	chunk:13	feat:TABLE	TABLE
+table_3	chunk:13	feat:TABLE	TABLE
 user_function_10	chunk:03	feat:DEFINE	DEFINE
 user_function_11	chunk:03	feat:DEFINE	DEFINE
 user_function_12	chunk:03	feat:DEFINE	DEFINE
@@ -193,10 +193,10 @@ capture_alt_2	chunk:06	feat:cond_assign	alternation cond_assign
 capture_alt_3	chunk:06	feat:cond_assign	alternation cond_assign
 capture_alt_4	chunk:06	feat:cond_assign	alternation cond_assign
 capture_branch_1	chunk:06	feat:cond_assign	cond_assign goto_success
-code_eval_branch_2	chunk:13	feat:CODE	CODE goto_success
-code_eval_branch_3	chunk:13	feat:CODE	CODE goto_success
-code_eval_indirect_1	chunk:13	feat:CODE	CODE indirect_ref
-code_eval_keyword_1	chunk:13	feat:CODE	CODE keyword_ref
+code_eval_branch_2	chunk:14	feat:CODE	CODE goto_success
+code_eval_branch_3	chunk:14	feat:CODE	CODE goto_success
+code_eval_indirect_1	chunk:14	feat:CODE	CODE indirect_ref
+code_eval_keyword_1	chunk:14	feat:CODE	CODE keyword_ref
 datatype_3	chunk:11	feat:DATATYPE	DATATYPE arith
 datatype_branch_2	chunk:11	feat:DATATYPE	DATATYPE goto_fail
 datatype_defer_2	chunk:11	feat:DATATYPE	DATATYPE deferred_eval
@@ -240,8 +240,8 @@ pos_len_2	chunk:19	feat:LEN	LEN POS
 replace_size_1	chunk:16	feat:REPLACE	REPLACE SIZE
 simple_output_121	chunk:01	feat:arith	arith goto_success
 simple_output_2	chunk:01	feat:arith	arith goto_fail
-simple_output_25	chunk:17	feat:goto_fail	goto_fail goto_success
-simple_output_26	chunk:17	feat:goto_fail	goto_fail goto_success
+simple_output_25	chunk:18	feat:goto_fail	goto_fail goto_success
+simple_output_26	chunk:18	feat:goto_fail	goto_fail goto_success
 simple_output_27	chunk:18	feat:goto_fail	goto_fail goto_success
 simple_output_29	chunk:18	feat:goto_fail	goto_fail goto_success
 simple_output_30	chunk:18	feat:goto_fail	goto_fail goto_success
@@ -260,7 +260,7 @@ size_keyword_2	chunk:15	feat:SIZE	SIZE keyword_ref
 size_keyword_3	chunk:15	feat:SIZE	SIZE keyword_ref
 trim_keyword_1	chunk:15	feat:TRIM	TRIM keyword_ref
 trim_size_1	chunk:15	feat:TRIM	SIZE TRIM
-trim_size_2	chunk:15	feat:TRIM	SIZE TRIM
+trim_size_2	chunk:16	feat:TRIM	SIZE TRIM
 user_function_1	chunk:01	feat:arith	DEFINE arith
 user_function_14	chunk:01	feat:arith	DEFINE arith
 user_function_2	chunk:01	feat:arith	DEFINE arith
@@ -380,7 +380,7 @@ span_capture_branch_4	chunk:09	feat:SPAN	SPAN cond_assign goto_success
 span_defer_branch_1	chunk:09	feat:SPAN	SPAN deferred_eval goto_success
 tab_len_branch_1	chunk:15	feat:TAB	LEN TAB goto_success
 tab_len_branch_2	chunk:15	feat:TAB	LEN TAB goto_success
-trim_indirect_keyword_1	chunk:15	feat:TRIM	TRIM indirect_ref keyword_ref
+trim_indirect_keyword_1	chunk:16	feat:TRIM	TRIM indirect_ref keyword_ref
 user_function_alt_branch_1	chunk:03	feat:DEFINE	DEFINE alternation goto_fail
 user_function_apply_1	chunk:20	feat:APPLY	APPLY DEFINE arith
 user_function_apply_2	chunk:20	feat:APPLY	APPLY DEFINE arith
@@ -658,7 +658,7 @@ arbno_fence_bal_branch_1	chunk:18	feat:BAL	ARBNO BAL FENCE POS RPOS deferred_eva
 arbno_fence_notany_branch_1	chunk:18	feat:NOTANY	ARBNO FENCE NOTANY POS RPOS fence_guarded_fail goto_fail
 arbno_fence_notany_branch_2	chunk:18	feat:NOTANY	ARBNO FENCE NOTANY POS RPOS fence_guarded_fail goto_fail
 arbno_fence_notany_branch_3	chunk:18	feat:NOTANY	ARBNO FENCE NOTANY POS RPOS fence_guarded_fail goto_fail
-arbno_fence_notany_branch_4	chunk:18	feat:NOTANY	ARBNO FENCE NOTANY POS RPOS fence_guarded_fail goto_fail
+arbno_fence_notany_branch_4	chunk:19	feat:NOTANY	ARBNO FENCE NOTANY POS RPOS fence_guarded_fail goto_fail
 arbno_fence_pos_branch_1	chunk:04	feat:arbno_with_alt	ARBNO FENCE POS RPOS alternation arbno_with_alt goto_success
 arbno_fence_pos_branch_10	chunk:07	feat:fence_guarded_fail	ARBNO FENCE LEN POS RPOS fence_guarded_fail goto_fail
 arbno_fence_pos_branch_11	chunk:07	feat:fence_guarded_fail	ARBNO FENCE LEN POS RPOS fence_guarded_fail goto_fail
@@ -707,7 +707,7 @@ pos_rpos_len_branch_16	chunk:12	feat:indirect_ref	LEN POS RPOS alternation defer
 rtab_pos_rpos_branch_1	chunk:20	feat:RTAB	POS RPOS RTAB alternation deferred_eval goto_success indirect_ref
 span_len_defer_branch_1	chunk:14	feat:capture_plus_defer	LEN SPAN capture_plus_defer cond_assign deferred_eval goto_fail imm_assign
 span_len_defer_branch_2	chunk:14	feat:capture_plus_defer	LEN SPAN capture_plus_defer cond_assign deferred_eval goto_fail imm_assign
-span_notany_tab_branch_1	chunk:18	feat:NOTANY	NOTANY RPOS SPAN TAB alternation deferred_eval goto_success
+span_notany_tab_branch_1	chunk:19	feat:NOTANY	NOTANY RPOS SPAN TAB alternation deferred_eval goto_success
 span_pos_defer_branch_1	chunk:14	feat:capture_plus_defer	POS SPAN alternation capture_plus_defer cond_assign deferred_eval goto_success
 span_pos_defer_branch_3	chunk:14	feat:capture_plus_defer	POS SPAN alternation capture_plus_defer cond_assign deferred_eval goto_success
 tab_pos_rpos_branch_5	chunk:15	feat:TAB	POS RPOS TAB capture_plus_defer cond_assign deferred_eval goto_success
@@ -827,9 +827,9 @@ simple_assign_21	chunk:21	family:parser_concat_two
 simple_output_187	chunk:22	family:scrip_test_snobol4_strings_066_builtin_substr	
 simple_output_188	chunk:22	family:scrip_test_snobol4_strings_070_builtin_reverse	
 simple_output_189	chunk:22	family:scrip_test_snobol4_strings_073_builtin_lpad	
-simple_output_198	chunk:21	family:scrip_test_snobol4_output_001_output_string_literal	
-simple_output_199	chunk:21	family:scrip_test_snobol4_output_002_output_integer_literal	
-simple_output_200	chunk:21	family:scrip_test_snobol4_output_003_output_real_literal	
+simple_output_198	chunk:22	family:scrip_test_snobol4_output_001_output_string_literal	
+simple_output_199	chunk:22	family:scrip_test_snobol4_output_002_output_integer_literal	
+simple_output_200	chunk:22	family:scrip_test_snobol4_output_003_output_real_literal	
 simple_output_204	chunk:22	family:scrip_test_snobol4_output_008_output_double_quoted	
 simple_output_205	chunk:21	family:scrip_test_snobol4_concat_017_concat_two_strings	
 simple_output_206	chunk:21	family:scrip_test_snobol4_concat_018_concat_three_strings	
@@ -990,8 +990,8 @@ simple_assign_28	chunk:18	feat:goto_fail	goto_fail
 simple_program_7	chunk:08	feat:goto_success	goto_success
 simple_program_8	chunk:08	feat:goto_success	goto_success
 simple_program_9	chunk:08	feat:goto_success	goto_success
-table_5	chunk:14	feat:TABLE	TABLE
-table_7	chunk:14	feat:TABLE	TABLE
+table_5	chunk:13	feat:TABLE	TABLE
+table_7	chunk:13	feat:TABLE	TABLE
 user_function_40	chunk:03	feat:DEFINE	DEFINE
 alt_2	chunk:19	feat:alternation	alternation
 array_10	chunk:11	feat:ARRAY	ARRAY
@@ -1014,7 +1014,7 @@ simple_output_221	chunk:18	feat:goto_fail	goto_fail
 simple_output_277	chunk:08	feat:goto_success	goto_success
 size_12	chunk:15	feat:SIZE	SIZE
 snocone_ladder_lit_real.oracle_ref	chunk:02	feat:keyword_ref	keyword_ref
-table_8	chunk:14	feat:TABLE	TABLE
+table_8	chunk:13	feat:TABLE	TABLE
 user_function_47	chunk:03	feat:DEFINE	DEFINE
 alt_3	chunk:19	feat:alternation	alternation
 array_11	chunk:11	feat:ARRAY	ARRAY
@@ -1048,10 +1048,10 @@ ladder__rung27_tan	chunk:11	feat:DATATYPE	DATATYPE
 ladder__rung33_nreturn_as_lvalue	chunk:03	feat:DEFINE	DEFINE
 ladder__rung33_nreturn_by_name	chunk:03	feat:DEFINE	DEFINE
 simple_output_237	chunk:08	feat:goto_success	goto_success
-table_6	chunk:14	feat:TABLE	TABLE
-code_eval_2	chunk:13	feat:CODE	CODE
-code_eval_replace_1	chunk:13	feat:CODE	CODE
-code_eval_replace_5	chunk:13	feat:CODE	CODE
+table_6	chunk:13	feat:TABLE	TABLE
+code_eval_2	chunk:14	feat:CODE	CODE
+code_eval_replace_1	chunk:14	feat:CODE	CODE
+code_eval_replace_5	chunk:14	feat:CODE	CODE
 datatype_9	chunk:11	feat:DATATYPE	DATATYPE
 datatype_replace_4	chunk:11	feat:DATATYPE	DATATYPE
 datatype_replace_5	chunk:11	feat:DATATYPE	DATATYPE
@@ -1079,8 +1079,8 @@ simple_output_62	chunk:09	feat:goto_success	goto_success
 simple_output_71	chunk:01	feat:arith	arith
 user_function_41	chunk:03	feat:DEFINE	DEFINE
 user_function_44	chunk:03	feat:DEFINE	DEFINE
-code_eval_replace_3	chunk:13	feat:CODE	CODE
-code_eval_replace_4	chunk:13	feat:CODE	CODE
+code_eval_replace_3	chunk:14	feat:CODE	CODE
+code_eval_replace_4	chunk:14	feat:CODE	CODE
 datatype_14	chunk:11	feat:DATATYPE	DATATYPE
 demo_arithmetic	chunk:01	feat:arith	arith
 ladder__rung22_access_decrements_the_trace_budget_by_one_per_trace	chunk:03	feat:keyword_ref	keyword_ref
@@ -1111,7 +1111,7 @@ ladder__rung22_access_both_spellings_trace_a_reference	chunk:03	feat:keyword_ref
 ladder__rung22_access_name_as_a_string_or_the_unary_name_operator	chunk:03	feat:keyword_ref	keyword_ref
 ladder__rung29_include_control_statement	chunk:09	feat:goto_success	goto_success
 simple_output_139	chunk:09	feat:goto_success	goto_success
-table_4	chunk:14	feat:TABLE	TABLE
+table_4	chunk:13	feat:TABLE	TABLE
 test_probe_loose_conformance_u03_question	chunk:01	feat:arith	arith
 user_function_replace_17	chunk:04	feat:DEFINE	DEFINE
 user_function_replace_3	chunk:04	feat:DEFINE	DEFINE
@@ -1130,8 +1130,8 @@ simple_output_90	chunk:18	feat:goto_fail	goto_fail
 user_function_45	chunk:04	feat:DEFINE	DEFINE
 user_function_8	chunk:04	feat:DEFINE	DEFINE
 user_function_replace_7	chunk:04	feat:DEFINE	DEFINE
-code_eval_4	chunk:13	feat:CODE	CODE
-code_eval_replace_2	chunk:13	feat:CODE	CODE
+code_eval_4	chunk:14	feat:CODE	CODE
+code_eval_replace_2	chunk:14	feat:CODE	CODE
 simple_output_279	chunk:09	feat:goto_success	goto_success
 simple_output_284	chunk:09	feat:goto_success	goto_success
 simple_output_287	chunk:09	feat:goto_success	goto_success
@@ -1139,7 +1139,7 @@ simple_output_302	chunk:18	feat:goto_fail	goto_fail
 simple_output_32	chunk:18	feat:goto_fail	goto_fail
 size_13	chunk:15	feat:SIZE	SIZE
 size_6	chunk:15	feat:SIZE	SIZE
-table_replace_3	chunk:14	feat:TABLE	TABLE
+table_replace_3	chunk:13	feat:TABLE	TABLE
 keyword_replace_3	chunk:03	feat:keyword_ref	keyword_ref
 simple_output_186	chunk:09	feat:goto_success	goto_success
 user_function_replace_6	chunk:04	feat:DEFINE	DEFINE
@@ -1172,7 +1172,7 @@ simple_output_291	chunk:09	feat:goto_success	goto_success
 simple_output_53	chunk:09	feat:goto_success	goto_success
 simple_output_77	chunk:01	feat:arith	arith
 user_function_28	chunk:04	feat:DEFINE	DEFINE
-code_eval_3	chunk:13	feat:CODE	CODE
+code_eval_3	chunk:14	feat:CODE	CODE
 imm_capture_replace_1	chunk:05	feat:imm_assign	imm_assign
 ladder__rung29_input_association	chunk:09	feat:goto_success	goto_success
 simple_output_285	chunk:09	feat:goto_success	goto_success
@@ -1216,7 +1216,7 @@ user_function_replace_11	chunk:04	feat:DEFINE	DEFINE
 simple_output_181	chunk:09	feat:goto_success	goto_success
 array_replace_4	chunk:11	feat:ARRAY	ARRAY
 simple_output_249	chunk:01	feat:arith	arith
-table_replace_1	chunk:14	feat:TABLE	TABLE
+table_replace_1	chunk:13	feat:TABLE	TABLE
 user_function_49	chunk:04	feat:DEFINE	DEFINE
 capture_alt_11	chunk:06	feat:cond_assign	alternation cond_assign
 capture_alt_5	chunk:06	feat:cond_assign	alternation cond_assign
@@ -1244,7 +1244,7 @@ len_3	chunk:19	feat:LEN	LEN goto_success
 notany_2	chunk:19	feat:NOTANY	NOTANY goto_success
 span_3	chunk:09	feat:SPAN	SPAN goto_success
 user_function_42	chunk:01	feat:arith	DEFINE arith
-user_function_code_eval_1	chunk:13	feat:CODE	CODE DEFINE
+user_function_code_eval_1	chunk:14	feat:CODE	CODE DEFINE
 array_branch_3	chunk:11	feat:ARRAY	ARRAY goto_success
 demo_counter	chunk:01	feat:arith	arith goto_success
 fence_branch_6	chunk:10	feat:FENCE	FENCE goto_success
@@ -1263,12 +1263,12 @@ array_branch_2	chunk:11	feat:ARRAY	ARRAY goto_success
 capture_alt_10	chunk:06	feat:cond_assign	alternation cond_assign
 capture_alt_9	chunk:06	feat:cond_assign	alternation cond_assign
 capture_keyword_2	chunk:03	feat:keyword_ref	cond_assign keyword_ref
-code_eval_datatype_1	chunk:13	feat:CODE	CODE DATATYPE
+code_eval_datatype_1	chunk:14	feat:CODE	CODE DATATYPE
 indirect_keyword_4	chunk:12	feat:indirect_ref	indirect_ref keyword_ref
 ladder__rung26_dupl	chunk:13	feat:DUPL	DUPL SIZE
 ladder__rung28_opsyn_binary_operator	chunk:17	feat:OPSYN	DUPL OPSYN
 ladder__rung28_opsyn_unary_operator	chunk:17	feat:OPSYN	OPSYN SIZE
-table_branch_2	chunk:14	feat:TABLE	TABLE goto_success
+table_branch_2	chunk:13	feat:TABLE	TABLE goto_success
 trim_keyword_2	chunk:16	feat:TRIM	TRIM keyword_ref
 user_function_43	chunk:01	feat:arith	DEFINE arith
 user_function_keyword_13	chunk:03	feat:keyword_ref	DEFINE keyword_ref
@@ -1278,10 +1278,10 @@ array_datatype_2	chunk:11	feat:ARRAY	ARRAY DATATYPE
 capture_alt_12	chunk:06	feat:cond_assign	alternation cond_assign
 capture_alt_8	chunk:06	feat:cond_assign	alternation cond_assign
 capture_replace_branch_1	chunk:06	feat:cond_assign	cond_assign goto_fail
-code_eval_datatype_2	chunk:13	feat:CODE	CODE DATATYPE
+code_eval_datatype_2	chunk:14	feat:CODE	CODE DATATYPE
 ladder__rung27_real_division	chunk:11	feat:DATATYPE	DATATYPE arith
 ladder__rung27_real_exponent	chunk:11	feat:DATATYPE	DATATYPE arith
-ladder__rung30_exit_code	chunk:13	feat:CODE	CODE keyword_ref
+ladder__rung30_exit_code	chunk:14	feat:CODE	CODE keyword_ref
 ladder__rung32_errtype_errtext	chunk:01	feat:arith	arith keyword_ref
 simple_output_192	chunk:01	feat:arith	arith goto_success
 simple_output_194	chunk:18	feat:goto_fail	goto_fail goto_success
@@ -1302,9 +1302,9 @@ size_replace_branch_1	chunk:15	feat:SIZE	SIZE goto_fail
 user_function_37	chunk:02	feat:arith	DEFINE arith
 user_function_alt_replace_1	chunk:04	feat:DEFINE	DEFINE alternation
 user_function_keyword_3	chunk:03	feat:keyword_ref	DEFINE keyword_ref
-code_eval_branch_1	chunk:13	feat:CODE	CODE goto_success
-code_eval_replace_branch_1	chunk:13	feat:CODE	CODE goto_success
-code_eval_replace_branch_2	chunk:13	feat:CODE	CODE goto_success
+code_eval_branch_1	chunk:14	feat:CODE	CODE goto_success
+code_eval_replace_branch_1	chunk:14	feat:CODE	CODE goto_success
+code_eval_replace_branch_2	chunk:14	feat:CODE	CODE goto_success
 keyword_branch_4	chunk:03	feat:keyword_ref	goto_success keyword_ref
 keyword_replace_branch_9	chunk:03	feat:keyword_ref	goto_fail keyword_ref
 ladder__rung28_interrogation	chunk:15	feat:SIZE	SIZE goto_success
@@ -1319,7 +1319,7 @@ user_function_replace_branch_7	chunk:04	feat:DEFINE	DEFINE goto_fail
 user_function_replace_branch_8	chunk:04	feat:DEFINE	DEFINE goto_fail
 user_function_replace_branch_9	chunk:04	feat:DEFINE	DEFINE goto_fail
 apply_trim_1	chunk:20	feat:APPLY	APPLY TRIM
-array_datatype_1	chunk:11	feat:ARRAY	ARRAY DATATYPE
+array_datatype_1	chunk:12	feat:ARRAY	ARRAY DATATYPE
 ladder__rung05_goto_indirect_subscript	chunk:12	feat:ARRAY	ARRAY indirect_ref
 simple_output_3	chunk:02	feat:arith	arith goto_fail
 simple_output_33	chunk:18	feat:goto_fail	goto_fail goto_success
@@ -1333,7 +1333,7 @@ keyword_branch_5	chunk:03	feat:keyword_ref	goto_success keyword_ref
 keyword_replace_branch_13	chunk:03	feat:keyword_ref	goto_success keyword_ref
 ladder__rung30_time	chunk:11	feat:DATATYPE	DATATYPE goto_success
 replace_keyword_1	chunk:16	feat:REPLACE	REPLACE keyword_ref
-table_array_1	chunk:14	feat:TABLE	ARRAY TABLE
+table_array_1	chunk:13	feat:TABLE	ARRAY TABLE
 user_function_15	chunk:02	feat:arith	DEFINE arith
 keyword_replace_2	chunk:02	feat:arith	arith keyword_ref
 ladder__rung28_arg	chunk:04	feat:DEFINE	DEFINE goto_success
@@ -1342,35 +1342,35 @@ ladder__rung30_load_unload	chunk:04	feat:DEFINE	DEFINE goto_success
 user_function_keyword_12	chunk:03	feat:keyword_ref	DEFINE keyword_ref
 user_function_replace_branch_5	chunk:04	feat:DEFINE	DEFINE goto_success
 dupl_size_2	chunk:13	feat:DUPL	DUPL SIZE
-table_size_1	chunk:14	feat:TABLE	SIZE TABLE
+table_size_1	chunk:13	feat:TABLE	SIZE TABLE
 eval_defer_4	chunk:10	feat:EVAL	EVAL deferred_eval
 ladder__rung29_input_from_file	chunk:02	feat:arith	arith goto_fail
-table_array_2	chunk:14	feat:TABLE	ARRAY TABLE
-table_array_3	chunk:14	feat:TABLE	ARRAY TABLE
+table_array_2	chunk:13	feat:TABLE	ARRAY TABLE
+table_array_3	chunk:13	feat:TABLE	ARRAY TABLE
 user_function_26	chunk:02	feat:arith	DEFINE arith
 imm_capture_indirect_replace_1	chunk:05	feat:imm_assign	imm_assign indirect_ref
-code_eval_trim_replace_1	chunk:13	feat:CODE	CODE TRIM
+code_eval_trim_replace_1	chunk:14	feat:CODE	CODE TRIM
 simple_output_56	chunk:18	feat:goto_fail	goto_fail goto_success
 any_capture_replace_1	chunk:07	feat:ANY	ANY cond_assign
 apply_trim_replace_1	chunk:20	feat:APPLY	APPLY TRIM
 keyword_replace_branch_7	chunk:03	feat:keyword_ref	goto_success keyword_ref
 keyword_replace_branch_6	chunk:03	feat:keyword_ref	goto_success keyword_ref
 replace_keyword_replace_1	chunk:16	feat:REPLACE	REPLACE keyword_ref
-table_array_4	chunk:14	feat:TABLE	ARRAY TABLE
+table_array_4	chunk:13	feat:TABLE	ARRAY TABLE
 user_function_replace_10	chunk:02	feat:arith	DEFINE arith
 datatype_keyword_replace_1	chunk:11	feat:DATATYPE	DATATYPE keyword_ref
 eval_defer_replace_1	chunk:10	feat:EVAL	EVAL deferred_eval
 keyword_replace_branch_14	chunk:03	feat:keyword_ref	goto_success keyword_ref
-table_replace_2	chunk:14	feat:TABLE	TABLE arith
+table_replace_2	chunk:13	feat:TABLE	TABLE arith
 array_replace_branch_1	chunk:12	feat:ARRAY	ARRAY goto_success
 keyword_replace_branch_5	chunk:03	feat:keyword_ref	goto_success keyword_ref
-table_branch_1	chunk:14	feat:TABLE	TABLE goto_success
+table_branch_1	chunk:13	feat:TABLE	TABLE goto_success
 user_function_indirect_replace_1	chunk:12	feat:indirect_ref	DEFINE indirect_ref
-table_array_5	chunk:14	feat:TABLE	ARRAY TABLE
+table_array_5	chunk:13	feat:TABLE	ARRAY TABLE
 user_function_indirect_replace_2	chunk:12	feat:indirect_ref	DEFINE indirect_ref
 size_branch_1	chunk:15	feat:SIZE	SIZE goto_success
 keyword_replace_branch_8	chunk:03	feat:keyword_ref	goto_success keyword_ref
-table_array_replace_1	chunk:14	feat:TABLE	ARRAY TABLE
+table_array_replace_1	chunk:13	feat:TABLE	ARRAY TABLE
 simple_output_185	chunk:02	feat:arith	arith goto_success
 arb_capture_alt_2	chunk:12	feat:ARB	ARB alternation cond_assign
 bal_pos_imm_capture_1	chunk:18	feat:BAL	BAL POS imm_assign
@@ -1411,7 +1411,7 @@ array_keyword_replace_branch_2	chunk:12	feat:ARRAY	ARRAY goto_fail keyword_ref
 break_capture_replace_branch_1	chunk:16	feat:BREAK	BREAK cond_assign goto_success
 capture_alt_replace_branch_1	chunk:06	feat:cond_assign	alternation cond_assign goto_success
 capture_alt_replace_branch_2	chunk:06	feat:cond_assign	alternation cond_assign goto_success
-code_eval_eval_replace_branch_1	chunk:13	feat:CODE	CODE EVAL goto_fail
+code_eval_eval_replace_branch_1	chunk:14	feat:CODE	CODE EVAL goto_fail
 datatype_replace_keyword_replace_1	chunk:16	feat:REPLACE	DATATYPE REPLACE keyword_ref
 fence_any_branch_2	chunk:07	feat:ANY	ANY FENCE goto_success
 ladder__rung13_indirect_names_with_blanks_stars_and_backslashes	chunk:19	feat:LEN	LEN POS RPOS
@@ -1446,7 +1446,7 @@ array_replace_branch_4	chunk:12	feat:ARRAY	ARRAY arith goto_success
 capture_alt_branch_5	chunk:06	feat:cond_assign	alternation cond_assign goto_fail
 capture_alt_branch_6	chunk:06	feat:cond_assign	alternation cond_assign goto_fail
 capture_alt_branch_8	chunk:06	feat:cond_assign	alternation cond_assign goto_fail
-code_eval_keyword_replace_branch_1	chunk:13	feat:CODE	CODE goto_fail keyword_ref
+code_eval_keyword_replace_branch_1	chunk:14	feat:CODE	CODE goto_fail keyword_ref
 datatype_replace_keyword_replace_3	chunk:16	feat:REPLACE	DATATYPE REPLACE keyword_ref
 eval_defer_branch_1	chunk:10	feat:EVAL	EVAL deferred_eval goto_success
 table_array_convert_4	chunk:19	feat:CONVERT	ARRAY CONVERT TABLE
@@ -1467,7 +1467,7 @@ ladder__rung31_rsort	chunk:12	feat:ARRAY	ARRAY arith goto_success
 ladder__rung31_sort_numeric	chunk:12	feat:ARRAY	ARRAY arith goto_success
 ladder__rung31_sort_strings	chunk:12	feat:ARRAY	ARRAY arith goto_success
 len_array_capture_replace_1	chunk:12	feat:ARRAY	ARRAY LEN cond_assign
-table_array_keyword_1	chunk:14	feat:TABLE	ARRAY TABLE keyword_ref
+table_array_keyword_1	chunk:13	feat:TABLE	ARRAY TABLE keyword_ref
 user_function_branch_8	chunk:02	feat:arith	DEFINE arith goto_success
 user_function_keyword_5	chunk:02	feat:arith	DEFINE arith keyword_ref
 user_function_keyword_6	chunk:02	feat:arith	DEFINE arith keyword_ref
@@ -1496,7 +1496,7 @@ user_function_len_defer_branch_8	chunk:04	feat:DEFINE	DEFINE deferred_eval goto_
 user_function_replace_branch_3	chunk:02	feat:arith	DEFINE arith goto_success
 datatype_replace_keyword_4	chunk:16	feat:REPLACE	DATATYPE REPLACE keyword_ref
 keyword_replace_branch_11	chunk:02	feat:arith	arith goto_fail keyword_ref
-table_array_datatype_1	chunk:14	feat:TABLE	ARRAY DATATYPE TABLE
+table_array_datatype_1	chunk:13	feat:TABLE	ARRAY DATATYPE TABLE
 user_function_keyword_branch_2	chunk:03	feat:keyword_ref	DEFINE goto_fail keyword_ref
 user_function_keyword_branch_3	chunk:03	feat:keyword_ref	DEFINE goto_fail keyword_ref
 capture_alt_branch_7	chunk:06	feat:cond_assign	alternation cond_assign goto_fail
@@ -1504,10 +1504,10 @@ datatype_indirect_keyword_1	chunk:11	feat:DATATYPE	DATATYPE indirect_ref keyword
 dupl_branch_2	chunk:13	feat:DUPL	DUPL arith goto_fail
 dupl_branch_3	chunk:13	feat:DUPL	DUPL arith goto_fail
 simple_output_298	chunk:02	feat:arith	arith goto_fail goto_success
-table_array_branch_1	chunk:14	feat:TABLE	ARRAY TABLE goto_success
+table_array_branch_1	chunk:13	feat:TABLE	ARRAY TABLE goto_success
 query_subject_before_pattern	chunk:04	feat:DEFINE	DEFINE LEN goto_success
 trim_size_keyword_replace_1	chunk:16	feat:TRIM	SIZE TRIM keyword_ref
-code_eval_trim_keyword_replace_1	chunk:13	feat:CODE	CODE TRIM keyword_ref
+code_eval_trim_keyword_replace_1	chunk:14	feat:CODE	CODE TRIM keyword_ref
 user_function_opsyn_16	chunk:17	feat:OPSYN	DEFINE OPSYN arith
 datatype_replace_keyword_3	chunk:16	feat:REPLACE	DATATYPE REPLACE keyword_ref
 user_function_indirect_branch_1	chunk:12	feat:indirect_ref	DEFINE goto_fail indirect_ref
@@ -1517,8 +1517,8 @@ user_function_array_replace_branch_1	chunk:12	feat:ARRAY	ARRAY DEFINE goto_succe
 table_array_convert_3	chunk:19	feat:CONVERT	ARRAY CONVERT TABLE
 user_function_keyword_replace_1	chunk:02	feat:arith	DEFINE arith keyword_ref
 user_function_opsyn_replace_1	chunk:17	feat:OPSYN	DEFINE OPSYN arith
-table_array_datatype_replace_1	chunk:14	feat:TABLE	ARRAY DATATYPE TABLE
-datatype_replace_keyword_replace_2	chunk:16	feat:REPLACE	DATATYPE REPLACE keyword_ref
+table_array_datatype_replace_1	chunk:13	feat:TABLE	ARRAY DATATYPE TABLE
+datatype_replace_keyword_replace_2	chunk:17	feat:REPLACE	DATATYPE REPLACE keyword_ref
 user_function_replace_branch_1	chunk:02	feat:arith	DEFINE arith goto_fail
 keyword_replace_branch_1	chunk:03	feat:keyword_ref	goto_fail goto_success keyword_ref
 array_keyword_replace_branch_1	chunk:12	feat:ARRAY	ARRAY goto_success keyword_ref
@@ -1566,10 +1566,10 @@ arb_len_capture_replace_branch_1	chunk:12	feat:ARB	ARB LEN cond_assign goto_succ
 defer_capture_replace_branch_1	chunk:14	feat:capture_plus_defer	capture_plus_defer cond_assign deferred_eval goto_success
 fence_capture_imm_capture_replace_branch_1	chunk:05	feat:imm_assign	FENCE cond_assign goto_success imm_assign
 fence_len_capture_branch_2	chunk:10	feat:FENCE	FENCE LEN cond_assign goto_success
-ladder__rung26_datatype	chunk:14	feat:TABLE	ARRAY DATATYPE LEN TABLE
+ladder__rung26_datatype	chunk:13	feat:TABLE	ARRAY DATATYPE LEN TABLE
 user_function_branch_1	chunk:02	feat:arith	DEFINE arith goto_fail goto_success
 any_capture_branch_1	chunk:07	feat:ANY	ANY cond_assign goto_fail goto_success
-arb_defer_imm_capture_replace_branch_1	chunk:12	feat:ARB	ARB deferred_eval goto_success imm_assign
+arb_defer_imm_capture_replace_branch_1	chunk:13	feat:ARB	ARB deferred_eval goto_success imm_assign
 bal_pos_defer_replace_1	chunk:18	feat:BAL	BAL POS deferred_eval imm_assign
 dupl_indirect_branch_1	chunk:13	feat:DUPL	DUPL arith goto_fail indirect_ref
 dupl_size_branch_1	chunk:13	feat:DUPL	DUPL SIZE arith goto_success
@@ -1590,7 +1590,7 @@ opsyn_dupl_size_1	chunk:17	feat:OPSYN	DUPL OPSYN SIZE alternation
 user_function_defer_branch_3	chunk:02	feat:arith	DEFINE arith deferred_eval goto_success
 user_function_dupl_size_1	chunk:13	feat:DUPL	DEFINE DUPL SIZE keyword_ref
 user_function_eval_len_2	chunk:10	feat:EVAL	DATATYPE DEFINE EVAL deferred_eval
-user_function_replace_alt_branch_3	chunk:16	feat:REPLACE	DEFINE REPLACE alternation goto_success
+user_function_replace_alt_branch_3	chunk:17	feat:REPLACE	DEFINE REPLACE alternation goto_success
 user_function_span_capture_replace_branch_1	chunk:09	feat:SPAN	DEFINE SPAN cond_assign goto_fail
 array_dupl_branch_1	chunk:13	feat:DUPL	ARRAY DUPL arith goto_fail
 len_defer_imm_capture_replace_branch_1	chunk:05	feat:imm_assign	LEN deferred_eval goto_fail imm_assign
@@ -1607,13 +1607,13 @@ rtab_capture_branch_1	chunk:20	feat:RTAB	RTAB cond_assign goto_fail goto_success
 rtab_len_capture_replace_branch_1	chunk:20	feat:RTAB	LEN RTAB cond_assign goto_success
 tab_capture_branch_1	chunk:15	feat:TAB	TAB cond_assign goto_fail goto_success
 table_array_convert_1	chunk:19	feat:CONVERT	ARRAY CONVERT DATATYPE TABLE
-table_array_datatype_branch_1	chunk:14	feat:TABLE	ARRAY DATATYPE TABLE goto_fail
+table_array_datatype_branch_1	chunk:13	feat:TABLE	ARRAY DATATYPE TABLE goto_fail
 span_indirect_branch_1	chunk:12	feat:indirect_ref	SPAN goto_fail goto_success indirect_ref
 break_len_capture_1	chunk:16	feat:BREAK	BREAK LEN cond_assign imm_assign
 size_keyword_branch_3	chunk:15	feat:SIZE	SIZE arith goto_fail keyword_ref
 user_function_defer_branch_2	chunk:02	feat:arith	DEFINE arith deferred_eval goto_success
 break_pos_capture_replace_branch_1	chunk:16	feat:BREAK	BREAK POS cond_assign goto_success
-code_eval_indirect_keyword_replace_branch_1	chunk:13	feat:CODE	CODE goto_success indirect_ref keyword_ref
+code_eval_indirect_keyword_replace_branch_1	chunk:14	feat:CODE	CODE goto_success indirect_ref keyword_ref
 dupl_size_replace_branch_2	chunk:13	feat:DUPL	DUPL SIZE arith goto_success
 ladder__rung28_deferred_star	chunk:20	feat:deferred_eval	POS RPOS deferred_eval goto_success
 pos_len_capture_replace_branch_2	chunk:06	feat:cond_assign	LEN POS cond_assign goto_success
@@ -1624,20 +1624,20 @@ eval_keyword_replace_branch_1	chunk:10	feat:EVAL	EVAL arith goto_success keyword
 opsyn_dupl_size_replace_1	chunk:17	feat:OPSYN	DUPL OPSYN SIZE alternation
 fence_span_any_replace_branch_1	chunk:07	feat:ANY	ANY FENCE SPAN goto_success
 dupl_size_replace_branch_3	chunk:13	feat:DUPL	DUPL SIZE arith goto_success
-eval_table_keyword_replace_branch_1	chunk:14	feat:TABLE	EVAL TABLE goto_success keyword_ref
+eval_table_keyword_replace_branch_1	chunk:13	feat:TABLE	EVAL TABLE goto_success keyword_ref
 array_keyword_branch_1	chunk:12	feat:ARRAY	ARRAY arith goto_fail keyword_ref
 datatype_keyword_branch_1	chunk:11	feat:DATATYPE	DATATYPE goto_fail goto_success keyword_ref
-code_eval_datatype_trim_replace_1	chunk:13	feat:CODE	CODE DATATYPE TRIM keyword_ref
+code_eval_datatype_trim_replace_1	chunk:14	feat:CODE	CODE DATATYPE TRIM keyword_ref
 size_indirect_keyword_replace_branch_1	chunk:15	feat:SIZE	SIZE goto_fail indirect_ref keyword_ref
-ladder__rung05_goto_indirect_subscript_forms	chunk:14	feat:TABLE	ARRAY TABLE goto_success indirect_ref
-table_indirect_branch_1	chunk:14	feat:TABLE	TABLE arith goto_success indirect_ref
+ladder__rung05_goto_indirect_subscript_forms	chunk:13	feat:TABLE	ARRAY TABLE goto_success indirect_ref
+table_indirect_branch_1	chunk:13	feat:TABLE	TABLE arith goto_success indirect_ref
 convert_size_indirect_replace_1	chunk:19	feat:CONVERT	CONVERT SIZE indirect_ref keyword_ref
 opsyn_size_keyword_branch_1	chunk:17	feat:OPSYN	OPSYN SIZE goto_fail keyword_ref
 user_function_array_branch_2	chunk:12	feat:ARRAY	ARRAY DEFINE arith goto_fail
 user_function_array_replace_branch_2	chunk:12	feat:ARRAY	ARRAY DEFINE arith goto_fail
 indirect_keyword_replace_branch_5	chunk:12	feat:indirect_ref	goto_fail goto_success indirect_ref keyword_ref
-table_indirect_replace_branch_1	chunk:14	feat:TABLE	TABLE arith goto_success indirect_ref
-table_datatype_keyword_replace_branch_1	chunk:14	feat:TABLE	DATATYPE TABLE goto_success keyword_ref
+table_indirect_replace_branch_1	chunk:13	feat:TABLE	TABLE arith goto_success indirect_ref
+table_datatype_keyword_replace_branch_1	chunk:13	feat:TABLE	DATATYPE TABLE goto_success keyword_ref
 arbno_pos_rpos_2	chunk:08	feat:ARBNO	ARBNO LEN POS RPOS cond_assign
 arbno_rpos_alt_branch_4	chunk:04	feat:arbno_with_alt	ARBNO RPOS alternation arbno_with_alt goto_success
 span_pos_capture_branch_2	chunk:09	feat:SPAN	POS SPAN alternation cond_assign goto_fail
@@ -1697,7 +1697,7 @@ arb_pos_len_replace_1	chunk:13	feat:ARB	ARB LEN POS SIZE cond_assign
 array_dupl_size_branch_1	chunk:13	feat:DUPL	ARRAY DUPL SIZE arith goto_fail
 opsyn_binary_operator_reaches_a_code_built_function_1	chunk:17	feat:OPSYN	CODE DATATYPE DEFINE OPSYN goto_success
 table_array_dupl_branch_1	chunk:13	feat:DUPL	ARRAY DUPL TABLE arith goto_fail
-user_function_table_datatype_branch_1	chunk:14	feat:TABLE	DATATYPE DEFINE TABLE goto_fail goto_success
+user_function_table_datatype_branch_1	chunk:13	feat:TABLE	DATATYPE DEFINE TABLE goto_fail goto_success
 arb_len_defer_replace_branch_2	chunk:13	feat:ARB	ARB LEN deferred_eval goto_fail imm_assign
 tab_len_size_replace_branch_1	chunk:15	feat:TAB	LEN SIZE TAB cond_assign goto_success
 user_function_break_defer_branch_4	chunk:16	feat:BREAK	BREAK DEFINE deferred_eval goto_fail indirect_ref
@@ -1737,7 +1737,7 @@ pos_rpos_len_branch_10	chunk:15	feat:SIZE	LEN POS RPOS SIZE goto_fail
 user_function_apply_trim_replace_1	chunk:20	feat:APPLY	APPLY DEFINE DUPL TRIM keyword_ref
 span_pos_rpos_branch_3	chunk:09	feat:SPAN	POS RPOS SPAN alternation goto_success
 dupl_size_replace_branch_1	chunk:13	feat:DUPL	DUPL SIZE arith goto_fail goto_success
-code_eval_len_table_replace_1	chunk:13	feat:CODE	ARRAY CODE LEN TABLE keyword_ref
+code_eval_len_table_replace_1	chunk:14	feat:CODE	ARRAY CODE LEN TABLE keyword_ref
 size_keyword_replace_branch_1	chunk:15	feat:SIZE	SIZE arith goto_fail goto_success keyword_ref
 arbno_pos_rpos_branch_99	chunk:08	feat:ARBNO	ARBNO LEN POS RPOS cond_assign goto_success
 bal_any_defer_branch_1	chunk:18	feat:BAL	ANY BAL capture_plus_defer cond_assign deferred_eval goto_fail
@@ -1827,20 +1827,20 @@ user_function_len_replace_branch_1	chunk:17	feat:REPLACE	DEFINE LEN REPLACE alte
 user_function_pos_rpos_branch_1	chunk:04	feat:DEFINE	DEFINE POS RPOS alternation deferred_eval goto_fail
 bal_pos_defer_replace_branch_1	chunk:18	feat:BAL	BAL POS capture_plus_defer cond_assign deferred_eval goto_success
 span_break_keyword_replace_branch_1	chunk:16	feat:BREAK	BREAK SPAN arith goto_fail goto_success keyword_ref
-code_eval_capture_indirect_replace_branch_2	chunk:13	feat:CODE	CODE arith cond_assign goto_fail indirect_ref keyword_ref
+code_eval_capture_indirect_replace_branch_2	chunk:14	feat:CODE	CODE arith cond_assign goto_fail indirect_ref keyword_ref
 user_function_opsyn_datatype_1	chunk:17	feat:OPSYN	DATATYPE DEFINE OPSYN SIZE TRIM keyword_ref
 user_function_defer_capture_replace_branch_1	chunk:14	feat:capture_plus_defer	DEFINE arith capture_plus_defer cond_assign deferred_eval goto_success
-code_eval_capture_indirect_replace_branch_1	chunk:13	feat:CODE	CODE arith cond_assign goto_fail indirect_ref keyword_ref
+code_eval_capture_indirect_replace_branch_1	chunk:14	feat:CODE	CODE arith cond_assign goto_fail indirect_ref keyword_ref
 arbno_span_pos_replace_branch_1	chunk:09	feat:SPAN	ARBNO POS RPOS SPAN deferred_eval goto_success
 array_dupl_size_replace_branch_2	chunk:13	feat:DUPL	ARRAY DUPL SIZE arith goto_fail goto_success
-query_left_assoc_chain	chunk:13	feat:CODE	CODE LEN REM goto_fail goto_success imm_assign
+query_left_assoc_chain	chunk:14	feat:CODE	CODE LEN REM goto_fail goto_success imm_assign
 table_array_dupl_replace_branch_1	chunk:13	feat:DUPL	ARRAY DUPL SIZE TABLE arith goto_success
 datatype_defer_imm_capture_replace_branch_1	chunk:11	feat:DATATYPE	DATATYPE deferred_eval goto_success imm_assign indirect_ref keyword_ref
-code_eval_arb_len_replace_branch_1	chunk:13	feat:CODE	ARB CODE LEN goto_success indirect_ref keyword_ref
+code_eval_arb_len_replace_branch_1	chunk:14	feat:CODE	ARB CODE LEN goto_success indirect_ref keyword_ref
 code_eval_eval_bal_replace_1	chunk:18	feat:BAL	ARB BAL CODE EVAL REM keyword_ref
 user_function_eval_defer_replace_branch_2	chunk:10	feat:EVAL	DEFINE EVAL arith deferred_eval goto_success keyword_ref
 fence_span_rpos_replace_branch_2	chunk:09	feat:SPAN	FENCE RPOS SPAN alternation goto_success keyword_ref
-user_function_eval_defer_replace_branch_1	chunk:10	feat:EVAL	DEFINE EVAL arith deferred_eval goto_success keyword_ref
+user_function_eval_defer_replace_branch_1	chunk:11	feat:EVAL	DEFINE EVAL arith deferred_eval goto_success keyword_ref
 len_datatype_replace_replace_branch_1	chunk:17	feat:REPLACE	DATATYPE LEN REPLACE goto_fail goto_success keyword_ref
 array_defer_indirect_replace_branch_1	chunk:12	feat:ARRAY	ARRAY deferred_eval goto_fail goto_success indirect_ref keyword_ref
 arbno_pos_rpos_branch_96	chunk:06	feat:imm_assign	ARBNO POS RPOS alternation arbno_with_alt goto_success imm_assign
@@ -1855,7 +1855,7 @@ arbno_pos_rpos_branch_81	chunk:05	feat:arbno_with_alt	ARBNO POS RPOS alternation
 arbno_pos_rpos_replace_branch_1	chunk:05	feat:arbno_with_alt	ARBNO POS RPOS alternation arbno_with_alt deferred_eval goto_success
 arbno_pos_rpos_replace_branch_2	chunk:05	feat:arbno_with_alt	ARBNO POS RPOS alternation arbno_with_alt deferred_eval goto_success
 arbno_pos_rpos_replace_branch_3	chunk:05	feat:arbno_with_alt	ARBNO POS RPOS alternation arbno_with_alt deferred_eval goto_success
-code_eval_pos_rpos_branch_2	chunk:13	feat:CODE	CODE LEN POS RPOS deferred_eval goto_success indirect_ref
+code_eval_pos_rpos_branch_2	chunk:14	feat:CODE	CODE LEN POS RPOS deferred_eval goto_success indirect_ref
 fence_pos_rpos_branch_34	chunk:10	feat:FENCE	FENCE LEN POS RPOS alternation deferred_eval goto_success
 fence_pos_rpos_branch_37	chunk:10	feat:FENCE	FENCE LEN POS RPOS alternation deferred_eval goto_success
 fence_pos_rpos_branch_42	chunk:10	feat:FENCE	FENCE LEN POS RPOS alternation cond_assign goto_success
@@ -1863,7 +1863,7 @@ ladder__rung11_arbno_recedes_into_an_earlier_alternative	chunk:05	feat:arbno_wit
 arbno_fence_pos_replace_branch_5	chunk:10	feat:FENCE	ARBNO FENCE LEN POS RPOS deferred_eval goto_success
 arbno_fence_span_branch_8	chunk:09	feat:SPAN	ARBNO FENCE POS RPOS SPAN cond_assign goto_success
 arbno_pos_rpos_replace_branch_6	chunk:05	feat:arbno_with_alt	ARBNO POS RPOS alternation arbno_with_alt cond_assign goto_success
-code_eval_pos_rpos_branch_3	chunk:13	feat:CODE	CODE LEN POS RPOS deferred_eval goto_success indirect_ref
+code_eval_pos_rpos_branch_3	chunk:14	feat:CODE	CODE LEN POS RPOS deferred_eval goto_success indirect_ref
 fence_pos_rpos_branch_38	chunk:10	feat:FENCE	FENCE LEN POS RPOS alternation deferred_eval goto_success
 fence_pos_rpos_branch_40	chunk:10	feat:FENCE	FENCE LEN POS RPOS alternation deferred_eval goto_success
 fence_pos_rpos_branch_47	chunk:10	feat:FENCE	FENCE LEN POS RPOS alternation deferred_eval goto_success
@@ -1971,7 +1971,7 @@ user_function_code_eval_bal_branch_1	chunk:18	feat:BAL	BAL BREAK CODE DEFINE POS
 user_function_code_eval_bal_branch_2	chunk:18	feat:BAL	BAL BREAK CODE DEFINE POS SPAN cond_assign goto_success
 user_function_fence_pos_branch_2	chunk:12	feat:indirect_ref	DEFINE FENCE LEN POS RPOS deferred_eval goto_success indirect_ref
 arbno_fence_pos_replace_branch_4	chunk:05	feat:arbno_with_alt	ARBNO FENCE POS RPOS alternation arbno_with_alt deferred_eval goto_success
-arbno_fence_span_replace_branch_4	chunk:09	feat:SPAN	ARBNO FENCE LEN POS RPOS SPAN deferred_eval goto_success
+arbno_fence_span_replace_branch_4	chunk:10	feat:SPAN	ARBNO FENCE LEN POS RPOS SPAN deferred_eval goto_success
 arbno_span_pos_branch_11	chunk:05	feat:arbno_with_alt	ARBNO POS RPOS SPAN alternation arbno_with_alt deferred_eval goto_success
 arbno_span_pos_branch_16	chunk:10	feat:SPAN	ARBNO LEN POS RPOS SPAN deferred_eval goto_fail keyword_ref
 arbno_span_pos_branch_22	chunk:05	feat:arbno_with_alt	ARBNO POS RPOS SPAN alternation arbno_with_alt deferred_eval goto_success
@@ -2069,14 +2069,14 @@ arbno_span_tab_replace_branch_1	chunk:20	feat:RTAB	ARBNO POS RPOS RTAB SPAN TAB 
 user_function_code_eval_any_branch_1	chunk:14	feat:CODE	ANY CODE DEFINE LEN POS RPOS alternation deferred_eval goto_success indirect_ref
 arbno_pos_rpos_branch_69	chunk:05	feat:arbno_with_alt	ARBNO LEN POS RPOS alternation arbno_with_alt arith deferred_eval goto_fail goto_success
 arbno_span_pos_branch_13	chunk:05	feat:arbno_with_alt	ARBNO LEN POS RPOS SPAN alternation arbno_with_alt deferred_eval goto_fail keyword_ref
-user_function_arbno_any_branch_3	chunk:14	feat:capture_plus_defer	ANY ARBNO DEFINE POS RPOS capture_plus_defer cond_assign deferred_eval goto_success indirect_ref
+user_function_arbno_any_branch_3	chunk:15	feat:capture_plus_defer	ANY ARBNO DEFINE POS RPOS capture_plus_defer cond_assign deferred_eval goto_success indirect_ref
 user_function_eval_any_branch_1	chunk:11	feat:EVAL	ANY DEFINE EVAL LEN POS RPOS alternation deferred_eval goto_success indirect_ref
 arbno_fence_bal_replace_branch_2	chunk:18	feat:BAL	ARBNO BAL BREAK FENCE RPOS alternation arbno_with_alt deferred_eval goto_success imm_assign
 arbno_fence_span_replace_branch_2	chunk:19	feat:NOTANY	ARBNO FENCE NOTANY RPOS SPAN TAB alternation arbno_with_alt deferred_eval goto_success
 arbno_span_pos_branch_18	chunk:05	feat:arbno_with_alt	ARBNO LEN POS RPOS SPAN alternation arbno_with_alt deferred_eval goto_fail keyword_ref
 fence_break_pos_branch_1	chunk:17	feat:REM	BREAK FENCE POS REM alternation deferred_eval fence_guarded_fail goto_fail goto_success imm_assign
 user_function_fence_tab_branch_2	chunk:15	feat:TAB	DEFINE FENCE LEN POS RPOS TAB alternation deferred_eval goto_success indirect_ref
-user_function_pos_rpos_branch_2	chunk:14	feat:capture_plus_defer	DEFINE LEN POS RPOS alternation capture_plus_defer cond_assign deferred_eval goto_success indirect_ref
+user_function_pos_rpos_branch_2	chunk:15	feat:capture_plus_defer	DEFINE LEN POS RPOS alternation capture_plus_defer cond_assign deferred_eval goto_success indirect_ref
 arbno_fence_bal_replace_branch_4	chunk:18	feat:BAL	ARB ARBNO BAL FENCE POS RPOS alternation arbno_with_alt deferred_eval goto_success
 arbno_span_pos_branch_15	chunk:05	feat:arbno_with_alt	ARBNO LEN POS RPOS SPAN alternation arbno_with_alt deferred_eval goto_fail keyword_ref
 arbno_span_pos_branch_19	chunk:05	feat:arbno_with_alt	ARBNO LEN POS RPOS SPAN alternation arbno_with_alt deferred_eval goto_fail keyword_ref
@@ -2149,3 +2149,6 @@ demo_treebank	core	core	ARBNO ARRAY BREAK DEFINE EVAL FENCE NOTANY POS REM RPOS 
 user_function_eval_arbno_replace_branch_1	core	core	ANY ARBNO ARRAY BREAK CONVERT DEFINE EVAL FENCE LEN POS REPLACE RPOS SPAN TABLE TRIM alternation arbno_with_alt arith capture_plus_defer cond_assign deferred_eval fence_guarded_fail goto_fail goto_success keyword_ref
 demo_json	core	core	ANY ARBNO ARRAY BREAK CONVERT DATATYPE DEFINE EVAL FENCE LEN POS REPLACE RPOS SIZE SPAN TABLE TRIM alternation arbno_with_alt arith capture_plus_defer cond_assign deferred_eval fence_guarded_fail goto_fail goto_success keyword_ref
 benchmark_json	core	core	ANY ARBNO ARRAY BREAK CONVERT DATATYPE DEFINE EVAL FENCE LEN POS REPLACE RPOS SIZE SPAN TABLE TRIM alternation arbno_with_alt arith capture_plus_defer cond_assign deferred_eval fence_guarded_fail goto_fail goto_success keyword_ref
+ladder__rung25_inf_dotnet_failure_before_selection	chunk:09	feat:goto_success	goto_success
+ladder__rung25_inf_dotnet_lexical_compare_second_argument_error	chunk:14	feat:TABLE	ANY TABLE keyword_ref
+ladder__rung06_inf_dotnet_element_name_is_no_number	chunk:19	feat:CONVERT	ARRAY CONVERT DUPL TABLE keyword_ref

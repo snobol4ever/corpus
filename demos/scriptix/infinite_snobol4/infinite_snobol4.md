@@ -261,6 +261,7 @@ end
 procedure c_value(d)
     local r;
     if scope >= 3 & (/d | \d < 2) & ?100 <= 35 then return c_builtin(d);
+    if scope >= 6 & (/d | \d < 2) & ?100 <= 30 then return c_unary(d);
     r := ?100;
     return ( (r <= 22, c_elem())
            | (r <= 34, c_int())
@@ -446,6 +447,34 @@ procedure c_replace()
            | (k <= 75, r_token("(" || w || " = " || v || " = ") || subj || r_token(") (" || w || " ? ") || pat || r_token(" = " || repl || ") " || v))
            | (k <= 90, r_token("(" || w || " = ") || subj || r_token(") (" || w || " ? ") || pat || r_token(" = " || repl || ")"))
            | (r_token("(" || w || " = ") || subj || r_token(") " || w || " ? ") || pat || r_token(" = " || repl))
+           );
+end
+# STEP 6, unary-operators (scope >= 6): the negation ~ and the interrogation ? of a value, the name of a capital, of an element and of an
+# indirect capital (.X, .a[i], .$g(n)), the indirection through a string literal ($'c'), SPITBOL's alternative evaluation (value, value),
+# whose operands are half the time plain cells so that one may fail (a[99]) and the next answer; and ~(subject ? pattern) and
+# ?(subject ? pattern) as whole tests of the closed world's match walk.
+procedure c_unary(d)
+    local r, n;
+    n := 1 + (\d | 0);
+    r := ?100;
+    return ( (r <= 13, "~" || c_value(n))
+           | (r <= 21, "?" || c_value(n))
+           | (r <= 31, "." || c_cap())
+           | (r <= 46, ".a[" || c_index() || "]")
+           | (r <= 51, ".$g(" || c_index() || ")")
+           | (r <= 71, "$'" || c_char() || "'")
+           | ("(" || c_alt(n) || ", " || c_alt(n) || ")")
+           );
+end
+procedure c_alt(d)
+    local r;
+    r := ?100;
+    return ( (r <= 50, c_value(d))
+           | (r <= 60, c_int())
+           | (r <= 70, "$" || c_ring())
+           | (r <= 80, c_cap())
+           | (r <= 90, "a[" || c_digit() || "]")
+           | ("a[" || ?["36", "99", "-1"] || "]")
            );
 end
 procedure c_presets()
@@ -769,6 +798,7 @@ procedure random_walk(kind, n, lim, seed)
             e := if kind == "expr" then r_match()
                  else if \closed & scope >= 5 & ?100 <= 25 then c_replace()
                  else r_subject() || r_token(" ? ") || r_palt();
+            if \closed & scope >= 6 & kind ~== "expr" & ?100 <= 15 then e := ?["~(", "?("] || e || ")";
             if tokens <= limit & not inf_excluded(e) then break;
         };
         suspend e;
@@ -823,7 +853,7 @@ end
 # families of steps 1..N and no later one, each emitter guarded by scope >= its step; scope=0 is the grammar from before the
 # ladder, so a batch is (scope, seed0, N) for ever. inf_scope_max is the highest step landed, bumped by each step's landing.
 procedure inf_scope_max()
-    return 5;
+    return 6;
 end
 procedure inf_lists()
     local a;

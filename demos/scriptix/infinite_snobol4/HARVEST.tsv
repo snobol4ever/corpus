@@ -1,0 +1,7 @@
+# HARVEST.tsv -- THE HARVEST LEDGER of DESIGN-PLAN random-codegen-scope (ARCH-RANDOM-SNOBOL4-GENERATOR.md section 6, step 18): one row per
+# reduced witness that entered corpus/tests/snobol4 through util_add_ladder_witness.py with its ref cut from sbl -bf. Every origin is an entry of
+# ALL.csv; test_design_random_codegen_scope_steps.sh --step 18 reads it. row is the queue row that cured the class on the engine that differed.
+date	engine	scope	seed0	batch	line	class	origin	row
+2026-10-28	dotnet	6	rcs06	2	217	a-failure-before-a-selection-fails-the-expression	ladder__rung25_inf_dotnet_failure_before_selection	random-codegen-step-6-unary-operators-ceo-1999
+2026-10-28	dotnet	6	rcs06	1	393	a-lexical-comparison-of-two-non-strings-reports-the-second	ladder__rung25_inf_dotnet_lexical_compare_second_argument_error	random-codegen-step-6-unary-operators-ceo-1999
+2026-10-28	dotnet	6	rcs06	8	109	the-name-of-an-element-is-no-number	ladder__rung06_inf_dotnet_element_name_is_no_number	random-codegen-step-6-unary-operators-ceo-1999
