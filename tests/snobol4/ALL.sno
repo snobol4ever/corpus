@@ -22456,3 +22456,20 @@ LOOP    N = N + 1
         OUTPUT = 'compiled: ' S                 :(LOOP)
 BAD     OUTPUT = &ERRTYPE ': ' S                :(LOOP)
 END
+*--------------------------- 2147 ladder__rung28_apply_first_argument_is_no_name
+        &ERRLIMIT = 20
+        SETEXIT('ERR')
+        X = APPLY(y, 1)   :F(L1)
+L1      OUTPUT = 'unset name failed'
+        SETEXIT('ERR')
+        X = APPLY('', 1)   :F(L2)
+L2      OUTPUT = 'null name failed'
+        SETEXIT('ERR')
+        X = APPLY(ARRAY(2), 1)   :F(L3)
+L3      OUTPUT = 'array name failed'
+        SETEXIT('ERR')
+        X = APPLY('nosuch', 1)   :F(L4)
+L4      OUTPUT = 'undefined function failed'
+        OUTPUT = APPLY(.SIZE, 'abc')   :(END)
+ERR     OUTPUT = 'error ' &ERRTYPE  :(CONTINUE)
+END

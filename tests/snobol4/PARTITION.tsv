@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=2146 features=40 ubiquitous=0() distinctive=40 core=31 clusters=140 chunks=22 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,15
+# shape: entries=2147 features=40 ubiquitous=0() distinctive=40 core=31 clusters=140 chunks=22 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,16
 entry	part	cluster	shells
 simple_assign_1	chunk:19	family:probe_conformance	
 simple_output_10	chunk:19	family:probe_conformance	
@@ -23,7 +23,7 @@ simple_output_117	chunk:20	family:crosscheck_concat
 simple_output_118	chunk:20	family:crosscheck_concat	
 simple_output_119	chunk:20	family:crosscheck_concat	
 simple_output_120	chunk:20	family:crosscheck_control_new	
-simple_output_125	chunk:20	family:crosscheck_control_new	
+simple_output_125	chunk:21	family:crosscheck_control_new	
 simple_output_126	chunk:21	family:crosscheck_control_new	
 simple_output_127	chunk:21	family:crosscheck_data	
 simple_output_128	chunk:21	family:crosscheck_data	
@@ -856,7 +856,7 @@ simple_assign_18	chunk:21	family:parser_cf_label_bare
 simple_assign_23	chunk:21	family:parser_cont_dot	
 simple_assign_24	chunk:21	family:parser_cont_plus	
 simple_assign_29	chunk:21	family:parser_semi_separator	
-simple_output_201	chunk:21	family:scrip_test_snobol4_output_004_output_empty_string	
+simple_output_201	chunk:22	family:scrip_test_snobol4_output_004_output_empty_string	
 simple_output_203	chunk:22	family:scrip_test_snobol4_output_007_output_null_var	
 simple_output_207	chunk:21	family:scrip_test_snobol4_concat_019_concat_var_string	
 simple_output_209	chunk:21	family:scrip_test_snobol4_concat_021_concat_in_assignment	
@@ -2148,3 +2148,4 @@ benchmark_json	core	core	ANY ARBNO ARRAY BREAK CONVERT DATATYPE DEFINE EVAL FENC
 ladder__rung05_goto_indirect_subscript	chunk:12	feat:ARRAY	ARRAY indirect_ref
 ladder__rung05_goto_indirect_subscript_forms	chunk:14	feat:TABLE	ARRAY TABLE goto_success indirect_ref
 ladder__rung05_goto_a_value_operand_is_error_212_a_name_form_compiles_and_no_character_is_dropped	chunk:14	feat:CODE	ARRAY CODE DEFINE alternation arith capture_plus_defer cond_assign deferred_eval goto_fail indirect_ref keyword_ref
+ladder__rung28_apply_first_argument_is_no_name	chunk:20	feat:APPLY	APPLY ARRAY SIZE goto_fail keyword_ref
