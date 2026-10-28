@@ -1,20 +1,20 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=329 features=40 ubiquitous=5(package write nl unify directive) distinctive=35 core=34 clusters=34 chunks=3 sizes=100,100,95
+# shape: entries=329 features=41 ubiquitous=5(package write nl unify directive) distinctive=36 core=34 clusters=35 chunks=3 sizes=100,100,95
 entry	part	cluster	shells
 dcg_reference	core	core	call cut dcg functor if_then_else list_cons negation nonvar throw univ var
 fp_test0081	chunk:03	feat:atom	atom call cut findall list_cons univ
 fp_test0585	chunk:03	feat:atom	atom cut findall list_cons univ writeq
-issues_occurs_check_error_restore	chunk:03	feat:catch	catch if_then_else
-issues_old_test0008	chunk:02	family:issues_old_test	
+issues_occurs_check_error_restore	chunk:02	feat:compare	catch compare if_then_else
+issues_old_test0008	chunk:03	family:issues_old_test	
 issues_old_test0009	chunk:03	feat:format	format
 issues_old_test0018	chunk:02	feat:cut	cut
-issues_old_test0019	chunk:02	family:issues_old_test	
+issues_old_test0019	chunk:03	family:issues_old_test	
 issues_old_test0023	chunk:02	feat:cut	cut
 issues_old_test0025	core	core	write_canonical
 issues_old_test0027	chunk:02	feat:cut	cut
 issues_old_test0029	chunk:03	feat:catch_with_throw	catch catch_with_throw if_then_else throw
-issues_old_test0031	chunk:02	family:issues_old_test	
+issues_old_test0031	chunk:03	family:issues_old_test	
 issues_old_test0033	chunk:02	feat:dcg	dcg list_cons writeq
 issues_old_test0035	chunk:02	feat:writeq	writeq
 issues_old_test0042	chunk:02	feat:dcg	cut dcg writeq
@@ -32,10 +32,10 @@ issues_old_test0062	chunk:02	feat:negation	findall list_cons negation writeq
 issues_old_test0063	chunk:02	feat:univ	list_cons univ
 issues_old_test0065	core	core	bagof setof
 issues_old_test0066	chunk:03	feat:op	cut list_cons op writeq
-issues_old_test0067	chunk:02	family:issues_old_test	
+issues_old_test0067	chunk:03	family:issues_old_test	
 issues_old_test0068	chunk:02	feat:univ	univ
 issues_old_test0070	chunk:02	feat:writeq	list_cons writeq
-issues_old_test0074	chunk:03	feat:clause	clause copy_term cut
+issues_old_test0074	chunk:03	feat:clause	clause compare copy_term cut
 issues_old_test0088	chunk:03	feat:op	op writeq
 issues_old_test0091	chunk:02	feat:writeq	writeq
 issues_old_test0093	chunk:03	family:issues_old_test	
@@ -108,7 +108,7 @@ issues_test0406	chunk:01	family:issues_test
 issues_test0409	chunk:02	feat:negation	negation
 issues_test0410	chunk:01	family:issues_test	
 issues_test0419	chunk:01	family:issues_test	
-issues_test0440	chunk:02	feat:univ	list_cons univ
+issues_test0440	chunk:02	feat:univ	compare list_cons univ
 issues_test0446	chunk:01	feat:list_cons	list_cons
 issues_test0447	chunk:01	feat:list_cons	list_cons
 issues_test0541	chunk:03	feat:op	op
@@ -140,7 +140,7 @@ issues_test0850	chunk:01	family:issues_test
 issues_test0855	chunk:01	feat:list_cons	if_then_else list_cons
 issues_test0879	chunk:01	feat:list_cons	list_cons
 issues_test0897	chunk:02	feat:negation	catch format if_then_else negation var
-issues_test0898	chunk:03	feat:call	call catch cut
+issues_test0898	chunk:02	feat:compare	call catch compare cut
 issues_test0903	chunk:03	feat:catch	catch
 issues_test0905	chunk:01	family:issues_test	
 issues_test0910	chunk:03	feat:catch	catch
@@ -161,7 +161,7 @@ issues_test1084	chunk:01	family:issues_test
 issues_test1091	chunk:01	family:issues_test	
 issues_test1105	chunk:02	feat:between	between catch findall format if_then_else negation
 issues_test1109	chunk:02	feat:cut	cut if_then_else
-issues_test1110	chunk:03	feat:copy_term	catch copy_term format if_then_else negation
+issues_test1110	chunk:03	feat:copy_term	catch compare copy_term format if_then_else negation
 issues_test1112	chunk:03	feat:format	catch format if_then_else
 issues_test1118	chunk:01	family:issues_test	
 issues_test1121	chunk:02	feat:negation	if_then_else list_cons negation
@@ -170,35 +170,35 @@ issues_test1126	chunk:01	feat:list_cons	if_then_else list_cons
 issues_test1132	core	core	abolish assert_then_retract asserta assertz call catch functor if_then_else retract
 issues_test1136	chunk:03	feat:copy_term	call copy_term if_then_else negation var
 issues_test1137	core	core	call list_cons write_canonical
-issues_test1139	chunk:01	feat:list_cons	list_cons
-issues_test1140	chunk:03	feat:format	catch format if_then_else
+issues_test1139	chunk:02	feat:compare	compare list_cons
+issues_test1140	chunk:02	feat:compare	catch compare format if_then_else
 issues_test1142	chunk:02	feat:dcg	catch dcg format if_then_else list_cons negation
 issues_test1143	chunk:02	feat:dcg	catch dcg format if_then_else
-issues_test1149	chunk:03	feat:copy_term	catch copy_term format if_then_else var
-issues_test1150	chunk:03	feat:copy_term	catch copy_term format if_then_else var
+issues_test1149	chunk:03	feat:copy_term	catch compare copy_term format if_then_else var
+issues_test1150	chunk:03	feat:copy_term	catch compare copy_term format if_then_else var
 issues_test1151	chunk:02	feat:between	between catch cut format if_then_else
 issues_test1152	chunk:03	feat:catch_with_throw	call catch catch_with_throw cut format if_then_else throw
 misc_db_concurrency	core	core	assert_then_retract assertz between findall forall format if_then_else retract
 misc_db_purge_window	core	core	assert_then_retract assertz between findall forall format if_then_else list_cons retract
-misc_filesex	chunk:03	feat:assertz	assertz catch findall format if_then_else negation var
-misc_http_bread	core	core	catch format if_then_else want_rc
-misc_process_pipe	chunk:03	feat:assertz	assertz catch format if_then_else var
-misc_socket	core	core	assertz atom catch format if_then_else nonvar var
+misc_filesex	chunk:03	feat:assertz	assertz catch compare findall format if_then_else negation var
+misc_http_bread	core	core	catch compare format if_then_else want_rc
+misc_process_pipe	chunk:03	feat:assertz	assertz catch compare format if_then_else var
+misc_socket	core	core	assertz atom catch compare format if_then_else nonvar var
 misc_stream_buffered_read	chunk:03	feat:format	catch format if_then_else
 misc_test1130	chunk:02	feat:between	between if_then_else negation
 misc_thread_mailbox	chunk:03	feat:throw	assertz between findall forall format if_then_else list_cons throw
 misc_timeout	chunk:03	feat:catch	catch
-misc_uri_lib	chunk:02	feat:univ	catch cut forall format if_then_else list_cons univ var
+misc_uri_lib	chunk:02	feat:univ	catch compare cut forall format if_then_else list_cons univ var
 slow_index-race	chunk:02	feat:between	assertz between cut findall forall format if_then_else
 slow_test0360	chunk:02	feat:dcg	dcg findall forall if_then_else list_cons
 sundry_attribute_goal_order	chunk:03	feat:if_then_else	if_then_else
-sundry_compiled_catch	core	core	call catch catch_with_throw cut findall forall if_then_else throw var writeq
-sundry_csv	core	core	call catch cut forall format functor if_then_else list_cons negation univ
+sundry_compiled_catch	core	core	call catch catch_with_throw compare cut findall forall if_then_else throw var writeq
+sundry_csv	core	core	call catch compare cut forall format functor if_then_else list_cons negation univ
 sundry_cut_after_call	core	core	call cut findall findall_with_var_goal forall if_then_else univ writeq
-sundry_cyclic_print_depth	chunk:03	feat:call	call catch if_then_else list_cons writeq
-sundry_dcg_consult	core	core	call catch clause cut dcg findall format functor if_then_else
+sundry_cyclic_print_depth	chunk:02	feat:compare	call catch compare if_then_else list_cons writeq
+sundry_dcg_consult	core	core	call catch clause compare cut dcg findall format functor if_then_else
 sundry_dcg_corpus	core	core	catch cut dcg findall format if_then_else list_cons op var
-sundry_dcg_differential	core	core	call catch catch_with_throw cut dcg findall forall format if_then_else list_cons negation throw var
+sundry_dcg_differential	core	core	call catch catch_with_throw compare cut dcg findall forall format if_then_else list_cons negation throw var
 sundry_dcg_tabling	chunk:02	feat:dcg	catch cut dcg format if_then_else negation
 sundry_expand_term	chunk:02	feat:dcg	catch dcg format if_then_else list_cons
 sundry_flags	core	core	atom call catch findall if_then_else negation nonvar writeq
@@ -206,22 +206,22 @@ sundry_initialization	chunk:03	family:sundry_initialization
 sundry_initialization_deferred	chunk:03	family:sundry_initialization_deferred	
 sundry_initialization_nested	chunk:03	family:sundry_initialization_nested	
 sundry_nested_capture	chunk:03	feat:atom	atom call catch catch_with_throw if_then_else throw writeq
-sundry_not_a_character	chunk:03	feat:call	call catch if_then_else writeq
+sundry_not_a_character	chunk:02	feat:compare	call catch compare if_then_else writeq
 sundry_peek_char	chunk:01	feat:list_cons	catch if_then_else list_cons
-sundry_phrase_from_file_binary	chunk:02	feat:list_cons	catch if_then_else list_cons
+sundry_phrase_from_file_binary	chunk:02	feat:compare	catch compare if_then_else list_cons
 sundry_set_prolog_flag_directive	chunk:03	feat:if_then_else	if_then_else
 sundry_shift_again	chunk:03	feat:copy_term	call catch copy_term findall forall if_then_else univ
-sundry_shift_compiled	chunk:03	feat:catch_with_throw	call catch catch_with_throw findall forall if_then_else negation throw writeq
+sundry_shift_compiled	chunk:03	feat:catch_with_throw	call catch catch_with_throw compare findall forall if_then_else negation throw writeq
 sundry_shift_det	chunk:02	feat:univ	catch cut findall forall if_then_else univ writeq
-sundry_shift_no_reset	chunk:02	feat:univ	call catch findall forall if_then_else univ writeq
-sundry_shift_soft_cut	core	core	call catch copy_term findall findall_with_var_goal forall if_then_else univ
+sundry_shift_no_reset	chunk:02	feat:univ	call catch compare findall forall if_then_else univ writeq
+sundry_shift_soft_cut	core	core	call catch compare copy_term findall findall_with_var_goal forall if_then_else univ
 sundry_tabling	core	core	assert_then_retract assertz call catch cut findall if_then_else list_cons negation retract setof
 sundry_tabling_incremental	chunk:03	feat:assert_then_retract	assert_then_retract assertz findall if_then_else retract
 sundry_tabling_reconstruct	chunk:01	feat:var	findall if_then_else list_cons var
 sundry_tabling_restraints	chunk:02	feat:dcg	catch dcg if_then_else var
 sundry_tabling_shared	chunk:03	feat:assertz	assertz catch findall forall if_then_else
 sundry_tabling_subsumption	chunk:03	feat:op	catch findall if_then_else list_cons op
-sundry_tco_heap_context	core	core	catch catch_with_throw copy_term forall if_then_else list_cons throw univ writeq
+sundry_tco_heap_context	core	core	catch catch_with_throw compare copy_term forall if_then_else list_cons throw univ writeq
 sundry_tco_heap_term	core	core	catch catch_with_throw copy_term cut forall functor if_then_else nonvar throw univ writeq
 sundry_tco_more_vars	chunk:02	feat:between	between catch forall if_then_else univ writeq
 sundry_tco_pinned_frame	chunk:02	feat:univ	catch forall if_then_else list_cons univ writeq
@@ -229,7 +229,7 @@ sundry_tco_tail_calls	core	core	assertz atom between call catch catch_with_throw
 sundry_unget_char	chunk:03	feat:call	call catch if_then_else writeq
 tests_test0000	chunk:01	family:tests_test	
 tests_test0001	chunk:01	family:tests_test	
-tests_test0002	chunk:02	feat:list_cons	list_cons
+tests_test0002	chunk:01	feat:list_cons	list_cons
 tests_test0003	chunk:02	feat:cut	cut list_cons
 tests_test0004	chunk:01	feat:var	cut list_cons var
 tests_test0005	chunk:01	family:tests_test	
@@ -262,7 +262,7 @@ tests_test0033	chunk:01	family:tests_test
 tests_test0034	chunk:01	family:tests_test	
 tests_test0035	chunk:01	family:tests_test	
 tests_test0036	chunk:01	family:tests_test	
-tests_test0037	chunk:02	feat:list_cons	list_cons
+tests_test0037	chunk:01	feat:list_cons	list_cons
 tests_test0039	chunk:01	family:tests_test	
 tests_test0040	core	core	op write_canonical writeq
 tests_test0041	chunk:02	feat:list_cons	list_cons
@@ -305,7 +305,7 @@ tests_test0078	chunk:03	feat:op	cut list_cons op
 tests_test0079	chunk:01	family:tests_test	
 tests_test0080	chunk:02	feat:writeq	writeq
 tests_test0081	chunk:01	feat:var	catch format if_then_else var
-tests_test0082	chunk:02	feat:list_cons	list_cons
+tests_test0082	chunk:02	feat:compare	compare list_cons
 tests_test0083	chunk:02	feat:univ	univ
 tests_test0084	chunk:03	feat:op	dcg op
 tests_test0085	chunk:01	family:tests_test	
@@ -317,7 +317,7 @@ tests_test0091	chunk:03	feat:copy_term	copy_term list_cons
 tests_test0093	chunk:02	feat:list_cons	list_cons
 tests_test0094	chunk:01	family:tests_test	
 tests_test0097	chunk:02	feat:cut	cut
-tests_test0098	chunk:01	family:tests_test	
+tests_test0098	chunk:02	feat:compare	compare
 tests_test0099	chunk:03	feat:nonvar	nonvar var
 tests_test0100	chunk:03	feat:findall_with_var_goal	findall findall_with_var_goal
 tests_test0101	chunk:02	feat:cut	cut
@@ -326,7 +326,7 @@ tests_test0107	chunk:03	feat:catch_with_throw	call catch catch_with_throw cut fi
 tests_test0109	chunk:03	feat:assert_then_retract	assert_then_retract assertz between findall if_then_else retract
 tests_test0110	chunk:01	feat:var	catch findall format if_then_else list_cons var
 tests_test0111	chunk:02	feat:between	assertz between findall if_then_else
-tests_test0113	chunk:02	feat:writeq	catch findall if_then_else list_cons writeq
+tests_test0113	chunk:03	feat:compare	catch compare findall if_then_else list_cons writeq
 tests_test0114	chunk:03	feat:format	format if_then_else
 tests_test0115	chunk:02	feat:between	between cut findall forall if_then_else
 tests_test0116	chunk:02	feat:cut	cut if_then_else list_cons
