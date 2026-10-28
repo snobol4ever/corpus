@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1063 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=50 clusters=49 chunks=11 sizes=100,100,100,100,100,100,100,100,100,100,13
+# shape: entries=1064 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=50 clusters=49 chunks=11 sizes=100,100,100,100,100,100,100,100,100,100,14
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:07	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:07	family:ladder	
@@ -223,7 +223,7 @@ simple_assign_89	chunk:01	family:smoke
 simple_assign_98	chunk:01	family:smoke	
 simple_assign_99	chunk:01	family:smoke	
 split_say_1	chunk:10	feat:split	say split
-test_colon_call	chunk:10	family:test_raku_colon_call	
+test_colon_call	chunk:11	family:test_raku_colon_call	
 test_kebab_ident	chunk:11	family:test_raku_kebab_ident	
 test_our_decl	chunk:10	feat:our	our
 test_qualified_term	chunk:11	family:test_raku_qualified_term	
@@ -842,6 +842,7 @@ ladder__rung15_blocks_a_my_declaration_without_a_value_keeps_what_a_begin_check_
 ladder__rung07_subs_a_literal_passed_to_an_is_rw_parameter_throws_x_parameter_rw	chunk:09	feat:try	sigil_array sub try
 ladder__rung02_arithmetic_rat_smartmatch_truthiness_function_forms_and_type_checks	chunk:09	feat:smartmatch	say smartmatch string_concat
 ladder__rung07_subs_a_sub_declared_in_a_module_is_called_and_referenced_by_its_qualified_name_and_through_our	chunk:10	feat:our	our string_concat sub
+ladder__rung14_roles_a_role_body_lexical_and_a_type_capture_as_the_target_of_new_are_read_by_its_methods	chunk:10	feat:method	method string_concat
 sub_range_say_replace_1	chunk:08	feat:range_op	range_op say sub
 ladder__rung12_exceptions_a_die_in_the_condition_of_if_or_unless_aborts_the_statement	chunk:10	feat:unless	if try unless
 benchmark_rc-dragon-curve	chunk:05	feat:for_with_say	for for_with_say range_op
