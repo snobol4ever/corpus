@@ -285,7 +285,7 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 284,prolog_tests_gctest,xsb_tests__prolog_tests_gctest,xsb_tests,69,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 285,prolog_tests_include_test,xsb_tests__prolog_tests_include_test,xsb_tests,15,0,0,131072,4096,,,ignore-all-space,upstream,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 286,prolog_tests_inline,xsb_tests__prolog_tests_inline,xsb_tests,10,0,0,131072,4096,,,ignore-all-space,upstream,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
-287,prolog_tests_large_arity_prolog,xsb_tests__prolog_tests_large_arity_prolog,xsb_tests,149,0,0,131072,4096,,,fresh-vars+ignore-all-space,,,1,1,1,1,1,0,0,0,0,1,0,0,1,1,1,1,0,0,0,0,1,0,1,0,1,0,0,0,1,0,0,0,1,1,1,1,1,0,0
+287,prolog_tests_large_arity_prolog,xsb_tests__prolog_tests_large_arity_prolog,xsb_tests,149,0,0,131072,65536,,,fresh-vars+ignore-all-space,,,1,1,1,1,1,0,0,0,0,1,0,0,1,1,1,1,0,0,0,0,1,0,1,0,1,0,0,0,1,0,0,0,1,1,1,1,1,0,0
 288,prolog_tests_listing_test,xsb_tests__prolog_tests_listing_test,xsb_tests,8,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 289,prolog_tests_longname,xsb_tests__prolog_tests_longname,xsb_tests,7,0,0,131072,4096,,,ignore-all-space,upstream,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 290,prolog_tests_mf_obj,xsb_tests__prolog_tests_mf_obj,xsb_tests,21,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
