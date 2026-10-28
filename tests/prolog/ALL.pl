@@ -4883,3 +4883,7 @@ main :-
     Hs = [findall(_, _, _), forall(_, _), catch(_, _, _), setof(_, _, _), bagof(_, _, _), phrase(_, _), maplist(_, _, _), assertz(_), \+ _, call(_), solve(_, _)],
     forall(member(H, Hs), spec(H)).
 :- initialization(main).
+%------------------------------ 578 ladder__rung10_use_module_goal_on_a_variable
+:- use_module(library(lists)).
+:- initialization(main).
+main :- L = library(lists), use_module(L), use_module(L, [append/3]), append([a], [b], X), write(X), nl.

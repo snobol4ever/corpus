@@ -1797,3 +1797,5 @@ assertz/1-assertz(:)
 (\+)/1-(\+0)
 call/1-call(0)
 solve/2-solve(2,-)
+%------------------------------ 578 ladder__rung10_use_module_goal_on_a_variable
+[a,b]

@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=577 features=39 ubiquitous=3(write nl directive) distinctive=36 core=47 clusters=65 chunks=6 sizes=100,100,100,100,100,30
+# shape: entries=578 features=39 ubiquitous=3(write nl directive) distinctive=36 core=47 clusters=65 chunks=6 sizes=100,100,100,100,100,31
 entry	part	cluster	shells
 write_family_writeln_1	chunk:01	family:ladder	
 directive_32	chunk:06	family:rung22_write_canonical	
@@ -40,7 +40,7 @@ dg_failing_directive_warns_1	chunk:01	family:ladder
 directive_24	chunk:04	family:rung20_numbervars	
 directive_25	chunk:04	family:rung20_numbervars	
 directive_26	chunk:04	family:rung20_numbervars	
-directive_27	chunk:04	family:rung20_numbervars	
+directive_27	chunk:05	family:rung20_numbervars	
 directive_28	chunk:05	family:rung20_numbervars	
 directive_29	chunk:05	family:rung21_char_type	
 directive_39	chunk:05	family:rung23_arith_ext	
@@ -313,7 +313,7 @@ catch_directive_1	chunk:03	feat:catch	catch
 dcg_nonterminal_sequence_1	chunk:04	feat:dcg	dcg
 declarations_multifile_1	chunk:03	feat:findall	findall
 evaluable_type_error_on_non_evaluable_1	chunk:03	feat:catch	catch
-findall_collect_all_1	chunk:03	feat:findall	findall
+findall_collect_all_1	chunk:04	feat:findall	findall
 findall_directive_1	chunk:04	feat:findall	findall
 findall_directive_3	chunk:04	feat:findall	findall
 indexing_indexed_vs_var_first_arg_1	chunk:04	feat:findall	findall
@@ -435,7 +435,7 @@ copy_term_ite_directive_replace_2	chunk:05	feat:copy_term	copy_term if_then_else
 ite_list_directive_1	chunk:03	feat:list_cons	if_then_else list_cons
 ite_replace_1	chunk:02	feat:unify	if_then_else unify
 ofi_forall_all_hold_1	chunk:05	feat:forall	forall if_then_else
-ofi_forall_counterexample_1	chunk:05	feat:forall	forall if_then_else
+ofi_forall_counterexample_1	chunk:06	feat:forall	forall if_then_else
 op_ite_directive_replace_1	chunk:06	feat:op	if_then_else op
 catch_between_directive_1	chunk:04	feat:between	between catch
 cut_ite_directive_1	chunk:03	feat:cut	cut if_then_else
@@ -579,3 +579,4 @@ functor_ite_univ_1	core	core	arg atom functor if_then_else unify univ
 copy_term_call_cut_replace_1	core	core	call copy_term cut if_then_else unify var
 benchmark_meta_qsort	core	core	cut if_then_else list_cons negation nonvar number unify var
 ladder__rung10_predicate_property_answers_meta_predicate_as_swipl_for_a_head_bound_at_run_time	core	core	assertz bagof call catch findall findall_with_var_goal forall functor if_then_else negation setof unify
+ladder__rung10_use_module_goal_on_a_variable	chunk:03	feat:unify	unify
