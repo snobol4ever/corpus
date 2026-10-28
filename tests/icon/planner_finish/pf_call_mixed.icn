@@ -1,0 +1,16 @@
+# DESIGN-PLAN planner-finish witness: a procedure called with a literal, a local, a global and a call result; a parameter rebound inside the callee
+global G
+procedure main()
+    local x;
+    G := 5; x := 7;
+    write(f(1, x, G, f(2, 3, 4, 0)));
+    write(g(x), " ", x);
+    write(f(x, x, x, x));
+end
+procedure f(a, b, c, d)
+    return a + b * 2 + c * 3 + d;
+end
+procedure g(v)
+    v := v + 1;
+    return v;
+end

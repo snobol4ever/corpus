@@ -1,0 +1,17 @@
+* DESIGN-PLAN planner-finish witness: a function with locals and arithmetic, a conditional capture, a replacement and a match value
+        DEFINE('F(A,B)C')                        :(FEND)
+F       C = A + B * 2
+        F = C - 1                                :(RETURN)
+FEND    X = F(3, 4)
+        S = 'hello world'
+        S ('world' | 'hello') . W
+        OUTPUT = X ' ' W
+        T = 'aXbXc'
+        T 'X' = '-'
+        OUTPUT = T
+        OUTPUT = (S ? 'hello') 'ok'
+        I = 0
+LOOP    I = LT(I, 3) I + 1                       :F(DONE)
+        OUTPUT = F(I, I)                         :(LOOP)
+DONE
+END

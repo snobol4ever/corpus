@@ -1,0 +1,11 @@
+procedure main()
+    local s;
+    s := 0;
+    every s +:= evens(7);
+    write("sum ", s);
+    every write("v ", evens(4));
+end
+procedure evens(n)
+    local i;
+    every i := 0 to n do if i % 2 = 0 then suspend i;
+end

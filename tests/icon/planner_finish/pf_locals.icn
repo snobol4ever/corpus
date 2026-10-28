@@ -1,0 +1,13 @@
+# DESIGN-PLAN planner-finish witness: locals carved on the spine inside nested every loops, and a generator reading its own locals
+procedure main()
+    local i, j, t;
+    t := 0;
+    every i := 1 to 3 do every j := i to 3 do t +:= i * j;
+    write("t ", t);
+    every write("p ", pairs(2));
+    write("last ", pairs(3));
+end
+procedure pairs(n)
+    local a, b;
+    every a := 1 to n do every b := a to n do suspend a * 10 + b;
+end

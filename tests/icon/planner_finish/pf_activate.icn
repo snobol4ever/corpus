@@ -1,0 +1,12 @@
+# DESIGN-PLAN planner-finish witness: a co-expression created, activated to exhaustion and counted
+procedure main()
+    local c, v, n;
+    c := create 1 to 4;
+    n := 0;
+    while v := @c do n +:= v;
+    write("sum ", n);
+    write("count ", *c);
+    c := create !"ab";
+    every v := |@c do write("ch ", v);
+    write("end");
+end

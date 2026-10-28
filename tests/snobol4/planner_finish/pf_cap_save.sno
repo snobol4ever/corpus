@@ -1,0 +1,11 @@
+* DESIGN-PLAN planner-finish witness: a DEFINE'd pattern function whose body carries immediate and conditional assignment, used in a match
+        DEFINE('NUM()')                          :(NUMEND)
+NUM     NUM = (SPAN('0123456789') $ D . N) ' '    :(RETURN)
+NUMEND  S = 'abc 123 def 45 x'
+        S *NUM() = '<' N '>'
+        OUTPUT = N ' ' D ' ' S
+        S *NUM() = '[' D ']'
+        OUTPUT = N ' ' D ' ' S
+        S ARB $ T 'x'
+        OUTPUT = T
+END

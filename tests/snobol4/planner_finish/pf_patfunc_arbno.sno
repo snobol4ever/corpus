@@ -1,0 +1,10 @@
+* DESIGN-PLAN planner-finish witness: a pattern function whose pattern carries ARBNO, so the graph is not uniform
+        DEFINE('DIGS()')                         :(DEND)
+DIGS    DIGS = ARBNO(ANY('0123456789') ' ') . R  :(RETURN)
+DEND    S = '1 2 3 end'
+        S POS(0) *DIGS() 'end'
+        OUTPUT = '[' R ']'
+        S = 'end'
+        S POS(0) *DIGS() 'end'
+        OUTPUT = '[' R ']'
+END
