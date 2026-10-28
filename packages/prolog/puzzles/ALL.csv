@@ -222,7 +222,7 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 221,hakank_swi_set_covering_deployment,puzzles__hakank_swi_set_covering_deployment,puzzles,153,0,0,131072,4096,,,,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,1,0,1,1,0,0,0
 222,hakank_swi_set_covering_skiena,puzzles__hakank_swi_set_covering_skiena,puzzles,86,0,0,131072,4096,,,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,1,0,0,1,0,0,0
 223,hakank_swi_shifted_division,puzzles__hakank_swi_shifted_division,puzzles,254,0,0,131072,4096,,,,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,1,0,0,1,0,0,0
-224,hakank_swi_sicherman_dice,puzzles__hakank_swi_sicherman_dice,puzzles,124,0,0,131072,4096,,,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
+224,hakank_swi_sicherman_dice,puzzles__hakank_swi_sicherman_dice,puzzles,124,0,0,131072,65536,,,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
 225,hakank_swi_ski_assignment,puzzles__hakank_swi_ski_assignment,puzzles,62,0,0,131072,4096,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0
 226,hakank_swi_sliding_sum,puzzles__hakank_swi_sliding_sum,puzzles,93,0,0,131072,4096,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0
 227,hakank_swi_smugglers_knapsack,puzzles__hakank_swi_smugglers_knapsack,puzzles,59,0,0,131072,4096,,,,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
