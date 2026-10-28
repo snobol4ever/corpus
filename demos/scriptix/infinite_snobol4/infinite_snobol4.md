@@ -429,6 +429,25 @@ procedure c_parg()
     };
     return c_index();
 end
+# STEP 5, replacement-into-a-capital (scope >= 5, the closed world's match walk): a test may assign only to a capital, which both sides
+# null before every test, so no test changes a later one (the design's R2). Through EVAL a replacement needs its subject to be a name
+# standing alone, so the replacing shapes embed the match: (W = subject) (W ? pattern = replacement) W, the same after (W = V = subject)
+# with V last, and the embedded match's value alone; one in ten is the statement shape (W = subject) W ? pattern = replacement, whose
+# subject is a concatenation, so it reads error 212 on every engine that agrees with sbl.
+procedure c_replace()
+    local w, v, subj, pat, repl, k;
+    w := ?"ABCDEFGHIJKLMNOPQRSTUVW";
+    v := ?"ABCDEFGHIJKLMNOPQRSTUVW";
+    subj := r_subject();
+    pat := if ?100 <= 50 then r_token(?["'" || c_char() || "'", "'" || c_run(1 + ?2) || "'", c_patc(), "*" || c_patc(), c_cap()]) else r_palt();
+    repl := "'" || c_lit(?3 - 1) || "'";
+    k := ?100;
+    return ( (k <= 40, r_token("(" || w || " = ") || subj || r_token(") (" || w || " ? ") || pat || r_token(" = " || repl || ") " || w))
+           | (k <= 75, r_token("(" || w || " = " || v || " = ") || subj || r_token(") (" || w || " ? ") || pat || r_token(" = " || repl || ") " || v))
+           | (k <= 90, r_token("(" || w || " = ") || subj || r_token(") (" || w || " ? ") || pat || r_token(" = " || repl || ")"))
+           | (r_token("(" || w || " = ") || subj || r_token(") " || w || " ? ") || pat || r_token(" = " || repl))
+           );
+end
 procedure c_presets()
     local l, x, n;
     l := ["(A = B = C = D = E = F = G = H = I = J = K = L = M = N = O = P = Q = R = S = T = U = V = W = X = Y = Z = '')", "(inf_caps = 1)",
@@ -747,7 +766,9 @@ procedure random_walk(kind, n, lim, seed)
         repeat {
             tokens := 0;
             limit := lim;
-            e := if kind == "expr" then r_match() else r_subject() || r_token(" ? ") || r_palt();
+            e := if kind == "expr" then r_match()
+                 else if \closed & scope >= 5 & ?100 <= 25 then c_replace()
+                 else r_subject() || r_token(" ? ") || r_palt();
             if tokens <= limit & not inf_excluded(e) then break;
         };
         suspend e;
@@ -802,7 +823,7 @@ end
 # families of steps 1..N and no later one, each emitter guarded by scope >= its step; scope=0 is the grammar from before the
 # ladder, so a batch is (scope, seed0, N) for ever. inf_scope_max is the highest step landed, bumped by each step's landing.
 procedure inf_scope_max()
-    return 4;
+    return 5;
 end
 procedure inf_lists()
     local a;
