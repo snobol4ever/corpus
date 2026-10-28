@@ -18,7 +18,7 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 17,hakank_swi_a_puzzle,puzzles__hakank_swi_a_puzzle,puzzles,175,0,0,131072,4096,,,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,0,1,1,1,0,0
 18,hakank_swi_a_round_of_golf,puzzles__hakank_swi_a_round_of_golf,puzzles,163,0,0,131072,4096,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
 19,hakank_swi_abbots_puzzle,puzzles__hakank_swi_abbots_puzzle,puzzles,45,0,0,131072,4096,,,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
-20,hakank_swi_ackermann,puzzles__hakank_swi_ackermann,puzzles,38,0,0,131072,4096,,,,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
+20,hakank_swi_ackermann,puzzles__hakank_swi_ackermann,puzzles,38,0,0,131072,65536,,,,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
 21,hakank_swi_added_corner,puzzles__hakank_swi_added_corner,puzzles,51,0,0,131072,4096,,,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
 22,hakank_swi_all_differ_from_at_least_k_pos,puzzles__hakank_swi_all_differ_from_at_least_k_pos,puzzles,120,0,0,131072,4096,,,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
 23,hakank_swi_all_equal,puzzles__hakank_swi_all_equal,puzzles,48,0,0,131072,4096,,,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
@@ -109,7 +109,7 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 108,hakank_swi_euler42,puzzles__hakank_swi_euler42,puzzles,67,0,0,131072,4096,,,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0
 109,hakank_swi_euler43,puzzles__hakank_swi_euler43,puzzles,82,0,0,131072,4096,,,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0
 110,hakank_swi_euler44,puzzles__hakank_swi_euler44,puzzles,80,0,0,131072,4096,,,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
-111,hakank_swi_euler45,puzzles__hakank_swi_euler45,puzzles,76,0,0,131072,4096,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0
+111,hakank_swi_euler45,puzzles__hakank_swi_euler45,puzzles,76,0,0,131072,131072,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0
 112,hakank_swi_euler46,puzzles__hakank_swi_euler46,puzzles,60,0,0,131072,4096,,,,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0
 113,hakank_swi_euler47,puzzles__hakank_swi_euler47,puzzles,110,0,0,131072,4096,,,,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,1,1,0,0,0
 114,hakank_swi_euler48,puzzles__hakank_swi_euler48,puzzles,48,0,0,131072,4096,,,,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0
@@ -159,7 +159,7 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 158,hakank_swi_knapsack_rosetta_code_01,puzzles__hakank_swi_knapsack_rosetta_code_01,puzzles,146,0,0,131072,4096,,,,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,1,0,0
 159,hakank_swi_knapsack_rosetta_code_bounded,puzzles__hakank_swi_knapsack_rosetta_code_bounded,puzzles,143,0,0,131072,4096,,,,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,1,0,0
 160,hakank_swi_knapsack_rosetta_code_unbounded,puzzles__hakank_swi_knapsack_rosetta_code_unbounded,puzzles,95,0,0,131072,4096,,,,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,1,0,0
-161,hakank_swi_knight_tour_circuit,puzzles__hakank_swi_knight_tour_circuit,puzzles,157,0,0,131072,4096,,,,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,1,0,0,1,1,0,0
+161,hakank_swi_knight_tour_circuit,puzzles__hakank_swi_knight_tour_circuit,puzzles,157,0,0,131072,65536,,,,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,1,0,0,1,1,0,0
 162,hakank_swi_labeled_dice,puzzles__hakank_swi_labeled_dice,puzzles,225,0,0,131072,4096,,,,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,0,0,1,1,0,0
 163,hakank_swi_langford,puzzles__hakank_swi_langford,puzzles,138,0,0,131072,4096,,,,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,0,0,0,1,1,1,0,0,1,0,0,0
 164,hakank_swi_latin_squares_diagonals,puzzles__hakank_swi_latin_squares_diagonals,puzzles,108,0,0,131072,4096,,,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
