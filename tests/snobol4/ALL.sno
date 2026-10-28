@@ -22523,3 +22523,19 @@ END
         V = DUPL('ab', .$'3')
         OUTPUT = '4 ' &ERRTYPE ' [' V ']'
 END
+*--------------- 2151 ladder__rung27_inf_dotnet_huge_exponent_of_a_negative_base
+* infinite_snobol4 scope=8 seed0=20261028 batch 4 line 215 (pinned preset=3 kind=expr): dotnet differed from sbl -bf. A real exponent
+* beyond the integers is integral and even, so a negative base takes it (-ATAN(1.5) ** 1E300); only an overflowing result is error 266
+        &ERRLIMIT = 10
+        B = -0.5
+        E = 1E300
+        OUTPUT = '1 ' (B ** E)
+        B = -1.0
+        E = 1E19
+        OUTPUT = '2 ' (B ** E)
+        B = -2.0
+        E = 1E300
+        X = B ** E
+        OUTPUT = '3 ' &ERRTYPE
+        OUTPUT = '4 ' (-ATAN(1.5) ** 1E300)
+END
