@@ -289,6 +289,7 @@ dcg_pushback_1	chunk:04	feat:dcg	dcg
 dcg_terminal_list_1	chunk:04	feat:dcg	dcg
 declarations_dynamic_1	chunk:02	feat:if_then_else	if_then_else
 ite_directive_2	chunk:02	feat:if_then_else	if_then_else
+ladder__rung10_use_module_goal_on_a_variable	chunk:02	feat:unify	unify
 rung01_unification_with_fact	chunk:02	feat:unify	unify
 bagof_setof_bagof_basic_1	chunk:05	feat:bagof	bagof
 clause_choice_no_clause_fails_1	chunk:02	feat:if_then_else	if_then_else
@@ -468,7 +469,7 @@ dcg_ite_directive_2	chunk:04	feat:dcg	dcg if_then_else
 catch_ite_directive_4	chunk:03	feat:catch	catch if_then_else
 ite_directive_8	chunk:04	feat:atom	atom if_then_else
 ite_directive_replace_5	chunk:02	feat:unify	if_then_else unify
-ite_directive_replace_6	chunk:02	feat:unify	if_then_else unify
+ite_directive_replace_6	chunk:03	feat:unify	if_then_else unify
 benchmark_nrev	chunk:03	feat:list_cons	if_then_else list_cons
 benchmark_queensn	chunk:03	feat:list_cons	list_cons unify
 catch_ite_directive_5	chunk:03	feat:catch	catch if_then_else
@@ -579,4 +580,3 @@ functor_ite_univ_1	core	core	arg atom functor if_then_else unify univ
 copy_term_call_cut_replace_1	core	core	call copy_term cut if_then_else unify var
 benchmark_meta_qsort	core	core	cut if_then_else list_cons negation nonvar number unify var
 ladder__rung10_predicate_property_answers_meta_predicate_as_swipl_for_a_head_bound_at_run_time	core	core	assertz bagof call catch findall findall_with_var_goal forall functor if_then_else negation setof unify
-ladder__rung10_use_module_goal_on_a_variable	chunk:03	feat:unify	unify

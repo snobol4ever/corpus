@@ -341,6 +341,7 @@ procedure_write_augassign_11	chunk:03	feat:aug_assign	aug_assign
 procedure_write_augassign_13	chunk:04	feat:aug_assign	aug_assign
 procedure_write_augassign_2	chunk:04	feat:aug_assign	aug_assign
 procedure_write_augassign_5	chunk:04	feat:aug_assign	aug_assign
+ladder__rung09_loops_repeat_return_dead_tail	chunk:08	feat:repeat	repeat return
 procedure_every_write_1	chunk:02	feat:return	every return
 procedure_every_write_7	chunk:02	feat:return	every return
 procedure_scan_match_1	chunk:08	feat:match	match scan
@@ -937,4 +938,3 @@ procedure_record_coexpr_replace_6	core	core	alternation aug_assign break case co
 procedure_every_scan_replace_16	core	core	alternation aug_assign delete element_gen every fail find gen_with_alternation image insert integer keyword_ref local many member move read return scan scan_with_tab section set sort static stop tab table to_by upto while
 procedure_record_every_replace_12	core	core	alternation aug_assign bal element_gen every fail gen_with_alternation image keyword_ref limitation list member move pos put read reads record repl return scan scan_with_tab section seq set sort stop swap tab to_by trim type while
 procedure_record_scan_replace_2	core	core	alternation any aug_assign bal coexpr_activate element_gen fail get global keyword_ref limitation local many map move next pop push put read record return scan scan_with_tab section static stop tab table to_by trim upto while writes
-ladder__rung09_loops_repeat_return_dead_tail	chunk:08	feat:repeat	repeat return

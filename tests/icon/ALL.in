@@ -1,39 +1,39 @@
 #---------------------------------------------------- 184 procedure_write_read_1
 #---------------------------------------------------- 185 procedure_write_read_3
-#-------------------------------------------------------- 437 procedure_write_45
+#-------------------------------------------------------- 438 procedure_write_45
 hello world
-#---------------------------------------------------- 438 procedure_write_read_2
+#---------------------------------------------------- 439 procedure_write_read_2
 hello world
-#---------------------------------------------------- 439 procedure_write_read_4
+#---------------------------------------------------- 440 procedure_write_read_4
 hello world
-#--------------------------------------------------- 528 procedure_while_write_2
+#--------------------------------------------------- 529 procedure_while_write_2
 alpha
 beta
 gamma
-#--------------------------------------------------- 529 procedure_while_write_8
+#--------------------------------------------------- 530 procedure_while_write_8
 alpha
 beta
 gamma
-#------------------------------------------------- 530 procedure_write_keyword_5
+#------------------------------------------------- 531 procedure_write_keyword_5
 hello world
-#--------------------------------------------------- 569 procedure_while_write_1
+#--------------------------------------------------- 570 procedure_while_write_1
 a
 b
 c
 d
 e
-#--------------------------------------------------- 570 procedure_while_write_7
+#--------------------------------------------------- 571 procedure_while_write_7
 a
 b
 c
 d
 e
-#------------------------------------------------------- 631 procedure_write_238
-#---------------------------------------------- 799 procedure_every_to_replace_2
+#------------------------------------------------------- 632 procedure_write_238
+#---------------------------------------------- 800 procedure_every_to_replace_2
 elephants:peanuts
 encroachment:roaches
 gaggle:geese
-#------------------------------------------ 832 procedure_suspend_scan_replace_1
+#------------------------------------------ 833 procedure_suspend_scan_replace_1
 ac
 acx
 c
@@ -42,7 +42,7 @@ aadcb
 abc
 cse
 f
-#-------------------------------------------- 875 procedure_every_scan_replace_3
+#-------------------------------------------- 876 procedure_every_scan_replace_3
 procedure main()
    local limit, s, i
    limit := 100
@@ -55,7 +55,7 @@ procedure main()
    write("The primes are:")
    every write(right(!primes,*limit + 1))
 end
-#----------------------------------------- 885 procedure_every_elemgen_replace_2
+#----------------------------------------- 886 procedure_every_elemgen_replace_2
 13
 4
 6
@@ -64,7 +64,7 @@ end
 39
 3999
 4000
-#------------------------------------------- 894 procedure_every_scan_replace_10
+#------------------------------------------- 895 procedure_every_scan_replace_10
 #
 #	W O R D   T A B U L A T I O N
 #
@@ -88,11 +88,11 @@ procedure wordcount(n)
    x := sort(t)
    every y := !x do write(left(y[1],n),y[2])
 end
-#-------------------------------------------- 895 procedure_scan_while_replace_1
+#-------------------------------------------- 896 procedure_scan_while_replace_1
 abc:2
 1234:2
 ABC:4
-#---------------------------------------------- 901 procedure_to_while_replace_1
+#---------------------------------------------- 902 procedure_to_while_replace_1
 Order, Coleoptera, (Beetles). Many beetles are colored so as
 to resemble the surfaces which they habitually frequent, and they thus
 escape detection by their enemies. Other species, for instance, diamond-beetles, are ornamented
@@ -110,7 +110,7 @@ sexual characters. Blind beetles, which cannot, of course, behold each
 other's beauty, never, as I hear from Mr. Waterhouse, Jr., exhibit bright
 colors, though they often have polished coats; but the explanation of their
 obscurity may be that they generally inhabit caves and other obscure stations.
-#------------------------------------------ 926 procedure_record_every_replace_3
+#------------------------------------------ 927 procedure_record_every_replace_3
 abcdefgh
 01
 d
@@ -131,14 +131,14 @@ f
 g
 g
 d
-#-------------------------------------------- 928 procedure_every_scan_replace_6
+#-------------------------------------------- 929 procedure_every_scan_replace_6
 [ constructed by hand ]
 ABCD EFGH IJKL MNOP
 AEIM BFJN CGKO DHLP
 AHKN BGLM CFIP DEJO
 AFLO BEKP CHJM DGIN
 AGJP BHIO CELN DFKM
-#-------------------------------------------- 929 procedure_every_scan_replace_4
+#-------------------------------------------- 930 procedure_every_scan_replace_4
 ##  test data for entab/detab tester; see driver program's comments for details
 #
 #   Remember that the characters --> "!.$" <-- are metacharacters, and cannot
@@ -397,7 +397,7 @@ abc\b!.de\b!..fghij\b!...k
 !...!.!..\n!...!.!..\r!...!.!..\n\r!...!.!..\r\n!...!.!..
 !...\a!.\a!..\a!..
 !...\b\b\b\b!...\b\a\b\a!.!.!..\n\n\n  \t!.!..\n
-#------------------------------------------- 933 procedure_every_scan_replace_16
+#------------------------------------------- 934 procedure_every_scan_replace_16
 #
 #	W O R D   T A B U L A T I O N
 #
@@ -421,7 +421,7 @@ procedure wordcount(n)
    x := sort(t)
    every y := !x do write(left(y[1],n),y[2])
 end
-#------------------------------------------- 935 procedure_record_scan_replace_2
+#------------------------------------------- 936 procedure_record_scan_replace_2
 {html{head
     {title Off the Beaten Path}
 }{body bgcolor="#EEEEEE"
