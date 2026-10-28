@@ -92,6 +92,10 @@ Answer Lookup
 1.53 for 100,000 (win cycle)
 */
 
+% DRIVER (appended by the vendoring, CEO-700): XSB table_tests/test.sh runs gentest.sh test_answer_sccs "test."
+xsb_nonempty_line(L) :- string_length(L, N), N > 0. xsb_write_lines([]). xsb_write_lines([X|Xs]) :- write(X), nl, xsb_write_lines(Xs).
+xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, '\n', '', L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), xsb_write_lines(L).
+:- initialization(xsb_sorted_output((test))).
 end_of_file.
 
 test1:- abolish_all_tables,p1(_),fail.
@@ -114,7 +118,3 @@ test3(Reason,Type):-   explain_u_val(pb(_X),pb(f(f(f(f(_))))),Reason,Type).
 
 :- import explain_u_val/4 from tables.
 
-% DRIVER (appended by the vendoring, CEO-700): XSB table_tests/test.sh runs gentest.sh test_answer_sccs "test."
-xsb_nonempty_line(L) :- string_length(L, N), N > 0. xsb_write_lines([]). xsb_write_lines([X|Xs]) :- write(X), nl, xsb_write_lines(Xs).
-xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, '\n', '', L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), xsb_write_lines(L).
-:- initialization(xsb_sorted_output((test))).

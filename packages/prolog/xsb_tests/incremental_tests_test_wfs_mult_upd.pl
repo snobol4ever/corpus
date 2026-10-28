@@ -67,6 +67,10 @@ test:- writeln('----------------------- p(1) third call'),fail.
 test:- p(1),get_residual(p(X),R),writeln(second_residual(R)),fail.
 test.
 
+% DRIVER (appended by the vendoring, CEO-700): XSB incremental_tests/test.sh runs gentest.sh test_wfs_mult_upd "test."
+xsb_nonempty_line(L) :- string_length(L, N), N > 0. xsb_write_lines([]). xsb_write_lines([X|Xs]) :- write(X), nl, xsb_write_lines(Xs).
+xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, '\n', '', L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), xsb_write_lines(L).
+:- initialization(xsb_sorted_output((test))).
 end_of_file.
 
 The execution is:
@@ -102,7 +106,3 @@ Y = [tnot t1(a)];
 X = a
 Y = [tnot t1(a)];
 
-% DRIVER (appended by the vendoring, CEO-700): XSB incremental_tests/test.sh runs gentest.sh test_wfs_mult_upd "test."
-xsb_nonempty_line(L) :- string_length(L, N), N > 0. xsb_write_lines([]). xsb_write_lines([X|Xs]) :- write(X), nl, xsb_write_lines(Xs).
-xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, '\n', '', L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), xsb_write_lines(L).
-:- initialization(xsb_sorted_output((test))).

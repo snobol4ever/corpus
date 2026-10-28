@@ -55,12 +55,12 @@ texp:- catch(r(_X),error(E1,_),writeln(caught(ibf2(-2,3.2,E1)))),fail.
 texp:- X is 3.2 ** 2,writeln(bfi(X)),fail.
 texp:- X is -3.2 ** 2,writeln(bfi(X)),fail.
 
+% DRIVER (appended by the vendoring, CEO-700): XSB prolog_tests/test.sh runs gentest.sh conv_fun "test."
+xsb_nonempty_line(L) :- string_length(L, N), N > 0. xsb_write_lines([]). xsb_write_lines([X|Xs]) :- write(X), nl, xsb_write_lines(Xs).
+xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, '\n', '', L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), xsb_write_lines(L).
+:- initialization(xsb_sorted_output((test))).
 end_of_file.
 
 texp3:- catch(X is -1.4 ** 3.2 , E1, writeln(caught(bfbf2(-1.4,3.2,E1)))),fail.
 underflor X is 0 ** -2.
 
-% DRIVER (appended by the vendoring, CEO-700): XSB prolog_tests/test.sh runs gentest.sh conv_fun "test."
-xsb_nonempty_line(L) :- string_length(L, N), N > 0. xsb_write_lines([]). xsb_write_lines([X|Xs]) :- write(X), nl, xsb_write_lines(Xs).
-xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, '\n', '', L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), xsb_write_lines(L).
-:- initialization(xsb_sorted_output((test))).

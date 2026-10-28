@@ -55,6 +55,12 @@ operators, and SCRIP reads every entry in its XSB dialect -- double_quotes codes
 ''), which read the same text in every dialect: under codes, "" is [] and SCRIP reads [] as the text "[]", so the pad stripped every line's
 brackets (basic_tests_interp printed 3,2,1 for [3,2,1]); 1034 sites, 557 files and ALL.pl, line counts unchanged.
 
+THE DRIVER STANDS BEFORE THE PROGRAM'S OWN `end_of_file.` (hq_icon 2026-10-28, CEO-1926): XSB's consult stops reading a file at a clause `end_of_file.`, and so does SCRIP's. 80 vendored programs end
+their own text with one, and the vendoring had appended each one's driver after it, so SCRIP never read the driver and the program ran no goal (it printed nothing and read FAIL against XSB's answer, as XSB's own
+`[FILE]. test.` does not). The driver now stands where that clause stood and the clause follows it, in the 80 files and their 71 ALL.pl entries (no line added or removed, ALL.csv, ALL.ref and PARTITION.tsv unchanged);
+17 programs read PASS in both modes from the move alone. `util_xsb_driver_before_end_of_file.py --check` names any file or entry that carries the driver after such a clause (`--apply` moves it), and
+`test_gate_xsb_a_vendored_driver_stands_before_its_programs_end_of_file.sh` holds it: a vendoring or a re-vendoring that appends a driver after an `end_of_file.` is refused.
+
 THE DRIVER PRINTS WITH ITS OWN HELPER (hq_icon 2026-10-24, CEO-1926): xsb_sorted_output printed its sorted lines with
 `forall(member(X, L), (write(X), nl))`, and a program that defines its own member/2 -- ai_tests cs_o, cs_r, kalah, pg and plan define an
 abstract-domain member/2 -- had the driver call the program's member: the driver is the program's own text, so in SCRIP's one namespace

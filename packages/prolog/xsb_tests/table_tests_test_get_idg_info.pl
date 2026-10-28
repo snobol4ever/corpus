@@ -58,6 +58,10 @@ ni_2(_X).
 s_1(_):- s_2(_).
 s_2(_).
 
+% DRIVER (appended by the vendoring, CEO-700): XSB table_tests/test.sh runs gentest.sh test_get_idg_info "test."
+xsb_nonempty_line(L) :- string_length(L, N), N > 0. xsb_write_lines([]). xsb_write_lines([X|Xs]) :- write(X), nl, xsb_write_lines(Xs).
+xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, '\n', '', L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), xsb_write_lines(L).
+:- initialization(xsb_sorted_output((test))).
 end_of_file.
     
 --------------------
@@ -96,7 +100,3 @@ idg_get_incr_subgoals_1(Term):-
     predicate_property(Term,tabled).
 
 
-% DRIVER (appended by the vendoring, CEO-700): XSB table_tests/test.sh runs gentest.sh test_get_idg_info "test."
-xsb_nonempty_line(L) :- string_length(L, N), N > 0. xsb_write_lines([]). xsb_write_lines([X|Xs]) :- write(X), nl, xsb_write_lines(Xs).
-xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, '\n', '', L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), xsb_write_lines(L).
-:- initialization(xsb_sorted_output((test))).

@@ -146,6 +146,10 @@ win2(X) :- countwin2(X,Cnt), Cnt >= 2.
 :- table countwin2(_,lattice(sum/3)).
 countwin2(X,1) :- move(X,Y), tnot win2(Y).
 
+% DRIVER (appended by the vendoring, CEO-700): XSB table_tests/test.sh runs gentest.sh test_3vwfs_1 "test."
+xsb_nonempty_line(L) :- string_length(L, N), N > 0. xsb_write_lines([]). xsb_write_lines([X|Xs]) :- write(X), nl, xsb_write_lines(Xs).
+xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, '\n', '', L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), xsb_write_lines(L).
+:- initialization(xsb_sorted_output((test))).
 end_of_file.
 
 xwam_state(2,Before),get_call(p(c,F),G,H),'_$$get_returns'(G,H,_),xwam_state(2,After).
@@ -167,7 +171,3 @@ chosen(blue):- tnot(chosen(yellow)).
 chosen(yellow):- tnot(chosen(blue)).
 
 
-% DRIVER (appended by the vendoring, CEO-700): XSB table_tests/test.sh runs gentest.sh test_3vwfs_1 "test."
-xsb_nonempty_line(L) :- string_length(L, N), N > 0. xsb_write_lines([]). xsb_write_lines([X|Xs]) :- write(X), nl, xsb_write_lines(Xs).
-xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, '\n', '', L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), xsb_write_lines(L).
-:- initialization(xsb_sorted_output((test))).

@@ -121,6 +121,10 @@ t5t2(X):-
 t5t2(X):- put_attr(X,fd,[2,3,4]).
 
 
+% DRIVER (appended by the vendoring, CEO-700): XSB attv_tests/test.sh runs gentest.sh fd1 "test."
+xsb_nonempty_line(L) :- string_length(L, N), N > 0. xsb_write_lines([]). xsb_write_lines([X|Xs]) :- write(X), nl, xsb_write_lines(Xs).
+xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, '\n', '', L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), xsb_write_lines(L).
+:- initialization(xsb_sorted_output((test))).
 end_of_file.
 test3t:- 
 	p3(X),
@@ -138,7 +142,3 @@ test3t:-
 p3(X):- put_attr(X,fd,[2,3,4]).
 
 
-% DRIVER (appended by the vendoring, CEO-700): XSB attv_tests/test.sh runs gentest.sh fd1 "test."
-xsb_nonempty_line(L) :- string_length(L, N), N > 0. xsb_write_lines([]). xsb_write_lines([X|Xs]) :- write(X), nl, xsb_write_lines(Xs).
-xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, '\n', '', L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), xsb_write_lines(L).
-:- initialization(xsb_sorted_output((test))).

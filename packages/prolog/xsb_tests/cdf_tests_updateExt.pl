@@ -65,10 +65,10 @@ testhasAttrreturns_4:-
 	newExtTerm(minAttr_ext(oid(o2,test),rid(r4,test),oid(o13,test),1)),
 	test_display(hasAttr(oid(o2,test),X,_Y)).
 
-end_of_file.
-
-
 % DRIVER (appended by the vendoring, CEO-700): XSB cdf_tests/test.sh runs gentest.sh updateExt "testreturns."
 xsb_nonempty_line(L) :- string_length(L, N), N > 0. xsb_write_lines([]). xsb_write_lines([X|Xs]) :- write(X), nl, xsb_write_lines(Xs).
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, '\n', '', L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), xsb_write_lines(L).
 :- initialization(xsb_sorted_output((testreturns))).
+end_of_file.
+
+
