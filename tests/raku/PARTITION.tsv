@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1069 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=50 clusters=49 chunks=11 sizes=100,100,100,100,100,100,100,100,100,100,19
+# shape: entries=1070 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=51 clusters=49 chunks=11 sizes=100,100,100,100,100,100,100,100,100,100,19
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:07	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:07	family:ladder	
@@ -824,7 +824,7 @@ ladder__rung14_roles	chunk:08	feat:return	method return
 ladder__rung14_roles_override	chunk:08	feat:return	method return
 sub_for_say_1	chunk:05	feat:for_with_say	for for_with_say say sub
 ladder__rung15_blocks_reduce_with_a_block_of_three_or_more_parameters_takes_that_many_items_a_step	chunk:09	feat:range_op	range_op say sigil_array string_concat
-ladder__rung06_control_with_orwith_and_without_test_definedness_and_bind_the_topic	chunk:09	feat:sub_with_return	return sub sub_with_return
+ladder__rung06_control_with_orwith_and_without_test_definedness_and_bind_the_topic	chunk:08	feat:sub_with_return	return sub sub_with_return
 ladder__rung07_subs_an_array_parameter_assigned_to_a_scalar_or_chosen_by_a_ternary	chunk:07	feat:join	join sigil_array sub
 ladder__rung08_for_a_destructuring_signature_takes_types_smileys_and_traits	chunk:07	feat:sigil_hash	for for_with_say sigil_hash
 ladder__rung09_regex_the_subst_method_takes_a_closure_replacement_a_pointy_block_and_g_on_a_string_needle	chunk:06	feat:regex	range_op regex string_concat
@@ -848,7 +848,7 @@ sub_range_say_replace_1	chunk:09	feat:range_op	range_op say sub
 ladder__rung12_exceptions_a_die_in_the_condition_of_if_or_unless_aborts_the_statement	chunk:10	feat:unless	if try unless
 benchmark_rc-dragon-curve	chunk:05	feat:for_with_say	for for_with_say range_op
 ladder__rung01_variables_a_type_capture_the_compile_time_variables_native_type_names_and_a_version_literal_are_declared_names	chunk:10	feat:method	method sub
-ladder__rung07_subs_a_multi_family_constrained_by_subsets_and_where_clauses_dispatches	chunk:08	feat:multi	multi say sub try
+ladder__rung07_subs_a_multi_family_constrained_by_subsets_and_where_clauses_dispatches	chunk:09	feat:try	multi say sub try
 sub_array_say_replace_1	chunk:05	feat:sub	say sigil_array sub
 scrip_test_rk_str22	chunk:06	feat:if	if say sub
 class_array_say_replace_1	chunk:02	feat:has	has say sigil_array
@@ -1003,6 +1003,7 @@ class_method_range_replace_3	chunk:03	feat:has	has method range_op return say
 class_method_say_replace_21	chunk:03	feat:has	has method return say string_concat
 class_method_multi_replace_5	chunk:08	feat:multi	method multi return say string_concat
 ladder__rung04_arrays_join_flattens_its_list_arguments_as_a_slurpy_and_keeps_array_elements_itemized	chunk:07	feat:join	for for_with_say join range_op say sigil_array
+ladder__rung07_subs_an_array_pattern_parameter_binds_its_elements_for_a_sub_and_a_multi	core	core	join multi return sigil_array string_concat sub sub_with_return
 ladder__rung18_two_arg_block_do_for_collects_and_await_is_its_value	chunk:07	feat:join	for for_with_say join range_op say sigil_array
 sub_when_for_replace_1	chunk:11	feat:when	for for_with_say say sigil_array sub when
 ladder__rung14_roles_a_role_declares_regexes_and_attributes_beside_methods	core	core	has method regex string_concat token
