@@ -16,20 +16,98 @@
 *  result line carries the 26 capitals after the value, A=- for null, else A= and the rendered value (X, Y and Z take
 *  the direct captures, h(n) and $g(n) reach any capital); every test starts from null capitals (inf_capnull before each
 *  line, on both sides), so each test is independent and one divergence is one bug.
+*  AN AGGREGATE IS RENDERED BY WHAT IT HOLDS (DESIGN-PLAN random-codegen-scope step 9; the design's R3: this renderer and the
+*  Snocone section's are one program in two spellings): an ARRAY as ARRAY, its prototype and its items by index in brackets,
+*  a two-dimensional one row after row; a TABLE as TABLE, its size (the rows CONVERT gives it, which hold only the entries
+*  whose value is not null) and its entries key=value in brackets, sorted by their rendered text, so that no engine's hash
+*  order shows; an item, a key or a value renders as a value does, an aggregate inside one by its name only, and every other
+*  datatype is its name. Every pattern here is anchored by its own first element, because a batch may set &ANCHOR.
         &TRIM = 1
         inf_safe = DUPL('.', 32) SUBSTR(&ALPHABET, 33, 95) DUPL('.', 129)
-        DEFINE('inf_render(inf_value)inf_dtype')                :(inf_render_end)
+        DEFINE('inf_render(inf_value,inf_inner)inf_dtype')      :(inf_render_end)
 inf_render
         inf_dtype = DATATYPE(inf_value)
         inf_render = inf_dtype
         IDENT(inf_dtype, 'STRING')                              :S(inf_render_s)
         IDENT(inf_dtype, 'INTEGER')                             :S(inf_render_n)
-        IDENT(inf_dtype, 'REAL')                                :S(inf_render_n)F(RETURN)
+        IDENT(inf_dtype, 'REAL')                                :S(inf_render_n)
+        DIFFER(inf_inner)                                       :S(RETURN)
+        IDENT(inf_dtype, 'ARRAY')                               :S(inf_render_a)
+        IDENT(inf_dtype, 'TABLE')                               :S(inf_render_t)F(RETURN)
 inf_render_s
         inf_render = inf_dtype ' ' SIZE(inf_value) ' ' REPLACE(inf_value, &ALPHABET, inf_safe) :(RETURN)
 inf_render_n
         inf_render = inf_dtype ' ' inf_value                    :(RETURN)
+inf_render_a
+        inf_render = inf_dtype ' ' PROTOTYPE(inf_value) ' [' inf_items(inf_value) ']' :(RETURN)
+inf_render_t
+        inf_render = inf_dtype ' ' inf_entries(inf_value)       :(RETURN)
 inf_render_end
+        DEFINE('inf_low(inf_spec)inf_text')                     :(inf_low_end)
+inf_low
+        inf_spec BREAK(':') . inf_text ':'                      :F(inf_low_one)
+        inf_low = inf_text + 0                                  :(RETURN)
+inf_low_one
+        inf_low = 1                                             :(RETURN)
+inf_low_end
+        DEFINE('inf_items(inf_arr)inf_proto,inf_dim1,inf_dim2,inf_lo2,inf_i,inf_j,inf_item,inf_sep') :(inf_items_end)
+inf_items
+        inf_proto = PROTOTYPE(inf_arr)
+        inf_items = ''
+        inf_sep = ''
+        inf_proto BREAK(',') . inf_dim1 ',' REM . inf_dim2     :F(inf_items_v)
+        inf_dim2 BREAK(',')                                     :S(RETURN)
+        inf_i = inf_low(inf_dim1)
+        inf_lo2 = inf_low(inf_dim2)
+inf_items_r
+        inf_item = inf_arr[inf_i, inf_lo2]                      :F(RETURN)
+        inf_j = inf_lo2
+inf_items_c
+        inf_item = inf_arr[inf_i, inf_j]                        :F(inf_items_n)
+        inf_items = inf_items inf_sep inf_render(inf_item, 1)
+        inf_sep = ', '
+        inf_j = inf_j + 1                                       :(inf_items_c)
+inf_items_n
+        inf_i = inf_i + 1                                       :(inf_items_r)
+inf_items_v
+        inf_i = inf_low(inf_proto)
+inf_items_l
+        inf_item = inf_arr[inf_i]                               :F(RETURN)
+        inf_items = inf_items inf_sep inf_render(inf_item, 1)
+        inf_sep = ', '
+        inf_i = inf_i + 1                                       :(inf_items_l)
+inf_items_end
+        DEFINE('inf_entries(inf_tbl)inf_pairs,inf_proto,inf_count,inf_keys,inf_entry,inf_i,inf_j,inf_sep') :(inf_entries_end)
+inf_entries
+        inf_pairs = CONVERT(inf_tbl, 'ARRAY')                   :F(inf_entries_0)
+        inf_proto = PROTOTYPE(inf_pairs)
+        inf_proto BREAK(',') . inf_count
+        inf_keys = ARRAY(inf_count)
+        inf_i = 1
+inf_entries_l
+        inf_entry = inf_render(inf_pairs[inf_i, 1], 1) '=' inf_render(inf_pairs[inf_i, 2], 1) :F(inf_entries_j)
+        inf_j = inf_i
+inf_entries_s
+        GT(inf_j, 1) LGT(inf_keys[inf_j - 1], inf_entry)       :F(inf_entries_p)
+        inf_keys[inf_j] = inf_keys[inf_j - 1]
+        inf_j = inf_j - 1                                       :(inf_entries_s)
+inf_entries_p
+        inf_keys[inf_j] = inf_entry
+        inf_i = inf_i + 1                                       :(inf_entries_l)
+inf_entries_j
+        inf_entries = inf_count ' ['
+        inf_sep = ''
+        inf_i = 1
+inf_entries_k
+        inf_entry = inf_keys[inf_i]                             :F(inf_entries_e)
+        inf_entries = inf_entries inf_sep inf_entry
+        inf_sep = ', '
+        inf_i = inf_i + 1                                       :(inf_entries_k)
+inf_entries_e
+        inf_entries = inf_entries ']'                           :(RETURN)
+inf_entries_0
+        inf_entries = '0 []'                                    :(RETURN)
+inf_entries_end
         inf_names = TABLE()
         inf_names['A'] = .A
         inf_names['B'] = .B

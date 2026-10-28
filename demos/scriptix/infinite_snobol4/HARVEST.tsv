@@ -6,3 +6,5 @@ date	engine	scope	seed0	batch	line	class	origin	row
 2026-10-28	dotnet	6	rcs06	1	393	a-lexical-comparison-of-two-non-strings-reports-the-second	ladder__rung25_inf_dotnet_lexical_compare_second_argument_error	random-codegen-step-6-unary-operators-ceo-1999
 2026-10-28	dotnet	6	rcs06	8	109	the-name-of-an-element-is-no-number	ladder__rung06_inf_dotnet_element_name_is_no_number	random-codegen-step-6-unary-operators-ceo-1999
 2026-10-28	dotnet	8	20261028	4	215	a-huge-exponent-of-a-negative-base-is-even	ladder__rung27_inf_dotnet_huge_exponent_of_a_negative_base	random-codegen-step-8-anchor-fullscan-batches-ceo-1999
+2026-10-28	dotnet	9	rcs09	4	232	a-sort-by-a-column-not-there-is-error-258	ladder__rung07_inf_dotnet_sort_by_a_column_not_there	random-codegen-step-9-aggregates-rendered-ceo-1999
+2026-10-28	dotnet	9	rcs09	2	373	a-replacement-whose-subject-holds-a-subscript-of-a-call-is-212	ladder__rung04_inf_dotnet_replacement_subject_holds_a_subscript_of_a_call	random-codegen-step-9-aggregates-rendered-ceo-1999

@@ -76,11 +76,78 @@
 inf_safe = DUPL('.', 32) SUBSTR(&ALPHABET, 33, 95) DUPL('.', 129);
 inf_bsize = 1024;
 inf_sbl = '/home/resources/x64/bin/sbl -bf';
-function inf_render(inf_value) inf_dtype {
+// AN AGGREGATE IS RENDERED BY WHAT IT HOLDS (DESIGN-PLAN random-codegen-scope step 9, R3; inf_eval.sno's renderer statement for
+// statement): an ARRAY as ARRAY, its prototype and its items by index in brackets, a two-dimensional one row after row; a TABLE as
+// TABLE, its size (the rows CONVERT gives it, which hold only the entries whose value is not null) and its entries key=value in
+// brackets, sorted by their rendered text, so that no engine's hash order shows; an item, a key or a value renders as a value does,
+// an aggregate inside one by its name only, and every other datatype is its name. Every pattern here is anchored by its own first
+// element, because a batch may set &ANCHOR.
+function inf_render(inf_value, inf_inner) inf_dtype {
     inf_dtype = DATATYPE(inf_value);
     inf_render = inf_dtype;
     if (IDENT(inf_dtype, 'STRING')) { inf_render = inf_dtype ' ' SIZE(inf_value) ' ' REPLACE(inf_value, &ALPHABET, inf_safe); return; }
-    if ((IDENT(inf_dtype, 'INTEGER'), IDENT(inf_dtype, 'REAL'))) { inf_render = inf_dtype ' ' inf_value; }
+    if ((IDENT(inf_dtype, 'INTEGER'), IDENT(inf_dtype, 'REAL'))) { inf_render = inf_dtype ' ' inf_value; return; }
+    if (DIFFER(inf_inner)) { return; }
+    if (IDENT(inf_dtype, 'ARRAY')) { inf_render = inf_dtype ' ' PROTOTYPE(inf_value) ' [' inf_items(inf_value) ']'; return; }
+    if (IDENT(inf_dtype, 'TABLE')) { inf_render = inf_dtype ' ' inf_entries(inf_value); }
+    return;
+}
+function inf_low(inf_spec) inf_text {
+    if (inf_spec ? BREAK(':') . inf_text ':') { inf_low = inf_text + 0; return; }
+    inf_low = 1;
+    return;
+}
+function inf_items(inf_arr) inf_proto, inf_dim1, inf_dim2, inf_lo2, inf_i, inf_j, inf_item, inf_sep {
+    inf_proto = PROTOTYPE(inf_arr);
+    inf_items = '';
+    inf_sep = '';
+    if (inf_proto ? BREAK(',') . inf_dim1 ',' REM . inf_dim2) {
+        if (inf_dim2 ? BREAK(',')) { return; }
+        inf_i = inf_low(inf_dim1);
+        inf_lo2 = inf_low(inf_dim2);
+        while (inf_item = inf_arr[inf_i, inf_lo2]) {
+            inf_j = inf_lo2;
+            while (inf_item = inf_arr[inf_i, inf_j]) {
+                inf_items = inf_items inf_sep inf_render(inf_item, 1);
+                inf_sep = ', ';
+                inf_j = inf_j + 1;
+            }
+            inf_i = inf_i + 1;
+        }
+        return;
+    }
+    inf_i = inf_low(inf_proto);
+    while (inf_item = inf_arr[inf_i]) {
+        inf_items = inf_items inf_sep inf_render(inf_item, 1);
+        inf_sep = ', ';
+        inf_i = inf_i + 1;
+    }
+    return;
+}
+function inf_entries(inf_tbl) inf_pairs, inf_proto, inf_count, inf_keys, inf_entry, inf_i, inf_j, inf_sep {
+    if (~(inf_pairs = CONVERT(inf_tbl, 'ARRAY'))) { inf_entries = '0 []'; return; }
+    inf_proto = PROTOTYPE(inf_pairs);
+    inf_proto ? BREAK(',') . inf_count;
+    inf_keys = ARRAY(inf_count);
+    inf_i = 1;
+    while (inf_entry = inf_render(inf_pairs[inf_i, 1], 1) '=' inf_render(inf_pairs[inf_i, 2], 1)) {
+        inf_j = inf_i;
+        while (GT(inf_j, 1) LGT(inf_keys[inf_j - 1], inf_entry)) {
+            inf_keys[inf_j] = inf_keys[inf_j - 1];
+            inf_j = inf_j - 1;
+        }
+        inf_keys[inf_j] = inf_entry;
+        inf_i = inf_i + 1;
+    }
+    inf_entries = inf_count ' [';
+    inf_sep = '';
+    inf_i = 1;
+    while (inf_entry = inf_keys[inf_i]) {
+        inf_entries = inf_entries inf_sep inf_entry;
+        inf_sep = ', ';
+        inf_i = inf_i + 1;
+    }
+    inf_entries = inf_entries ']';
     return;
 }
 inf_names = TABLE();
@@ -138,7 +205,7 @@ function check(inf_batch, inf_cmd, inf_base) inf_line, inf_want, inf_got, inf_co
         }
         &TRIM = 1;
         inf_count = inf_count + 1;
-        if (inf_want ? ' X=' REM . inf_xyz) { if (DIFFER(inf_xyz, '- Y=- Z=-')) { inf_moved = inf_moved + 1; } }
+        if (inf_want ? ARB ' X=' REM . inf_xyz) { if (DIFFER(inf_xyz, '- Y=- Z=-')) { inf_moved = inf_moved + 1; } }
         inf_capnull();
         inf_got = inf_judge(inf_line);
         if (DIFFER(inf_got, inf_want)) {
@@ -263,6 +330,7 @@ procedure c_value(d)
     if scope >= 3 & (/d | \d < 2) & ?100 <= 35 then return c_builtin(d);
     if scope >= 6 & (/d | \d < 2) & ?100 <= 30 then return c_unary(d);
     if scope >= 7 & (/d | \d < 2) & ?100 <= 35 then return c_numfun(d);
+    if scope >= 9 & (/d | \d < 2) & ?100 <= 40 then return c_aggr(d);
     r := ?100;
     return ( (r <= 22, c_elem())
            | (r <= 34, c_int())
@@ -508,6 +576,55 @@ procedure c_rarg(d)
     r := ?100;
     return ( (r <= 40, c_real()) | (r <= 70, c_narg(d)) | (r <= 85, "'" || c_digit() || "'") | c_value(d) );
 end
+# STEP 9, aggregates-rendered (scope >= 9): arrays and tables as values (c_value) and as leaves of the expression walk (r_leaf), which
+# inf_render renders by what they hold (both spellings): ARRAY(n), ARRAY('0:2') and its kin, two-dimensional ones among them, with or
+# without an initial value; TABLE(); COPY of a, of u or of a value; SORT and RSORT of u, of a, of a copy and of a fresh array or table,
+# by key, by value or by a column there is not; PROTOTYPE of an array; CONVERT(u, 'ARRAY') and its kin both ways; and the two-subscript
+# reference, a[b, c] on the one-dimensional a and an element of the 36-row array that SORT(u), RSORT(u) or CONVERT(u, 'ARRAY') gives.
+# PROTOTYPE of a table is left out: the manual defines it for an array only, and SPITBOL answers the table's count of hash headers.
+procedure c_aggr(d)
+    local r, n;
+    n := 1 + (\d | 0);
+    r := ?100;
+    return ( (r <= 8, "ARRAY(" || c_index() || ")")
+           | (r <= 16, "ARRAY(" || c_proto() || ((?2 = 1, ", " || c_value(n)) | "") || ")")
+           | (r <= 28, "TABLE()")
+           | (r <= 42, "COPY(" || ((?3 = 1, c_value(n)) | ?["a", "u"]) || ")")
+           | (r <= 64, ?["SORT", "RSORT"] || "(" || c_sorted(n) || ")")
+           | (r <= 76, "PROTOTYPE(" || c_array() || ")")
+           | (r <= 84, "CONVERT(" || ?["u, 'ARRAY'", "u, 'ARRAY'", "SORT(u), 'TABLE'", "a, 'TABLE'", "TABLE(), 'ARRAY'"] || ")")
+           | (r <= 92, "a[" || c_sub() || ", " || c_sub() || "]")
+           | (?["SORT(u)", "RSORT(u)", "CONVERT(u, 'ARRAY')"] || "[" || c_sub() || ", " || ?["1", "2", "1", "2", "3"] || "]")
+           );
+end
+procedure c_proto()
+    return ?["'0:2'", "'0:2'", "'1:3'", "'-1:1'", "'2,2'", "'0:1,2'", "'3,2'"];
+end
+procedure c_sub()
+    return (?2 = 1, c_int()) | c_digit();
+end
+procedure c_sorted(d)
+    local r;
+    r := ?100;
+    return ( (r <= 30, "u" || ((?2 = 1, ", " || ?["1", "2", "0", "3"]) | ""))
+           | (r <= 50, "a")
+           | (r <= 60, "COPY(a)")
+           | (r <= 70, "CONVERT(u, 'ARRAY'), " || ?["1", "2"])
+           | (r <= 80, "ARRAY(" || c_proto() || ((?2 = 1, ", " || c_value(d)) | "") || ")")
+           | (r <= 85, "TABLE()")
+           | c_value(d)
+           );
+end
+procedure c_array()
+    local r;
+    r := ?100;
+    return ( (r <= 25, "a")
+           | (r <= 45, ?["SORT(u)", "RSORT(u)", "CONVERT(u, 'ARRAY')"])
+           | (r <= 65, "ARRAY(" || c_index() || ")")
+           | (r <= 85, "ARRAY(" || c_proto() || ")")
+           | ?["COPY(a)", "f(0)"]
+           );
+end
 procedure c_presets()
     local l, x, n;
     l := ["(A = B = C = D = E = F = G = H = I = J = K = L = M = N = O = P = Q = R = S = T = U = V = W = X = Y = Z = '')", "(inf_caps = 1)",
@@ -678,6 +795,7 @@ procedure r_leaf()
     local r;
     if /closed then return ?leaves;
     if scope >= 7 & ?100 <= 35 then return c_num();
+    if scope >= 9 & ?100 <= 15 then return c_aggr();
     r := ?100;
     return ( (r <= 60, c_value()) | (r <= 75, c_str()) | (r <= 85, c_digit()) | (r <= 92, c_prim()) | ?leaves );
 end
@@ -899,7 +1017,7 @@ end
 # families of steps 1..N and no later one, each emitter guarded by scope >= its step; scope=0 is the grammar from before the
 # ladder, so a batch is (scope, seed0, N) for ever. inf_scope_max is the highest step landed, bumped by each step's landing.
 procedure inf_scope_max()
-    return 8;
+    return 9;
 end
 procedure inf_lists()
     local a;

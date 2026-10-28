@@ -2151,3 +2151,5 @@ rank,entry,origin,family,kind,xfail,n_lines,heap_kb,stack_kb,compile_args,run_ar
 2150,user_function_eval_arbno_replace_branch_1,probe_ptj2__ptj1_arbno_defer_nonterminating,probe_ptj2,block,0,309,131072,4096,--stlimit,,1,0,1,1,1,0,0,1,1,1,1,0,0,0,0,1,0,1,1,1,0,0,1,0,1,0,1,0,1,0,1,0,1,1,1,1,1,1,1,1
 2151,demo_json,demo_snobol4_json__json,demo_snobol4_json,block,0,294,131072,4096,--stlimit,,1,0,1,1,1,0,0,1,1,1,1,0,0,0,0,1,0,1,1,1,0,0,1,1,1,0,1,1,1,0,1,0,1,1,1,1,1,1,1,1
 2152,benchmark_json,benchmark_snobol4_json__json,benchmark_snobol4_json,block,0,320,131072,4096,--stlimit,,1,0,1,1,1,0,0,1,1,1,1,0,0,0,0,1,0,1,1,1,0,0,1,1,1,0,1,1,1,0,1,0,1,1,1,1,1,1,1,1
+2153,ladder__rung07_inf_dotnet_sort_by_a_column_not_there,ladder__rung07_inf_dotnet_sort_by_a_column_not_there,ladder,block,0,12,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0
+2154,ladder__rung04_inf_dotnet_replacement_subject_holds_a_subscript_of_a_call,ladder__rung04_inf_dotnet_replacement_subject_holds_a_subscript_of_a_call,ladder,block,0,20,131072,4096,--stlimit,,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,1,0,0,0,1,0,1,0,1,0,0,0,0,0,1,1,0,0,0,0,0

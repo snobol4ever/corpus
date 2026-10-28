@@ -22607,3 +22607,37 @@ fail            t1              =   TIME()
                 TERMINAL        =   'match_ms=' (t1 - t0) / 1000000
 *------------------------------------------------------------------------------
 END
+*--------------------- 2153 ladder__rung07_inf_dotnet_sort_by_a_column_not_there
+* infinite_snobol4 scope=9 seed0=rcs09 batch 4 line 232: dotnet differs from sbl -bf -- a sort by a column the table does not have
+        &ERRLIMIT = 1000
+        u = TABLE()
+        u['a'] = 0
+        u['b'] = 1
+        SETEXIT('inf_err')
+        inf_r = RSORT(u, 3)  :F(inf_no)
+        OUTPUT = DATATYPE(inf_r) ' ' inf_r  :(inf_out)
+inf_no  OUTPUT = 'FAIL'  :(inf_out)
+inf_err OUTPUT = 'ERROR ' &ERRTYPE
+inf_out OUTPUT = 'X=' X ' ' 'Y=' Y ' ' 'Z=' Z  :(END)
+END
+*- 2154 ladder__rung04_inf_dotnet_replacement_subject_holds_a_subscript_of_a_call
+* infinite_snobol4 scope=9 seed0=rcs09 batch 2 line 373: dotnet differs from sbl -bf -- a replacement whose subject holds a subscript of a call
+        &ERRLIMIT = 1000
+        j = 9
+        u = TABLE()
+        u['a'] = 0
+        u['j'] = 9
+        u['k'] = 10
+        u['l'] = 11
+        u['m'] = 12
+        u['n'] = 13
+        u['o'] = 14
+        u['p'] = 15
+        u['q'] = 16
+        SETEXIT('inf_err')
+        inf_r = EVAL("~((Q = SIZE(RSORT(u)[j, 1])) Q ? ARBNO(SPAN(DUPL('6tj8w', 1))) = 'gt')")  :F(inf_no)
+        OUTPUT = DATATYPE(inf_r) ' ' inf_r  :(inf_out)
+inf_no  OUTPUT = 'FAIL'  :(inf_out)
+inf_err OUTPUT = 'ERROR ' &ERRTYPE
+inf_out OUTPUT = 'X=' X ' ' 'Y=' Y ' ' 'Z=' Z ' ' 'Q=' Q  :(END)
+END
