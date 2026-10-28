@@ -1,0 +1,9 @@
+procedure step(f, n);
+  return f(n);
+end
+procedure main();
+  local p, q, r;
+  p := move; q := tab; r := upto;
+  "abcdefgh" ? { p(2); write(&pos); step(q, 5); write(&pos); write(q(r('g'))); write(&pos); write(image(step(p, 1))) };
+  "xyz" ? write(image(step(tab, 0)), " ", &pos);
+end

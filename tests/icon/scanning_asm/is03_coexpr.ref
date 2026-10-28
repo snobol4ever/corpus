@@ -1,0 +1,9 @@
+main hello 3
+co sees hello 3
+co inner inner 1
+main after @c inner 1
+co back inner 1
+co end hello 4
+main after second @c hello 4
+main after third @c hello 4
+outside "" 1

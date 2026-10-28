@@ -1,0 +1,12 @@
+procedure main();
+  local c, s, n, i;
+  c := cset("aeiou"); s := "the quick brown fox jumps over the lazy dog";
+  write(upto(c, s), " ", many(&letters, s), " ", any(c, s, 3), " ", find("fox", s), " ", match("the", s, 1), " ", bal('x', '(', ')', "(a)x", 1));
+  write(upto('z', s, 10, 40), " ", find("o", s, 15, 30), " ", many(c -- 'u', "euoabc"), " ", any(&digits, "9x"));
+  every i := upto(c, s) do writes(i, " "); write();
+  n := "this needle is longer than thirty-two bytes for sure!";
+  s := "prefix " || n || " suffix";
+  write(find(n, s), " ", find(n || "!", s) | "nf");
+  s ? { write(tab(many(&lcase)), " ", move(1), " ", tab(upto(cset("sx"))), " ", pos(0), " ", &pos) };
+  write(any('abc', "b"), " ", any("abc", "c"), " ", (upto("", "x") | "none"));
+end

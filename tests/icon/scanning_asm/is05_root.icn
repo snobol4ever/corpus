@@ -1,0 +1,7 @@
+procedure main();
+  write(image(&subject), " ", &pos);
+  &subject := 42; write(image(&subject), " ", &pos);
+  &pos := 3; write(&pos); (&pos := 7) | write("7 fails ", &pos); &pos := 0; write(&pos); &pos := -1; write(&pos);
+  "abc" ? { write(&pos); &subject := "wxyz"; write(image(&subject), " ", &pos, " ", move(2)) };
+  write(image(&subject), " ", &pos, " ", move(1) | "no move");
+end

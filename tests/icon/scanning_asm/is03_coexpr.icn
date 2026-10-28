@@ -1,0 +1,6 @@
+procedure main();
+  local c;
+  c := create { write("co sees ", &subject, " ", &pos); &pos := 4; "inner" ? { write("co inner ", &subject, " ", &pos); @&source; write("co back ", &subject, " ", &pos) }; write("co end ", &subject, " ", &pos) };
+  "hello" ? { move(2); write("main ", &subject, " ", &pos); @c; write("main after @c ", &subject, " ", &pos); @c; write("main after second @c ", &subject, " ", &pos); @c; write("main after third @c ", &subject, " ", &pos) };
+  write("outside ", image(&subject), " ", &pos);
+end

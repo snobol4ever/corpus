@@ -1,0 +1,10 @@
+procedure main();
+  local s, t, u, big;
+  big := repl("abcdefghij", 50);
+  big ? { s := tab(3); t := move(4); u := tab(0) };
+  write(s, " ", t, " ", *u, " ", u[1:6], " ", u[-3:0]);
+  "hello world" ? { s := tab(upto(' ')); move(1); t := tab(0) };
+  write(s, "|", t, "|", *s + *t);
+  "aaa" ? { s := move(1); t := move(1); u := move(1) };
+  write(s === t, " ", s == t, " ", image(s));
+end
