@@ -94,6 +94,9 @@ parser_unary_indirect[tests]	already in the rungs (origin test_snobol4_parser_un
 parser_unary_not[tests]	already in the rungs (origin test_snobol4_parser_unary_not__parser_unary_not) -- not re-appended
 pattern_bt[benchmarks]	already in the rungs (origin benchmark_snobol4_pattern_bt__pattern_bt) -- not re-appended
 pattern_test[demos]	already in the rungs (origin demo_snobol4_pattern_test__pattern_test) -- not re-appended
+planner_finish_pf_cap_save	KEEPER, declared in planner_finish/KEEP.md -- never absorbed (deferral contract)
+planner_finish_pf_patfunc_arbno	KEEPER, declared in planner_finish/KEEP.md -- never absorbed (deferral contract)
+planner_finish_pf_scan	KEEPER, declared in planner_finish/KEEP.md -- never absorbed (deferral contract)
 polyglot_tri_main[scrip_test]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
 porter[benchmarks]	already in the rungs (origin benchmark_snobol4_porter__porter) -- not re-appended
 porter[demos]	already in the rungs (origin demo_snobol4_porter__porter) -- not re-appended
@@ -174,4 +177,4 @@ treebank-match[demos]	committed .ref disagrees with a fresh oracle run -- re-con
 treebank[demos]	already in the rungs (origin demo_snobol4_treebank__treebank) -- not re-appended
 var_access[benchmarks]	already in the rungs (origin benchmark_snobol4_var_access__var_access) -- not re-appended
 wordcount[demos]	already in the rungs (origin demo_snobol4_wordcount__wordcount) -- not re-appended
-# builder-digest: 75b35bdce1e371fb41a817055cacf81038c4f6036522db5f7a30881392366a65
+# builder-digest: 366888b7ba5846bdfde29715dad2b61046ad3578c327b5c58c95d8138c0cc69c
