@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1072 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=51 clusters=49 chunks=11 sizes=100,100,100,100,100,100,100,100,100,100,21
+# shape: entries=1073 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=51 clusters=49 chunks=11 sizes=100,100,100,100,100,100,100,100,100,100,22
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:07	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:07	family:ladder	
@@ -180,7 +180,7 @@ array_54	chunk:04	feat:sigil_array	sigil_array
 array_55	chunk:04	feat:sigil_array	sigil_array
 array_57	chunk:04	feat:sigil_array	sigil_array
 array_58	chunk:04	feat:sigil_array	sigil_array
-for_1	chunk:10	feat:for	for
+for_1	chunk:11	feat:for	for
 given_3	chunk:10	feat:given	given
 hash_10	chunk:07	feat:sigil_hash	sigil_hash
 hash_11	chunk:07	feat:sigil_hash	sigil_hash
@@ -967,7 +967,7 @@ while_say_try_1	core	core	die if say try while
 ladder__rung19_block_methcall_grep_and_map_listops	chunk:05	feat:for_with_say	for for_with_say range_op say sigil_array
 class_method_multi_replace_4	chunk:08	feat:multi	method multi return say
 ladder__rung04_arrays_cross_zip_flat_and_unpacking	chunk:07	feat:join	for for_with_say join range_op sigil_array
-ladder__rung15_blocks_map_grep_first_named_sub_and_n_arity_blocks	core	core	grep join map sigil_array sub
+ladder__rung15_blocks_map_grep_first_named_sub_and_n_arity_blocks	chunk:10	feat:grep	grep join map sigil_array sub
 ladder__rung13_classes_inheritance	chunk:09	feat:range_op	method range_op return string_concat
 ladder__rung16_bool_bool_pick_and_bool_roll_are_a_coin	chunk:09	feat:smartmatch	for for_with_say sigil_hash smartmatch string_concat
 sub_for_range_replace_2	chunk:05	feat:for_with_say	for for_with_say range_op say sub
@@ -1044,6 +1044,7 @@ sub_regex_smartmatch_replace_1	core	core	if regex regex_with_smartmatch say smar
 ladder__rung13_classes_a_class_body_runs_where_it_is_declared_and_its_lexicals_are_each_class_own_and_seen_by_its_methods	core	core	has join method our sigil_array sigil_hash
 class_method_multi_replace_3	core	core	method multi return say string_concat sub sub_with_return
 ladder__rung03_strings_a_method_call_with_parentheses_interpolates_in_a_double_quoted_string	chunk:09	feat:map	for for_with_say join map range_op sigil_array smartmatch string_concat
+ladder__rung19_block_a_whatevercode_listop_for_over_sort_and_map_and_a_sub_topic_are_lowered	core	core	for for_with_say grep join map range_op sigil_array sub
 ladder__rung11_junctions_a_junction_in_boolean_context_collapses_and_star_smartmatch_against_a_type_is_a_whatevercode	core	core	grep if junction map say sigil_array smartmatch string_concat
 benchmark_rc-self-describing-numbers	core	core	for for_with_say if range_op return sigil_array sub sub_with_return
 ladder__rung09_regex_a_match_statement_in_a_sub_returns_to_its_caller	core	core	for for_with_say loop range_op regex smartmatch string_concat sub

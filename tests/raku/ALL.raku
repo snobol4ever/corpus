@@ -5963,7 +5963,17 @@ my $o = "s"; say "q $o.uc() r";
 say "(@a.map({ $_ + 1 }).join(','),)";
 my @q = ($_ * 2 for 1..3); say @q.raku;
 my @r = (1..4).map({ $_ * $_ }); say "sq: @r.join(' ')";
-#- 1043 ladder__rung11_junctions_a_junction_in_boolean_context_collapses_and_star_smartmatch_against_a_type_is_a_whatevercode
+#- 1043 ladder__rung19_block_a_whatevercode_listop_for_over_sort_and_map_and_a_sub_topic_are_lowered
+my @array = <3 1 2>;
+say map(* x 2, <a b>).join(",");
+say grep(* > 1, 1..3).join(",");
+for sort @array -> $e { say $e }
+for (map { $_ * 2 }, sort @array) -> $e { say $e }
+for (map { 1 }, @array) -> $e { say $e }
+sub topic { $_.gist }
+say topic();
+for 1..2 { say topic() }
+#- 1044 ladder__rung11_junctions_a_junction_in_boolean_context_collapses_and_star_smartmatch_against_a_type_is_a_whatevercode
 say (True, 3).map(* ~~ Bool);
 say (1, "a", 2.5).grep(* ~~ Int);
 say so all (True, 3).map(* ~~ Bool);
@@ -5978,7 +5988,7 @@ if all(1, 0) { say "yes" } else { say "no" }
 if any(1, 0) { say "yes" } else { say "no" }
 my @m = (1, 0).map({ $_ > 0 });
 say so all @m;
-#------------------------------------- 1044 benchmark_rc-self-describing-numbers
+#------------------------------------- 1045 benchmark_rc-self-describing-numbers
 sub is_selfdesc($n) {
     my $s = $n.Str;
     my $chars = $s.chars;
@@ -5994,7 +6004,7 @@ sub is_selfdesc($n) {
 
 # check all numbers from 0 to SCALE
 .say if is_selfdesc($_) for 0 .. 5000;
-#---- 1045 ladder__rung09_regex_a_match_statement_in_a_sub_returns_to_its_caller
+#---- 1046 ladder__rung09_regex_a_match_statement_in_a_sub_returns_to_its_caller
 sub t() {
     "a" ~~ /a/;
     say "void";
@@ -6010,7 +6020,7 @@ sub t() {
 }
 t();
 say "end";
-#- 1046 ladder__rung08_for_a_for_loop_over_the_topic_restores_the_outer_topic_when_it_ends_by_exhaustion_last_or_return
+#- 1047 ladder__rung08_for_a_for_loop_over_the_topic_restores_the_outer_topic_when_it_ends_by_exhaustion_last_or_return
 for 1..3 { }
 say $_.defined;
 $_ = "outer";
@@ -6028,7 +6038,7 @@ say $_;
 for 1..2 -> $x { print $x }
 say "";
 say $_;
-#- 1047 ladder__rung10_given_a_when_arm_in_a_block_or_sub_body_and_a_given_or_if_as_a_value
+#- 1048 ladder__rung10_given_a_when_arm_in_a_block_or_sub_body_and_a_given_or_if_as_a_value
 sub t(&c) { c() }
 t({ my $n = 0; while $n++ < 2 { when 'hi' { say "hi" } }; say "done" });
 sub e4($x) { given $x { when 1 { "one" }; when 2 { "two" }; default { "d" } } }
@@ -6046,7 +6056,7 @@ my $c = 1; my $w = do if $c { "p" } else { "q" }; say $w;
 my $z = do { if $c { "x" } else { "y" } }; say $z;
 my $i = 0; $i++ for do given 1 { when True { 5 } }; say $i;
 my $h = ${ a => 1, b => 2 }; say $h<a>; say $h.elems;
-#- 1048 ladder__rung04_arrays_xx_repeats_its_left_side_unflattened_and_a_range_in_a_comma_list_is_one_range_element
+#- 1049 ladder__rung04_arrays_xx_repeats_its_left_side_unflattened_and_a_range_in_a_comma_list_is_one_range_element
 say (1, "a") xx 2;
 my @a = 1, 2;
 say @a xx 2;
@@ -6066,7 +6076,7 @@ say flat (1..2, 3..4);
 say (1..2, 5).map({ $_ ~~ Range });
 for 1..2, 5 { say $_ }
 say ((1, 2) xx 2).map(*.elems);
-#- 1049 ladder__rung09_regex_a_failed_match_statement_does_not_end_its_loop_or_sub_body
+#- 1050 ladder__rung09_regex_a_failed_match_statement_does_not_end_its_loop_or_sub_body
 my $s = "hello";
 for 1..2 {
     $s ~~ /:i xyz/;
@@ -6086,7 +6096,7 @@ t();
 my $m = $s ~~ /<ident>z/;
 say $m.defined;
 say "end";
-#------------------------------------------------- 1050 benchmark_insertion-sort
+#------------------------------------------------- 1051 benchmark_insertion-sort
 use v6;
 # SCRIP corpus import: input made deterministic IN-PROGRAM (fixed-seed LCG below) rather than via
 # the runtime's rand()/srand() -- output must be comparable across implementations with different
@@ -6113,7 +6123,7 @@ for 1..SCALE -> $i { $lcg = ($lcg * 75 + 74) % 65537; @ints[$i-1] = $lcg % 500; 
 @ints = 0 unless SCALE;
 insertion-sort @ints;
 say @ints[0];
-#---------------------------------------------- 1051 sub_when_junction_replace_1
+#---------------------------------------------- 1052 sub_when_junction_replace_1
 # rk_junctions.raku — RK-BB-4 junction probe.
 # Tests `any`/`all`/`one`/`none` constructors and infix `|`/`&`
 # autothreading semantics. Bool-collapse on ω/γ per goal spec.
@@ -6140,7 +6150,7 @@ sub main() {
     if ($x == (3 & 3 & 3))   { say('amp-hit');  }   # ⇒ amp-hit
 }
 main();
-#-------------------------------------------------- 1052 benchmark_rc-mandelbrot
+#-------------------------------------------------- 1053 benchmark_rc-mandelbrot
 constant SQUISH = 1.5;
 
 sub MAIN(Int $w = 31, Int $max_iterations = 50) {
@@ -6174,7 +6184,7 @@ sub MAIN(Int $w = 31, Int $max_iterations = 50) {
         print "\n"
     }
 }
-#------------------------------------------------ 1053 benchmark_point_class_add
+#------------------------------------------------ 1054 benchmark_point_class_add
 # Point Class Benchmarks
 
 # Here's the runtime for the point class in seconds (YMMV). Lower is better:
@@ -6214,7 +6224,7 @@ while $i < 1000000 {
 my $t1 = wall_us(); my $m1 = wall_ms();
 print $a.x, ' ', $a.y;
 note("BENCH kernel=point_class_add work_us=" ~ ($t1 - $t0) ~ " work_ms=" ~ ($m1 - $m0));
-#- 1054 ladder__rung09_regex_grammars_protos_actions_and_lexical_regexes_agree_with_rakudo
+#- 1055 ladder__rung09_regex_grammars_protos_actions_and_lexical_regexes_agree_with_rakudo
 {
     grammar G { token TOP { a+ } }
     say G.parse("aaa");
@@ -6255,7 +6265,7 @@ say $m.made;
 say $m<num>[1].made;
 say "abc" ~~ /(a(b(c)))/;
 say "ab" ~~ /$<x>=(a $<y>=(b))/;
-#----------------------------------------------------- 1055 benchmark_merge-sort
+#----------------------------------------------------- 1056 benchmark_merge-sort
 use v6;
 # SCRIP corpus import: input made deterministic IN-PROGRAM (fixed-seed LCG below) rather than via
 # the runtime's rand()/srand() -- output must be comparable across implementations with different
@@ -6298,7 +6308,7 @@ for 1..SCALE -> $i { $lcg = ($lcg * 75 + 74) % 65537; @a[$i-1] = $lcg % 500; }
 @a = 0 unless SCALE;
 merge-sort @a;
 say @a[0];
-#----------------------------------------------- 1056 benchmark_point_class_add1
+#----------------------------------------------- 1057 benchmark_point_class_add1
 # Point Class Benchmarks
 
 # Here's the runtime for the point class in seconds (YMMV). Lower is better:
@@ -6343,7 +6353,7 @@ while $i < 1000000 {
 my $t1 = wall_us(); my $m1 = wall_ms();
 print $a.x, ' ', $a.y;
 note("BENCH kernel=point_class_add1 work_us=" ~ ($t1 - $t0) ~ " work_ms=" ~ ($m1 - $m0));
-#- 1057 ladder__rung02_arithmetic_rat_as_an_argument_a_receiver_and_a_container_element_agrees_with_rakudo
+#- 1058 ladder__rung02_arithmetic_rat_as_an_argument_a_receiver_and_a_container_element_agrees_with_rakudo
 my $s = "abcdefghij";
 my @a = 10..19;
 my $n = 6;
@@ -6397,7 +6407,7 @@ say 3.14.comb(1);
 say 1.5.join(",");
 say 1.5.sort;
 say 1.5.sum;
-#- 1058 ladder__rung07_subs_a_subset_is_a_type_and_a_where_clause_checks_a_parameter
+#- 1059 ladder__rung07_subs_a_subset_is_a_type_and_a_where_clause_checks_a_parameter
 subset Big where * > 5;
 subset Even of Int where { $_ % 2 == 0 };
 subset Small of Int where $_ < 3;
@@ -6458,7 +6468,7 @@ say $w.ok(5);
 say $w.ok(-1);
 say $w.size-ok(2);
 say $w.size-ok("x");
-#---------------------------------------------------- 1059 scrip_test_rk_given18
+#---------------------------------------------------- 1060 scrip_test_rk_given18
 # rk_given18.raku — RK-18: given/when extended coverage
 # Tests: nested given/when, given in a loop, default fallthrough,
 # mixed numeric and string when-arms.
@@ -6520,7 +6530,7 @@ sub main() {
     in_loop();
 }
 main();
-#- 1060 ladder__rung10_given_a_when_arm_is_its_own_node_a_given_binds_the_topic_and_a_matched_when_leaves_the_block
+#- 1061 ladder__rung10_given_a_when_arm_is_its_own_node_a_given_binds_the_topic_and_a_matched_when_leaves_the_block
 given 7 { my $z = .Str; say $z }
 given 8 { when 8 { say "w" }; say "x" }
 given 9 { say "pre"; when 9 { say "nine" }; say "post" }
@@ -6531,7 +6541,7 @@ given "ab" { my $z = .uc; say $z }
 sub cls($n) { given $n { when 0 { return "zero" }; when 1 { return "one" }; default { return "many" } } }
 say cls(0), cls(1), cls(5);
 try { die "x"; CATCH { when X::AdHoc { say "caught ", .message } } }
-#- 1061 ladder__rung04_arrays_an_infinite_or_whatever_ended_range_is_lazy_where_it_is_iterated_and_a_range_value_where_it_is_held
+#- 1062 ladder__rung04_arrays_an_infinite_or_whatever_ended_range_is_lazy_where_it_is_iterated_and_a_range_value_where_it_is_held
 say (1..Inf).head(3);
 say (1..*).head(3);
 for 1..Inf { last if $_ > 3; say $_ }
@@ -6555,7 +6565,7 @@ say (1 xx *).head(2);
 say (0 xx *)[^4];
 my @z = ('a', 'b') Z (0 xx *);
 say @z;
-#- 1062 ladder__rung05_hashes_a_hash_slice_reads_assigns_tests_and_deletes_several_keys
+#- 1063 ladder__rung05_hashes_a_hash_slice_reads_assigns_tests_and_deletes_several_keys
 my %hash = (a => 1, b => 2, c => 3, d => 4);
 my @s = %hash{'a', 'b'};
 say @s.elems;
@@ -6591,7 +6601,7 @@ my %g;
 say %g.sort.map({ .key ~ .value }).join(",");
 say %g{'x','q'}.map({ .defined ?? "d" !! "u" }).join(",");
 say (%g<x y z>).sum;
-#- 1063 ladder__rung02_arithmetic_rat_in_the_builtins_index_range_x_floor_abs_sqrt_sprintf_int_and_caret
+#- 1064 ladder__rung02_arithmetic_rat_in_the_builtins_index_range_x_floor_abs_sqrt_sprintf_int_and_caret
 my @a = (10, 20, 30, 40);
 say @a[7/4];
 say @a[1.5];
@@ -6684,7 +6694,7 @@ say 1.23456789 * 1000;
 say 100 * 1.1;
 say 1.15 * 100;
 say 33.333333 * 3;
-#- 1064 ladder__rung15_blocks_a_builtin_routine_reference_an_anonymous_method_and_return_fail_or_next_as_an_assignment_rhs_are_lowered
+#- 1065 ladder__rung15_blocks_a_builtin_routine_reference_an_anonymous_method_and_return_fail_or_next_as_an_assignment_rhs_are_lowered
 my $as = &lc;
 say $as("ABC");
 say <a b C>.map(&uc).join(",");
@@ -6698,7 +6708,7 @@ sub rt { my $r = return 5; 7 }
 say rt();
 for 1..3 { my $n = next; say 7 }
 say "done";
-#----------------- 1065 ladder__rung09_regex_engine_captures_1_agree_with_rakudo
+#----------------- 1066 ladder__rung09_regex_engine_captures_1_agree_with_rakudo
 sub esc($s) { $s.subst("\n", '\n', :g).subst("\t", '\t', :g) }
 sub fmt($x) { $x ~~ Positional ?? "[" ~ $x.map({fmt($_)}).join(",") ~ "]" !! "<" ~ esc($x.Str) ~ ">" }
 sub show($m) { my @o = "M {$m.from} {$m.to} <{esc($m.Str)}>"; my @l = $m.list; for ^@l.elems -> $i { @o.push: "$i=" ~ (@l[$i].defined ?? fmt(@l[$i]) !! "-") }; my %h = $m.hash; for %h.keys.sort -> $k { @o.push: "$k=" ~ fmt(%h{$k}) }; say @o.join(" ") }
@@ -6748,7 +6758,7 @@ if '12' ~~ /<alpha>* <digit>+/ { show($/) } else { say "NO" }
 if '1,2,3' ~~ /<digit>+ % ','/ { show($/) } else { say "NO" }
 if '1,2,3' ~~ /(<digit>)+ % ','/ { show($/) } else { say "NO" }
 if '1,2,3' ~~ /$<d>=<digit>+ % ','/ { show($/) } else { say "NO" }
-#-------------- 1066 ladder__rung09_regex_engine_quantifiers_1_agree_with_rakudo
+#-------------- 1067 ladder__rung09_regex_engine_quantifiers_1_agree_with_rakudo
 sub esc($s) { $s.subst("\n", '\n', :g).subst("\t", '\t', :g) }
 sub fmt($x) { $x ~~ Positional ?? "[" ~ $x.map({fmt($_)}).join(",") ~ "]" !! "<" ~ esc($x.Str) ~ ">" }
 sub show($m) { my @o = "M {$m.from} {$m.to} <{esc($m.Str)}>"; my @l = $m.list; for ^@l.elems -> $i { @o.push: "$i=" ~ (@l[$i].defined ?? fmt(@l[$i]) !! "-") }; my %h = $m.hash; for %h.keys.sort -> $k { @o.push: "$k=" ~ fmt(%h{$k}) }; say @o.join(" ") }
@@ -6779,7 +6789,7 @@ if 'aaa' ~~ /a:/ { show($/) } else { say "NO" }
 if 'aab' ~~ /a: b/ { show($/) } else { say "NO" }
 if 'ab' ~~ /a: | b/ { show($/) } else { say "NO" }
 if 'ab' ~~ /[a: | ab]/ { show($/) } else { say "NO" }
-#------------------- 1067 ladder__rung09_regex_engine_sigspace_agree_with_rakudo
+#------------------- 1068 ladder__rung09_regex_engine_sigspace_agree_with_rakudo
 sub esc($s) { $s.subst("\n", '\n', :g).subst("\t", '\t', :g) }
 sub fmt($x) { $x ~~ Positional ?? "[" ~ $x.map({fmt($_)}).join(",") ~ "]" !! "<" ~ esc($x.Str) ~ ">" }
 sub show($m) { my @o = "M {$m.from} {$m.to} <{esc($m.Str)}>"; my @l = $m.list; for ^@l.elems -> $i { @o.push: "$i=" ~ (@l[$i].defined ?? fmt(@l[$i]) !! "-") }; my %h = $m.hash; for %h.keys.sort -> $k { @o.push: "$k=" ~ fmt(%h{$k}) }; say @o.join(" ") }
@@ -6818,7 +6828,7 @@ if 'Ab' ~~ /(:i a) b/ { show($/) } else { say "NO" }
 if 'AB' ~~ /(:i a) b/ { show($/) } else { say "NO" }
 if 'aBc' ~~ /a [:i b] c/ { show($/) } else { say "NO" }
 if 'aBC' ~~ /a [:i b] c/ { show($/) } else { say "NO" }
-#--------------------- 1068 ladder__rung09_regex_engine_batch2_agree_with_rakudo
+#--------------------- 1069 ladder__rung09_regex_engine_batch2_agree_with_rakudo
 sub esc($s) { $s.subst("\n", '\n', :g).subst("\t", '\t', :g) }
 sub fmt($x) { $x ~~ Positional ?? "[" ~ $x.map({fmt($_)}).join(",") ~ "]" !! "<" ~ esc($x.Str) ~ ">" }
 sub show($m) { my @o = "M {$m.from} {$m.to} <{esc($m.Str)}>"; my @l = $m.list; for ^@l.elems -> $i { @o.push: "$i=" ~ (@l[$i].defined ?? fmt(@l[$i]) !! "-") }; my %h = $m.hash; for %h.keys.sort -> $k { @o.push: "$k=" ~ fmt(%h{$k}) }; say @o.join(" ") }
@@ -6863,7 +6873,7 @@ if 'bc' ~~ /[a | b] c/ { show($/) } else { say "NO" }
 if 'ab' ~~ /'a' | 'ab'/ { show($/) } else { say "NO" }
 if 'ab' ~~ /<alpha>*?/ { show($/) } else { say "NO" }
 if 'ab1' ~~ /<alpha>+?<digit>/ { show($/) } else { say "NO" }
-#------------------- 1069 ladder__rung09_regex_engine_basics_1_agree_with_rakudo
+#------------------- 1070 ladder__rung09_regex_engine_basics_1_agree_with_rakudo
 sub esc($s) { $s.subst("\n", '\n', :g).subst("\t", '\t', :g) }
 sub fmt($x) { $x ~~ Positional ?? "[" ~ $x.map({fmt($_)}).join(",") ~ "]" !! "<" ~ esc($x.Str) ~ ">" }
 sub show($m) { my @o = "M {$m.from} {$m.to} <{esc($m.Str)}>"; my @l = $m.list; for ^@l.elems -> $i { @o.push: "$i=" ~ (@l[$i].defined ?? fmt(@l[$i]) !! "-") }; my %h = $m.hash; for %h.keys.sort -> $k { @o.push: "$k=" ~ fmt(%h{$k}) }; say @o.join(" ") }
@@ -6916,7 +6926,7 @@ if 'ab1' ~~ /<x=alpha>+/ { show($/) } else { say "NO" }
 if 'a1b2' ~~ /[<alpha>|<digit>]+/ { show($/) } else { say "NO" }
 if 'FOO' ~~ /:i foo/ { show($/) } else { say "NO" }
 if 'fOo' ~~ /:i f.o/ { show($/) } else { say "NO" }
-#------------------- 1070 ladder__rung09_regex_engine_basics_2_agree_with_rakudo
+#------------------- 1071 ladder__rung09_regex_engine_basics_2_agree_with_rakudo
 sub esc($s) { $s.subst("\n", '\n', :g).subst("\t", '\t', :g) }
 sub fmt($x) { $x ~~ Positional ?? "[" ~ $x.map({fmt($_)}).join(",") ~ "]" !! "<" ~ esc($x.Str) ~ ">" }
 sub show($m) { my @o = "M {$m.from} {$m.to} <{esc($m.Str)}>"; my @l = $m.list; for ^@l.elems -> $i { @o.push: "$i=" ~ (@l[$i].defined ?? fmt(@l[$i]) !! "-") }; my %h = $m.hash; for %h.keys.sort -> $k { @o.push: "$k=" ~ fmt(%h{$k}) }; say @o.join(" ") }
@@ -6969,7 +6979,7 @@ if 'a1' ~~ /<alpha> <digit>/ { show($/) } else { say "NO" }
 if 'abcd' ~~ /'ab' 'cd'/ { show($/) } else { say "NO" }
 if 'a b' ~~ /:s (a) (b)/ { show($/) } else { say "NO" }
 if 'a b' ~~ /:s  a b / { show($/) } else { say "NO" }
-#------------------- 1071 ladder__rung09_regex_engine_basics_3_agree_with_rakudo
+#------------------- 1072 ladder__rung09_regex_engine_basics_3_agree_with_rakudo
 sub esc($s) { $s.subst("\n", '\n', :g).subst("\t", '\t', :g) }
 sub fmt($x) { $x ~~ Positional ?? "[" ~ $x.map({fmt($_)}).join(",") ~ "]" !! "<" ~ esc($x.Str) ~ ">" }
 sub show($m) { my @o = "M {$m.from} {$m.to} <{esc($m.Str)}>"; my @l = $m.list; for ^@l.elems -> $i { @o.push: "$i=" ~ (@l[$i].defined ?? fmt(@l[$i]) !! "-") }; my %h = $m.hash; for %h.keys.sort -> $k { @o.push: "$k=" ~ fmt(%h{$k}) }; say @o.join(" ") }
@@ -7022,7 +7032,7 @@ if '.abc' ~~ /\. abc/ { show($/) } else { say "NO" }
 if '^abc' ~~ /\^ abc/ { show($/) } else { say "NO" }
 if '(abc)' ~~ /\( abc \)/ { show($/) } else { say "NO" }
 if '[abc]' ~~ /\[ abc \]/ { show($/) } else { say "NO" }
-#------------------ 1072 ladder__rung09_regex_engine_classes_1_agree_with_rakudo
+#------------------ 1073 ladder__rung09_regex_engine_classes_1_agree_with_rakudo
 sub esc($s) { $s.subst("\n", '\n', :g).subst("\t", '\t', :g) }
 sub fmt($x) { $x ~~ Positional ?? "[" ~ $x.map({fmt($_)}).join(",") ~ "]" !! "<" ~ esc($x.Str) ~ ">" }
 sub show($m) { my @o = "M {$m.from} {$m.to} <{esc($m.Str)}>"; my @l = $m.list; for ^@l.elems -> $i { @o.push: "$i=" ~ (@l[$i].defined ?? fmt(@l[$i]) !! "-") }; my %h = $m.hash; for %h.keys.sort -> $k { @o.push: "$k=" ~ fmt(%h{$k}) }; say @o.join(" ") }
