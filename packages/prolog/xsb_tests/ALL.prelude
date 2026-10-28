@@ -17,4 +17,36 @@
 # indexing directive -- 9 :- index Name/Arity-Arg lines in 6 files, ai_tests/can_mono.P's two among them, which every ai_tests program imports
 # from; SCRIP's index/1 answers the directive (an indexing hint, no answer changes).
 :- op(1100, fy, index).
+# hq_icon 2026-10-28 (CEO-1926): the rest of the operators XSB's reader holds (syslib/file_op.P '_$op1', XSB 5.0.0) that SCRIP's reader lacks, in XSB's own priorities and types, so a program written
+# in them parses as XSB reads it: the prefix forms do_all (fx and xfy 1150) and if_none (xfy 1150) of XSB's do_all/1,2, the tabling and threading declarations (use_variant_tabling, use_subsumptive_tabling,
+# use_incremental_tabling, use_incremental_dynamic, use_opaque_tabling, thread_shared, thread_private, edb), the file and module declarations (ti, ti_off, mode, mode_on_success, annotation,
+# document_export, parallel, local, foreign_pred, private_foreign_pred, compile_command, attribute at 1100, document_import 1050), the renaming import's infix as (xfx 1045: :- import P from M as Q.),
+# tnot (fy 900) and the infix >< (yfx 500). Measured neutral on every entry that passed before; foreign_tests_test_importas needs `as`.
+:- op(1150, xfy, do_all).
+:- op(1150, fx, do_all).
+:- op(1150, xfy, if_none).
+:- op(1100, fx, use_variant_tabling).
+:- op(1100, fx, use_subsumptive_tabling).
+:- op(1100, fx, use_incremental_tabling).
+:- op(1100, fx, use_incremental_dynamic).
+:- op(1100, fx, use_opaque_tabling).
+:- op(1100, fx, thread_shared).
+:- op(1100, fx, thread_private).
+:- op(1100, fx, edb).
+:- op(1100, fy, ti).
+:- op(1100, fy, ti_off).
+:- op(1100, fx, mode).
+:- op(1100, fx, mode_on_success).
+:- op(1100, fx, annotation).
+:- op(1100, fx, document_export).
+:- op(1100, fx, parallel).
+:- op(1100, fx, local).
+:- op(1100, fx, foreign_pred).
+:- op(1100, fx, private_foreign_pred).
+:- op(1100, fx, compile_command).
+:- op(1100, fx, attribute).
+:- op(1050, fy, document_import).
+:- op(1045, xfx, as).
+:- op(900, fy, tnot).
+:- op(500, yfx, ><).
 :- compiler_options([]).
