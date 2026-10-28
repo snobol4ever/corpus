@@ -22641,3 +22641,18 @@ inf_no  OUTPUT = 'FAIL'  :(inf_out)
 inf_err OUTPUT = 'ERROR ' &ERRTYPE
 inf_out OUTPUT = 'X=' X ' ' 'Y=' Y ' ' 'Z=' Z ' ' 'Q=' Q  :(END)
 END
+*-------------- 2155 ladder__rung06_inf_dotnet_star_defers_a_subscript_of_a_call
+* infinite_snobol4 scope=9 seed0=20261028 batch 3 line 254: dotnet differs from sbl -bf -- a star before a subscripted call defers the whole element (rung06, the nearest: no rung is the deferred expression, and its operand is an array element)
+        &ERRLIMIT = 1000
+        d = 3
+        u = TABLE()
+        u['a'] = 0
+        u['b'] = 1
+        u['c'] = 2
+        SETEXIT('inf_err')
+        inf_r = '7r' ? *SORT(u)[d, 1] | (TAN(0.))  :F(inf_no)
+        OUTPUT = DATATYPE(inf_r) ' ' inf_r  :(inf_out)
+inf_no  OUTPUT = 'FAIL'  :(inf_out)
+inf_err OUTPUT = 'ERROR ' &ERRTYPE
+inf_out OUTPUT = 'X=' X ' ' 'Y=' Y ' ' 'Z=' Z  :(END)
+END
