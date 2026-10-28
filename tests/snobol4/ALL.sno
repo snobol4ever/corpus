@@ -22421,3 +22421,38 @@ LV      OUTPUT = 'LV ok'
 BAD5    OUTPUT = 'bad5'   :(END)
 LEND    OUTPUT = 'done'
 END
+*- 2146 ladder__rung05_goto_a_value_operand_is_error_212_a_name_form_compiles_and_no_character_is_dropped
+        &ERRLIMIT = 100
+        DEFINE('F(X)')
+        A = ARRAY(3)
+        L = ARRAY(22)
+        L<1> = " Y = 1 :(X ? 'a')"
+        L<2> = " Y = 1 :(1 + 2)"
+        L<3> = " Y = 1 :('a' 'b')"
+        L<4> = " Y = 1 :('a' | 'b')"
+        L<5> = " Y = 1 :(~X)"
+        L<6> = " Y = 1 :(\X)"
+        L<7> = " Y = 1 :((X = 1))"
+        L<8> = " Y = 1 :('L')"
+        L<9> = " Y = 1 :(1)"
+        L<10> = " Y = 1 :(-X)"
+        L<11> = " Y = 1 :(X . Y)"
+        L<12> = " Y = 1 :(X)"
+        L<13> = " Y = 1 :($X)"
+        L<14> = " Y = 1 :(A[1])"
+        L<15> = " Y = 1 :(F(X))"
+        L<16> = " Y = 1 :(*X)"
+        L<17> = " Y = 1 :(&ANCHOR)"
+        L<18> = " Y = 1 :((X))"
+        L<19> = " Y = 1 :($$X)"
+        L<20> = " Y = 1 :(F(1 + 2))"
+        L<21> = " Y = 1 :($(A + B))"
+        L<22> = " Y = 1 :(X @ Y)"
+        N = 0
+LOOP    N = N + 1
+        S = L<N>                                :F(END)
+        &ERRTYPE = 0
+        CODE(S)                                 :F(BAD)
+        OUTPUT = 'compiled: ' S                 :(LOOP)
+BAD     OUTPUT = &ERRTYPE ': ' S                :(LOOP)
+END
