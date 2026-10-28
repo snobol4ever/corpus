@@ -1,0 +1,219 @@
+# COVERAGE.tsv -- THE VOCABULARY THE RANDOM GENERATOR AND THE EXHAUSTIVE ENUMERATOR ARE MEASURED AGAINST (the cto, 2026-10-28, CEO-1999; ARCH-RANDOM-SNOBOL4-GENERATOR.md DESIGN-PLAN: random-codegen-scope).
+# One row per construct of the SPITBOL manual v3.7 (chapter cited). regex is applied to the TEST lines of generated batches (preset lines are skipped unless the row says otherwise);
+# spelling is the substring a reader greps the generator for. instrument: gen = infinite_snobol4 Icon section, enum = util_program_enumerator.py, none = out of scope by design.
+# step: 0 = reached today (measured by util_inf_snobol4_coverage_census.py), N = the DESIGN-PLAN step that adds it, -1 = never (the note says why).
+family	construct	chapter	spelling	regex	instrument	step	note
+pattern-primitive	ANY	Ch6/Ch9/Ch17	ANY(	\bANY\(	gen	0	
+pattern-primitive	NOTANY	Ch6/Ch9/Ch17	NOTANY(	\bNOTANY\(	gen	0	
+pattern-primitive	SPAN	Ch6/Ch9/Ch17	SPAN(	\bSPAN\(	gen	0	
+pattern-primitive	BREAK	Ch6/Ch9/Ch17	BREAK(	\bBREAK\(	gen	0	
+pattern-primitive	BREAKX	Ch6/Ch9/Ch17	BREAKX(	\bBREAKX\(	gen	0	
+pattern-primitive	POS	Ch6/Ch9/Ch17	POS(	\bPOS\(	gen	0	
+pattern-primitive	RPOS	Ch6/Ch9/Ch17	RPOS(	\bRPOS\(	gen	0	
+pattern-primitive	LEN	Ch6/Ch9/Ch17	LEN(	\bLEN\(	gen	0	
+pattern-primitive	TAB	Ch6/Ch9/Ch17	TAB(	\bTAB\(	gen	0	
+pattern-primitive	RTAB	Ch6/Ch9/Ch17	RTAB(	\bRTAB\(	gen	0	
+pattern-primitive	ARBNO	Ch6/Ch9/Ch17	ARBNO(	\bARBNO\(	gen	0	
+pattern-primitive	FENCE_fn	Ch9 p.124	FENCE(	\bFENCE\(	gen	0	
+pattern-primitive	ARB	Ch9 p.124	ARB	(?<![A-Z&])ARB\b(?!\()	gen	0	
+pattern-primitive	BAL	Ch9 p.124	BAL	(?<![A-Z&])BAL\b(?!\()	gen	0	
+pattern-primitive	REM	Ch9 p.124	REM	(?<![A-Z&])REM\b(?!\()	gen	0	
+pattern-primitive	FAIL	Ch9 p.124	FAIL	(?<![A-Z&])FAIL\b(?!\()	gen	0	
+pattern-primitive	FENCE	Ch9 p.124	FENCE	(?<![A-Z&])FENCE\b(?!\()	gen	0	
+pattern-primitive	ABORT	Ch9 p.124	ABORT	(?<![A-Z&])ABORT\b(?!\()	gen	0	
+pattern-primitive	SUCCEED	Ch9 p.124	SUCCEED	\bSUCCEED\b	none	-1	EXCLUDED: never ends a failing match (inf_exclude.tsv)
+pattern-primitive	literal_pattern	Ch6 p.56	'	'[^']*'	gen	0	
+pattern-primitive	DUPL_pattern	Ch17 DUPL(pattern, i)	DUPL(	\bDUPL\([^,)]*(ANY|SPAN|BREAK|LEN|POS|TAB|ARB|BAL|REM|FENCE|\*)	gen	3	SPITBOL extension: DUPL of a pattern
+pattern-operator	alternation	Ch6 p.57	|	 \| 	gen	0	
+pattern-operator	concatenation	Ch6 p.57	 	(\)|'|[A-Z]) ([A-Z'(*$]|\$)	gen	0	
+pattern-operator	grouping	Ch6 p.57	(	\((?!\))	gen	0	
+pattern-operator	cond_assign	Ch6 p.62	 . 	 \. 	gen	0	
+pattern-operator	imm_assign	Ch7 p.87	 $ 	 \$ 	gen	0	
+pattern-operator	cursor_at	Ch6 p.71	@	(^|[ (])@[A-Za-z$]	gen	4	
+pattern-operator	deferred_star	Ch7 p.85	*	(^|[ (])\*[A-Za-z$(]	gen	0	
+pattern-operator	deferred_integer_arg	Ch6 p.63 Unknowns	LEN(*	\b(LEN|POS|RPOS|TAB|RTAB)\(\*	gen	4	
+pattern-operator	deferred_expression_arg	Ch7 p.85	*(	\*\(	gen	0	the EXPR walk emits *(expr); step 4 puts it INSIDE a positional primitive (deferred_integer_arg)
+pattern-operator	replacement	Ch6 p.72	 = 	 \? .* = 	gen	5	
+pattern-operator	match_as_value	Ch15 p.183 embedded match	(x ? p)	\([^()]* \? [^()]*\) 	gen	5	reached by the EXPR walk (presets 1/2); step 5 brings the embedded match into the closed world
+pattern-operator	anchored_mode	Ch6 p.78 &ANCHOR	&ANCHOR = 1	^\(&ANCHOR = 	gen	8	a batch-level preset line, read on preset lines
+pattern-operator	quickscan_mode	Ch9 p.123 &FULLSCAN	&FULLSCAN = 0	^\(&FULLSCAN = 	gen	8	a batch-level preset line, read on preset lines
+pattern-operator	recursive_pattern	Ch9 p.122	self-reference through *	$^	gen	8	not a regex over one line: a preset pattern that refers to itself through * (hang risk, inf_exclude.tsv)
+unary-operator	at_@	Ch15 p.181	@	(^|[ (])@[A-Za-z$]	gen	4	
+unary-operator	negate_~	Ch15 p.181	~	(^|[ (])~[^ ]	gen	6	
+unary-operator	interrogate_?	Ch15 p.181	?	(^|[ (])\?[^ ]	gen	0	reached only by the EXPR walk's loose spacing ('a' ?'b' is concatenation with a unary ?); step 6 emits it on purpose in the closed world
+unary-operator	keyword_&	Ch15 p.181	&	&[A-Z]	gen	0	
+unary-operator	plus_+	Ch15 p.181	+	(^|[ (])\+[^ ]	gen	0	
+unary-operator	minus_-	Ch15 p.181	-	(^|[ (])-[^ ]	gen	0	
+unary-operator	defer_*	Ch15 p.181	*	(^|[ (])\*[^ ]	gen	0	
+unary-operator	indirect_$	Ch15 p.181	$	(^|[ ($])\$[^ ]	gen	0	
+unary-operator	name_.	Ch15 p.181	.	(^|[ (])\.[A-Za-z$*(]	gen	0	reached by the preset 1/2 leaf .i; step 6 emits names of cells and elements in the closed world
+unary-operator	opsyn_unary_bang	Ch15 p.182 undefined, OPSYN	!	(^|[ (])![A-Za-z$(0-9]	gen	10	reached today only as an undefined-operator error through the EXPR walk's loose spacing; step 10 defines it by OPSYN
+unary-operator	opsyn_unary_percent	Ch15 p.182 undefined, OPSYN	%	(^|[ (])%[A-Za-z$(0-9]	gen	10	reached today only as an undefined-operator error through the EXPR walk's loose spacing; step 10 defines it by OPSYN
+unary-operator	opsyn_unary_slash	Ch15 p.182 undefined, OPSYN	/	(^|[ (])/[A-Za-z$(0-9]	gen	10	reached today only as an undefined-operator error through the EXPR walk's loose spacing; step 10 defines it by OPSYN
+unary-operator	opsyn_unary_sharp	Ch15 p.182 undefined, OPSYN	#	(^|[ (])\#[A-Za-z$(0-9]	gen	10	reached today only as an undefined-operator error through the EXPR walk's loose spacing; step 10 defines it by OPSYN
+unary-operator	opsyn_unary_equal	Ch15 p.182 undefined, OPSYN	=	(^|[ (])=[A-Za-z$(0-9]	gen	10	reached today only as an undefined-operator error through the EXPR walk's loose spacing; step 10 defines it by OPSYN
+unary-operator	opsyn_unary_bar	Ch15 p.182 undefined, OPSYN	|	(^|[ (])\|[A-Za-z$(0-9]	gen	10	reached today only as an undefined-operator error through the EXPR walk's loose spacing; step 10 defines it by OPSYN
+binary-operator	assign_=	Ch15 p.182	 = 	^[^(].* = |^\([A-Z] = 	gen	5	only into a CAPITAL, nulled per test (the design ruling)
+binary-operator	match_?	Ch15 p.182	 ? 	 \? 	gen	0	
+binary-operator	alternation_|	Ch15 p.182	 | 	 \| 	gen	0	
+binary-operator	concat_space	Ch15 p.182	 	(\)|'|[A-Za-z0-9\]]) ([A-Za-z'(*$0-9]|\$)	gen	0	
+binary-operator	add_+	Ch15 p.182	 + 	 \+ 	gen	0	
+binary-operator	sub_-	Ch15 p.182	 - 	 - 	gen	0	
+binary-operator	div_/	Ch15 p.182	 / 	 / 	gen	0	
+binary-operator	mul_*	Ch15 p.182	 * 	 \* 	gen	0	
+binary-operator	pow_**	Ch15 p.182	 ** 	 \*\* 	gen	0	
+binary-operator	pow_^	Ch15 p.182	 ^ 	 \^ 	gen	0	
+binary-operator	pow_!	Ch15 p.182	 ! 	 ! 	gen	0	
+binary-operator	imm_$	Ch15 p.182	 $ 	 \$ 	gen	0	
+binary-operator	cond_.	Ch15 p.182	 . 	 \. 	gen	0	
+binary-operator	opsyn_binary_amp	Ch15 p.183 undefined, OPSYN	 & 	 \& 	gen	10	
+binary-operator	opsyn_binary_at	Ch15 p.183 undefined, OPSYN	 @ 	 @ 	gen	10	
+binary-operator	opsyn_binary_sharp	Ch15 p.183 undefined, OPSYN	 # 	 \# 	gen	10	
+binary-operator	opsyn_binary_percent	Ch15 p.183 undefined, OPSYN	 % 	 % 	gen	10	
+binary-operator	opsyn_binary_tilde	Ch15 p.183 undefined, OPSYN	 ~ 	 \~ 	gen	10	
+string-builtin	SIZE	Ch17	SIZE(	\bSIZE\(	gen	3	
+string-builtin	DUPL	Ch17	DUPL(	\bDUPL\(	gen	3	
+string-builtin	REPLACE	Ch17	REPLACE(	\bREPLACE\(	gen	3	
+string-builtin	REVERSE	Ch17	REVERSE(	\bREVERSE\(	gen	3	
+string-builtin	TRIM	Ch17	TRIM(	\bTRIM\(	gen	3	
+string-builtin	SUBSTR	Ch17	SUBSTR(	\bSUBSTR\(	gen	3	
+string-builtin	LPAD	Ch17	LPAD(	\bLPAD\(	gen	3	
+string-builtin	RPAD	Ch17	RPAD(	\bRPAD\(	gen	3	
+string-builtin	CHAR	Ch17	CHAR(	\bCHAR\(	gen	3	
+predicate	IDENT	Ch4 p.31 / Ch17	IDENT(	\bIDENT\(	gen	3	
+predicate	DIFFER	Ch4 p.31 / Ch17	DIFFER(	\bDIFFER\(	gen	3	
+predicate	EQ	Ch4 p.31 / Ch17	EQ(	\bEQ\(	gen	3	
+predicate	NE	Ch4 p.31 / Ch17	NE(	\bNE\(	gen	3	
+predicate	LT	Ch4 p.31 / Ch17	LT(	\bLT\(	gen	3	
+predicate	LE	Ch4 p.31 / Ch17	LE(	\bLE\(	gen	3	
+predicate	GT	Ch4 p.31 / Ch17	GT(	\bGT\(	gen	3	
+predicate	GE	Ch4 p.31 / Ch17	GE(	\bGE\(	gen	3	
+predicate	LEQ	Ch4 p.31 / Ch17	LEQ(	\bLEQ\(	gen	3	
+predicate	LNE	Ch4 p.31 / Ch17	LNE(	\bLNE\(	gen	3	
+predicate	LLT	Ch4 p.31 / Ch17	LLT(	\bLLT\(	gen	3	
+predicate	LLE	Ch4 p.31 / Ch17	LLE(	\bLLE\(	gen	3	
+predicate	LGT	Ch4 p.31 / Ch17	LGT(	\bLGT\(	gen	3	
+predicate	LGE	Ch4 p.31 / Ch17	LGE(	\bLGE\(	gen	3	
+predicate	INTEGER	Ch4 p.31 / Ch17	INTEGER(	\bINTEGER\(	gen	3	
+numeric	REMDR	Ch17	REMDR(	\bREMDR\(	gen	7	
+numeric	CHOP	Ch17	CHOP(	\bCHOP\(	gen	7	
+numeric	REAL	Ch17	REAL(	\bREAL\(	gen	7	
+numeric	ATAN	Ch17 math	ATAN(	\bATAN\(	gen	7	real results: rendered to SPITBOL text, the jvm rounding class
+numeric	COS	Ch17 math	COS(	\bCOS\(	gen	7	real results: rendered to SPITBOL text, the jvm rounding class
+numeric	SIN	Ch17 math	SIN(	\bSIN\(	gen	7	real results: rendered to SPITBOL text, the jvm rounding class
+numeric	TAN	Ch17 math	TAN(	\bTAN\(	gen	7	real results: rendered to SPITBOL text, the jvm rounding class
+numeric	EXP	Ch17 math	EXP(	\bEXP\(	gen	7	real results: rendered to SPITBOL text, the jvm rounding class
+numeric	LN	Ch17 math	LN(	\bLN\(	gen	7	real results: rendered to SPITBOL text, the jvm rounding class
+numeric	SQRT	Ch17 math	SQRT(	\bSQRT\(	gen	7	real results: rendered to SPITBOL text, the jvm rounding class
+numeric	real_literal	Ch3 p.16	1.5	(^|[ (])\d+\.\d*([Ee][-+]?\d+)?	gen	7	
+numeric	big_integer_literal	Ch3 p.15	9223372036854775807	(^|[ (])-?\d{10,}(?=[ )]|$)	gen	7	
+numeric	string_arithmetic	Ch3 p.20 coercion	'3' + 1	'\d+' [-+*/] |[-+*/] '\d+'	gen	7	
+conversion	CONVERT	Ch17	CONVERT(	\bCONVERT\(	gen	3	
+conversion	DATATYPE	Ch17	DATATYPE(	\bDATATYPE\(	gen	3	
+aggregate	ARRAY	Ch7 / Ch17	ARRAY(	\bARRAY\(	gen	9	
+aggregate	TABLE	Ch7 / Ch17	TABLE(	\bTABLE\(	gen	9	
+aggregate	ITEM	Ch7 / Ch17	ITEM(	\bITEM\(	gen	0	
+aggregate	PROTOTYPE	Ch7 / Ch17	PROTOTYPE(	\bPROTOTYPE\(	gen	9	
+aggregate	COPY	Ch7 / Ch17	COPY(	\bCOPY\(	gen	9	
+aggregate	SORT	Ch7 / Ch17	SORT(	\bSORT\(	gen	9	
+aggregate	RSORT	Ch7 / Ch17	RSORT(	\bRSORT\(	gen	9	
+aggregate	subscript_[]	Ch7 p.88	[	[a-zA-Z)]\[	gen	0	
+aggregate	two_dimensional_subscript	Ch7 p.89	[i,j]	\[[^\[\]()]*,[^\[\]()]*\]	gen	9	
+reference	indirect_variable	Ch7 p.81	$x	\$[a-z]	gen	0	
+reference	indirect_string	Ch7 p.81	$'x'	\$'	gen	6	
+reference	name_of_variable	Ch7 p.96	.X	(^|[ (])\.[A-Za-z]	gen	6	
+reference	name_of_element	Ch7 p.96	.a[	\.[a-z]\[	gen	6	
+reference	APPLY	Ch17	APPLY(	\bAPPLY\(	gen	0	
+reference	ARG	Ch17	ARG(	\bARG\(	gen	10	
+evaluation	EVAL	Ch9 p.130	EVAL(	\bEVAL\(	gen	0	preset 1/2 leaves; absent from the closed world
+evaluation	CODE	Ch9 p.130	CODE(	\bCODE\(	gen	11	
+evaluation	alternative_evaluation	Ch15 p.183 / Ch7 p.97	(a, b)	(^|[ (])\([^()]*, [^()]*\)	gen	6	SPITBOL extension: evaluate left to right until one succeeds
+evaluation	multiple_assignment	Ch15 p.183	A = B = 	^\([A-Z] = [A-Z] = 	gen	5	
+program-defined	user_function_call	Ch8 p.102	f(	\b[fgh]\(	gen	0	
+program-defined	FRETURN_path	Ch8 p.105	f(36)	\b[fgh]\((36|u\[|-)	gen	0	f/g/h fail when a[n] does not exist
+program-defined	NRETURN_target	Ch9 p.133	. h(	\. h\(	gen	0	
+program-defined	DEFINE	Ch8 p.102	DEFINE(	\bDEFINE\(	gen	11	reachable only under the CODE road (a DEFINE needs statements for its body)
+program-defined	OPSYN	Ch8 p.115	OPSYN(	^\(OPSYN\(	gen	10	a preset line
+program-defined	DATA	Ch8 p.111	DATA(	^\(DATA\(	gen	12	a preset line
+program-defined	field_function	Ch8 p.112	inf_u(	\binf_[uv]\(	gen	12	
+program-defined	LOCAL	Ch17	LOCAL(	\bLOCAL\(	gen	12	optional: the name of a function local, low yield
+keyword-protected	&ABORT	Ch16 p.187	&ABORT	&ABORT\b	gen	0	
+keyword-protected	&ALPHABET	Ch16 p.187	&ALPHABET	&ALPHABET\b	gen	0	
+keyword-protected	&ARB	Ch16 p.187	&ARB	&ARB\b	gen	0	
+keyword-protected	&BAL	Ch16 p.187	&BAL	&BAL\b	gen	0	
+keyword-protected	&FAIL	Ch16 p.187	&FAIL	&FAIL\b	gen	0	
+keyword-protected	&FENCE	Ch16 p.187	&FENCE	&FENCE\b	gen	0	
+keyword-protected	&FILE	Ch16 p.187	&FILE	&FILE\b	gen	-1	EXCLUDED: names the evaluating program (inf_exclude.tsv)
+keyword-protected	&FNCLEVEL	Ch16 p.187	&FNCLEVEL	&FNCLEVEL\b	gen	-1	EXCLUDED: names the evaluating program (inf_exclude.tsv)
+keyword-protected	&LASTFILE	Ch16 p.187	&LASTFILE	&LASTFILE\b	gen	-1	EXCLUDED: names the evaluating program (inf_exclude.tsv)
+keyword-protected	&LASTLINE	Ch16 p.187	&LASTLINE	&LASTLINE\b	gen	-1	EXCLUDED: names the evaluating program (inf_exclude.tsv)
+keyword-protected	&LASTNO	Ch16 p.187	&LASTNO	&LASTNO\b	gen	-1	EXCLUDED: names the evaluating program (inf_exclude.tsv)
+keyword-protected	&LCASE	Ch16 p.187	&LCASE	&LCASE\b	gen	0	
+keyword-protected	&LINE	Ch16 p.187	&LINE	&LINE\b	gen	-1	EXCLUDED: names the evaluating program (inf_exclude.tsv)
+keyword-protected	&REM	Ch16 p.187	&REM	&REM\b	gen	0	
+keyword-protected	&RTNTYPE	Ch16 p.187	&RTNTYPE	&RTNTYPE\b	gen	-1	EXCLUDED: names the evaluating program (inf_exclude.tsv)
+keyword-protected	&STCOUNT	Ch16 p.187	&STCOUNT	&STCOUNT\b	gen	-1	EXCLUDED: names the evaluating program (inf_exclude.tsv)
+keyword-protected	&STNO	Ch16 p.187	&STNO	&STNO\b	gen	-1	EXCLUDED: names the evaluating program (inf_exclude.tsv)
+keyword-protected	&SUCCEED	Ch16 p.187	&SUCCEED	&SUCCEED\b	gen	-1	EXCLUDED: names the evaluating program (inf_exclude.tsv)
+keyword-protected	&UCASE	Ch16 p.187	&UCASE	&UCASE\b	gen	0	
+keyword-unprotected	&ABEND	Ch16 p.190	&ABEND	&ABEND\b	gen	0	
+keyword-unprotected	&ANCHOR	Ch16 p.190	&ANCHOR	&ANCHOR\b	gen	0	
+keyword-unprotected	&CASE	Ch16 p.190	&CASE	&CASE\b	gen	0	
+keyword-unprotected	&CODE	Ch16 p.190	&CODE	&CODE\b	gen	0	
+keyword-unprotected	&COMPARE	Ch16 p.190	&COMPARE	&COMPARE\b	gen	0	
+keyword-unprotected	&DUMP	Ch16 p.190	&DUMP	&DUMP\b	gen	0	
+keyword-unprotected	&ERRLIMIT	Ch16 p.190	&ERRLIMIT	&ERRLIMIT\b	gen	0	
+keyword-unprotected	&ERRTEXT	Ch16 p.190	&ERRTEXT	&ERRTEXT\b	gen	0	
+keyword-unprotected	&ERRTYPE	Ch16 p.190	&ERRTYPE	&ERRTYPE\b	gen	0	
+keyword-unprotected	&FTRACE	Ch16 p.190	&FTRACE	&FTRACE\b	gen	0	
+keyword-unprotected	&FULLSCAN	Ch16 p.190	&FULLSCAN	&FULLSCAN\b	gen	0	
+keyword-unprotected	&INPUT	Ch16 p.190	&INPUT	&INPUT\b	gen	0	
+keyword-unprotected	&MAXLNGTH	Ch16 p.190	&MAXLNGTH	&MAXLNGTH\b	gen	0	
+keyword-unprotected	&OUTPUT	Ch16 p.190	&OUTPUT	&OUTPUT\b	gen	0	
+keyword-unprotected	&PROFILE	Ch16 p.190	&PROFILE	&PROFILE\b	gen	0	
+keyword-unprotected	&STLIMIT	Ch16 p.190	&STLIMIT	&STLIMIT\b	gen	0	
+keyword-unprotected	&TRACE	Ch16 p.190	&TRACE	&TRACE\b	gen	0	
+keyword-unprotected	&TRIM	Ch16 p.190	&TRIM	&TRIM\b	gen	0	
+keyword-unprotected	&ANCHOR_set	Ch16 p.190	(&ANCHOR = 	^\(&ANCHOR = 	gen	8	a batch-level preset
+keyword-unprotected	&FULLSCAN_set	Ch16 p.190	(&FULLSCAN = 	^\(&FULLSCAN = 	gen	8	a batch-level preset
+statement	assignment_statement	Ch14 p.175-178	X = 	^[A-Z] = |; [A-Z] = 	gen	11	the CODE road
+statement	match_statement	Ch14 p.175-178	 ? 	(^inf_L\d |; )[^;]* \? 	gen	11	the CODE road: a match statement under a label or after a ; (a bare test line is an expression, not graded here)
+statement	replacement_statement	Ch14 p.175-178	 ? ... = 	 \? [^;]* = 	gen	11	the CODE road
+statement	goto_success	Ch14 p.175-178	:S(	:S\(	gen	11	the CODE road
+statement	goto_failure	Ch14 p.175-178	:F(	:F\(	gen	11	the CODE road
+statement	goto_unconditional	Ch14 p.175-178	:(	:\([A-Za-z]	gen	11	the CODE road
+statement	goto_direct	Ch14 p.175-178	:<	:<	gen	11	the CODE road
+statement	label	Ch14 p.175-178	inf_L	(^|; )inf_L\d	gen	11	the CODE road
+statement	multiple_statements	Ch14 p.175-178	;	; 	gen	11	the CODE road
+statement	END_statement	Ch14 p.175-178	END	^END$	gen	11	the CODE road
+io	INPUT	Ch17	INPUT(	\bINPUT\(	none	-1	NEVER: file associations are the rungs business, not a one-stream differential
+io	OUTPUT	Ch17	OUTPUT(	\bOUTPUT\(	none	-1	NEVER: file associations are the rungs business, not a one-stream differential
+io	ENDFILE	Ch17	ENDFILE(	\bENDFILE\(	none	-1	NEVER: file associations are the rungs business, not a one-stream differential
+io	REWIND	Ch17	REWIND(	\bREWIND\(	none	-1	NEVER: file associations are the rungs business, not a one-stream differential
+io	BACKSPACE	Ch17	BACKSPACE(	\bBACKSPACE\(	none	-1	NEVER: file associations are the rungs business, not a one-stream differential
+io	SET	Ch17	SET(	\bSET\(	none	-1	NEVER: file associations are the rungs business, not a one-stream differential
+io	EJECT	Ch17	EJECT(	\bEJECT\(	none	-1	NEVER: file associations are the rungs business, not a one-stream differential
+io	DETACH	Ch17	DETACH(	\bDETACH\(	none	-1	NEVER: file associations are the rungs business, not a one-stream differential
+environment	TRACE	Ch17	TRACE(	\bTRACE\(	none	-1	NEVER: process identity, time, the evaluator own SETEXIT, or the oracle environment
+environment	STOPTR	Ch17	STOPTR(	\bSTOPTR\(	none	-1	NEVER: process identity, time, the evaluator own SETEXIT, or the oracle environment
+environment	SETEXIT	Ch17	SETEXIT(	\bSETEXIT\(	none	-1	NEVER: process identity, time, the evaluator own SETEXIT, or the oracle environment
+environment	DUMP	Ch17	DUMP(	\bDUMP\(	none	-1	NEVER: process identity, time, the evaluator own SETEXIT, or the oracle environment
+environment	EXIT	Ch17	EXIT(	\bEXIT\(	none	-1	NEVER: process identity, time, the evaluator own SETEXIT, or the oracle environment
+environment	HOST	Ch17	HOST(	\bHOST\(	none	-1	NEVER: process identity, time, the evaluator own SETEXIT, or the oracle environment
+environment	DATE	Ch17	DATE(	\bDATE\(	none	-1	NEVER: process identity, time, the evaluator own SETEXIT, or the oracle environment
+environment	TIME	Ch17	TIME(	\bTIME\(	none	-1	NEVER: process identity, time, the evaluator own SETEXIT, or the oracle environment
+environment	COLLECT	Ch17	COLLECT(	\bCOLLECT\(	none	-1	NEVER: process identity, time, the evaluator own SETEXIT, or the oracle environment
+environment	LOAD	Ch17	LOAD(	\bLOAD\(	none	-1	NEVER: process identity, time, the evaluator own SETEXIT, or the oracle environment
+environment	UNLOAD	Ch17	UNLOAD(	\bUNLOAD\(	none	-1	NEVER: process identity, time, the evaluator own SETEXIT, or the oracle environment
+environment	CLEAR	Ch17	CLEAR(	\bCLEAR\(	none	-1	NEVER: process identity, time, the evaluator own SETEXIT, or the oracle environment
+enumerator	arith_add_sub	Expressions.py term	+	 [-+] 	enum	0	
+enumerator	arith_mul_div	Expressions.py factor	*	 [*/] 	enum	0	
+enumerator	arith_unary	Expressions.py element	+x	(^|[ (])[-+][xyz0-9(]	enum	0	
+enumerator	parentheses	Expressions.py item	(	\(	enum	0	
+enumerator	integer_leaf	Expressions.py item	0	\b\d\b	enum	0	
+enumerator	variable_leaf	Expressions.py item	x	\b[xyz]\b	enum	0	
+enumerator	engine_arm	util_program_enumerator.py	--engine	$^	enum	13	the enumerator runs on the port engines
+enumerator	string_and_real_leaves	Ch3	'a'	'[^']*'|\d\.\d	enum	14	
+enumerator	every_match_walk	infinite_snobol4 every_match	walk=every	$^	enum	15	the probe reads --pin on the driver (landed with the design); the step is GREEN when the every walk runs on both engines
+enumerator	unary_and_match_grammar	Ch15	*x ? y	(^|[ (])[*$.~?@][xyz(]| \? 	enum	16	
+enumerator	statement_shapes	Ch14	:S(	:[SF]\(|; 	enum	17	
