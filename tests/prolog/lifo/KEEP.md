@@ -10,8 +10,8 @@ These are standalone witness programs, NOT entries of the ProRungs master (ALL.p
 | `lifo_between_retaining_fold.pl` | 1 | a retaining call between the generator and the folded fail (the edge the TO beta anchor covers) |
 | `lifo_db_walk_in_disjunction.pl` | 1 | a db walk inside a disjunction whose gamma pops its operands (c33d10f89) |
 | `lifo_fd_label_neq.pl` | 2 | clpfd propagation and labeling, deterministic |
-| `lifo_fd_sum.pl` | 2, 3 | clpfd sum and ordering constraints: the depth check fires at a join in clpfd_run_propagator/2 at c33d10f89 |
-| `lifo_fd_queens4.pl` | 2, 3, 6 | 4-queens under clpfd, the reduced queens_clpfd: the same join fire |
+| `lifo_fd_sum.pl` | 3 | clpfd sum and ordering constraints: the depth check fires at a join in clpfd_run_propagator/2 at c33d10f89 |
+| `lifo_fd_queens4.pl` | 3, 6 | 4-queens under clpfd, the reduced queens_clpfd: the same join fire |
 | `lifo_ite_join_depths.pl` | 2, 3 | if-then-else and disjunction joins whose arms exit at different depths |
 | `lifo_ite_throw_arms.pl` | 3, 4, 6 | ec65ae574's v(q(1)) witness: arms that throw or fail without reaching the join |
 | `lifo_disjunction_retaining_arms.pl` | 3 | a disjunction both of whose arms retain |
