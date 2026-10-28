@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1062 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=50 clusters=49 chunks=11 sizes=100,100,100,100,100,100,100,100,100,100,12
+# shape: entries=1063 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=50 clusters=49 chunks=11 sizes=100,100,100,100,100,100,100,100,100,100,13
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:07	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:07	family:ladder	
@@ -225,7 +225,7 @@ simple_assign_99	chunk:01	family:smoke
 split_say_1	chunk:10	feat:split	say split
 test_colon_call	chunk:10	family:test_raku_colon_call	
 test_kebab_ident	chunk:11	family:test_raku_kebab_ident	
-test_our_decl	chunk:11	feat:our	our
+test_our_decl	chunk:10	feat:our	our
 test_qualified_term	chunk:11	family:test_raku_qualified_term	
 array_12	chunk:04	feat:sigil_array	sigil_array
 array_13	chunk:04	feat:sigil_array	sigil_array
@@ -336,7 +336,7 @@ sub_hash_2	chunk:07	feat:sigil_hash	sigil_hash sub
 sub_hash_5	chunk:07	feat:sigil_hash	sigil_hash sub
 sub_hash_6	chunk:07	feat:sigil_hash	sigil_hash sub
 sub_hash_8	chunk:07	feat:sigil_hash	sigil_hash sub
-test_interp_leading_var	chunk:10	family:test_raku_interp_leading_var	
+test_interp_leading_var	chunk:11	family:test_raku_interp_leading_var	
 test_interp_only_var	chunk:11	family:test_raku_interp_only_var	
 test_interp_simple	chunk:11	family:test_raku_interp_simple	
 test_interp_trailing_lit	chunk:11	family:test_raku_interp_trailing_lit	
@@ -367,7 +367,7 @@ simple_assign_58	chunk:02	family:smoke
 simple_assign_78	chunk:02	family:smoke	
 simple_assign_97	chunk:02	family:smoke	
 simple_program_25	chunk:02	family:smoke	
-test_interp_multi_var	chunk:10	family:test_raku_interp_multi_var	
+test_interp_multi_var	chunk:11	family:test_raku_interp_multi_var	
 test_print_expr	chunk:11	family:test_raku_print_expr	
 array_32	chunk:04	feat:sigil_array	sigil_array
 array_replace_3	chunk:04	feat:sigil_array	sigil_array
@@ -588,6 +588,7 @@ say_51	chunk:07	feat:sigil_hash	say sigil_hash
 ladder__rung03_strings_an_escaped_sigil_in_a_double_quoted_string_is_a_literal_dollar_or_at	chunk:04	feat:sigil_array	sigil_array
 scrip_test_rk_join	chunk:06	feat:join	join say sub
 ladder__rung09_string_methods_sub_forms_and_chomp_crlf	chunk:08	feat:string_concat	string_concat
+ladder__rung07_subs_a_module_declared_in_a_bare_block_registers_its_subs_for_the_qualified_call	core	core	our string_concat sub
 say_19	chunk:03	feat:say	say
 ladder__rung02_arithmetic_rat_counts_and_tolerances_in_the_test_module_plan_skip_is_approx	chunk:08	feat:range_op	range_op sigil_array
 ladder__rung04_arrays_a_collection_type_object_called_with_one_argument_coerces_it	chunk:08	feat:range_op	range_op
@@ -840,7 +841,7 @@ benchmark_spinner	chunk:10	feat:for	for sigil_array sub
 ladder__rung15_blocks_a_my_declaration_without_a_value_keeps_what_a_begin_check_init_or_enter_phaser_stored	chunk:07	feat:sigil_hash	sigil_array sigil_hash string_concat
 ladder__rung07_subs_a_literal_passed_to_an_is_rw_parameter_throws_x_parameter_rw	chunk:09	feat:try	sigil_array sub try
 ladder__rung02_arithmetic_rat_smartmatch_truthiness_function_forms_and_type_checks	chunk:09	feat:smartmatch	say smartmatch string_concat
-ladder__rung07_subs_a_sub_declared_in_a_module_is_called_and_referenced_by_its_qualified_name_and_through_our	core	core	our string_concat sub
+ladder__rung07_subs_a_sub_declared_in_a_module_is_called_and_referenced_by_its_qualified_name_and_through_our	chunk:10	feat:our	our string_concat sub
 sub_range_say_replace_1	chunk:08	feat:range_op	range_op say sub
 ladder__rung12_exceptions_a_die_in_the_condition_of_if_or_unless_aborts_the_statement	chunk:10	feat:unless	if try unless
 benchmark_rc-dragon-curve	chunk:05	feat:for_with_say	for for_with_say range_op
