@@ -258,8 +258,9 @@ procedure c_elem()
            | ("ITEM($a[0], " || c_index() || ")")
            );
 end
-procedure c_value()
+procedure c_value(d)
     local r;
+    if scope >= 3 & (/d | \d < 2) & ?100 <= 35 then return c_builtin(d);
     r := ?100;
     return ( (r <= 22, c_elem())
            | (r <= 34, c_int())
@@ -306,6 +307,7 @@ procedure c_subjstr()
 end
 procedure c_subj()
     local r, s;
+    if scope >= 3 & ?100 <= 20 then { subj_chars := &null; return c_sfun(); };
     r := ?100;
     subj_chars := &null;
     if r <= 70 then { s := c_subjstr(); subj_chars := s[2:-1]; return s; };
@@ -319,6 +321,7 @@ procedure c_subj()
 end
 procedure c_sarg()
     local r;
+    if scope >= 3 & ?100 <= 20 then return c_sbuilt();
     r := ?100;
     return ( (r <= 60, "'" || c_lit(1 + ?4) || "'")
            | (r <= 70, ?["'()'", "'[]'", "'{}'", "'([{'", "')]}'", "'([{)]}'"])
@@ -332,6 +335,7 @@ procedure c_sarg()
 end
 procedure c_prim()
     local r;
+    if scope >= 3 & ?100 <= 25 then return ( (?4 = 1, "DUPL(" || c_dpat() || ", " || string(?4 - 1) || ")") | (c_pred() || " " || c_prim()) );
     r := ?100;
     return ( (r <= 40, ?["ANY", "NOTANY", "SPAN", "BREAK", "BREAKX"] || "(" || c_sarg() || ")")
            | (r <= 62, ?["POS", "RPOS", "LEN", "TAB", "RTAB"] || "(" || c_index() || ")")
@@ -339,6 +343,66 @@ procedure c_prim()
            | (r <= 84, c_str())
            | (r <= 91, c_elem())
            | c_pvalue()
+           );
+end
+# STEP 3, value-builtins (scope >= 3): the string builtins, the predicates and the conversions as values (c_value), as subjects (c_subj),
+# as character-set arguments built from pool strings (c_sarg), and in patterns: a predicate as a guard before a primitive, DUPL of a
+# pattern (c_prim). A predicate returns the null string or fails, so as a guard it decides whether the pattern is built at all. Nesting
+# stops at two levels (d), and DUPL repeats a pattern at most three times, so ARB and BAL repeated stay far from a combinatorial hang.
+procedure c_builtin(d)
+    return ( (?100 <= 55, c_sfun(d)) | c_pred(d) );
+end
+procedure c_barg(d)
+    local r;
+    r := ?100;
+    return ( (r <= 70, c_value(d)) | c_str() );
+end
+procedure c_narg(d)
+    local r;
+    r := ?100;
+    return ( (r <= 50, c_index()) | (r <= 75, c_int()) | (r <= 85, "SIZE(" || c_barg(d) || ")") | c_value(d) );
+end
+procedure c_sfun(d)
+    local b, n, k;
+    n := 1 + (\d | 0);
+    b := ?["SIZE", "DUPL", "REPLACE", "REVERSE", "TRIM", "SUBSTR", "LPAD", "RPAD", "CHAR", "CONVERT", "DATATYPE"];
+    if b == ("SIZE" | "REVERSE" | "TRIM" | "DATATYPE") then return b || "(" || c_barg(n) || ")";
+    if b == "DUPL" then return b || "(" || c_barg(n) || ", " || c_narg(n) || ")";
+    if b == "SUBSTR" then return b || "(" || c_barg(n) || ", " || c_narg(n) || ((?2 = 1, ", " || c_narg(n)) | "") || ")";
+    if b == ("LPAD" | "RPAD") then return b || "(" || c_barg(n) || ", " || c_narg(n) || ((?2 = 1, ", '" || c_char() || "'") | "") || ")";
+    if b == "CHAR" then return b || "(" || ((?2 = 1, c_narg(n)) | string(31 + ?96)) || ")";
+    if b == "CONVERT" then return b || "(" || c_barg(n) || ", '" || ?["STRING", "INTEGER", "REAL", "PATTERN", "NAME", "EXPRESSION"] || "')";
+    k := 1 + ?3;
+    return b || "(" || c_barg(n) || ", " || ( (?4 = 1, ?["&LCASE, &UCASE", "&UCASE, &LCASE"])
+                                            | (?3 = 1, "'" || c_lit(k) || "', '" || c_lit(1 + ?3) || "'")
+                                            | ("'" || c_lit(k) || "', '" || c_lit(k) || "'") ) || ")";
+end
+procedure c_pred(d)
+    local p, n;
+    n := 1 + (\d | 0);
+    p := ?["IDENT", "DIFFER", "EQ", "NE", "LT", "LE", "GT", "GE", "LEQ", "LNE", "LLT", "LLE", "LGT", "LGE", "INTEGER"];
+    if p == ("IDENT" | "DIFFER") & ?4 = 1 then return p || "(" || c_barg(n) || ")";
+    if p == "INTEGER" then return p || "(" || ((?2 = 1, c_narg(n)) | c_barg(n)) || ")";
+    if p == ("EQ" | "NE" | "LT" | "LE" | "GT" | "GE") then return p || "(" || c_narg(n) || ", " || c_narg(n) || ")";
+    return p || "(" || c_barg(n) || ", " || c_barg(n) || ")";
+end
+procedure c_sbuilt()
+    local s, k;
+    s := "'" || c_lit(1 + ?4) || "'";
+    k := ?4;
+    return ( (k = 1, "REVERSE(" || s || ")")
+           | (k = 2, "DUPL(" || s || ", " || string(?3) || ")")
+           | (k = 3, "SUBSTR(" || s || ", " || string(?3) || ")")
+           | ("REPLACE(" || s || ", '" || c_char() || "', '" || c_char() || "')")
+           );
+end
+procedure c_dpat()
+    local r;
+    r := ?100;
+    return ( (r <= 40, ?["ANY", "SPAN", "BREAK", "NOTANY"] || "('" || c_lit(1 + ?2) || "')")
+           | (r <= 70, ?["LEN", "POS", "TAB"] || "(" || c_index() || ")")
+           | (r <= 85, "*" || c_patc())
+           | ?["ARB", "BAL", "REM", "FENCE"]
            );
 end
 procedure c_presets()
@@ -713,7 +777,7 @@ end
 # families of steps 1..N and no later one, each emitter guarded by scope >= its step; scope=0 is the grammar from before the
 # ladder, so a batch is (scope, seed0, N) for ever. inf_scope_max is the highest step landed, bumped by each step's landing.
 procedure inf_scope_max()
-    return 1;
+    return 3;
 end
 procedure inf_lists()
     local a;
