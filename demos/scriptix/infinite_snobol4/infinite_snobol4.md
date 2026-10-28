@@ -262,6 +262,7 @@ procedure c_value(d)
     local r;
     if scope >= 3 & (/d | \d < 2) & ?100 <= 35 then return c_builtin(d);
     if scope >= 6 & (/d | \d < 2) & ?100 <= 30 then return c_unary(d);
+    if scope >= 7 & (/d | \d < 2) & ?100 <= 35 then return c_numfun(d);
     r := ?100;
     return ( (r <= 22, c_elem())
            | (r <= 34, c_int())
@@ -477,6 +478,36 @@ procedure c_alt(d)
            | ("a[" || ?["36", "99", "-1"] || "]")
            );
 end
+# STEP 7, arithmetic-closed-world (scope >= 7): reals (0. 1.5 2.0E1 -0.5 1E300), the largest integer and the most negative one, quoted
+# digits, division by k (0), powers of small cells and mixed real and integer arithmetic as leaves of the expression walk (c_num), and
+# REMDR CHOP REAL INTEGER ATAN COS SIN TAN EXP LN SQRT as values (c_numfun); a real renders as SPITBOL writes it.
+procedure c_real()
+    return ?["0.", "1.5", "2.0E1", "-0.5", "1E300"];
+end
+procedure c_num()
+    local r;
+    r := ?100;
+    return ( (r <= 22, c_real())
+           | (r <= 32, ?["9223372036854775807", "(-9223372036854775807 - 1)"])
+           | (r <= 44, "'" || c_digit() || ((?2 = 1, c_digit()) | "") || "'")
+           | (r <= 50, "(" || c_int() || " / k)")
+           | (r <= 56, "(" || c_int() || " ** " || ?"bcd" || ")")
+           | (r <= 64, "(" || c_real() || " " || ?["+", "-", "*", "/"] || " " || c_int() || ")")
+           | c_numfun()
+           );
+end
+procedure c_numfun(d)
+    local f, n;
+    n := 1 + (\d | 0);
+    f := ?["REMDR", "CHOP", "REAL", "INTEGER", "ATAN", "COS", "SIN", "TAN", "EXP", "LN", "SQRT"];
+    if f == "REMDR" then return f || "(" || c_narg(n) || ", " || c_narg(n) || ")";
+    return f || "(" || c_rarg(n) || ")";
+end
+procedure c_rarg(d)
+    local r;
+    r := ?100;
+    return ( (r <= 40, c_real()) | (r <= 70, c_narg(d)) | (r <= 85, "'" || c_digit() || "'") | c_value(d) );
+end
 procedure c_presets()
     local l, x, n;
     l := ["(A = B = C = D = E = F = G = H = I = J = K = L = M = N = O = P = Q = R = S = T = U = V = W = X = Y = Z = '')", "(inf_caps = 1)",
@@ -560,6 +591,11 @@ end
 procedure inf_excluded(e)
     return find(!inf_exclusions(), e);
 end
+# a power and the largest integer in one test: 1 ** 9223372036854775807 multiplies 2^63 times in SPITBOL and never answers, as ** n
+# (inf_exclude.tsv); the closed world spells the integer as a literal from scope 7, so there the test is not emitted at all
+procedure inf_big_power(e)
+    return find("9223372036854775807", e) & find(" ** " | " ^ " | " ! ", e);
+end
 procedure r_token(s)
     tokens +:= 1;
     return s;
@@ -632,6 +668,7 @@ end
 procedure r_leaf()
     local r;
     if /closed then return ?leaves;
+    if scope >= 7 & ?100 <= 35 then return c_num();
     r := ?100;
     return ( (r <= 60, c_value()) | (r <= 75, c_str()) | (r <= 85, c_digit()) | (r <= 92, c_prim()) | ?leaves );
 end
@@ -799,7 +836,7 @@ procedure random_walk(kind, n, lim, seed)
                  else if \closed & scope >= 5 & ?100 <= 25 then c_replace()
                  else r_subject() || r_token(" ? ") || r_palt();
             if \closed & scope >= 6 & kind ~== "expr" & ?100 <= 15 then e := ?["~(", "?("] || e || ")";
-            if tokens <= limit & not inf_excluded(e) then break;
+            if tokens <= limit & not inf_excluded(e) & (scope < 7 | not inf_big_power(e)) then break;
         };
         suspend e;
     };
@@ -853,7 +890,7 @@ end
 # families of steps 1..N and no later one, each emitter guarded by scope >= its step; scope=0 is the grammar from before the
 # ladder, so a batch is (scope, seed0, N) for ever. inf_scope_max is the highest step landed, bumped by each step's landing.
 procedure inf_scope_max()
-    return 6;
+    return 7;
 end
 procedure inf_lists()
     local a;
