@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=268 features=26 ubiquitous=5(package findall nl unify directive) distinctive=21 core=18 clusters=72 chunks=3 sizes=100,100,50
+# shape: entries=268 features=27 ubiquitous=5(package findall nl unify directive) distinctive=22 core=21 clusters=73 chunks=3 sizes=100,100,47
 entry	part	cluster	shells
 hakank_sicstus_clique	core	core	cut format if_then_else list_cons write
 hakank_sicstus_diet1	chunk:02	feat:write	write
@@ -31,16 +31,16 @@ hakank_swi_alldifferent_cst	chunk:02	feat:write	findall_with_var_goal write
 hakank_swi_alldifferent_except_0	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal
 hakank_swi_alldifferent_modulo	chunk:01	feat:findall_with_var_goal	findall_with_var_goal
 hakank_swi_allpartitions	chunk:02	feat:if_then_else	if_then_else
-hakank_swi_alphametic	chunk:01	feat:list_cons	list_cons
+hakank_swi_alphametic	chunk:02	feat:compare	compare list_cons
 hakank_swi_alphametic3	chunk:01	feat:list_cons	list_cons
 hakank_swi_among	chunk:02	family:hakank_swi_among	
-hakank_swi_among_seq	chunk:03	family:hakank_swi_among_seq	
-hakank_swi_arch_friends	chunk:03	family:hakank_swi_arch_friends	
+hakank_swi_among_seq	chunk:02	family:hakank_swi_among_seq	
+hakank_swi_arch_friends	chunk:02	family:hakank_swi_arch_friends	
 hakank_swi_assignment	core	core	between format if_then_else list_cons var
-hakank_swi_averbach_1_2	chunk:03	family:hakank_swi_averbach	
+hakank_swi_averbach_1_2	chunk:02	family:hakank_swi_averbach	
 hakank_swi_averbach_1_3	chunk:02	feat:write	write
 hakank_swi_babysitting	chunk:01	feat:format	between format
-hakank_swi_bales_of_hay	chunk:03	family:hakank_swi_bales_of_hay	
+hakank_swi_bales_of_hay	chunk:02	family:hakank_swi_bales_of_hay	
 hakank_swi_bin_packing2	chunk:01	feat:list_cons	list_cons
 hakank_swi_breaking_news	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal format
 hakank_swi_broken_weights	chunk:02	feat:cut	between cut format if_then_else
@@ -125,7 +125,7 @@ hakank_swi_euler8	chunk:01	feat:between	between
 hakank_swi_euler9	chunk:01	feat:between	between
 hakank_swi_exactly	chunk:03	family:hakank_swi_exactly	
 hakank_swi_exodus	chunk:01	feat:format	between format
-hakank_swi_extract_from_indices	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal
+hakank_swi_extract_from_indices	core	core	between compare findall_with_var_goal
 hakank_swi_fancy	chunk:03	family:hakank_swi_fancy	
 hakank_swi_farmer	chunk:02	feat:negation	negation
 hakank_swi_farmer2	chunk:02	feat:negation	list_cons negation
@@ -151,7 +151,7 @@ hakank_swi_heterosquare	chunk:03	family:hakank_swi_heterosquare
 hakank_swi_hidato	core	core	between catch findall_with_var_goal format number
 hakank_swi_huey_dewey_louie	chunk:03	family:hakank_swi_huey_dewey_louie	
 hakank_swi_inverse	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal
-hakank_swi_isbn	chunk:02	feat:if_then_else	if_then_else
+hakank_swi_isbn	chunk:02	feat:compare	compare if_then_else
 hakank_swi_jobs_puzzle	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal format
 hakank_swi_just_forgotten	chunk:01	feat:list_cons	list_cons
 hakank_swi_kakuro	chunk:01	feat:list_cons	format list_cons
@@ -167,7 +167,7 @@ hakank_swi_labeled_dice	chunk:01	feat:findall_with_var_goal	between findall_with
 hakank_swi_langford	chunk:02	feat:nonvar	between format if_then_else negation nonvar
 hakank_swi_latin_squares_diagonals	chunk:03	family:hakank_swi_latin_squares_diagonals	
 hakank_swi_least_diff	chunk:01	feat:between	between
-hakank_swi_lecture_series	chunk:02	feat:format	between format
+hakank_swi_lecture_series	chunk:01	feat:format	between format
 hakank_swi_lectures	chunk:03	family:hakank_swi_lectures	
 hakank_swi_light_meal	chunk:02	feat:if_then_else	if_then_else
 hakank_swi_magic_hexagon	chunk:03	family:hakank_swi_magic_hexagon	
@@ -177,12 +177,12 @@ hakank_swi_magic_square_and_cards	chunk:01	feat:between	between
 hakank_swi_mamas_age	chunk:03	family:hakank_swi_mamas_age	
 hakank_swi_mankell	core	core	dcg
 hakank_swi_map_coloring	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal format
-hakank_swi_marathon2	chunk:02	feat:format	between format
+hakank_swi_marathon2	chunk:01	feat:format	between format
 hakank_swi_max_flow_winston1	chunk:02	feat:if_then_else	if_then_else
 hakank_swi_minesweeper	chunk:02	feat:var	between findall_with_var_goal if_then_else var
 hakank_swi_monks_and_doors	chunk:01	feat:between	between
 hakank_swi_mortgage	chunk:03	family:hakank_swi_mortgage	
-hakank_swi_mr_smith	chunk:02	feat:format	between format
+hakank_swi_mr_smith	chunk:01	feat:format	between format
 hakank_swi_music_men	chunk:02	feat:format	format
 hakank_swi_nadel	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal format
 hakank_swi_number_lock2	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal if_then_else
@@ -213,7 +213,7 @@ hakank_swi_schoolgirls	core	core	op
 hakank_swi_scrabble_contest	chunk:01	feat:list_cons	format list_cons
 hakank_swi_secret_santa	chunk:01	feat:findall_with_var_goal	between findall_with_var_goal format
 hakank_swi_secret_santa2	chunk:03	family:hakank_swi_secret_santa	
-hakank_swi_send_more_money	chunk:01	feat:list_cons	between list_cons
+hakank_swi_send_more_money	core	core	between compare list_cons
 hakank_swi_send_more_money_any_base	chunk:03	family:hakank_swi_send_more_money_any_base	
 hakank_swi_send_most_money	chunk:03	family:hakank_swi_send_most_money	
 hakank_swi_sequence_problem	chunk:01	feat:list_cons	list_cons
@@ -264,9 +264,9 @@ hakank_swi_xkcd	chunk:03	family:hakank_swi_xkcd
 hakank_swi_young_tableaux	chunk:02	feat:write	between format if_then_else list_cons write
 hakank_swi_zebra	chunk:02	feat:format	format
 p1_lists	core	core	call catch copy_term findall_with_var_goal forall if_then_else list_cons negation
-p2_arithmetic	chunk:02	feat:copy_term	between catch copy_term cut findall_with_var_goal forall if_then_else list_cons negation
+p2_arithmetic	core	core	between catch compare copy_term cut findall_with_var_goal forall if_then_else list_cons negation
 p3_logic_and_codes	core	core	catch copy_term cut findall_with_var_goal forall if_then_else list_cons negation op write
 p4_binary_trees	core	core	between catch copy_term cut findall_with_var_goal forall if_then_else list_cons negation nonvar setof
-p5_multiway_trees	chunk:02	feat:copy_term	catch copy_term findall_with_var_goal forall if_then_else list_cons negation nonvar
+p5_multiway_trees	chunk:03	feat:copy_term	catch copy_term findall_with_var_goal forall if_then_else list_cons negation nonvar
 p6_graphs	core	core	assertz between catch copy_term cut findall_with_var_goal forall functor if_then_else list_cons negation nonvar var
 p7_miscellaneous	core	core	between catch copy_term cut findall_with_var_goal forall if_then_else list_cons negation nonvar univ var write

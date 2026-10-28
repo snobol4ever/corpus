@@ -153,7 +153,7 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 152,hakank_swi_just_forgotten,puzzles__hakank_swi_just_forgotten,puzzles,65,0,0,131072,4096,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,1,1,0,0,0
 153,hakank_swi_kakuro,puzzles__hakank_swi_kakuro,puzzles,136,0,0,131072,4096,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,0,1,1,0,0,0
 154,hakank_swi_kenken2,puzzles__hakank_swi_kenken2,puzzles,136,0,0,131072,4096,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,1,0,0,1,0,0,0
-155,hakank_swi_killer_sudoku,puzzles__hakank_swi_killer_sudoku,puzzles,157,0,0,131072,4096,,,,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,1,1,1,0,0
+155,hakank_swi_killer_sudoku,puzzles__hakank_swi_killer_sudoku,puzzles,157,0,0,131072,16384,,,,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,1,1,1,0,0
 156,hakank_swi_knapsack,puzzles__hakank_swi_knapsack,puzzles,71,0,0,131072,4096,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
 157,hakank_swi_knapsack_investments,puzzles__hakank_swi_knapsack_investments,puzzles,161,0,0,131072,4096,,,,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
 158,hakank_swi_knapsack_rosetta_code_01,puzzles__hakank_swi_knapsack_rosetta_code_01,puzzles,146,0,0,131072,4096,,,,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,1,0,0
