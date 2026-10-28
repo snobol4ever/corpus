@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1070 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=51 clusters=49 chunks=11 sizes=100,100,100,100,100,100,100,100,100,100,19
+# shape: entries=1071 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=51 clusters=49 chunks=11 sizes=100,100,100,100,100,100,100,100,100,100,20
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:07	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:07	family:ladder	
@@ -225,7 +225,7 @@ simple_assign_99	chunk:01	family:smoke
 split_say_1	chunk:11	feat:split	say split
 test_colon_call	chunk:11	family:test_raku_colon_call	
 test_kebab_ident	chunk:11	family:test_raku_kebab_ident	
-test_our_decl	chunk:10	feat:our	our
+test_our_decl	chunk:11	feat:our	our
 test_qualified_term	chunk:11	family:test_raku_qualified_term	
 array_12	chunk:04	feat:sigil_array	sigil_array
 array_13	chunk:04	feat:sigil_array	sigil_array
@@ -816,7 +816,7 @@ test_stmt_pfx_NEXT	chunk:05	feat:for_with_say	for for_with_say range_op say
 ladder__rung19_block_methcall_on_a_range	chunk:10	feat:grep	grep map range_op say
 say_try_die_5	chunk:10	feat:die	die say string_concat try
 test_nested_if_while	chunk:09	feat:while	if say while
-ladder__rung13_classes	chunk:07	feat:return	method return
+ladder__rung13_classes	chunk:08	feat:return	method return
 ladder__rung13_classes_named_arg_constructor	chunk:02	feat:has	has method
 ladder__rung14_roles_smartmatch	chunk:09	feat:smartmatch	smartmatch string_concat
 say_try_die_7	chunk:10	feat:die	die say string_concat try
@@ -824,13 +824,14 @@ ladder__rung14_roles	chunk:08	feat:return	method return
 ladder__rung14_roles_override	chunk:08	feat:return	method return
 sub_for_say_1	chunk:05	feat:for_with_say	for for_with_say say sub
 ladder__rung15_blocks_reduce_with_a_block_of_three_or_more_parameters_takes_that_many_items_a_step	chunk:09	feat:range_op	range_op say sigil_array string_concat
-ladder__rung06_control_with_orwith_and_without_test_definedness_and_bind_the_topic	chunk:08	feat:sub_with_return	return sub sub_with_return
+ladder__rung06_control_with_orwith_and_without_test_definedness_and_bind_the_topic	chunk:09	feat:sub_with_return	return sub sub_with_return
 ladder__rung07_subs_an_array_parameter_assigned_to_a_scalar_or_chosen_by_a_ternary	chunk:07	feat:join	join sigil_array sub
 ladder__rung08_for_a_destructuring_signature_takes_types_smileys_and_traits	chunk:07	feat:sigil_hash	for for_with_say sigil_hash
 ladder__rung09_regex_the_subst_method_takes_a_closure_replacement_a_pointy_block_and_g_on_a_string_needle	chunk:06	feat:regex	range_op regex string_concat
 ladder__rung14_roles_attributes	chunk:02	feat:has	has method
 ladder__rung14_roles_composition	chunk:08	feat:return	method return
 ladder__rung02_arithmetic_a_division_by_zero_builds_a_zero_denominator_rat_as_rakudo_does	chunk:09	feat:try	say string_concat try
+ladder__rung08_for_a_pair_pattern_pointy_signature_binds_key_and_value_and_no_strict_declares_what_is_read	chunk:07	feat:sigil_hash	for for_with_say sigil_array sigil_hash
 ladder__rung13_classes_private_attribute	chunk:02	feat:has	has method
 ladder__rung04_arrays_an_array_literal_of_one_iterable_argument_spreads_it_the_single_argument_rule	chunk:09	feat:map	map sigil_array sub
 ladder__rung09_string_methods_raku_regex_classes_and_captures	chunk:09	feat:smartmatch	if range_op regex smartmatch string_concat
@@ -977,7 +978,7 @@ ladder__rung03_strings_the_q_family_quotes_build_their_text	chunk:07	feat:join	f
 ladder__rung13_classes_a_dollar_bang_or_dollar_dot_attribute_interpolates_in_a_string	chunk:09	feat:try	has method string_concat try
 ladder__rung09_regex_substitution_and_transliteration_agree_with_rakudo	chunk:09	feat:smartmatch	if range_op regex smartmatch string_concat
 ladder__rung13_classes_an_attribute_array_element_is_assigned_in_place_inside_a_method_and_its_loops	chunk:05	feat:for_with_say	for for_with_say has method
-ladder__rung01_variables_a_typed_variable_that_a_block_or_closure_changes_is_the_same_variable	chunk:09	feat:try	has method string_concat try
+ladder__rung01_variables_a_typed_variable_that_a_block_or_closure_changes_is_the_same_variable	chunk:10	feat:try	has method string_concat try
 ladder__rung04_arrays_a_bound_scalar_and_a_bound_element_share_one_container_with_what_they_bind	chunk:05	feat:for_with_say	for for_with_say if say sigil_array
 benchmark_rc-forest-fire-stringify	chunk:05	feat:for_with_say	for for_with_say sigil_array string_concat sub
 class_method_replace_1	chunk:02	feat:has	has method return string_concat
