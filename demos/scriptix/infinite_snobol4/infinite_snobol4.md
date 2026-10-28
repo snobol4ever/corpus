@@ -331,6 +331,7 @@ procedure c_value(d)
     if scope >= 6 & (/d | \d < 2) & ?100 <= 30 then return c_unary(d);
     if scope >= 7 & (/d | \d < 2) & ?100 <= 35 then return c_numfun(d);
     if scope >= 9 & (/d | \d < 2) & ?100 <= 40 then return c_aggr(d);
+    if scope >= 10 & (/d | \d < 2) & ?100 <= 85 then return c_opsyn(d);
     r := ?100;
     return ( (r <= 22, c_elem())
            | (r <= 34, c_int())
@@ -625,6 +626,18 @@ procedure c_array()
            | ?["COPY(a)", "f(0)"]
            );
 end
+# STEP 10, opsyn-operators (scope >= 10): the operators the batch's presets define by OPSYN (c_presets), as values: a unary one before
+# an index or a value, unspaced as the closed world spells every unary operator; a binary one between a value and a number, spaced and
+# in parentheses, whatever function the batch gave it; and ARG of the test's functions and of names that are no program-defined function.
+procedure c_opsyn(d)
+    local r, n;
+    n := 1 + (\d | 0);
+    r := ?100;
+    return ( (r <= 60, ?"#%!/=|" || ((?2 = 1, c_index()) | c_value(n)))
+           | (r <= 93, "(" || c_barg(n) || " " || ?"&@#%~" || " " || c_narg(n) || ")")
+           | ("ARG(" || ?["'f'", "'g'", "'h'", "'f'", "'SIZE'", "'#'"] || ", " || ?["1", "1", "0", "2"] || ")")
+           );
+end
 procedure c_presets()
     local l, x, n;
     l := ["(A = B = C = D = E = F = G = H = I = J = K = L = M = N = O = P = Q = R = S = T = U = V = W = X = Y = Z = '')", "(inf_caps = 1)",
@@ -648,6 +661,17 @@ procedure c_presets()
         n := integer(opt["seed"]) + (\nbatch | 1);
         put(l, "(&ANCHOR = " || n % 2 || ")");
         put(l, "(&FULLSCAN = " || (n / 2) % 2 || ")");
+    };
+    # STEP 10, opsyn-operators (scope >= 10): the operators SPITBOL leaves undefined are defined by OPSYN for the batch, the unary
+    # # % ! / = | over f g h SIZE REVERSE TRIM CHAR and the binary & @ # % ~ over REMDR DUPL LGT LPAD RPAD, each batch a rotation drawn
+    # from its seed by arithmetic, as step 8's keywords are; every closed-world batch defines all eleven, so the Snocone evaluator, which
+    # outlives a batch, starts each one with the same definitions as the SPITBOL child
+    if scope >= 10 then {
+        n := integer(opt["seed"]) + (\nbatch | 1);
+        every x := 1 to 6 do
+            put(l, "(OPSYN('" || "#%!/=|"[x] || "', '" || ["f", "g", "h", "SIZE", "REVERSE", "TRIM", "CHAR"][(x + n) % 7 + 1] || "', 1))");
+        every x := 1 to 5 do
+            put(l, "(OPSYN('" || "&@#%~"[x] || "', '" || ["REMDR", "DUPL", "LGT", "LPAD", "RPAD"][(x + n) % 5 + 1] || "', 2))");
     };
     return l;
 end
@@ -796,6 +820,7 @@ procedure r_leaf()
     if /closed then return ?leaves;
     if scope >= 7 & ?100 <= 35 then return c_num();
     if scope >= 9 & ?100 <= 15 then return c_aggr();
+    if scope >= 10 & ?100 <= 35 then return c_opsyn();
     r := ?100;
     return ( (r <= 60, c_value()) | (r <= 75, c_str()) | (r <= 85, c_digit()) | (r <= 92, c_prim()) | ?leaves );
 end
@@ -1017,7 +1042,7 @@ end
 # families of steps 1..N and no later one, each emitter guarded by scope >= its step; scope=0 is the grammar from before the
 # ladder, so a batch is (scope, seed0, N) for ever. inf_scope_max is the highest step landed, bumped by each step's landing.
 procedure inf_scope_max()
-    return 9;
+    return 10;
 end
 procedure inf_lists()
     local a;
