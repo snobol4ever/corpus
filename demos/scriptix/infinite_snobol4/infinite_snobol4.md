@@ -523,6 +523,15 @@ procedure c_presets()
     n := 0;
     every x := !(&lcase || &digits) do { put(l, "(u['" || x || "'] = " || n || ")"); n +:= 1; };
     every put(l, !["(v = LEN(1) $ X)", "(w = ANY('bcd') . Y)", "(x = *$l)", "(y = BREAK('n') $ Z)", "(z = POS(0) *v *w)"]);
+    # STEP 8, anchor-fullscan-batches (scope >= 8): z becomes a right-recursive pattern, which SPITBOL answers at once (measured: nested
+    # parentheses, under ARB and ARBNO), and the batch runs anchored or not and in fullscan or quickscan mode, drawn from the batch's seed
+    # by arithmetic so that no random number the tests draw is taken
+    if scope >= 8 then {
+        l[-1] := "(z = '(' *z ')' | ANY(&LCASE))";
+        n := integer(opt["seed"]) + (\nbatch | 1);
+        put(l, "(&ANCHOR = " || n % 2 || ")");
+        put(l, "(&FULLSCAN = " || (n / 2) % 2 || ")");
+    };
     return l;
 end
 procedure inf_presets(variant)
@@ -890,7 +899,7 @@ end
 # families of steps 1..N and no later one, each emitter guarded by scope >= its step; scope=0 is the grammar from before the
 # ladder, so a batch is (scope, seed0, N) for ever. inf_scope_max is the highest step landed, bumped by each step's landing.
 procedure inf_scope_max()
-    return 7;
+    return 8;
 end
 procedure inf_lists()
     local a;
