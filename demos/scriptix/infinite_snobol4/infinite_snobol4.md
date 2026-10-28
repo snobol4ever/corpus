@@ -338,7 +338,7 @@ procedure c_prim()
     if scope >= 3 & ?100 <= 25 then return ( (?4 = 1, "DUPL(" || c_dpat() || ", " || string(?4 - 1) || ")") | (c_pred() || " " || c_prim()) );
     r := ?100;
     return ( (r <= 40, ?["ANY", "NOTANY", "SPAN", "BREAK", "BREAKX"] || "(" || c_sarg() || ")")
-           | (r <= 62, ?["POS", "RPOS", "LEN", "TAB", "RTAB"] || "(" || c_index() || ")")
+           | (r <= 62, ?["POS", "RPOS", "LEN", "TAB", "RTAB"] || "(" || c_parg() || ")")
            | (r <= 74, ?["ARB", "BAL", "REM", "FAIL", "FENCE", "ABORT", "ARB", "BAL", "REM"])
            | (r <= 84, c_str())
            | (r <= 91, c_elem())
@@ -400,10 +400,34 @@ procedure c_dpat()
     local r;
     r := ?100;
     return ( (r <= 40, ?["ANY", "SPAN", "BREAK", "NOTANY"] || "('" || c_lit(1 + ?2) || "')")
-           | (r <= 70, ?["LEN", "POS", "TAB"] || "(" || c_index() || ")")
+           | (r <= 70, ?["LEN", "POS", "TAB"] || "(" || c_parg() || ")")
            | (r <= 85, "*" || c_patc())
            | ?["ARB", "BAL", "REM", "FENCE"]
            );
+end
+# STEP 4, cursor-and-deferred-args (scope >= 4): the cursor assigned into a capital, @X, @h(n) or @$g(n), as a pattern element (r_pelem);
+# the argument of LEN POS RPOS TAB RTAB deferred, *b, *(b + c), *u[...], *f(n) or *X, which is evaluated at match time and may be no
+# integer there (CEO-1917's class), or a negative or long one (c_parg, which is c_index below scope 4).
+procedure c_at()
+    local r;
+    r := ?100;
+    return "@" || ( (r <= 50, c_cap()) | (r <= 80, "h(" || c_index() || ")") | ("$g(" || c_index() || ")") );
+end
+procedure c_parg()
+    local r;
+    if scope >= 4 & ?100 <= 40 then {
+        r := ?100;
+        return ( (r <= 20, "*" || c_int())
+               | (r <= 35, "*(" || c_int() || " + " || c_int() || ")")
+               | (r <= 45, "*u['" || c_char() || "']")
+               | (r <= 55, "*u[" || c_cap() || "]")
+               | (r <= 70, "*f(" || c_index() || ")")
+               | (r <= 80, "*" || c_cap())
+               | (r <= 90, "-" || c_int())
+               | ?["36", "99"]
+               );
+    };
+    return c_index();
 end
 procedure c_presets()
     local l, x, n;
@@ -631,6 +655,7 @@ procedure r_pelem()
     local r;
     r := ?100;
     if \closed then {
+        if scope >= 4 & ?100 <= 12 then return r_token(c_at());
         if not r_room(3) | r <= 35 then return r_token(c_prim());
         return ( (r <= 45, r_token("(") || r_palt() || r_token(")"))
                | (r <= 50, r_token("ARBNO(") || r_palt() || r_token(")"))
@@ -777,7 +802,7 @@ end
 # families of steps 1..N and no later one, each emitter guarded by scope >= its step; scope=0 is the grammar from before the
 # ladder, so a batch is (scope, seed0, N) for ever. inf_scope_max is the highest step landed, bumped by each step's landing.
 procedure inf_scope_max()
-    return 3;
+    return 4;
 end
 procedure inf_lists()
     local a;
