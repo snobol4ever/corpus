@@ -1,0 +1,7 @@
+% DESIGN-PLAN xsb-tabling-wfs step 9: a cut over an incomplete tabled subgoal raises XSB's table_error, its context an atom holding XSB's text of the subgoal (test_cut_over_tables' shape)
+:- table p/1, q/1.
+p(X) :- q(X), !.
+q(X) :- p(X).
+q(1).
+q(2).
+test :- catch(p(_), error(table_error, context(context(_Msg, Sub), _)), ( atom(Sub) -> write(caught_atom) ; write(caught_term) )), nl.

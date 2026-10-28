@@ -1,0 +1,15 @@
+% DESIGN-PLAN xsb-tabling-wfs step 10: call subsumption -- a call subsumed by an existing table consumes from it, so one table answers every instance and no answer repeats
+:- table anc/2 as subsumptive.
+:- table anc_v/2.
+e(1,2). e(2,3). e(3,4).
+anc(X,Y) :- e(X,Y).
+anc(X,Y) :- anc(X,Z), e(Z,Y).
+anc_v(X,Y) :- e(X,Y).
+anc_v(X,Y) :- anc_v(X,Z), e(Z,Y).
+count(G, N) :- findall(x, G, L), count_l(L, N).
+count_l([], 0).
+count_l([_|T], N) :- count_l(T, M), N is M + 1.
+test :- ( anc(_,_), fail ; true ), ( anc(1,4) -> write(anc_1_4) ; write(no) ), nl, ( anc(2,Y), write(anc_2-Y), nl, fail ; true ),
+  count(get_calls(anc(_,_),_,_), N), write(subsumptive_tables-N), nl,
+  ( anc_v(_,_), fail ; true ), ( anc_v(1,4) -> true ; true ), ( anc_v(2,Y2), write(ancv_2-Y2), nl, fail ; true ),
+  count(get_calls(anc_v(_,_),_,_), N2), write(variant_tables-N2), nl.

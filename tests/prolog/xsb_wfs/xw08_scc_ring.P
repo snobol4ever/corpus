@@ -1,0 +1,5 @@
+% DESIGN-PLAN xsb-tabling-wfs step 7: the SCC position is a depth number -- a tnot ring of 2000 elements completes within the declared 4 MB stack (tabsimp_seq's shape)
+:- table w/1.
+w(X) :- X > 0, Y is X - 1, tnot(w(Y)).
+w(0) :- tnot(w(2000)).
+test :- ( w(2000) -> write(w2000_true) ; write(w2000_false) ), nl, ( get_residual(w(2000), D) -> write(resid(D)) ; write(noresid) ), nl.

@@ -1,0 +1,5 @@
+:- table path/2, unreach/1.
+e(1,2). e(2,3). e(3,1). e(3,4).
+path(X,Y) :- path(X,Z), e(Z,Y).
+path(X,Y) :- e(X,Y).
+unreach(X) :- tnot(path(X,X)).

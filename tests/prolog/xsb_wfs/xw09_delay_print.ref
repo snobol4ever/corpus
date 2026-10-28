@@ -1,0 +1,9 @@
+answer(t1(a),[u])
+answer(t1(a),[u])
+answer(t1(b),[])
+answer(t1(b),[])
+answer(t4(a),[t1(a),tnot t4(a)])
+answer(t4(a),[t1(a),tnot t4(a)])
+answer(t4(b),[tnot t4(b)])
+answer(t4(b),[tnot t4(b)])
+undefined_succeeds

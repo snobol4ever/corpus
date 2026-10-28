@@ -1,0 +1,2 @@
+% DESIGN-PLAN xsb-tabling-wfs step 1: the run-time loader reads :- table in a consulted sibling (XSB's consult/1 of a program beside the driver)
+test :- consult(xw01_prog), ( path(1,Y), write(path(1,Y)), nl, fail ; true ), ( unreach(4) -> write(unreach4_true) ; write(unreach4_false) ), nl, ( unreach(1) -> write(unreach1_true) ; write(unreach1_false) ), nl.

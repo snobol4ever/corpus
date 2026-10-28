@@ -1,0 +1,10 @@
+% DESIGN-PLAN xsb-tabling-wfs step 8: conditional answers and their delay lists print as XSB prints them (tnot a prefix operator, positive delays kept)
+:- table t1/1, t4/1, u/0.
+u :- tnot(u).
+t1(a) :- u.
+t1(b).
+t4(X) :- t1(X), tnot(t4(X)).
+test :- ( t1(_), fail ; true ), ( t4(_), fail ; true ),
+  ( get_residual(t1(X), D), write(answer(t1(X), D)), nl, fail ; true ),
+  ( get_residual(t4(Y), D2), write(answer(t4(Y), D2)), nl, fail ; true ),
+  ( undefined -> write(undefined_succeeds) ; write(undefined_fails) ), nl.

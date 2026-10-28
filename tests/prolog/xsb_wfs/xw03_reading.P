@@ -1,0 +1,9 @@
+% DESIGN-PLAN xsb-tabling-wfs step 3: XSB's reading -- tnot as a prefix operator, edb, index/2 and compiler_options directives
+:- compiler_options([spec_off]).
+:- edb e/2.
+:- index(e/2, [1,2]).
+:- table p/1, q/1.
+e(1,2). e(2,3). e(3,4).
+p(X) :- e(X,Y), tnot q(Y).
+q(3).
+test :- ( p(X), write(p(X)), nl, fail ; true ).

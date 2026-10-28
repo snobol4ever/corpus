@@ -1,0 +1,7 @@
+% DESIGN-PLAN xsb-tabling-wfs step 4: suppl_table tables every predicate whose clause joins two or more edb or tabled literals
+:- edb(r1/2).
+:- edb(r2/2).
+:- suppl_table.
+r1(1,2). r1(2,3). r2(2,5). r2(3,6).
+join(X,Z) :- r1(X,Y), r2(Y,Z).
+test :- ( join(X,Z), write(j(X,Z)), nl, fail ; true ), ( get_calls(join(_,_),_,_) -> write(join_tabled) ; write(join_not_tabled) ), nl.

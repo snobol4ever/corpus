@@ -1,0 +1,6 @@
+query(xw02_p33,p,[p,q,r,s],[],[p,q,r,s]).
+:- table p/0, q/0, r/0, s/0.
+p :- tnot(q).
+q :- tnot(r), tnot(s).
+r :- tnot(q).
+s :- tnot(r).

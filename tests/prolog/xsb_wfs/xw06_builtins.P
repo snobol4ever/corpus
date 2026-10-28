@@ -1,0 +1,10 @@
+% DESIGN-PLAN xsb-tabling-wfs step 5: the table introspection builtins the package uses and SCRIP lacks
+:- table p/1, u/0.
+p(1).
+p(2) :- u.
+u :- tnot(u).
+test :- ( p(_), fail ; true ), ( variant_get_residual(p(2), D) -> write(resid(D)) ; write(noresid) ), nl,
+  ( get_calls_for_table(p/1, C) -> functor(C, F, A), write(call(F/A)) ; write(nocall) ), nl,
+  ( table_state(p(_), PT, CT, AS) -> write(state(PT,CT,AS)) ; write(nostate) ), nl,
+  ( p(2) -> ( variant_get_residual(p(2), D2) -> write(resid2(D2)) ; write(noresid2) ) ; write(p2_false) ), nl,
+  abolish_table_subgoal(p(_)), ( get_calls_for_table(p/1, _) -> write(still_there) ; write(abolished) ), nl.

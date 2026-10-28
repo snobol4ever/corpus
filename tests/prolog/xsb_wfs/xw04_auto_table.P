@@ -1,0 +1,7 @@
+% DESIGN-PLAN xsb-tabling-wfs step 4: auto_table tables every predicate in a cycle of the call graph and every predicate called through tnot
+:- auto_table.
+e(1,2). e(2,3). e(3,1). e(3,4).
+path(X,Y) :- path(X,Z), e(Z,Y).
+path(X,Y) :- e(X,Y).
+win(X) :- e(X,Y), tnot(win(Y)).
+test :- ( path(1,Y), write(path(1,Y)), nl, fail ; true ), ( win(4) -> write(win4_true) ; write(win4_false) ), nl, ( win(3) -> write(win3_true) ; write(win3_false) ), nl, ( get_calls(path(_,_),_,_) -> write(path_tabled) ; write(path_not_tabled) ), nl.
