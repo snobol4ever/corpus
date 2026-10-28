@@ -10,6 +10,9 @@ equal today is red by its census until the C it names has no emitted caller.
 |---|---|---|---|
 | is00_kw | 6 | the cfo's keyword witness: move, &pos read, &pos assigned, &subject sliced | EQUAL (3, def); the census 139 |
 | is01_substr | 1 | tab and move results over a 500-byte subject, slices of them, three one-byte moves compared | EQUAL; rt_substr 85 calls |
+| is01b_consumers | 1 | a tab or move result (shared bytes, no NUL after them, empty ones mid-subject) through write, concatenation, comparison, conversion, map, trim, left/right/center, subscripts, tables, sets, sort, image | EQUAL |
+| is01c_numeric | 1 | the same results where the numeric grammar would run on into the rest of the subject: integer, real, arithmetic, bit operations, math functions, hashing, nested scans | EQUAL |
+| is01d_collect | 1 | tab and move results kept after the subject is dropped, while the collector runs (38 collections at the declared heap): an interior string pointer is marked and relocated with its block | EQUAL |
 | is02_forms | 2 | a cset variable, &letters, explicit-subject any/upto/find/match/bal with windows, a needle over 32 bytes, pos, an empty needle | EQUAL; needle and cset C 6 calls |
 | is03_coexpr | 3 | a co-expression reading, assigning and scanning the shared environment across three activations (section 10.1 (c)) | EQUAL; ScanState in the runtime |
 | is04_byname | 4 | move, tab and upto as procedure values called directly and through a procedure's parameter inside a scan | EQUAL; 46 sync calls at the C roads |

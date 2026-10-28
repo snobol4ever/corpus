@@ -1,0 +1,25 @@
+procedure churn(n);
+  local i, l, s;
+  l := [];
+  every i := 1 to n do { s := repl("garbage" || i, 20); put(l, s); if *l > 50 then pop(l) };
+  return *l;
+end
+procedure main();
+  local s, x, y, z, w, keep, i, e, t, chk;
+  s := repl("0123456789abcdefghij", 3000);
+  s ? { x := tab(1001); y := move(37); z := tab(0); w := move(0) };
+  keep := [];
+  s ? { every i := 1 to 40 do { put(keep, tab(i * 50 + 1)); put(keep, move(3)); put(keep, move(0)) } };
+  s := &null;
+  every i := 1 to 30 do churn(4000);
+  chk := 0;
+  every e := !keep do chk +:= *e;
+  write(*x, " ", *y, " ", *z, " ", *w, " ", chk);
+  write(x[1:21], "|", x[-20:0], "|", y[1:5], "|", z[1:11], "|", z[-5:0], "|", image(w));
+  t := "";
+  every i := 1 to *keep by 7 do t ||:= keep[i][1:3 | 0];
+  write(t);
+  write(x == (repl("0123456789abcdefghij", 50) || "0"), " ", y == "1abcdefghij0123456789abcdefghij01234"[1:38]);
+  every i := 1 to 20 do churn(4000);
+  write(*x, " ", *y, " ", *z, " ", x[1000], y[37], z[*z]);
+end
