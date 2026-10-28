@@ -18,6 +18,7 @@ These are standalone witness programs, NOT entries of the ProRungs master (ALL.p
 | `lifo_soft_cut.pl` | 3, 4 | the soft cut |
 | `lifo_ite_retaining_condition.pl` | 4 | a condition that retains, committed |
 | `lifo_catch_findall.pl` | 4 | catch/3 and findall/3 BOUND records with a throw |
+| `lifo_findall_catch_between.pl` | 4 | a catch around a findall over between(1, 9000000, X) that hits the stack limit: traps at the UNMARK alpha under SCRIP_ZD_RTCHECK=1 in both modes, identically with and without the generator beta anchor (hq_prolog 2026-10-28; the ProRungs core entry findall_catch_between_1) |
 | `lifo_negation_retaining.pl` | 4 | negation over a retaining goal |
 | `lifo_nested_conditions_throw.pl` | 4 | nested if-then-else conditions with a throw |
 | `lifo_value_across_retaining_call.pl` | 5 | a value produced before a retaining call and read after it |
