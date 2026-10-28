@@ -8,7 +8,7 @@ function f(x: integer): boolean; begin f := x > 2; end;
 begin
   inner; v := 3; writeln(v * 2, ' ', v + 1);
   c := 'q'; writeln(c, ' ', ord(c), ' ', succ(c));
-  n := 'abcdefghijk'; writeln(n, ' ', length(n));
+  n := 'abcdefgh'; writeln(n, ' ', length(n));
   ok := f(5); flag := 1; if ok then writeln('ok ', ord(ok)) else writeln('not ok'); writeln(flag + 1);
   writeln(length(Format('%d-%s', [12, 'ab'])), ' ', Format('%d-%s', [12, 'ab']));
   writeln(chr(65 + v), ' ', char(66), ' ', ord(char(67)));
