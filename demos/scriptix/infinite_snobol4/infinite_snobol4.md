@@ -69,7 +69,9 @@
 // Arguments, key=value: batch=N (1024 default; 2048, 4096, 8192 at a time), sbl=COMMAND (the child's oracle command, default
 // /home/resources/x64/bin/sbl -bf), and the generator's own words, each handed to the Icon section's inf_opt: walk=
 // random|every|both kind=expr|match|both count= limit= seed= elimit= plimit= climit= preset=0|1|2|3 (3 the closed world,
-// the default; 0 alternates 1 and 2 by batch) batches=N (stop after N batches; 0, the default, runs the generator dry).
+// the default; 0 alternates 1 and 2 by batch) batches=N (stop after N batches; 0, the default, runs the generator dry)
+// scope=N (0 to the Icon section's inf_scope_max(): the construct families of DESIGN-PLAN random-codegen-scope's steps 1..N;
+// 0, the default, is the grammar from before the ladder).
 &TRIM = 1;
 inf_safe = DUPL('.', 32) SUBSTR(&ALPHABET, 33, 95) DUPL('.', 129);
 inf_bsize = 1024;
@@ -179,7 +181,7 @@ if (inf_readargs()) { drive(inf_bsize, inf_sbl); }
 # loops batch after batch -- inf_batch writes the next expressions to inf_batch.txt from one generator held in a co-expression,
 # and the Snocone section's check() evaluates them against the SPITBOL child and returns how many differ. One line per batch, a
 # total at the end; a SCRIP that agrees with SPITBOL prints nothing else.
-global tokens, limit, leaves, subjects, pleaves, opt, gen, nbatch, closed, caps, given, subj_chars
+global tokens, limit, leaves, subjects, pleaves, opt, gen, nbatch, closed, caps, given, subj_chars, scope
 procedure inf_variables()
     return ["a", "b", "c", "d", "e", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
             "$r", "$s", "$x", ".i", "a[1]", "a[2]", "a[10]", "a[26]", "t['a']", "t['b']", "t[0]", "t[3]", "t[r]", "t[s]",
@@ -703,11 +705,19 @@ procedure inf_defaults()
         opt["climit"] := "1";
         opt["preset"] := "3";
         opt["batches"] := "0";
+        opt["scope"] := "0";
     };
     return;
 end
+# THE SCOPE LADDER (DESIGN-PLAN random-codegen-scope, .github ARCH-RANDOM-SNOBOL4-GENERATOR.md): scope=N emits the construct
+# families of steps 1..N and no later one, each emitter guarded by scope >= its step; scope=0 is the grammar from before the
+# ladder, so a batch is (scope, seed0, N) for ever. inf_scope_max is the highest step landed, bumped by each step's landing.
+procedure inf_scope_max()
+    return 1;
+end
 procedure inf_lists()
     local a;
+    scope := integer(opt["scope"]);
     if \subjects then return;
     caps := c_caps();
     /given := set();
@@ -733,6 +743,7 @@ procedure inf_opt(k, v)
     if k == ("kind") then v == ("expr" | "match" | "both") | fail;
     if k == ("count" | "limit" | "seed" | "elimit" | "plimit" | "climit" | "batches") then integer(v) | fail;
     if k == "preset" then (0 <= integer(v) <= 3) | fail;
+    if k == "scope" then (0 <= integer(v) <= inf_scope_max()) | fail;
     opt[k] := v;
     /given := set();
     insert(given, k);
