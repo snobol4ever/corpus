@@ -1,0 +1,6 @@
+2
+2
+Pod::Heading Title
+Some text here.
+Pod::Block::Declarator
+A documented sub

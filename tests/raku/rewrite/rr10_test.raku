@@ -1,0 +1,11 @@
+use Test;
+ok 1, "ok";
+is 2, 2, "is";
+is-deeply [1, 2], [1, 2], "deep";
+throws-like { die "boom" }, Exception, message => /boom/;
+dies-ok { die "x" }, "dies";
+lives-ok { 1 }, "lives";
+subtest "sub", { plan 1; ok 1 };
+isa-ok 1, Int;
+cmp-ok 1, '<', 2;
+done-testing;

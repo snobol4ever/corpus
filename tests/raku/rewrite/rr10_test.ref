@@ -1,0 +1,18 @@
+ok 1 - ok
+ok 2 - is
+ok 3 - deep
+# Subtest: did we throws-like Exception?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches /boom/
+ok 4 - did we throws-like Exception?
+ok 5 - dies
+ok 6 - lives
+# Subtest: sub
+    1..1
+    ok 1 - 
+ok 7 - sub
+ok 8 - The object is-a 'Int'
+ok 9 - 
+1..9
