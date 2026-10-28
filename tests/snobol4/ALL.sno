@@ -22379,3 +22379,45 @@ fail            t1              =   TIME()
                 TERMINAL        =   'match_ms=' (t1 - t0) / 1000000
 *------------------------------------------------------------------------------
 END
+*----------------------------------- 2144 ladder__rung05_goto_indirect_subscript
+        A = ARRAY(3)
+        A<2> = 'L2'
+        A[3] = 'L3'
+        I = 2
+        :($(A[I]))
+L1      OUTPUT = 'one'   :(END)
+L2      OUTPUT = 'two'
+        I = 3   :($A<I>)
+        OUTPUT = 'skipped'
+L3      OUTPUT = 'three'
+END
+*----------------------------- 2145 ladder__rung05_goto_indirect_subscript_forms
+        A = ARRAY('2,2')
+        A<1,2> = 'LX'
+        A<2,1> = 'LW'
+        B = ARRAY(3)
+        B<3> = 2
+        T = TABLE()
+        T<'k'> = 'LT'
+        T<'e'> = 'LEND'
+        Z = ARRAY(2)
+        Z<2> = 'LV'
+        I = 2
+        J = 1
+        X = 3
+        :($(A[1,I]))
+BAD1    OUTPUT = 'bad1'   :(END)
+LX      OUTPUT = 'LX ok'
+        :($A<I,J>)
+BAD2    OUTPUT = 'bad2'   :(END)
+LW      OUTPUT = 'LW ok'
+        :($T<'k'>)
+BAD3    OUTPUT = 'bad3'   :(END)
+LT      OUTPUT = 'LT ok'
+        :S($Z<B<X>>)F(BAD4)
+BAD4    OUTPUT = 'bad4'   :(END)
+LV      OUTPUT = 'LV ok'
+        IDENT(X, 'q')   :S(BAD5)F($T<'e'>)
+BAD5    OUTPUT = 'bad5'   :(END)
+LEND    OUTPUT = 'done'
+END
