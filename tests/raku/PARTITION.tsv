@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1064 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=50 clusters=49 chunks=11 sizes=100,100,100,100,100,100,100,100,100,100,14
+# shape: entries=1065 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=50 clusters=49 chunks=11 sizes=100,100,100,100,100,100,100,100,100,100,15
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:07	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:07	family:ladder	
@@ -671,7 +671,7 @@ while_1	chunk:09	feat:while	if while
 while_2	chunk:09	feat:while	if while
 while_3	chunk:09	feat:while	if while
 class_method_replace_10	chunk:09	feat:method	method
-class_method_replace_11	chunk:09	feat:method	method
+class_method_replace_11	chunk:10	feat:method	method
 class_method_replace_14	chunk:10	feat:method	method
 class_method_replace_6	chunk:10	feat:method	method
 class_method_replace_7	chunk:10	feat:method	method
@@ -909,6 +909,7 @@ ladder__rung13_classes_a_forward_declared_class_stub_gives_way_to_the_full_class
 sub_junction_say_replace_1	chunk:10	feat:junction	if junction say sub
 ladder__rung03_strings_the_method_assign_form_inside_an_expression_stores_and_yields_the_new_value	chunk:08	feat:string_concat	say sigil_array string_concat sub
 ladder__rung04_arrays_push_unshift_append_prepend_splice_shift_and_pop_on_a_number_die_and_push_of_an_array_literal_lives	chunk:09	feat:try	for for_with_say sigil_array try
+ladder__rung01_variables_a_coercion_type_on_a_variable_or_a_parameter_converts_the_value_it_is_given	chunk:09	feat:smartmatch	regex smartmatch string_concat sub
 when_while_replace_1	chunk:10	feat:unless	if unless when while
 ladder__rung02_arithmetic_power_assigned_and_compound_assigned	chunk:09	feat:sub_with_return	return sigil_array sub sub_with_return
 sub_for_say_replace_1	chunk:05	feat:for_with_say	for for_with_say say sub
@@ -1000,7 +1001,7 @@ class_method_say_replace_21	chunk:03	feat:has	has method return say string_conca
 class_method_multi_replace_5	chunk:08	feat:multi	method multi return say string_concat
 ladder__rung04_arrays_join_flattens_its_list_arguments_as_a_slurpy_and_keeps_array_elements_itemized	chunk:07	feat:join	for for_with_say join range_op say sigil_array
 ladder__rung18_two_arg_block_do_for_collects_and_await_is_its_value	chunk:07	feat:join	for for_with_say join range_op say sigil_array
-sub_when_for_replace_1	chunk:10	feat:when	for for_with_say say sigil_array sub when
+sub_when_for_replace_1	chunk:11	feat:when	for for_with_say say sigil_array sub when
 ladder__rung14_roles_a_role_declares_regexes_and_attributes_beside_methods	core	core	has method regex string_concat token
 ladder__rung15_blocks_a_closure_in_a_sub_reads_an_enum_value_and_a_constant_that_sub_declares	core	core	grep join map say sigil_array sub
 ladder__rung19_block_methcall_sort_by_a_one_arg_key_block_past_64_elements	core	core	map range_op say sigil_array sort sub
