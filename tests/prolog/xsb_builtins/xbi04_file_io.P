@@ -1,0 +1,20 @@
+% xbi04_file_io -- XSB 5.0.0's file_io routines over a stream file_open/3 returns (prolog_tests io_tests/io_basics): file_write/2 writes a term as write/1, file_flush/2 and file_seek/4 (place 0 the
+% start, 1 the current position, 2 the end) and file_truncate/3 answer status 0, file_truncate leaves the position at the new end (a write after it extends the truncated file without a hole),
+% print_file_contents/1 prints a file, rm/1 removes it, xsb_configuration(os_type, _) is linux-gnu on this box.
+:- import file_open/3, file_flush/2, file_seek/4, file_close/1 from file_io.
+:- import file_truncate/3, print_file_contents/1 from file_io.
+:- import file_write/2 from xsb_writ.
+:- import rm/1 from shell.
+test :- file_open(xbi04_log, w, FD), file_write(FD, 'a.done '), file_flush(FD, R1), write(r1(R1)), nl,
+        print_file_contents(xbi04_log), nl,
+        file_seek(FD, 0, 0, R2), write(r2(R2)), nl, file_write(FD, 'b.done 2'), file_flush(FD, _),
+        print_file_contents(xbi04_log), nl,
+        file_seek(FD, 0, 1, R3), write(r3(R3)), nl,
+        file_seek(FD, 0, 2, R4), write(r4(R4)), nl,
+        file_write(FD, 123), file_flush(FD, _),
+        print_file_contents(xbi04_log), nl,
+        file_truncate(FD, 2, R5), write(r5(R5)), nl, file_write(FD, 'c'), file_flush(FD, _),
+        print_file_contents(xbi04_log), nl, file_close(FD),
+        file_open(xbi04_log, r, FR), file_seek(FR, 1, 0, R6), write(r6(R6)), nl, file_close(FR),
+        xsb_configuration(os_type, Os), write(os(Os)), nl,
+        rm(xbi04_log), write(removed), nl.
