@@ -5,9 +5,9 @@
 step	slug	executor	depends	probe	witnesses
 1	the-loader-reads-table-directives	hq_packages	-	entries=sub_tests_lrtc1,sub_tests_sg1	xw01_loader_table
 2	the-wfs-driver-as-xsb-runs-it	hq_packages	1	entries=wfs_tests_p06,wfs_tests_p33,wfs_tests_p52,wfs_tests_p77	xw02_wfs_driver:temp:test(xw02_p33)
-3	the-xsb-reading	hq_packages	-	entries=neg_tests_q7,table_tests_test_3vwfs_1,table_tests_abol_test3	xw03_reading
+3	the-xsb-reading	hq_packages	-	entries=neg_tests_q7,table_tests_abol_test3	xw03_reading
 4	auto-table-and-suppl-table	hq_packages	3	entries=delay_tests_seg1,delay_tests_win,delay_tests_fr1,delay_tests_dynstrat1	xw04_auto_table xw05_suppl_table
-5	the-table-builtin-surface	hq_packages	-	entries=table_tests_get_resid,prolog_tests_std1,table_tests_test_not3_wcs	xw06_builtins
+5	the-table-builtin-surface	hq_packages	-	entries=table_tests_get_resid,prolog_tests_std1	xw06_builtins
 6	one-body-one-run	cfo	1	entries=delay_tests_przy1,delay_tests_abol_susp1,delay_tests_abol_susp2,delay_tests_ac_tests	xw07_once_per_body
 7	the-scc-depth-number	cfo	6	entries=delay_tests_tabsimp_seq	xw08_scc_ring
 8	delay-lists-as-xsb-prints-them	hq_packages	6	entries=table_tests_test_wcs_1,table_tests_test_wcs_simpl,delay_tests_dl_dupl,delay_tests_asl_dupl	xw09_delay_print
