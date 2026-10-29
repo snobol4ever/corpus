@@ -45,6 +45,7 @@ procedure main();
   r ||:= walk("xaxaxaxa") || ",";
   every i := g("banana") do r ||:= i || ",";
   "a\x00b\x00a\x00c" ? { r ||:= (find("\x00", &subject, 3) | "-") || (upto('c', &subject, 1, 0) | "-") || "," };
+  "hello world" ? { move(3); every i := find("o", &subject, 1, 0) do r ||:= i || "@" || &pos || ","; r ||:= (find("o", &subject, &pos) | "-") || "@" || &pos || ","; every i := upto('o', &subject, &pos, 0) do r ||:= i || "~" || &pos || ","; r ||:= &pos || "," };
   s := "x\x00ya\x00za";
   every i := find("a", s, 2, 0) do r ||:= i || ",";
   every i := upto('a', s, 5) do r ||:= i || ",";
