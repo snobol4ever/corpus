@@ -23757,3 +23757,20 @@ F3      E =
 S4      S = S ',ds' E
 F4      OUTPUT = S
 END
+*-------------- 2187 ladder__rung16_inf_dotnet_an_open_bracket_at_the_end_is_229
+* A text whose innermost bracket still open at its end is [ or < is 229, missing right array bracket, in EVAL and CONVERT as in
+* CODE; an open parenthesis is 226 and a closer that meets the wrong opener is its own error (rung16, the nearest: CODE and EVAL)
+        &ERRLIMIT = 20
+        T1 = 'a['
+        T2 = 'a<'
+        T3 = 'a[1, '
+        T4 = 'f('
+        T5 = 'f(a[1)'
+        I = 0
+L       I = I + 1
+        GT(I, 5)                            :S(END)
+        V = EVAL($('T' I))                  :S(L)
+        R = I ' E ' &ERRTYPE
+        V = CONVERT($('T' I), 'EXPRESSION') :S(L)
+        OUTPUT = R ' C ' &ERRTYPE           :(L)
+END
