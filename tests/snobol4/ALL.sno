@@ -22907,3 +22907,21 @@ E4      V = CONVERT('0:35', 'EXPRESSION')           :S(Y5)
         OUTPUT = '5 F t=' &ERRTYPE ' lim=' &ERRLIMIT  :(END)
 Y5      OUTPUT = '5 S'
 END
+*---------------- 2168 ladder__rung13_dotnet_an_expression_converts_to_a_pattern
+* CONVERT of an EXPRESSION to PATTERN is a pattern that evaluates it when matched, as *X is in a pattern
+* (rung13, the nearest: no rung is the deferred expression)
+        S = 'i'
+        E = CONVERT(S, 'EXPRESSION')                :S(A)
+        OUTPUT = '1 fail'                           :(B)
+A       OUTPUT = '1 ' DATATYPE(E)
+B       P = CONVERT(E, 'PATTERN')                   :S(C)
+        OUTPUT = '2 fail'                           :(D)
+C       OUTPUT = '2 ' DATATYPE(P)
+D       P = CONVERT(*X, 'PATTERN')                  :S(F)
+        OUTPUT = '3 fail'                           :(G)
+F       OUTPUT = '3 ' DATATYPE(P)
+G       X = 'q'
+        'aqb' ? CONVERT(*X, 'PATTERN') . R          :S(H)
+        OUTPUT = '4 fail'                           :(END)
+H       OUTPUT = '4 ' R
+END

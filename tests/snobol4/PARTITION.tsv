@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=2167 features=40 ubiquitous=0() distinctive=40 core=31 clusters=140 chunks=22 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,36
+# shape: entries=2168 features=40 ubiquitous=0() distinctive=40 core=31 clusters=140 chunks=22 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,37
 entry	part	cluster	shells
 simple_assign_1	chunk:20	family:probe_conformance	
 simple_output_10	chunk:20	family:probe_conformance	
@@ -463,7 +463,7 @@ pos_len_datatype_1	chunk:11	feat:DATATYPE	DATATYPE LEN POS deferred_eval
 pos_rpos_alt_branch_1	chunk:19	feat:alternation	POS RPOS alternation goto_fail
 pos_rpos_alt_branch_2	chunk:19	feat:alternation	POS RPOS alternation goto_fail
 pos_rpos_alt_branch_3	chunk:19	feat:alternation	POS RPOS alternation goto_fail
-pos_rpos_alt_branch_4	chunk:19	feat:alternation	POS RPOS alternation goto_fail
+pos_rpos_alt_branch_4	chunk:20	feat:alternation	POS RPOS alternation goto_fail
 pos_rpos_len_branch_4	chunk:19	feat:LEN	LEN POS RPOS goto_fail
 pos_rpos_len_branch_9	chunk:19	feat:LEN	LEN POS RPOS goto_success
 rem_capture_keyword_branch_1	chunk:17	feat:REM	REM cond_assign goto_fail keyword_ref
@@ -862,7 +862,7 @@ simple_output_207	chunk:22	family:scrip_test_snobol4_concat_019_concat_var_strin
 simple_output_209	chunk:22	family:scrip_test_snobol4_concat_021_concat_in_assignment	
 simple_output_222	chunk:21	family:scrip_test_snobol4_assign_009_assign_string	
 simple_output_223	chunk:21	family:scrip_test_snobol4_assign_010_assign_integer	
-simple_output_227	chunk:21	family:scrip_test_snobol4_assign_014_assign_indirect_dollar	
+simple_output_227	chunk:22	family:scrip_test_snobol4_assign_014_assign_indirect_dollar	
 simple_output_228	chunk:22	family:scrip_test_snobol4_assign_016_assign_to_output	
 simple_output_245	chunk:22	family:scrip_test_snobol4_hello_empty_string	
 simple_output_258	chunk:18	family:ladder	
@@ -919,7 +919,7 @@ simple_assign_2	chunk:21	family:crosscheck_beauty
 ladder__rung29_output_to_file	chunk:18	family:ladder	
 simple_output_151	chunk:21	family:crosscheck_rung3	
 simple_output_152	chunk:21	family:crosscheck_rung3	
-simple_output_162	chunk:20	family:crosscheck_rung9	
+simple_output_162	chunk:21	family:crosscheck_rung9	
 simple_output_68	chunk:21	family:probe_gimpel	
 ladder__rung29_rewind	chunk:18	family:ladder	
 ladder__rung29_backspace	chunk:18	family:ladder	
@@ -2169,3 +2169,4 @@ ladder__rung16_dotnet_direct_goto_not_made_after_a_trapped_error	chunk:03	feat:k
 ladder__rung04_dotnet_a_statement_with_a_question_mark_matches_all_before_it	chunk:08	feat:goto_success	goto_success
 ladder__rung16_dotnet_a_failed_code_defines_labels_only_before_the_error	chunk:12	feat:CODE	CODE goto_success keyword_ref
 ladder__rung16_dotnet_convert_of_a_goto_or_a_semicolon_fails_quietly	chunk:19	feat:CONVERT	CONVERT goto_success keyword_ref
+ladder__rung13_dotnet_an_expression_converts_to_a_pattern	chunk:19	feat:CONVERT	CONVERT DATATYPE capture_plus_defer cond_assign deferred_eval goto_success
