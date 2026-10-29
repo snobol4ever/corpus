@@ -1,0 +1,14 @@
+procedure main();
+   write(map("Hello"));
+   write(map("hello", "lo", "LO"));
+   write(left("a"));
+   write(center("ab", 6), "|");
+   write(right("ab", 6, "."), "|");
+   write(reverse("abc", 5));
+   write(trim("abc   "));
+   write(trim("abc...", "."));
+   write(integer("12"), " ", real("1.5"), " ", string(7), " ", numeric("3"));
+   write(abs(-3), " ", char(65), " ", ord("A"));
+   write(image(type(1)), " ", image(copy("s")));
+   write(image(ishift(1, 3)), " ", iand(6, 3), " ", ior(4, 1), " ", ixor(5, 1), " ", icom(0));
+end

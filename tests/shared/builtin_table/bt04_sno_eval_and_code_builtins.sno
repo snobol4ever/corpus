@@ -1,0 +1,13 @@
+	OUTPUT = EVAL("SIZE('abcdef')")
+	E = "REVERSE('abc') DUPL('-', 2)"
+	OUTPUT = EVAL(E)
+	C = CODE(" OUTPUT = SIZE('in code') ;L1 OUTPUT = REPLACE('abc', 'a', 'z') :(DONE)")
+							:<C>
+DONE	OUTPUT = APPLY("TRIM", "ab   ") "|"
+	S = "SIZE"
+	OUTPUT = EVAL(S "('dynamic')")
+	DEFINE("USERF(X)")				:(AFTER)
+USERF	USERF = "u" SIZE(X)				:(RETURN)
+AFTER	OUTPUT = EVAL("USERF('abcd')")
+	OUTPUT = EVAL("SIZE(USERF('x'))")
+END

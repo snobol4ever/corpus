@@ -1,0 +1,11 @@
+	OUTPUT = SIZE()
+	OUTPUT = "[" DUPL("x") "]"
+	OUTPUT = "[" TRIM() "]"
+	OUTPUT = REVERSE()
+	OUTPUT = LPAD("ab", 5) "|"
+	OUTPUT = RPAD("ab", 5, "*") "|"
+	OUTPUT = SUBSTR("abcdef", 2)
+	OUTPUT = SUBSTR("abcdef", 2, 3)
+	OUTPUT = CHAR(65) CHAR(66)
+	OUTPUT = IDENT() "|" DIFFER()
+END

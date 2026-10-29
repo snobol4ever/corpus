@@ -1,0 +1,6 @@
+procedure main();
+   local n, i;
+   n := 0;
+   every i := 1 to 200000 do n +:= *map("abcdef");
+   write(n);
+end

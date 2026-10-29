@@ -1,0 +1,14 @@
+	DATA("POINT(X,Y)")
+	P = POINT(1, 2)
+	OUTPUT = X(P) "," Y(P)
+	X(P) = 10
+	OUTPUT = X(P) "," Y(P)
+	Q = POINT(X(P) + 1, Y(P) + 1)
+	OUTPUT = X(Q) "," Y(Q)
+	OUTPUT = DATATYPE(P)
+	OUTPUT = APPLY("X", P)
+	DATA("PAIR(LEFT,RIGHT)")
+	R = PAIR("a", "b")
+	OUTPUT = LEFT(R) RIGHT(R)
+	OUTPUT = SIZE(LEFT(R))
+END

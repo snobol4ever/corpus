@@ -1,0 +1,18 @@
+procedure main();
+   local t, L;
+   every write(find("a", "banana"));
+   every write(upto('an', "banana"));
+   every write(bal('+', "(", ")", "(a+b)+c+(d)"));
+   every write(many('ab', "aabbcc"));
+   every write(any('b', "banana"));
+   every write(match("ba", "banana"));
+   t := table();
+   t["x"] := 1; t["y"] := 2;
+   every write(key(t));
+   L := [1, 2, 3];
+   every write(!L);
+   every write(seq(10, 5) \\ 3);
+   write(find("z", "banana") | "none");
+   every write(find("a", "banana", 3));
+   every write(find("a", "banana", 3, 6));
+end

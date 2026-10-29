@@ -1,0 +1,13 @@
+procedure main();
+   write(map("abc"));
+   write(reverse("abc"));
+   write(repl("ab", 2));
+end
+
+procedure map(s);
+   return "mine:" || s;
+end
+
+procedure repl(s, n);
+   return "repl:" || s || n;
+end

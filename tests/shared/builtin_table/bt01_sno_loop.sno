@@ -1,0 +1,5 @@
+	I = 0
+LOOP	N = SIZE("abcdef") + N
+	I = LT(I, 200000) I + 1 :S(LOOP)
+	OUTPUT = N
+END

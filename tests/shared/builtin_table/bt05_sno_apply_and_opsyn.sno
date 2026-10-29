@@ -1,0 +1,14 @@
+	OUTPUT = APPLY("SIZE", "abcd")
+	F = "REVERSE"
+	OUTPUT = APPLY(F, "abc")
+	OPSYN("SZ", "SIZE")
+	OUTPUT = SZ("hello")
+	OUTPUT = APPLY("SZ", "xy")
+	OPSYN("REV", "REVERSE")
+	OUTPUT = REV(SZ("abc") "def")
+	DEFINE("TWICE(S)")				:(AFTER)
+TWICE	TWICE = S S				:(RETURN)
+AFTER	OUTPUT = APPLY("TWICE", "ab")
+	OPSYN("DOUBLE", "TWICE")
+	OUTPUT = DOUBLE("cd")
+END

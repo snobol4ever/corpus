@@ -1,0 +1,20 @@
+procedure main();
+   local f, g, nm;
+   write("map"("ABC"));
+   write("reverse"("abc"));
+   f := proc("reverse");
+   write(f("xyz"));
+   nm := "re" || "pl";
+   g := proc(nm, 2);
+   write(g("ab", 3));
+   write(image(proc("write")));
+   write(image(proc("mine")));
+   write(proc("nosuch") | "no such function");
+   write("center"("x", 5, "-"));
+   write(proc("+", 2)(3, 4));
+   write(proc("*", 1)("abcd"));
+end
+
+procedure mine(x);
+   return x;
+end
