@@ -22874,3 +22874,36 @@ N4      A (B ? 'b')                    :S(S4)F(F4)
 S4      OUTPUT = '4 succ'              :(END)
 F4      OUTPUT = '4 fail'
 END
+*- 2166 ladder__rung16_dotnet_a_failed_code_defines_labels_only_before_the_error
+* CODE that does not compile defines the labels before the statement in error and no other: L2 on that statement
+* and L3 after it keep the definitions an earlier CODE gave them
+        &ERRLIMIT = 10
+        C = CODE(' OUTPUT = "old" :(B1);L2 OUTPUT = "old L2" :(B1);L3 OUTPUT = "old L3" :(B2)')
+        D = CODE(' X = 1;L2 Y = SQRT(-0.5); OUTPUT = "after";L3 OUTPUT = "new L3" :(B2)')    :S(D1)
+        OUTPUT = 'D failed ' &ERRTYPE
+D1      SETEXIT('ERR')
+        :(L2)
+B1      OUTPUT = 'back 1'
+        :(L3)
+B2      OUTPUT = 'back 2'                  :(END)
+ERR     OUTPUT = 'ERROR ' &ERRTYPE
+END
+*----- 2167 ladder__rung16_dotnet_convert_of_a_goto_or_a_semicolon_fails_quietly
+* CONVERT(text, 'EXPRESSION') of text holding a colon or semicolon outside every bracket fails, leaving &ERRTYPE
+* and &ERRLIMIT as they were; inside parentheses it is the compile error 226
+        &ERRLIMIT = 10
+        V = CONVERT('4 +', 'EXPRESSION')            :S(Y1)
+        OUTPUT = '1 F t=' &ERRTYPE ' lim=' &ERRLIMIT
+Y1      V = CONVERT('4 :(L)', 'EXPRESSION')         :S(Y2)
+        OUTPUT = '2 F t=' &ERRTYPE ' lim=' &ERRLIMIT  :(E2)
+Y2      OUTPUT = '2 S'
+E2      V = CONVERT('4 + ;', 'EXPRESSION')          :S(Y3)
+        OUTPUT = '3 F t=' &ERRTYPE ' lim=' &ERRLIMIT  :(E3)
+Y3      OUTPUT = '3 S'
+E3      V = CONVERT('(4 :(L))', 'EXPRESSION')       :S(Y4)
+        OUTPUT = '4 F t=' &ERRTYPE ' lim=' &ERRLIMIT  :(E4)
+Y4      OUTPUT = '4 S'
+E4      V = CONVERT('0:35', 'EXPRESSION')           :S(Y5)
+        OUTPUT = '5 F t=' &ERRTYPE ' lim=' &ERRLIMIT  :(END)
+Y5      OUTPUT = '5 S'
+END
