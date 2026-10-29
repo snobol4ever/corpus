@@ -1,0 +1,33 @@
+global L, junk
+procedure gen()
+  local i, t;
+  L := &null;
+  t := [];
+  every i := 1 to 3000 do put(t, repl("x", 60));
+  junk := t;
+  suspend 1;
+  t := [];
+  every i := 1 to 3000 do put(t, repl("y", 60));
+  junk := t;
+  suspend 2;
+end
+procedure det()
+  local i, t;
+  L := &null;
+  t := [];
+  every i := 1 to 3000 do put(t, repl("z", 60));
+  junk := t;
+  return 7;
+end
+procedure main()
+  local p, d, s, x, i;
+  L := [];
+  every i := 1 to 4000 do put(L, repl("a", 50));
+  s := repl("abcdefghij", 400);
+  p := gen; d := det;
+  s ? { every x := p() do { write(x, " ", &pos, " ", image(tab(5)), " ", &pos, " ", image(move(3)), " ", &pos) } };
+  L := [];
+  every i := 1 to 4000 do put(L, repl("b", 50));
+  s := repl("klmnopqrst", 400);
+  s ? { x := d(); write(x, " ", &pos, " ", image(tab(7)), " ", &pos, " ", image(move(2)), " ", &pos, " ", image(upto('t'))) };
+end
