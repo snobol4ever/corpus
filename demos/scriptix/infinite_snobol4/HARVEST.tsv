@@ -12,3 +12,5 @@ date	engine	scope	seed0	batch	line	class	origin	row
 2026-10-29	dotnet	12	20261030	7	328	the-statement-in-error-of-a-failed-code-is-error-7	ladder__rung16_inf_dotnet_the_statement_in_error_of_a_failed_code_is_error_7	random-codegen-step-12-data-types-ceo-1999
 2026-10-29	dotnet	12	20261031	3	150	an-element-holding-an-expression-is-assigned-itself	ladder__rung07_inf_dotnet_an_element_holding_an_expression_is_assigned_itself	random-codegen-step-12-data-types-ceo-1999
 2026-10-29	dotnet	12	20261101	6	178	a-failed-code-reports-its-first-error	ladder__rung16_inf_dotnet_a_failed_code_reports_its_first_error	random-codegen-step-12-data-types-ceo-1999
+2026-10-29	dotnet	12	20261102	7	240	a-long-alternative-compiles	ladder__rung25_inf_dotnet_a_long_alternative_compiles	random-codegen-step-12-data-types-ceo-1999
+2026-10-29	dotnet	12	20261102	3	172	char-of-a-real-beyond-the-integers-is-282	ladder__rung26_inf_dotnet_char_of_a_real_beyond_the_integers_is_out_of_range	random-codegen-step-12-data-types-ceo-1999

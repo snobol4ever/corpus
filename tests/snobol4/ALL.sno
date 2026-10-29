@@ -23717,3 +23717,23 @@ L       I = I + 1
         OUTPUT = I ' FAIL ' &ERRTYPE        :(L)
 OK      OUTPUT = I ' ok'                    :(L)
 END
+*-------------------- 2184 ladder__rung25_inf_dotnet_a_long_alternative_compiles
+* A selection whose later alternatives are long is compiled and tried as any other selection (rung25, selection)
+        P = 'pv'
+        X = (DIFFER(Z), (DIFFER(Q), DUPL(REPLACE(TRIM(LPAD(P, 5, '.')), 'p', 'q'), SIZE(REVERSE(P))) RPAD(P, 4)))
+        OUTPUT = '1 [' X ']'
+        X = (DIFFER(Z), (DIFFER(Q), DUPL(REPLACE(TRIM(LPAD(P, 5, '.')), 'p', 'q'), SIZE(REVERSE(P))) RPAD(P, 4)), 'last')
+        OUTPUT = '2 [' X ']'
+        X = (DIFFER(Z), DIFFER(Q) DUPL(REPLACE(TRIM(LPAD(P, 5, '.')), 'p', 'q'), SIZE(REVERSE(P))) RPAD(P, 4), 'last')
+        OUTPUT = '3 [' X ']'
+END
+*- 2185 ladder__rung26_inf_dotnet_char_of_a_real_beyond_the_integers_is_out_of_range
+* CHAR of a real beyond the integers is out of range, error 282, as the argument arrives in a variable (rung26, CHAR)
+        &ERRLIMIT = 10
+        N = 1E150
+        B = CHAR(N)
+        OUTPUT = &ERRTYPE ' ' SIZE(B)
+        N = -1E150
+        C = CHAR(N)
+        OUTPUT = &ERRTYPE ' ' &ERRLIMIT ' ' SIZE(C)
+END
