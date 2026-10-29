@@ -23762,7 +23762,7 @@ END
 * CODE; an open parenthesis is 226 and a closer that meets the wrong opener is its own error (rung16, the nearest: CODE and EVAL)
         &ERRLIMIT = 20
         T1 = 'a['
-        T2 = 'a<'
+        T2 = 'a[1'
         T3 = 'a[1, '
         T4 = 'f('
         T5 = 'f(a[1)'
