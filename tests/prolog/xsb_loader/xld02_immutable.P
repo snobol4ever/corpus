@@ -1,0 +1,10 @@
+% XSB IMMUTABLE MODULE WITNESS xld02 (hq_packages 2026-10-29, prolog_tests/test_immutable and test_immutable2): a file loaded as module M that declares :- immutable. is never replaced: a later load of the same module name
+% from any file is ignored, and an immutable file never replaces a regular module already loaded. The files xld02_a to xld02_e are copied over xld02_m.P / xld02_n.P as XSB's own tests do. The ref is XSB 5.0.0 own output.
+:- import shell/1 from shell.
+test :- shell('rm -f xld02_m.P xld02_m.xwam xld02_n.P xld02_n.xwam'), fail.
+test :- shell('cp xld02_a.P xld02_m.P'), [xld02_m], p(A), write(first(A)), nl, fail.
+test :- shell('rm -f xld02_m.xwam'), shell('cp xld02_b.P xld02_m.P'), [xld02_m], p(A), write(second(A)), nl, fail.
+test :- shell('rm -f xld02_m.xwam'), shell('cp xld02_c.P xld02_m.P'), [xld02_m], p(A), write(third(A)), nl, fail.
+test :- shell('cp xld02_d.P xld02_n.P'), [xld02_n], q(A), write(fifth(A)), nl, fail.
+test :- shell('rm -f xld02_n.xwam'), shell('cp xld02_e.P xld02_n.P'), [xld02_n], q(A), write(sixth(A)), nl, fail.
+test.

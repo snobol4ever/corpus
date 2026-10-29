@@ -1,0 +1,4 @@
+:- immutable.
+:- export q/1.
+
+q(e).
