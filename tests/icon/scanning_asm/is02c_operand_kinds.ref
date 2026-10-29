@@ -1,0 +1,192 @@
+== "abc"
+upto: 8 12 44 64
+many: - - -
+any: -
+find:
+match: -
+bal: 8
+upto2: 8 12 44 64
+many2: -
+any2: -
+match2: -
+== "aeiou"
+upto: 3 6 7 14 20 28 34 36 44 49 56 59 64 66
+many: - - e
+any: -
+find:
+match: -
+bal: 6
+upto2: 14 20 28 34 36 44 49 56 59 64 66
+many2: -
+any2: -
+match2: -
+== ""
+upto:
+many: - - -
+any: -
+find: 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72
+match: 4
+bal: -
+upto2:
+many2: -
+any2: -
+match2: 5
+== "q"
+upto: 5
+many: - - -
+any: -
+find: 5
+match: -
+bal: 5
+upto2: 5
+many2: 6
+any2: 6
+match2: 6
+== "xy"
+upto: 21 46 71
+many: - - -
+any: -
+find:
+match: -
+bal: 21
+upto2: 21 46 71
+many2: -
+any2: -
+match2: -
+== 'aeiou'
+upto: 3 6 7 14 20 28 34 36 44 49 56 59 64 66
+many: - - e
+any: -
+find:
+match: -
+bal: 6
+upto2: 14 20 28 34 36 44 49 56 59 64 66
+many2: -
+any2: -
+match2: -
+== &digits
+upto: 23 24 25 39 41
+many: - - -
+any: -
+find:
+match: -
+bal: 23
+upto2: 23 24 25 39 41
+many2: -
+any2: -
+match2: -
+== 12
+upto: 23 24
+many: - - -
+any: -
+find: 23
+match: -
+bal: 23
+upto2: 23 24
+many2: -
+any2: -
+match2: -
+== "("
+upto: 11 53 54
+many: - - -
+any: -
+find: 11 53 54
+match: -
+bal: 11
+upto2: 11 53 54
+many2: -
+any2: -
+match2: -
+== ")"
+upto: 17 61 69
+many: - - -
+any: -
+find: 17 61 69
+match: -
+bal: -
+upto2: 17 61 69
+many2: -
+any2: -
+match2: -
+== "the quick"
+upto: 1 2 3 4 5 6 7 8 9 10 18 22 26 28 33 36 38 42 47 52 56 58 59 62 66 70
+many: the quick  - -
+any: -
+find:
+match: -
+bal: -
+upto2: 22 26 28 33 36 38 42 47 52 56 58 59 62 66 70
+many2: -
+any2: -
+match2: -
+== "brown) fox 123 jumps"
+upto: 4 6 10 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 33 34 37 38 42 47 49 51 52 55 57 61 62 63 65 67 68 69 70 71
+many: - - -
+any:  
+find: 12
+match: -
+bal: 6
+upto2: 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 33 34 37 38 42 47 49 51 52 55 57 61 62 63 65 67 68 69 70 71
+many2: -
+any2: -
+match2: -
+== "abababababababababababababababababababab"
+upto: 12 44 64
+many: - - -
+any: -
+find:
+match: -
+bal: 44
+upto2: 12 44 64
+many2: -
+any2: -
+match2: -
+== "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxq"
+upto: 5 21 71
+many: - - -
+any: -
+find:
+match: -
+bal: 5
+upto2: 5 21 71
+many2: 6
+any2: 6
+match2: -
+== 'o'
+upto: 14 20 34 49
+many: - - -
+any: -
+find: 14 20 34 49
+match: -
+bal: 20
+upto2: 14 20 34 49
+many2: -
+any2: -
+match2: -
+== "\x00"
+upto:
+many: - - -
+any: -
+find:
+match: -
+bal: -
+upto2:
+many2: -
+any2: -
+match2: -
+== " "
+upto: 4 10 18 22 26 33 38 42 47 52 62 70
+many: - - -
+any:  
+find: 10 18 22 26 33 38 42 47 52 62 70
+match: -
+bal: 10
+upto2: 18 22 26 33 38 42 47 52 62 70
+many2: -
+any2: -
+match2: -
+"abc": 4 7
+"abcabc":
+"ab": 7
+1 1 nu ny na
+- - - - -

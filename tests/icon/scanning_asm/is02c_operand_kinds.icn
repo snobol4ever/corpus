@@ -1,0 +1,30 @@
+procedure show(label, e)
+  writes(label, " ");
+  every writes(image(e), " ");
+  write();
+end
+procedure main();
+  local subj, ops, c, n, s2, i;
+  subj := "the quick (brown) fox 123 jumps; over 4.5 lazy dogs ((nested) parens) x";
+  ops := ["abc", "aeiou", "", "q", "xy", 'aeiou', &digits, 12, "(", ")", "the quick", "brown) fox 123 jumps", repl("ab", 20), repl("x", 40) || "q", cset("o"), "\x00", " "];
+  every c := !ops do {
+    subj ? {
+      write("== ", image(c));
+      writes("upto:"); every writes(" ", upto(c)); write();
+      writes("many:"); every i := 1 to 3 do { writes(" ", (tab(many(c)) | "-")); move(1) | break }; write();
+      pos(1);
+      writes("any:"); writes(" ", (tab(any(c)) | "-")); write();
+      writes("find:"); every writes(" ", find(c)); write();
+      writes("match:"); writes(" ", (match(c) | "-")); write();
+      writes("bal:"); writes(" ", (bal(c) | "-")); write();
+      tab(upto(' ')); move(1);
+      writes("upto2:"); every writes(" ", upto(c)); write();
+      writes("many2:"); writes(" ", (many(c) | "-")); write();
+      writes("any2:"); writes(" ", (any(c) | "-")); write();
+      writes("match2:"); writes(" ", (match(c) | "-")); write();
+    }
+  };
+  "abcabcabc" ? { s2 := tab(4); every c := (s2 | tab(0) | move(2)) do { writes(image(c), ":"); every writes(" ", find(c)); write() } };
+  "aaa" ? { write(find("") | "nf", " ", match("") | "nm", " ", upto("") | "nu", " ", many("") | "ny", " ", any("") | "na") };
+  "xyz" ? { c := tab(2); write(match(c) | "-", " ", many(c) | "-", " ", find(c) | "-", " ", upto(c) | "-", " ", any(c) | "-") };
+end
