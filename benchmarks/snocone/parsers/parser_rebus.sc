@@ -1089,16 +1089,15 @@ CATASSIGN   = 'CATASSIGN';
 COMPOUND    = 'COMPOUND';
 nTop_count   = 'nTop()';
 /* the C lexer (rebus.l) upper-cases every identifier and keyword name before the grammar sees it */
-function RbUp(x) { RbUp = REPLACE(x, &LCASE, &UCASE); return; }
 X_sub = epsilon . *IncCounter() (*expr | epsilon . *Reduce('TT_NUL', 0)) FENCE(*$',' *X_sub | epsilon);
 X_args   = epsilon . *IncCounter() *alt_expr FENCE(*$',' FENCE(*X_args | epsilon . *IncCounter() (epsilon) . thx . *Shift('TT_NUL', thx) FENCE(*$',' *X_args | epsilon)) | epsilon);
-call_or_id = FENCE(  epsilon . *PushCounter() (*Id) . thx . *Shift('TT_VAR', RbUp(thx)) . *IncCounter() *$'(' FENCE(*X_args | epsilon) *$')' . *Reduce('TT_FNC', nTop()) . *PopCounter()
-                   | (*Id) . thx . *Shift('TT_VAR', RbUp(thx))
+call_or_id = FENCE(  epsilon . *PushCounter() (*Id) . thx . *Shift('TT_VAR', REPLACE(thx, &LCASE, &UCASE)) . *IncCounter() *$'(' FENCE(*X_args | epsilon) *$')' . *Reduce('TT_FNC', nTop()) . *PopCounter()
+                   | (*Id) . thx . *Shift('TT_VAR', REPLACE(thx, &LCASE, &UCASE))
                   );
 primary = FENCE(  '"' (*DQ_body) . thx . *Shift('TT_QLIT', thx) '"'
                 | "'" (*SQ_body) . thx . *Shift('TT_QLIT', thx) "'"
-                | *KW_open (*KW_body) . thx . *Shift('TT_KEYWORD', RbUp(thx))
-                | '@' (*Id) . thx . *Shift('TT_CAPT_CURSOR', RbUp(thx))
+                | *KW_open (*KW_body) . thx . *Shift('TT_KEYWORD', REPLACE(thx, &LCASE, &UCASE))
+                | '@' (*Id) . thx . *Shift('TT_CAPT_CURSOR', REPLACE(thx, &LCASE, &UCASE))
                 | (*Real) . thx . *Shift('TT_FLIT', thx)
                 | (*Integer) . thx . *Shift('TT_ILIT', thx)
                 | *call_or_id
@@ -1187,7 +1186,7 @@ repeat_stmt_rest = *$'  ' *opt_nl *stmt_body . *Reduce('TT_REPEAT', 1);
 for_body = *$'do' *opt_nl *stmt_body;
 for_stmt = *$'for' *for_stmt_rest;
 for_stmt_rest = *$'  ' (*Id) . rbForVar *$'from' *match_or_expr *$'to' *match_or_expr
-           FENCE(*$'by' *match_or_expr *for_body . *Reduce('TT_FOR', 4, RbUp(rbForVar)) | epsilon . *Reduce('TT_NUL', 0) *for_body . *Reduce('TT_FOR', 4, RbUp(rbForVar)));
+           FENCE(*$'by' *match_or_expr *for_body . *Reduce('TT_FOR', 4, REPLACE(rbForVar, &LCASE, &UCASE)) | epsilon . *Reduce('TT_NUL', 0) *for_body . *Reduce('TT_FOR', 4, REPLACE(rbForVar, &LCASE, &UCASE)));
 return_stmt = *$'return' *return_stmt_rest;
 return_stmt_rest = *$' ' FENCE(*match_or_expr . *Reduce('TT_RETURN', 1) | epsilon . *Reduce('TT_RETURN', 0));
 exit_stmt   = *$'exit' *exit_stmt_rest;
@@ -1218,22 +1217,22 @@ func_end      = *$'end' *$' ' CHAR(10);
 blank_line    = *$' ' CHAR(10);
 func_body_stmt = FENCE(*blank_line *func_body_stmt | *func_end | epsilon . *IncCounter() *stmt *func_body_stmt);
 func_body     = epsilon . *PushCounter() *func_body_stmt . *Reduce('TT_PROGRAM', nTop()) . *PopCounter();
-X_params  = epsilon . *IncCounter() (*Id) . thx . *Shift('TT_VAR', RbUp(thx)) FENCE(*$',' *X_params | epsilon);
+X_params  = epsilon . *IncCounter() (*Id) . thx . *Shift('TT_VAR', REPLACE(thx, &LCASE, &UCASE)) FENCE(*$',' *X_params | epsilon);
 opt_params = epsilon . *PushCounter() FENCE(*X_params | epsilon) . *Reduce('TT_VLIST', nTop()) . *PopCounter();
-X_fields  = epsilon . *IncCounter() (*Id) . thx . *Shift('TT_VAR', RbUp(thx)) FENCE(*$',' *X_fields | epsilon);
+X_fields  = epsilon . *IncCounter() (*Id) . thx . *Shift('TT_VAR', REPLACE(thx, &LCASE, &UCASE)) FENCE(*$',' *X_fields | epsilon);
 opt_fields = FENCE(*X_fields | epsilon);
-X_locals   = epsilon . *IncCounter() (*Id) . thx . *Shift('TT_VAR', RbUp(thx)) FENCE(*$',' *X_locals | epsilon);
+X_locals   = epsilon . *IncCounter() (*Id) . thx . *Shift('TT_VAR', REPLACE(thx, &LCASE, &UCASE)) FENCE(*$',' *X_locals | epsilon);
 opt_locals = epsilon . *PushCounter() FENCE(*$'local' *X_locals FENCE(*$';' | epsilon) *$' ' CHAR(10) | epsilon) . *Reduce('TT_VLIST', nTop()) . *PopCounter();
 init_expr   = *stmt_inline;
 opt_initial = FENCE(epsilon . *PushCounter() *$'initial' *init_expr FENCE(*$';' | epsilon) *$' ' CHAR(10) . *PopCounter() | epsilon . *Reduce('TT_NUL', 0));
 function_decl =
-    *$'function' (*Id) . thx . *Shift('TT_VAR', RbUp(thx)) *$'(' *opt_params *$')' *$' ' CHAR(10)
+    *$'function' (*Id) . thx . *Shift('TT_VAR', REPLACE(thx, &LCASE, &UCASE)) *$'(' *opt_params *$')' *$' ' CHAR(10)
     *opt_locals
     *opt_initial
     *func_body
     . *Reduce('TT_FUNCTION', 5);
 record_decl =
-    epsilon . *PushCounter() *$'record' (*Id) . thx . *Shift('TT_VAR', RbUp(thx)) . *IncCounter() *$'(' *opt_fields *$')' *$' ' CHAR(10)
+    epsilon . *PushCounter() *$'record' (*Id) . thx . *Shift('TT_VAR', REPLACE(thx, &LCASE, &UCASE)) . *IncCounter() *$'(' *opt_fields *$')' *$' ' CHAR(10)
     . *Reduce('TT_RECORD_DECL', nTop()) . *PopCounter();
 func_cmd = epsilon . *IncCounter() *function_decl;
 rec_cmd  = epsilon . *IncCounter() *record_decl;
@@ -1243,7 +1242,23 @@ Compiland = epsilon . *PushCounter() POS(0) ARBNO(*Command FLUSH) RPOS(0) . *Red
 StmtT['case'] = case_stmt_rest; StmtT['if'] = if_stmt_rest; StmtT['while'] = while_stmt_rest; StmtT['unless'] = unless_stmt_rest;
 StmtT['until'] = until_stmt_rest; StmtT['repeat'] = repeat_stmt_rest; StmtT['for'] = for_stmt_rest; StmtT['return'] = return_stmt_rest;
 StmtT['stop'] = stop_stmt_rest; StmtT['fail'] = fail_stmt_rest; StmtT['exit'] = exit_stmt_rest; StmtT['next'] = next_stmt_rest;
-function ParseOne(ptree, i, n_kids) {
+pf_list = HOST(4, 'PARSER_FILES');
+pf_n = 0;
+pf_bytes = 0;
+pf_parse = 0;
+pf_parse1 = 0;
+if (IDENT(pf_list)) { INPUT(.INPUT, 9, '[-f0 -r16777215]'); } else { INPUT(.pf_names, 8, pf_list); }
+while (LE(0, 1)) {
+    if (IDENT(pf_list)) {
+        Src = INPUT;
+    } else {
+        if (~(pf_name = pf_names)) break;
+        INPUT(.INPUT, 9, pf_name '[-r16777215]');
+        Src = INPUT;
+        ENDFILE(9);
+        pf_bytes = pf_bytes + SIZE(Src);
+        OUTPUT = '== ' pf_name;
+    }
     pf_a = TIME();
     InitCounter();
     InitStack();
@@ -1251,40 +1266,20 @@ function ParseOne(ptree, i, n_kids) {
         ptree = Pop();
         pf_parse = pf_parse + (TIME() - pf_a);
         if (DIFFER(ptree)) {
-            i = 1;
-            n_kids = n(ptree);
-            while (LE(i, n_kids)) {
-                TreeDump(c(ptree)[i]);
-                i = i + 1;
+            pf_i = 1;
+            pf_nk = n(ptree);
+            while (LE(pf_i, pf_nk)) {
+                TreeDump(c(ptree)[pf_i]);
+                pf_i = pf_i + 1;
             }
         }
         TreeDumpEnd();
     } else { pf_parse = pf_parse + (TIME() - pf_a); OUTPUT = 'Parse Error'; }
-    return;
+    pf_n = pf_n + 1;
+    if (EQ(pf_n, 1)) { pf_parse1 = pf_parse; }
+    if (IDENT(pf_list)) break;
 }
-pf_list = HOST(4, 'PARSER_FILES');
-if (IDENT(pf_list)) {
-    INPUT(.INPUT, 9, '[-f0 -r16777215]');
-    Src = INPUT;
-    ParseOne();
-} else {
-    pf_n = 0;
-    pf_bytes = 0;
-    pf_parse = 0;
-    pf_parse1 = 0;
-    INPUT(.pf_names, 8, pf_list);
-    while (pf_name = pf_names) {
-        INPUT(.INPUT, 9, pf_name '[-r16777215]');
-        Src = INPUT;
-        ENDFILE(9);
-        pf_bytes = pf_bytes + SIZE(Src);
-        OUTPUT = '== ' pf_name;
-        ParseOne();
-        pf_n = pf_n + 1;
-        if (EQ(pf_n, 1)) { pf_parse1 = pf_parse; }
-    }
-    TERMINAL = 'PARSER-METRICS files=' pf_n ' bytes=' pf_bytes ' parse_first_us=' pf_parse1 / 1000 ' parse_us=' pf_parse / 1000;
-}
+if (DIFFER(pf_list)) TERMINAL = 'PARSER-METRICS files=' pf_n ' bytes=' pf_bytes ' parse_first_us=' pf_parse1 / 1000 ' parse_us=' pf_parse / 1000;
 
 function ParseKernel(ZPN) {
     ZPI = 0;
