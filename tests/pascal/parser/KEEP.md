@@ -1,6 +1,6 @@
 # KEEP.md — tests/pascal/parser
 
-Thirteen dialect witnesses for the Pascal dialect switch (CEO-1614; `.github/ARCH-PASCAL-DIALECTS.md` section 2) and two witnesses of gaps in `bootstrap/parser_pascal.sc` (the last section), one program each, kept loose on purpose.
+Thirteen dialect witnesses for the Pascal dialect switch (CEO-1614; `.github/ARCH-PASCAL-DIALECTS.md` section 2) and four witnesses of gaps in `bootstrap/parser_pascal.sc` (the last two sections), one program each, kept loose on purpose.
 They have no `.ref` and no `ALL.csv` row: they are never run, only parsed. Their grader is the tree gate, `test_gate_snocone_parsers_match_the_c_parsers_tree_for_tree.sh`
 (and `util_parser_grid.sh`), which enumerate every `.pas` under `corpus/` except `ALL.*` and `library/` and require the C parser (`out/parser_pascal`) and
 `bootstrap/parser_pascal.sc` to print the same tree hash for each file, or both to print `Parse Error`. Same shape as `tests/icon/parser` and `tests/raku/parser`.
@@ -33,3 +33,8 @@ Each file is the smallest program whose parse depends on the dialect; its `{$mod
 
 - `switch_push_pop_restores_h.pas` — `{$H+}` then two nested `{$push}` / `{$pop}` pairs around `{$H-}` and `{$H+}`: the C lexer saves and restores the switch state (`pascal_sw_push` / `pascal_sw_pop`), so `string` under H+ carries the `ansistr` pragma child in `a` and `c` and not in `b`. The nesting is the point: a one-cell save restores `c` wrong.
 - `stmt_designator_field_chain_call.pas` — `d.a.f(1);` and `d.a.b.f;` as statements: a designator with a field step before the called name. The .sc `MethodStmt` took the shortest prefix (`d.a`), the statement then ended short of `.f(1)`, and the cut after a finished statement list (`compound_cmd_rest` FENCE) forbade the retry; `MethodStmt` now refuses to end before a `.`.
+
+## Call statements the C grammar parses by call_with_args and recv_primary (hq_snocone, 2026-10-29; pascal.y, hq_pascal's SCRIP 5b323919d)
+
+- `stmt_designator_call_in_chain.pas` — a call in the MIDDLE of a statement's designator: `d.a(1).f(2);`, `d.a(1)[2].f(3);`, `d.a(1)^.f(2);`, `d.a.f(1).g(2);` (pascal.y call_with_args PERIOD IDENT LPARENT ... and call_with_args LBRACK / ARROW). The .sc's MethodStmt took the shortest prefix and its call prefix had no steps; a new CallStmt reads the expression grammar's own primary and postfixes and insists the chain ends in the `)` of a call.
+- `stmt_receiver_literal_or_paren.pas` — a string literal or a parenthesised expression as the receiver: `'a'.F(1);`, `('abc' + 'd').Show(1, 2);`, `(s).Bar();`, `(s).F.G;`, `'a'.F.G(2);`. A bare final member needs one `.F` step after the receiver (`(s).F;` and `'a'.F;` are refused by C and by the .sc).
