@@ -19,3 +19,4 @@ equal today is red by its census until the C it names has no emitted caller.
 | is03_coexpr | 3 | a co-expression reading, assigning and scanning the shared environment across three activations (section 10.1 (c)) | EQUAL; ScanState in the runtime |
 | is04_byname | 4 | move, tab and upto as procedure values called directly and through a procedure's parameter inside a scan | EQUAL; 46 sync calls at the C roads |
 | is05_root | 5 | the root environment (section 10.1 (d)-(f)): &subject := 42 outside a scan, &pos := 7/0/-1, &subject := inside a scan, the outer restored | EQUAL; rt_keyword_var 2 (is00_kw) through the KI_SCANKW arm |
+| is05b_keyword_forms | 5 | &pos and &subject read as call arguments (dereferenced at the call, after the later arguments, again at each resumption), list elements, section and subscript bases, !&subject, and still assigned through the variable road: augmented, :=:, <-, := | EQUAL |

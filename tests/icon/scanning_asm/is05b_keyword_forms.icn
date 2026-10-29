@@ -1,0 +1,25 @@
+procedure show(a, b, c)
+  write(image(a), " ", image(b), " ", image(c));
+  return;
+end
+procedure main();
+  local x, L, r;
+  "abcdefgh" ? {
+    write(&pos, " ", move(1), " ", &pos);
+    every write(&pos, " ", (move(1) | move(2) | 0));
+    pos(1);
+    L := [&pos, move(2), &pos, &subject];
+    every r := !L do writes(image(r), " "); write();
+    show(&pos, tab(4), &pos);
+    show(&subject[&pos:0], &subject[2], &subject[1+:2]);
+    every writes(!&subject, "."); write();
+    write(*&subject, " ", &subject[-1], " ", &pos);
+    &pos +:= 1; write(&pos);
+    x := 6; &pos :=: x; write(&pos, " ", x);
+    (&pos <- 2) & write(&pos); write(&pos);
+    &pos := 3; write(&pos, " ", move(1), " ", tab(0), " ", &pos);
+    x := "zz"; &subject :=: x; write(&subject, " ", x, " ", &pos);
+  };
+  write(&pos, " ", image(&subject));
+  write(&pos, " ", (&pos := 1), " ", &pos);
+end
