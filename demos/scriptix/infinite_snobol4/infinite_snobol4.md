@@ -852,6 +852,12 @@ end
 procedure inf_big_power(e)
     return find("9223372036854775807", e) & find(" ** " | " ^ " | " ! ", e);
 end
+# CONVERT to EXPRESSION of a text with an interior colon, inside EVAL: sbl, stock upstream as well as the fork, succeeds where it should
+# fail and corrupts the values that follow (an oracle defect, the ceo's CEO-2010, inf_exclude.tsv); PROTOTYPE is the generator's only
+# source of a colon or a semicolon in a text (from scope 9), so from scope 9 no test holds both
+procedure inf_convert_prototype(e)
+    return find("'EXPRESSION')", e) & find("PROTOTYPE(", e);
+end
 procedure r_token(s)
     tokens +:= 1;
     return s;
@@ -1096,7 +1102,7 @@ procedure random_walk(kind, n, lim, seed)
                  else if \closed & scope >= 5 & ?100 <= 25 then c_replace()
                  else r_subject() || r_token(" ? ") || r_palt();
             if \closed & scope >= 6 & kind == "match" & ?100 <= 15 then e := ?["~(", "?("] || e || ")";
-            if tokens <= limit & not inf_excluded(e) & (scope < 7 | not inf_big_power(e)) then break;
+            if tokens <= limit & not inf_excluded(e) & (scope < 7 | not inf_big_power(e)) & (scope < 9 | not inf_convert_prototype(e)) then break;
         };
         suspend e;
     };
