@@ -1,0 +1,23 @@
+procedure step(f, n);
+  return f(n);
+end
+procedure gen3(f, s);
+  suspend f(s);
+end
+procedure mover(n);
+  return move(n);
+end
+procedure main();
+  local p, q, r, g, a;
+  p := move; q := tab; r := find; g := upto; a := pos;
+  write(image(tab(1)), " ", &pos);
+  write(image(move(0)), " ", &pos);
+  write(image(q(1)), " ", &pos);
+  "abcabcabc" ? { every write(r("b")); write(&pos) };
+  "abcabcabc" ? { every write(gen3(r, "c")); write(&pos) };
+  "abcabcabc" ? { write(image(p ! [2])); write(&pos); write(image(q ! [5])); write(&pos); write(image(step(a, 5)), " ", &pos) };
+  "abcabcabc" ? { write(image(mover(3))); write(&pos); every write(g("ab")) };
+  "abcabcabc" ? { every i := find("c") do { write(i, " ", &pos); "xyz" ? { write(image(move(1)), " ", &pos); every write(find("z")) }; write(&pos) } };
+  "hello world" ? { write(image(step(q, 3))); "inner" ? { write(image(step(p, 2)), " ", &pos); write(image(step(q, 0)), " ", &pos) }; write(&pos); write(image(step(q, 0))) };
+  "12345" ? write(image(r ! ["3"]), " ", image(r ! ["3", "abc3"]), " ", &pos);
+end
