@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1130 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=11 sizes=100,100,100,100,100,100,100,100,100,100,78
+# shape: entries=1131 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=11 sizes=100,100,100,100,100,100,100,100,100,100,79
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:05	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:05	family:ladder	
@@ -733,7 +733,7 @@ ladder__rung07_subs_optional_params	chunk:09	feat:sub_with_return	return sub sub
 multi_sub_say_4	chunk:08	feat:multi	multi say sub
 multi_sub_say_6	chunk:09	feat:multi	multi say sub
 say_52	chunk:06	feat:if	if say
-say_try_die_8	chunk:10	feat:die	die say try
+say_try_die_8	chunk:11	feat:die	die say try
 sub_19	chunk:09	feat:sub_with_return	return sub sub_with_return
 sub_array_14	chunk:06	feat:sub	sigil_array sub
 sub_array_4	chunk:06	feat:sub	sigil_array sub
@@ -757,7 +757,7 @@ ladder__rung13_classes_public_attribute	chunk:02	feat:has	has
 ladder__rung04_arrays_an_empty_array_is_an_array_a_sub_can_push_onto_and_its_max_is_minus_inf	chunk:06	feat:sub	sigil_array sub
 ladder__rung07_subs_a_sigilless_parameter_is_assignable_and_writes_back_to_its_argument	chunk:06	feat:sub	sigil_array sub
 ladder__rung16_bool_relops_logical_or_and_answer_an_operand	chunk:11	feat:grep	grep say
-ladder__rung09_regex_a_hash_on_the_right_of_a_smartmatch_tests_its_keys_a_regex_on_the_left_tests_each_key	chunk:09	feat:smartmatch	sigil_hash smartmatch string_concat
+ladder__rung09_regex_a_hash_on_the_right_of_a_smartmatch_tests_its_keys_a_regex_on_the_left_tests_each_key	chunk:10	feat:smartmatch	sigil_hash smartmatch string_concat
 array_say_4	chunk:05	feat:sigil_array	say sigil_array
 ladder__rung04_arrays_scalar_container_subscripts	chunk:07	feat:sigil_hash	if sigil_hash
 ladder__rung03_strings_an_array_interpolates_in_a_double_quoted_string_only_when_a_subscript_or_a_call_follows	chunk:07	feat:sigil_hash	join sigil_array sigil_hash
@@ -1054,6 +1054,7 @@ class_method_say_replace_44	chunk:03	feat:has	has method return say string_conca
 class_method_say_replace_46	chunk:03	feat:has	has method return say string_concat
 class_method_say_replace_53	chunk:03	feat:has	has method return say string_concat
 class_method_say_replace_54	chunk:03	feat:has	has method return say string_concat
+ladder__rung07_subs_a_sub_reading_its_topic_keeps_the_default_of_its_typed_parameter	chunk:09	feat:sub_with_return	for for_with_say if range_op return sub sub_with_return
 class_method_for_replace_2	chunk:03	feat:has	for for_with_say has method range_op
 class_method_for_replace_3	chunk:03	feat:has	for for_with_say has method range_op
 class_method_for_replace_4	chunk:03	feat:has	for for_with_say has method range_op
