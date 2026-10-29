@@ -343,6 +343,7 @@ procedure c_value(d)
     if scope >= 7 & (/d | \d < 2) & ?100 <= 35 then return c_numfun(d);
     if scope >= 9 & (/d | \d < 2) & ?100 <= 40 then return c_aggr(d);
     if scope >= 10 & (/d | \d < 2) & ?100 <= 85 then return c_opsyn(d);
+    if scope >= 12 & (/d | \d < 2) & ?100 <= 50 then return c_data(d);
     r := ?100;
     return ( (r <= 22, c_elem())
            | (r <= 34, c_int())
@@ -686,6 +687,10 @@ procedure s_inner()
 end
 procedure s_body()
     local r, w;
+    if scope >= 12 & ?100 <= 15 then {
+        w := ?"ABCDEFGHIJKLMNOPQRSTUVW";
+        return w || " = " || c_obj() || "; " || ?["inf_u", "inf_v"] || "(" || w || ") = " || s_value();
+    };
     r := ?100;
     w := ?"ABCDEFGHIJKLMNOPQRSTUVW";
     return ( (r <= 40, w || " = " || s_value())
@@ -709,6 +714,31 @@ procedure s_goto(i, n)
 end
 procedure s_target(i, n)
     return ?["inf_ok", "inf_no", "inf_L" || (i + ?(n - i))];
+end
+# STEP 12, data-types (scope >= 12): the program-defined types the presets define (inf_pt(inf_u,inf_v), inf_pair(inf_u,inf_v),
+# inf_cell(inf_u)) as values: an object made with its fields given or not, a field of one or of a value that is none (41), the name of a
+# field (.inf_u(...)), DATATYPE of an object, and LOCAL of the test's functions; under the CODE road a field is an assignment target
+# (s_body: W = inf_pt(...); inf_u(W) = value), assigning only through a capital the test made the object in, as R2 has it.
+procedure c_data(d)
+    local r, n;
+    n := 1 + (\d | 0);
+    r := ?100;
+    return ( (r <= 35, ?["inf_u", "inf_v"] || "(" || c_obj(n) || ")")
+           | (r <= 48, "DATATYPE(" || c_obj(n) || ")")
+           | (r <= 60, "." || ?["inf_u", "inf_v"] || "(" || c_obj(n) || ")")
+           | (r <= 72, c_obj(n))
+           | (r <= 82, ?["inf_u", "inf_v"] || "(" || c_value(n) || ")")
+           | ("LOCAL(" || ?["'f'", "'g'", "'h'", "'f'", "'inf_pt'"] || ", " || ?["1", "1", "0", "2"] || ")")
+           );
+end
+procedure c_obj(d)
+    local r;
+    r := ?100;
+    return ( (r <= 45, "inf_pt(" || c_value(d) || ", " || c_value(d) || ")")
+           | (r <= 70, "inf_pair(" || c_value(d) || ", " || c_value(d) || ")")
+           | (r <= 85, "inf_cell(" || c_value(d) || ")")
+           | ?["inf_pt()", "inf_pt(" || c_int() || ")", "inf_cell()"]
+           );
 end
 procedure c_presets()
     local l, x, n;
@@ -745,6 +775,10 @@ procedure c_presets()
         every x := 1 to 5 do
             put(l, "(OPSYN('" || "&@#%~"[x] || "', '" || ["REMDR", "DUPL", "LGT", "LPAD", "RPAD"][(x + n) % 5 + 1] || "', 2))");
     };
+    # STEP 12, data-types (scope >= 12): three program-defined types, the design's inf_pt and two that share its field names (a field
+    # function serves every type that has the field); every batch defines them, which redefines them unchanged on the Snocone side
+    if scope >= 12 then
+        every put(l, !["(DATA('inf_pt(inf_u,inf_v)'))", "(DATA('inf_pair(inf_u,inf_v)'))", "(DATA('inf_cell(inf_u)'))"]);
     return l;
 end
 procedure inf_presets(variant)
@@ -893,6 +927,7 @@ procedure r_leaf()
     if scope >= 7 & ?100 <= 35 then return c_num();
     if scope >= 9 & ?100 <= 15 then return c_aggr();
     if scope >= 10 & ?100 <= 35 then return c_opsyn();
+    if scope >= 12 & ?100 <= 25 then return c_data();
     r := ?100;
     return ( (r <= 60, c_value()) | (r <= 75, c_str()) | (r <= 85, c_digit()) | (r <= 92, c_prim()) | ?leaves );
 end
@@ -1115,7 +1150,7 @@ end
 # families of steps 1..N and no later one, each emitter guarded by scope >= its step; scope=0 is the grammar from before the
 # ladder, so a batch is (scope, seed0, N) for ever. inf_scope_max is the highest step landed, bumped by each step's landing.
 procedure inf_scope_max()
-    return 11;
+    return 12;
 end
 procedure inf_lists()
     local a;
