@@ -1,0 +1,475 @@
+w: a + b
+wln: a + b
+wq: a + b
+wc: +(a,b)
+
+w: a * b
+wln: a * b
+wq: a * b
+wc: *(a,b)
+
+w: a - b
+wln: a - b
+wq: a - b
+wc: -(a,b)
+
+w: a / b
+wln: a / b
+wq: a / b
+wc: /(a,b)
+
+w: a ^ b
+wln: a ^ b
+wq: a ^ b
+wc: ^(a,b)
+
+w: a rem b
+wln: a rem b
+wq: a rem b
+wc: rem(a,b)
+
+w: a mod b
+wln: a mod b
+wq: a mod b
+wc: mod(a,b)
+
+w: a is b
+wln: a is b
+wq: a is b
+wc: is(a,b)
+
+w: a == b
+wln: a == b
+wq: a == b
+wc: ==(a,b)
+
+w: a =.. b
+wln: a =.. b
+wq: a =.. b
+wc: =..(a,b)
+
+w: a \= b
+wln: a \= b
+wq: a \= b
+wc: \=(a,b)
+
+w: a @< b
+wln: a @< b
+wq: a @< b
+wc: @<(a,b)
+
+w: a =:= b
+wln: a =:= b
+wq: a =:= b
+wc: =:=(a,b)
+
+w: (a --> b)
+wln: (a --> b)
+wq: (a --> b)
+wc: -->(a,b)
+
+w: - a
+wln: - a
+wq: - a
+wc: -(a)
+
+w: -1
+wln: -1
+wq: -1
+wc: -1
+
+w: - - 1
+wln: - - 1
+wq: - - (1)
+wc: -(-(1))
+
+w: - - a
+wln: - - a
+wq: - - a
+wc: -(-(a))
+
+w: \+ a
+wln: \+ a
+wq: \+ a
+wc: \+(a)
+
+w: (?- a)
+wln: (?- a)
+wq: (?- a)
+wc: ?-(a)
+
+w: (dynamic a)
+wln: (dynamic a)
+wq: (dynamic a)
+wc: dynamic(a)
+
+w: a : b : c
+wln: a : b : c
+wq: a : b : c
+wc: :(a,:(b,c))
+
+w: a - (b - c)
+wln: a - (b - c)
+wq: a - (b - c)
+wc: -(a,-(b,c))
+
+w: a - b - c
+wln: a - b - c
+wq: a - b - c
+wc: -(-(a,b),c)
+
+w: 2 ^ 3 ^ 4
+wln: 2 ^ 3 ^ 4
+wq: 2 ^ 3 ^ 4
+wc: ^(2,^(3,4))
+
+w: (2 ^ 3) ^ 4
+wln: (2 ^ 3) ^ 4
+wq: (2 ^ 3) ^ 4
+wc: ^(^(2,3),4)
+
+w: 1 - -1
+wln: 1 - -1
+wq: 1 - -1
+wc: -(1,-1)
+
+w: 1 + -2
+wln: 1 + -2
+wq: 1 + -2
+wc: +(1,-2)
+
+w: f(-)
+wln: f(-)
+wq: f((-))
+wc: f(-)
+
+w: f(-1)
+wln: f(-1)
+wq: f(-1)
+wc: f(-1)
+
+w: - (1 + 2)
+wln: - (1 + 2)
+wq: - (1 + 2)
+wc: -(+(1,2))
+
+w: f(a + b)
+wln: f(a + b)
+wq: f(a + b)
+wc: f(+(a,b))
+
+w: [a + b]
+wln: [a + b]
+wq: [a + b]
+wc: [+(a,b)]
+
+w: [a|b]
+wln: [a|b]
+wq: [a|b]
+wc: [a|b]
+
+w: {a + b}
+wln: {a + b}
+wq: {a + b}
+wc: '{}'(+(a,b))
+
+w: a,b
+wln: (a,b)
+wq: a,b
+wc: ','(a,b)
+
+w: (a;b)
+wln: (a;b)
+wq: (a;b)
+wc: ';'(a,b)
+
+w: (a :- b)
+wln: (a :- b)
+wq: (a :- b)
+wc: :-(a,b)
+
+w: (a -> b)
+wln: (a -> b)
+wq: (a -> b)
+wc: ->(a,b)
+
+w: x y + Z
+wln: x y + Z
+wq: 'x y' + 'Z'
+wc: +('x y','Z')
+
+w: f(,,|,;)
+wln: f(,,|,;)
+wq: f((','),'|',(';'))
+wc: f(',','|',';')
+
+w: 1.0
+wln: 1.0
+wq: 1.0
+wc: 1.0
+
+w: -2
+wln: -2
+wq: -2
+wc: -2
+
+w: 1 - 2
+wln: 1 - 2
+wq: 1 - 2
+wc: -(1,2)
+
+w: a - -1
+wln: a - -1
+wq: a - -1
+wc: -(a,-1)
+
+w: (a = b;c)
+wln: (a = b;c)
+wq: (a = b;c)
+wc: ';'(=(a,b),c)
+
+w: (a,b;c)
+wln: (a,b;c)
+wq: (a,b;c)
+wc: ';'(','(a,b),c)
+
+w: (a,b),c
+wln: ((a,b),c)
+wq: (a,b),c
+wc: ','(','(a,b),c)
+
+w: f((a :- b))
+wln: f((a :- b))
+wq: f((a :- b))
+wc: f(:-(a,b))
+
+w: [(a :- b)]
+wln: [(a :- b)]
+wq: [(a :- b)]
+wc: [:-(a,b)]
+
+w: (p :- q,r)
+wln: (p :- q,r)
+wq: (p :- q,r)
+wc: :-(p,','(q,r))
+
+w: a < b
+wln: a < b
+wq: a < b
+wc: <(a,b)
+
+w: a >= b
+wln: a >= b
+wq: a >= b
+wc: >=(a,b)
+
+w: a =< b
+wln: a =< b
+wq: a =< b
+wc: =<(a,b)
+
+w: f(x,y)
+wln: f(x,y)
+wq: f(x,y)
+wc: f(x,y)
+
+w: hello world
+wln: hello world
+wq: 'hello world'
+wc: 'hello world'
+
+w: []
+wln: []
+wq: []
+wc: []
+
+w: []
+wln: []
+wq: []
+wc: []
+
+w: {}
+wln: {}
+wq: '{}'
+wc: '{}'
+
+w: {}
+wln: {}
+wq: '{}'
+wc: '{}'
+
+w: [a]
+wln: [a]
+wq: [a]
+wc: [a]
+
+w: A
+wln: A
+wq: 'A'
+wc: 'A'
+
+w: (a :- b,c;d -> e)
+wln: (a :- b,c;d -> e)
+wq: (a :- b,c;d -> e)
+wc: :-(a,';'(','(b,c),->(d,e)))
+
+w: \+ (a,b)
+wln: \+ (a,b)
+wq: \+ (a,b)
+wc: \+(','(a,b))
+
+w: - - a
+wln: - - a
+wq: - - a
+wc: -(-(a))
+
+w: 1 - 2 - 3
+wln: 1 - 2 - 3
+wq: 1 - 2 - 3
+wc: -(-(1,2),3)
+
+w: 1 - (2 - 3)
+wln: 1 - (2 - 3)
+wq: 1 - (2 - 3)
+wc: -(1,-(2,3))
+
+w: a = (b = c)
+wln: a = (b = c)
+wq: a = (b = c)
+wc: =(a,=(b,c))
+
+w: a : b
+wln: a : b
+wq: a : b
+wc: :(a,b)
+
+w: f(a : b)
+wln: f(a : b)
+wq: f(a : b)
+wc: f(:(a,b))
+
+w: a is 1 + 2 * 3
+wln: a is 1 + 2 * 3
+wq: a is 1 + 2 * 3
+wc: is(a,+(1,*(2,3)))
+
+w: \+ \+ a
+wln: \+ \+ a
+wq: \+ \+ a
+wc: \+(\+(a))
+
+w: 15000000000.0
+wln: 15000000000.0
+wq: 15000000000.0
+wc: 15000000000.0
+
+w: it's
+wln: it's
+wq: 'it''s'
+wc: 'it''s'
+
+w: f(a,(b,c))
+wln: f(a,(b,c))
+wq: f(a,(b,c))
+wc: f(a,','(b,c))
+
+w: f(:-,a)
+wln: f(:-,a)
+wq: f((:-),a)
+wc: f(:-,a)
+
+w: f(+,-)
+wln: f(+,-)
+wq: f((+),(-))
+wc: f(+,-)
+
+w: (a = b) = c
+wln: (a = b) = c
+wq: (a = b) = c
+wc: =(=(a,b),c)
+
+w: - 1
+wln: - 1
+wq: - (1)
+wc: -(1)
+
+w: - - 1.5
+wln: - - 1.5
+wq: - - (1.5)
+wc: -(-(1.5))
+
+w: 2 - - 3
+wln: 2 - - 3
+wq: 2 - - (3)
+wc: -(2,-(3))
+
+w: a * (b + c)
+wln: a * (b + c)
+wq: a * (b + c)
+wc: *(a,+(b,c))
+
+w: a * b + c
+wln: a * b + c
+wq: a * b + c
+wc: +(*(a,b),c)
+
+w: (a + b) * c
+wln: (a + b) * c
+wq: (a + b) * c
+wc: *(+(a,b),c)
+
+w: a - (b + c)
+wln: a - (b + c)
+wq: a - (b + c)
+wc: -(a,+(b,c))
+
+w: f(1,-1)
+wln: f(1,-1)
+wq: f(1,-1)
+wc: f(1,-1)
+
+w: [-1,- a]
+wln: [-1,- a]
+wq: [-1,- a]
+wc: [-1,-(a)]
+
+w: 1 = 2
+wln: 1 = 2
+wq: 1 = 2
+wc: =(1,2)
+
+w: x = :-
+wln: x = :-
+wq: x = (:-)
+wc: =(x,:-)
+
+w: :- = x
+wln: :- = x
+wq: (:-) = x
+wc: =(:-,x)
+
+w: a * -1
+wln: a * -1
+wq: a * -1
+wc: *(a,-1)
+
+w: 2 ** 3
+wln: 2 ** 3
+wq: 2 ** 3
+wc: **(2,3)
+
+w: - 3 ^ 2
+wln: - 3 ^ 2
+wq: - 3 ^ 2
+wc: -(^(3,2))
+
+w: -3 ^ 2
+wln: -3 ^ 2
+wq: -3 ^ 2
+wc: ^(-3,2)
+
+w: (- 3) ^ 2
+wln: (- 3) ^ 2
+wq: (- (3)) ^ 2
+wc: ^(-(3),2)
+

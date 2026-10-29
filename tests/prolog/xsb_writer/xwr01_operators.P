@@ -1,0 +1,105 @@
+% XSB WRITER WITNESS xwr01 (hq_packages 2026-10-28, CEO-2005 step 3 / the XSB writer): 95 terms, each through write/1, writeln/1, writeq/1 and write_canonical/1.
+% The ref is XSB 5.0.0 own output (xsb_bin, gentest protocol: [xwr01]. tell(temp). test. told.), never SCRIP output.
+:- import member/2 from basics.
+
+t(a+b).
+t(a*b).
+t(a-b).
+t(a/b).
+t(a^b).
+t((a rem b)).
+t((a mod b)).
+t((a is b)).
+t((a==b)).
+t((a=..b)).
+t((a\=b)).
+t((a@<b)).
+t((a=:=b)).
+t((a-->b)).
+t(-a).
+t(- 1).
+t(-(-(1))).
+t(-(-(a))).
+t(\+a).
+t((?- a)).
+t((dynamic a)).
+t(a:b:c).
+t(a-(b-c)).
+t((a-b)-c).
+t(2^3^4).
+t((2^3)^4).
+t(1-(-1)).
+t(1+(-2)).
+t(f(-)).
+t(f(- 1)).
+t(-(1+2)).
+t(f(a+b)).
+t([a+b]).
+t([a|b]).
+t({a+b}).
+t((a,b)).
+t((a;b)).
+t((a:-b)).
+t((a->b)).
+t('x y'+'Z').
+t(f(',','|',';')).
+t(1.0).
+t(-2).
+t(1-2).
+t(a- -1).
+t((a=b;c)).
+t((a,b;c)).
+t(((a,b),c)).
+t(f((a:-b))).
+t([(a:-b)]).
+t((p:-(q,r))).
+t((a<b)).
+t((a>=b)).
+t(a=<b).
+t(f(x,y)).
+t('hello world').
+t([]).
+t('[]').
+t({}).
+t('{}').
+t([a]).
+t('A').
+t((a:-b,c;d->e)).
+t(\+ (a,b)).
+t(- (- a)).
+t((1 - 2 - 3)).
+t((1-(2-3))).
+t((a=(b=c))).
+t((a:b)).
+t(f(a:b)).
+t((a is 1+2*3)).
+t(\+ \+ a).
+t(1.5e10).
+t('it''s').
+t(f(a, (b,c))).
+t(f(:- , a)).
+t(f(+, -)).
+t((a=b)=c).
+t(- (1)).
+t(-(-(1.5))).
+t(2-(-(3))).
+t(a*(b+c)).
+t((a*b)+c).
+t((a+b)*c).
+t(a- (b+c)).
+t(f(1, -1)).
+t([- 1, -a]).
+t(1 = 2).
+t(x = (:-)).
+t((:-) = x).
+t(a* -1).
+t(2** 3).
+t(- (3) ^ 2).
+t((- 3)^2).
+t(-(3)^2).
+test :- t(T), ( member(M, [w, wln, wq, wc]), tag(M, T), fail ; true ), nl, fail.
+test.
+tag(w, T) :- write(w), write(': '), catch(write(T), _, write(err)), nl.
+tag(wln, T) :- write(wln), write(': '), catch(writeln(T), _, write(err)).
+tag(wq, T) :- write(wq), write(': '), catch(writeq(T), _, write(err)), nl.
+tag(wc, T) :- write(wc), write(': '), catch(write_canonical(T), _, write(err)), nl.
