@@ -16,6 +16,7 @@ These are standalone witness programs, NOT entries of the ProRungs master (ALL.p
 | `lifo_ite_throw_arms.pl` | 3, 4, 6 | ec65ae574's v(q(1)) witness: arms that throw or fail without reaching the join |
 | `lifo_disjunction_retaining_arms.pl` | 3 | a disjunction both of whose arms retain |
 | `lifo_soft_cut.pl` | 3, 4 | the soft cut |
+| `lifo_soft_cut_det_condition.pl` | 3 | soft cuts whose condition cannot retain (X > 0, X == a), which slice 2b admits to the cells road, beside one whose condition retains (member/2), which it keeps on the frame word (ARCH-PROLOG-ACTIVATION-LIFETIME 9.12 (2); the cfo, 2026-10-29) |
 | `lifo_ite_retaining_condition.pl` | 4 | a condition that retains, committed |
 | `lifo_catch_findall.pl` | 4 | catch/3 and findall/3 BOUND records with a throw |
 | `lifo_findall_catch_between.pl` | 4 | a catch around a findall over between(1, 9000000, X) that hits the stack limit: traps at the UNMARK alpha under SCRIP_ZD_RTCHECK=1 in both modes, identically with and without the generator beta anchor (hq_prolog 2026-10-28; the ProRungs core entry findall_catch_between_1) |
