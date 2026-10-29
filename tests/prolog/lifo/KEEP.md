@@ -32,3 +32,4 @@ These are standalone witness programs, NOT entries of the ProRungs master (ALL.p
 | `lifo_ite_arm_resumes_1.pl` | 3 | a then-arm that holds a disjunction, resumed through the GATE after the commit (clpfd labeling bisect over all_distinct; the cfo's bisect witness) |
 | `lifo_ite_arm_resumes_2.pl` | 3 | the same through A*B #= C+D over 0..15 |
 | `lifo_catch_retaining_goal.pl` | 3 | a catch around a nondeterministic goal called from a findall in a clause body keeps every solution in mode 3 (hq_runtime's catch_loses_alternatives_m3; the regression of SCRIP a7b92b0d8, whose unconditional GATE cells lost the alternatives in mode 3 only) |
+| `lifo_repeat_read_loop_in_setup_call_cleanup.pl` | 3 | a repeat/read_term/if-then-else-with-a-cut/assertz loop inside setup_call_cleanup (xsb_builtins.pl load_dyn/1, hq_packages' witness): compiles and runs in both modes; SCRIP 49e8b05e1 (the omega rule of slice 1a) made it FATAL x86_zop at compile time (reverted at af8770cef) |
