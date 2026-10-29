@@ -2169,3 +2169,5 @@ rank,entry,origin,family,kind,xfail,n_lines,heap_kb,stack_kb,compile_args,run_ar
 2168,user_function_eval_arbno_replace_branch_1,probe_ptj2__ptj1_arbno_defer_nonterminating,probe_ptj2,block,0,309,131072,4096,--stlimit,,1,0,1,1,1,0,0,1,1,1,1,0,0,0,0,1,0,1,1,1,0,0,1,0,1,0,1,0,1,0,1,0,1,1,1,1,1,1,1,1
 2169,demo_json,demo_snobol4_json__json,demo_snobol4_json,block,0,294,131072,4096,--stlimit,,1,0,1,1,1,0,0,1,1,1,1,0,0,0,0,1,0,1,1,1,0,0,1,1,1,0,1,1,1,0,1,0,1,1,1,1,1,1,1,1
 2170,benchmark_json,benchmark_snobol4_json__json,benchmark_snobol4_json,block,0,320,131072,4096,--stlimit,,1,0,1,1,1,0,0,1,1,1,1,0,0,0,0,1,0,1,1,1,0,0,1,1,1,0,1,1,1,0,1,0,1,1,1,1,1,1,1,1
+2171,ladder__rung16_dotnet_continue_retakes_a_direct_goto_in_error,ladder__rung16_dotnet_continue_retakes_a_direct_goto_in_error,ladder,block,0,11,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,1
+2172,ladder__rung28_dotnet_continue_resumes_at_the_innermost_failure_point,ladder__rung28_dotnet_continue_resumes_at_the_innermost_failure_point,ladder,block,0,16,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,1,0,0,0,0

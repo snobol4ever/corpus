@@ -23010,3 +23010,32 @@ fail            t1              =   TIME()
                 TERMINAL        =   'match_ms=' (t1 - t0) / 1000000
 *------------------------------------------------------------------------------
 END
+*------------ 2171 ladder__rung16_dotnet_continue_retakes_a_direct_goto_in_error
+* SETEXIT's CONTINUE makes a direct goto that is the failure exit again: one that holds no CODE is error 332, "goto continue with
+* error in failure goto", which a re-armed handler takes again (rung16, CODE); the handler ends the run before the third strike
+        &ERRLIMIT = 10
+        SETEXIT('ERR')
+        X = 1                :<Z>
+        OUTPUT = 'after'     :(END)
+ERR     N = N + 1
+        OUTPUT = 'ERROR ' &ERRTYPE
+        GE(N, 3)             :S(END)
+        SETEXIT('ERR')       :(CONTINUE)
+END
+*---- 2172 ladder__rung28_dotnet_continue_resumes_at_the_innermost_failure_point
+* SETEXIT's CONTINUE resumes at the failure point of the error inside the statement: an error in the operand of a negation
+* fails that operand, so ~$H() succeeds and the statement takes its success exit (rung28, negation)
+        &ERRLIMIT = 10
+        DEFINE('H()')                       :(HE)
+H       H = .E
+        DIFFER(H)                           :S(NRETURN)F(FRETURN)
+HE      SETEXIT('ERR')
+        X = $H()                            :S(S1)F(F1)
+S1      OUTPUT = 'succ [' X ']'             :(N2)
+F1      OUTPUT = 'fail'                     :(N2)
+ERR     OUTPUT = 'ERROR ' &ERRTYPE
+        SETEXIT('ERR')                      :(CONTINUE)
+N2      Y = ~$H()                           :S(S2)F(F2)
+S2      OUTPUT = 'succ2 [' Y ']'            :(END)
+F2      OUTPUT = 'fail2'
+END
