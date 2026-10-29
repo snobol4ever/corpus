@@ -23456,3 +23456,54 @@ ERR     OUTPUT = 'ERROR ' &ERRTYPE          :(ERR2)
 ERR2    OUTPUT = 'ERR2'
         SETEXIT('ERR')                      :(CONTINUE)
 END
+*- 2177 ladder__rung28_dotnet_continue_after_an_error_in_evaluated_code_fails_the_evaluation
+* SETEXIT's CONTINUE after an error in the code of an evaluated expression resumes at the failure of that evaluation: the error
+* ends it, so a negation or a choice inside the expression does not take the failure, and EVAL fails (rung28, negation)
+        &ERRLIMIT = 10
+        DEFINE('H()')                       :(HE)
+H       H = .E
+        DIFFER(H)                           :S(NRETURN)F(FRETURN)
+HE      SETEXIT('ERR')
+        Y = EVAL('~$H()')                   :S(S1)F(F1)
+S1      OUTPUT = 'succ [' Y ']'             :(N2)
+F1      OUTPUT = 'fail'                     :(N2)
+ERR     OUTPUT = 'ERROR ' &ERRTYPE
+        SETEXIT('ERR')                      :(CONTINUE)
+N2      Y = EVAL("(DIFFER($H()), 'c')")     :S(S2)F(F2)
+S2      OUTPUT = 'succ2 [' Y ']'            :(N3)
+F2      OUTPUT = 'fail2'
+N3      E = *(~$H())
+        Y = EVAL(E)                         :S(S3)F(F3)
+S3      OUTPUT = 'succ3 [' Y ']'            :(END)
+F3      OUTPUT = 'fail3'
+END
+*- 2178 ladder__rung16_dotnet_an_error_no_handler_takes_uses_the_continuation_up
+* An error no SETEXIT handler takes goes on at once from where it is and uses the continuation up: a later CONTINUE has no
+* error to go on from and is error 37, which a handler armed again takes (rung16, the nearest: the special labels of a goto)
+        &ERRLIMIT = 5
+        N = 0
+        SETEXIT('ERR')
+        Y = ~(1 / N)                        :S(S1)F(F1)
+S1      OUTPUT = 'succ [' Y ']'             :(END)
+F1      OUTPUT = 'fail'                     :(END)
+ERR     OUTPUT = 'ERR ' &ERRTYPE            :(ERR2)
+ERR2    Z = 2 / N
+        OUTPUT = 'after untrapped ' &ERRTYPE
+        SETEXIT('E37')                      :(CONTINUE)
+E37     OUTPUT = 'E37 ' &ERRTYPE            :(END)
+END
+*--------------- 2179 ladder__rung04_dotnet_a_replacement_inside_the_replacement
+* An = inside the replacement whose target is a concatenation outside every bracket is a replacement of its own: the first
+* element is the subject, the rest the pattern, and its value is the subject's new value (rung04, replacement)
+        A = 'xyz'
+        X = A 'y' = 1
+        OUTPUT = 'X=[' X '] A=[' A ']'
+        A = 'xyz'
+        C = 'abc'
+        X = A 'y' = C 'b' = 3
+        OUTPUT = 'X=[' X '] A=[' A '] C=[' C ']'
+        A = 'xyz'
+        X = A 'q' = 1                       :S(S1)F(F1)
+S1      OUTPUT = 'succ'                     :(END)
+F1      OUTPUT = 'fail X=[' X '] A=[' A ']'
+END
