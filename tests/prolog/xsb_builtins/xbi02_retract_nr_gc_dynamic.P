@@ -1,0 +1,21 @@
+% xbi02_retract_nr_gc_dynamic -- XSB 5.0.0's retract_nr/1 (assert.P: retract/1 without reclaiming the clause, an obsolete-predicate warning on stderr) and gc_dynamic/1 (standard.P: check_var,
+% then the count the delayed reclamation freed: an integer, whose value is XSB's storage timing and is never printed here; a bound argument is type_error(variable, N)).
+% Imports are the plain-XSB way (:- import ... from ...), as the retract_tests programs name them.
+:- import gc_dynamic/1 from standard.
+:- import retract_nr/1 from assert.
+:- dynamic p/1.
+:- dynamic q/2.
+t(Label, Goal) :-
+    catch(( Goal -> true ; write(Label-failed), nl ), error(E, _), ( write(Label-caught(E)), nl )).
+test :- t(gc1, ( gc_dynamic(N), ( integer(N) -> write(count_is_an_integer) ; write(not_an_integer) ), nl )), fail.
+test :- t(gc2, ( gc_dynamic(3), write(ok), nl )), fail.
+test :- t(gc3, ( gc_dynamic(a), write(ok), nl )), fail.
+test :- t(nr1, ( assert(p(1)), assert(p(2)), assert(p(3)), retract_nr(p(2)), p(X), write(X), nl, fail ; true )), fail.
+test :- t(nr2, ( retract_nr(p(X)), write(got(X)), nl, fail ; true )), fail.
+test :- t(nr3, ( p(X), write(left(X)), nl, fail ; true )), fail.
+test :- t(nr4, ( assert((q(X, Y) :- Y is X + 1)), retract_nr((q(_, _) :- Body)), Body =.. [F|_], write(F), nl )), fail.
+test :- t(nr5, ( retract_nr(r(1)), write(yes), nl )), fail.
+test :- t(nr6, ( retract_nr(_), write(yes), nl )), fail.
+test :- t(nr7, ( retract_nr(3), write(yes), nl )), fail.
+test :- t(nr8, ( retract_nr(p(1)), write(yes), nl )), fail.
+test.

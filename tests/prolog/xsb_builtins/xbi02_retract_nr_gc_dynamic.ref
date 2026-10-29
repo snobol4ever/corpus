@@ -1,0 +1,12 @@
+count_is_an_integer
+gc2 - caught(type_error(variable,3))
+gc3 - caught(type_error(variable,a))
+1
+3
+got(1)
+got(3)
+is
+nr5 - failed
+nr6 - caught(instantiation_error)
+nr7 - caught(type_error(callable,3))
+nr8 - failed
