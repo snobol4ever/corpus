@@ -1,0 +1,20 @@
+procedure try(c, s)
+  write(image(c), " ", upto(c, s) | "-", " ", many(c, s) | "-", " ", any(c, s) | "-", " ", bal(c, '(', ')', s) | "-");
+  return;
+end
+procedure main();
+  local s, c, t, l, d, k;
+  s := "hello (world) 123 abc XYZ\x00end";
+  every c := ('abc' | 'aeiou' | &letters | &digits | &lcase | &ucase | &ascii | &cset | cset("aeiou") | cset(12345) | cset("") | ('abc' ++ 'xyz') | (&letters -- 'aeiou') | ('abcxyz' ** 'xyzabc') | ('a' -- 'a') | ('a' ** 'b') | ~'abc' | cset("\x00ab") | cset(s)) do try(c, s);
+  "the quick brown fox" ? { t := tab(10); every c := cset(t) | cset(move(3)) | cset(tab(0)) do try(c, s) };
+  l := ['xyz', cset("ab"), &digits ++ 'x'];
+  every c := !l do try(c, s);
+  d := table(); d["k"] := 'qrs'; d["j"] := cset("h");
+  every k := key(d) do try(d[k], s);
+  c := cset(string(&lcase));
+  try(c, s);
+  c := &cset -- &lcase;
+  try(c, s);
+  c := cset(repl("abcdefg", 30));
+  try(c, s);
+end
