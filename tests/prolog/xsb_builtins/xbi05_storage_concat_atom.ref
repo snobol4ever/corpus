@@ -1,0 +1,15 @@
+x1
+x12.5y
+x-1
+a()
+a5 - failed
+a6 - caught(type_error(atom,1))
+item1
+item2
+gc_done
+ins(1,1,0)
+[a(1),a(2)]
+[b]
+[]
+[b]
+[]

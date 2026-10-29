@@ -1,0 +1,23 @@
+% xbi05_storage_concat_atom -- XSB 5.0.0's concat_atom/2,3 (syslib/string.P: atomic elements join, a number included, a compound element fails), gc_heap/0 (succeeds) and lib/storage.P's named fact
+% storage (storage_insert_fact/3 answers 1 for a new fact and 0 for one already there, a variant counting as already there; storage_find_fact/2 enumerates; storage_delete_all/1 empties one name)
+% as prolog_tests gctest uses them. Order of enumeration is a trie's, so the witness sorts what it reads.
+:- import concat_atom/2, concat_atom/3 from string.
+:- import gc_heap/0 from machine.
+:- import storage_delete_all/1, storage_insert_fact/3, storage_find_fact/2 from storage.
+:- import for/3 from basics.
+t(Label, Goal) :-
+    catch(( Goal -> true ; write(Label-failed), nl ), error(E, _), ( write(Label-caught(E)), nl )).
+facts(N, L) :- findall(F, storage_find_fact(N, F), L0), sort(L0, L).
+test :- t(a1, ( concat_atom([x, 1], A), write(A), nl )), fail.
+test :- t(a2, ( concat_atom([x, 1, 2.5, y], A), write(A), nl )), fail.
+test :- t(a3, ( concat_atom([x, 1], '-', A), write(A), nl )), fail.
+test :- t(a4, ( concat_atom([], A), write(a(A)), nl )), fail.
+test :- t(a5, ( concat_atom([x, f(a)], A), write(A), nl )), fail.
+test :- t(a6, ( atom_concat(x, 1, A), write(A), nl )), fail.
+test :- t(l1, ( for(I, 1, 3), concat_atom([item, I], A), I =< 2, write(A), nl, fail ; true )), fail.
+test :- t(g1, ( gc_heap, gc_heap, write(gc_done), nl )), fail.
+test :- t(s1, ( storage_insert_fact(xbst, a(1), I1), storage_insert_fact(xbst, a(2), I2), storage_insert_fact(xbst, a(1), I3), write(ins(I1, I2, I3)), nl )), fail.
+test :- t(s2, ( facts(xbst, L), write(L), nl )), fail.
+test :- t(s3, ( storage_insert_fact(xbst2, b, _), facts(xbst2, L2), write(L2), nl, storage_delete_all(xbst), facts(xbst, L1), write(L1), nl, facts(xbst2, L3), write(L3), nl )), fail.
+test :- t(s4, ( storage_delete_all(xbst2), facts(xbst2, L), write(L), nl )), fail.
+test.
