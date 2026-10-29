@@ -1,0 +1,6 @@
+after
+caught(boom(1))
+caught2(boom(1))
+p_state(variant,no_entry,undefined)
+q_state(variant,no_entry,undefined)
+second

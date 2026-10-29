@@ -1,0 +1,9 @@
+% DESIGN-PLAN xsb-tabling-wfs step 6 (8.10 (6)): a ball thrown in a resumed consumer's continuation leaves the SCC; its incomplete tables are abolished (no_entry) and a re-call evaluates again
+:- table p/1, q/1.
+p(X) :- q(X).
+p(1).
+q(X) :- p(X), X > 0, throw(boom(X)).
+test :- catch(p(_), E, (write(caught(E)), nl)), write(after), nl, fail.
+test :- table_state(p(_), S1, T1, U1), write(p_state(S1,T1,U1)), nl, table_state(q(_), S2, T2, U2), write(q_state(S2,T2,U2)), nl, fail.
+test :- catch(p(_), E2, (write(caught2(E2)), nl)), write(second), nl, fail.
+test.
