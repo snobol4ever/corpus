@@ -1,0 +1,5 @@
+:- export p/1, q/1.
+p(one).
+p(two).
+q(Z) :- p(Z).
+?- writeln(xbaux_loaded).

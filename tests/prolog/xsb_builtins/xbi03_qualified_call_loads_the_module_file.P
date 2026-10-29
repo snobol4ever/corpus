@@ -1,0 +1,9 @@
+% xbi03_qualified_call_loads_the_module_file -- XSB's first call M:Goal of a module that is not loaded loads the file M.P beside the program (prolog_tests basic_tests ensure_loaded_tst: the call
+% ensure_loaded_aux:p(_) prints what the file's ?- directive prints, once); a later call loads nothing; a system module (basics) has no file beside and is called as before.
+% The companion module file is xbi03_qualified_call_loads_the_module_file.d/xbaux.P, copied beside the program.
+test :- xbaux:p(X), write(p(X)), nl, fail.
+test :- xbaux:p(X), write(again(X)), nl, fail.
+test :- xbaux:q(X), write(q(X)), nl, fail.
+test :- basics:append([a], [b], L), write(L), nl, fail.
+test :- ensure_loaded(xbaux), write(ensured), nl, fail.
+test.
