@@ -23668,3 +23668,14 @@ fail            t1              =   TIME()
                 TERMINAL        =   'match_ms=' (t1 - t0) / 1000000
 *------------------------------------------------------------------------------
 END
+*- 2181 ladder__rung16_inf_dotnet_the_statement_in_error_of_a_failed_code_is_error_7
+* A failed CODE defines the labels before its statement in error; a goto to one runs on into the statement in error, which
+* is error 7, compilation error encountered during execution, as a statement in error is under -k (rung16, CODE)
+        &ERRLIMIT = 10
+        C = CODE(" X = 1;L2 Y = 2;L3 D = EXP(1E300); OUTPUT = 'after'")   :S(S)F(F)
+S       OUTPUT = 'code ok'                  :(J)
+F       OUTPUT = 'code failed ' &ERRTYPE
+J       SETEXIT('H')
+        OUTPUT = 'Y=[' Y ']'                :(L2)
+H       OUTPUT = 'H ' &ERRTYPE ' Y=[' Y ']'  :(END)
+END

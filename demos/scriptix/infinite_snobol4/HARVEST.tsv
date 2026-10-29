@@ -9,3 +9,4 @@ date	engine	scope	seed0	batch	line	class	origin	row
 2026-10-28	dotnet	9	rcs09	4	232	a-sort-by-a-column-not-there-is-error-258	ladder__rung07_inf_dotnet_sort_by_a_column_not_there	random-codegen-step-9-aggregates-rendered-ceo-1999
 2026-10-28	dotnet	9	rcs09	2	373	a-replacement-whose-subject-holds-a-subscript-of-a-call-is-212	ladder__rung04_inf_dotnet_replacement_subject_holds_a_subscript_of_a_call	random-codegen-step-9-aggregates-rendered-ceo-1999
 2026-10-28	dotnet	9	20261028	3	254	a-star-before-a-subscripted-call-defers-the-whole-element	ladder__rung06_inf_dotnet_star_defers_a_subscript_of_a_call	random-codegen-step-9-aggregates-rendered-ceo-1999
+2026-10-29	dotnet	12	20261030	7	328	the-statement-in-error-of-a-failed-code-is-error-7	ladder__rung16_inf_dotnet_the_statement_in_error_of_a_failed_code_is_error_7	random-codegen-step-12-data-types-ceo-1999

@@ -2179,3 +2179,4 @@ rank,entry,origin,family,kind,xfail,n_lines,heap_kb,stack_kb,compile_args,run_ar
 2178,user_function_eval_arbno_replace_branch_1,probe_ptj2__ptj1_arbno_defer_nonterminating,probe_ptj2,block,0,309,131072,4096,--stlimit,,1,0,1,1,1,0,0,1,1,1,1,0,0,0,0,1,0,1,1,1,0,0,1,0,1,0,1,0,1,0,1,0,1,1,1,1,1,1,1,1
 2179,demo_json,demo_snobol4_json__json,demo_snobol4_json,block,0,294,131072,4096,--stlimit,,1,0,1,1,1,0,0,1,1,1,1,0,0,0,0,1,0,1,1,1,0,0,1,1,1,0,1,1,1,0,1,0,1,1,1,1,1,1,1,1
 2180,benchmark_json,benchmark_snobol4_json__json,benchmark_snobol4_json,block,0,320,131072,4096,--stlimit,,1,0,1,1,1,0,0,1,1,1,1,0,0,0,0,1,0,1,1,1,0,0,1,1,1,0,1,1,1,0,1,0,1,1,1,1,1,1,1,1
+2181,ladder__rung16_inf_dotnet_the_statement_in_error_of_a_failed_code_is_error_7,ladder__rung16_inf_dotnet_the_statement_in_error_of_a_failed_code_is_error_7,ladder,block,0,10,131072,4096,--stlimit,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0
