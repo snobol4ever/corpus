@@ -55283,1457 +55283,3242 @@ xsb_nonempty_line(L) :- string_length(L, N), N > 0. xsb_write_lines([]). xsb_wri
 xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, '\n', '', L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), xsb_write_lines(L).
 :- initialization(xsb_sorted_output((test))).
 %------------------------------------------------------------- 479 wfs_tests_p06
-query(p06,p,[p,q,r],[p,q],[]).
-%-----------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p/0, q/0, r/0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-p :- q, tnot(r).
-q.
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-r :- fail.
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p06 "test(p06)." -- [wfs_test]. test(p06). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p06), told)).
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p06 "test(p06)." -- the driver wfs_test.P is the program and p06.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p06), told)).
 %------------------------------------------------------------- 480 wfs_tests_p07
-query(p07, p, [p,q,r,s,t], [p,q,s], []).
-%---------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p/0, q/0, r/0, s/0, t/0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-p :- q, tnot(r).
-q.
-r :- tnot(s).
-s :- tnot(t).
-t :- fail.
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p07 "test(p07)." -- [wfs_test]. test(p07). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p07), told)).
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p07 "test(p07)." -- the driver wfs_test.P is the program and p07.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p07), told)).
 %------------------------------------------------------------- 481 wfs_tests_p08
-query(p08, p, [p,q,r,s], [p,q,s], []).
-%-------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p/0, q/0, r/0, s/0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-p :- q, tnot(r), s.
-q.
-r :- tnot(s).
-s.
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p08 "test(p08)." -- [wfs_test]. test(p08). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p08), told)).
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p08 "test(p08)." -- the driver wfs_test.P is the program and p08.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p08), told)).
 %------------------------------------------------------------- 482 wfs_tests_p09
-query(p09, p, [p,q,r,s], [q,r], []).
-%------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p/0, q/0, r/0, s/0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-p :- tnot(q).
-q :- tnot(p).
-q :- r.
-r :- tnot(s).
-s :- fail.
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p09 "test(p09)." -- [wfs_test]. test(p09). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p09), told)).
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p09 "test(p09)." -- the driver wfs_test.P is the program and p09.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p09), told)).
 %------------------------------------------------------------- 483 wfs_tests_p10
-query(p10,p,[p,q,r],[],[p,q,r]).
-%-------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p/0, q/0, r/0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-p :- q.
-p :- r.
-r :- tnot(q).
-q :- tnot(r).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p10 "test(p10)." -- [wfs_test]. test(p10). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p10), told)).
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p10 "test(p10)." -- the driver wfs_test.P is the program and p10.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p10), told)).
 %------------------------------------------------------------- 484 wfs_tests_p11
-query(p11,win(_A),[win(a),win(b),win(c),win(d)],[win(b),win(c)],[]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table win / 1.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-win(A) :- m(A,B), tnot(win(B)).
-m(a,b).
-m(b,c).
-m(c,d).
-m(b,d).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p11 "test(p11)." -- [wfs_test]. test(p11). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p11), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p11 "test(p11)." -- the driver wfs_test.P is the program and p11.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p11), told)).
 %------------------------------------------------------------- 485 wfs_tests_p12
-query(p12,win(_A),[win(a),win(b),win(c)],[win(b)],[]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table win / 1.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-win(A) :- m(A,B), tnot(win(B)).
-m(a,b).
-m(b,a).
-m(b,c).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p12 "test(p12)." -- [wfs_test]. test(p12). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p12), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p12 "test(p12)." -- the driver wfs_test.P is the program and p12.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p12), told)).
 %------------------------------------------------------------- 486 wfs_tests_p13
-query(p13,win(_A),[win(a),win(b),win(c),win(d)],[win(c)],[win(a),win(b)]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table win / 1.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-win(A) :- m(A,B), tnot(win(B)).
-m(a,b).
-m(b,a).
-m(b,c).
-m(c,d).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p13 "test(p13)." -- [wfs_test]. test(p13). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p13), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p13 "test(p13)." -- the driver wfs_test.P is the program and p13.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p13), told)).
 %------------------------------------------------------------- 487 wfs_tests_p14
-query(p14,p,[p],[],[p]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-p :- tnot(p).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p14 "test(p14)." -- [wfs_test]. test(p14). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p14), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p14 "test(p14)." -- the driver wfs_test.P is the program and p14.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p14), told)).
 %------------------------------------------------------------- 488 wfs_tests_p15
-query(p15,s,[s,p,q,r],[s],[]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p / 0.
-:- table q / 0.
-:- table r / 0.
-:- table s / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-s :- tnot(p), tnot(q), tnot(r).
-p :- tnot(s), tnot(r), q.
-q :- tnot(p), r.
-r :- tnot(q), p.
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p15 "test(p15)." -- [wfs_test]. test(p15). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p15), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p15 "test(p15)." -- the driver wfs_test.P is the program and p15.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p15), told)).
 %------------------------------------------------------------- 489 wfs_tests_p16
-query(p16,s,[s,p,q,r],[s],[]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p / 0.
-:- table q / 0.
-:- table r / 0.
-:- table s / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-s :- tnot(p), tnot(q), tnot(r).
-p :- q, tnot(s), tnot(r).
-q :- r, tnot(p).
-r :- p, tnot(q).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p16 "test(p16)." -- [wfs_test]. test(p16). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p16), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p16 "test(p16)." -- the driver wfs_test.P is the program and p16.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p16), told)).
 %------------------------------------------------------------- 490 wfs_tests_p17
-query(p17,s,[s,p,q,r,s1,p1,q1,r1,s2,p2,q2,r2,s3,p3,q3,r3,s4,p4,q4,r4,s5,p5,q5,r5],[s,s1,s2,s3,s4,s5],[]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p / 0.
-:- table p1 / 0.
-:- table p2 / 0.
-:- table p3 / 0.
-:- table p4 / 0.
-:- table p5 / 0.
-:- table q / 0.
-:- table q1 / 0.
-:- table q2 / 0.
-:- table q3 / 0.
-:- table q4 / 0.
-:- table q5 / 0.
-:- table r / 0.
-:- table r1 / 0.
-:- table r2 / 0.
-:- table r3 / 0.
-:- table r4 / 0.
-:- table r5 / 0.
-:- table s / 0.
-:- table s1 / 0.
-:- table s2 / 0.
-:- table s3 / 0.
-:- table s4 / 0.
-:- table s5 / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-s :- tnot(p), tnot(q), tnot(r), s1.
-p :- tnot(r), tnot(s), s1, q.
-q :- tnot(p), s1, r.
-r :- tnot(q), s1, p.
-s1 :- tnot(p1), tnot(q1), tnot(r1), s2.
-p1 :- tnot(r1), tnot(s1), s2, q1.
-q1 :- tnot(p1), s2, r1.
-r1 :- tnot(q1), s2, p1.
-s2 :- tnot(p2), tnot(q2), tnot(r2), s3.
-p2 :- tnot(r2), tnot(s2), s3, q2.
-q2 :- tnot(p2), s3, r2.
-r2 :- tnot(q2), s3, p2.
-s3 :- tnot(p3), tnot(q3), tnot(r3), s4.
-p3 :- tnot(r3), tnot(s3), s4, q3.
-q3 :- tnot(p3), s4, r3.
-r3 :- tnot(q3), s4, p3.
-s4 :- tnot(p4), tnot(q4), tnot(r4), s5.
-p4 :- tnot(r4), tnot(s4), s5, q4.
-q4 :- tnot(p4), s5, r4.
-r4 :- tnot(q4), s5, p4.
-s5 :- tnot(p5), tnot(q5), tnot(r5).
-p5 :- tnot(s5), tnot(r5), q5.
-q5 :- tnot(p5), r5.
-r5 :- tnot(q5), p5.
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p17 "test(p17)." -- [wfs_test]. test(p17). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p17), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p17 "test(p17)." -- the driver wfs_test.P is the program and p17.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p17), told)).
 %------------------------------------------------------------- 491 wfs_tests_p18
-query(p18,p,[p,q,r],[p,q,r],[]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p / 0.
-:- table q / 0.
-:- table r / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-p :- q, r.
-p :- r.
-q.
-r.
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p18 "test(p18)." -- [wfs_test]. test(p18). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p18), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p18 "test(p18)." -- the driver wfs_test.P is the program and p18.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p18), told)).
 %------------------------------------------------------------- 492 wfs_tests_p19
-query(p19,r(_684208,_684212),[r(a,b),r(a,c),r(a,d),r(b,a),r(c,a),r(d,a),p(a,b),p(a,c),p(a,d),p(b,a),p(c,a),p(d,a)],[r(a,b),r(a,c),r(a,d),p(a,b),p(a,c),p(a,d)],[]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p / 2.
-:- table r / 2.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-r(A,B) :- p(A,B), tnot(p(B,A)).
-p(A,B) :- q(A,B).
-p(A,B) :- q(A,C), p(C,B).
-q(a,b).
-q(b,c).
-q(c,d).
-q(d,b).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p19 "test(p19)." -- [wfs_test]. test(p19). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p19), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p19 "test(p19)." -- the driver wfs_test.P is the program and p19.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p19), told)).
 %------------------------------------------------------------- 493 wfs_tests_p20
-query(p20,a,[a,b,c],[c],[]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table a / 0.
-:- table b / 0.
-:- table c / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-a :- tnot(b), tnot(c).
-b :- a.
-c.
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p20 "test(p20)." -- [wfs_test]. test(p20). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p20), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p20 "test(p20)." -- the driver wfs_test.P is the program and p20.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p20), told)).
 %------------------------------------------------------------- 494 wfs_tests_p21
-query(p21,a,[a,b,c],[c],[a,b]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table a / 0.
-:- table b / 0.
-:- table c / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-a :- tnot(b), c.
-b :- tnot(a).
-c.
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p21 "test(p21)." -- [wfs_test]. test(p21). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p21), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p21 "test(p21)." -- the driver wfs_test.P is the program and p21.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p21), told)).
 %------------------------------------------------------------- 495 wfs_tests_p22
-query(p22,p,[p,q,a,b,c],[b],[p,q]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table a / 0.
-:- table b / 0.
-:- table c / 0.
-:- table p / 0.
-:- table q / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-a :- fail.
-b :- tnot(a).
-c :- tnot(b).
-c :- a, tnot(p).
-p :- tnot(q).
-q :- tnot(p), b.
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p22 "test(p22)." -- [wfs_test]. test(p22). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p22), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p22 "test(p22)." -- the driver wfs_test.P is the program and p22.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p22), told)).
 %------------------------------------------------------------- 496 wfs_tests_p23
-query(p23,(d  ','  p),[p,q,r,s,t,a,b,c,d],[c],[a,b,d]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table a / 0.
-:- table b / 0.
-:- table c / 0.
-:- table d / 0.
-:- table p / 0.
-:- table q / 0.
-:- table r / 0.
-:- table s / 0.
-:- table t / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-a :- tnot(b), c.
-b :- tnot(a).
-c.
-d :- a, c, a.
-p :- tnot(r), q.
-p :- tnot(s), r.
-p :- t.
-q :- p.
-r :- q.
-r :- tnot(c).
-s :- fail.
-t :- fail.
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p23 "test(p23)." -- [wfs_test]. test(p23). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p23), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p23 "test(p23)." -- the driver wfs_test.P is the program and p23.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p23), told)).
 %------------------------------------------------------------- 497 wfs_tests_p24
-query(p24,p,[p,q,r,s],[s],[]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p / 0.
-:- table q / 0.
-:- table r / 0.
-:- table s / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-p :- tnot(s), q, tnot(r).
-q :- r, tnot(p).
-r :- p, tnot(q).
-s :- tnot(p), tnot(q), tnot(r).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p24 "test(p24)." -- [wfs_test]. test(p24). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p24), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p24 "test(p24)." -- the driver wfs_test.P is the program and p24.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p24), told)).
 %------------------------------------------------------------- 498 wfs_tests_p25
-query(p25,s,[p,q,r,s],[s],[]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p / 0.
-:- table q / 0.
-:- table r / 0.
-:- table s / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-p :- q, tnot(s), tnot(r).
-q :- r, tnot(p).
-r :- p, tnot(q).
-s :- tnot(p), tnot(q), tnot(r).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p25 "test(p25)." -- [wfs_test]. test(p25). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p25), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p25 "test(p25)." -- the driver wfs_test.P is the program and p25.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p25), told)).
 %------------------------------------------------------------- 499 wfs_tests_p26
-query(p26,l,[l,m,n,p,q,r,s],[l,n,s],[]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table l / 0.
-:- table m / 0.
-:- table n / 0.
-:- table p / 0.
-:- table q / 0.
-:- table r / 0.
-:- table s / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-l :- tnot(p), s.
-m :- tnot(s).
-n :- tnot(p).
-p :- tnot(s), tnot(r), q.
-q :- tnot(p), r.
-r :- tnot(q), p.
-s :- tnot(p), tnot(q), tnot(r).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p26 "test(p26)." -- [wfs_test]. test(p26). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p26), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p26 "test(p26)." -- the driver wfs_test.P is the program and p26.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p26), told)).
 %------------------------------------------------------------- 500 wfs_tests_p27
-query(p27,s,[p,q,r,s,ns],[s],[]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table ns / 0.
-:- table p / 0.
-:- table q / 0.
-:- table r / 0.
-:- table s / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-p :- tnot(r), ns, q.
-ns :- tnot(s).
-q :- r, tnot(p).
-r :- p, tnot(q).
-s :- tnot(p), tnot(q), tnot(r).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p27 "test(p27)." -- [wfs_test]. test(p27). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p27), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p27 "test(p27)." -- the driver wfs_test.P is the program and p27.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p27), told)).
 %------------------------------------------------------------- 501 wfs_tests_p29
-query(p29,w(0),[w(0),u(0)],[w(0)],[]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table u / 1.
-:- table w / 1.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-e(s(0),s(s(0))).
-e(s(0),0).
-e(s(A),s(s(A))) :- e(A,s(A)).
-e(s(A),0) :- e(A,0).
-w(A) :- tnot(u(A)).
-w(A) :- e(B,A), tnot(w(B)).
-u(0) :- fail.
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p29 "test(p29)." -- [wfs_test]. test(p29). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p29), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p29 "test(p29)." -- the driver wfs_test.P is the program and p29.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p29), told)).
 %------------------------------------------------------------- 502 wfs_tests_p30
-query(p30,p,[p,q,r],[],[p,q,r]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p / 0.
-:- table q / 0.
-:- table r / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-p :- q.
-p :- tnot(r).
-r :- tnot(q).
-q :- tnot(r).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p30 "test(p30)." -- [wfs_test]. test(p30). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p30), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p30 "test(p30)." -- the driver wfs_test.P is the program and p30.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p30), told)).
 %------------------------------------------------------------- 503 wfs_tests_p31
-query(p31,(q(_A)  ','  q(b)),[q(a),q(b),r],[],[q(b),r]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table q / 1.
-:- table r / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-q(A) :- p(A), eq(A,b).
-eq(A,A).
-p(a).
-p(_A) :- r.
-r :- tnot(r).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p31 "test(p31)." -- [wfs_test]. test(p31). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p31), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p31 "test(p31)." -- the driver wfs_test.P is the program and p31.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p31), told)).
 %------------------------------------------------------------- 504 wfs_tests_p32
-query(p32,(a  ','  p),[a,b,c,p,q,r,s],[c],[a,b]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table a / 0.
-:- table b / 0.
-:- table c / 0.
-:- table p / 0.
-:- table q / 0.
-:- table r / 0.
-:- table s / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-a :- c, tnot(b).
-b :- tnot(a).
-c.
-p :- q, tnot(r).
-p :- r, tnot(s).
-q :- p.
-r :- q.
-s :- fail.
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p32 "test(p32)." -- [wfs_test]. test(p32). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p32), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p32 "test(p32)." -- the driver wfs_test.P is the program and p32.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p32), told)).
 %------------------------------------------------------------- 505 wfs_tests_p33
-query(p33,a,[a,b],[],[a,b]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table a / 0.
-:- table b / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-a :- tnot(b).
-b :- tnot(a).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p33 "test(p33)." -- [wfs_test]. test(p33). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p33), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p33 "test(p33)." -- the driver wfs_test.P is the program and p33.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p33), told)).
 %------------------------------------------------------------- 506 wfs_tests_p34
-query(p34,p,[a,b,p],[],[a,b,p]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table a / 0.
-:- table b / 0.
-:- table p / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-a :- tnot(b).
-b :- tnot(a).
-p :- tnot(p).
-p :- tnot(b).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p34 "test(p34)." -- [wfs_test]. test(p34). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p34), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p34 "test(p34)." -- the driver wfs_test.P is the program and p34.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p34), told)).
 %------------------------------------------------------------- 507 wfs_tests_p35
-query(p35,a,[a,b,c],[],[a,b,c]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table a / 0.
-:- table b / 0.
-:- table c / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-a :- tnot(b).
-b :- tnot(a).
-c :- a, b.
-a :- tnot(c).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p35 "test(p35)." -- [wfs_test]. test(p35). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p35), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p35 "test(p35)." -- the driver wfs_test.P is the program and p35.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p35), told)).
 %------------------------------------------------------------- 508 wfs_tests_p36
-query(p36,noise(1),[noise(0),loaded(0),shoots(0),noise(1),loaded(1),shoots(1)],[loaded(0),noise(1),loaded(1),shoots(1)],[]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table loaded / 1.
-:- table noise / 1.
-:- table shoots / 1.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-noise(1) :- loaded(1), shoots(1).
-loaded(1) :- succ(0,1), loaded(0), tnot(shoots(0)).
-succ(0,1).
-loaded(0).
-shoots(1).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p36 "test(p36)." -- [wfs_test]. test(p36). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p36), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p36 "test(p36)." -- the driver wfs_test.P is the program and p36.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p36), told)).
 %------------------------------------------------------------- 509 wfs_tests_p37
-query(p37,a(_684200,_684204),[a(2,3),a(3,2),a(3,3),p(3,3),e(3,3)],[a(2,3),a(3,2),a(3,3),e(3,3)],[]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table a / 2.
-:- table e / 2.
-:- table p / 2.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-p(A,B) :- b(A,B).
-p(A,B) :- b(A,C), p(C,B).
-e(A,B) :- g(A,B).
-e(A,B) :- g(A,C), e(C,B).
-a(A,B) :- e(A,B), tnot(p(A,B)).
-b(1,2).
-b(2,1).
-g(2,3).
-g(3,2).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p37 "test(p37)." -- [wfs_test]. test(p37). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p37), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p37 "test(p37)." -- the driver wfs_test.P is the program and p37.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p37), told)).
 %------------------------------------------------------------- 510 wfs_tests_p39
-query(p39,(a(_684212),a(s),b(s)),[a(s),b(s)],[],[a(s),b(s)]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table a / 1.
-:- table b / 1.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-b(s) :- tnot(b(s)).
-a(A) :- b(A).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p39 "test(p39)." -- [wfs_test]. test(p39). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p39), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p39 "test(p39)." -- the driver wfs_test.P is the program and p39.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p39), told)).
 %------------------------------------------------------------- 511 wfs_tests_p40
-query(p40,a(_A),[a(s),a(t),b(s)],[a(s),a(t)],[b(s)]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table a / 1.
-:- table b / 1.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-b(s) :- tnot(b(s)).
-a(A) :- b(A).
-a(_A).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p40 "test(p40)." -- [wfs_test]. test(p40). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p40), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p40 "test(p40)." -- the driver wfs_test.P is the program and p40.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p40), told)).
 %------------------------------------------------------------- 512 wfs_tests_p42
-query(p42,r(_684200,_684204),[p(a,b),r(a,b),r(a,c),r(a,d),r(a,e),r(a,f),r(a,g),r(a,h),r(a,i),r(a,j),r(a,k),r(a,l)],[p(a,b),r(a,b),r(a,c),r(a,d),r(a,e),r(a,f),r(a,g),r(a,h),r(a,i),r(a,j),r(a,k),r(a,l)],[]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p / 2.
-:- table r / 2.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-r(A,B) :- p(A,B), tnot(p(B,A)).
-p(A,B) :- q(A,B).
-p(A,B) :- q(A,C), p(C,B).
-q(a,b).
-q(b,c).
-q(c,d).
-q(d,e).
-q(e,f).
-q(f,g).
-q(g,h).
-q(h,i).
-q(i,j).
-q(j,k).
-q(k,l).
-q(l,b).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p42 "test(p42)." -- [wfs_test]. test(p42). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p42), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p42 "test(p42)." -- the driver wfs_test.P is the program and p42.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p42), told)).
 %------------------------------------------------------------- 513 wfs_tests_p43
-query(p43,w(_684200),[w(a),w(b),w(c),w(d),w(e),w(f),w(g)],[w(b),w(e),w(g)],[]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table w / 1.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-w(A) :- m(A,B), tnot(w(B)).
-m(a,b).
-m(a,e).
-m(b,c).
-m(b,d).
-m(e,f).
-m(e,g).
-m(g,h).
-m(g,i).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p43 "test(p43)." -- [wfs_test]. test(p43). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p43), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p43 "test(p43)." -- the driver wfs_test.P is the program and p43.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p43), told)).
 %------------------------------------------------------------- 514 wfs_tests_p44
-query(p44,w(_684200),[w(a),w(b),w(c),w(d)],[w(c)],[w(a),w(b)]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table w / 1.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-w(A) :- m(A,B), tnot(w(B)).
-m(a,b).
-m(b,a).
-m(b,c).
-m(c,d).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p44 "test(p44)." -- [wfs_test]. test(p44). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p44), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p44 "test(p44)." -- the driver wfs_test.P is the program and p44.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p44), told)).
 %------------------------------------------------------------- 515 wfs_tests_p45
-query(p45,w(_684200),[w(a),w(b),w(c)],[w(b)],[]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table w / 1.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-w(A) :- m(A,B), tnot(w(B)).
-m(a,b).
-m(b,a).
-m(b,c).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p45 "test(p45)." -- [wfs_test]. test(p45). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p45), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p45 "test(p45)." -- the driver wfs_test.P is the program and p45.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p45), told)).
 %------------------------------------------------------------- 516 wfs_tests_p46
-query(p46,q,[p(a),p(b),q,r],[p(b),r],[p(a)]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p / 1.
-:- table q / 0.
-:- table r / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-q :- tnot(r).
-r :- p(_A).
-p(a) :- tnot(p(a)).
-p(b).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p46 "test(p46)." -- [wfs_test]. test(p46). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p46), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p46 "test(p46)." -- the driver wfs_test.P is the program and p46.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p46), told)).
 %------------------------------------------------------------- 517 wfs_tests_p47
-query(p47,p,[p,q,l],[p],[]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table l / 0.
-:- table p / 0.
-:- table q / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-l :- tnot(p).
-p :- tnot(q).
-p.
-q :- tnot(p).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p47 "test(p47)." -- [wfs_test]. test(p47). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p47), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p47 "test(p47)." -- the driver wfs_test.P is the program and p47.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p47), told)).
 %------------------------------------------------------------- 518 wfs_tests_p48
-query(p48,p,[p,q,r,s],[p],[]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p / 0.
-:- table q / 0.
-:- table r / 0.
-:- table s / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-p :- tnot(q).
-q :- tnot(p).
-p :- tnot(r).
-r :- tnot(p).
-p :- tnot(s).
-s :- fail.
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p48 "test(p48)." -- [wfs_test]. test(p48). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p48), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p48 "test(p48)." -- the driver wfs_test.P is the program and p48.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p48), told)).
 %------------------------------------------------------------- 519 wfs_tests_p49
-query(p49,q(a),[p(a),q(a),r(a)],[q(a),r(a)],[]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p / 1.
-:- table q / 1.
-:- table r / 1.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-q(A) :- tnot(p(A)).
-p(A) :- tnot(p(A)), tnot(r(A)).
-r(a).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p49 "test(p49)." -- [wfs_test]. test(p49). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p49), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p49 "test(p49)." -- the driver wfs_test.P is the program and p49.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p49), told)).
 %------------------------------------------------------------- 520 wfs_tests_p50
-query(p50,q(_684200),[q(a),q(b),p(a),p(b),r(a),r(b)],[q(b),p(a),r(a)],[]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p / 1.
-:- table q / 1.
-:- table r / 1.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-q(a) :- tnot(p(a)).
-q(b) :- tnot(p(b)).
-p(a) :- tnot(p(a)), tnot(r(a)).
-p(a) :- tnot(p(b)), tnot(r(b)).
-r(a).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p50 "test(p50)." -- [wfs_test]. test(p50). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p50), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p50 "test(p50)." -- the driver wfs_test.P is the program and p50.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p50), told)).
 %------------------------------------------------------------- 521 wfs_tests_p51
-query(p51,p0,[p0,p1,p2],[],[p0,p1,p2]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p0 / 0.
-:- table p1 / 0.
-:- table p2 / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-p0 :- tnot(p0), tnot(p1), tnot(p2).
-p1 :- tnot(p1), tnot(p2), tnot(p0).
-p2 :- tnot(p2), tnot(p0), tnot(p1).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p51 "test(p51)." -- [wfs_test]. test(p51). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p51), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p51 "test(p51)." -- the driver wfs_test.P is the program and p51.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p51), told)).
 %------------------------------------------------------------- 522 wfs_tests_p52
-query(p52,p0,[p0,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10],[],[p0,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p0 / 0.
-:- table p1 / 0.
-:- table p10 / 0.
-:- table p2 / 0.
-:- table p3 / 0.
-:- table p4 / 0.
-:- table p5 / 0.
-:- table p6 / 0.
-:- table p7 / 0.
-:- table p8 / 0.
-:- table p9 / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-p0 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10).
-p1 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10).
-p2 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10).
-p3 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10).
-p4 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10).
-p5 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10).
-p6 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10).
-p7 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10).
-p8 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10).
-p9 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10).
-p10 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p52 "test(p52)." -- [wfs_test]. test(p52). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p52), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p52 "test(p52)." -- the driver wfs_test.P is the program and p52.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p52), told)).
 %------------------------------------------------------------ 523 wfs_tests_p52a
-query(p52a,p0,[p0,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10],[],[p0,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p0 / 0.
-:- table p1 / 0.
-:- table p10 / 0.
-:- table p2 / 0.
-:- table p3 / 0.
-:- table p4 / 0.
-:- table p5 / 0.
-:- table p6 / 0.
-:- table p7 / 0.
-:- table p8 / 0.
-:- table p9 / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-p0 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10).
-p1 :- tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p0).
-p2 :- tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p0), tnot(p1).
-p3 :- tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p0), tnot(p1), tnot(p2).
-p4 :- tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p0), tnot(p1), tnot(p2), tnot(p3).
-p5 :- tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4).
-p6 :- tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5).
-p7 :- tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6).
-p8 :- tnot(p8), tnot(p9), tnot(p10), tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7).
-p9 :- tnot(p9), tnot(p10), tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8).
-p10 :- tnot(p10), tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p52a "test(p52a)." -- [wfs_test]. test(p52a). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p52a), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p52a "test(p52a)." -- the driver wfs_test.P is the program and p52a.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p52a), told)).
 %------------------------------------------------------------- 524 wfs_tests_p53
-query(p53,p0,[p0,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10],[],[p0,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p0 / 0.
-:- table p1 / 0.
-:- table p10 / 0.
-:- table p2 / 0.
-:- table p3 / 0.
-:- table p4 / 0.
-:- table p5 / 0.
-:- table p6 / 0.
-:- table p7 / 0.
-:- table p8 / 0.
-:- table p9 / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-p10 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10).
-p0 :- tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p0).
-p1 :- tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p0), tnot(p1).
-p2 :- tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p0), tnot(p1), tnot(p2).
-p3 :- tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p0), tnot(p1), tnot(p2), tnot(p3).
-p4 :- tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4).
-p5 :- tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5).
-p6 :- tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6).
-p7 :- tnot(p8), tnot(p9), tnot(p10), tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7).
-p8 :- tnot(p9), tnot(p10), tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8).
-p9 :- tnot(p10), tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p53 "test(p53)." -- [wfs_test]. test(p53). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p53), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p53 "test(p53)." -- the driver wfs_test.P is the program and p53.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p53), told)).
 %------------------------------------------------------------- 525 wfs_tests_p54
-query(p54,p0,[p0,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12],[],[p0,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p0 / 0.
-:- table p1 / 0.
-:- table p10 / 0.
-:- table p11 / 0.
-:- table p12 / 0.
-:- table p2 / 0.
-:- table p3 / 0.
-:- table p4 / 0.
-:- table p5 / 0.
-:- table p6 / 0.
-:- table p7 / 0.
-:- table p8 / 0.
-:- table p9 / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-p0 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12).
-p1 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12).
-p2 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12).
-p3 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12).
-p4 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12).
-p5 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12).
-p6 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12).
-p7 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12).
-p8 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12).
-p9 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12).
-p10 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12).
-p11 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12).
-p12 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p54 "test(p54)." -- [wfs_test]. test(p54). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p54), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p54 "test(p54)." -- the driver wfs_test.P is the program and p54.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p54), told)).
 %------------------------------------------------------------- 526 wfs_tests_p55
-query(p55,p0,[p0,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14],[],[p0,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p0 / 0.
-:- table p1 / 0.
-:- table p10 / 0.
-:- table p11 / 0.
-:- table p12 / 0.
-:- table p13 / 0.
-:- table p14 / 0.
-:- table p2 / 0.
-:- table p3 / 0.
-:- table p4 / 0.
-:- table p5 / 0.
-:- table p6 / 0.
-:- table p7 / 0.
-:- table p8 / 0.
-:- table p9 / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-p0 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14).
-p1 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14).
-p2 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14).
-p3 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14).
-p4 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14).
-p5 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14).
-p6 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14).
-p7 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14).
-p8 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14).
-p9 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14).
-p10 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14).
-p11 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14).
-p12 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14).
-p13 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14).
-p14 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p55 "test(p55)." -- [wfs_test]. test(p55). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p55), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p55 "test(p55)." -- the driver wfs_test.P is the program and p55.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p55), told)).
 %------------------------------------------------------------- 527 wfs_tests_p56
-query(p56,p0,[p0,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16],[],[p0,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p0 / 0.
-:- table p1 / 0.
-:- table p10 / 0.
-:- table p11 / 0.
-:- table p12 / 0.
-:- table p13 / 0.
-:- table p14 / 0.
-:- table p15 / 0.
-:- table p16 / 0.
-:- table p2 / 0.
-:- table p3 / 0.
-:- table p4 / 0.
-:- table p5 / 0.
-:- table p6 / 0.
-:- table p7 / 0.
-:- table p8 / 0.
-:- table p9 / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-p0 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16).
-p1 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16).
-p2 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16).
-p3 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16).
-p4 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16).
-p5 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16).
-p6 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16).
-p7 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16).
-p8 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16).
-p9 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16).
-p10 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16).
-p11 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16).
-p12 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16).
-p13 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16).
-p14 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16).
-p15 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16).
-p16 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p56 "test(p56)." -- [wfs_test]. test(p56). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p56), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p56 "test(p56)." -- the driver wfs_test.P is the program and p56.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p56), told)).
 %------------------------------------------------------------- 528 wfs_tests_p57
-query(p57,p0,[p0,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18],[],[p0,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p0 / 0.
-:- table p1 / 0.
-:- table p10 / 0.
-:- table p11 / 0.
-:- table p12 / 0.
-:- table p13 / 0.
-:- table p14 / 0.
-:- table p15 / 0.
-:- table p16 / 0.
-:- table p17 / 0.
-:- table p18 / 0.
-:- table p2 / 0.
-:- table p3 / 0.
-:- table p4 / 0.
-:- table p5 / 0.
-:- table p6 / 0.
-:- table p7 / 0.
-:- table p8 / 0.
-:- table p9 / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-p0 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18).
-p1 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18).
-p2 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18).
-p3 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18).
-p4 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18).
-p5 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18).
-p6 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18).
-p7 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18).
-p8 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18).
-p9 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18).
-p10 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18).
-p11 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18).
-p12 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18).
-p13 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18).
-p14 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18).
-p15 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18).
-p16 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18).
-p17 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18).
-p18 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p57 "test(p57)." -- [wfs_test]. test(p57). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p57), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p57 "test(p57)." -- the driver wfs_test.P is the program and p57.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p57), told)).
 %------------------------------------------------------------- 529 wfs_tests_p58
-query(p58,p0,[p0,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20],[],[p0,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p0 / 0.
-:- table p1 / 0.
-:- table p10 / 0.
-:- table p11 / 0.
-:- table p12 / 0.
-:- table p13 / 0.
-:- table p14 / 0.
-:- table p15 / 0.
-:- table p16 / 0.
-:- table p17 / 0.
-:- table p18 / 0.
-:- table p19 / 0.
-:- table p2 / 0.
-:- table p20 / 0.
-:- table p3 / 0.
-:- table p4 / 0.
-:- table p5 / 0.
-:- table p6 / 0.
-:- table p7 / 0.
-:- table p8 / 0.
-:- table p9 / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-p0 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20).
-p1 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20).
-p2 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20).
-p3 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20).
-p4 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20).
-p5 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20).
-p6 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20).
-p7 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20).
-p8 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20).
-p9 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20).
-p10 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20).
-p11 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20).
-p12 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20).
-p13 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20).
-p14 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20).
-p15 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20).
-p16 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20).
-p17 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20).
-p18 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20).
-p19 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20).
-p20 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p58 "test(p58)." -- [wfs_test]. test(p58). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p58), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p58 "test(p58)." -- the driver wfs_test.P is the program and p58.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p58), told)).
 %------------------------------------------------------------- 530 wfs_tests_p59
-query(p59,p0,[p0,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22],[],[p0,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p0 / 0.
-:- table p1 / 0.
-:- table p10 / 0.
-:- table p11 / 0.
-:- table p12 / 0.
-:- table p13 / 0.
-:- table p14 / 0.
-:- table p15 / 0.
-:- table p16 / 0.
-:- table p17 / 0.
-:- table p18 / 0.
-:- table p19 / 0.
-:- table p2 / 0.
-:- table p20 / 0.
-:- table p21 / 0.
-:- table p22 / 0.
-:- table p3 / 0.
-:- table p4 / 0.
-:- table p5 / 0.
-:- table p6 / 0.
-:- table p7 / 0.
-:- table p8 / 0.
-:- table p9 / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-p0 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20), tnot(p21), tnot(p22).
-p1 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20), tnot(p21), tnot(p22).
-p2 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20), tnot(p21), tnot(p22).
-p3 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20), tnot(p21), tnot(p22).
-p4 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20), tnot(p21), tnot(p22).
-p5 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20), tnot(p21), tnot(p22).
-p6 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20), tnot(p21), tnot(p22).
-p7 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20), tnot(p21), tnot(p22).
-p8 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20), tnot(p21), tnot(p22).
-p9 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20), tnot(p21), tnot(p22).
-p10 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20), tnot(p21), tnot(p22).
-p11 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20), tnot(p21), tnot(p22).
-p12 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20), tnot(p21), tnot(p22).
-p13 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20), tnot(p21), tnot(p22).
-p14 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20), tnot(p21), tnot(p22).
-p15 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20), tnot(p21), tnot(p22).
-p16 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20), tnot(p21), tnot(p22).
-p17 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20), tnot(p21), tnot(p22).
-p18 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20), tnot(p21), tnot(p22).
-p19 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20), tnot(p21), tnot(p22).
-p20 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20), tnot(p21), tnot(p22).
-p21 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20), tnot(p21), tnot(p22).
-p22 :- tnot(p0), tnot(p1), tnot(p2), tnot(p3), tnot(p4), tnot(p5), tnot(p6), tnot(p7), tnot(p8), tnot(p9), tnot(p10), tnot(p11), tnot(p12), tnot(p13), tnot(p14), tnot(p15), tnot(p16), tnot(p17), tnot(p18), tnot(p19), tnot(p20), tnot(p21), tnot(p22).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p59 "test(p59)." -- [wfs_test]. test(p59). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p59), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p59 "test(p59)." -- the driver wfs_test.P is the program and p59.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p59), told)).
 %------------------------------------------------------------- 531 wfs_tests_p60
-query(p60,(p(_684220)  ','  q(_684220)),[p(1),p(2),p(3),p(4),q(1),q(2),q(3),q(4),s(1),s(2),s(3),s(4)],[p(2),p(3),p(4),q(3),q(4),s(2)],[]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p / 1.
-:- table q / 1.
-:- table s / 1.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-q(A) :- u(A), tnot(s(A)).
-q(A) :- q(B), t(A,B).
-p(A) :- u(A), tnot(q(A)).
-p(A) :- p(B), t(A,B).
-u(2).
-u(3).
-s(2).
-t(2,1).
-t(3,2).
-t(4,3).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p60 "test(p60)." -- [wfs_test]. test(p60). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p60), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p60 "test(p60)." -- the driver wfs_test.P is the program and p60.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p60), told)).
 %------------------------------------------------------------- 532 wfs_tests_p62
-query(p62,l,[l,p,q,s,r,t],[],[l,p,q,s,r,t]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table l / 0.
-:- table p / 0.
-:- table q / 0.
-:- table r / 0.
-:- table s / 0.
-:- table t / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-l :- tnot(p).
-p :- tnot(q), tnot(r).
-q :- tnot(s).
-s :- tnot(q).
-r :- tnot(t).
-t :- tnot(r).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p62 "test(p62)." -- [wfs_test]. test(p62). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p62), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p62 "test(p62)." -- the driver wfs_test.P is the program and p62.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p62), told)).
 %------------------------------------------------------------- 533 wfs_tests_p63
-query(p63,t,[p,q,s,r,t],[],[p,q,s,r,t]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p / 0.
-:- table q / 0.
-:- table r / 0.
-:- table s / 0.
-:- table t / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-t :- tnot(s).
-s :- tnot(p).
-p :- q.
-p :- r.
-r :- tnot(q).
-q :- tnot(r).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p63 "test(p63)." -- [wfs_test]. test(p63). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p63), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p63 "test(p63)." -- the driver wfs_test.P is the program and p63.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p63), told)).
 %------------------------------------------------------------- 534 wfs_tests_p64
-query(p64,p,[p,q,s,r,t,u,v],[],[p,q,s,r,t,u,v]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p / 0.
-:- table q / 0.
-:- table r / 0.
-:- table s / 0.
-:- table t / 0.
-:- table u / 0.
-:- table v / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-p :- tnot(q), tnot(r).
-p :- tnot(u).
-q :- tnot(s).
-q :- tnot(u).
-s :- tnot(q).
-r :- tnot(t).
-t :- tnot(r).
-u :- tnot(v).
-v :- tnot(u).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p64 "test(p64)." -- [wfs_test]. test(p64). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p64), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p64 "test(p64)." -- the driver wfs_test.P is the program and p64.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p64), told)).
 %------------------------------------------------------------- 535 wfs_tests_p65
-query(p65,p,[p,q],[],[p,q]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p / 0.
-:- table q / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-p :- q.
-q :- tnot(q).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p65 "test(p65)." -- [wfs_test]. test(p65). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p65), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p65 "test(p65)." -- the driver wfs_test.P is the program and p65.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p65), told)).
 %------------------------------------------------------------- 536 wfs_tests_p66
-query(p66,l,[l,p,q,r,s,t],[],[l,p,q,r,s,t]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table l / 0.
-:- table p / 0.
-:- table q / 0.
-:- table r / 0.
-:- table s / 0.
-:- table t / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-l :- tnot(p).
-p :- tnot(q).
-p :- q.
-p :- tnot(r).
-q :- tnot(s).
-s :- tnot(q).
-r :- tnot(t).
-t :- tnot(r).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p66 "test(p66)." -- [wfs_test]. test(p66). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p66), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p66 "test(p66)." -- the driver wfs_test.P is the program and p66.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p66), told)).
 %------------------------------------------------------------- 537 wfs_tests_p67
-query(p67,p,[p,q],[],[p]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p / 0.
-:- table q / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-p :- tnot(p).
-p :- q.
-q :- q.
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p67 "test(p67)." -- [wfs_test]. test(p67). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p67), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p67 "test(p67)." -- the driver wfs_test.P is the program and p67.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p67), told)).
 %------------------------------------------------------------- 538 wfs_tests_p77
-query(p77,p,[p,q,r,s,t],[],[p,q,r,s,t]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p / 0.
-:- table q / 0.
-:- table r / 0.
-:- table s / 0.
-:- table t / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-p :- q.
-q :- r.
-q :- tnot(t).
-r :- s.
-s :- p.
-t :- r.
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p77 "test(p77)." -- [wfs_test]. test(p77). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p77), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p77 "test(p77)." -- the driver wfs_test.P is the program and p77.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p77), told)).
 %------------------------------------------------------------- 539 wfs_tests_p78
-query(p78,s,[p,q,s],[s],[]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p / 0.
-:- table q / 0.
-:- table s / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-s :- tnot(p), tnot(q).
-p :- tnot(s), q.
-q :- tnot(s), p.
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p78 "test(p78)." -- [wfs_test]. test(p78). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p78), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p78 "test(p78)." -- the driver wfs_test.P is the program and p78.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p78), told)).
 %------------------------------------------------------------- 540 wfs_tests_p79
-query(p79,p(a),[p(a),p(b),p(c),q(a),q(b),q(c),r(a),r(b),r(c),s(a),s(b),s(c)],[p(a),q(a),q(b),r(b),s(b),s(c)],[]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p / 1.
-:- table q / 1.
-:- table r / 1.
-:- table s / 1.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-p(A) :- q(A), tnot(r(A)).
-q(a).
-q(b).
-r(A) :- q(A), s(A).
-s(b).
-s(c).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p79 "test(p79)." -- [wfs_test]. test(p79). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p79), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p79 "test(p79)." -- the driver wfs_test.P is the program and p79.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p79), told)).
 %------------------------------------------------------------- 541 wfs_tests_p80
-query(p80,m,[m,p(a),p(b),p(c),q(a),q(b),q(c),r(a),r(b),r(c),s(a),s(b),s(c)],[m,p(b),q(a),q(b),r(a),s(a),s(c)],[]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table m / 0.
-:- table p / 1.
-:- table q / 1.
-:- table r / 1.
-:- table s / 1.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-m :- q(A), p(A).
-p(A) :- q(A), tnot(r(A)).
-q(a).
-q(b).
-r(A) :- q(A), s(A).
-s(a).
-s(c).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p80 "test(p80)." -- [wfs_test]. test(p80). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p80), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p80 "test(p80)." -- the driver wfs_test.P is the program and p80.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p80), told)).
 %------------------------------------------------------------- 542 wfs_tests_p81
-query(p81,m(a),[m(a),m(b),m(c),p(a),p(b),p(c),q(a),q(b),q(c),r(a),r(b),r(c),s(a),s(b),s(c)],[m(a),m(b),p(a),p(b),q(a),q(b),r(c),s(a),s(c)],[]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table m / 1.
-:- table p / 1.
-:- table q / 1.
-:- table r / 1.
-:- table s / 1.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-m(A) :- q(A), p(A).
-p(A) :- q(A), tnot(r(A)).
-q(a).
-q(b).
-r(A) :- s(A), tnot(q(A)).
-s(a).
-s(c).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p81 "test(p81)." -- [wfs_test]. test(p81). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p81), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p81 "test(p81)." -- the driver wfs_test.P is the program and p81.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p81), told)).
 %------------------------------------------------------------- 543 wfs_tests_p82
-query(p82,m(a),[m(a),m(b),m(c),n(a),n(b),n(c),p(a),p(b),p(c),q(a),q(b),q(c),r(a),r(b),r(c),s(a),s(b),s(c),t(a),t(b),t(c)],[m(b),p(b),q(a),q(b),r(a),r(c),s(a),s(c)],[]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table m / 1.
-:- table n / 1.
-:- table p / 1.
-:- table q / 1.
-:- table r / 1.
-:- table s / 1.
-:- table t / 1.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-m(A) :- n(A).
-m(A) :- p(A).
-n(A) :- q(A), t(A).
-p(A) :- q(A), tnot(r(A)).
-q(a).
-q(b).
-r(A) :- s(A), tnot(n(A)).
-s(a).
-s(c).
-t(_A) :- fail.
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p82 "test(p82)." -- [wfs_test]. test(p82). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p82), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p82 "test(p82)." -- the driver wfs_test.P is the program and p82.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p82), told)).
 %------------------------------------------------------------- 544 wfs_tests_p83
-query(p83,m,[m,a,b,c,d],[m,a,c],[]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table a / 0.
-:- table b / 0.
-:- table c / 0.
-:- table d / 0.
-:- table m / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-m :- c, a.
-c :- b.
-c.
-b :- c, d.
-a :- tnot(b).
-d :- fail.
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p83 "test(p83)." -- [wfs_test]. test(p83). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p83), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p83 "test(p83)." -- the driver wfs_test.P is the program and p83.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p83), told)).
 %------------------------------------------------------------- 545 wfs_tests_p84
-query(p84,m,[m,a,b,c,d,r(a)],[a,c],[]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table a / 0.
-:- table b / 0.
-:- table c / 0.
-:- table d / 0.
-:- table m / 0.
-:- table r / 1.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-m :- c, tnot(a), tnot(r(_A)).
-c :- b.
-c.
-b :- c, d.
-a :- tnot(b).
-d :- fail.
-r(_A) :- fail.
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p84 "test(p84)." -- [wfs_test]. test(p84). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p84), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p84 "test(p84)." -- the driver wfs_test.P is the program and p84.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p84), told)).
 %------------------------------------------------------------- 546 wfs_tests_p85
-query(p85,p(_684200),[a,b,c,d,p(1),p(2),p(3),q(1),q(2),q(3)],[a,b,p(1),p(2),q(1),q(2)],[]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table a / 0.
-:- table b / 0.
-:- table c / 0.
-:- table d / 0.
-:- table p / 1.
-:- table q / 1.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-p(A) :- a, tnot(c), q(A).
-p(1).
-a :- b.
-b.
-c :- b, d.
-d :- fail.
-q(A) :- p(A).
-q(2).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p85 "test(p85)." -- [wfs_test]. test(p85). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p85), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p85 "test(p85)." -- the driver wfs_test.P is the program and p85.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p85), told)).
 %------------------------------------------------------------- 547 wfs_tests_p86
-query(p86,p(_684200),[p(a),p(b1),p(b2),p(b3),p(b4),p(b5),p(b6),p(b7),p(b8),p(b9),p(b10),p(c1),p(c2),p(c3),p(c4),p(c5),p(c6),p(c7),p(c8),p(c9)],[p(b1),p(b3),p(b5),p(b7),p(b9),p(c2)],[]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p / 1.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-p(A) :- t(A,B,C), tnot(p(B)), tnot(p(C)).
-p(A) :- p0(A).
-p0(c2).
-t(a,a,b1).
-t(b1,c1,b2).
-t(b2,c2,b3).
-t(b3,c3,b4).
-t(b4,c4,b5).
-t(b5,c5,b6).
-t(b6,c6,b7).
-t(b7,c7,b8).
-t(b8,c8,b9).
-t(b9,c9,b10).
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p86 "test(p86)." -- [wfs_test]. test(p86). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p86), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p86 "test(p86)." -- the driver wfs_test.P is the program and p86.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p86), told)).
 %------------------------------------------------------------- 548 wfs_tests_p89
-query(p89,p,[p,q,r,s],[p,r],[]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p / 0.
-:- table q / 0.
-:- table r / 0.
-:- table s / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-p :- tnot(q), r.
-q :- tnot(p), s.
-r.
-s :- fail.
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p89 "test(p89)." -- [wfs_test]. test(p89). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p89), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p89 "test(p89)." -- the driver wfs_test.P is the program and p89.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p89), told)).
 %------------------------------------------------------------- 549 wfs_tests_p90
-query(p90,p,[p,q,s],[s],[p,q]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p / 0.
-:- table q / 0.
-:- table s / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-p :- tnot(q).
-q :- tnot(p), s.
-s.
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p90 "test(p90)." -- [wfs_test]. test(p90). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p90), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p90 "test(p90)." -- the driver wfs_test.P is the program and p90.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p90), told)).
 %------------------------------------------------------------- 550 wfs_tests_p91
-query(p91,p,[p,q,r],[p,r],[]).
-%-----------------------------------------------------------
+/*------------------------------------------------------------------------
+   test(ProgramName):
+	a failure loop for testing many examples that are loaded together,
+	where each example is identified by a program name and a query in
+   query(PgmName,Query,TabledSubgoals,TrueInstances,UndefinedInstances).
+  ------------------------------------------------------------------------*/
 
-:- table p / 0.
-:- table q / 0.
-:- table r / 0.
+:- import memberchk/2 from basics.
+:- import numbervars/1 from num_vars.
 
-p :- tnot(q), r.
-q :- tnot(r), p.
-r :- tnot(p), q.
-r.
+test(P) :- 
+	consult(P), tell(temp),
+	query(P,Q,SGs,Tr,Un),
+	call_top_query(P,Q),
+	test_tv(SGs,Tr,Un),
+	told.
 
-% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p91 "test(p91)." -- [wfs_test]. test(p91). told. -- whose answer is the file temp (STAGED.tsv answer=temp-sorted)
-:- initialization((consult(wfs_test), test(p91), told)).
+call_top_query(P,Q) :-
+	( numbervars(Q), write('Evaluating '), writeln(P:Q), fail ; true ),
+	( call(Q), fail ; true ).
+
+test_tv([],_,_).
+test_tv([SG|SGs], Trues, Undefs) :-
+	find_tv(SG, T), real_tv(SG, Trues, Undefs, R), check_tv(SG, T, R),
+	test_tv(SGs, Trues, Undefs).
+
+find_tv(SG, _) :- SG, fail.
+find_tv(SG, T) :- SG, !, ( tnot(SG) -> T = undefined ; T = true).
+find_tv(_, false).
+
+real_tv(SG, Trues, Undefs, R) :-
+	( memberchk(SG, Trues) -> R = true
+	; memberchk(SG, Undefs) -> R = undefined
+	; R = false
+	).
+
+check_tv(SG, T, R) :-
+	write(SG), write(' is: '), write(T),
+	( T == R -> writeln(' (OK)')
+	; write(' should be: '), write(R), writeln(' (WRONG)')
+	).
+
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927; R2 of ARCH-PROLOG-WFS-TABLING.md): XSB wfs_tests/test.sh runs ./gentest.sh wfs_test p91 "test(p91)." -- the driver wfs_test.P is the program and p91.P is consulted at run time from the staged upstream directory; the answer is the file temp (STAGED.tsv answer=temp-sorted)
+:- initialization((test(p91), told)).
