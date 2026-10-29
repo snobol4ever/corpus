@@ -31,3 +31,4 @@ These are standalone witness programs, NOT entries of the ProRungs master (ALL.p
 | `lifo_throw_through_clauses.pl` | 6 | a ball thrown from a clause while sibling clauses remain |
 | `lifo_ite_arm_resumes_1.pl` | 3 | a then-arm that holds a disjunction, resumed through the GATE after the commit (clpfd labeling bisect over all_distinct; the cfo's bisect witness) |
 | `lifo_ite_arm_resumes_2.pl` | 3 | the same through A*B #= C+D over 0..15 |
+| `lifo_catch_retaining_goal.pl` | 3 | a catch around a nondeterministic goal called from a findall in a clause body keeps every solution in mode 3 (hq_runtime's catch_loses_alternatives_m3; the regression of SCRIP a7b92b0d8, whose unconditional GATE cells lost the alternatives in mode 3 only) |
