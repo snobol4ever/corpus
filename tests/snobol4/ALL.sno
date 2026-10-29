@@ -22809,3 +22809,13 @@ BACK    OUTPUT = X
         F = CODE(' Y = &STNO :(LAST)')   :<F>
 LAST    OUTPUT = Y
 END
+*-------------- 2162 ladder__rung16_dotnet_code_text_is_a_line_after_the_program
+* CODE: the text of each CODE call is one more line of the program's file, after its last line, whether it
+* compiles or not, and EVAL takes none: a nine-line program's CODE texts are lines 10, 11 and 12
+        &ERRLIMIT = 10
+        X = EVAL('1 + 1')
+        C = CODE(' OUTPUT = "a " &LINE :(R1)')                  :<C>
+R1      Y = CODE(' Z = (')
+        D = CODE(' OUTPUT = "b " &LINE " " &LASTLINE :(R2)')     :<D>
+R2      OUTPUT = 'main ' &LINE
+END
