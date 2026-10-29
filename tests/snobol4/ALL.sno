@@ -23679,3 +23679,28 @@ J       SETEXIT('H')
         OUTPUT = 'Y=[' Y ']'                :(L2)
 H       OUTPUT = 'H ' &ERRTYPE ' Y=[' Y ']'  :(END)
 END
+*- 2182 ladder__rung07_inf_dotnet_an_element_holding_an_expression_is_assigned_itself
+* An element, a table entry or a field that holds an expression is itself the target of = and of . and $ in a pattern, as a
+* variable that holds one is; only a deferred expression written as the target is evaluated for its name (rung07, arrays)
+        N = 'o'
+        A = ARRAY(2)
+        A[1] = *N
+        A[1] = 'm'
+        OUTPUT = '1 N=' N ' A1=' DATATYPE(A[1]) ' ' A[1]
+        T = TABLE()
+        T['k'] = *N
+        T['k'] = 'm'
+        OUTPUT = '2 N=' N ' Tk=' T['k']
+        DATA('PT(U,V)')
+        G = PT(CONVERT('N', 'EXPRESSION'), 1)
+        U(G) = 'm'
+        OUTPUT = '3 N=' N ' U=' U(G)
+        A[1] = *N
+        'abc' ? LEN(1) . A[1]
+        OUTPUT = '4 N=' N ' A1=' A[1]
+        A[1] = *N
+        'abc' ? LEN(2) $ A[1]
+        OUTPUT = '5 N=' N ' A1=' A[1]
+        'abc' ? LEN(1) . *N
+        OUTPUT = '6 N=' N
+END
