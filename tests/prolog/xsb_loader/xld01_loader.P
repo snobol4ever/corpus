@@ -1,0 +1,7 @@
+:- import ord_setproduct/3 from ordsets.
+loader :-
+    load_dync(xld01_data),
+    findall(X, fact(X), L), write(L), nl,
+    term_depth(f(g(h(1))), D), write(depth(D)), nl,
+    term_size(f(a, b), S), write(size(S)), nl,
+    ord_setproduct([1,2], [3], P), write(P), nl.

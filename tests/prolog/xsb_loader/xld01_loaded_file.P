@@ -1,0 +1,2 @@
+:- compiler_options([]).
+test :- consult(xld01_loader), loader.

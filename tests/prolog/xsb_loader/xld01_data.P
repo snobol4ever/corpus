@@ -1,0 +1,4 @@
+fact(one).
+fact('two
+lines').
+fact(three).
