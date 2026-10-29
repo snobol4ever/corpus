@@ -1,0 +1,7 @@
+procedure main();
+  local a, b;
+  b := create { write("b sees ", &subject, " ", &pos); &pos := 1; @&source; write("b2 ", &subject, " ", &pos); 2 };
+  a := create { "xyz" ? { write("a in ", &subject, " ", &pos); tab(2); @b; write("a back ", &subject, " ", &pos); tab(3); write("a end ", &subject, " ", &pos) }; 1 };
+  "main" ? { move(1); write("m ", &subject, " ", &pos); @a; write("m after a ", &subject, " ", &pos); @a; write("m after a2 ", &subject, " ", &pos) };
+  write("done ", image(&subject), " ", &pos);
+end

@@ -1,0 +1,6 @@
+procedure main();
+  local c, v;
+  c := create ("abcdef" ? (tab(3) | tab(5) | &pos));
+  "zz" ? { while v := @c do write(v, " | ", &subject, " ", &pos); write("end ", &subject, " ", &pos) };
+  write("done ", image(&subject), " ", &pos);
+end

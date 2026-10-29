@@ -1,0 +1,8 @@
+procedure main();
+  local c, d, r;
+  c := create { "pq" ? { r := (1 + @&source); write("c got ", r, " ", &subject, " ", &pos); tab(2); 99 } };
+  "host" ? { move(1); r := 10@c; write("main ", r, " ", &subject, " ", &pos); r := 20@c; write("main2 ", r, " ", &subject, " ", &pos) };
+  d := ^c;
+  "again" ? { move(3); r := @d; write("refreshed ", image(r), " ", &subject, " ", &pos) };
+  write("done ", image(&subject), " ", &pos);
+end

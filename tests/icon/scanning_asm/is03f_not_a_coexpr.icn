@@ -1,0 +1,8 @@
+procedure main();
+  local x, y;
+  &error := 2;
+  x := 5;
+  y := @x;
+  write("after ", image(y), " ", &errornumber);
+  "ab" ? { y := @x; write("in scan ", &subject, " ", &pos, " ", &errornumber) };
+end

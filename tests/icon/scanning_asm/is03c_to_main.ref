@@ -1,0 +1,7 @@
+m main 3
+b sees A 1
+m got control inB 2
+b resumed inB 2
+b out A 1
+m after b A 1
+done "" 1
