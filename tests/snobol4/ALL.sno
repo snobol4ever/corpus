@@ -23790,3 +23790,26 @@ L       I = I + 1
         V = CONVERT($('T' I), 'EXPRESSION') :S(L)
         OUTPUT = R ' C ' &ERRTYPE           :(L)
 END
+*- 2189 ladder__rung07_inf_dotnet_a_cursor_given_to_a_variable_holding_a_name_sets_the_variable
+* A variable that holds a NAME is itself the target of the cursor assignment @, as it is of = . and $: @A sets A when A
+* holds .I, whether A is written, reached by $N, handed back by an NRETURN, or built into a pattern earlier (rung07)
+        DEFINE('H()')                       :(H_END)
+H       H = .A                              :(NRETURN)
+H_END   A = .I
+        'xyz' @A
+        OUTPUT = '1 ' DATATYPE(A) ' ' A ' [' I ']'
+        A = .I
+        N = .A
+        'xyz' LEN(1) @$N
+        OUTPUT = '2 ' DATATYPE(A) ' ' A ' [' I ']'
+        A = .I
+        'xyz' LEN(2) @H()
+        OUTPUT = '3 ' DATATYPE(A) ' ' A ' [' I ']'
+        P = LEN(3) @A
+        A = .I
+        'xyz' P
+        OUTPUT = '4 ' DATATYPE(A) ' ' A ' [' I ']'
+        A = .I
+        'xyz' LEN(1) . A
+        OUTPUT = '5 ' DATATYPE(A) ' ' A ' [' I ']'
+END
