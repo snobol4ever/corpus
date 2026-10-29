@@ -23737,3 +23737,23 @@ END
         C = CHAR(N)
         OUTPUT = &ERRTYPE ' ' &ERRLIMIT ' ' SIZE(C)
 END
+*------- 2186 ladder__rung28_inf_dotnet_an_error_ending_a_match_under_a_negation
+* An error that ends a match inside a negation's operand is that operand's failure: the assignment before it stands and the
+* negation succeeds; in an EVAL's code the error ends the evaluation (rung28, negation)
+        &ERRLIMIT = 20
+        N = -1
+        X = ~((E = 'xxi') ('abc' ? LEN(*N)))    :F(F1)
+        S = 'a' E
+F1      E =
+        X = ~((E = 'xxi') (E ? LEN(*N)))        :F(F2)
+        S = S ',b' E
+F2      E =
+        X = EVAL("~((E = 'xxi') (E ? LEN(*N)))")    :S(S3)
+        S = S ',c' E                            :(F3)
+S3      S = S ',cs' E
+F3      E =
+        X = ((E = 'xxi') ('abc' ? LEN(*N)))     :S(S4)
+        S = S ',d' E                            :(F4)
+S4      S = S ',ds' E
+F4      OUTPUT = S
+END
