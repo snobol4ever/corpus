@@ -14,7 +14,7 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 13,hakank_swi_1d_rubiks_cube,puzzles__hakank_swi_1d_rubiks_cube,puzzles,333,0,0,131072,4096,,,,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,1,0,0,1,1,0,0
 14,hakank_swi_3_jugs,puzzles__hakank_swi_3_jugs,puzzles,167,0,0,131072,4096,,,,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,0,1,1,0,0,0
 15,hakank_swi_3_jugs_regular,puzzles__hakank_swi_3_jugs_regular,puzzles,166,0,0,131072,4096,,,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,0,1,1,1,0,0
-16,hakank_swi_K4P2GracefulGraph2,puzzles__hakank_swi_K4P2GracefulGraph2,puzzles,88,0,0,131072,4096,,,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0
+16,hakank_swi_K4P2GracefulGraph2,puzzles__hakank_swi_K4P2GracefulGraph2,puzzles,88,0,0,131072,16384,,,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0
 17,hakank_swi_a_puzzle,puzzles__hakank_swi_a_puzzle,puzzles,175,0,0,131072,4096,,,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,0,1,1,1,0,0
 18,hakank_swi_a_round_of_golf,puzzles__hakank_swi_a_round_of_golf,puzzles,163,0,0,131072,4096,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
 19,hakank_swi_abbots_puzzle,puzzles__hakank_swi_abbots_puzzle,puzzles,45,0,0,131072,4096,,,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
