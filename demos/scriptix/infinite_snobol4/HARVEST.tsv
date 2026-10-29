@@ -16,3 +16,4 @@ date	engine	scope	seed0	batch	line	class	origin	row
 2026-10-29	dotnet	12	20261102	3	172	char-of-a-real-beyond-the-integers-is-282	ladder__rung26_inf_dotnet_char_of_a_real_beyond_the_integers_is_out_of_range	random-codegen-step-12-data-types-ceo-1999
 2026-10-29	dotnet	12	20261106	6	421	an-error-ending-a-match-leaves-the-statement-whole	ladder__rung28_inf_dotnet_an_error_ending_a_match_under_a_negation	random-codegen-step-12-data-types-ceo-1999
 2026-10-29	dotnet	12	20261109	7	582	an-open-bracket-at-the-end-is-229	ladder__rung16_inf_dotnet_an_open_bracket_at_the_end_is_229	random-codegen-step-12-data-types-ceo-1999
+2026-10-29	dotnet	12	20261110	6	816	a-stray-closing-parenthesis-is-224	ladder__rung16_inf_dotnet_a_stray_closing_parenthesis_is_224	random-codegen-step-12-data-types-ceo-1999

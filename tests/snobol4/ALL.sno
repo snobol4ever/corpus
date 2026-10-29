@@ -23774,3 +23774,19 @@ L       I = I + 1
         V = CONVERT($('T' I), 'EXPRESSION') :S(L)
         OUTPUT = R ' C ' &ERRTYPE           :(L)
 END
+*------------- 2188 ladder__rung16_inf_dotnet_a_stray_closing_parenthesis_is_224
+* A closing parenthesis that closes nothing in an EVAL or CONVERT text is 224, unbalanced right parenthesis, wherever it stands, as
+* in CODE; a syntax error before it is still the first (rung16, the nearest: CODE and EVAL)
+        &ERRLIMIT = 20
+        T1 = ')u'
+        T2 = 'a )b'
+        T3 = '(a))b'
+        T4 = 'f(1)(2) )x'
+        I = 0
+L       I = I + 1
+        GT(I, 4)                            :S(END)
+        V = EVAL($('T' I))                  :S(L)
+        R = I ' E ' &ERRTYPE
+        V = CONVERT($('T' I), 'EXPRESSION') :S(L)
+        OUTPUT = R ' C ' &ERRTYPE           :(L)
+END

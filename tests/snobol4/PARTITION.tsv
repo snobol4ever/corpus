@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=2187 features=40 ubiquitous=0() distinctive=40 core=31 clusters=140 chunks=22 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,56
+# shape: entries=2188 features=40 ubiquitous=0() distinctive=40 core=31 clusters=140 chunks=22 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,57
 entry	part	cluster	shells
 simple_assign_1	chunk:20	family:probe_conformance	
 simple_output_10	chunk:20	family:probe_conformance	
@@ -235,7 +235,7 @@ len_capture_1	chunk:06	feat:cond_assign	LEN cond_assign
 len_defer_1	chunk:19	feat:LEN	LEN deferred_eval
 len_imm_capture_1	chunk:06	feat:imm_assign	LEN imm_assign
 len_indirect_1	chunk:12	feat:indirect_ref	LEN indirect_ref
-pos_len_1	chunk:19	feat:LEN	LEN POS
+pos_len_1	chunk:20	feat:LEN	LEN POS
 pos_len_2	chunk:20	feat:LEN	LEN POS
 replace_size_1	chunk:16	feat:REPLACE	REPLACE SIZE
 simple_output_121	chunk:01	feat:arith	arith goto_success
@@ -688,7 +688,7 @@ arbno_pos_rpos_branch_87	chunk:04	feat:arbno_with_alt	ARBNO POS RPOS alternation
 arbno_span_pos_branch_12	chunk:09	feat:SPAN	ARBNO POS RPOS SPAN deferred_eval goto_fail keyword_ref
 bal_any_pos_branch_1	chunk:18	feat:BAL	ANY BAL POS RPOS alternation deferred_eval goto_success
 bal_any_pos_branch_2	chunk:18	feat:BAL	ANY BAL POS RPOS alternation deferred_eval goto_success
-bal_any_pos_branch_3	chunk:18	feat:BAL	ANY BAL POS RPOS alternation deferred_eval goto_success
+bal_any_pos_branch_3	chunk:19	feat:BAL	ANY BAL POS RPOS alternation deferred_eval goto_success
 break_pos_rpos_branch_2	chunk:17	feat:REM	BREAK POS REM RPOS alternation deferred_eval goto_success
 eval_pos_rpos_branch_2	chunk:10	feat:EVAL	EVAL LEN POS RPOS deferred_eval goto_success indirect_ref
 eval_pos_rpos_branch_3	chunk:10	feat:EVAL	EVAL LEN POS RPOS deferred_eval goto_success indirect_ref
@@ -852,7 +852,7 @@ simple_program_4	chunk:21	family:parser_atom_int
 simple_program_5	chunk:21	family:parser_atom_str	
 simple_program_6	chunk:22	family:parser_cf_label_only	
 simple_assign_13	chunk:21	family:parser_assign_mixed	
-simple_assign_18	chunk:21	family:parser_cf_label_bare	
+simple_assign_18	chunk:22	family:parser_cf_label_bare	
 simple_assign_23	chunk:22	family:parser_cont_dot	
 simple_assign_24	chunk:22	family:parser_cont_plus	
 simple_assign_29	chunk:22	family:parser_semi_separator	
@@ -1560,7 +1560,7 @@ snocone_ladder_datatype.oracle_ref	chunk:18	feat:CONVERT	CONVERT DATATYPE arith 
 test_regress_deferred_nonname_capture_target_fails	chunk:15	feat:capture_plus_defer	capture_plus_defer cond_assign deferred_eval goto_success
 user_function_capture_alt_branch_1	chunk:04	feat:DEFINE	DEFINE alternation cond_assign goto_success
 user_function_capture_alt_branch_2	chunk:04	feat:DEFINE	DEFINE alternation cond_assign goto_success
-any_abort_alt_branch_1	chunk:20	feat:ABORT	ABORT ANY alternation goto_success
+any_abort_alt_branch_1	chunk:21	feat:ABORT	ABORT ANY alternation goto_success
 arbno_break_imm_capture_replace_1	chunk:17	feat:BREAK	ARBNO BREAK imm_assign keyword_ref
 arbno_pos_rpos_branch_97	chunk:09	feat:ARBNO	ARBNO POS RPOS goto_success
 bal_pos_imm_capture_replace_1	chunk:19	feat:BAL	BAL POS imm_assign indirect_ref
@@ -2189,3 +2189,4 @@ ladder__rung25_inf_dotnet_a_long_alternative_compiles	chunk:17	feat:REPLACE	DUPL
 ladder__rung26_inf_dotnet_char_of_a_real_beyond_the_integers_is_out_of_range	chunk:15	feat:SIZE	SIZE keyword_ref
 ladder__rung28_inf_dotnet_an_error_ending_a_match_under_a_negation	chunk:10	feat:EVAL	EVAL LEN deferred_eval goto_fail goto_success keyword_ref
 ladder__rung16_inf_dotnet_an_open_bracket_at_the_end_is_229	chunk:18	feat:CONVERT	CODE CONVERT EVAL arith goto_success indirect_ref keyword_ref
+ladder__rung16_inf_dotnet_a_stray_closing_parenthesis_is_224	chunk:18	feat:CONVERT	CODE CONVERT EVAL arith goto_success indirect_ref keyword_ref
