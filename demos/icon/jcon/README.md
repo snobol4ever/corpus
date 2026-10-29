@@ -70,5 +70,5 @@ not link; committing it would cost more than every other artifact here combined 
 prove nothing. Regenerate it on demand:
 
 ```bash
-scrip --compile -o jtran.s jtran.icn < /dev/null
+scrip --compile --out=jtran.s jtran.icn < /dev/null
 ```
