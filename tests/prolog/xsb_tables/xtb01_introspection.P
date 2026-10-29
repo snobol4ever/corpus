@@ -1,8 +1,9 @@
-% XSB TABLE INTROSPECTION WITNESS xtb01 (hq_packages 2026-10-28, CEO-2005 step 5): table_state/4, truth_value/2, variant_get_residual/2, get_calls_for_table/2 on a tabled, an undefined-valued and a plain predicate.
+% XSB TABLE INTROSPECTION WITNESS xtb01 (hq_packages 2026-10-28, CEO-2005 step 5): table_state/4, truth_value/2, variant_get_residual/2, get_calls_for_table/2, get_returns_and_tvs/3 on a tabled, an undefined-valued and a plain predicate.
 % The ref is XSB 5.0.0 own output (xsb_bin, gentest protocol), never SCRIP output.
 :- import member/2 from basics.
 :- import truth_value/2 from tables.
 :- import length/2 from basics.
+:- import get_returns_and_tvs/3 from tables.
 :- table p/1, q/1, r/0, w/0, u/0.
 p(1). p(2).
 q(X) :- p(X).
@@ -26,6 +27,9 @@ test :-
   show(r, r), show(u, u), show(unknown_pred, nopred(_)),
   tv(tv_p1, p(1)), tv(tv_p3, p(3)), tv(tv_r, r), tv(tv_u, u), tv(tv_plain1, plain(1)), tv(tv_plain2, plain(2)), 
   res(res_u, u), res(res_r, r), res(res_p1, p(1)), res(res_p9, p(9)),
+  t(grt, ( findall(R-TV, ( get_call(p(_), T, R), get_returns_and_tvs(T, R, TV) ), L5), sort(L5, L6), write(L6) )),
+  t(grt_cond, ( findall(R-TV, ( get_call(u, T, R), get_returns_and_tvs(T, R, TV) ), L7), write(L7) )),
+  t(grt_r, ( findall(R-TV, ( get_call(r, T, R), get_returns_and_tvs(T, R, TV) ), L8), write(L8) )),
   t(gc_p, ( get_calls_for_table(p/1, C1), functor(C1, F1, A1), write(F1/A1) )),
   t(gc_p2, ( findall(X, get_calls_for_table(p(_), X), L2), length(L2, N2), write(n(N2)) )),
   t(gc_plain, catch(get_calls_for_table(plain/1, _), error(permission_error(A0,B0,G0),_), ( functor(G0, N0, Ar0), write(perm(A0,B0,N0/Ar0)) ))).
