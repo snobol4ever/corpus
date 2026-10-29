@@ -18,5 +18,7 @@ runs. A step is GREEN when its witnesses equal their refs in mode 3 and mode 4 a
 | pf09_generics | 9 | generic record and function, specialize, TArray<Integer>, TList<Integer> with Sort, TDictionary<string, Integer> with Keys | RED: parse error at the dotted unit name |
 | pf15_string_helpers | 15 | S.Split (array, bare char, count, options, ExcludeLastEmpty), string.Join (2 and 4 arguments), on a var, a const, a concatenation held in a var, a for-in over the result | GREEN (SCRIP row 15) |
 | pf15_overloaded_methods | 15 | same-class method overloads picked by arity and by object-versus-array argument, constructors overloaded in either declaration order | GREEN (SCRIP row 15) |
+| pf17_procvars | 17 | procedure and function variables: p := @hello, p(), a bare q, passing one as an argument, f := @dbl then f(4), Assigned, nil, p := q | RED: error 22 undefined function called |
+| pf17_methodptr | 17 | method pointers: m := @o.go bound to its object (a later o.p shows), m := @o2.go, a bare m, passing m as an argument, function of object, Assigned and nil, a virtual method reached through a TKid | RED: ISO violation on the method's arity |
 
 The ten witnesses print only deterministic text (FindFirst searches for a name no file has). Programs outside the plan's finish are named in section 8.
