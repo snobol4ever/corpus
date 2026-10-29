@@ -1,0 +1,27 @@
+* zl02 -- CODE compiled at run time, a SETEXIT handler that allocates, &ERRLIMIT (DESIGN-PLAN zeta-layout, the cto 2026-10-29)
+        &ANCHOR = 1
+        &ERRLIMIT = 200
+        SETEXIT(.HANDLER)
+        ERRS = 0
+        MSG =
+        Y =
+        SRC = 'GEN   Z = Z "q" ;'
+        SRC = SRC ' N = LT(N, 60) N + 1   :S(GEN)F(BACK) ;'
+        SRC = SRC 'BACK  :(RETURN_HERE)'
+        C = CODE(SRC)                                :S(RUN)F(BADCODE)
+RUN     N = 0
+        Z =
+        :<C>
+RETURN_HERE OUTPUT = 'code ' SIZE(Z) ' ' N
+        I = 0
+L1      I = LT(I, 50) I + 1                          :F(L2)
+        X = 'abc' + I
+        Y = Y 'z'                                    :(L1)
+HANDLER ERRS = ERRS + 1
+        MSG = MSG '[' &ERRTYPE ']'
+        SETEXIT(.HANDLER)                            :(CONTINUE)
+L2      OUTPUT = 'errs ' ERRS ' msg ' SIZE(MSG) ' y ' SIZE(Y)
+        OUTPUT = 'last ' &ERRTYPE
+                                                     :(END)
+BADCODE OUTPUT = 'code failed'
+END

@@ -1,0 +1,28 @@
+* zl01 -- pattern captures, a table, an array, DATA records and EVAL under collection (DESIGN-PLAN zeta-layout, the cto 2026-10-29)
+        &ANCHOR = 1
+        &TRIM = 1
+        DATA('NODE(VAL,NEXT)')
+        T = TABLE(50)
+        A = ARRAY('1:200')
+        WORD = BREAK(' ,') . W SPAN(' ,') | (LEN(1) REM) . W
+        I = 0
+        LIST =
+LOOP    I = LT(I, 200) I + 1                         :F(DONE)
+        S = 'alpha beta gamma delta epsilon ' I ', zeta'
+        N = 0
+SCAN    S WORD =                                     :F(END1)
+        W = DIFFER(W) W                              :F(SCAN)
+        T<W> = T<W> + 1
+        LIST = NODE(W, LIST)
+        N = N + 1                                    :(SCAN)
+END1    A<I> = N
+        X = EVAL('I * I + ' I)                       :(LOOP)
+DONE    L = 0
+        P = LIST
+COUNT   P = DIFFER(P) NEXT(P)                        :F(OUT)
+        L = L + 1                                    :(COUNT)
+OUT     OUTPUT = 'nodes ' L
+        OUTPUT = 'alpha ' T<'alpha'> ' zeta ' T<'zeta'> ' n200 ' A<200>
+        OUTPUT = 'eval ' X
+        OUTPUT = 'first ' VAL(LIST)
+END

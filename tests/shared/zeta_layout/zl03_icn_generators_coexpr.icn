@@ -1,0 +1,22 @@
+# zl03 -- nested generators with retained frames, tables, lists, scanning and a co-expression under collection (DESIGN-PLAN zeta-layout, the cto 2026-10-29)
+procedure gen(n)
+  local i;
+  every i := 1 to n do suspend repl("x", i) || string(i);
+end
+procedure pairs(n)
+  local a, b;
+  every a := gen(n) do every b := gen(3) do suspend a || "-" || b;
+end
+procedure main()
+  local t, L, s, k, total, c, x, count, sorted, i;
+  t := table(0); L := []; total := 0;
+  every s := pairs(40) do { t[*s] +:= 1; put(L, s); total +:= *s };
+  write(*L, " ", total);
+  sorted := sort(t, 1);
+  every i := 1 to *sorted do write(sorted[i][1], " ", sorted[i][2]);
+  c := create (every s := !L do s ? { tab(upto('-')); move(1); tab(0) });
+  count := 0;
+  while x := @c do count +:= *x;
+  write(count);
+  write(L[1], " ", L[-1], " ", L[*L / 2]);
+end

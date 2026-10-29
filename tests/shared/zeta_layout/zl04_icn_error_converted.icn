@@ -1,0 +1,19 @@
+# zl04 -- run-time errors converted to failure by &error inside nested generators and scanning; the C raise returns to the box (DESIGN-PLAN zeta-layout, the cto 2026-10-29)
+procedure fails(i)
+  local x;
+  if x := (i + "a") then return "ok" else return "no";
+end
+procedure main()
+  local i, s, n, acc, t, codes;
+  &error := 1000;
+  n := 0; acc := ""; codes := table(0);
+  every i := 1 to 60 do {
+    if fails(i) == "no" then { n +:= 1; codes[&errornumber] +:= 1 };
+    acc ||:= string(i);
+    s := "abc" || string(i) || "def";
+    s ? { if tab(1 + "zz") then n +:= 1000 else n +:= 1 };
+    every t := !["a", "b", 3] do { if (t || "x") then n +:= 1 else n +:= 100 };
+  };
+  write(n, " ", *acc, " ", &error, " ", &errornumber);
+  every i := key(codes) do write("code ", i, " ", codes[i]);
+end
