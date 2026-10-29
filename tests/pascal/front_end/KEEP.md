@@ -21,5 +21,6 @@ runs. A step is GREEN when its witnesses equal their refs in mode 3 and mode 4 a
 | pf15_literal_receiver | 15 | a string literal and a parenthesised expression as the receiver of a helper-method call: 'p q r'.Split, (s + t).Split inside for-in and string.Join | GREEN (SCRIP row 15, pascal.y recv_primary) |
 | pf17_procvars | 17 | procedure and function variables: p := @hello, p(), a bare q, passing one as an argument, f := @dbl then f(4), Assigned, nil, p := q | RED: error 22 undefined function called |
 | pf17_methodptr | 17 | method pointers: m := @o.go bound to its object (a later o.p shows), m := @o2.go, a bare m, passing m as an argument, function of object, Assigned and nil, a virtual method reached through a TKid | RED: ISO violation on the method's arity |
+| pf18_enum_write | 18 | writeln of an enumerated variable, constant, function result, record field, array element, subrange variable, for-in and for control variables, in an FPC dialect, members declared in lower case | GREEN (SCRIP step 18) |
 
 The ten witnesses print only deterministic text (FindFirst searches for a name no file has). Programs outside the plan's finish are named in section 8.
