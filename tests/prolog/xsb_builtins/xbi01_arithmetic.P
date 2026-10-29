@@ -1,0 +1,45 @@
+% xbi01_arithmetic -- XSB 5.0.0's arithmetic as prolog_tests conv_fun uses it: round, ceiling, floor and truncate pass an integer through (ISO and GNU raise type_error(float, 5)), round is
+% floor(X + 0.5) so a half rounds toward +infinity, the xor evaluable is spelled ><, and an expression that is not evaluable is type_error(evaluable, TheTerm) with the whole term (no Name/Arity).
+% Every expression reaches is/2 through calc/2 at run time so XSB's compiler never folds it.
+calc(E, X) :- X is E.
+xor(A, B, X) :- X is A >< B.
+t(Label, Goal) :-
+    catch(( Goal -> true ; write(Label-failed), nl ), error(E, _), ( write(Label-caught(E)), nl )).
+rnd(V) :-
+    t(round-V, ( calc(round(V), R), write(round(V, R)), nl )),
+    t(ceiling-V, ( calc(ceiling(V), C), write(ceiling(V, C)), nl )),
+    t(floor-V, ( calc(floor(V), F), write(floor(V, F)), nl )),
+    t(truncate-V, ( calc(truncate(V), T), write(truncate(V, T)), nl )).
+test :- rnd(4.5), rnd(-6.5), rnd(0.5), rnd(-0.5), rnd(2.5), rnd(-2.5), rnd(5), rnd(-5), rnd(0), rnd(2.4999), rnd(-2.51), fail.
+test :- t(nest, ( calc(truncate(abs(ceiling(round(-6.5)))), N), write(nest(N)), nl )), fail.
+test :- t(xor1, ( xor(8, 7, X), write(xor(8, 7, X)), nl )), fail.
+test :- t(xor2, ( xor(-1, 5, X), write(xor(-1, 5, X)), nl )), fail.
+test :- t(xor3, ( calc((5 >< 3) >< 1, X), write(xor3(X)), nl )), fail.
+test :- t(xor4, ( xor(a, 7, X), write(xor(a, 7, X)), nl )), fail.
+test :- t(xor5, ( xor(_, 7, X), write(xor(_, 7, X)), nl )), fail.
+test :- t(xor6, ( xor(3, foo(1), X), write(xor(3, foo(1), X)), nl )), fail.
+test :- t(xor7, ( xor(3.5, 2, X), write(xor(3.5, 2, X)), nl )), fail.
+test :- shape(E), t(ev-E, ( calc(E, X), write(ev(E, X)), nl )), fail.
+test :- nested(E), t(nest-E, ( calc(E, X), write(nest(E, X)), nl )), fail.
+test :- shape(E), t(plus-E, ( calc(E + 1, X), write(plus(E, X)), nl )), fail.
+test.
+shape(a).
+shape(foo).
+shape(foo(7)).
+shape(foo(bar)).
+shape(foo(1, 2)).
+shape(foo(1, 2, 3)).
+shape(bar(foo(1))).
+shape([a]).
+shape([1]).
+shape([1, 2]).
+shape([1|2]).
+shape(f(g(h))).
+nested(-(foo(1))).
+nested(abs(foo(1))).
+nested(foo(1) + 2).
+nested(2 * foo(1, 2)).
+nested(foo(foo(1))).
+nested(foo(a, b) - 1).
+nested(max(1, bar)).
+nested(- a).
