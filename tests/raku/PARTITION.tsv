@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1144 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=11 sizes=100,100,100,100,100,100,100,100,100,100,92
+# shape: entries=1146 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=11 sizes=100,100,100,100,100,100,100,100,100,100,94
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:05	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:05	family:ladder	
@@ -318,6 +318,7 @@ ladder__rung15_blocks_topic	chunk:06	family:ladder
 ladder__rung18_two_arg_block_reduce_add	chunk:04	feat:sigil_array	sigil_array
 ladder__rung18_two_arg_block_reduce_mul	chunk:04	feat:sigil_array	sigil_array
 ladder__rung19_block_a_sub_reads_its_own_topic	chunk:06	feat:sub	sub
+ladder__rung19_block_an_empty_do_block_is_an_undefined_value	chunk:06	family:ladder	
 ladder__rung19_block_methcall_sub_body	chunk:06	feat:sub	sub
 ladder__rung20_paren_group	chunk:06	feat:sub	sub
 ladder__rung20_paren_group_stmt	chunk:06	family:ladder	
@@ -434,8 +435,8 @@ simple_assign_79	chunk:02	family:smoke
 simple_assign_86	chunk:02	family:smoke	
 ladder__rung04_arrays_push_pop	chunk:04	feat:sigil_array	sigil_array
 ladder__rung10_given_when_multiple_when	chunk:11	feat:given	given when
-ladder__rung11_junctions	chunk:10	feat:junction	if junction
-ladder__rung11_junctions_all	chunk:10	feat:junction	if junction
+ladder__rung11_junctions	chunk:11	feat:junction	if junction
+ladder__rung11_junctions_all	chunk:11	feat:junction	if junction
 ladder__rung11_junctions_none	chunk:11	feat:junction	if junction
 ladder__rung11_junctions_one	chunk:11	feat:junction	if junction
 simple_assign_108	chunk:02	family:smoke	
@@ -528,8 +529,8 @@ range_array_2	chunk:09	feat:range_op	range_op sigil_array
 range_array_3	chunk:09	feat:range_op	range_op sigil_array
 range_array_4	chunk:09	feat:range_op	range_op sigil_array
 range_array_5	chunk:09	feat:range_op	range_op sigil_array
-range_array_6	chunk:09	feat:range_op	range_op sigil_array
-range_array_7	chunk:09	feat:range_op	range_op sigil_array
+range_array_6	chunk:10	feat:range_op	range_op sigil_array
+range_array_7	chunk:10	feat:range_op	range_op sigil_array
 range_array_8	chunk:10	feat:range_op	range_op sigil_array
 range_array_9	chunk:10	feat:range_op	range_op sigil_array
 range_array_replace_1	chunk:10	feat:range_op	range_op sigil_array
@@ -560,7 +561,7 @@ simple_assign_84	chunk:11	feat:unless	unless
 simple_assign_88	chunk:06	feat:if	if
 simple_assign_91	chunk:06	feat:if	if
 simple_assign_93	chunk:06	feat:if	if
-simple_assign_95	chunk:06	feat:if	if
+simple_assign_95	chunk:07	feat:if	if
 simple_assign_96	chunk:11	feat:unless	unless
 sub_14	chunk:08	feat:string_concat	string_concat sub
 sub_23	chunk:09	feat:sub_with_return	return sub sub_with_return
@@ -809,6 +810,7 @@ class_say_replace_9	chunk:02	feat:has	has say
 for_range_10	chunk:05	feat:for_with_say	for for_with_say range_op
 for_range_say_5	chunk:05	feat:for_with_say	for for_with_say range_op say
 junction_say_5	chunk:11	feat:junction	if junction say
+ladder__rung06_control_a_ternary_branch_that_is_a_block_ending_in_return_leaves_the_sub	chunk:09	feat:sub_with_return	return sub sub_with_return
 ladder__rung07_subs_named_params	chunk:09	feat:sub_with_return	return string_concat sub sub_with_return
 ladder__rung08_for_a_for_statement_in_parentheses_runs	chunk:05	feat:for_with_say	for for_with_say range_op
 ladder__rung08_for_loop_for_over_array	chunk:05	feat:for_with_say	for for_with_say sigil_array
@@ -842,7 +844,7 @@ say_replace_5	chunk:07	feat:regex	if regex say
 say_replace_6	chunk:07	feat:regex	if regex say
 say_replace_7	chunk:07	feat:regex	if regex say
 say_replace_8	chunk:07	feat:regex	if regex say
-say_replace_9	chunk:07	feat:regex	if regex say
+say_replace_9	chunk:08	feat:regex	if regex say
 sub_11	chunk:09	feat:sub_with_return	return sub sub_with_return
 sub_say_6	chunk:08	feat:string_concat	say string_concat sub
 class_method_replace_12	chunk:02	feat:has	has method
@@ -953,7 +955,7 @@ class_method_say_replace_33	chunk:08	feat:return	method return say
 class_method_say_replace_34	chunk:08	feat:return	method return say
 class_method_say_replace_47	chunk:08	feat:return	method return say
 class_method_say_replace_48	chunk:08	feat:return	method return say
-class_method_say_replace_49	chunk:08	feat:return	method return say
+class_method_say_replace_49	chunk:09	feat:return	method return say
 class_method_say_replace_52	chunk:09	feat:return	method return say
 class_sub_say_replace_1	chunk:02	feat:has	has say sub
 for_array_say_4	chunk:05	feat:for_with_say	for for_with_say say sigil_array
