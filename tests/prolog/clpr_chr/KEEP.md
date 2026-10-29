@@ -11,6 +11,7 @@ is in any ref. A step is GREEN when its witnesses equal their refs in mode 3 and
 | cc02_simp | 2 | single-head simplification with guards, a recursive constraint (the ethiopian multiplication), a CHR constraint used as a guard |
 | cc03_simpag | 3 | simpagation (gcd), a same-constraint simpagation removing duplicates, a two-head rule whose partner is found through a shared unbound variable |
 | cc04_prop | 4 | propagation with the history (a(X) ==> b(X), a two-head propagation), the hailstone chain of 112 constraints and its clean-up |
+| cc04b_late | 4 | chr_option(debug, off): late storage -- the store order a program prints (hailstone(27) first), a constraint that a rule body can reach as a partner stored before the body, the reachability through direct calls only |
 | cc05_wake | 5 | a constraint on an unbound variable re-run at the binding; two attributed variables unified (the attribute merge) |
 | cc06_store | 6 | find_chr_constraint/1, current_chr_constraint/1 and chr_show_store/1 over two constraints |
 | cc07_module | 7 | the ethiopian rules inside a module with an exported driver |
