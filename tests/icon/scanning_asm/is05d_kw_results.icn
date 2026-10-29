@@ -1,0 +1,29 @@
+procedure r1();
+  "xy" ? return &pos;
+end
+procedure r2();
+  "xy" ? { move(1); return &subject };
+end
+procedure r3();
+  "xy" ? { suspend &pos; suspend &pos + 1; suspend &subject };
+end
+procedure r4();
+  return &pos;
+end
+procedure r5(s);
+  s ? { "inner" ? { move(2); return &pos } };
+end
+procedure r6(s);
+  s ? { "in" ? { suspend &pos; move(1); suspend &subject } };
+end
+procedure g(s);
+  s ? { while tab(upto(' ')) do { suspend &pos; move(1) } };
+end
+procedure main();
+  local v, c;
+  "hello" ? { move(2); v := r1(); write(v, " ", &pos); v := r2(); write(v, " ", &pos); every v := r3() do write(v, " ", &pos); write(r4(), " ", &pos); write(r5("abc"), " ", &pos); every write(r6("abc"), " ", &pos) };
+  write(r1(), " ", r4());
+  c := create { every v := g("a bc def ") do ("tok" ? { move(1); write("co ", v, " ", &subject, " ", &pos); @&source }) };
+  "out" ? { move(1); while @c do write("main ", &subject, " ", &pos) };
+  write("done ", image(&subject), " ", &pos);
+end
