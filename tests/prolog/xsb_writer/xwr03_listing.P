@@ -1,0 +1,8 @@
+% XSB listing/0,1 WITNESS xwr03 (hq_packages 2026-10-29, prolog_tests/listing_test): XSB's listing prints a DYNAMIC predicate's clauses with write, variables lettered A, B, ..., the body on indented lines
+% and a blank line after each predicate; a static predicate raises permission_error(access, static_private_predicate, PI). The ref is XSB 5.0.0 own output (xsb_bin, gentest protocol), never SCRIP output.
+:- dynamic q/2.
+r(X) :- p(X), \+ X = 2, ( X > 1 -> true ; fail ).
+r(a).
+test :- assert(p(1)), assert(p(2)), assert((p(X) :- q(X,"ab"), X == 'A b')), assert(q(1,2)), assert(q(f(Y,Y),[a,b])), assert((s(Z) :- ( Z = 1 -> true ; Z = 2 ), ( Z = 3 ; Z = 4 ), Z \== 5)),
+   write('--- p/1'), nl, listing(p/1), write('--- q'), nl, listing(q/2), write('--- s'), nl, listing(s/1), write('--- p'), nl, listing(p), write('--- list'), nl, listing([p/1,q/2]), write('--- none'), nl,
+   listing(nosuch/3), write('--- static'), nl, catch(listing(r/1), error(Ex,_), (write(caught(Ex)), nl)).

@@ -1,0 +1,35 @@
+% XSB READ AND TERM WITNESS xwr06 (hq_packages 2026-10-29, prolog_tests/test_write_read, readstrtest, test_termtoatom, test_float_io_precision): '- 1' reads as the integer -1 while '- (1)' and '-(1)' stay
+% compounds; read_canonical/2 reads what write_canonical/2 wrote; file_open(Text, 3, S) opens a text as a stream, file_read/3 gives the term and the vv(Name, Var) pairs, str_cat/3 joins; foo() is a
+% compound of arity 0 for functor/3, univ and term_to_atom; set_xsb_param(float_display_format, [precision(N)]) changes the digits a float is written with. The ref is XSB 5.0.0 own output (xsb_bin, gentest protocol).
+:- import file_open/3, file_close/1 from file_io.
+:- import file_read/3 from xsb_read.
+:- import str_cat/3 from machine.
+:- import numbervars/3 from num_vars.
+:- import term_to_atom/2 from string.
+ilist([]) :- !.
+ilist([_|L]) :- ilist(L).
+t(L, G) :- write(L), write(' = '), ( catch(G, error(Ex,_), (write(caught(Ex)))) -> true ; write(failed) ), nl.
+rd(T) :- open('xwr06.tmp', write, O), write_canonical(O, T), write(O, ' .'), nl(O), close(O), open('xwr06.tmp', read, I), read_canonical(I, N), close(I), numbervars(T, 0, _), numbervars(N, 0, _),
+    ( T == N -> write(same(T)) ; write(differ(T, N)) ).
+test :-
+  t(a1, ( X1 = - 1, ( integer(X1) -> write(integer) ; write(compound) ) )),
+  t(a2, ( X2 = - (1), ( integer(X2) -> write(integer) ; write(compound) ) )),
+  t(a3, ( X3 = -(1), ( integer(X3) -> write(integer) ; write(compound) ) )),
+  t(a4, ( X4 = - 1.5, ( float(X4) -> write(float) ; write(compound) ) )),
+  t(a5, ( X5 = 3 - 1, write(X5) )),
+  t(b1, rd(f(a, 'B c', "str", [1,2|T], - 1, -(1), 1.5, p(X, Y, X)))),
+  t(b2, rd((p(X, Y) :- q(X, Z), r(Z, Y)))),
+  t(b3, rd(- (- 1))),
+  t(c1, ( file_open('p(a,f(b,3.5,14,X),Y,X).', 3, S1), file_read(S1, T1, V1), file_close(S1), numbervars(T1, 0, _), ilist(V1), write(T1-V1) )),
+  t(c2, ( file_open('qq(a,X,Y) :- r(X), s(Y,_).', 3, S2), file_read(S2, T2, V2), file_close(S2), numbervars(T2, 0, _), ilist(V2), write(T2-V2) )),
+  t(c3, ( str_cat(abc, def, S3), write(S3) )),
+  t(c4, ( str_cat('X', '.', S4), write(S4) )),
+  t(d1, ( F1 = foo(), functor(F1, N1, A1), write(N1/A1) )),
+  t(d2, ( F2 = foo(), F2 =.. L2, write(L2) )),
+  t(d3, ( F3 = foo(), ( compound(F3) -> write(compound) ; write(notcompound) ) )),
+  t(d4, ( F4 = foo(), ( atom(F4) -> write(atom) ; write(notatom) ) )),
+  t(d5, ( F5 = foo(), write(F5) )),
+  t(d6, ( term_to_atom(foo(), A6), write(A6) )),
+  t(e1, ( set_xsb_param(float_display_format, [precision(4)]), X7 is pi, write(X7) )),
+  t(e2, ( X8 is 22/7.0, write(X8) )),
+  t(e3, ( X9 is 100.0, write(X9) )).

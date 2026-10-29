@@ -1,0 +1,9 @@
+% XSB FLOAT WRITING WITNESS xwr04 (hq_packages 2026-10-29, prolog_tests/test_float_io_precision): write prints a float with 15 significant digits and a trailing .0; write_term options float_precision(N)
+% and float_specifier(f|e|g) print it with printf's precision and conversion; an invalid value is a domain_error(write_option, Option). The ref is XSB 5.0.0 own output (xsb_bin, gentest protocol).
+t(L, G) :- write(L), write(' = '), ( catch(G, E, (E = error(Ex,_), write(caught(Ex)))) -> true ; write(failed) ), nl.
+test :-
+  X is pi, t(f1, write(X)), t(f2, writeq(X)), Y is 0.1+0.2, t(f3, write(Y)), t(f4, write(1.0e10)), t(f5, write(1.0e22)), t(f6, write(100.0)), t(f7, write(1.5e-5)), t(f8, write(123456789012345678.0)),
+  t(f9, write(0.000123)), t(f10, write(1.0e15)), t(f11, write(1.0e16)), t(f12, write(3.0e-10)), t(f13, write(2.5)), Z is 1/3.0, t(f14, write(Z)), W is sqrt(2), t(f15, write(W)),
+  t(f16, write_term(X,[float_precision(4)])), t(f17, write_term(3.5,[float_precision(10),float_specifier(f)])), t(f18, write_term(X,[float_precision(10),float_specifier(e)])), t(f19, write_term(X,[float_precision(3),float_specifier(g)])),
+  t(f20, write_term(100.0,[float_precision(4)])), t(f21, write_term(f(X,[X]),[float_precision(2)])),  t(f23, write_term(X,[float_precision(0)])),
+  t(f24, write_term(X,[float_specifier(h)])), t(f25, write_term(X,[float_precision(foo)])).

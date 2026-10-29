@@ -1,0 +1,31 @@
+% XSB format/2 WITNESS xwr05 (hq_packages 2026-10-29, prolog_tests/pip_0110_format_test): XSB's lib/format.P writes a +/2 argument of ~w, ~q and ~W as its two sides around a bare plus, fills the free
+% space of a column over its ~t points with the remainder on the LAST points, treats a non-list argument as the single argument, and throws (printing nothing) for a lone tilde, a format text mixing
+% characters and codes, a ~s argument mixing them, and arguments left over. The ref is XSB 5.0.0 own output (xsb_bin, gentest protocol), never SCRIP output.
+:- import format/2 from format.
+t(L, G) :- write(L), write(' = ['), ( catch(G, _, (write(thrown))) -> true ; write(failed) ), write(']'), nl.
+test :-
+  t(a1, format('~q', ['A'+'B'])),
+  t(a2, format('~w', ['A'+'B'])),
+  t(a3, format('~k', ['A'+'B'])),
+  t(a4, format('~w', [a+b+c])),
+  t(a5, format('~q', [f('A'+'B', 'C'*'D')])),
+  t(a6, format('~W', [a+'B', []])),
+  t(a7, format('~W', [a+'B', [quoted(true)]])),
+  t(a8, format('~W', [a+'B', [quoted(true),ignore_ops(true)]])),
+  t(a9, format('~W', ['A'*'B', [quoted(true)]])),
+  t(b1, format('^~|~t~tabc~t~10+$', [])),
+  t(b2, format('^~|~ta~tb~tc~t~10+$', [])),
+  t(b3, format('^~|a~tb~tc~t~10+$', [])),
+  t(b4, format('^~|a~tb~t~10+$', [])),
+  t(c1, format('Hello ~q~n', foo(bar))),
+  t(c2, format('~w', hello)),
+  t(c3, format(hello, [])),
+  t(d1, format('~', [])),
+  t(d2, format([h,e,l,0'l,0'o], [])),
+  t(d3, format([126,115], [[h,e,l,0'l,0'o]])),
+  t(d4, format(hello, 42)),
+  t(d5, format(hello, world)),
+  t(d6, format('~w', [])),
+  t(d7, format([0'h,0'i], [])),
+  t(d8, format([h,i], [])),
+  t(d9, format('~a~a', [x])).

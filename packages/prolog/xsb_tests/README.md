@@ -109,7 +109,7 @@ match differed only in the order of tabled answers (identical once sorted); with
   data or module file) -- so every loader of the strace evidence now runs in its upstream directory.
 - upstream/ -- the data files a staged program reads by its upstream path, vendored at that path below its test directory and staged byte
   for byte (stage_upstream; the coo, CEO-1926, 2026-10-23): json_tests/data/*.json (39, read by jsontest), prolog_tests/format_tests/format.tst
-  (pip_0110_format_test) and prolog_tests/utf8.txt (CR-LF as XSB ships it; test_ascii_getput, test_utf8_atom, test_utf8_getput), XSB's own
+  (pip_0110_format_test), prolog_tests/readstrtest_data (readstrtest, hq_packages 2026-10-29) and prolog_tests/utf8.txt (CR-LF as XSB ships it; test_ascii_getput, test_utf8_atom, test_utf8_getput), XSB's own
   bytes (cmp). An answer carrying CR bytes is an answer (ceo CEO-1926): jsontest's ref holds two mid-line CRs, test_utf8_getput's two at end
   of line, declared with utf8.txt in harness lf_gate_crlf_is_the_subject.tsv. ai_tests/can_mono.H (hq_icon 2026-10-24): XSB's header for
   can_mono.P, holding its export list and its two imports, which XSB reads before can_mono.P; flat vendoring (.P only) left it out.

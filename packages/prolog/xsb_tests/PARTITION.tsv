@@ -304,7 +304,7 @@ prolog_tests_parmod_tests_test_parmod_im	chunk:04	feat:writeq	stage writeq
 prolog_tests_pip_0110_format_test	chunk:02	feat:stage	stage
 prolog_tests_pip_write_term	chunk:05	family:prolog_tests_pip_write_term	
 prolog_tests_range_tree_tests	chunk:04	feat:findall_with_var_goal	findall findall_with_var_goal if_then_else
-prolog_tests_readstrtest	chunk:04	feat:call	call cut if_then_else list_cons
+prolog_tests_readstrtest	chunk:04	feat:call	call cut if_then_else list_cons stage
 prolog_tests_spec_tbl_fold_bug	chunk:05	family:prolog_tests_spec_tbl_fold_bug	
 prolog_tests_std1	chunk:01	feat:if_then_else	if_then_else unify
 prolog_tests_std2	chunk:04	feat:negation	call cut if_then_else list_cons negation unify
