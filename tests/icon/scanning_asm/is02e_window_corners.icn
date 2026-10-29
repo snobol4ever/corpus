@@ -1,0 +1,52 @@
+procedure g(s);
+  suspend find("an", s, 1, 0);
+end
+procedure walk(s);
+  local r, i;
+  r := "";
+  every i := upto('a', s, 2, 6) do r ||:= i || ";";
+  return r;
+end
+procedure main();
+  local r, i, s, c;
+  r := "";
+  s := "banana bandana";
+  every i := find("an", s) do r ||:= i || ",";
+  r ||:= "|";
+  every i := find("an", s, 4) do r ||:= i || ",";
+  r ||:= "|";
+  every i := find("an", s, 4, 11) do r ||:= i || ",";
+  r ||:= "|";
+  every i := find("an", s, 11, 4) do r ||:= i || ",";
+  r ||:= "|";
+  every i := find("an", s, -6, 0) do r ||:= i || ",";
+  r ||:= "|";
+  every i := find("an", s, 0, -3) do r ||:= i || ",";
+  r ||:= "|";
+  r ||:= (find("an", s, 20) | "-") || (find("an", s, -30) | "-") || (find("an", s, 1, 30) | "-") || (find("an", s, 15) | "+") || (find("", s, 15) | "+") || ",";
+  r ||:= (find("an", s, &null, 5) | "-") || (find("an", s, 3, &null) | "-") || (find("an", s, &null, &null) | "-") || (find("an", s, 2.0, 7) | "-") || (find("an", s, "2", "7") | "-") || ",";
+  r ||:= (upto('n', 12345, 1, 0) | "-") || (any('4', 12345, 4) | "-") || (many('123', 12345) | "-") || (match("23", 12345, 2) | "-") || (find("5", 12345, 5, 6) | "-") || ",";
+  r ||:= (upto('b', s, 1, 2) | "-") || (any('n', s, 3, 4) | "-") || (many('an', s, 2, 7) | "-") || (match("nan", s, 3, 6) | "-") || (match("nan", s, 3, 5) | "-") || ",";
+  r ||:= (any('a', s, 99) | "-") || (any('a', s, 0, 99) | "-") || (many('a', "", 1) | "-") || (upto('a', "", 1, 0) | "-") || ",";
+  every i := upto(c := ('a' | 'n'), s, 8, 12) do r ||:= image(c) || i || ",";
+  r ||:= "|";
+  every i := find("a" | "an", s, 2, 6) do r ||:= i || ",";
+  r ||:= "|";
+  every i := find("an", "banana" | "bandana", 3) do r ||:= i || ",";
+  r ||:= "|";
+  every i := find("a", s, 1 to 3, 5) do r ||:= i || ",";
+  r ||:= "|";
+  "outer subject" ? {
+    every i := find("an", s, 2, 9) do { r ||:= i || "/" || &pos || "/" || &subject || ","; move(1) };
+    r ||:= (tab(upto('s')) | "-") || "," || &pos || ",";
+    every i := upto('t', s, 1, 0) do r ||:= i;
+    r ||:= &pos || ","
+  };
+  r ||:= walk("xaxaxaxa") || ",";
+  every i := g("banana") do r ||:= i || ",";
+  "a\x00b\x00a\x00c" ? { r ||:= (find("\x00", &subject, 3) | "-") || (upto('c', &subject, 1, 0) | "-") || "," };
+  s := "x\x00ya\x00za";
+  every i := find("a", s, 2, 0) do r ||:= i || ",";
+  every i := upto('a', s, 5) do r ||:= i || ",";
+  write(r);
+end

@@ -1,0 +1,10 @@
+procedure main();
+  &error := 9;
+  write(image(find("a", "banana", "x")), " ", &errornumber);
+  write(image(upto('a', "banana", 1, [])), " ", &errornumber);
+  write(image(find("a", [1], 1)), " ", &errornumber);
+  write(image(find("a", "banana", 1, 2.5)), " ", &errornumber);
+  write(image(many('a', "aab", 1, "q")), " ", &errornumber);
+  write(image(many('a', "aab", 2)), " ", &errornumber);
+  write("end");
+end
