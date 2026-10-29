@@ -1,0 +1,16 @@
+procedure main();
+  local x, y, r;
+  "abcdefgh" ? {
+    x := 6; &pos :=: x; write(&pos, " ", x);
+    &pos +:= 1; write(&pos);
+    &pos -:= 3; write(&pos);
+    (&pos <- 2) & write(&pos); write(&pos);
+    every r := (&pos <- 1 | 3 | 5) do write(&pos, " ", move(1) | "-");
+    write(&pos);
+    y := 3; (&pos <-> y) & write(&pos, " ", y); write(&pos, " ", y);
+    x := "zz"; &subject :=: x; write(&subject, " ", x, " ", &pos);
+    x := "wxyz"; (&subject <- x) & write(&subject, " ", &pos); write(&subject, " ", &pos);
+  };
+  &subject := "root"; &pos := 2; y := 4; &pos :=: y; write(&pos, " ", y, " ", &subject);
+  &pos +:= 1; write(&pos, " ", &subject);
+end
