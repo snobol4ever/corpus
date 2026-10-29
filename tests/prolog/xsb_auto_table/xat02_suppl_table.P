@@ -1,0 +1,20 @@
+% XSB SUPPL_TABLE WITNESS xat02 (hq_packages 2026-10-28, CEO-2005 step 4): suppl_table(2) over edb literals, a tabled caller, negation, disjunction, if-then-else; test prints which predicates XSB 5.0.0 tables.
+% The ref is XSB own output (xsb_bin, gentest protocol), never SCRIP output.
+:- import member/2 from basics.
+:- edb(r1/2).
+:- edb(r2/2).
+:- edb(r3/2).
+:- suppl_table(2).
+r1(1,2). r2(2,3). r3(3,4).
+j1(X,Z) :- r1(X,Y), r2(Y,Z).
+j2(X,Z) :- j1(X,Y), r3(Y,Z).
+j3(X) :- r1(X,_).
+j4(X) :- j3(X), j3(X).
+j5(X) :- j3(X) ; r1(X,_).
+j6(X) :- \+ j1(X,_), r3(X,_).
+j7(X,Y) :- ( r1(X,Y) -> r2(Y,_) ; r3(X,Y) ).
+j8(X) :- j3(X), X > 0.
+j9(X) :- j2(X,_), j2(_,X), j1(X,X), j8(X).
+j10(X) :- X = 1, r1(X, _).
+test :- forall(member(P, [j1(_,_), j2(_,_), j3(_), j4(_), j5(_), j6(_), j7(_,_), j8(_), j9(_), j10(_)]),
+           ( functor(P, N, A), ( predicate_property(P, tabled) -> write(N/A-tabled) ; write(N/A-plain) ), nl )).

@@ -1,0 +1,23 @@
+% XSB AUTO_TABLE WITNESS xat01 (hq_packages 2026-10-28, CEO-2005 step 4): the manual example (system.tex, auto_table) plus a three-cycle; test prints which predicates XSB 5.0.0 compiles as tabled.
+% The ref is XSB own output (xsb_bin, gentest protocol), never SCRIP output.
+:- import member/2 from basics.
+:- auto_table.
+p(a) :- s(f(a)).
+s(_) :- p(f(a)).
+r(_) :- q(_,_), r(_).
+q(1,2).
+m(X) :- tnot(f(X)).
+f(1).
+:- mode ap1(-,-,+).
+ap1([H|T],L,[H|L1]) :- ap1(T,L,L1).
+:- mode ap(+,+,-).
+ap([],F,F).
+ap([H|T],L,[H|L1]) :- ap(T,L,L1).
+mem(H,[H|_]).
+mem(H,[_|T]) :- mem(H,T).
+a1(X) :- b1(X).
+b1(X) :- c1(X).
+c1(X) :- a1(X).
+c1(1).
+test :- forall(member(P, [p(_), s(_), r(_), m(_), f(_), q(_,_), ap1(_,_,_), ap(_,_,_), mem(_,_), a1(_), b1(_), c1(_)]),
+           ( functor(P, N, A), ( predicate_property(P, tabled) -> write(N/A-tabled) ; write(N/A-plain) ), nl )).
