@@ -16,5 +16,7 @@ runs. A step is GREEN when its witnesses equal their refs in mode 3 and mode 4 a
 | pf07_names | 7 | stdout and ErrOutput, low/high of a string constant and of an array, val with IOResult, TAlignment, TStringSplitOptions, faAnyFile, FindFirst over no file | RED: stdout, erroutput, ioresult undeclared |
 | pf08_syntax | 8 | absolute, string[2 * N], procedure of object, a unit-qualified type, an lvalue cast, exit(value) | RED: parse error at string[2 * N] |
 | pf09_generics | 9 | generic record and function, specialize, TArray<Integer>, TList<Integer> with Sort, TDictionary<string, Integer> with Keys | RED: parse error at the dotted unit name |
+| pf15_string_helpers | 15 | S.Split (array, bare char, count, options, ExcludeLastEmpty), string.Join (2 and 4 arguments), on a var, a const, a concatenation held in a var, a for-in over the result | GREEN (SCRIP row 15) |
+| pf15_overloaded_methods | 15 | same-class method overloads picked by arity and by object-versus-array argument, constructors overloaded in either declaration order | GREEN (SCRIP row 15) |
 
 The ten witnesses print only deterministic text (FindFirst searches for a name no file has). Programs outside the plan's finish are named in section 8.
