@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=161 features=1 ubiquitous=1(package) distinctive=0 core=16 clusters=25 chunks=2 sizes=100,45
+# shape: entries=162 features=1 ubiquitous=1(package) distinctive=0 core=16 clusters=25 chunks=2 sizes=100,46
 entry	part	cluster	shells
 GC/test_agc_copyterm	core	core	
 GC/test_ch_shift	chunk:02	dir:GC	
@@ -9,6 +9,7 @@ GC/test_gc_alt_clause	chunk:02	dir:GC
 attvar/test_attvar	core	core	
 attvar/test_call_residue_vars	chunk:02	dir:attvar	
 attvar/test_dif	chunk:02	dir:attvar	
+clp/linprog	core	core	
 compile/test_autoload	core	core	
 core/test_acyclic	core	core	
 core/test_answer	chunk:01	dir:core	
@@ -147,7 +148,7 @@ thread/test_threads	chunk:02	dir:thread
 thread_wait/test_functor_cache	core	core	
 thread_wait/test_thread_signals	chunk:02	dir:thread_wait	
 thread_wait/test_thread_wait	chunk:02	dir:thread_wait	
-transaction/test_transaction_deadlock	core	core	
+transaction/test_transaction_deadlock	chunk:02	dir:transaction	
 transaction/test_transaction_tabling	chunk:02	dir:transaction	
 transaction/test_transactions	chunk:02	dir:transaction	
 unprotected/test_reload	chunk:02	dir:unprotected	

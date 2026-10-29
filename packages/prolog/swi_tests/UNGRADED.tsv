@@ -1,7 +1,6 @@
 # UNGRADED.tsv -- programs this package ships that are OWED work (name<TAB>CLASS<TAB>reason; lib_inventory.sh's closed vocabulary).
 attvar/sendmoney.pl	NEEDS_DRIVER	a LIBRARY by measurement (util_container_or_library.py, CEO-1272): 2 clause(s), no initialization(main) -- owed its driver, NAME_driver beside it (CEO-1269); was UNGRADABLE CONTAINER_OR_LIBRARY
 charset/utf8_test.pl	NEEDS_DRIVER	a LIBRARY by measurement (util_container_or_library.py, CEO-1272): 15 clause(s), no initialization(main) -- owed its driver, NAME_driver beside it (CEO-1269); was UNGRADABLE CONTAINER_OR_LIBRARY
-clp/linprog.pl	NEEDS_DRIVER	a LIBRARY by measurement (util_container_or_library.py, CEO-1272): 4 clause(s), no initialization(main) -- owed its driver, NAME_driver beside it (CEO-1269); was UNGRADABLE CONTAINER_OR_LIBRARY
 debug/test_gtrace.pl	NEEDS_DRIVER	a LIBRARY by measurement (util_container_or_library.py, CEO-1272): 36 clause(s), no initialization(main) -- owed its driver, NAME_driver beside it (CEO-1269); was UNGRADABLE CONTAINER_OR_LIBRARY
 debug/test_singleton.pl	NEEDS_DRIVER	a LIBRARY by measurement (util_container_or_library.py, CEO-1272): 46 clause(s), no initialization(main) -- owed its driver, NAME_driver beside it (CEO-1269); was UNGRADABLE CONTAINER_OR_LIBRARY
 debug/test_strace.pl	NEEDS_DRIVER	a LIBRARY by measurement (util_container_or_library.py, CEO-1272): 26 clause(s), no initialization(main) -- owed its driver, NAME_driver beside it (CEO-1269); was UNGRADABLE CONTAINER_OR_LIBRARY
