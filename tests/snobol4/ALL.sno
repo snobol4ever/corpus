@@ -23441,3 +23441,18 @@ fail            t1              =   TIME()
                 TERMINAL        =   'match_ms=' (t1 - t0) / 1000000
 *------------------------------------------------------------------------------
 END
+*- 2176 ladder__rung28_dotnet_continue_after_a_handler_goto_resumes_at_the_innermost_failure_point
+* SETEXIT's CONTINUE resumes at the failure point of the error inside the statement even when the handler first goes to
+* another statement of its own: the error under the negation fails that operand, so ~$H() succeeds (rung28, negation)
+        &ERRLIMIT = 10
+        DEFINE('H()')                       :(HE)
+H       H = .E
+        DIFFER(H)                           :S(NRETURN)F(FRETURN)
+HE      SETEXIT('ERR')
+        Y = ~$H()                           :S(S1)F(F1)
+S1      OUTPUT = 'succ [' Y ']'             :(END)
+F1      OUTPUT = 'fail'                     :(END)
+ERR     OUTPUT = 'ERROR ' &ERRTYPE          :(ERR2)
+ERR2    OUTPUT = 'ERR2'
+        SETEXIT('ERR')                      :(CONTINUE)
+END
