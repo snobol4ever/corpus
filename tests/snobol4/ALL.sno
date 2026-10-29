@@ -22819,3 +22819,58 @@ R1      Y = CODE(' Z = (')
         D = CODE(' OUTPUT = "b " &LINE " " &LASTLINE :(R2)')     :<D>
 R2      OUTPUT = 'main ' &LINE
 END
+*--------------- 2163 ladder__rung16_dotnet_eval_of_a_goto_or_a_semicolon_is_103
+* EVAL: one expression, ended by a colon or semicolon outside every bracket and quote: 103 after one that compiles,
+* its own error after one that does not, 226 inside parentheses, run-time 103 when the text ends in the mark (rung16, the nearest)
+        R = EVAL('4 :(L)') 'succ'                        :S(A)
+        R = 'fail ' &ERRTYPE
+A       S = EVAL(' B = 4 :S(OK)F(NO);END') 'succ'        :S(B)
+        S = 'fail ' &ERRTYPE
+B       T = EVAL('4; 5') 'succ'                          :S(C)
+        T = 'fail ' &ERRTYPE
+C       U = EVAL('4 + ; ') 'succ'                        :S(D)
+        U = 'fail ' &ERRTYPE
+D       V = EVAL('(4 :(L))') 'succ'                      :S(E)
+        V = 'fail ' &ERRTYPE
+E       W = EVAL("'a:b;c'")
+        &ERRLIMIT = 10
+        X = EVAL('4 ;') 'succ'                           :S(F)
+        X = 'error ' &ERRTYPE
+F       Y = EVAL(':') 'succ'                             :S(G)
+        Y = 'error ' &ERRTYPE
+G       OUTPUT = R '|' S '|' T '|' U '|' V '|' W '|' X '|' Y
+END
+*--------- 2164 ladder__rung16_dotnet_direct_goto_not_made_after_a_trapped_error
+* a direct goto (:<C>, :F<C>) is not made when the statement's error is trapped by SETEXIT: the trap takes its place
+        &ERRLIMIT = 10
+        SETEXIT('E1')
+        X = LT(1, 'a')      :<C>
+        OUTPUT = 'next'     :(END)
+E1      OUTPUT = 'ERROR ' &ERRTYPE
+        SETEXIT('E2')
+        X = LT(1, 'b')      :F<C>
+        OUTPUT = 'next 2'   :(END)
+E2      OUTPUT = 'ERROR2 ' &ERRTYPE
+        SETEXIT('E3')
+        X = LT(1, 'c')      :S(E3)F<C>
+        OUTPUT = 'next 3'
+E3      OUTPUT = 'ERROR3 ' &ERRTYPE
+END
+*- 2165 ladder__rung04_dotnet_a_statement_with_a_question_mark_matches_all_before_it
+* a statement whose body holds a binary ? outside every bracket is that one match: all before the ? is its subject
+* (? is the operator of least precedence), so A B ? 'z' matches A B, and A B ? @X sets X to 0
+        A = 'xyz'
+        B = 'abc'
+        A B ? @X                       :S(S1)F(F1)
+S1      OUTPUT = '1 succ X=' X         :(N2)
+F1      OUTPUT = '1 fail'
+N2      A B ? 'z'                      :S(S2)F(F2)
+S2      OUTPUT = '2 succ'              :(N3)
+F2      OUTPUT = '2 fail'
+N3      A 'y' ? 'q'                    :S(S3)F(F3)
+S3      OUTPUT = '3 succ'              :(N4)
+F3      OUTPUT = '3 fail'
+N4      A (B ? 'b')                    :S(S4)F(F4)
+S4      OUTPUT = '4 succ'              :(END)
+F4      OUTPUT = '4 fail'
+END
