@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1079 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=11 sizes=100,100,100,100,100,100,100,100,100,100,27
+# shape: entries=1081 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=11 sizes=100,100,100,100,100,100,100,100,100,100,29
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:07	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:07	family:ladder	
@@ -128,8 +128,8 @@ simple_program_4	chunk:07	feat:string_concat	string_concat
 simple_program_42	chunk:07	feat:string_concat	string_concat
 simple_program_51	chunk:10	feat:sprintf	sprintf
 simple_program_52	chunk:10	feat:sprintf	sprintf
-simple_program_53	chunk:10	feat:sprintf	sprintf
-simple_program_54	chunk:10	feat:sprintf	sprintf
+simple_program_53	chunk:11	feat:sprintf	sprintf
+simple_program_54	chunk:11	feat:sprintf	sprintf
 simple_program_55	chunk:11	feat:sprintf	sprintf
 simple_program_63	chunk:06	feat:regex	regex
 simple_program_64	chunk:06	feat:regex	regex
@@ -844,6 +844,7 @@ ladder__rung04_arrays_a_non_literal_left_of_xx_is_a_thunk_evaluated_once_per_rep
 ladder__rung19_block_methcall_sort_by_a_two_arg_comparator_block_past_64_elements	chunk:10	feat:sort	range_op say sigil_array sort
 sub_say_5	chunk:08	feat:string_concat	say string_concat sub
 benchmark_spinner	chunk:11	feat:for	for sigil_array sub
+ladder__rung08_for_a_loop_statement_in_parentheses_runs_as_a_loop_and_may_carry_a_label	chunk:10	feat:loop	if loop while
 ladder__rung15_blocks_a_my_declaration_without_a_value_keeps_what_a_begin_check_init_or_enter_phaser_stored	chunk:07	feat:sigil_hash	sigil_array sigil_hash string_concat
 ladder__rung07_subs_a_literal_passed_to_an_is_rw_parameter_throws_x_parameter_rw	chunk:09	feat:try	sigil_array sub try
 ladder__rung02_arithmetic_rat_smartmatch_truthiness_function_forms_and_type_checks	chunk:09	feat:smartmatch	say smartmatch string_concat
@@ -1048,6 +1049,7 @@ sub_smartmatch_say_replace_2	chunk:09	feat:smartmatch	if range_op regex say smar
 ladder__rung08_for_last_and_next_with_a_label_leave_or_continue_the_labelled_loop_through_nested_loops	core	core	for for_with_say if loop range_op string_concat while
 sub_regex_smartmatch_replace_1	core	core	if regex regex_with_smartmatch say smartmatch string_concat sub
 ladder__rung13_classes_a_class_body_runs_where_it_is_declared_and_its_lexicals_are_each_class_own_and_seen_by_its_methods	core	core	has join method our sigil_array sigil_hash
+ladder__rung08_for_redo_with_or_without_a_label_restarts_the_loop_body_without_advancing_the_loop	chunk:10	feat:loop	for for_with_say if loop range_op string_concat while
 class_method_multi_replace_3	core	core	method multi return say string_concat sub sub_with_return
 ladder__rung03_strings_a_method_call_with_parentheses_interpolates_in_a_double_quoted_string	chunk:09	feat:map	for for_with_say join map range_op sigil_array smartmatch string_concat
 ladder__rung19_block_a_whatevercode_listop_for_over_sort_and_map_and_a_sub_topic_are_lowered	core	core	for for_with_say grep join map range_op sigil_array sub
