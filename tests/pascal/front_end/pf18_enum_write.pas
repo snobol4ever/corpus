@@ -1,7 +1,7 @@
 program pf18_enum_write;
 {$mode objfpc}
 type
-  color = (red, green, blue, yellow);
+  color = (Red, green, BLUE, Yellow);
   warm = red..green;
   cset = set of color;
   rec = record c: color; end;

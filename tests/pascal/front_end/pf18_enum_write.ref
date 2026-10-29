@@ -1,7 +1,7 @@
 green
-blue green red
-red
-yellow
-blue red
-red blue yellow 
-red;green;blue;yellow;
+BLUE green Red
+Red
+Yellow
+BLUE Red
+Red BLUE Yellow 
+Red;green;BLUE;Yellow;
