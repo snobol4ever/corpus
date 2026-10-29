@@ -1,6 +1,6 @@
 # KEEP.md — tests/pascal/parser
 
-Thirteen dialect witnesses for the Pascal dialect switch (CEO-1614; `.github/ARCH-PASCAL-DIALECTS.md` section 2), one program each, kept loose on purpose.
+Thirteen dialect witnesses for the Pascal dialect switch (CEO-1614; `.github/ARCH-PASCAL-DIALECTS.md` section 2) and two witnesses of gaps in `bootstrap/parser_pascal.sc` (the last section), one program each, kept loose on purpose.
 They have no `.ref` and no `ALL.csv` row: they are never run, only parsed. Their grader is the tree gate, `test_gate_snocone_parsers_match_the_c_parsers_tree_for_tree.sh`
 (and `util_parser_grid.sh`), which enumerate every `.pas` under `corpus/` except `ALL.*` and `library/` and require the C parser (`out/parser_pascal`) and
 `bootstrap/parser_pascal.sc` to print the same tree hash for each file, or both to print `Parse Error`. Same shape as `tests/icon/parser` and `tests/raku/parser`.
@@ -28,3 +28,8 @@ Each file is the smallest program whose parse depends on the dialect; its `{$mod
 - `dialect_objfpc_after_program_var_is.pas` — `program t;` then `{$mode objfpc}` then `var is: integer;`, the shape of 202 of the 275 corpus files that carry a directive (a scan of 2026-10-28): the directive applies to the rest of the program, so C refuses `is`.
 - `dialect_objfpc_after_uses.pas` — `uses crt;` BEFORE the directive: the `uses` flips the default to FPC (a `seen_mode` pragma event) and the directive then sets objfpc and raises its own, so the tree carries the `seen_mode` pragma marks of both (three in all with the program stamp); with `rosetta-pascal/amicable-pairs-1.pas` it is the one file shape where a dialect fixed before the match drops an event.
 - `dialect_mode_after_decl_ignored.pas` — a `{$mode objfpc}` after the first `var` is a pragma event only; C honours the directive only before the first declaration.
+
+## Two gaps of parser_pascal.sc, each a program the C parser parses (hq_snocone, 2026-10-29, the ceo's order)
+
+- `switch_push_pop_restores_h.pas` — `{$H+}` then two nested `{$push}` / `{$pop}` pairs around `{$H-}` and `{$H+}`: the C lexer saves and restores the switch state (`pascal_sw_push` / `pascal_sw_pop`), so `string` under H+ carries the `ansistr` pragma child in `a` and `c` and not in `b`. The nesting is the point: a one-cell save restores `c` wrong.
+- `stmt_designator_field_chain_call.pas` — `d.a.f(1);` and `d.a.b.f;` as statements: a designator with a field step before the called name. The .sc `MethodStmt` took the shortest prefix (`d.a`), the statement then ended short of `.f(1)`, and the cut after a finished statement list (`compound_cmd_rest` FENCE) forbade the retry; `MethodStmt` now refuses to end before a `.`.
