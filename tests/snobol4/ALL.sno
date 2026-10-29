@@ -23704,3 +23704,16 @@ END
         'abc' ? LEN(1) . *N
         OUTPUT = '6 N=' N
 END
+*---------- 2183 ladder__rung16_inf_dotnet_a_failed_code_reports_its_first_error
+* A CODE text with two statements in error fails with the first one's error, as SPITBOL's compiler stops at the first
+* statement in error: 305 for EXP(1E300) before 315 for LN(-0.5) (rung16, CODE)
+        T1 = " N = SIZE(EXP(1E300));L2 X = LN(-0.5)"
+        T2 = " N = EXP(1E300);L2 X = LN(-0.5)"
+        T3 = " N = 1;L2 X = LN(-0.5)"
+        I = 0
+L       I = I + 1
+        GT(I, 3)                            :S(END)
+        C = CODE($('T' I))                  :S(OK)
+        OUTPUT = I ' FAIL ' &ERRTYPE        :(L)
+OK      OUTPUT = I ' ok'                    :(L)
+END
