@@ -1,6 +1,6 @@
 # KEEP.md — tests/icon/parser
 
-Per `tests-consolidate-icon` (parent: `corpus-suites-consolidation`). All 153 `.icn`/`.ref` pairs
+Per `tests-consolidate-icon` (parent: `corpus-suites-consolidation`). All 154 `.icn`/`.ref` pairs
 stay loose, deliberately — not a housecleaning target, a correctness-blocked one.
 
 ## Why
