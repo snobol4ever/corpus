@@ -185,7 +185,7 @@ statement	goto_unconditional	Ch14 p.175-178	:(	:\([A-Za-z]	gen	11	the CODE road
 statement	goto_direct	Ch14 p.175-178	:<	:<	gen	11	the CODE road
 statement	label	Ch14 p.175-178	inf_L	(^|; )inf_L\d	gen	11	the CODE road
 statement	multiple_statements	Ch14 p.175-178	;	; 	gen	11	the CODE road
-statement	END_statement	Ch14 p.175-178	END	^END$	gen	11	the CODE road
+statement	END_statement	Ch14 p.175-178	END	;END$	gen	11	the CODE road: an END after the last statement, which always leaves (the cto's Q2, section 10)
 io	INPUT	Ch17	INPUT(	\bINPUT\(	none	-1	NEVER: file associations are the rungs business, not a one-stream differential
 io	OUTPUT	Ch17	OUTPUT(	\bOUTPUT\(	none	-1	NEVER: file associations are the rungs business, not a one-stream differential
 io	ENDFILE	Ch17	ENDFILE(	\bENDFILE\(	none	-1	NEVER: file associations are the rungs business, not a one-stream differential

@@ -174,14 +174,23 @@ function inf_capline() inf_rest, inf_letter {
     }
     return;
 }
+// THE FIRST ERROR IS THE RESULT, AND THE TEST RUNS ON (step 11, Q5 as the ceo ruled; inf_eval.sno's handler statement for statement):
+// the handler records ERROR n, the first of the test, and, inside a function the test entered (&FNCLEVEL above the test's own), leaves
+// by freturn, so that function returns failing and the test goes on, where a handler that never returned left the evaluator inside that
+// frame; at the test's own level there is no frame to unwind, so the test ends there, as before.
 function inf_judge(inf_line) inf_result {
     &ERRLIMIT = 1000;
+    inf_err = '';
+    inf_level = &FNCLEVEL;
     SETEXIT('inf_errh');
     if (inf_result = EVAL(inf_line)) { inf_judge = inf_render(inf_result); } else { inf_judge = 'FAIL'; }
+    if (DIFFER(inf_err)) { inf_judge = inf_err; }
     if (DIFFER(inf_caps)) { inf_judge = inf_judge ' |' inf_capline(); }
     return;
 inf_errh:
-    inf_judge = 'ERROR ' &ERRTYPE;
+    if (IDENT(inf_err)) { inf_err = 'ERROR ' &ERRTYPE; }
+    if (GT(&FNCLEVEL, inf_level)) { SETEXIT('inf_errh'); freturn; }
+    inf_judge = inf_err;
     if (DIFFER(inf_caps)) { inf_judge = inf_judge ' |' inf_capline(); }
     return;
 }
@@ -221,6 +230,8 @@ function check(inf_batch, inf_cmd, inf_base) inf_line, inf_want, inf_got, inf_co
 }
 function inf_setarg(inf_arg) inf_key, inf_val {
     if (~(inf_arg ? BREAK('=') . inf_key '=' REM . inf_val)) { freturn; }
+    // kind=stmt is the CODE road (step 11), which needs a direct goto Snocone does not spell: the SCRIPtix road refuses it (R3)
+    if (IDENT(inf_key, 'kind') IDENT(inf_val, 'stmt')) { OUTPUT = 'infinite_snobol4: kind=stmt is the CODE road of inf_eval.sno, which the SCRIPtix road does not take'; freturn; }
     if (IDENT(inf_key, 'batch')) {
         if (INTEGER(inf_val) GT(inf_val, 0)) { inf_bsize = inf_val; return; }
         freturn;
@@ -638,6 +649,67 @@ procedure c_opsyn(d)
            | ("ARG(" || ?["'f'", "'g'", "'h'", "'f'", "'SIZE'", "'#'"] || ", " || ?["1", "1", "0", "2"] || ")")
            );
 end
+# STEP 11, the-code-road (kind=stmt, scope >= 11): a test is one to three statements that inf_eval.sno compiles by CODE and enters by a
+# direct goto, spelt as SPITBOL reads the text of CODE, whose column one is the label field at its start and after every semicolon: an
+# unlabeled statement begins with a blank, a labeled one with its label inf_L1..inf_L3; a goto names only a later statement's label,
+# inf_ok or inf_no, so every path through a test, and through the older tests whose labels it may reach, ends; the last statement leaves
+# by :S(inf_ok)F(inf_no), and an END may follow it, which ends the text's compilation. The statements assign only capitals (R2): an
+# assignment, a match with or without ?, a replacement into a capital, a function a capital names defined by DEFINE and called, and a
+# CODE as a value or as the operand of a direct goto, whose own text leaves by inf_ok or inf_no.
+procedure r_stmt()
+    local n, i, s, w, f, v;
+    limit := 3 * limit;
+    if ?100 <= 15 then {
+        f := ?"QRSTUVW";
+        w := ?"ABCDEFGHIJKLMNOP";
+        v := r_token(s_value());
+        return ( (?2 = 1, "inf_L1 ") | " " ) || "DEFINE('" || f || "()') :(inf_L2);" || f || " " || f || " = " || v ||
+               ?[" :(RETURN)", " :S(RETURN)F(FRETURN)"] || ";inf_L2 " || w || " = " || f || "() :S(inf_ok)F(inf_no)";
+    };
+    n := ?3;
+    s := "";
+    every i := 1 to n do {
+        s ||:= (if i > 1 then ";" else "") || ((?2 = 1, "inf_L" || i) | "") || " " || s_body();
+        if i = n | not r_room(3) then { s ||:= " :S(inf_ok)F(inf_no)"; break; };
+        s ||:= s_goto(i, n);
+    };
+    if ?100 <= 8 then s ||:= ";END";
+    return s;
+end
+procedure s_value()
+    local r;
+    r := ?100;
+    return ( (r <= 40, c_value()) | (r <= 65, c_subj()) | (r <= 92, r_match()) | ("CODE(\" " || s_inner() || "\")") );
+end
+procedure s_inner()
+    return ?"ABCDEFGHIJKLMNOP" || " = " || ?["'" || c_lit(1 + ?2) || "'", c_int(), c_cap(), "a[" || c_digit() || "]"] || " :S(inf_ok)F(inf_no)";
+end
+procedure s_body()
+    local r, w;
+    r := ?100;
+    w := ?"ABCDEFGHIJKLMNOPQRSTUVW";
+    return ( (r <= 40, w || " = " || s_value())
+           | (r <= 58, r_subject() || r_token(" ? ") || r_palt())
+           | (r <= 68, w || " " || r_palt())
+           | (r <= 85, w || " ? " || r_palt() || " = '" || c_lit(?3 - 1) || "'")
+           | (w || " " || r_palt() || " = '" || c_lit(?3 - 1) || "'")
+           );
+end
+procedure s_goto(i, n)
+    local r;
+    r := ?100;
+    return ( (r <= 25, "")
+           | (r <= 42, " :S(" || s_target(i, n) || ")")
+           | (r <= 59, " :F(" || s_target(i, n) || ")")
+           | (r <= 74, " :(" || s_target(i, n) || ")")
+           | (r <= 86, " :S(" || s_target(i, n) || ")F(" || s_target(i, n) || ")")
+           | (r <= 93, " :<" || c_cap() || ">")
+           | (" :<CODE(\" " || s_inner() || "\")>")
+           );
+end
+procedure s_target(i, n)
+    return ?["inf_ok", "inf_no", "inf_L" || (i + ?(n - i))];
+end
 procedure c_presets()
     local l, x, n;
     l := ["(A = B = C = D = E = F = G = H = I = J = K = L = M = N = O = P = Q = R = S = T = U = V = W = X = Y = Z = '')", "(inf_caps = 1)",
@@ -985,9 +1057,10 @@ procedure random_walk(kind, n, lim, seed)
             tokens := 0;
             limit := lim;
             e := if kind == "expr" then r_match()
+                 else if kind == "stmt" then r_stmt()
                  else if \closed & scope >= 5 & ?100 <= 25 then c_replace()
                  else r_subject() || r_token(" ? ") || r_palt();
-            if \closed & scope >= 6 & kind ~== "expr" & ?100 <= 15 then e := ?["~(", "?("] || e || ")";
+            if \closed & scope >= 6 & kind == "match" & ?100 <= 15 then e := ?["~(", "?("] || e || ")";
             if tokens <= limit & not inf_excluded(e) & (scope < 7 | not inf_big_power(e)) then break;
         };
         suspend e;
@@ -1042,12 +1115,17 @@ end
 # families of steps 1..N and no later one, each emitter guarded by scope >= its step; scope=0 is the grammar from before the
 # ladder, so a batch is (scope, seed0, N) for ever. inf_scope_max is the highest step landed, bumped by each step's landing.
 procedure inf_scope_max()
-    return 10;
+    return 11;
 end
 procedure inf_lists()
     local a;
     scope := integer(opt["scope"]);
     if \subjects then return;
+    # kind=stmt, the CODE road (step 11), is the closed world's statements: it needs scope 11 and takes preset 3
+    if opt["kind"] == "stmt" then {
+        scope >= 11 | stop("bad option kind=stmt (the CODE road is scope 11)");
+        opt["preset"] := "3";
+    };
     caps := c_caps();
     /given := set();
     if opt["preset"] == "3" then {
@@ -1069,7 +1147,7 @@ procedure inf_opt(k, v)
     inf_defaults();
     if /opt[k] then fail;
     if k == ("walk") then v == ("random" | "every" | "both") | fail;
-    if k == ("kind") then v == ("expr" | "match" | "both") | fail;
+    if k == ("kind") then v == ("expr" | "match" | "both" | "stmt") | fail;
     if k == ("count" | "limit" | "seed" | "elimit" | "plimit" | "climit" | "batches") then integer(v) | fail;
     if k == "preset" then (0 <= integer(v) <= 3) | fail;
     if k == "scope" then (0 <= integer(v) <= inf_scope_max()) | fail;
@@ -1086,6 +1164,7 @@ procedure inf_walks()
         if w == ("random" | "both") then suspend random_walk("expr", integer(opt["count"]), integer(opt["limit"]), integer(opt["seed"]));
         if w == ("every" | "both") then suspend every_expr(integer(opt["elimit"]));
     };
+    if d == "stmt" then suspend random_walk("stmt", integer(opt["count"]), integer(opt["limit"]), integer(opt["seed"]));
     if d == ("match" | "both") then {
         if w == ("random" | "both") then suspend random_walk("match", integer(opt["count"]), integer(opt["limit"]), integer(opt["seed"]));
         if w == ("every" | "both") then suspend every_match(integer(opt["plimit"]), integer(opt["climit"]));

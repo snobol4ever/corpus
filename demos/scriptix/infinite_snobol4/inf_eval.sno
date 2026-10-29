@@ -16,6 +16,16 @@
 *  result line carries the 26 capitals after the value, A=- for null, else A= and the rendered value (X, Y and Z take
 *  the direct captures, h(n) and $g(n) reach any capital); every test starts from null capitals (inf_capnull before each
 *  line, on both sides), so each test is independent and one divergence is one bug.
+*  THE FIRST ERROR IS THE RESULT, AND THE TEST RUNS ON (DESIGN-PLAN random-codegen-scope step 11, Q5 of section 10, landed as the
+*  ceo ruled 2026-10-29): the handler records ERROR n, the first of the test, and, inside a function the test entered (&FNCLEVEL
+*  above the test's own), leaves by :(FRETURN), so that function returns failing and the test goes on to its end; a handler that
+*  never returned left the evaluator inside that frame for the rest of the batch, after which SPITBOL answered a CODE's constant
+*  error with its own internal error 299. At the test's own level there is no frame to unwind, so the test ends there, as before.
+*  (:(CONTINUE) is not used: at the test's level it retakes a goto in error, :<X> of no CODE being 24 and then 332, fatal; inside a
+*  frame SPITBOL resumes it at the innermost failure point of the statement, which snobol4dotnet does not yet do, its row
+*  dotnet-continue-resumes-at-the-innermost-failure-point.) THE CODE ROAD (step 11, kind=stmt): a line that ends in :S(inf_ok)F(inf_no), with ;END after
+*  it or not, is one to three statements, compiled by CODE with SETEXIT disarmed (a syntax error is CODE-ERROR n) and entered by
+*  the direct goto :<inf_code>; it leaves by inf_ok (OK) or inf_no (FAILED). Every other line is an expression, EVALed.
 *  AN AGGREGATE IS RENDERED BY WHAT IT HOLDS (DESIGN-PLAN random-codegen-scope step 9; the design's R3: this renderer and the
 *  Snocone section's are one program in two spellings): an ARRAY as ARRAY, its prototype and its items by index in brackets,
 *  a two-dimensional one row after row; a TABLE as TABLE, its size (the rows CONVERT gives it, which hold only the entries
@@ -169,14 +179,30 @@ inf_capline_end
 inf_loop
         inf_line = INPUT                                        :F(END)
         inf_capnull()
+        inf_err = ''
+        inf_level = &FNCLEVEL
         &ERRLIMIT = 1000
+        inf_line ARB ':S(inf_ok)F(inf_no)' (';END' | '') RPOS(0) :S(inf_stmt)
         SETEXIT('inf_errh')
-        inf_result = EVAL(inf_line)                             :S(inf_ok)
+        inf_result = EVAL(inf_line)                             :S(inf_val)
         inf_out = 'FAIL'                                        :(inf_put)
-inf_ok  inf_out = inf_render(inf_result)                        :(inf_put)
+inf_val inf_out = inf_render(inf_result)                        :(inf_put)
+inf_stmt
+        SETEXIT()
+        inf_code = CODE(inf_line '; :(inf_back)')               :F(inf_cerr)
+        SETEXIT('inf_errh')                                     :<inf_code>
+inf_cerr
+        inf_out = 'CODE-ERROR ' &ERRTYPE                        :(inf_put)
+inf_ok  inf_out = 'OK'                                          :(inf_put)
+inf_no  inf_out = 'FAILED'                                      :(inf_put)
+inf_back
+        inf_out = 'BACK'                                        :(inf_put)
 inf_errh
-        inf_out = 'ERROR ' &ERRTYPE
+        inf_err = IDENT(inf_err) 'ERROR ' &ERRTYPE
+        GT(&FNCLEVEL, inf_level)                                :F(inf_put)
+        SETEXIT('inf_errh')                                     :(FRETURN)
 inf_put
+        inf_out = DIFFER(inf_err) inf_err
         DIFFER(inf_caps)                                        :F(inf_write)
         inf_out = inf_out ' |' inf_capline()
 inf_write
