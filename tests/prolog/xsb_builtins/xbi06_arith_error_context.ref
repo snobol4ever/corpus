@@ -1,0 +1,179 @@
+type_error(evaluable,a) |  In evaluable function (Goal: truncate(a)) | 'NULL'
+type_error(evaluable,a) |  In evaluable function (Goal: round(a)) | 'NULL'
+type_error(evaluable,a) |  In evaluable function (Goal: ceiling(a)) | 'NULL'
+type_error(evaluable,a) |  In evaluable function (Goal: floor(a)) | 'NULL'
+type_error(evaluable,a) |  In evaluable function (Goal: exp(a)) | 'NULL'
+type_error(evaluable,a) |  In evaluable function (Goal: log(a)) | 'NULL'
+type_error(evaluable,a) |  In evaluable function (Goal: log10(a)) | 'NULL'
+type_error(evaluable,a) |  In evaluable function (Goal: acos(a)) | 'NULL'
+type_error(evaluable,a) |  In evaluable function (Goal: asin(a)) | 'NULL'
+type_error(evaluable,a) |  In evaluable function (Goal: tan(a)) | 'NULL'
+type_error(evaluable,a) |  In evaluable function (Goal: cos(a)) | 'NULL'
+type_error(evaluable,a) |  In evaluable function (Goal: sin(a)) | 'NULL'
+type_error(evaluable,a) |  In evaluable function (Goal: atan(a)) | 'NULL'
+type_error(evaluable,a) |  In evaluable function (Goal: abs(a)) | 'NULL'
+type_error(evaluable,a) |  In evaluable function (Goal: float(a)) | 'NULL'
+type_error(evaluable,a) |  In evaluable function (Goal: sqrt(a)) | 'NULL'
+type_error(evaluable,a) |  In evaluable function (Goal: '\'(a)) | 'NULL'
+type_error(evaluable,a) |  Wrong type in evaluable function -/2: (Goal: -(0,a)) | 'NULL'
+type_error(evaluable,foo(1)) |  In evaluable function (Goal: truncate(foo(1))) | 'NULL'
+type_error(evaluable,foo(1)) |  In evaluable function (Goal: round(foo(1))) | 'NULL'
+type_error(evaluable,foo(1)) |  In evaluable function (Goal: ceiling(foo(1))) | 'NULL'
+type_error(evaluable,foo(1)) |  In evaluable function (Goal: floor(foo(1))) | 'NULL'
+type_error(evaluable,foo(1)) |  In evaluable function (Goal: exp(foo(1))) | 'NULL'
+type_error(evaluable,foo(1)) |  In evaluable function (Goal: log(foo(1))) | 'NULL'
+type_error(evaluable,foo(1)) |  In evaluable function (Goal: log10(foo(1))) | 'NULL'
+type_error(evaluable,foo(1)) |  In evaluable function (Goal: acos(foo(1))) | 'NULL'
+type_error(evaluable,foo(1)) |  In evaluable function (Goal: asin(foo(1))) | 'NULL'
+type_error(evaluable,foo(1)) |  In evaluable function (Goal: tan(foo(1))) | 'NULL'
+type_error(evaluable,foo(1)) |  In evaluable function (Goal: cos(foo(1))) | 'NULL'
+type_error(evaluable,foo(1)) |  In evaluable function (Goal: sin(foo(1))) | 'NULL'
+type_error(evaluable,foo(1)) |  In evaluable function (Goal: atan(foo(1))) | 'NULL'
+type_error(evaluable,foo(1)) |  In evaluable function (Goal: abs(foo(1))) | 'NULL'
+type_error(evaluable,foo(1)) |  In evaluable function (Goal: float(foo(1))) | 'NULL'
+type_error(evaluable,foo(1)) |  In evaluable function (Goal: sqrt(foo(1))) | 'NULL'
+type_error(evaluable,foo(1)) |  In evaluable function (Goal: '\'(foo(1))) | 'NULL'
+type_error(evaluable,foo(1)) |  Wrong type in evaluable function -/2: (Goal: -(0,foo(1))) | 'NULL'
+1
+2
+2
+1
+4.48168907033806
+0.405465108108164
+0.176091259055681
+evaluation_error(undefined)
+evaluation_error(undefined)
+14.1014199471717
+0.0707372016677029
+0.997494986604054
+0.982793723247329
+1.5
+1.5
+1.22474487139159
+type_error(integer,1.5) |  In evaluable function (Goal: '\'(1.5)) | 'NULL'
+-1.5
+type_error(evaluable,a) |  Wrong type in evaluable function +/2: (Goal: +(a,1)) | 'NULL'
+type_error(evaluable,a) |  Wrong type in evaluable function */2: (Goal: *(a,1)) | 'NULL'
+type_error(evaluable,a) |  Wrong type in evaluable function //2: (Goal: /(a,1)) | 'NULL'
+type_error(evaluable,a) |  Wrong type in evaluable function ///2: (Goal: //(a,1)) | 'NULL'
+type_error(evaluable,a) |  Wrong type in evaluable function **/2: (Goal: **(a,1)) | 'NULL'
+type_error(evaluable,a) |  Wrong type in evaluable function **/2: (Goal: **(a,1)) | 'NULL'
+type_error(evaluable,a) |  Wrong type in evaluable function '<<'/2: (Goal: '<<'(a,1)) | 'NULL'
+type_error(evaluable,a) |  Wrong type in evaluable function '>>'/2: (Goal: '>>'(a,1)) | 'NULL'
+type_error(evaluable,a) |  Wrong type in evaluable function '/\'/2: (Goal: '/\'(a,1)) | 'NULL'
+type_error(evaluable,a) |  Wrong type in evaluable function '\/'/2: (Goal: '\/'(a,1)) | 'NULL'
+type_error(evaluable,a) |  Wrong type in evaluable function '><'/2: (Goal: '><'(a,1)) | 'NULL'
+type_error(evaluable,a) |  Wrong type in evaluable function '><'/2: (Goal: '><'(a,1)) | 'NULL'
+type_error(evaluable,foo(1)) |  Wrong type in evaluable function +/2: (Goal: +(foo(1),1)) | 'NULL'
+type_error(evaluable,foo(1)) |  Wrong type in evaluable function */2: (Goal: *(foo(1),1)) | 'NULL'
+type_error(evaluable,foo(1)) |  Wrong type in evaluable function //2: (Goal: /(foo(1),1)) | 'NULL'
+type_error(evaluable,foo(1)) |  Wrong type in evaluable function ///2: (Goal: //(foo(1),1)) | 'NULL'
+type_error(evaluable,foo(1)) |  Wrong type in evaluable function **/2: (Goal: **(foo(1),1)) | 'NULL'
+type_error(evaluable,foo(1)) |  Wrong type in evaluable function **/2: (Goal: **(foo(1),1)) | 'NULL'
+type_error(evaluable,foo(1)) |  Wrong type in evaluable function '<<'/2: (Goal: '<<'(foo(1),1)) | 'NULL'
+type_error(evaluable,foo(1)) |  Wrong type in evaluable function '>>'/2: (Goal: '>>'(foo(1),1)) | 'NULL'
+type_error(evaluable,foo(1)) |  Wrong type in evaluable function '/\'/2: (Goal: '/\'(foo(1),1)) | 'NULL'
+type_error(evaluable,foo(1)) |  Wrong type in evaluable function '\/'/2: (Goal: '\/'(foo(1),1)) | 'NULL'
+type_error(evaluable,foo(1)) |  Wrong type in evaluable function '><'/2: (Goal: '><'(foo(1),1)) | 'NULL'
+type_error(evaluable,foo(1)) |  Wrong type in evaluable function '><'/2: (Goal: '><'(foo(1),1)) | 'NULL'
+2.5
+1.5
+1.5
+type_error(integer,1.5) |  Wrong type in evaluable function ///2  (Goal: //(1.5,1)) | 'NULL'
+1.5
+1.5
+type_error(integer,1.5) |  Wrong type in evaluable function '<<'/2  (Goal: '<<'(1.5,1)) | 'NULL'
+type_error(integer,1.5) |  Wrong type in evaluable function '>>'/2  (Goal: '>>'(1.5,1)) | 'NULL'
+type_error(integer,1.5) |  Wrong type in evaluable function '/\'/2  (Goal: '/\'(1.5,1)) | 'NULL'
+type_error(integer,1.5) |  Wrong type in evaluable function '\/'/2  (Goal: '\/'(1.5,1)) | 'NULL'
+type_error(integer,1.5) |  Wrong type in evaluable function '><'/2  (Goal: '><'(1.5,1)) | 'NULL'
+type_error(integer,1.5) |  Wrong type in evaluable function '><'/2  (Goal: '><'(1.5,1)) | 'NULL'
+type_error(evaluable,a) |  Wrong type in evaluable function +/2: (Goal: +(1,a)) | 'NULL'
+type_error(evaluable,a) |  Wrong type in evaluable function */2: (Goal: *(1,a)) | 'NULL'
+type_error(evaluable,a) |  Wrong type in evaluable function //2: (Goal: /(1,a)) | 'NULL'
+type_error(evaluable,a) |  Wrong type in evaluable function ///2: (Goal: //(1,a)) | 'NULL'
+type_error(evaluable,a) |  Wrong type in evaluable function **/2: (Goal: **(1,a)) | 'NULL'
+type_error(evaluable,a) |  Wrong type in evaluable function **/2: (Goal: **(1,a)) | 'NULL'
+type_error(evaluable,a) |  Wrong type in evaluable function '<<'/2: (Goal: '<<'(1,a)) | 'NULL'
+type_error(evaluable,a) |  Wrong type in evaluable function '>>'/2: (Goal: '>>'(1,a)) | 'NULL'
+type_error(evaluable,a) |  Wrong type in evaluable function '/\'/2: (Goal: '/\'(1,a)) | 'NULL'
+type_error(evaluable,a) |  Wrong type in evaluable function '\/'/2: (Goal: '\/'(1,a)) | 'NULL'
+type_error(evaluable,a) |  Wrong type in evaluable function '><'/2: (Goal: '><'(1,a)) | 'NULL'
+type_error(evaluable,a) |  Wrong type in evaluable function '><'/2: (Goal: '><'(1,a)) | 'NULL'
+type_error(evaluable,foo(1)) |  Wrong type in evaluable function +/2: (Goal: +(1,foo(1))) | 'NULL'
+type_error(evaluable,foo(1)) |  Wrong type in evaluable function */2: (Goal: *(1,foo(1))) | 'NULL'
+type_error(evaluable,foo(1)) |  Wrong type in evaluable function //2: (Goal: /(1,foo(1))) | 'NULL'
+type_error(evaluable,foo(1)) |  Wrong type in evaluable function ///2: (Goal: //(1,foo(1))) | 'NULL'
+type_error(evaluable,foo(1)) |  Wrong type in evaluable function **/2: (Goal: **(1,foo(1))) | 'NULL'
+type_error(evaluable,foo(1)) |  Wrong type in evaluable function **/2: (Goal: **(1,foo(1))) | 'NULL'
+type_error(evaluable,foo(1)) |  Wrong type in evaluable function '<<'/2: (Goal: '<<'(1,foo(1))) | 'NULL'
+type_error(evaluable,foo(1)) |  Wrong type in evaluable function '>>'/2: (Goal: '>>'(1,foo(1))) | 'NULL'
+type_error(evaluable,foo(1)) |  Wrong type in evaluable function '/\'/2: (Goal: '/\'(1,foo(1))) | 'NULL'
+type_error(evaluable,foo(1)) |  Wrong type in evaluable function '\/'/2: (Goal: '\/'(1,foo(1))) | 'NULL'
+type_error(evaluable,foo(1)) |  Wrong type in evaluable function '><'/2: (Goal: '><'(1,foo(1))) | 'NULL'
+type_error(evaluable,foo(1)) |  Wrong type in evaluable function '><'/2: (Goal: '><'(1,foo(1))) | 'NULL'
+2.5
+1.5
+0.666666666666667
+type_error(integer,1.5) |  Wrong type in evaluable function ///2 (Goal: //(1,1.5) | 'NULL'
+1.0
+1.0
+type_error(integer,1.5) |  Wrong type in evaluable function '<<'/2 (Goal: '<<'(1,1.5) | 'NULL'
+type_error(integer,1.5) |  Wrong type in evaluable function '>>'/2 (Goal: '>>'(1,1.5) | 'NULL'
+type_error(integer,1.5) |  Wrong type in evaluable function '/\'/2 (Goal: '/\'(1,1.5) | 'NULL'
+type_error(integer,1.5) |  Wrong type in evaluable function '\/'/2 (Goal: '\/'(1,1.5) | 'NULL'
+type_error(integer,1.5) |  Wrong type in evaluable function '><'/2 (Goal: '><'(1,1.5) | 'NULL'
+type_error(integer,1.5) |  Wrong type in evaluable function '><'/2 (Goal: '><'(1,1.5) | 'NULL'
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+instantiation_error
+type_error(evaluable,foo) |  Wrong type in evaluable function /\/2 (Goal: '/\'(foo,2)) | '''/\\''(foo,2)'
+type_error(evaluable,foo) |  Wrong type in evaluable function /\/2 (Goal: '/\'(2,foo)) | '''/\\''(2,foo)'
+type_error(integer,1.0) |  Wrong type in evaluable function /\/2 (Goal: '/\'(1.0,2)) | '''/\\''(1.0,2)'
+type_error(integer,1.0) |  Wrong type in evaluable function /\/2 (Goal: '/\'(2,1.0)) | '''/\\''(2,1.0)'
+type_error(evaluable,foo) |  Wrong type in evaluable function +/2 (Goal: '+'(foo,2)) | '''+''(foo,2)'
+type_error(evaluable,foo) |  In evaluable function (Goal: atan) | 'atan(foo)'
+type_error(evaluable,foo(1)) |  In evaluable function (Goal: atan) | 'atan(foo(1))'
+type_error(evaluable,foo) |  Wrong type in evaluable function /\/2 (Goal: '/\'(foo,2)) | '''/\\''(foo,2)'
+type_error(integer,1.0) |  Wrong type in evaluable function /\/2 (Goal: '/\'(2,1.0)) | '''/\\''(2,1.0)'
+type_error(evaluable,foo) |  In evaluable function (Goal: atan) | 'atan(foo)'
+type_error(evaluable,foo) |  Wrong type in evaluable function +/2 (Goal: '+'(foo,2)) | '''+''(foo,2)'

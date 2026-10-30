@@ -1,0 +1,62 @@
+% xbi06_arith_error_context -- XSB 5.0.0's arithmetic errors carry their message in the context: error(Formal, context(context(Msg, Goal), Backtrace)), the backtrace XSB's own. A unary function compiled in a clause
+% body says ' In evaluable function (Goal: F(Arg))' with Goal NULL; a binary one ' Wrong type in evaluable function Op/2: (Goal: Op(A,B))' (type_error(integer, _) has two spaces and no colon for the first
+% operand and loses its closing parenthesis for the second: XSB's own spelling); negation is 0 - X. An expression XSB evaluates by walking the term (calc/2 at run time, or a literal inside catch/3) says
+% ' Wrong type in evaluable function Op/2 (Goal: GOAL)' for a binary function and ' In evaluable function (Goal: F)' for a unary one, GOAL the whole term with a symbolic functor quoted, and the goal slot GOAL.
+% An instantiation error prints its tag only (its message names a fresh variable).
+calc(E, X) :- X is E.
+u_truncate(X) :- Y is truncate(X), write(Y), nl.
+u_round(X) :- Y is round(X), write(Y), nl.
+u_ceiling(X) :- Y is ceiling(X), write(Y), nl.
+u_floor(X) :- Y is floor(X), write(Y), nl.
+u_exp(X) :- Y is exp(X), write(Y), nl.
+u_log(X) :- Y is log(X), write(Y), nl.
+u_log10(X) :- Y is 'log10'(X), write(Y), nl.
+u_acos(X) :- Y is acos(X), write(Y), nl.
+u_asin(X) :- Y is asin(X), write(Y), nl.
+u_tan(X) :- Y is tan(X), write(Y), nl.
+u_cos(X) :- Y is cos(X), write(Y), nl.
+u_sin(X) :- Y is sin(X), write(Y), nl.
+u_atan(X) :- Y is atan(X), write(Y), nl.
+u_abs(X) :- Y is abs(X), write(Y), nl.
+u_float(X) :- Y is float(X), write(Y), nl.
+u_sqrt(X) :- Y is sqrt(X), write(Y), nl.
+u_bitneg(X) :- Y is '\\'(X), write(Y), nl.
+u_neg(X) :- Y is -(X), write(Y), nl.
+bx_add(X) :- Y is '+'(X, 1), write(Y), nl.
+by_add(X) :- Y is '+'(1, X), write(Y), nl.
+bx_mul(X) :- Y is '*'(X, 1), write(Y), nl.
+by_mul(X) :- Y is '*'(1, X), write(Y), nl.
+bx_div(X) :- Y is '/'(X, 1), write(Y), nl.
+by_div(X) :- Y is '/'(1, X), write(Y), nl.
+bx_idiv(X) :- Y is '//'(X, 1), write(Y), nl.
+by_idiv(X) :- Y is '//'(1, X), write(Y), nl.
+bx_fpow(X) :- Y is '**'(X, 1), write(Y), nl.
+by_fpow(X) :- Y is '**'(1, X), write(Y), nl.
+bx_pow(X) :- Y is '^'(X, 1), write(Y), nl.
+by_pow(X) :- Y is '^'(1, X), write(Y), nl.
+bx_shl(X) :- Y is '<<'(X, 1), write(Y), nl.
+by_shl(X) :- Y is '<<'(1, X), write(Y), nl.
+bx_shr(X) :- Y is '>>'(X, 1), write(Y), nl.
+by_shr(X) :- Y is '>>'(1, X), write(Y), nl.
+bx_band(X) :- Y is '/\\'(X, 1), write(Y), nl.
+by_band(X) :- Y is '/\\'(1, X), write(Y), nl.
+bx_bor(X) :- Y is '\\/'(X, 1), write(Y), nl.
+by_bor(X) :- Y is '\\/'(1, X), write(Y), nl.
+bx_xor1(X) :- Y is xor(X, 1), write(Y), nl.
+by_xor1(X) :- Y is xor(1, X), write(Y), nl.
+bx_xor2(X) :- Y is '><'(X, 1), write(Y), nl.
+by_xor2(X) :- Y is '><'(1, X), write(Y), nl.
+t(G) :- catch(G, error(E, C), show(E, C)), !.
+show(E, C) :- nonvar(C), C = context(context(M, Gl), _), !, write(E), write(' | '), write(M), write(' | '), writeq(Gl), nl.
+show(E, _) :- write(E), nl.
+t(_) :- write(no_error), nl.
+ti(G) :- catch(G, error(E, _), ( write(E), nl )), !.
+ti(_) :- write(no_error), nl.
+arg1(a). arg1(foo(1)). arg1(1.5).
+test :- arg1(A), t(u_truncate(A)), t(u_round(A)), t(u_ceiling(A)), t(u_floor(A)), t(u_exp(A)), t(u_log(A)), t(u_log10(A)), t(u_acos(A)), t(u_asin(A)), t(u_tan(A)), t(u_cos(A)), t(u_sin(A)), t(u_atan(A)), t(u_abs(A)), t(u_float(A)), t(u_sqrt(A)), t(u_bitneg(A)), t(u_neg(A)), fail.
+test :- arg1(A), t(bx_add(A)), t(bx_mul(A)), t(bx_div(A)), t(bx_idiv(A)), t(bx_fpow(A)), t(bx_pow(A)), t(bx_shl(A)), t(bx_shr(A)), t(bx_band(A)), t(bx_bor(A)), t(bx_xor1(A)), t(bx_xor2(A)), fail.
+test :- arg1(A), t(by_add(A)), t(by_mul(A)), t(by_div(A)), t(by_idiv(A)), t(by_fpow(A)), t(by_pow(A)), t(by_shl(A)), t(by_shr(A)), t(by_band(A)), t(by_bor(A)), t(by_xor1(A)), t(by_xor2(A)), fail.
+test :- ti(u_truncate(_)), ti(u_round(_)), ti(u_ceiling(_)), ti(u_floor(_)), ti(u_exp(_)), ti(u_log(_)), ti(u_log10(_)), ti(u_acos(_)), ti(u_asin(_)), ti(u_tan(_)), ti(u_cos(_)), ti(u_sin(_)), ti(u_atan(_)), ti(u_abs(_)), ti(u_float(_)), ti(u_sqrt(_)), ti(u_bitneg(_)), ti(u_neg(_)), ti(bx_add(_)), ti(bx_mul(_)), ti(bx_div(_)), ti(bx_idiv(_)), ti(bx_fpow(_)), ti(bx_pow(_)), ti(bx_shl(_)), ti(bx_shr(_)), ti(bx_band(_)), ti(bx_bor(_)), ti(bx_xor1(_)), ti(bx_xor2(_)), ti(by_add(_)), ti(by_mul(_)), ti(by_div(_)), ti(by_idiv(_)), ti(by_fpow(_)), ti(by_pow(_)), ti(by_shl(_)), ti(by_shr(_)), ti(by_band(_)), ti(by_bor(_)), ti(by_xor1(_)), ti(by_xor2(_)), fail.
+test :- t(calc('/\\'(foo, 2), _)), t(calc('/\\'(2, foo), _)), t(calc('/\\'(1.0, 2), _)), t(calc('/\\'(2, 1.0), _)), t(calc('+'(foo, 2), _)), t(calc(atan(foo), _)), t(calc(atan(foo(1)), _)), fail.
+test :- t(_X is '/\\'(foo, 2)), t(_Y is '/\\'(2, 1.0)), t(_Z is atan(foo)), t(_W is '+'(foo, 2)), fail.
+test.
