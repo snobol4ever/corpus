@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1171 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,19
+# shape: entries=1172 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,20
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:05	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:05	family:ladder	
@@ -206,7 +206,7 @@ array_54	chunk:04	feat:sigil_array	sigil_array
 array_55	chunk:04	feat:sigil_array	sigil_array
 array_57	chunk:04	feat:sigil_array	sigil_array
 array_58	chunk:04	feat:sigil_array	sigil_array
-for_1	chunk:11	feat:for	for
+for_1	chunk:12	feat:for	for
 given_3	chunk:11	feat:given	given
 hash_10	chunk:08	feat:sigil_hash	sigil_hash
 hash_11	chunk:08	feat:sigil_hash	sigil_hash
@@ -316,6 +316,7 @@ ladder__rung07_subs_an_anonymous_scalar_parameter_with_a_subsignature_unpacks_a_
 ladder__rung07_subs_implicit_return	chunk:06	feat:sub	sub
 ladder__rung07_subs_implicit_return_trailing_semicolon	chunk:06	feat:sub	sub
 ladder__rung08_for_last_from_an_inner_until_leaves_a_labelled_until_in_parentheses	chunk:06	family:ladder	
+ladder__rung09_regex_a_pair_on_the_right_of_a_smartmatch_calls_the_method_it_names_on_the_left_operand	chunk:10	feat:smartmatch	smartmatch string_concat
 ladder__rung13_classes_the_compile_time_variable_class_names_the_enclosing_class	chunk:10	feat:method	method
 ladder__rung15_blocks	chunk:06	family:ladder	
 ladder__rung15_blocks_a_builtin_routine_reference_is_a_closure	chunk:06	family:ladder	
@@ -690,7 +691,7 @@ join_array_say_1	chunk:07	feat:join	join say sigil_array
 ladder__rung01_variables_an_array_in_a_list_declaration_takes_the_rest_of_the_list	chunk:08	feat:string_concat	sigil_array string_concat
 ladder__rung08_for_loop	chunk:04	feat:for_with_say	for for_with_say range_op
 ladder__rung08_for_loop_nested_for	chunk:04	feat:for_with_say	for for_with_say range_op
-loop_replace_3	chunk:10	feat:loop	if loop
+loop_replace_3	chunk:11	feat:loop	if loop
 loop_replace_4	chunk:11	feat:loop	if loop
 split_array_say_1	core	core	say sigil_array split
 class_method_3	chunk:11	feat:unless	method unless
