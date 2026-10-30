@@ -1,0 +1,3 @@
+% xbi09_loaded_conditional -- XSB 5.0.0's conditional compilation in a file consulted at run time (prolog_tests test_cond_comp): :- if(G) / :- elseif(G) / :- else / :- endif, a taken branch
+% hides the later ones, and a clause under an untaken branch is not loaded. The companion file is the witness's .d directory.
+test :- [xbi09_cond], findall(X, t(X), L), write(t(L)), nl.

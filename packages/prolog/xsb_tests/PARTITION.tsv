@@ -6,7 +6,7 @@ ai_tests_cs_o	chunk:03	feat:list_cons	list_cons stage unify
 ai_tests_cs_r	chunk:03	feat:list_cons	list_cons stage unify
 ai_tests_disj	chunk:03	feat:list_cons	list_cons stage unify
 ai_tests_gabriel	chunk:03	feat:list_cons	list_cons stage unify
-ai_tests_kalah	chunk:03	feat:list_cons	list_cons stage unify
+ai_tests_kalah	chunk:04	feat:list_cons	list_cons stage unify
 ai_tests_peep	chunk:04	feat:list_cons	list_cons stage unify
 ai_tests_pg	chunk:04	feat:list_cons	list_cons stage unify
 ai_tests_plan	chunk:04	feat:list_cons	list_cons stage unify
@@ -315,7 +315,7 @@ prolog_tests_test_ascii_getput	chunk:02	feat:stage	stage
 prolog_tests_test_ascii_readwrite	chunk:02	feat:stage	stage
 prolog_tests_test_charset	core	core	cut findall if_then_else list_cons unify writeq
 prolog_tests_test_cleanup	core	core	catch_with_throw cut throw unify
-prolog_tests_test_cond_comp	chunk:04	feat:unify	unify
+prolog_tests_test_cond_comp	chunk:02	feat:answer	answer stage unify
 prolog_tests_test_cycle	chunk:01	feat:if_then_else	if_then_else unify
 prolog_tests_test_dphc	chunk:05	family:prolog_tests_test_dphc	
 prolog_tests_test_float_io_precision	chunk:05	family:prolog_tests_test_float_io_precision	
@@ -518,7 +518,7 @@ wfs_tests_p43	chunk:02	feat:answer	answer call cut if_then_else list_cons stage 
 wfs_tests_p44	chunk:02	feat:answer	answer call cut if_then_else list_cons stage unify
 wfs_tests_p45	chunk:02	feat:answer	answer call cut if_then_else list_cons stage unify
 wfs_tests_p46	chunk:02	feat:answer	answer call cut if_then_else list_cons stage unify
-wfs_tests_p47	chunk:02	feat:answer	answer call cut if_then_else list_cons stage unify
+wfs_tests_p47	chunk:03	feat:answer	answer call cut if_then_else list_cons stage unify
 wfs_tests_p48	chunk:03	feat:answer	answer call cut if_then_else list_cons stage unify
 wfs_tests_p49	chunk:03	feat:answer	answer call cut if_then_else list_cons stage unify
 wfs_tests_p50	chunk:03	feat:answer	answer call cut if_then_else list_cons stage unify

@@ -24805,10 +24805,8 @@ test:- [test_cond_comp].
 
 
 
-% DRIVER (appended by the vendoring, CEO-700): XSB prolog_tests/test.sh runs gentest.sh test_cond_comp "test."
-xsb_nonempty_line(L) :- string_length(L, N), N > 0. xsb_write_lines([]). xsb_write_lines([X|Xs]) :- write(X), nl, xsb_write_lines(Xs).
-xsb_sorted_output(G) :- with_output_to(string(S), catch(ignore(G), E, print_message(error, E))), split_string(S, '\n', '', L0), include(xsb_nonempty_line, L0, L1), msort(L1, L), xsb_write_lines(L).
-:- initialization(xsb_sorted_output((test))).
+% DRIVER (appended by the vendoring, CEO-700; CEO-1927): XSB prolog_tests/test.sh runs gentest.sh test_cond_comp "test." -- the answer is the file temp, sorted: [test_cond_comp]. tell(temp). test. told. (the load before tell prints to standard output and is not the answer; test consults the file again and its directives write to temp)
+:- initialization((tell(temp), catch(ignore(test), _, true), told)).
 end_of_file.
 
 % Test use of else part 1

@@ -1,0 +1,22 @@
+% companion of xbi09_loaded_conditional: conditional compilation in a file loaded at RUN time (if / elseif / else / endif)
+:- if(file_exists('absent.P')).
+:- writeln(if_1).
+:- elseif(file_exists('xbi09_cond.P')).
+:- writeln(succeeded_1).
+:- elseif(file_exists('xbi09_cond.P')).
+:- writeln(else_1).
+:- endif.
+:- if(file_exists('absent.P')).
+:- writeln(if_2).
+:- elseif(file_exists('absent.P')).
+:- writeln(elseif_2).
+:- elseif(file_exists('xbi09_cond.P')).
+:- writeln(succeeded_2).
+:- endif.
+:- if(file_exists('absent.P')).
+t(a).
+:- elseif(file_exists('absent.P')).
+t(b).
+:- else.
+t(c).
+:- endif.

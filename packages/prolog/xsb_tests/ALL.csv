@@ -312,7 +312,7 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 311,prolog_tests_test_ascii_readwrite,xsb_tests__prolog_tests_test_ascii_readwrite,xsb_tests,13,0,0,131072,4096,,,ignore-all-space,upstream,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 312,prolog_tests_test_charset,xsb_tests__prolog_tests_test_charset,xsb_tests,80,0,0,131072,4096,,,ignore-all-space,,,1,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,1,0,1,0,1,0,1,1,0,0,0
 313,prolog_tests_test_cleanup,xsb_tests__prolog_tests_test_cleanup,xsb_tests,164,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,1,0,1,0
-314,prolog_tests_test_cond_comp,xsb_tests__prolog_tests_test_cond_comp,xsb_tests,84,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
+314,prolog_tests_test_cond_comp,xsb_tests__prolog_tests_test_cond_comp,xsb_tests,82,0,0,131072,4096,,,ignore-all-space,upstream,temp-sorted,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
 315,prolog_tests_test_cycle,xsb_tests__prolog_tests_test_cycle,xsb_tests,38,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,1,0,0,1,0,0,0
 316,prolog_tests_test_dphc,xsb_tests__prolog_tests_test_dphc,xsb_tests,30,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 317,prolog_tests_test_float_io_precision,xsb_tests__prolog_tests_test_float_io_precision,xsb_tests,23,0,0,131072,4096,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
