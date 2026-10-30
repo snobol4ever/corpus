@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1175 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,23
+# shape: entries=1176 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,24
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:05	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:05	family:ladder	
@@ -219,7 +219,7 @@ hash_7	chunk:06	feat:sigil_hash	sigil_hash
 hash_8	chunk:06	feat:sigil_hash	sigil_hash
 hash_9	chunk:06	feat:sigil_hash	sigil_hash
 ladder__rung01_variables_a_list_declaration_in_a_block_is_that_blocks_variables	chunk:05	family:ladder	
-ladder__rung01_variables_is_default_gives_a_scalar_its_initial_value	chunk:05	family:ladder	
+ladder__rung01_variables_is_default_gives_a_scalar_its_initial_value	chunk:06	family:ladder	
 ladder__rung15_blocks_a_bare_blocks_own_my_variable_is_not_the_enclosing_variable	chunk:06	family:ladder	
 ladder__rung15_blocks_a_builtin_routine_reference_is_the_argument_of_map	chunk:10	feat:map	join map
 ladder__rung15_blocks_a_string_eval_reads_the_blocks_own_variable	chunk:06	family:ladder	
@@ -289,7 +289,7 @@ class_method_1	chunk:10	feat:method	method
 class_say_1	chunk:03	feat:say	say
 class_say_2	chunk:03	feat:say	say
 hash_13	chunk:06	feat:sigil_hash	sigil_hash
-hash_4	chunk:06	feat:sigil_hash	sigil_hash
+hash_4	chunk:07	feat:sigil_hash	sigil_hash
 hash_5	chunk:07	feat:sigil_hash	sigil_hash
 ladder__rung01_variables_a_state_array_keeps_its_elements_between_calls	chunk:06	feat:sub	sigil_array sub
 ladder__rung01_variables_a_state_declaration_may_initialize_from_another_state_declaration	chunk:06	feat:sub	sub
@@ -330,6 +330,7 @@ ladder__rung18_two_arg_block_reduce_mul	chunk:05	feat:sigil_array	sigil_array
 ladder__rung19_block_a_sub_reads_its_own_topic	chunk:06	feat:sub	sub
 ladder__rung19_block_an_empty_do_block_is_an_undefined_value	chunk:06	family:ladder	
 ladder__rung19_block_methcall_sub_body	chunk:06	feat:sub	sub
+ladder__rung19_block_the_grep_listop_takes_a_type_name_as_its_matcher	chunk:05	feat:sigil_array	sigil_array
 ladder__rung20_paren_group	chunk:06	feat:sub	sub
 ladder__rung20_paren_group_stmt	chunk:06	family:ladder	
 multi_3	chunk:09	feat:multi	multi
@@ -350,7 +351,7 @@ say_42	chunk:07	feat:regex	regex say
 say_43	chunk:07	feat:regex	regex say
 say_44	chunk:07	feat:regex	regex say
 say_45	chunk:07	feat:regex	regex say
-say_46	chunk:07	feat:regex	regex say
+say_46	chunk:08	feat:regex	regex say
 say_47	chunk:08	feat:regex	regex say
 say_48	chunk:08	feat:regex	regex say
 say_49	chunk:08	feat:regex	regex say
@@ -602,7 +603,7 @@ sub_say_10	chunk:06	feat:sub	say sub
 sub_say_11	chunk:06	feat:sub	say sub
 sub_say_9	chunk:06	feat:sub	say sub
 test_lines_file	chunk:05	feat:sigil_array	say sigil_array
-test_stmt_ctrl_loop_three	chunk:10	feat:loop	loop
+test_stmt_ctrl_loop_three	chunk:11	feat:loop	loop
 test_stmt_pfx_do	chunk:03	feat:say	say
 while_4	chunk:09	feat:while	while
 while_replace_1	chunk:09	feat:while	while
@@ -762,7 +763,7 @@ class_method_replace_7	chunk:10	feat:method	method
 class_replace_1	chunk:02	feat:has	has
 class_replace_2	chunk:02	feat:has	has
 class_say_replace_23	chunk:03	feat:say	say
-given_2	chunk:11	feat:given	given string_concat
+given_2	chunk:12	feat:given	given string_concat
 join_array_13	chunk:08	feat:join	join sigil_array
 join_range_array_1	chunk:08	feat:join	join range_op sigil_array
 ladder__rung07_subs_optional_params	chunk:09	feat:sub_with_return	return sub sub_with_return
@@ -856,7 +857,7 @@ ladder__rung15_blocks_return_is_an_assignment_rhs	chunk:09	feat:sub_with_return	
 ladder__rung19_block_a_for_over_a_parenthesised_map_of_a_sort	chunk:04	feat:for_with_say	for for_with_say sigil_array
 ladder__rung19_block_a_sub_called_in_a_for_reads_its_own_topic	chunk:04	feat:for_with_say	for for_with_say range_op sub
 ladder__rung19_block_the_grep_listop_takes_a_regex_as_its_matcher	chunk:11	feat:grep	grep join say sigil_array
-method_say_replace_1	chunk:08	feat:return	method return say
+method_say_replace_1	chunk:09	feat:return	method return say
 multi_sub_array_3	chunk:09	feat:multi	multi sigil_array string_concat sub
 multi_sub_array_4	chunk:09	feat:multi	multi sigil_array string_concat sub
 say_replace_10	chunk:08	feat:regex	if regex say
@@ -976,7 +977,7 @@ class_method_say_replace_9	chunk:02	feat:has	has method say
 class_method_sort_replace_2	chunk:11	feat:sort	method return sort
 for_range_array_1	chunk:04	feat:for_with_say	for for_with_say range_op sigil_array
 for_range_hash_1	chunk:07	feat:sigil_hash	for for_with_say range_op sigil_hash
-multi_sub_say_2	chunk:09	feat:multi	multi say string_concat sub
+multi_sub_say_2	chunk:10	feat:multi	multi say string_concat sub
 say_try_die_6	chunk:11	feat:die	die if say try
 sub_array_9	chunk:09	feat:sub_with_return	return sigil_array string_concat sub sub_with_return
 class_method_say_replace_31	chunk:09	feat:return	method return say
