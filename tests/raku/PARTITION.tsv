@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1180 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,28
+# shape: entries=1181 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,29
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:05	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:05	family:ladder	
@@ -213,7 +213,7 @@ hash_11	chunk:06	feat:sigil_hash	sigil_hash
 hash_12	chunk:06	feat:sigil_hash	sigil_hash
 hash_16	core	core	sigil_hash sprintf
 hash_17	core	core	sigil_hash sprintf
-hash_18	chunk:11	feat:sprintf	sigil_hash sprintf
+hash_18	chunk:12	feat:sprintf	sigil_hash sprintf
 hash_6	chunk:06	feat:sigil_hash	sigil_hash
 hash_7	chunk:06	feat:sigil_hash	sigil_hash
 hash_8	chunk:07	feat:sigil_hash	sigil_hash
@@ -486,7 +486,7 @@ ladder__rung19_block_methcall_topic	chunk:10	feat:map	map say
 ladder__rung20_paren_group_chained	chunk:10	feat:map	join map say
 ladder__rung20_paren_group_topic	chunk:10	feat:map	map say
 loop_1	chunk:10	feat:loop	loop
-loop_replace_1	chunk:10	feat:loop	loop
+loop_replace_1	chunk:11	feat:loop	loop
 loop_replace_2	chunk:11	feat:loop	loop
 say_14	chunk:03	feat:say	say
 say_18	chunk:03	feat:say	say
@@ -963,6 +963,7 @@ class_method_say_replace_56	chunk:02	feat:has	has method say
 class_say_replace_11	chunk:02	feat:has	has say string_concat
 for_array_say_3	chunk:04	feat:for_with_say	for for_with_say say sigil_array
 for_array_say_5	chunk:04	feat:for_with_say	for for_with_say say sigil_array
+ladder__rung05_hashes_a_range_written_as_a_pair_value_stays_a_range	chunk:10	feat:smartmatch	range_op say smartmatch string_concat
 ladder__rung07_subs_a_subs_loop_variable_is_not_the_file_variable_another_sub_reads	chunk:04	feat:for_with_say	for for_with_say range_op sub
 ladder__rung08_for_a_label_is_a_term_in_its_scope	chunk:04	feat:for_with_say	for for_with_say range_op sub
 ladder__rung08_for_a_label_names_a_for_loop_with_several_loop_variables	chunk:04	feat:for_with_say	for for_with_say if sigil_array
@@ -970,7 +971,7 @@ ladder__rung08_for_redo_with_a_label_restarts_the_labelled_for_body	chunk:04	fea
 class_array_say_replace_2	chunk:02	feat:has	has say sigil_array
 class_method_grep_replace_1	chunk:11	feat:grep	grep method return
 class_method_map_replace_1	chunk:10	feat:map	map method return
-class_method_range_replace_6	chunk:10	feat:range_op	method range_op say
+class_method_range_replace_6	chunk:10	feat:method	method range_op say
 class_method_replace_18	chunk:02	feat:has	has if method
 class_method_replace_19	chunk:02	feat:has	has method return
 class_method_say_replace_20	chunk:02	feat:has	has method say
