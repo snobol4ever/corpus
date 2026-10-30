@@ -1,0 +1,51 @@
+% xbi07_storage_abolish_cond -- XSB 5.0.0's storage tables (lib/storage.P: keypairs and facts, the _bt forms undo on backtracking), abolish/1 of a head template (a spec that is not P/A is read as the head, abolish(p) is abolish(p/0)),
+% reclaim_space/1, asserti/2, assertai/2, assertzi/2 (the index argument is a hint), and the read-time condition :- if(file_exists(F)).
+:- import storage_insert_keypair/4, storage_insert_keypair_bt/4, storage_find_keypair/3, storage_delete_keypair/3, storage_delete_keypair_bt/3, storage_insert_fact_bt/3, storage_find_fact/2, storage_delete_fact/3, storage_delete_fact_bt/3, storage_insert_fact/3, storage_reclaim_space/1 from storage.
+:- import asserti/2, assertai/2, assertzi/2, reclaim_space/1 from assert.
+:- dynamic p/0, q/1, r/2, d/1.
+:- if(file_exists('xbi07_storage_abolish_cond.P')).
+cc(here, yes).
+:- else.
+cc(here, no).
+:- endif.
+:- if(file_exists('xbi07_absent_file.P')).
+cc(absent, yes).
+:- else.
+cc(absent, no).
+:- endif.
+:- if(file_exists('xbi07_absent_file.P')).
+cc(chain, first).
+:- elseif(file_exists('xbi07_storage_abolish_cond.P')).
+cc(chain, second).
+:- else.
+cc(chain, third).
+:- endif.
+w(T) :- write(T), nl.
+t(L, G) :- ( catch(G, error(E, _), ( w(L-caught(E)), fail )) -> true ; w(L-failed) ).
+test :- cc(K, V), w(cc(K, V)), fail.
+test :- t(kp1, ( storage_insert_keypair(s1, 111, f(a), X), w(ins(X)) )), fail.
+test :- t(kp2, ( storage_insert_keypair(s1, 111, f(_), X), w(ins_other_value(X)) )), fail.
+test :- t(kp3, ( storage_insert_keypair(s1, 111, f(a), X), w(ins_again(X)) )), fail.
+test :- t(kp4, ( storage_find_keypair(s1, 111, f(X)), w(found(X)) )), fail.
+test :- t(kp5, ( storage_delete_keypair_bt(s1, 111, D), w(deleted(D)), ( storage_find_keypair(s1, 111, f(_)) -> w(still_there) ; w(gone) ), fail ; true )), fail.
+test :- t(kp6, ( storage_find_keypair(s1, 111, f(X)) -> w(back(X)) ; w(lost) )), fail.
+test :- t(kp7, ( storage_delete_keypair(s1, 111, D), w(deleted_for_good(D)), storage_delete_keypair(s1, 111, D2), w(deleted_again(D2)) )), fail.
+test :- t(kp8, ( ( storage_insert_keypair_bt(s1, aaa, kkk, X), w(ins_bt(X)), storage_find_keypair(s1, aaa, V), w(value(V)), fail ; true ), ( storage_find_keypair(s1, aaa, _) -> w(kept) ; w(undone) ) )), fail.
+test :- t(f1, ( storage_insert_fact_bt(s2, f(a), X), w(fact_ins(X)), ( storage_insert_fact_bt(s2, f(a), Y), w(fact_ins_again(Y)), fail ; storage_find_fact(s2, f(a)), w(fact_found) ), fail ; true )), fail.
+test :- t(f2, ( storage_find_fact(s2, f(a)) -> w(fact_kept) ; w(fact_undone) )), fail.
+test :- t(f3, ( storage_insert_fact(s2, g(1), X), w(fact_plain(X)), storage_delete_fact_bt(s2, g(1), D), w(fact_deleted(D)), ( storage_find_fact(s2, g(1)) -> w(bug) ; w(fact_temp_gone) ), fail ; true )), fail.
+test :- t(f4, ( storage_find_fact(s2, g(1)) -> w(fact_restored) ; w(fact_lost) )), fail.
+test :- t(f5, ( storage_delete_fact(s2, g(1), D), w(fact_deleted_for_good(D)), storage_delete_fact(s2, g(1), D2), w(fact_deleted_again(D2)) )), fail.
+test :- t(rs, ( storage_reclaim_space(s2), w(reclaimed) )), fail.
+test :- assertz(p), assertz(q(1)), assertz(q(2)), assertz(r(a, b)), fail.
+test :- t(ab1, ( abolish(p), ( catch(p, _, fail) -> w(p_still) ; w(p_gone) ) )), fail.
+test :- t(ab2, ( abolish(q(_)), ( catch(q(_), _, fail) -> w(q_still) ; w(q_gone) ) )), fail.
+test :- t(ab3, ( r(a, b) -> w(r_kept) ; w(r_lost) )), fail.
+test :- t(ab4, ( abolish(r/2), ( catch(r(_, _), _, fail) -> w(r_still) ; w(r_gone) ) )), fail.
+test :- t(ab5, ( abolish(nosuch), w(abolish_undefined_ok) )), fail.
+test :- t(ab6, ( abolish(nosuch(_, _)), w(abolish_undefined_ok2) )), fail.
+test :- t(ab7, ( abolish(_) )), fail.
+test :- t(as1, ( asserti(d(1), 1), assertai(d(0), 1), assertzi(d(2), 1), findall(X, d(X), L), w(order(L)) )), fail.
+test :- t(as2, ( reclaim_space(d(_)), findall(X, d(X), L), w(after_reclaim(L)) )), fail.
+test :- t(as3, ( reclaim_space(_) )), fail.
+test.

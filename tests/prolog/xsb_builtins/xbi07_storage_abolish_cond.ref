@@ -1,0 +1,38 @@
+cc(here,yes)
+cc(absent,no)
+cc(chain,second)
+ins(1)
+ins_other_value(-1)
+ins_again(0)
+found(a)
+deleted(1)
+gone
+back(a)
+deleted_for_good(1)
+deleted_again(0)
+ins_bt(1)
+value(kkk)
+undone
+fact_ins(1)
+fact_ins_again(0)
+fact_found
+fact_undone
+fact_plain(1)
+fact_deleted(1)
+fact_temp_gone
+fact_restored
+fact_deleted_for_good(1)
+fact_deleted_again(0)
+reclaimed
+p_gone
+q_gone
+r_kept
+r_gone
+abolish_undefined_ok
+abolish_undefined_ok2
+ab7 - caught(instantiation_error)
+ab7 - failed
+order([0,1,2])
+after_reclaim([0,1,2])
+as3 - caught(instantiation_error)
+as3 - failed
