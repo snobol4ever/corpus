@@ -1,0 +1,19 @@
+% xbi10_verify_attribute_handler -- XSB 5.0.0's attributed-variable handler API (attv_tests attv_test): install_verify_attribute_handler(Mod, AttrVal, Targ, Handler) names the goal that runs when a
+% variable carrying an attribute of module Mod is unified with Targ (AttrVal is the attribute value; a failing handler refuses the unification; a later install for the same module replaces the earlier
+% one), attv_unify/2 binds an attributed variable WITHOUT running its handler, and put_attr/get_attr update and read an attribute.
+:- import put_attr/3, get_attr/3, install_verify_attribute_handler/4 from machine.
+:- import attv_unify/2 from machine.
+:- install_verify_attribute_handler(shown, AttrVal, Targ, show(Targ, AttrVal)).
+:- install_verify_attribute_handler(refuse, AttrVal, Targ, refuse_h(Targ, AttrVal)).
+:- install_verify_attribute_handler(binder, AttrVal, Targ, bind_h(Targ, AttrVal)).
+show(Value, Target) :- ( var(Target) -> get_attr(Target, _, Atts) ; Atts = Target ), write(atts_are(Atts)), nl, write(value_is(Value)), nl.
+refuse_h(_, _) :- fail.
+bind_h(Value, Target) :- ( var(Target) -> attv_unify(Target, Value) ; true ).
+test :- put_attr(X, shown, v(1)), Y = 5, Y = X, write(t1(X)), nl, fail.
+test :- put_attr(X, refuse, v(30)), Y = 1, ( X = Y -> write(t2(unified)) ; write(t2(refused)) ), nl, fail.
+test :- put_attr(X, shown, v(11)), put_attr(Y, shown, v(22)), attv_unify(X, a), attv_unify(Y, b), write(t3(X, Y)), nl, fail.
+test :- put_attr(X, shown, v(1)), put_attr(X, shown, v(2)), get_attr(X, shown, V), write(t4(V)), nl, fail.
+test :- put_attr(X, shown, v(1)), Y = X, X = Z, get_attr(Y, shown, VY), get_attr(Z, shown, VZ), write(t5(VY, VZ)), nl, fail.
+test :- put_attr(X, shown, v(12)), Y = 7, Y = X, ( write(disjunct_a) ; write(disjunct_b) ), nl, fail.
+test :- put_attr(X, refuse, v(30)), Y = 1, X = Y, !, write(t7(wrong)), nl.
+test :- write(t7(refused)), nl.

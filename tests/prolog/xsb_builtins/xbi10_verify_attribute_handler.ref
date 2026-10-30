@@ -1,0 +1,12 @@
+atts_are(v(1))
+value_is(5)
+t1(5)
+t2(refused)
+t3(a,b)
+t4(v(2))
+t5(v(1),v(1))
+atts_are(v(12))
+value_is(7)
+disjunct_a
+disjunct_b
+t7(refused)
