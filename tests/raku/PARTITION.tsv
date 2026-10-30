@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1181 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,29
+# shape: entries=1182 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,30
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:05	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:05	family:ladder	
@@ -150,7 +150,7 @@ simple_program_51	chunk:11	feat:sprintf	sprintf
 simple_program_52	chunk:11	feat:sprintf	sprintf
 simple_program_53	chunk:11	feat:sprintf	sprintf
 simple_program_54	chunk:11	feat:sprintf	sprintf
-simple_program_55	chunk:11	feat:sprintf	sprintf
+simple_program_55	chunk:12	feat:sprintf	sprintf
 simple_program_63	chunk:07	feat:regex	regex
 simple_program_64	chunk:07	feat:regex	regex
 simple_program_65	chunk:07	feat:regex	regex
@@ -349,7 +349,7 @@ say_38	chunk:07	feat:regex	regex say
 say_39	chunk:07	feat:regex	regex say
 say_40	chunk:07	feat:regex	regex say
 say_41	chunk:07	feat:regex	regex say
-say_42	chunk:07	feat:regex	regex say
+say_42	chunk:08	feat:regex	regex say
 say_43	chunk:08	feat:regex	regex say
 say_44	chunk:08	feat:regex	regex say
 say_45	chunk:08	feat:regex	regex say
@@ -485,7 +485,7 @@ ladder__rung19_block_a_whatevercode_argument_to_the_grep_listop	chunk:11	feat:gr
 ladder__rung19_block_methcall_topic	chunk:10	feat:map	map say
 ladder__rung20_paren_group_chained	chunk:10	feat:map	join map say
 ladder__rung20_paren_group_topic	chunk:10	feat:map	map say
-loop_1	chunk:10	feat:loop	loop
+loop_1	chunk:11	feat:loop	loop
 loop_replace_1	chunk:11	feat:loop	loop
 loop_replace_2	chunk:11	feat:loop	loop
 say_14	chunk:03	feat:say	say
@@ -711,6 +711,7 @@ join_range_array_6	chunk:08	feat:join	join range_op sigil_array
 join_range_array_7	chunk:08	feat:join	join range_op sigil_array
 join_range_array_8	chunk:08	feat:join	join range_op sigil_array
 join_range_array_9	chunk:08	feat:join	join range_op sigil_array
+ladder__rung04_arrays_the_numeric_methods_of_an_array_a_list_and_a_hash_answer_the_element_count	chunk:07	feat:sigil_hash	sigil_array sigil_hash
 ladder__rung06_control_elsif_chain	core	core	elsif if
 ladder__rung07_subs	chunk:09	feat:sub_with_return	return sub sub_with_return
 ladder__rung08_for_a_labelled_while_in_parentheses_leaves_on_last	chunk:09	feat:while	if while
@@ -861,7 +862,7 @@ ladder__rung19_block_a_for_over_a_parenthesised_map_of_a_sort	chunk:04	feat:for_
 ladder__rung19_block_a_sub_called_in_a_for_reads_its_own_topic	chunk:04	feat:for_with_say	for for_with_say range_op sub
 ladder__rung19_block_the_grep_listop_takes_a_regex_as_its_matcher	chunk:11	feat:grep	grep join say sigil_array
 method_say_replace_1	chunk:08	feat:return	method return say
-multi_sub_array_3	chunk:09	feat:multi	multi sigil_array string_concat sub
+multi_sub_array_3	chunk:10	feat:multi	multi sigil_array string_concat sub
 multi_sub_array_4	chunk:10	feat:multi	multi sigil_array string_concat sub
 say_replace_10	chunk:08	feat:regex	if regex say
 say_replace_11	chunk:08	feat:regex	if regex say
@@ -1070,7 +1071,7 @@ class_method_say_replace_25	chunk:02	feat:has	has method return say
 class_method_say_replace_32	chunk:02	feat:has	has method return say
 ladder__rung08_for_next_in_a_for_over_a_range_continues_with_the_next_element	chunk:04	feat:for_with_say	for for_with_say if range_op string_concat
 class_method_multi_replace_2	chunk:10	feat:multi	method multi return say
-class_method_say_replace_16	chunk:08	feat:return	method return say string_concat
+class_method_say_replace_16	chunk:09	feat:return	method return say string_concat
 while_say_try_1	core	core	die if say try while
 ladder__rung19_block_methcall_grep_and_map_listops	chunk:04	feat:for_with_say	for for_with_say range_op say sigil_array
 class_method_multi_replace_4	chunk:10	feat:multi	method multi return say
