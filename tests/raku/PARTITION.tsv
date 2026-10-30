@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1168 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,16
+# shape: entries=1169 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,17
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:05	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:05	family:ladder	
@@ -532,6 +532,7 @@ ladder__rung08_for_a_pointy_block_parameter_with_a_subsignature_unpacks_each_pai
 ladder__rung08_for_a_while_statement_in_parentheses_runs	chunk:09	feat:while	while
 ladder__rung08_for_last_from_an_inner_loop_leaves_a_labelled_loop_in_parentheses	chunk:10	feat:loop	loop
 ladder__rung08_for_last_from_an_inner_while_leaves_a_labelled_while_in_parentheses	chunk:09	feat:while	while
+ladder__rung09_regex_a_bare_regex_in_a_condition_matches_the_topic	chunk:11	feat:unless	if unless
 ladder__rung15_blocks_anon_sub	chunk:06	feat:sub	sub
 ladder__rung15_blocks_anon_sub_with_arg	chunk:06	feat:sub	sub
 ladder__rung15_blocks_fail_is_an_assignment_rhs	chunk:06	feat:sub	sub
@@ -935,7 +936,7 @@ benchmark_spinner	chunk:11	feat:for	for sigil_array sub
 ladder__rung15_blocks_a_my_declaration_without_a_value_keeps_what_a_begin_check_init_or_enter_phaser_stored	chunk:08	feat:sigil_hash	sigil_array sigil_hash string_concat
 ladder__rung07_subs_a_literal_passed_to_an_is_rw_parameter_throws_x_parameter_rw	chunk:11	feat:try	sigil_array sub try
 ladder__rung02_arithmetic_rat_smartmatch_truthiness_function_forms_and_type_checks	chunk:10	feat:smartmatch	say smartmatch string_concat
-ladder__rung07_subs_a_sub_declared_in_a_module_is_called_and_referenced_by_its_qualified_name_and_through_our	chunk:11	feat:our	our string_concat sub
+ladder__rung07_subs_a_sub_declared_in_a_module_is_called_and_referenced_by_its_qualified_name_and_through_our	chunk:12	feat:our	our string_concat sub
 ladder__rung14_roles_a_role_body_lexical_and_a_type_capture_as_the_target_of_new_are_read_by_its_methods	chunk:10	feat:method	method string_concat
 sub_range_say_replace_1	chunk:10	feat:range_op	range_op say sub
 ladder__rung12_exceptions_a_die_in_the_condition_of_if_or_unless_aborts_the_statement	chunk:11	feat:unless	if try unless
@@ -1009,7 +1010,7 @@ sub_junction_say_replace_1	chunk:11	feat:junction	if junction say sub
 ladder__rung03_strings_the_method_assign_form_inside_an_expression_stores_and_yields_the_new_value	chunk:09	feat:string_concat	say sigil_array string_concat sub
 ladder__rung04_arrays_push_unshift_append_prepend_splice_shift_and_pop_on_a_number_die_and_push_of_an_array_literal_lives	chunk:11	feat:try	for for_with_say sigil_array try
 ladder__rung01_variables_a_coercion_type_on_a_variable_or_a_parameter_converts_the_value_it_is_given	chunk:10	feat:smartmatch	regex smartmatch string_concat sub
-when_while_replace_1	chunk:11	feat:unless	if unless when while
+when_while_replace_1	chunk:11	feat:when	if unless when while
 ladder__rung02_arithmetic_power_assigned_and_compound_assigned	chunk:10	feat:sub_with_return	return sigil_array sub sub_with_return
 sub_for_say_replace_1	chunk:04	feat:for_with_say	for for_with_say say sub
 ladder__rung13_classes_an_rw_accessor_takes_compound_assignment_and_increment_and_a_readonly_one_dies	chunk:11	feat:try	has string_concat try
