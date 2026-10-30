@@ -1311,6 +1311,7 @@ code_eval_replace_branch_2	chunk:11	feat:CODE	CODE goto_success
 keyword_branch_4	chunk:03	feat:keyword_ref	goto_success keyword_ref
 keyword_replace_branch_9	chunk:03	feat:keyword_ref	goto_fail keyword_ref
 ladder__rung16_dotnet_code_block_ending_in_end_has_no_implicit_end	chunk:11	feat:CODE	CODE keyword_ref
+ladder__rung26_inf_dotnet_char_of_a_real_beyond_the_integers_is_out_of_range	chunk:15	feat:SIZE	SIZE keyword_ref
 ladder__rung28_interrogation	chunk:15	feat:SIZE	SIZE goto_success
 ladder__rung32_stcount	chunk:02	feat:arith	arith keyword_ref
 array_3	chunk:12	feat:ARRAY	ARRAY arith
@@ -1463,6 +1464,7 @@ user_function_len_capture_replace_1	chunk:04	feat:DEFINE	DEFINE LEN cond_assign
 benchmark_string_concat_twin	chunk:15	feat:SIZE	SIZE arith goto_success
 convert_datatype_branch_1	chunk:18	feat:CONVERT	CONVERT DATATYPE goto_fail
 fence_capture_branch_1	chunk:10	feat:FENCE	FENCE cond_assign goto_success
+ladder__rung16_inf_dotnet_the_statement_in_error_of_a_failed_code_is_error_7	chunk:11	feat:CODE	CODE goto_success keyword_ref
 ladder__rung26_convert_real	chunk:18	feat:CONVERT	CONVERT DATATYPE goto_success
 ladder__rung31_convert_array_to_table	chunk:18	feat:CONVERT	ARRAY CONVERT TABLE
 user_function_branch_13	chunk:02	feat:arith	DEFINE arith goto_success
@@ -1587,6 +1589,7 @@ dupl_indirect_branch_1	chunk:13	feat:DUPL	DUPL arith goto_fail indirect_ref
 dupl_size_branch_1	chunk:13	feat:DUPL	DUPL SIZE arith goto_success
 fence_branch_4	chunk:05	feat:fence_guarded_fail	FENCE fence_guarded_fail goto_fail goto_success
 ladder__rung08_function_built_patterns_keep_their_own_arguments	chunk:09	feat:SPAN	DEFINE POS RPOS SPAN
+ladder__rung25_inf_dotnet_a_long_alternative_compiles	chunk:16	feat:REPLACE	DUPL REPLACE SIZE TRIM
 ladder__rung26_convert_string_integer	chunk:18	feat:CONVERT	CONVERT DATATYPE arith goto_success
 ladder__rung32_errlimit_survival	chunk:02	feat:arith	arith goto_fail goto_success keyword_ref
 ladder__rung32_error_in_function_call	chunk:02	feat:arith	DEFINE arith goto_success keyword_ref
@@ -1751,6 +1754,7 @@ ladder__rung06_inf_dotnet_element_name_is_no_number	chunk:18	feat:CONVERT	ARRAY 
 fence_any_abort_branch_1	chunk:21	feat:ABORT	ABORT ANY FENCE alternation goto_success
 array_dupl_size_replace_branch_1	chunk:13	feat:DUPL	ARRAY DUPL SIZE arith goto_success
 define_params_30_restore_caller	chunk:02	feat:arith	DEFINE alternation arith goto_fail goto_success
+ladder__rung07_inf_dotnet_a_cursor_given_to_a_variable_holding_a_name_sets_the_variable	chunk:12	feat:DATATYPE	DATATYPE DEFINE LEN cond_assign indirect_ref
 user_function_apply_datatype_replace_branch_1	chunk:20	feat:APPLY	APPLY DATATYPE DEFINE goto_success keyword_ref
 pos_rpos_len_branch_10	chunk:15	feat:SIZE	LEN POS RPOS SIZE goto_fail
 user_function_apply_trim_replace_1	chunk:20	feat:APPLY	APPLY DEFINE DUPL TRIM keyword_ref
@@ -1840,12 +1844,13 @@ user_function_len_replace_branch_2	chunk:16	feat:REPLACE	DEFINE LEN REPLACE alte
 user_function_pos_len_branch_5	chunk:04	feat:DEFINE	DEFINE LEN POS alternation cond_assign goto_fail
 break_pos_rpos_replace_branch_1	chunk:17	feat:BREAK	BREAK POS RPOS deferred_eval goto_fail indirect_ref
 eval_arbno_pos_replace_branch_1	chunk:10	feat:EVAL	ARBNO EVAL POS RPOS deferred_eval goto_success
+ladder__rung16_inf_dotnet_a_failed_code_reports_its_first_error	chunk:11	feat:CODE	CODE SIZE arith goto_success indirect_ref keyword_ref
 user_function_break_rem_branch_1	chunk:17	feat:REM	BREAK DEFINE REM cond_assign goto_fail indirect_ref
 rtab_len_rem_replace_branch_1	chunk:20	feat:RTAB	LEN REM RTAB SIZE cond_assign goto_success
 span_break_trim_replace_branch_1	chunk:16	feat:TRIM	BREAK SPAN TRIM arith goto_fail keyword_ref
 span_break_trim_replace_branch_2	chunk:16	feat:TRIM	BREAK SPAN TRIM arith goto_fail keyword_ref
 user_function_arbno_pos_branch_13	chunk:09	feat:ARBNO	ARBNO DEFINE POS RPOS deferred_eval goto_success
-user_function_len_replace_branch_1	chunk:16	feat:REPLACE	DEFINE LEN REPLACE alternation goto_fail keyword_ref
+user_function_len_replace_branch_1	chunk:17	feat:REPLACE	DEFINE LEN REPLACE alternation goto_fail keyword_ref
 user_function_pos_rpos_branch_1	chunk:04	feat:DEFINE	DEFINE POS RPOS alternation deferred_eval goto_fail
 bal_pos_defer_replace_branch_1	chunk:19	feat:BAL	BAL POS capture_plus_defer cond_assign deferred_eval goto_success
 ladder__rung06_inf_dotnet_star_defers_a_subscript_of_a_call	chunk:14	feat:TABLE	DATATYPE TABLE alternation deferred_eval goto_fail keyword_ref
@@ -1855,6 +1860,7 @@ ladder__rung13_dotnet_an_expression_converts_to_a_pattern	chunk:18	feat:CONVERT	
 user_function_opsyn_datatype_1	chunk:18	feat:OPSYN	DATATYPE DEFINE OPSYN SIZE TRIM keyword_ref
 user_function_defer_capture_replace_branch_1	chunk:15	feat:capture_plus_defer	DEFINE arith capture_plus_defer cond_assign deferred_eval goto_success
 code_eval_capture_indirect_replace_branch_1	chunk:11	feat:CODE	CODE arith cond_assign goto_fail indirect_ref keyword_ref
+ladder__rung28_inf_dotnet_an_error_ending_a_match_under_a_negation	chunk:10	feat:EVAL	EVAL LEN deferred_eval goto_fail goto_success keyword_ref
 ladder__rung28_dotnet_continue_after_an_error_in_evaluated_code_fails_the_evaluation	chunk:10	feat:EVAL	DEFINE EVAL deferred_eval goto_success indirect_ref keyword_ref
 arbno_span_pos_replace_branch_1	chunk:09	feat:SPAN	ARBNO POS RPOS SPAN deferred_eval goto_success
 array_dupl_size_replace_branch_2	chunk:13	feat:DUPL	ARRAY DUPL SIZE arith goto_fail goto_success
@@ -1934,6 +1940,8 @@ arb_tab_pos_replace_branch_1	chunk:16	feat:TAB	ARB LEN POS REM TAB cond_assign g
 arb_tab_pos_replace_branch_2	chunk:16	feat:TAB	ARB LEN POS REM TAB cond_assign goto_fail
 span_size_capture_replace_branch_1	chunk:15	feat:SIZE	SIZE SPAN arith cond_assign goto_fail goto_success keyword_ref
 arbno_fence_span_replace_branch_5	chunk:10	feat:SPAN	ARBNO FENCE POS RPOS SPAN cond_assign goto_success
+ladder__rung16_inf_dotnet_a_stray_closing_parenthesis_is_224	chunk:18	feat:CONVERT	CODE CONVERT EVAL arith goto_success indirect_ref keyword_ref
+ladder__rung16_inf_dotnet_an_open_bracket_at_the_end_is_229	chunk:18	feat:CONVERT	CODE CONVERT EVAL arith goto_success indirect_ref keyword_ref
 benchmark_arith_loop	chunk:16	feat:TRIM	DEFINE TRIM alternation arith deferred_eval goto_success keyword_ref
 benchmark_ident_call1	chunk:16	feat:TRIM	DEFINE TRIM alternation arith deferred_eval goto_success keyword_ref
 benchmark_ident_call2	chunk:16	feat:TRIM	DEFINE TRIM alternation arith deferred_eval goto_success keyword_ref
@@ -2082,6 +2090,7 @@ any_pos_len_replace_branch_2	chunk:13	feat:DUPL	ANY DUPL LEN POS TRIM cond_assig
 benchmark_name_indirection	chunk:16	feat:TRIM	DEFINE TRIM alternation arith deferred_eval goto_success imm_assign indirect_ref keyword_ref
 ladder__rung04_inf_dotnet_replacement_subject_holds_a_subscript_of_a_call	chunk:13	feat:DUPL	ARBNO DATATYPE DUPL EVAL SIZE SPAN TABLE goto_fail keyword_ref
 code_eval_any_len_replace_branch_1	chunk:11	feat:CODE	ANY CODE LEN SIZE arith deferred_eval goto_fail indirect_ref keyword_ref
+ladder__rung07_inf_dotnet_an_element_holding_an_expression_is_assigned_itself	chunk:18	feat:CONVERT	ARRAY CONVERT DATATYPE LEN TABLE capture_plus_defer cond_assign deferred_eval imm_assign
 arbno_span_pos_branch_24	chunk:05	feat:arbno_with_alt	ARBNO LEN POS RPOS SPAN alternation arbno_with_alt deferred_eval goto_success
 len_array_convert_replace_branch_1	chunk:18	feat:CONVERT	ARRAY CONVERT DATATYPE LEN SIZE deferred_eval goto_success indirect_ref keyword_ref
 span_break_any_1	chunk:20	feat:RTAB	ANY BREAK LEN NOTANY RPOS RTAB SPAN TAB cond_assign
@@ -2182,12 +2191,3 @@ demo_treebank	core	core	ARBNO ARRAY BREAK DEFINE EVAL FENCE NOTANY POS REM RPOS 
 user_function_eval_arbno_replace_branch_1	core	core	ANY ARBNO ARRAY BREAK CONVERT DEFINE EVAL FENCE LEN POS REPLACE RPOS SPAN TABLE TRIM alternation arbno_with_alt arith capture_plus_defer cond_assign deferred_eval fence_guarded_fail goto_fail goto_success keyword_ref
 demo_json	core	core	ANY ARBNO ARRAY BREAK CONVERT DATATYPE DEFINE EVAL FENCE LEN POS REPLACE RPOS SIZE SPAN TABLE TRIM alternation arbno_with_alt arith capture_plus_defer cond_assign deferred_eval fence_guarded_fail goto_fail goto_success keyword_ref
 benchmark_json	core	core	ANY ARBNO ARRAY BREAK CONVERT DATATYPE DEFINE EVAL FENCE LEN POS REPLACE RPOS SIZE SPAN TABLE TRIM alternation arbno_with_alt arith capture_plus_defer cond_assign deferred_eval fence_guarded_fail goto_fail goto_success keyword_ref
-ladder__rung16_inf_dotnet_the_statement_in_error_of_a_failed_code_is_error_7	chunk:11	feat:CODE	CODE goto_success keyword_ref
-ladder__rung07_inf_dotnet_an_element_holding_an_expression_is_assigned_itself	chunk:18	feat:CONVERT	ARRAY CONVERT DATATYPE LEN TABLE capture_plus_defer cond_assign deferred_eval imm_assign
-ladder__rung16_inf_dotnet_a_failed_code_reports_its_first_error	chunk:11	feat:CODE	CODE SIZE arith goto_success indirect_ref keyword_ref
-ladder__rung25_inf_dotnet_a_long_alternative_compiles	chunk:17	feat:REPLACE	DUPL REPLACE SIZE TRIM
-ladder__rung26_inf_dotnet_char_of_a_real_beyond_the_integers_is_out_of_range	chunk:15	feat:SIZE	SIZE keyword_ref
-ladder__rung28_inf_dotnet_an_error_ending_a_match_under_a_negation	chunk:10	feat:EVAL	EVAL LEN deferred_eval goto_fail goto_success keyword_ref
-ladder__rung16_inf_dotnet_an_open_bracket_at_the_end_is_229	chunk:18	feat:CONVERT	CODE CONVERT EVAL arith goto_success indirect_ref keyword_ref
-ladder__rung16_inf_dotnet_a_stray_closing_parenthesis_is_224	chunk:18	feat:CONVERT	CODE CONVERT EVAL arith goto_success indirect_ref keyword_ref
-ladder__rung07_inf_dotnet_a_cursor_given_to_a_variable_holding_a_name_sets_the_variable	chunk:12	feat:DATATYPE	DATATYPE DEFINE LEN cond_assign indirect_ref
