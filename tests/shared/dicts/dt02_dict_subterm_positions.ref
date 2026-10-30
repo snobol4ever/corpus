@@ -1,0 +1,10 @@
+anon{}
+dict_position(0,3,0,1,[])
+anon{a:[1],b:{}}
+dict_position(0,13,0,1,[key_value_position(2,7,3,4,a,2-3,list_position(4,7,[5-6],none)),key_value_position(8,12,9,10,b,8-9,10-12)])
+tag{aa:2,bb:1}
+dict_position(0,14,0,3,[key_value_position(4,8,6,7,bb,4-6,7-8),key_value_position(9,13,11,12,aa,9-11,12-13)])
+a()
+term_position(0,3,0,1,[])
+f(x{k:v},[anon{}])
+term_position(0,16,0,1,[dict_position(2,8,2,3,[key_value_position(4,7,5,6,k,4-5,6-7)]),list_position(10,15,[dict_position(11,14,11,12,[])],none)])

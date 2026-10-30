@@ -1,0 +1,11 @@
+#{created:1.5,name:'f.txt'}
+'f.txt'
+anon{}
+empty_is_dict
+tag{aa:2,bb:1}
+unifies_with_literal
+tag-[aa-2,bb-1]
+p{a:"s",z:1}
+"s"
+existence_error(key,nokey,p{a:"s",z:1})
+anon_tag_var
