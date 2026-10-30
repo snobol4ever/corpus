@@ -1,0 +1,9 @@
+existence_error(source_sink,echo)
+domain_error(pipe_option,bogus(1))
+domain_error(stream_type,weird)
+existence_error(source_sink,path(nosuchexe_xyz_scrip))
+existence_error(source_sink,'/no/such/exe')
+"hello from pipe"-exit(0)
+exit(3)
+killed(9)
+detached_default_waited

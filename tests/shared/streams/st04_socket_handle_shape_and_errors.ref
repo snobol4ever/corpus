@@ -1,0 +1,9 @@
+handle_is_a_blob
+domain_error(socket_option,bogus)
+type_error(socket,not_a_socket)
+context_unifies
+econnrefused
+eaddrinuse
+hostname_atom
+ip(127,0,0,1)
+fresh_open_ok

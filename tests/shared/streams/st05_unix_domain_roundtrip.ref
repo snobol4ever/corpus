@@ -1,0 +1,4 @@
+inode_exists
+server_got("ping")
+client_got("pong")
+existence_error(file,'/no_such_dir_xyzzy/x.sock')

@@ -1,0 +1,6 @@
+ephemeral_ok
+peer(ip(127,0,0,1))
+server_got("ping")
+client_got("pong")
+pair_ok
+got3("yo")

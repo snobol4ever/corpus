@@ -1,0 +1,6 @@
+stdin_eof-exit(0)
+"ROUND TRIP VIA STDIN PIPE"-exit(0)
+"via all three pipes"-"done"-exit(0)
+"pipe2 text"-exit(0)
+112-exit(0)
+"pipe2 encoding"-exit(0)
