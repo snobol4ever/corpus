@@ -1799,3 +1799,9 @@ assertz/1-assertz(:)
 (\+)/1-(\+0)
 call/1-call(0)
 solve/2-solve(2,-)
+%- 579 ladder__rung10_assertz_retract_with_pending_choice_points_keeps_the_predicate_entry
+1
+1
+1
+1
+found(pp)

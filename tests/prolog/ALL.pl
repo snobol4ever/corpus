@@ -4887,3 +4887,15 @@ main :-
     Hs = [findall(_, _, _), forall(_, _), catch(_, _, _), setof(_, _, _), bagof(_, _, _), phrase(_, _), maplist(_, _, _), assertz(_), \+ _, call(_), solve(_, _)],
     forall(member(H, Hs), spec(H)).
 :- initialization(main).
+%- 579 ladder__rung10_assertz_retract_with_pending_choice_points_keeps_the_predicate_entry
+:- dynamic kp/3.
+ins(N,K,V,I) :- ( kp(N,K,V0) -> ( V0 == V -> I = 0 ; I = -1 ) ; assertz(kp(N,K,V)), I = 1 ).
+insb(N,K,V,I) :- ( kp(N,K,V0) -> ( V0 == V -> I = 0 ; I = -1 ) ; assertz(kp(N,K,V)), I = 1, ( true ; retract(kp(N,K,V)), fail ) ).
+delb(N,K,D) :- ( retract(kp(N,K,V)) -> D = 1, ( true ; assertz(kp(N,K,V)), fail ) ; D = 0 ).
+del(N,K,D) :- ( retract(kp(N,K,_)) -> D = 1 ; D = 0 ).
+:- ins(s,111,f(a),X), write(X), nl.
+:- delb(s,111,X), write(X), nl.
+:- ins(s,111,f(_),Y), write(Y), nl.
+:- del(s,111,X), write(X), nl.
+:- insb(s,aaa,pp,_).
+:- ( kp(s,aaa,X) -> writeln(found(X)) ; writeln(none) ).
