@@ -1,4 +1,6 @@
-* ex04 -- no &ERRLIMIT: the first error is fatal and the process exits with the oracle's code (SPITBOL loses its buffered OUTPUT on a fatal end, so this witness writes nothing before the error and grades the exit code alone; DESIGN-PLAN exceptions, the cto 2026-10-29)
-        X = 'abc' + 1
+* ex04 -- no &ERRLIMIT: the first run-time error is fatal; SPITBOL keeps what was written before it and exits with &CODE (0 unless the program set it), the error report on stderr; a constant 'abc' + 1 is refused at COMPILE time by SPITBOL and SCRIP alike (exit 231 vs 1, a frontend matter), so the operand is a variable (DESIGN-PLAN exceptions, the cto 2026-10-29)
+        OUTPUT = 'before'
+        Y = 'abc'
+        X = Y + 1
         OUTPUT = 'never'
 END
