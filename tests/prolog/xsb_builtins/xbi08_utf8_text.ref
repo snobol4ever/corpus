@@ -1,0 +1,11 @@
+a('こ','ぅ','日本','aこ','a b',abc,'Ab','1こ')
+f('こ',abc,'ん')
+f(こ,abc)
+r(97,b, , ,こ,end_of_file,end_of_file,-1)
+empty(end_of_file)
+1 Helloははははworld!
+2 Hello new  1aこち!
+こん
+h_clauses(2)
+[49,12371,12435,97,12395,12385]
+[26085,26412]

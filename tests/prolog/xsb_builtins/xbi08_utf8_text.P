@@ -1,0 +1,20 @@
+% xbi08_utf8_text -- XSB 5.0.0's text builtins under character_set utf_8 (prolog_tests test_utf8_atom, test_utf8_getput, test_utf8_readwrite): writeq and write_canonical quote an atom that holds any
+% non-ASCII character ('こ' 'aこ' '日本'), open(atom(A), read, S) reads the atom's text as a stream (get_code, get_char, peek_char, end_of_file, -1), format's ~Nc writes the code as one UTF-8 character
+% and ~Ns keeps N characters (not bytes), a double-quoted string read from a loaded file is the list of its code points, and compile(F) followed by ensure_loaded(F) loads the file once.
+:- set_prolog_flag(character_set, utf_8).
+:- import format/2 from format.
+:- import length/2 from basics.
+t(Label, Goal) :-
+    catch(( Goal -> true ; write(Label-failed), nl ), error(E, _), ( write(Label-caught(E)), nl )).
+test :- t(q1, ( writeq(a('こ', 'ぅ', '日本', 'aこ', 'a b', abc, 'Ab', '1こ')), nl )), fail.
+test :- t(q2, ( write_canonical(f('こ', abc, 'ん')), nl )), fail.
+test :- t(q3, ( write(f('こ', abc)), nl )), fail.
+test :- t(o1, ( open(atom('ab こ'), read, S), get_code(S, C1), get_char(S, C2), peek_char(S, C3), get_char(S, C4), get_char(S, C5), get_char(S, C6), get_char(S, C7), get_code(S, C8),
+                write(r(C1, C2, C3, C4, C5, C6, C7, C8)), nl, close(S) )), fail.
+test :- t(o2, ( open(atom(''), read, S), get_char(S, C), write(empty(C)), nl, close(S) )), fail.
+test :- t(f1, format("~d Hello~4cworld!~n", [1, 0'は])), fail.
+test :- t(f2, format("~d Hello ~4s ~4s!~n", [2, "new", "1aこちにはん今的"])), fail.
+test :- t(f3, format("~c~c~n", [12371, 12435])), fail.
+test :- t(c1, ( compile(xbi08_helper), ensure_loaded(xbi08_helper), findall(x, h(_), L), length(L, N), write(h_clauses(N)), nl )), fail.
+test :- t(c2, ( h(S), write(S), nl, fail ; true )), fail.
+test.
