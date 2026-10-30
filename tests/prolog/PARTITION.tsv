@@ -575,9 +575,9 @@ findall_cut_ite_replace_1	chunk:04	feat:findall	cut findall if_then_else unify
 retract_retract_clause_with_body_1	core	core	assert_then_retract assertz catch if_then_else retract
 ladder__rung05_negation_over_a_call_after_a_first_write_survives_a_retry	core	core	if_then_else list_cons negation unify writeq
 findall_bagof_setof_2	core	core	bagof findall if_then_else setof unify
+ladder__rung10_assertz_retract_with_pending_choice_points_keeps_the_predicate_entry	core	core	assert_then_retract assertz if_then_else retract unify
 termops_directive_1	core	core	arg copy_term functor succ unify univ
 functor_ite_univ_1	core	core	arg atom functor if_then_else unify univ
 copy_term_call_cut_replace_1	core	core	call copy_term cut if_then_else unify var
 benchmark_meta_qsort	core	core	cut if_then_else list_cons negation nonvar number unify var
 ladder__rung10_predicate_property_answers_meta_predicate_as_swipl_for_a_head_bound_at_run_time	core	core	assertz bagof call catch findall findall_with_var_goal forall functor if_then_else negation setof unify
-ladder__rung10_assertz_retract_with_pending_choice_points_keeps_the_predicate_entry	core	core	assert_then_retract assertz if_then_else retract unify

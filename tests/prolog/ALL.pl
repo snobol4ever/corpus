@@ -4799,10 +4799,22 @@ main :-
     ( findall(Y, (Y=4;Y=5), Lb) -> write(Lb) ; write(none) ), nl,
     ( bagof(Z, (Z=6;Z=7;Z=8), Lc) -> write(Lc) ; write(none) ), nl,
     ( setof(W, (W=3;W=1;W=2;W=1), Ld) -> write(Ld) ; write(none) ), nl.
-%------------------------------------------------------- 574 termops_directive_1
+%- 574 ladder__rung10_assertz_retract_with_pending_choice_points_keeps_the_predicate_entry
+:- dynamic kp/3.
+ins(N,K,V,I) :- ( kp(N,K,V0) -> ( V0 == V -> I = 0 ; I = -1 ) ; assertz(kp(N,K,V)), I = 1 ).
+insb(N,K,V,I) :- ( kp(N,K,V0) -> ( V0 == V -> I = 0 ; I = -1 ) ; assertz(kp(N,K,V)), I = 1, ( true ; retract(kp(N,K,V)), fail ) ).
+delb(N,K,D) :- ( retract(kp(N,K,V)) -> D = 1, ( true ; assertz(kp(N,K,V)), fail ) ; D = 0 ).
+del(N,K,D) :- ( retract(kp(N,K,_)) -> D = 1 ; D = 0 ).
+:- ins(s,111,f(a),X), write(X), nl.
+:- delb(s,111,X), write(X), nl.
+:- ins(s,111,f(_),Y), write(Y), nl.
+:- del(s,111,X), write(X), nl.
+:- insb(s,aaa,pp,_).
+:- ( kp(s,aaa,X) -> writeln(found(X)) ; writeln(none) ).
+%------------------------------------------------------- 575 termops_directive_1
 :- initialization(main).
 main :- functor(f(a,b), Nm, Ar), arg(1, f(a,b), A1), T =.. [g, 1, 2], copy_term(h(X,X,_), Cp), numbervars(Cp, 0, End), succ(3, S), plus(2, 3, P), sort([c,a,b,a], Srt), write(Nm), nl, write(Ar), nl, write(A1), nl, write(T), nl, write(Cp), nl, write(End), nl, write(S), nl, write(P), nl, write(Srt), nl.
-%-------------------------------------------------------- 575 functor_ite_univ_1
+%-------------------------------------------------------- 576 functor_ite_univ_1
 % rung09_builtins — functor/3, arg/3, =../2, type tests
 % Expected output: foo 2  b  [foo,a,b]  yes yes no no
 :- initialization(main).
@@ -4821,7 +4833,7 @@ main :-
     ( integer(42)   -> write(yes) ; write(no) ), nl,
     ( atom(42)      -> write(yes) ; write(no) ), nl,
     ( integer(hello)-> write(yes) ; write(no) ), nl.
-%---------------------------------------------- 576 copy_term_call_cut_replace_1
+%---------------------------------------------- 577 copy_term_call_cut_replace_1
 :- initialization(main).
 deep(0) :- !.
 deep(N) :- N1 is N - 1, deep(N1), true.
@@ -4847,7 +4859,7 @@ t13 :- T = f(P, Q), member(M, [1, 2]), u(P, Q), M = 2, P = M, write(T), nl.
 t14 :- u(X, Y), u(Y, Z), u(Z, X), X = 7, write(Y-Z), nl.
 t15 :- T = g(A, B, C), u(C, B), u(B, A), A = z, write(T), nl.
 main :- t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, write(done), nl.
-%------------------------------------------------------ 577 benchmark_meta_qsort
+%------------------------------------------------------ 578 benchmark_meta_qsort
 % meta_qsort — a meta-interpreter running the Warren qsort benchmark (van Roy suite).
 % Bottleneck: clause/call indirection through interpret/1-2 (meta-level dispatch).
 % Source: SWI-Prolog/bench (meta_qsort, Ralph M. Haygood). Prints ok on success.
@@ -4878,7 +4890,7 @@ define(qsort([],R,R),true).
 define(partition([X|L],Y,[X|L1],L2),(X=<Y,!,partition(L,Y,L1,L2))).
 define(partition([X|L],Y,L1,[X|L2]),(partition(L,Y,L1,L2))).
 define(partition([],_,[],[]),true).
-%- 578 ladder__rung10_predicate_property_answers_meta_predicate_as_swipl_for_a_head_bound_at_run_time
+%- 579 ladder__rung10_predicate_property_answers_meta_predicate_as_swipl_for_a_head_bound_at_run_time
 :- meta_predicate solve(2, -).
 solve(G, X) :- call(G, 1, X).
 spec(H) :- ( predicate_property(H, meta_predicate(M)) -> true ; M = none ), functor(H, N, A), write(N/A-M), nl.
@@ -4887,15 +4899,3 @@ main :-
     Hs = [findall(_, _, _), forall(_, _), catch(_, _, _), setof(_, _, _), bagof(_, _, _), phrase(_, _), maplist(_, _, _), assertz(_), \+ _, call(_), solve(_, _)],
     forall(member(H, Hs), spec(H)).
 :- initialization(main).
-%- 579 ladder__rung10_assertz_retract_with_pending_choice_points_keeps_the_predicate_entry
-:- dynamic kp/3.
-ins(N,K,V,I) :- ( kp(N,K,V0) -> ( V0 == V -> I = 0 ; I = -1 ) ; assertz(kp(N,K,V)), I = 1 ).
-insb(N,K,V,I) :- ( kp(N,K,V0) -> ( V0 == V -> I = 0 ; I = -1 ) ; assertz(kp(N,K,V)), I = 1, ( true ; retract(kp(N,K,V)), fail ) ).
-delb(N,K,D) :- ( retract(kp(N,K,V)) -> D = 1, ( true ; assertz(kp(N,K,V)), fail ) ; D = 0 ).
-del(N,K,D) :- ( retract(kp(N,K,_)) -> D = 1 ; D = 0 ).
-:- ins(s,111,f(a),X), write(X), nl.
-:- delb(s,111,X), write(X), nl.
-:- ins(s,111,f(_),Y), write(Y), nl.
-:- del(s,111,X), write(X), nl.
-:- insb(s,aaa,pp,_).
-:- ( kp(s,aaa,X) -> writeln(found(X)) ; writeln(none) ).

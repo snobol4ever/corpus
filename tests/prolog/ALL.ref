@@ -1749,7 +1749,13 @@ r(48,57)
 [4,5]
 [6,7,8]
 [1,2,3]
-%------------------------------------------------------- 574 termops_directive_1
+%- 574 ladder__rung10_assertz_retract_with_pending_choice_points_keeps_the_predicate_entry
+1
+1
+1
+1
+found(pp)
+%------------------------------------------------------- 575 termops_directive_1
 f
 2
 a
@@ -1759,7 +1765,7 @@ h(A,A,B)
 4
 5
 [a,b,c]
-%-------------------------------------------------------- 575 functor_ite_univ_1
+%-------------------------------------------------------- 576 functor_ite_univ_1
 foo 2
 b
 [foo,a,b]
@@ -1767,7 +1773,7 @@ yes
 yes
 no
 no
-%---------------------------------------------- 576 copy_term_call_cut_replace_1
+%---------------------------------------------- 577 copy_term_call_cut_replace_1
 v(r1)
 v(oc)
 v(call3)
@@ -1784,9 +1790,9 @@ f(2,2)
 7-7
 g(z,z,z)
 done
-%------------------------------------------------------ 577 benchmark_meta_qsort
+%------------------------------------------------------ 578 benchmark_meta_qsort
 ok
-%- 578 ladder__rung10_predicate_property_answers_meta_predicate_as_swipl_for_a_head_bound_at_run_time
+%- 579 ladder__rung10_predicate_property_answers_meta_predicate_as_swipl_for_a_head_bound_at_run_time
 known-findall(?,0,-)
 findall/3-findall(?,0,-)
 forall/2-forall(0,0)
@@ -1799,9 +1805,3 @@ assertz/1-assertz(:)
 (\+)/1-(\+0)
 call/1-call(0)
 solve/2-solve(2,-)
-%- 579 ladder__rung10_assertz_retract_with_pending_choice_points_keeps_the_predicate_entry
-1
-1
-1
-1
-found(pp)
