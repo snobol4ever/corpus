@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1176 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,24
+# shape: entries=1178 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,26
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:05	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:05	family:ladder	
@@ -217,7 +217,7 @@ hash_18	chunk:11	feat:sprintf	sigil_hash sprintf
 hash_6	chunk:06	feat:sigil_hash	sigil_hash
 hash_7	chunk:06	feat:sigil_hash	sigil_hash
 hash_8	chunk:06	feat:sigil_hash	sigil_hash
-hash_9	chunk:06	feat:sigil_hash	sigil_hash
+hash_9	chunk:07	feat:sigil_hash	sigil_hash
 ladder__rung01_variables_a_list_declaration_in_a_block_is_that_blocks_variables	chunk:05	family:ladder	
 ladder__rung01_variables_is_default_gives_a_scalar_its_initial_value	chunk:06	family:ladder	
 ladder__rung15_blocks_a_bare_blocks_own_my_variable_is_not_the_enclosing_variable	chunk:06	family:ladder	
@@ -288,7 +288,7 @@ array_49	chunk:05	feat:sigil_array	sigil_array
 class_method_1	chunk:10	feat:method	method
 class_say_1	chunk:03	feat:say	say
 class_say_2	chunk:03	feat:say	say
-hash_13	chunk:06	feat:sigil_hash	sigil_hash
+hash_13	chunk:07	feat:sigil_hash	sigil_hash
 hash_4	chunk:07	feat:sigil_hash	sigil_hash
 hash_5	chunk:07	feat:sigil_hash	sigil_hash
 ladder__rung01_variables_a_state_array_keeps_its_elements_between_calls	chunk:06	feat:sub	sigil_array sub
@@ -309,6 +309,8 @@ ladder__rung05_hashes_the_kv_adverb_answers_the_key_and_the_value	chunk:07	feat:
 ladder__rung05_hashes_the_p_adverb_answers_the_pair	chunk:07	feat:sigil_hash	sigil_hash
 ladder__rung06_control_ternary	chunk:06	family:ladder	
 ladder__rung06_control_until	chunk:06	family:ladder	
+ladder__rung07_subs_a_dot_ampersand_call_passes_the_invocant_as_the_first_argument_of_the_sub	chunk:06	feat:sub	sub
+ladder__rung07_subs_a_dot_ampersand_call_runs_a_code_variable_or_a_scalar_holding_code	chunk:06	family:ladder	
 ladder__rung07_subs_a_named_parameter_may_bind_a_different_variable_than_its_key	chunk:06	feat:sub	sub
 ladder__rung07_subs_a_plus_array_parameter_takes_several_arguments	chunk:06	feat:sub	sigil_array sub
 ladder__rung07_subs_a_type_capture_in_a_signature_names_the_argument_type	chunk:06	feat:sub	sub
@@ -349,8 +351,8 @@ say_40	chunk:07	feat:regex	regex say
 say_41	chunk:07	feat:regex	regex say
 say_42	chunk:07	feat:regex	regex say
 say_43	chunk:07	feat:regex	regex say
-say_44	chunk:07	feat:regex	regex say
-say_45	chunk:07	feat:regex	regex say
+say_44	chunk:08	feat:regex	regex say
+say_45	chunk:08	feat:regex	regex say
 say_46	chunk:08	feat:regex	regex say
 say_47	chunk:08	feat:regex	regex say
 say_48	chunk:08	feat:regex	regex say
@@ -529,10 +531,10 @@ ladder__rung06_control_an_if_statement_in_parentheses_gives_its_value	chunk:07	f
 ladder__rung06_control_unless	chunk:11	feat:unless	unless
 ladder__rung07_subs_a_hash_parameter_with_a_subsignature_unpacks_its_named_items	chunk:07	feat:sigil_hash	sigil_hash sub
 ladder__rung07_subs_a_subs_own_my_variable_is_not_the_file_variable_another_sub_reads	chunk:06	feat:sub	sub
-ladder__rung08_for_a_loop_header_declares_two_variables	chunk:10	feat:loop	loop
+ladder__rung08_for_a_loop_header_declares_two_variables	chunk:11	feat:loop	loop
 ladder__rung08_for_a_pointy_block_parameter_with_a_subsignature_unpacks_each_pair	chunk:04	feat:for_with_say	for for_with_say
 ladder__rung08_for_a_while_statement_in_parentheses_runs	chunk:09	feat:while	while
-ladder__rung08_for_last_from_an_inner_loop_leaves_a_labelled_loop_in_parentheses	chunk:10	feat:loop	loop
+ladder__rung08_for_last_from_an_inner_loop_leaves_a_labelled_loop_in_parentheses	chunk:11	feat:loop	loop
 ladder__rung08_for_last_from_an_inner_while_leaves_a_labelled_while_in_parentheses	chunk:09	feat:while	while
 ladder__rung09_regex_a_bare_regex_in_a_condition_matches_the_topic	chunk:11	feat:unless	if unless
 ladder__rung15_blocks_anon_sub	chunk:06	feat:sub	sub
@@ -610,7 +612,7 @@ while_replace_1	chunk:09	feat:while	while
 array_50	chunk:05	feat:sigil_array	sigil_array
 array_replace_2	chunk:05	feat:sigil_array	sigil_array
 array_say_replace_2	chunk:05	feat:sigil_array	say sigil_array
-given_1	chunk:11	feat:given	given
+given_1	chunk:12	feat:given	given
 join_array_16	chunk:08	feat:join	join sigil_array
 join_array_4	chunk:08	feat:join	join sigil_array
 join_array_5	chunk:08	feat:join	join sigil_array
@@ -696,11 +698,11 @@ loop_replace_3	chunk:11	feat:loop	if loop
 loop_replace_4	chunk:11	feat:loop	if loop
 split_array_say_1	core	core	say sigil_array split
 class_method_3	chunk:11	feat:unless	method unless
-class_method_say_5	chunk:08	feat:return	method return say
-class_method_say_6	chunk:08	feat:return	method return say
+class_method_say_5	chunk:09	feat:return	method return say
+class_method_say_6	chunk:09	feat:return	method return say
 for_range_6	chunk:04	feat:for_with_say	for for_with_say range_op
 for_say_4	chunk:04	feat:for_with_say	for for_with_say say
-given_replace_1	chunk:11	feat:given	given string_concat
+given_replace_1	chunk:12	feat:given	given string_concat
 join_range_array_2	chunk:08	feat:join	join range_op sigil_array
 join_range_array_3	chunk:08	feat:join	join range_op sigil_array
 join_range_array_4	chunk:08	feat:join	join range_op sigil_array
@@ -909,7 +911,7 @@ class_method_say_replace_35	chunk:10	feat:method	method say
 for_range_say_6	chunk:04	feat:for_with_say	for for_with_say range_op say
 for_range_say_7	chunk:04	feat:for_with_say	for for_with_say range_op say
 join_range_array_10	chunk:08	feat:join	join range_op sigil_array
-ladder__rung07_subs_multi_dispatch	chunk:09	feat:multi	multi return sub sub_with_return
+ladder__rung07_subs_multi_dispatch	chunk:10	feat:multi	multi return sub sub_with_return
 sub_say_try_1	chunk:11	feat:die	die say sub try
 test_stmt_pfx_FIRST	chunk:04	feat:for_with_say	for for_with_say range_op say
 test_stmt_pfx_LAST	chunk:04	feat:for_with_say	for for_with_say range_op say
@@ -948,7 +950,7 @@ ladder__rung14_roles_a_role_body_lexical_and_a_type_capture_as_the_target_of_new
 sub_range_say_replace_1	chunk:10	feat:range_op	range_op say sub
 ladder__rung12_exceptions_a_die_in_the_condition_of_if_or_unless_aborts_the_statement	chunk:11	feat:unless	if try unless
 benchmark_rc-dragon-curve	chunk:04	feat:for_with_say	for for_with_say range_op
-ladder__rung07_subs_a_multi_family_constrained_by_subsets_and_where_clauses_dispatches	chunk:09	feat:multi	multi say sub try
+ladder__rung07_subs_a_multi_family_constrained_by_subsets_and_where_clauses_dispatches	chunk:10	feat:multi	multi say sub try
 sub_array_say_replace_1	chunk:06	feat:sub	say sigil_array sub
 scrip_test_rk_str22	chunk:07	feat:if	if say sub
 class_array_say_replace_1	chunk:02	feat:has	has say sigil_array
