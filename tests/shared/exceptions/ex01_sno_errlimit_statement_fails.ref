@@ -1,0 +1,4 @@
+acc 111 errlimit 20 errtype 22
+type 1 seen 40
+type 22 seen 80
+array subscript out of range fails: yes

@@ -1,0 +1,7 @@
+27 3
+boom 3|boom 6|boom 9
+undefined
+X::Numeric::DivideByZero
+inner caught: inner
+outer caught: inner
+before the end

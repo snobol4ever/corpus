@@ -1,0 +1,23 @@
+* ex02 -- SETEXIT: the handler is entered from the statement in error, re-arms itself, counts, and CONTINUEs; an error inside a function (DESIGN-PLAN exceptions, the cto 2026-10-29)
+        &ERRLIMIT = 100
+        &ANCHOR = 1
+        DEFINE('F(N)')                               :(START)
+F       F = 'f' N
+        T = N + 'q'
+        F = F 'tail'                                 :(RETURN)
+START   SETEXIT(.HANDLER)
+        ERRS = 0
+        LOG =
+        I = 0
+LOOP    I = LT(I, 30) I + 1                          :F(DONE)
+        R = F(I)
+        LOG = LOG R ','
+        S = I + 'x'
+        LOG = LOG '.'                                :(LOOP)
+HANDLER ERRS = ERRS + 1
+        LAST = &ERRTYPE
+        SETEXIT(.HANDLER)                            :(CONTINUE)
+DONE    OUTPUT = 'errs ' ERRS ' last ' LAST ' errlimit ' &ERRLIMIT
+        OUTPUT = 'log ' SIZE(LOG)
+        OUTPUT = 'head ' SUBSTR(LOG, 1, 12)
+END

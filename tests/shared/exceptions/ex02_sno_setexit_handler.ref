@@ -1,0 +1,3 @@
+errs 60 last 2 errlimit 40
+log 261
+head f1tail,.f2ta

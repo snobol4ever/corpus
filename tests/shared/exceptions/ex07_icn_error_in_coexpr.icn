@@ -1,0 +1,16 @@
+# ex07 -- errors converted inside a co-expression body and inside a procedure the co-expression calls; the activation fails and the activator goes on (DESIGN-PLAN exceptions, the cto 2026-10-29)
+procedure bump(x)
+  if x % 2 = 0 then return x * 10 else return x + "k";
+end
+procedure main()
+  local c, n, x, got;
+  &error := 100;
+  c := create bump(1 to 6);
+  got := []; n := 0;
+  while x := @c do { put(got, x); n +:= 1 };
+  write(n, " ", got[1], " ", got[-1], " ", &error);
+  c := create (1 + "a");
+  if x := @c then write("value ", x) else write("activation failed ", &errornumber);
+  c := create |bump(3);
+  if x := @c then write("value ", x) else write("second failed ", &errornumber, " ", &error);
+end

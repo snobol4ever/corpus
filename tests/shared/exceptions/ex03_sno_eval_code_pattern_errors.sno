@@ -1,0 +1,28 @@
+* ex03 -- errors inside EVAL under &ERRLIMIT: each EVAL fails where it is caught, the keywords read the error, and the pattern machinery is intact after (an error raised DURING a pattern match is fatal in SPITBOL even under &ERRLIMIT, so none is raised here; DESIGN-PLAN exceptions, the cto 2026-10-29)
+        &ERRLIMIT = 100
+        &ANCHOR = 0
+        N = 0
+        M = 0
+        I = 0
+L1      I = LT(I, 20) I + 1                          :F(L2)
+        V = EVAL('I + "q"')                          :S(L1)
+        N = N + 1
+        E1 = &ERRTYPE
+        V = EVAL('I * 2')                            :F(L1)
+        M = M + V
+        P = EVAL('BREAK(" ") . W SPAN(" ")')         :F(L1)
+        S2 = 'word' I ' tail'
+        S2 P =                                       :F(L1)
+        LAST = W                                     :(L1)
+L2      OUTPUT = 'evalfails ' N ' errtype ' E1 ' sum ' M ' errlimit ' &ERRLIMIT
+        OUTPUT = 'last ' LAST
+        S = 'alpha beta gamma'
+        K = 0
+L3      S BREAK(' ') . W SPAN(' ') =                 :F(L4)
+        K = K + 1
+        OUTPUT = 'word ' W                            :(L3)
+L4      OUTPUT = 'rest ' S ' ' K
+        V = EVAL('UNDEFINED_THING(1)')               :S(L5)
+        OUTPUT = 'undefined errtype ' &ERRTYPE
+L5      OUTPUT = 'end ' &ERRLIMIT
+END

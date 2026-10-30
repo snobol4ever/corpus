@@ -1,0 +1,9 @@
+# ex06 -- an uncaught run-time error: the output before it is flushed and the exit code is the oracle's (DESIGN-PLAN exceptions, the cto 2026-10-29)
+procedure main()
+  local L;
+  L := [1, 2, 3];
+  write("before ", *L);
+  write("two");
+  write(L[2] + "abc");
+  write("never");
+end

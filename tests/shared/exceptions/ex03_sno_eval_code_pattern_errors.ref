@@ -1,0 +1,7 @@
+evalfails 20 errtype 2 sum 420 errlimit 80
+last word20
+word alpha
+word beta
+rest gamma 2
+undefined errtype 22
+end 79

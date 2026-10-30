@@ -1,0 +1,7 @@
+[caught(instantiation_error),ok,3,caught(syntax_error),caught(type_error),caught(instantiation_error),caught(type_error),caught(instantiation_error),caught(evaluation_error),failed]
+caught(type_error)
+caught(evaluable)
+neg_caught(type_error)
+call_caught(instantiation_error)
+ball-[1,2]
+x_unbound

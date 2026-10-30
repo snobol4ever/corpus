@@ -1,0 +1,23 @@
+* ex01 -- &ERRLIMIT with no handler: the statement in error FAILS and the program goes on with its cells intact (DESIGN-PLAN exceptions, the cto 2026-10-29)
+        &ERRLIMIT = 100
+        &ANCHOR = 1
+        TYPES = TABLE(10)
+        ACC =
+        I = 0
+LOOP    I = LT(I, 40) I + 1                          :F(DONE)
+        ACC = ACC 'a' I
+        X = 'abc' + I                                :S(ODD)F(FAILED)
+ODD     OUTPUT = 'unexpected success'                :(LOOP)
+FAILED  TYPES<&ERRTYPE> = TYPES<&ERRTYPE> + 1
+        Y = UNDEFINED_FN(I)                          :S(LOOP)
+        TYPES<&ERRTYPE> = TYPES<&ERRTYPE> + 1
+        Z = ARRAY('1:3')
+        Z<7> = I                                     :S(LOOP)
+        TYPES<&ERRTYPE> = TYPES<&ERRTYPE> + 1       :(LOOP)
+DONE    OUTPUT = 'acc ' SIZE(ACC) ' errlimit ' &ERRLIMIT ' errtype ' &ERRTYPE
+        TA = CONVERT(TYPES, 'ARRAY')
+        J = 0
+TLOOP   J = J + 1
+        OUTPUT = 'type ' TA<J, 1> ' seen ' TA<J, 2>          :S(TLOOP)
+        OUTPUT = 'array subscript out of range fails: ' (DIFFER(Z<7>) 'no', 'yes')
+END

@@ -1,0 +1,4 @@
+* ex04 -- no &ERRLIMIT: the first error is fatal and the process exits with the oracle's code (SPITBOL loses its buffered OUTPUT on a fatal end, so this witness writes nothing before the error and grades the exit code alone; DESIGN-PLAN exceptions, the cto 2026-10-29)
+        X = 'abc' + 1
+        OUTPUT = 'never'
+END

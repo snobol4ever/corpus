@@ -1,0 +1,26 @@
+# ex05 -- &error converts run-time errors to failure inside generators, scanning, procedure calls and string invocation; the keywords read the error (DESIGN-PLAN exceptions, the cto 2026-10-29)
+procedure half(x)
+  return x / 2;
+end
+procedure gen(n)
+  local i;
+  every i := 1 to n do suspend i + "a";
+  suspend n * 10;
+end
+procedure main()
+  local i, n, acc, s, L, codes, k, v;
+  &error := 500;
+  n := 0; acc := 0; L := []; codes := table(0);
+  every i := 1 to 50 do {
+    if v := half("x") then acc +:= v else { n +:= 1; codes[&errornumber] +:= 1 };
+    every v := gen(3) do acc +:= v;
+    s := "abc" || string(i);
+    s ? { if tab(upto("z")) then acc +:= 1 else acc +:= 2 };
+    if v := "half"(i) then acc +:= v;
+    if v := "nosuch"(i) then acc +:= 1000 else { n +:= 1; codes[&errornumber] +:= 1 };
+    put(L, s);
+  };
+  write(n, " ", acc, " ", *L, " ", &error);
+  write(&errornumber, " ", &errortext, " ", image(&errorvalue));
+  every k := key(codes) do write("code ", k, " ", codes[k]);
+end
