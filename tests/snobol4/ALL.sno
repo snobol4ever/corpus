@@ -2574,8 +2574,8 @@ END
 *  ITEM references an array element by subscript, as a value and as a name
         A = ARRAY('2,3')
         ITEM(A,2,3) = 'set'
-        OUTPUT = A<2,3>
-        A<1,2> = 'got'
+        OUTPUT = A[2,3]
+        A[1,2] = 'got'
         OUTPUT = ITEM(A,1,2)
 END
 *--------------------------------------------------------- 1063 simple_assign_11
@@ -6051,13 +6051,13 @@ END
 END
 *----------------------------------- 1323 ladder__rung05_goto_indirect_subscript
         A = ARRAY(3)
-        A<2> = 'L2'
+        A[2] = 'L2'
         A[3] = 'L3'
         I = 2
         :($(A[I]))
 L1      OUTPUT = 'one'   :(END)
 L2      OUTPUT = 'two'
-        I = 3   :($A<I>)
+        I = 3   :($A[I])
         OUTPUT = 'skipped'
 L3      OUTPUT = 'three'
 END
@@ -7412,10 +7412,10 @@ END
 *------------------------------------ 1421 ladder__rung31_convert_table_to_array
 *  CONVERT(table,'ARRAY') gives a two-column array of key and value
         T = TABLE()
-        T<'only'> = 42
+        T['only'] = 42
         A = CONVERT(T,'ARRAY')
         OUTPUT = PROTOTYPE(A)
-        OUTPUT = A<1,1> ' ' A<1,2>
+        OUTPUT = A[1,1] ' ' A[1,2]
 END
 *--------------------------------------------- 1422 len_capture_replace_branch_1
 *  058 - Immediate capture with dot (.)
@@ -7798,13 +7798,13 @@ END
 *------------------------------------ 1463 ladder__rung31_convert_array_to_table
 *  CONVERT(array,'TABLE') takes a two-column array as key and value pairs
         A = ARRAY('2,2')
-        A<1,1> = 'x'
-        A<1,2> = 10
-        A<2,1> = 'y'
-        A<2,2> = 20
+        A[1,1] = 'x'
+        A[1,2] = 10
+        A[2,1] = 'y'
+        A[2,2] = 20
         T = CONVERT(A,'TABLE')
-        OUTPUT = T<'x'>
-        OUTPUT = T<'y'>
+        OUTPUT = T['x']
+        OUTPUT = T['y']
 END
 *-------------------------------------------------- 1464 user_function_branch_13
         DEFINE('fib(n)')                                            :(fib_end)
@@ -7878,38 +7878,38 @@ END
 *----------------------------------------------------- 1470 ladder__rung31_rsort
 *  RSORT orders a one-dimensional array descending
         A = ARRAY(4)
-        A<1> = 'b'
-        A<2> = 'd'
-        A<3> = 'a'
-        A<4> = 'c'
+        A[1] = 'b'
+        A[2] = 'd'
+        A[3] = 'a'
+        A[4] = 'c'
         B = RSORT(A)
         I = 0
 LOOP    I = I + 1
-        OUTPUT = B<I>                   :S(LOOP)
+        OUTPUT = B[I]                   :S(LOOP)
 END
 *---------------------------------------------- 1471 ladder__rung31_sort_numeric
 *  SORT orders a one-dimensional array of integers by value, not as text
         A = ARRAY(4)
-        A<1> = 30
-        A<2> = 4
-        A<3> = 100
-        A<4> = 15
+        A[1] = 30
+        A[2] = 4
+        A[3] = 100
+        A[4] = 15
         B = SORT(A)
         I = 0
 LOOP    I = I + 1
-        OUTPUT = B<I>                   :S(LOOP)
+        OUTPUT = B[I]                   :S(LOOP)
 END
 *---------------------------------------------- 1472 ladder__rung31_sort_strings
 *  SORT orders a one-dimensional array of strings ascending
         A = ARRAY(4)
-        A<1> = 'pear'
-        A<2> = 'apple'
-        A<3> = 'fig'
-        A<4> = 'kiwi'
+        A[1] = 'pear'
+        A[2] = 'apple'
+        A[3] = 'fig'
+        A[4] = 'kiwi'
         B = SORT(A)
         I = 0
 LOOP    I = I + 1
-        OUTPUT = B<I>                   :S(LOOP)
+        OUTPUT = B[I]                   :S(LOOP)
 END
 *---------------------------------------------- 1473 len_array_capture_replace_1
 *  gim_cassign_array_elt_loud - the array-element capture target WITHOUT the
@@ -8167,16 +8167,16 @@ END
 *--------------------------------------------- 1493 ladder__rung31_sort_by_field
 *  SORT of a two-dimensional array orders its rows by the column named
         A = ARRAY('3,2')
-        A<1,1> = 'carol'
-        A<1,2> = 3
-        A<2,1> = 'alice'
-        A<2,2> = 1
-        A<3,1> = 'bob'
-        A<3,2> = 2
+        A[1,1] = 'carol'
+        A[1,2] = 3
+        A[2,1] = 'alice'
+        A[2,2] = 1
+        A[3,1] = 'bob'
+        A[3,2] = 2
         B = SORT(A,2)
         I = 0
 LOOP    I = I + 1
-        OUTPUT = B<I,1> ' ' B<I,2>      :S(LOOP)
+        OUTPUT = B[I,1] ' ' B[I,2]      :S(LOOP)
 END
 *------------------------------------------------------ 1494 opsyn_size_branch_1
         OPSYN('STRLEN', 'SIZE')
@@ -10990,31 +10990,31 @@ T5      OUTPUT = 'END errlimit=' &ERRLIMIT
 END
 *----------------------------- 1645 ladder__rung05_goto_indirect_subscript_forms
         A = ARRAY('2,2')
-        A<1,2> = 'LX'
-        A<2,1> = 'LW'
+        A[1,2] = 'LX'
+        A[2,1] = 'LW'
         B = ARRAY(3)
-        B<3> = 2
+        B[3] = 2
         T = TABLE()
-        T<'k'> = 'LT'
-        T<'e'> = 'LEND'
+        T['k'] = 'LT'
+        T['e'] = 'LEND'
         Z = ARRAY(2)
-        Z<2> = 'LV'
+        Z[2] = 'LV'
         I = 2
         J = 1
         X = 3
         :($(A[1,I]))
 BAD1    OUTPUT = 'bad1'   :(END)
 LX      OUTPUT = 'LX ok'
-        :($A<I,J>)
+        :($A[I,J])
 BAD2    OUTPUT = 'bad2'   :(END)
 LW      OUTPUT = 'LW ok'
-        :($T<'k'>)
+        :($T['k'])
 BAD3    OUTPUT = 'bad3'   :(END)
 LT      OUTPUT = 'LT ok'
-        :S($Z<B<X>>)F(BAD4)
+        :S($Z[B[X]])F(BAD4)
 BAD4    OUTPUT = 'bad4'   :(END)
 LV      OUTPUT = 'LV ok'
-        IDENT(X, 'q')   :S(BAD5)F($T<'e'>)
+        IDENT(X, 'q')   :S(BAD5)F($T['e'])
 BAD5    OUTPUT = 'bad5'   :(END)
 LEND    OUTPUT = 'done'
 END
@@ -12872,7 +12872,7 @@ END
         V = REMDR(N7, N3)
         OUTPUT = 'remdr ' &ERRTYPE ' [' V ']'
         V = ARRAY(N3, N7)
-        OUTPUT = 'array ' &ERRTYPE ' [' V<2> ']'
+        OUTPUT = 'array ' &ERRTYPE ' [' V[2] ']'
         V = CONVERT(N3, 'INTEGER')
         OUTPUT = 'integer ' &ERRTYPE ' [' V ']'
         V = CONVERT(NR, 'REAL')
@@ -14250,36 +14250,36 @@ END
         :(MAIN)
 H       H = .V
         :(NRETURN)
-MAIN    A<1> = 'x'
-        A<2> = 'y'
+MAIN    A[1] = 'x'
+        A[2] = 'y'
         V = 'x'
-        P = @A<1> | 'q'
+        P = @A[1] | 'q'
         'abcdef' P
-        OUTPUT = 'cur-alt ' A<1> ' ' A<2>
-        A<1> = 'x'
-        P = 'q' | @A<1>
+        OUTPUT = 'cur-alt ' A[1] ' ' A[2]
+        A[1] = 'x'
+        P = 'q' | @A[1]
         'abcdef' P
-        OUTPUT = 'alt-cur ' A<1>
-        A<1> = 'x'
-        P = LEN(3) $ A<1> | 'q'
+        OUTPUT = 'alt-cur ' A[1]
+        A[1] = 'x'
+        P = LEN(3) $ A[1] | 'q'
         'abcdef' P
-        OUTPUT = 'imm-alt ' A<1>
-        A<1> = 'x'
-        P = FENCE(@A<1>)
+        OUTPUT = 'imm-alt ' A[1]
+        A[1] = 'x'
+        P = FENCE(@A[1])
         'abcdef' P
-        OUTPUT = 'cur-fence ' A<1>
-        A<1> = 'x'
-        P = FENCE(LEN(2) $ A<1>)
+        OUTPUT = 'cur-fence ' A[1]
+        A[1] = 'x'
+        P = FENCE(LEN(2) $ A[1])
         'abcdef' P
-        OUTPUT = 'imm-fence ' A<1>
-        A<1> = 'x'
-        P = (@A<1> | 'q') | 'r'
+        OUTPUT = 'imm-fence ' A[1]
+        A[1] = 'x'
+        P = (@A[1] | 'q') | 'r'
         'abcdef' P
-        OUTPUT = 'nested-alt ' A<1>
-        A<1> = 'x'
-        P = ('a' | @A<1>) @A<2>
+        OUTPUT = 'nested-alt ' A[1]
+        A[1] = 'x'
+        P = ('a' | @A[1]) @A[2]
         'abcdef' P
-        OUTPUT = 'alt-then ' A<1> ' ' A<2>
+        OUTPUT = 'alt-then ' A[1] ' ' A[2]
         P = (LEN(3) @H(1)) | (LEN(1) @W)
         'abcdef' P
         OUTPUT = 'fn-cursor ' V
@@ -18315,7 +18315,7 @@ END
         C1 = CODE(' X = 1')
         DATA('REC(FLD)')
         R1 = REC(1)
-        E1 = .A1<1>
+        E1 = .A1[1]
         P1 = LEN(1)
         &ERRTYPE = 0
         V = 'none'
@@ -19088,7 +19088,7 @@ G       G = 'W'
         :(RETURN)
 MAIN    V = 'v0'
         W = 'w0'
-        A<1> = 'a0'
+        A[1] = 'a0'
         OUTPUT = ?('abc' ? LEN(1) . H(7)) 'cond-fn ' V
         V = 'v0'
         OUTPUT = ?('abc' ? LEN(2) $ H(7)) 'imm-fn ' V
@@ -19101,8 +19101,8 @@ MAIN    V = 'v0'
         V = 'v0'
         OUTPUT = ?('abc' ? LEN(1) @$G(7)) 'cur-ind ' W
         W = 'w0'
-        OUTPUT = ?('abc' ? LEN(2) @A<1>) 'cur-elem ' A<1>
-        A<1> = 'a0'
+        OUTPUT = ?('abc' ? LEN(2) @A[1]) 'cur-elem ' A[1]
+        A[1] = 'a0'
         OUTPUT = ?('abc' ? ('a' | 'b') @H(7)) 'cur-alt ' V
         V = 'v0'
         OUTPUT = ?('abc' ? ARBNO(LEN(1) @H(7)) RPOS(0)) 'cur-arbno ' V
@@ -19367,31 +19367,31 @@ END
         DEFINE('F(X)')
         A = ARRAY(3)
         L = ARRAY(22)
-        L<1> = " Y = 1 :(X ? 'a')"
-        L<2> = " Y = 1 :(1 + 2)"
-        L<3> = " Y = 1 :('a' 'b')"
-        L<4> = " Y = 1 :('a' | 'b')"
-        L<5> = " Y = 1 :(~X)"
-        L<6> = " Y = 1 :(\X)"
-        L<7> = " Y = 1 :((X = 1))"
-        L<8> = " Y = 1 :('L')"
-        L<9> = " Y = 1 :(1)"
-        L<10> = " Y = 1 :(-X)"
-        L<11> = " Y = 1 :(X . Y)"
-        L<12> = " Y = 1 :(X)"
-        L<13> = " Y = 1 :($X)"
-        L<14> = " Y = 1 :(A[1])"
-        L<15> = " Y = 1 :(F(X))"
-        L<16> = " Y = 1 :(*X)"
-        L<17> = " Y = 1 :(&ANCHOR)"
-        L<18> = " Y = 1 :((X))"
-        L<19> = " Y = 1 :($$X)"
-        L<20> = " Y = 1 :(F(1 + 2))"
-        L<21> = " Y = 1 :($(A + B))"
-        L<22> = " Y = 1 :(X @ Y)"
+        L[1] = " Y = 1 :(X ? 'a')"
+        L[2] = " Y = 1 :(1 + 2)"
+        L[3] = " Y = 1 :('a' 'b')"
+        L[4] = " Y = 1 :('a' | 'b')"
+        L[5] = " Y = 1 :(~X)"
+        L[6] = " Y = 1 :(\X)"
+        L[7] = " Y = 1 :((X = 1))"
+        L[8] = " Y = 1 :('L')"
+        L[9] = " Y = 1 :(1)"
+        L[10] = " Y = 1 :(-X)"
+        L[11] = " Y = 1 :(X . Y)"
+        L[12] = " Y = 1 :(X)"
+        L[13] = " Y = 1 :($X)"
+        L[14] = " Y = 1 :(A[1])"
+        L[15] = " Y = 1 :(F(X))"
+        L[16] = " Y = 1 :(*X)"
+        L[17] = " Y = 1 :(&ANCHOR)"
+        L[18] = " Y = 1 :((X))"
+        L[19] = " Y = 1 :($$X)"
+        L[20] = " Y = 1 :(F(1 + 2))"
+        L[21] = " Y = 1 :($(A + B))"
+        L[22] = " Y = 1 :(X @ Y)"
         N = 0
 LOOP    N = N + 1
-        S = L<N>                                :F(END)
+        S = L[N]                                :F(END)
         &ERRTYPE = 0
         CODE(S)                                 :F(BAD)
         OUTPUT = 'compiled: ' S                 :(LOOP)
