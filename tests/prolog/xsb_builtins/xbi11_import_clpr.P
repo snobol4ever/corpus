@@ -1,0 +1,20 @@
+% xbi11_import_clpr -- XSB 5.0.0's :- import {}/1 from clpr. makes the constraint solver available (constraint_tests testlightmeal): inequalities over reals prune a search, an equation is solved
+% for its unknown, and a unification that violates a constraint fails.
+:- import {}/1 from clpr.
+test :- lightMeal(H, M, D), write(choices(H, M, D)), nl, fail.
+test :- { X + 1 = 3 }, write(solved(X)), nl, fail.
+test :- { A = 2 * B + 1, B = 3 }, write(linear(A, B)), nl, fail.
+test :- { P >= 0, P =< 5 }, ( P = 7 -> write(wrong(P)) ; write(refused(7)) ), nl, fail.
+test.
+lightMeal(H, M, D) :-
+    { I >= 0, J >= 0, K >= 0 },
+    { I + J + K =< 10 },
+    horsDoeuvre(H, I),
+    mainCourse(M, J),
+    dessert(D, K).
+horsDoeuvre(radishes, 1).	horsDoeuvre(pate, 6).
+mainCourse(M, I) :- meat(M, I).
+mainCourse(M, I) :- fish(M, I).
+meat(beef, 5).	 meat(pork, 7).
+fish(sole, 2).	 fish(tuna, 4).
+dessert(fruit, 2). dessert(iceCream, 6).
