@@ -1,0 +1,8 @@
+file(csr_static_clause_property.pl) line(5) rule user:dyn/2
+file(csr_static_clause_property.pl) line(7) fact user:dyn/2
+file(csr_static_clause_property.pl) line(9) fact user:stat/1
+file(csr_static_clause_property.pl) line(10) fact user:stat/1
+file(csr_static_clause_property.pl) line(5) rule user:dyn/2
+live
+caught(instantiation_error)
+unbound_ref_failed

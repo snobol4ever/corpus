@@ -1,0 +1,12 @@
+csr_consulted_lib.pl-5
+csr_consulted_lib.pl-9
+dcg_line(11)
+:- dynamic lib_rule/2.
+
+lib_rule(First, Second) :-
+    Second=f(First, _).
+lib_rule([Head|_Tail], Head).
+
+lib_dcg(A, [hello|B], C) :-
+    B=[A|C].
+
