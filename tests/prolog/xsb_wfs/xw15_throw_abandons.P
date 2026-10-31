@@ -1,0 +1,13 @@
+% DESIGN-PLAN xsb-tabling-wfs step 6: an exception that escapes a tabled evaluation abandons its incomplete tables, so the next call evaluates afresh and throws again (hq_prolog's witness, 2026-10-31: the single-leader road left the table incomplete and the next call parked on a dead header)
+:- table tt/1, a/1, b/1, q/1.
+tt(_) :- throw(oops).
+a(X) :- b(X).
+a(1).
+b(X) :- a(Y), X is Y+1, X<6.
+q(X) :- a(X), X =:= 4, throw(found(X)).
+q(0).
+test :- catch(tt(_), oops, (write(c1), nl)), fail.
+test :- catch(tt(_), oops, (write(c2), nl)), fail.
+test :- catch(q(_), E, (write(caught(E)), nl)), fail.
+test :- catch(q(_), E, (write(again(E)), nl)), fail.
+test :- findall(X, a(X), L), sort(L, M), write(M), nl.

@@ -9,3 +9,5 @@ The witnesses of DESIGN-PLAN: xsb-tabling-wfs (.github/ARCH-PROLOG-WFS-TABLING.m
 ## 2026-10-31 (cao, step 6 landing)
 
 `xw13_nested_resume.P` and `xw14_three_table_scc.P` are the W6 witnesses of 8.10 (10) (hq_collector's n2 and n3, 2026-10-29), refs cut from XSB 5.0.0 by the gentest protocol. Both were red on the step-6 branch before its park froze the live choice points' heap marks (n2 [1,2], n3 [1,2,3]) and are green after. `delay_tests_ac_tests` moved from step 6's probe to step 8's on the cto's ruling of 2026-10-31 (its one differing line of 173 is the delay-list text CEO-2008 gave step 8).
+
+`xw15_throw_abandons.P` (cao, 2026-10-31): an exception escaping a tabled evaluation abandons its incomplete tables (hq_prolog's witness of the single-leader regression); the ref is cut from XSB 5.0.0, and `q` picks the answer 4 by value because the order of a completed table's answers is the engine's own.
