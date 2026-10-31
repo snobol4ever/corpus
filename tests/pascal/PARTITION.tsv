@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=275 features=48 ubiquitous=4(program var writeln assign) distinctive=44 core=35 clusters=35 chunks=3 sizes=100,100,40
+# shape: entries=279 features=48 ubiquitous=4(program var writeln assign) distinctive=44 core=35 clusters=35 chunks=3 sizes=100,100,44
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multi	chunk:01	family:ladder	
@@ -12,19 +12,22 @@ program_writeln_9	chunk:02	family:crosscheck_misc
 ladder__rung00_hello_width	chunk:01	family:ladder	
 ladder__rung00_hello_blank	chunk:01	family:ladder	
 ladder__rung05_proc_func_multi_param	chunk:02	feat:procedure	procedure
-program_writeln_11	chunk:02	family:crosscheck_misc	
+program_writeln_11	chunk:03	family:crosscheck_misc	
 ladder__rung01_var_assign	chunk:01	family:ladder	
 ladder__rung01_var_assign_widen	chunk:01	family:ladder	
 ladder__rung02_arithmetic_unary	chunk:01	family:ladder	
+ladder__rung05_func_named_main_recursive	chunk:01	feat:function	function
 ladder__rung13_ptr_pchar_string	chunk:01	family:ladder	
 program_writeln_15	chunk:03	family:boolmix	
 program_writeln_3	chunk:03	family:boolmix	
 ladder__rung01_var_assign_multi_group	chunk:01	family:ladder	
-program_writeln_10	chunk:02	family:crosscheck_misc	
+program_writeln_10	chunk:03	family:crosscheck_misc	
 ladder__rung01_var_assign_multi_ident	chunk:01	family:ladder	
 ladder__rung03_if_while_if_no_else	chunk:01	family:ladder	
 ladder__rung03_if_while_dangling_else	chunk:01	family:ladder	
 ladder__rung03_if_while_if_compound	chunk:01	family:ladder	
+ladder__rung05_nested_proc_named_main	chunk:01	feat:nested_proc	nested_proc procedure
+ladder__rung05_proc_named_main	chunk:01	feat:nested_proc	nested_proc procedure
 program_writeln_1	chunk:03	family:boolassign	
 program_writeln_13	chunk:03	family:boolassign	
 program_writeln_16	chunk:03	family:boolnot	
@@ -36,19 +39,20 @@ program_function_writeln_3	chunk:01	feat:function	function
 program_function_writeln_4	chunk:01	feat:function	function
 ladder__rung02_arithmetic_div_neg	chunk:03	feat:div	div
 ladder__rung02_arithmetic_mod_neg	chunk:03	feat:mod	mod
-ladder__rung04_for_repeat_for_zero	chunk:02	feat:for	for
+ladder__rung04_for_repeat_for_zero	chunk:03	feat:for	for
 ladder__rung04_for_repeat_repeat_once	chunk:03	feat:repeat	repeat
 ladder__rung16_real_trunc_out_of_int64	chunk:03	feat:trunc	trunc
 program_function_writeln_1	chunk:01	feat:function	function
 program_function_writeln_5	chunk:01	feat:function	function
 program_record_writeln_4	chunk:01	feat:record	record
 ladder__rung03_if_while_while_zero	chunk:03	feat:while	while
-ladder__rung04_for_repeat_for_compound	chunk:02	feat:for	for
+ladder__rung04_for_repeat_for_compound	chunk:03	feat:for	for
 program_procedure_writeln_10	chunk:02	feat:procedure	procedure
 program_procedure_writeln_4	chunk:02	feat:procedure	procedure
 program_procedure_writeln_6	chunk:02	feat:procedure	procedure
 program_repeat_writeln_1	chunk:03	feat:repeat	repeat
 ladder__rung05_proc_func_forward	core	core	forward nested_proc procedure
+ladder__rung05_proc_named_main_no_params	chunk:02	feat:procedure	procedure
 program_for_writeln_1	chunk:03	feat:for	for
 program_function_writeln_2	chunk:01	feat:function	function
 program_procedure_writeln_1	chunk:02	feat:procedure	procedure
@@ -152,7 +156,7 @@ ladder__rung13_ptr_scalar	chunk:03	feat:pointer	nested_proc pointer procedure
 program_function_for_replace_1	chunk:01	feat:function	for function nested_proc
 program_function_for_replace_2	chunk:01	feat:function	for function nested_proc
 program_array_for_4	chunk:02	feat:for_with_array	array for for_with_array type
-program_array_packed_2	chunk:01	feat:packed	array packed set_literal subrange
+program_array_packed_2	chunk:02	feat:packed	array packed set_literal subrange
 program_set_for_2	chunk:02	feat:set	for in set subrange
 program_set_for_3	chunk:02	feat:set	for in set subrange
 program_set_for_4	chunk:02	feat:set	for in set subrange
@@ -249,12 +253,12 @@ program_procedure_set_replace_1	chunk:02	feat:set	for in nested_proc procedure r
 program_procedure_set_replace_2	chunk:02	feat:set	for in nested_proc procedure repeat set subrange while
 benchmark_queens	chunk:03	feat:readln	array for for_with_array procedure readln repeat set_literal subrange
 program_function_procedure_replace_3	chunk:03	feat:mod	for function in mod nested_proc procedure while with
-program_record_array_replace_1	chunk:01	feat:write	array case for for_with_array record set_literal subrange type write
+program_record_array_replace_1	chunk:02	feat:write	array case for for_with_array record set_literal subrange type write
 program_function_procedure_1	core	core	array for for_with_array function nested_proc procedure set_literal subrange type
 program_function_procedure_6	chunk:01	feat:function	array for for_with_array function nested_proc procedure set_literal subrange type
 benchmark_sieve	chunk:03	feat:readln	array const for for_with_array readln repeat set_literal subrange while
 program_procedure_record_6	chunk:02	feat:nil	nested_proc new nil pointer pointer_with_new procedure record type while
-ladder__rung12_fill_param_first_element	chunk:01	feat:write	array for for_with_array nested_proc procedure set_literal subrange type write
+ladder__rung12_fill_param_first_element	chunk:02	feat:write	array for for_with_array nested_proc procedure set_literal subrange type write
 program_function_procedure_replace_2	core	core	for function goto label nested_proc procedure repeat while with
 program_procedure_record_replace_1	core	core	case new nil pointer pointer_with_new procedure record type with with_record
 program_procedure_record_replace_2	core	core	case new nil pointer pointer_with_new procedure record type with with_record
