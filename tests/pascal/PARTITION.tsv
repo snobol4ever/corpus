@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=301 features=48 ubiquitous=4(program var writeln assign) distinctive=44 core=36 clusters=35 chunks=3 sizes=100,100,65
+# shape: entries=302 features=48 ubiquitous=4(program var writeln assign) distinctive=44 core=36 clusters=35 chunks=3 sizes=100,100,66
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multi	chunk:01	family:ladder	
@@ -16,6 +16,7 @@ ladder__rung17_pending_after_close	chunk:01	family:ladder
 ladder__rung17_reset_missing_class	chunk:01	family:ladder	
 ladder__rung17_reset_missing_caught	chunk:01	family:ladder	
 ladder__rung17_ioresult_off	chunk:01	family:ladder	
+ladder__rung17_error_code	chunk:01	family:ladder	
 program_writeln_11	chunk:03	family:crosscheck_misc	
 ladder__rung01_var_assign	chunk:01	family:ladder	
 ladder__rung01_var_assign_widen	chunk:01	family:ladder	
@@ -97,7 +98,7 @@ ladder__rung16_real_trunc_round_int64	core	core	round trunc
 program_for_writeln_4	core	core	for read readln
 program_procedure_nested_13	chunk:01	feat:nested_proc	nested_proc procedure
 program_set_subrange_1	chunk:02	feat:set	set subrange
-program_writeln_5	chunk:02	feat:chr	chr ord
+program_writeln_5	chunk:03	feat:chr	chr ord
 program_record_writeln_3	chunk:01	feat:record	record type
 program_with_for_replace_1	chunk:03	feat:with	for with
 program_case_for_1	chunk:02	feat:case	case for
@@ -218,7 +219,7 @@ program_procedure_record_5	chunk:02	feat:new	new pointer pointer_with_new proced
 ladder__rung12_fillbyte_bytes	chunk:01	feat:write	array for for_with_array set_literal subrange write
 ladder__rung12_fillchar_chars	chunk:01	feat:write	array for for_with_array set_literal subrange write
 ladder__rung12_fillchar_zero	chunk:01	feat:write	array for for_with_array set_literal subrange write
-ladder__rung12_fillword_words	chunk:01	feat:write	array for for_with_array set_literal subrange write
+ladder__rung12_fillword_words	chunk:02	feat:write	array for for_with_array set_literal subrange write
 program_record_array_4	chunk:02	feat:packed	array packed record set_literal subrange type
 program_record_pointer_5	chunk:02	feat:case	case new pointer pointer_with_new record type
 ladder__rung13_ptr_index	chunk:02	feat:write	array for for_with_array set_literal subrange write
