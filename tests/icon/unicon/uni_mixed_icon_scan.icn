@@ -8,6 +8,6 @@ procedure main()
    c := Counter(0);
    "one two three" ? while w := tab(upto(' ') | 0) do {
       write(c.bump(), ": ", w); move(1) | break;
-   }
+   };
    every write(c.bump() | c.bump());
 end
