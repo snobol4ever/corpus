@@ -1,0 +1,12 @@
+% xbi14_system_module_call_reaches_the_library -- a call qualified with a system module (basics) reaches that module's predicate, never the program's own predicate of the same name:
+% the program below defines its own select/3 (it prints ERROR if it is ever called) and calls basics:select as a closure of 0, 1 and 2 arguments and as a goal; basics:append, which the
+% program does not redefine, answers as before (prolog_tests call_tests).
+:- import for/3 from basics.
+test :- call(basics:select,X,[a,b,c],Y), writeln(j(X,Y)), fail.
+test :- call(basics:select(X),[a,b,c],Y), writeln(k(X,Y)), fail.
+test :- call(basics:select(X,[a,b,c]),Y), writeln(l(X,Y)), fail.
+test :- basics:select(X,[p,q],Y), writeln(s(X,Y)), fail.
+test :- call(basics:append,X,Y,[a,b]), writeln(d(X,Y)), fail.
+test :- basics:append(X,Y,[c]), writeln(e(X,Y)), fail.
+test.
+select(_,_,_) :- writeln('ERROR').
