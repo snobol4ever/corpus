@@ -1,0 +1,41 @@
+$include "posix.icn"
+link io
+
+procedure main()
+   sock := tempname("unicon-uxsocket-", "")
+
+   if fork() ~= 0 then {
+      # parent
+      client := &null
+      every !10 do {
+         delay(100)
+         if client := open(sock, "n") then break
+      }
+      if /client then
+         stop("Client couldn't connect " || sock || ":\n",  &errortext | "Unknown")
+
+      write(client, "hello, world!")
+      write(read(client))
+
+      delay(500)
+      close(client)
+      exit(0)
+   }
+
+   # child
+   if server := open(sock, "na") then {
+      if fork() = 0 then {
+         handle(server)
+         close(server)
+         exit(0)
+      }
+      close(server)
+      system("rm -f " || sock)
+   }
+   (&errno = 0) | stop("Server couldn't accept " || sock || ":\n", &errortext | "Unknown")
+end
+   
+procedure handle(f)
+   while line := read(f) do
+      write(f, reverse(line))
+end

@@ -1,0 +1,144 @@
+#
+# pty_uni.icn: Program for testing pseudo-tty interaction with Unicon programs.
+#
+# This file is to test pseudo-tty (bidirectional pipes)
+# capability to invoke and control other (console mode) unicon programs.
+# Status: runs on Linux, not on Windows yet.
+#
+link basename, io
+
+# Same resolution as tests/mt/load.icn compiler_for_mt_load() / unicon_for_tests().
+procedure unicon_for_pty()
+   local p, path, exe
+   exe := if find("NT", &features) then ".exe" else ""
+   p := getenv("UNICON" | "UC")
+   if \p & exists(p) then return p
+
+   p := "../../bin/unicon" || exe
+   if exists(p) then return p
+   if path := (&features ? (="Binaries at " & tab(0))) then {
+      if *path > 0 then {
+         if not (path[-1] == "/" | path[-1] == "\\") then path ||:= "/"
+         p := path || "unicon" || exe
+         if exists(p) then return p
+         }
+      }
+   return "unicon" || exe
+end
+
+# Same pattern as unicon_for_pty(); UDB names the debugger binary (parallel to UNICON/UC).
+procedure udb_for_pty()
+   local p, path, exe
+   exe := if find("NT", &features) then ".exe" else ""
+   p := getenv("UDB")
+   if \p & exists(p) then return p
+
+   p := "../../bin/udb" || exe
+   if exists(p) then return p
+   if path := (&features ? (="Binaries at " & tab(0))) then {
+      if *path > 0 then {
+         if not (path[-1] == "/" | path[-1] == "\\") then path ||:= "/"
+         p := path || "udb" || exe
+         if exists(p) then return p
+         }
+      }
+   return "udb" || exe
+end
+
+procedure main()
+    local fo, fi, unicon, udb
+   #
+   # test 1: most trivial Unicon program, compiled w/iconx
+   #
+   if not (&features == "pseudo terminals") then stop("no ptys in VM")
+   fo := open("ptytest.icn","w") | stop("can't write a ptytest")
+   write(fo, "procedure main()")
+   write(fo, "   write(\"hello, world\")")
+   write(fo, "end")
+   close(fo)
+   unicon := unicon_for_pty()
+   system(unicon || " -s ptytest")
+   fi := open("./ptytest", "prw") | stop("can't open mode prw")
+   write("pty gives me: ", image(read(fi)))
+   close(fi)
+   write("...done")
+   remove("ptytest.icn")
+$ifdef _MS_WINDOWS_NT
+   remove("ptytest.exe")
+$else
+   remove("ptytest")
+$endif
+
+   #
+   # test 2: prove you can actually read and write interactively, with
+   # at least a line-at-a-time program, such as udb
+   #
+   # the stand/pty_uni.std has been updated to reflect the changes in the  testing
+   # process
+   #
+   udb := udb_for_pty()
+   write("\ntesting interactive read/write with at least a line-at-a-time program\nusing Unicon Debugger\n\n", basename(udb))
+   fi := open(udb, "prw") | stop("can't open udb mode prw")
+   line := ""
+   cntnl := 0
+   cnt := 0
+   #
+   # we are not interested in the first line that comes back from udb as this
+   # conatins the udb version information and is not required in the test
+   #
+   response(fi, "", "\n")
+   #
+   # skip everything up to the first newline encountered and then return
+   # everything else up to the prompt "(udb)". We use writes here to place the
+   # sent command on the same line as the prompt.
+   #
+   writes(response(fi, "\n", "(udb)"))
+   #
+   # send down the first command to udb and also print this on the standard
+   # output for this program.
+   #
+   # remove flush() call as it is causing runtime memory violation
+   #
+   write(write(fi, "where")); #flush(fi)
+   #
+   # skip everything up to the command sent above and then return everything
+   # up to prompt that is placed on a new line.
+   #
+   writes(response(fi, "where\r\n", "\r\n(udb)"))
+   #
+   # send down the next command to udb and also print this on the standard
+   # output for this program.
+   #
+   write(write(fi, "quit"))
+   #
+   # skip everything up to the command sent above and then return everything
+   # up to final word that udb send on quitting. We use write here to place the
+   # next set of messages on a new line.
+   #
+   write(response(fi, "quit\r\n", "Goodbye"))
+   writes("\nclosing link to udb")
+   close(fi)
+   write("...done")
+end
+
+procedure response(fi, skipstr, responsestr)
+   local line, cntskip
+
+   line := ""
+   cntskip := 0
+
+   # keep track of time and don't wait for more than
+   # 2.5 CPU seconds for a response
+   t:=&time
+   repeat {
+       if line ||:= ready(fi) then {
+           if find(skipstr, line) & cntskip = 0 then {
+                cntskip +:= 1
+                line := ""
+           }
+           t:=&time # target process is still talking to us
+        }
+       if find(responsestr, line) | (&time-t>2500) then break
+   }
+   return line
+end

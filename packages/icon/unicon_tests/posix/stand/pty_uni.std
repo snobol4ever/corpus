@@ -1,0 +1,20 @@
+pty gives me: "hello, world"
+...done
+
+testing interactive read/write with at least a line-at-a-time program
+using Unicon Debugger
+
+udb
+   A program must be pre-loaded
+   Type "help" for assistance
+(udb)where
+
+   The program is not being run.
+   Try "run", or Type "help" for assistance
+(udb)quit
+received "quit", quitting
+
+   Thank you for using UDB.
+   Goodbye
+
+closing link to udb...done

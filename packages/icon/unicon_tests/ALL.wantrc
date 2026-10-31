@@ -1,0 +1,14 @@
+general/checkc	3
+general/checkx	3
+general/errors	1
+general/utf8_ovld	1
+general/xcommand	1
+mt/level	1
+mt/loaderr	1
+posix/select-io	1
+samples/xcommand	1
+special/audio	1
+thread/error	1
+unicon/macros	1
+unicon/ovld	1
+unicon/triple_strings	1

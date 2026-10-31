@@ -1,0 +1,32 @@
+$include "posix.icn"
+
+procedure main()
+   port:="127.0.0.1:1072"
+   if fork() = 0 then {
+      f := open(port, "nua")
+
+      if r := receive(f) then {
+          # Process the request in r.msg - in the case of the time
+          # service, we don't care what is actually in the message
+         send(r.addr, "hello, world!")
+      }
+      exit(0)
+   }
+
+   f := &null
+   every !10 do {
+      delay(100)
+      if f := open(port, "nu") then break
+   }
+   if /f then
+      stop("Open failed: ", &errortext | "Unknown")
+
+   write(f, "")
+   if *select(f, 5000) = 0 then
+      stop("Connection timed out: ", &errortext | "Unknown")
+
+   r := receive(f) | stop("Receive failed: ", &errortext | "Unknown")
+
+   write("Received ", r.msg)
+
+end

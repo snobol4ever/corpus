@@ -1,0 +1,166 @@
+# PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
+# shape: entries=162 features=64 ubiquitous=8(package write every procedure alternation to_by assign keyword_ref) distinctive=56 core=25 clusters=44 chunks=2 sizes=100,37
+entry	part	cluster	shells
+coexpr/co	chunk:01	feat:create	coexpr_activate create global image limitation
+coexpr/cobench	chunk:01	feat:create	aug_assign coexpr_activate create element_gen gen_with_alternation local stop while writes
+coexpr/moveco	chunk:01	feat:create	create limitation move return scan stop while
+coexpr/stressCo	chunk:01	feat:list	aug_assign coexpr_activate create element_gen gen_with_alternation global integer limitation list local put return static stop table writes
+coexpr/stressCollectCo	chunk:01	feat:list	aug_assign coexpr_activate create element_gen gen_with_alternation global integer limitation list local put return static stop table writes
+general/augment	chunk:01	feat:record	aug_assign global image record
+general/btrees	core	core	bal every_with_suspend gen_with_alternation limitation local move read record return scan scan_with_tab suspend tab upto while
+general/cfuncs	chunk:01	feat:image	gen_with_alternation image local return
+general/checkc	core	core	coexpr_activate element_gen every_with_suspend fail gen_with_alternation image integer limitation list record repl return section suspend table want_rc
+general/checkfpc	chunk:02	feat:trim	aug_assign gen_with_alternation image integer local move repl return scan scan_with_tab tab trim type upto
+general/checkfpx	chunk:02	feat:trim	aug_assign gen_with_alternation image integer local move repl return scan scan_with_tab tab trim type upto
+general/checkx	chunk:01	feat:every_with_suspend	coexpr_activate element_gen every_with_suspend fail gen_with_alternation image integer limitation list record repl return section suspend table want_rc
+general/ck	chunk:01	feat:type	aug_assign image integer local move return scan scan_with_tab tab type upto
+general/coexpr	chunk:01	feat:every_with_suspend	coexpr_activate create element_gen every_with_suspend gen_with_alternation image record return sort stop suspend table while
+general/collate	chunk:01	feat:map	element_gen every_with_suspend image insert local map repl return section set sort static suspend
+general/concord	core	core	aug_assign get insert local many map next read section set sort table upto while
+general/diffwrds	chunk:02	feat:insert	element_gen insert many read scan scan_with_tab set sort tab upto while
+general/endetab	core	core	aug_assign case element_gen gen_with_alternation image integer limitation local many map move pos put read return scan scan_with_tab section stop tab upto while writes
+general/errors	core	core	aug_assign bal element_gen fail gen_with_alternation image limitation list member move pos put read reads record repl return scan scan_with_tab section seq set sort stop swap tab trim type want_rc while
+general/evalx	chunk:02	feat:swap	break case element_gen fail gen_with_alternation image limitation record repeat scan swap table until while
+general/fncs	core	core	element_gen gen_with_alternation global image limitation list record repl seq set sort table trim type writes
+general/fncs1	core	core	element_gen gen_with_alternation global image list map put read reads record sort table while writes
+general/gc1	chunk:01	feat:list	list repl section set table
+general/gc2	core	core	aug_assign break case coexpr_activate element_gen every_with_suspend fail find gen_with_alternation get global integer limitation local many move next pos push put read record repeat return scan scan_with_tab section sort static stop suspend tab table type upto while writes
+general/gener	chunk:01	feat:delete	aug_assign case delete element_gen gen_with_alternation global insert limitation list member put set sort until while writes
+general/ilib	core	core	aug_assign break element_gen gen_with_alternation get image insert limitation local member put return scan scan_with_tab section seq set sort tab table type while writes
+general/kross	chunk:02	feat:upto	local read upto while
+general/large	chunk:01	feat:image	gen_with_alternation image stop
+general/meander	chunk:01	feat:repl	aug_assign find integer local move read repl return scan scan_with_tab stop tab upto while
+general/mega	core	core	element_gen find gen_with_alternation global integer limitation local move pos return scan scan_with_tab section seq stop tab until while writes
+general/mffsol	core	core	any aug_assign element_gen gen_with_alternation global integer many move put read repeat return scan scan_with_tab stop tab table until upto while writes
+general/mindfa	core	core	aug_assign element_gen fail gen_with_alternation get global limitation local next put read record return scan section sort table while writes
+general/numeric	chunk:01	feat:record	gen_with_alternation image integer limitation record
+general/others	core	core	aug_assign delete element_gen fail find gen_with_alternation image insert integer local many member move read return scan scan_with_tab section set sort static stop tab table upto while
+general/over	chunk:01	feat:aug_assign	aug_assign stop
+general/overflow	chunk:01	feat:image	image local
+general/pdco	core	core	aug_assign break case coexpr_activate element_gen every_with_suspend fail gen_with_alternation image limitation list local repeat return scan section stop suspend while
+general/prefix	chunk:01	feat:bal	bal gen_with_alternation limitation local move pos read return scan scan_with_tab tab while
+general/prepro	chunk:01	feat:record	limitation record
+general/recent	core	core	case delete element_gen fail gen_with_alternation get global image insert limitation list local member put read reads record return set sort stop table type while writes
+general/recogn	chunk:02	feat:pos	gen_with_alternation local pos read return scan suspend while
+general/roman	chunk:01	feat:map	element_gen fail find gen_with_alternation integer local map read return static while
+general/scan	chunk:02	feat:swap	find gen_with_alternation image move pos record scan scan_with_tab swap tab upto while
+general/sieve	chunk:01	feat:delete	delete element_gen insert local member set sort
+general/sort	chunk:01	feat:record	element_gen gen_with_alternation limitation record sort table writes
+general/string	core	core	any aug_assign bal find gen_with_alternation global image integer many match record repl section swap upto
+general/struct	core	core	aug_assign delete element_gen gen_with_alternation get global image insert limitation list member pop push put record section set sort swap table type writes
+general/tprintf	chunk:01	feat:every_with_suspend	element_gen every_with_suspend gen_with_alternation limitation local suspend
+general/tracer	chunk:01	feat:every_with_suspend	every_with_suspend gen_with_alternation global local return section static suspend
+general/transmit	chunk:01	feat:many	coexpr_activate create global many read scan scan_with_tab static stop tab upto while
+general/utf8	chunk:01	feat:repl	aug_assign create fail gen_with_alternation global image limitation local move repl return scan scan_with_tab section tab
+general/utf8_ovld	core	core	aug_assign create fail gen_with_alternation global image limitation local move repl return scan scan_with_tab section stop tab want_rc
+general/var	chunk:02	feat:push	gen_with_alternation image list local push record static table
+general/wordcnt	chunk:01	feat:many	aug_assign local many read scan scan_with_tab sort static tab table upto while
+general/xcommand	chunk:01	feat:want_rc	coexpr_activate local want_rc while
+ipl/tgener	chunk:01	feat:limitation	limitation
+lib/class_static	chunk:01	feat:static	coexpr_activate limitation return static
+lib/jsontests	core	core	break case coexpr_activate delete element_gen fail gen_with_alternation image limitation match record return scan set table type
+lib/objecttests	chunk:02	feat:writes	coexpr_activate limitation writes
+lib/property_demo	chunk:01	feat:coexpr_activate	coexpr_activate limitation
+lib/singleton	chunk:01	feat:create	coexpr_activate create gen_with_alternation limitation
+lib/unittest	chunk:02	feat:table	aug_assign gen_with_alternation local table
+mt/level	chunk:01	feat:want_rc	coexpr_activate image limitation stop want_rc
+mt/level_tp	chunk:01	feat:create	coexpr_activate create limitation
+mt/load	chunk:02	feat:find	aug_assign coexpr_activate find image limitation local return scan scan_with_tab stop tab
+mt/loaderr	chunk:01	feat:want_rc	aug_assign coexpr_activate find image limitation local return scan scan_with_tab stop tab want_rc
+pattern/ABCss	chunk:01	feat:return	read return scan while
+pattern/assignss	chunk:01	feat:read	read while
+pattern/balss	chunk:02	feat:until	read scan until
+pattern/bigpss	chunk:02	feat:global	global local read return scan while
+pattern/breaks	chunk:01	feat:read	read scan while
+pattern/expss	chunk:01	feat:read	read scan while
+pattern/failss	chunk:01	feat:limitation	limitation read scan while
+pattern/fence	chunk:01	feat:map	map read scan while
+pattern/fish	chunk:01	feat:aug_assign	aug_assign limitation read scan while
+pattern/lenss	chunk:01	feat:read	read scan while
+pattern/nest4	chunk:01	feat:return	return scan
+pattern/nspantst	chunk:01	feat:return	read return scan while
+pattern/pairss	chunk:01	feat:read	read scan while
+pattern/pany	chunk:01	feat:read	read scan while
+pattern/parb	chunk:01	feat:read	read scan while
+pattern/parbno	chunk:01	feat:read	read scan while
+pattern/peval	chunk:01	feat:return	read return while
+pattern/pimgtest	chunk:02	feat:table	gen_with_alternation image return table
+pattern/pimmed	chunk:01	feat:read	read scan while
+pattern/plen	chunk:01	feat:read	read scan while
+pattern/ppos	chunk:01	feat:repl	read repl scan scan_with_tab tab while
+pattern/prem	chunk:01	feat:read	read scan while
+pattern/ptab	chunk:01	feat:read	read scan while
+pattern/ralternate	chunk:01	feat:image	image limitation read scan while
+pattern/rasterisk	chunk:01	feat:image	image limitation read scan while
+pattern/rbasic	chunk:01	feat:image	image limitation read scan while
+pattern/rcurly	chunk:01	feat:image	image limitation read scan while
+pattern/rplus	chunk:01	feat:image	image limitation read scan while
+pattern/rquestion	chunk:01	feat:image	image limitation read scan while
+pattern/rtab	chunk:01	feat:aug_assign	aug_assign read scan while
+pattern/sawss	chunk:01	feat:static	aug_assign read return scan static
+pattern/setcur	chunk:01	feat:repl	read repl scan while
+pattern/unevalcharss	chunk:01	feat:aug_assign	aug_assign read return scan while
+pattern/unevalintss	chunk:01	feat:aug_assign	aug_assign read return scan while
+posix/chdir	chunk:02	feat:scan_with_tab	scan scan_with_tab tab
+posix/chmod	chunk:02	feat:section	read section
+posix/dir	chunk:01	feat:aug_assign	aug_assign return stop
+posix/exec	chunk:01	feat:limitation	limitation
+posix/fcntl	chunk:02	feat:fail	fail read stop
+posix/fdup	chunk:02	feat:stop	read stop while
+posix/filepair	chunk:01	feat:break	aug_assign break gen_with_alternation global image integer many read repl scan scan_with_tab stop tab while
+posix/fork	chunk:01	dir:posix	
+posix/getpw	chunk:01	feat:image	image stop
+posix/getserv	chunk:02	feat:integer	image integer stop
+posix/gettimeofday	chunk:01	feat:type	image stop type
+posix/kill	chunk:01	dir:posix	
+posix/ls	chunk:02	feat:push	case element_gen find gen_with_alternation image list push read return sort stop type while
+posix/mcast	chunk:02	feat:next	case coexpr_activate fail local next read return stop until while writes
+posix/pipe-select	chunk:02	feat:reads	break reads stop while
+posix/pty_uni	chunk:02	feat:repeat	aug_assign break find image limitation local next read repeat return scan scan_with_tab stop tab writes
+posix/raw_sock	chunk:02	feat:find	aug_assign create fail find gen_with_alternation image limitation local read return stop
+posix/rusage	chunk:01	feat:type	element_gen gen_with_alternation image local put return sort type
+posix/select-io	chunk:02	feat:reads	create gen_with_alternation image local next read reads stop want_rc writes
+posix/select	chunk:02	feat:reads	image reads writes
+posix/setenv	chunk:01	feat:image	image
+posix/sockpeek	chunk:01	feat:type	aug_assign fail gen_with_alternation image local stop type
+posix/spawn	core	core	aug_assign create element_gen fail gen_with_alternation image limitation local push read return scan sort stop until while writes
+posix/ssh	core	core	aug_assign break case coexpr_activate element_gen fail find gen_with_alternation limitation local next put read reads return set stop trim while writes
+posix/system	chunk:02	feat:element_gen	element_gen gen_with_alternation local stop
+posix/timeout	chunk:01	dir:posix	
+posix/udp	chunk:01	feat:break	break case gen_with_alternation stop
+posix/umask	chunk:01	feat:image	image local
+posix/uxsocket	chunk:01	feat:break	break gen_with_alternation limitation read stop while
+posix/wait	chunk:02	feat:trim	integer many move scan scan_with_tab section tab trim type writes
+samples/btrees	chunk:01	feat:bal	bal every_with_suspend gen_with_alternation limitation local move read record return scan scan_with_tab suspend tab upto while
+samples/diffwrds	chunk:02	feat:insert	element_gen insert many read scan scan_with_tab set sort tab upto while
+samples/kross	chunk:02	feat:upto	local read upto while
+samples/meander	chunk:01	feat:repl	aug_assign find integer local move read repl return scan scan_with_tab stop tab upto while
+samples/prefix	chunk:01	feat:bal	bal gen_with_alternation limitation local move pos read return scan scan_with_tab tab while
+samples/recogn	chunk:02	feat:pos	gen_with_alternation local pos read return scan suspend while
+samples/roman	chunk:01	feat:map	element_gen fail find gen_with_alternation integer local map read return static while
+samples/sieve	chunk:01	feat:delete	delete element_gen insert local member set sort
+samples/wordcnt	chunk:02	feat:many	aug_assign local many read scan scan_with_tab sort static tab table upto while
+samples/xcommand	chunk:01	feat:want_rc	coexpr_activate local stop want_rc while
+special/1to10	chunk:02	dir:special	
+special/audio	chunk:01	feat:want_rc	image stop want_rc
+thread/channel	chunk:02	feat:until	aug_assign coexpr_activate create gen_with_alternation stop until
+thread/critter	core	core	aug_assign break element_gen every_with_suspend fail global limitation local next push put repeat return stop suspend table type
+thread/error	chunk:01	feat:want_rc	element_gen put stop want_rc
+thread/gc	core	core	aug_assign create element_gen gen_with_alternation global insert integer local move put scan scan_with_tab set static stop tab table upto writes
+thread/hellothr	chunk:01	feat:coexpr_activate	coexpr_activate stop
+thread/mutexfun	chunk:01	feat:type	image integer local return stop type writes
+thread/queue	core	core	aug_assign global limitation pop put stop while writes
+thread/rantest	chunk:01	feat:static	aug_assign coexpr_activate element_gen gen_with_alternation global integer put static stop
+thread/sharelist	chunk:02	feat:put	element_gen global limitation put scan stop
+thread/stress	chunk:01	feat:list	aug_assign element_gen gen_with_alternation global integer limitation list local put return static stop table
+thread/sum	chunk:01	feat:static	aug_assign element_gen gen_with_alternation global integer limitation local put static stop
+thread/talloc	chunk:02	feat:case	case coexpr_activate create element_gen gen_with_alternation integer list put sort stop table
+thread/tcom	chunk:01	feat:coexpr_activate	aug_assign coexpr_activate gen_with_alternation stop
+udb/watchme	chunk:02	feat:global	aug_assign global return while
+unicon/clin_err	chunk:01	dir:unicon	
+unicon/macros	chunk:01	feat:want_rc	aug_assign fail find image limitation local read return scan scan_with_tab stop tab want_rc while
+unicon/mintest	chunk:01	dir:unicon	
+unicon/ovld	core	core	coexpr_activate create element_gen every_with_suspend gen_with_alternation global image limitation record return scan section stop suspend type want_rc writes
+unicon/to	chunk:01	dir:unicon	
+unicon/triple_strings	chunk:01	feat:want_rc	coexpr_activate create find image limitation local read return stop want_rc writes

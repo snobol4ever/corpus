@@ -1,0 +1,11 @@
+after a brief computation:
+getrusage: ok
+inblock: integer ok
+majflt: integer ok
+maxrss: integer ok
+minflt: integer ok
+nivcsw: integer ok
+nvcsw: integer ok
+oublock: integer ok
+stime: posix_timeval ok
+utime: posix_timeval ok

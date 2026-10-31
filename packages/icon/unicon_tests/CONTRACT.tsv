@@ -1,0 +1,2 @@
+stderr	merged	Unicon tests/Makefile.test runs each program as prog < data/NAME.dat > out 2>&1 and diffs it against stand/NAME.std
+oracle	unicon	CEO-2072: the refs of this package are cut from the Unicon translator through unicon_bin(), never from a .std alone

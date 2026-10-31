@@ -1,0 +1,51 @@
+#
+# system.icn: test system() function.
+# TODO: expand to test system() parameters and more exotic features.
+#
+# Note: doing a unicon compile would have a temp filename difference.
+#
+
+
+link io
+procedure main()
+    local icont
+$ifdef _MS_WINDOWS_NT
+    icont := "../../bin/icont.exe"
+$else
+    icont := "../../bin/icont"
+$endif
+   if not exists(icont) then
+      icont := "icont"
+   remove("foo.out")
+   f := open("x.icn","w")
+   write(f,"procedure main()")
+   write(f,"   write(\"hello world\")")
+   write(f,"end")
+   close(f)
+   #
+   # change format of command use the file redirection as given below
+   # this was a cause of error difference between what is expected and
+   # what was actually obtained
+   #
+$ifdef _MS_WINDOWS_NT
+   system(icont || " x.icn > foo.out 2>&1")
+$else
+   system(icont || " x.icn &>foo.out")
+$endif
+   fin := open("foo.out") | stop("can't open foo.out for reading")
+   every write(!fin)
+   close(fin)
+
+   remove("foo.out")
+   remove("x.icn")
+   #
+   # add following remove command to remove the generated executable file,
+   # this non-removal caused a problem in Makefile
+   #
+$ifdef _MS_WINDOWS_NT
+   remove("x.exe")
+$else
+   remove("x")
+$endif
+   write("...done")
+end

@@ -1,0 +1,149 @@
+#unicon program stressCo.icn
+# by cvevans
+# based on stress.icn
+# tests coexpression op
+# Optional args: debug | -debug | --debug, and/or int n >= 10 (custom thread count).
+# Any of those turns on "debug": progress dots on stderr, per-coexpr messages,
+# and wall/CPU timing. With debug, &collections is printed after the sum (values
+# vary by GC/threading; not suitable for golden stdout comparison).
+
+ global gsum, str, v, w, dbg, a, b, c
+
+ procedure main(argv)
+   local a, i
+   if not (&features == "co-expressions") then
+       stop("This program requires co-expressions.")
+   start := &now
+   stt := gettimeofday()
+   gsum := 0
+
+   thrdL := []
+
+   n := 100
+   dbg := &null
+   every a := !argv do {
+      if a == "debug" | a == "-debug" | a == "--debug" then dbg := 1
+      else {
+         i := integer(a) | stop("arg must be integer")
+         i >= 10 | stop("arg must be >= 10")
+         n := i
+         dbg := 1
+      }
+   }
+
+   x := 10^8
+   d := x / n
+
+   m := n / 10
+
+   t := &now
+
+   v := w := ""
+
+   write("Busy work Coexprs... ")
+   every 1 to 9 do put(thrdL, create dowork(m, d, x))
+
+   write("Interference Coexprs...")
+   a := create (A())
+   b := create B()
+   c := create C()
+   @a
+   dowork(m, d, x)
+   @c
+   if \dbg then {
+      every @1(!thrdL,writes(&errout,"."))
+      write(&errout)
+   } else
+      every @(!thrdL)
+
+ # print the sum. (x-d*n) is just an error correction when using "odd"  # of threads.
+   write("sum=",gsum + (x - d*n))
+
+   if \dbg then {
+      write("time:", &now-t, " seconds")
+      endt := gettimeofday()
+      write ( "elasped: ", (endt[1] - stt[1]) + (endt[2] - stt[2])/1000000.0)
+      write ("CPU time: ", &time/1000.0)
+      writes("Collections: ")
+      every writes(&collections, ", ")
+      write()
+   }
+ end # main
+
+ procedure dowork(n, d, x)
+   thrd := []
+   if \dbg then {
+      write(n , " coexpr(s) will sum ", x, " ones.")
+      write("The work will be divided equally between them. Please wait... ")
+      }
+   every i:=!n do put(thrd, create suma(d, i))
+   @^b
+   every @(!thrd) # do writes(&errout,".")
+ end
+
+ procedure suma(n, id)
+   local sum
+   sum := 0
+ #   static region
+ #   initial  region := mutex()
+
+   every !n do sum+:=1
+
+  # critical region:
+    gsum +:= sum
+ #      write("collecting:")
+ #         collect()
+   if \dbg then
+      write("Coexpr ", id , " is done")
+
+ end
+
+ procedure A()
+   /str := ""
+   every i:=1 to 1000 do {
+     if i%100 = 1 then { L := []; str := "A" }
+     put(L, table())
+     put(L, list(100))
+     x := "snow"
+       str ||:= x
+   }
+
+   w := x
+   v := w
+
+   return L
+
+ end
+
+ procedure B()
+   /x:=[]
+   /str := ""
+   every i := 1 to 10000 do {
+      if i%100 = 1 then{ L := []; str := "B" }
+      put(L, T:=table())
+      every j := 1 to 100 do T[j] := j
+      put(L, list(1000))
+      x := "ray"
+      str ||:= x
+      }
+
+   w := x
+   v ||:= w
+
+ end
+
+ procedure C()
+   /str := ""
+
+   every i := 1 to 10000 do {
+      if i%100 = 1 then L := []
+      if i%1000 = 999 then str := "C"
+      x := "moon"
+      put(L, table())
+      put(L, list(1000))
+      str ||:= x
+      }
+   w := x
+   v ||:= w
+
+ end
