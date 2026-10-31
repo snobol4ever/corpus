@@ -14,7 +14,7 @@ main:
                         test             rax, rax;                            jz    .Lmain_stack_kept
                         mov              rsp, rax
 .Lmain_stack_kept:
-                        sub              rsp, 65544
+                        sub              rsp, 8
                         push             rdi
                         push             rsi
                         call             core_lib_init@PLT
@@ -816,8 +816,8 @@ main_α_body:
                         .type            n0_call_direct_bx, @function
 n0_call_direct_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n0_call_direct_α:       sub              rsp, 16
-                        lea              rdi, [rsp + 0]
+n0_call_direct_α:       sub              rsp, 48
+                        lea              rdi, [rsp + 48]
                         mov              esi, 0
                         call             rt_fp_model_spitbol@PLT
 .Lgcsite_main_0:        mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -827,7 +827,6 @@ n0_call_direct_α:       sub              rsp, 16
                         test             eax, eax
                         pop              rax
                                                                               je 1f
-                        sub              rsp, 32
                         mov              qword ptr [rsp + 0], r13
                         mov              qword ptr [rsp + 16], rax
                         mov              qword ptr [rsp + 24], rdx
@@ -840,20 +839,20 @@ n0_call_direct_α:       sub              rsp, 16
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
-                        add              rsp, 32
 1:                      cmp              al, 104;                             jne   .Lcall_direct_α_7_999
-                        add              rsp, 16
+                        add              rsp, 48
                         add              rsp, -16;                            jmp   n1_call_direct_α
-.Lcall_direct_α_7_999:  mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n1_call_direct_α
-n0_call_direct_β:       add              rsp, 16
+.Lcall_direct_α_7_999:  mov              qword ptr [rsp + 32], rax            # result
+                        mov              qword ptr [rsp + 40], rdx
+                        add              rsp, 32;                             jmp   n1_call_direct_α
+n0_call_direct_β:       add              rsp, 48
                         add              rsp, -16;                            jmp   n1_call_direct_α
                         .size            n0_call_direct_bx, .-n0_call_direct_bx
                         .type            n1_call_direct_bx, @function
 n1_call_direct_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n1_call_direct_α:       sub              rsp, 16
-                        lea              rdi, [rsp + 0]
+n1_call_direct_α:       sub              rsp, 48
+                        lea              rdi, [rsp + 48]
                         mov              esi, 0
                         call             rt_quit_trap_320@PLT
 .Lgcsite_main_2:        mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -863,7 +862,6 @@ n1_call_direct_α:       sub              rsp, 16
                         test             eax, eax
                         pop              rax
                                                                               je 1f
-                        sub              rsp, 32
                         mov              qword ptr [rsp + 0], r13
                         mov              qword ptr [rsp + 16], rax
                         mov              qword ptr [rsp + 24], rdx
@@ -876,14 +874,13 @@ n1_call_direct_α:       sub              rsp, 16
                         mov              r13, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
-                        add              rsp, 32
 1:                      cmp              al, 104;                             jne   .Lcall_direct_α_8_999
-                        add              rsp, 16
+                        add              rsp, 48
                         add              rsp, 16;                             jmp   n2_statement_begin_α
-.Lcall_direct_α_8_999:  mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx
-                        add              rsp, 32;                             jmp   n2_statement_begin_α
-n1_call_direct_β:       add              rsp, 16
+.Lcall_direct_α_8_999:  mov              qword ptr [rsp + 32], rax            # result
+                        mov              qword ptr [rsp + 40], rdx
+                        add              rsp, 64;                             jmp   n2_statement_begin_α
+n1_call_direct_β:       add              rsp, 48
                         add              rsp, 16;                             jmp   n2_statement_begin_α
                         .size            n1_call_direct_bx, .-n1_call_direct_bx
                         .type            n2_statement_begin_bx, @function
@@ -919,8 +916,9 @@ n3_lit_string_α:        sub              rsp, 16
                         .type            n4_assign_bx, @function
 n4_assign_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n4_assign_α:            mov              rax, qword ptr [rsp + 0]             # lit_string
-                        mov              rdx, qword ptr [rsp + 8]             # val
+n4_assign_α:            sub              rsp, 32
+                        mov              rax, qword ptr [rsp + 32]            # lit_string
+                        mov              rdx, qword ptr [rsp + 40]            # val
                         mov              rsi, rax                             # val
                         mov              rdi, qword ptr [rip + .Lassign_α_12_0] # name
                         call             NV_SET_fn@PLT
@@ -931,7 +929,6 @@ n4_assign_α:            mov              rax, qword ptr [rsp + 0]             #
                         test             eax, eax
                         pop              rax
                                                                               je 1f
-                        sub              rsp, 32
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
                         mov              qword ptr [rsp + 16], r13
@@ -944,8 +941,7 @@ n4_assign_α:            mov              rax, qword ptr [rsp + 0]             #
                         mov              rax, qword ptr [rsp + 0]
                         mov              rdx, qword ptr [rsp + 8]
                         mov              r13, qword ptr [rsp + 16]
-                        add              rsp, 32
-1:                                                                            jmp   n5_statement_end_α
+1:                      add              rsp, 32;                             jmp   n5_statement_end_α
                         .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Lassign_α_12_0: .quad .Lassign_α_12_0_s; .popsection
 .Lassign_α_12_0_s:      .string          "OUTPUT"
                         .size            n4_assign_bx, .-n4_assign_bx
@@ -975,7 +971,7 @@ main_β:
 #-----------------------------------------------------------------------------------------------------------------------
 main_γ:
                         call             sno_setexit_fire_on_end@PLT
-.Lgcsite_main_8:        push             rax                                  # gc_poll bb_glue_flat.cpp:57
+.Lgcsite_main_8:        push             rax                                  # gc_poll bb_glue_flat.cpp:55
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1009,25 +1005,35 @@ main_ω:
                         .quad            0
                         .quad            .Lgccode_main_0
                         .quad            .Lgcsite_main_0-.Lgccode_main_0
-                        .quad            68719476737
+                        .quad            206158430209
+                        .quad            0
                         .quad            .Lgcsite_main_1-.Lgccode_main_0
                         .quad            206158430209
+                        .quad            0
                         .quad            .Lgcsite_main_2-.Lgccode_main_0
-                        .quad            137438953473
+                        .quad            274877906945
+                        .quad            64
                         .quad            .Lgcsite_main_3-.Lgccode_main_0
                         .quad            274877906945
+                        .quad            64
                         .quad            .Lgcsite_main_5-.Lgccode_main_0
-                        .quad            68719476737
+                        .quad            206158430209
+                        .quad            16
                         .quad            .Lgcsite_main_4-.Lgccode_main_0
                         .quad            206158430209
+                        .quad            16
                         .quad            .Lgcsite_main_8-.Lgccode_main_0
                         .quad            1
+                        .quad            0
                         .quad            .Lgcsite_main_7-.Lgccode_main_0
                         .quad            1
+                        .quad            0
                         .quad            .Lgcsite_main_6-.Lgccode_main_0
                         .quad            1
+                        .quad            0
                         .quad            .Lgcsite_main_9-.Lgccode_main_0
                         .quad            1
+                        .quad            0
                         .popsection
                         .section         .data.rel.ro,"aw",@progbits
                         .align           8
