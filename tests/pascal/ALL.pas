@@ -3026,7 +3026,22 @@ begin
   g := 0;
   outer
 end.
-{------------------------------------------------------ 174 ladder__rung08_sets}
+{------------------------------------ 174 ladder__rung13_ptr_empty_dynarray_nil}
+{$mode objfpc}
+program ptr_empty_dynarray_nil;
+var a: array of longint; b: array[0..2] of longint; p: plongint;
+begin
+  p := @a[0];
+  writeln(p = nil, ' ', assigned(p));
+  setlength(a, 0);
+  p := @a[0];
+  writeln(p = nil, ' ', assigned(p));
+  setlength(a, 3); a[0] := 5; a[2] := 9;
+  p := @a[0]; inc(p, 2); writeln(p^, ' ', p = nil);
+  p := @b[0]; p := nil;
+  writeln(p = nil, ' ', assigned(p));
+end.
+{------------------------------------------------------ 175 ladder__rung08_sets}
 program rung08sets;
 type
   digset = set of 0..9;
@@ -3043,7 +3058,7 @@ begin
   else
     writeln('no')
 end.
-{---------------------------------------------------- 175 program_record_with_1}
+{---------------------------------------------------- 176 program_record_with_1}
 program with1;
 type
   point = record
@@ -3062,7 +3077,7 @@ begin
   end;
   writeln(p.x)
 end.
-{---------------------------------------------------- 176 program_record_with_2}
+{---------------------------------------------------- 177 program_record_with_2}
 program with2;
 type
   point = record x : integer; y : integer end;
@@ -3084,7 +3099,7 @@ begin
     writeln(x)
   end
 end.
-{-------------------------------------------- 177 program_case_repeat_replace_1}
+{-------------------------------------------- 178 program_case_repeat_replace_1}
 (* pb40: KNOWN FAIL (session 40) - no .ref on purpose; gate skips it.
    Lowering bug: inside a case arm, an if/else whose ELSE contains a loop,
    followed by a for-loop, wires the for's exit edge to the preceding IR_IF
@@ -3108,7 +3123,7 @@ begin
   end;
   writeln(sy:1)
 end.
-{-------------------------------------------- 178 program_case_repeat_replace_2}
+{-------------------------------------------- 179 program_case_repeat_replace_2}
 (* pb40: KNOWN FAIL (session 40) - no .ref on purpose; gate skips it.
    Lowering bug: inside a case arm, an if/else whose ELSE contains a loop,
    followed by a for-loop, wires the for's exit edge to the preceding IR_IF
@@ -3132,7 +3147,7 @@ begin
   end;
   writeln(sy:1)
 end.
-{------------------------------------------------------- 179 program_case_for_2}
+{------------------------------------------------------- 180 program_case_for_2}
 program enumtest;
 type
   color = (red, green, blue);
@@ -3157,7 +3172,7 @@ begin
     winter: writeln(40)
   end
 end.
-{------------------------------------- 180 program_function_procedure_replace_1}
+{------------------------------------- 181 program_function_procedure_replace_1}
 program procedure_param_1(output);
 var g: integer;
 procedure dummy;
@@ -3238,7 +3253,7 @@ begin
   outer;
   counter
 end.
-{------------------------------------------- 181 ladder__rung12_fillqword_int64}
+{------------------------------------------- 182 ladder__rung12_fillqword_int64}
 {$mode objfpc}
 program fillqword_int64;
 var q: array[0..3] of int64; i: integer;
@@ -3247,7 +3262,7 @@ begin
   fillqword(q[1], 1, 5);
   for i := 0 to 3 do writeln(q[i]);
 end.
-{------------------------------------------------------ 182 program_array_for_7}
+{------------------------------------------------------ 183 program_array_for_7}
 program subarr(output);
 type range = 1..4;
 var a: array[range] of integer;
@@ -3256,7 +3271,7 @@ begin
   for i := 1 to 4 do a[i] := i * i;
   for i := 1 to 4 do writeln(a[i])
 end.
-{--------------------------------------------------- 183 program_array_packed_1}
+{--------------------------------------------------- 184 program_array_packed_1}
 program aa1;
 type alpha = packed array [1..8] of char;
 var a: array [1..3] of alpha;
@@ -3266,7 +3281,7 @@ begin
   writeln(a[1]);
   writeln(a[2])
 end.
-{------------------------------------------------ 184 program_pointer_writeln_3}
+{------------------------------------------------ 185 program_pointer_writeln_3}
 program ptr3(output);
 type ip = ^integer;
 var p : ip;
@@ -3276,7 +3291,7 @@ begin
   new(p);
   if p <> nil then writeln(2) else writeln(0)
 end.
-{--------------------------------------------------- 185 program_record_array_5}
+{--------------------------------------------------- 186 program_record_array_5}
 program vrec8;
 type r = record
       a: array [1..4] of integer;
@@ -3287,7 +3302,7 @@ begin
   c.pval := 5;
   writeln(c.pval)
 end.
-{--------------------------------------------------- 186 program_record_array_6}
+{--------------------------------------------------- 187 program_record_array_6}
 program vrec9;
 type r = record
       pval: integer;
@@ -3298,7 +3313,7 @@ begin
   c.pval := 5;
   writeln(c.pval)
 end.
-{------------------------------------------------- 187 program_record_pointer_1}
+{------------------------------------------------- 188 program_record_pointer_1}
 program boolptr(output);
 type rp = ^rec; rec = record f : boolean end;
 var p : rp; i : integer;
@@ -3310,7 +3325,7 @@ begin
   p^.f := i < 3;
   if p^.f then writeln(1) else writeln(0)
 end.
-{------------------------------------------------ 188 program_record_pointer_11}
+{------------------------------------------------ 189 program_record_pointer_11}
 program boolptr(output);
 type rp = ^rec; rec = record f : boolean end;
 var p : rp; i : integer;
@@ -3322,7 +3337,7 @@ begin
   p^.f := i < 3;
   if p^.f then writeln(1) else writeln(0)
 end.
-{---------------------------------------------------- 189 ladder__rung06_arrays}
+{---------------------------------------------------- 190 ladder__rung06_arrays}
 program rung06arrays;
 var
   a: array[1..5] of integer;
@@ -3335,7 +3350,7 @@ begin
     s := s + a[i];
   writeln(s)
 end.
-{------------------------------------------------- 190 program_record_pointer_2}
+{------------------------------------------------- 191 program_record_pointer_2}
 program disc(output);
 type
   pp = ^prec;
@@ -3348,7 +3363,7 @@ begin
   writeln(arr^.ael^.f);
   writeln(arr^.inx^.f)
 end.
-{--------------------------------------------------- 191 ladder__rung09_strings}
+{--------------------------------------------------- 192 ladder__rung09_strings}
 program rung09strings;
 type
   str3 = packed array[1..3] of char;
@@ -3362,7 +3377,7 @@ begin
     writeln('ne');
   writeln(a)
 end.
-{------------------------------------------- 192 program_array_packed_replace_3}
+{------------------------------------------- 193 program_array_packed_replace_3}
 program chararrvv(output);
 type alpha = packed array[1..8] of char;
 var a, b: alpha; n: integer;
@@ -3377,7 +3392,7 @@ begin
   if a <> b then n := n + 20;
   writeln(n)
 end.
-{-------------------------------------------------- 193 program_writeln_trunc_1}
+{-------------------------------------------------- 194 program_writeln_trunc_1}
 program stdlib1(input, output);
 var i : integer;
 begin
@@ -3392,7 +3407,7 @@ begin
   writeln(pred(10));
   writeln(succ(10))
 end.
-{------------------------------------------------------ 194 program_array_for_1}
+{------------------------------------------------------ 195 program_array_for_1}
 program matmul;
 var a, b, c: array[0..1, 0..1] of integer;
     i, j, k: integer;
@@ -3408,7 +3423,7 @@ begin
   writeln(c[0,0]); writeln(c[0,1]);
   writeln(c[1,0]); writeln(c[1,1])
 end.
-{------------------------------------------------------ 195 program_array_for_8}
+{------------------------------------------------------ 196 program_array_for_8}
 program matmul;
 var a, b, c: array[0..1, 0..1] of integer;
     i, j, k: integer;
@@ -3424,7 +3439,7 @@ begin
   writeln(c[0,0]); writeln(c[0,1]);
   writeln(c[1,0]); writeln(c[1,1])
 end.
-{------------------------------------------------- 196 program_record_pointer_6}
+{------------------------------------------------- 197 program_record_pointer_6}
 program nestpv;
 type
   cell = record num: integer end;
@@ -3440,7 +3455,7 @@ begin
   writeln(gattr.kind);
   writeln(gattr.cval^.num)
 end.
-{------------------------------------------- 197 program_array_packed_replace_2}
+{------------------------------------------- 198 program_array_packed_replace_2}
 program chararrord(output);
 type alpha = packed array[1..8] of char;
 var a, b: alpha; n: integer;
@@ -3457,7 +3472,7 @@ begin
   if 'mmm     ' > a then n := n + 400;
   writeln(n)
 end.
-{------------------------------------------------------ 198 program_array_for_5}
+{------------------------------------------------------ 199 program_array_for_5}
 program enumsubarr(output);
 type
   season = (spring, summer, fall, winter);
@@ -3475,7 +3490,7 @@ begin
   writeln(counts[1]);
   writeln(counts[12])
 end.
-{------------------------------------------------- 199 program_record_pointer_3}
+{------------------------------------------------- 200 program_record_pointer_3}
 program nestptr1;
 type
   inner = record a, b: integer end;
@@ -3493,7 +3508,7 @@ begin
   writeln(p^.c.b);
   writeln(p^.y)
 end.
-{------------------------------------------------- 200 program_record_pointer_7}
+{------------------------------------------------- 201 program_record_pointer_7}
 program nestpv2;
 type
   cell = record num: integer end;
@@ -3512,7 +3527,7 @@ begin
   writeln(gattr.cval.ival);
   writeln(gattr.cval.valp^.num)
 end.
-{--------------------------------------------------- 201 program_array_packed_5}
+{--------------------------------------------------- 202 program_array_packed_5}
 program chararrcvc(output);
 type alfa = packed array[1..4] of char;
 var rw: array[1..3] of alfa;
@@ -3533,7 +3548,7 @@ begin
   i := 3; j := 1;
   if rw[i] = rw[j] then writeln('eq') else writeln('ne')
 end.
-{--------------------------------------------- 202 program_function_procedure_5}
+{--------------------------------------------- 203 program_function_procedure_5}
 program goto3;
 var r: integer;
 
@@ -3567,21 +3582,21 @@ begin
   writeln(r);
   writeln(dbl(5))
 end.
-{---------------------------------------------- 203 program_procedure_record_12}
+{---------------------------------------------- 204 program_procedure_record_12}
 program vpfld(output);
 type rec = record fld: integer; other: integer end; pr = ^rec;
 var p: pr;
   procedure genlabel(var nxtlab: integer); begin nxtlab := 42 end;
 begin new(p); p^.fld := 7; p^.other := 99; genlabel(p^.fld);
   writeln(p^.fld); writeln(p^.other) end.
-{----------------------------------------------- 204 program_procedure_record_5}
+{----------------------------------------------- 205 program_procedure_record_5}
 program vpfld(output);
 type rec = record fld: integer; other: integer end; pr = ^rec;
 var p: pr;
   procedure genlabel(var nxtlab: integer); begin nxtlab := 42 end;
 begin new(p); p^.fld := 7; p^.other := 99; genlabel(p^.fld);
   writeln(p^.fld); writeln(p^.other) end.
-{-------------------------------------------- 205 ladder__rung12_fillbyte_bytes}
+{-------------------------------------------- 206 ladder__rung12_fillbyte_bytes}
 {$mode objfpc}
 program fillbyte_bytes;
 var b: array[0..7] of byte; i: integer;
@@ -3591,7 +3606,7 @@ begin
   for i := 0 to 7 do write(b[i], ' ');
   writeln;
 end.
-{-------------------------------------------- 206 ladder__rung12_fillchar_chars}
+{-------------------------------------------- 207 ladder__rung12_fillchar_chars}
 {$mode objfpc}
 program fillchar_chars;
 var c: array[1..5] of char; i: integer;
@@ -3601,7 +3616,7 @@ begin
   for i := 1 to 5 do write(c[i]);
   writeln;
 end.
-{--------------------------------------------- 207 ladder__rung12_fillchar_zero}
+{--------------------------------------------- 208 ladder__rung12_fillchar_zero}
 {$mode objfpc}
 program fillchar_zero;
 var a: array[1..6] of integer; i: integer;
@@ -3611,7 +3626,7 @@ begin
   for i := 1 to 6 do write(a[i], ' ');
   writeln;
 end.
-{-------------------------------------------- 208 ladder__rung12_fillword_words}
+{-------------------------------------------- 209 ladder__rung12_fillword_words}
 {$mode objfpc}
 program fillword_words;
 var w: array[1..6] of word; i: integer;
@@ -3621,7 +3636,7 @@ begin
   for i := 1 to 6 do write(w[i], ' ');
   writeln;
 end.
-{--------------------------------------------------- 209 program_record_array_4}
+{--------------------------------------------------- 210 program_record_array_4}
 program vrec7;
 type constant = record
       rval: packed array [1..8] of char;
@@ -3632,7 +3647,7 @@ begin
   c.pval := 5;
   writeln(c.pval)
 end.
-{------------------------------------------------- 210 program_record_pointer_5}
+{------------------------------------------------- 211 program_record_pointer_5}
 program vrecfield;
 type csp=^cc; cc=record slgth:integer end;
      valu=record case b:boolean of true:(ival:integer); false:(valp:csp) end;
@@ -3643,7 +3658,7 @@ begin new(lvp); lvp^.slgth:=99; v.valp:=lvp;
   g.cval := v;
   writeln(g.cval.valp^.slgth)
 end.
-{------------------------------------------------- 211 ladder__rung13_ptr_index}
+{------------------------------------------------- 212 ladder__rung13_ptr_index}
 {$mode objfpc}
 program ptr_index;
 var a: array[0..4] of longint; p: plongint; i: integer;
@@ -3655,7 +3670,7 @@ begin
   for i := 0 to 4 do write(a[i], ' ');
   writeln;
 end.
-{----------------------------------------------- 212 ladder__rung12_move_arrays}
+{----------------------------------------------- 213 ladder__rung12_move_arrays}
 {$mode objfpc}
 program move_arrays;
 var a, b: array[0..5] of integer; i: integer;
@@ -3668,7 +3683,7 @@ begin
   for i := 0 to 5 do write(a[i], ' ');
   writeln;
 end.
-{------------------------------------------------------ 213 program_array_for_2}
+{------------------------------------------------------ 214 program_array_for_2}
 program arr2d;
 var a: array[0..1, 0..2] of integer;
     i, j: integer;
@@ -3682,7 +3697,7 @@ begin
     writeln
   end
 end.
-{------------------------------------------------------ 214 program_array_for_3}
+{------------------------------------------------------ 215 program_array_for_3}
 program arr2d2;
 var b: array[0..2, 0..2] of integer;
     i, j: integer;
@@ -3697,7 +3712,7 @@ begin
     writeln
   end
 end.
-{------------------------------------------------------ 215 program_array_for_6}
+{------------------------------------------------------ 216 program_array_for_6}
 program markrel;
 var mark: array[0..2, 0..2] of integer;
     i, j: integer;
@@ -3712,7 +3727,7 @@ begin
     writeln
   end
 end.
-{------------------------------------------- 216 program_array_packed_replace_1}
+{------------------------------------------- 217 program_array_packed_replace_1}
 program chararrlit(output);
 type alpha = packed array[1..8] of char;
 var id: alpha;
@@ -3727,7 +3742,7 @@ begin
   if id = 'readln  ' then n := n + 1000;
   writeln(n)
 end.
-{------------------------------------------------ 217 program_procedure_array_1}
+{------------------------------------------------ 218 program_procedure_array_1}
 program aa6;
 var m: array [0..3] of packed array [1..4] of char;
 procedure outer;
@@ -3742,7 +3757,7 @@ begin
   outer;
   writeln(m[0]); writeln(m[1])
 end.
-{------------------------------------------------ 218 program_procedure_array_4}
+{------------------------------------------------ 219 program_procedure_array_4}
 program aa6;
 var m: array [0..3] of packed array [1..4] of char;
 procedure outer;
@@ -3757,7 +3772,7 @@ begin
   outer;
   writeln(m[0]); writeln(m[1])
 end.
-{--------------------------------------------------- 219 program_record_array_3}
+{--------------------------------------------------- 220 program_record_array_3}
 program recspan_copy(output);
 type
   pt = record x: integer; y: integer end;
@@ -3776,7 +3791,7 @@ begin
   v[2] := v[1];
   writeln(v[2].vi)
 end.
-{------------------------------------------------- 220 program_record_pointer_8}
+{------------------------------------------------- 221 program_record_pointer_8}
 program ptr4(output);
 type
   link = ^node;
@@ -3796,7 +3811,7 @@ begin
   writeln(head^.val);
   writeln(head^.next^.val)
 end.
-{--------------------------------------------- 221 program_function_procedure_3}
+{--------------------------------------------- 222 program_function_procedure_3}
 program char3;
 var c : char;
 procedure printc(x : char);
@@ -3817,7 +3832,7 @@ begin
     'Z': writeln('late')
   end
 end.
-{--------------------------------------------- 222 program_function_procedure_8}
+{--------------------------------------------- 223 program_function_procedure_8}
 program char3;
 var c : char;
 procedure printc(x : char);
@@ -3838,7 +3853,7 @@ begin
     'Z': writeln('late')
   end
 end.
-{--------------------------------------------------------- 223 benchmark_towers}
+{--------------------------------------------------------- 224 benchmark_towers}
 (* PROVENANCE: Hennessy "Towers" — Stanford integer benchmark suite
    (John L. Hennessy, Stanford, c.1981; public domain). Towers of Hanoi,
    recursive move count (2^disks-1). P4-faithful transliteration.
@@ -3864,7 +3879,7 @@ begin
   end;
   writeln(movesdone)
 end.
-{---------------------------------------------- 224 program_array_for_replace_1}
+{---------------------------------------------- 225 program_array_for_replace_1}
 (* PB-37: pcom init simulation - does 256-element init + char-indexed array work? *)
 program pb37(output);
 const
@@ -3894,7 +3909,7 @@ begin
   writeln(chartp[' ']);
   writeln(chartp['x'])
 end.
-{---------------------------------------------- 225 program_array_for_replace_2}
+{---------------------------------------------- 226 program_array_for_replace_2}
 (* PB-37: pcom init simulation - does 256-element init + char-indexed array work? *)
 program pb37(output);
 const
@@ -3924,7 +3939,7 @@ begin
   writeln(chartp[' ']);
   writeln(chartp['x'])
 end.
-{--------------------------------------------- 226 program_function_procedure_4}
+{--------------------------------------------- 227 program_function_procedure_4}
 program enum2;
 type
   opkind = (lod, str, add, sub, mpi, dvi, ujp, fjp, stp);
@@ -3955,7 +3970,7 @@ begin
   for op := lod to fjp do
     if op = ujp then writeln(ord(op))
 end.
-{--------------------------------------------- 227 program_function_procedure_9}
+{--------------------------------------------- 228 program_function_procedure_9}
 program enum2;
 type
   opkind = (lod, str, add, sub, mpi, dvi, ujp, fjp, stp);
@@ -3986,7 +4001,7 @@ begin
   for op := lod to fjp do
     if op = ujp then writeln(ord(op))
 end.
-{--------------------------------------------------- 228 program_record_array_2}
+{--------------------------------------------------- 229 program_record_array_2}
 program arrrec2;
 type rec = record a, b: integer end;
 var d: array[0..3] of rec;
@@ -3994,7 +4009,7 @@ begin
   with d[2] do begin a := 7; b := 9 end;
   writeln(d[2].a); writeln(d[2].b)
 end.
-{--------------------------------------------------- 229 program_record_array_1}
+{--------------------------------------------------- 230 program_record_array_1}
 program arrrec2;
 type rec = record a, b: integer end;
 var d: array[0..3] of rec;
@@ -4003,7 +4018,7 @@ begin
   for i := 0 to 3 do begin d[i].a := i * 10; d[i].b := i + 100 end;
   for i := 0 to 3 do writeln(d[i].a, d[i].b)
 end.
-{--------------------------------------------------- 230 program_array_packed_3}
+{--------------------------------------------------- 231 program_array_packed_3}
 program chararr1;
 var s: packed array [1..8] of char;
     i: integer;
@@ -4013,7 +4028,7 @@ begin
   for i := 1 to 8 do write(s[i]);
   writeln
 end.
-{-------------------------------------- 231 ladder__rung13_ptr_addr_whole_array}
+{-------------------------------------- 232 ladder__rung13_ptr_addr_whole_array}
 {$mode objfpc}
 program ptr_addr_whole_array;
 type tarr = array[1..4] of longint; parr = ^tarr;
@@ -4024,7 +4039,7 @@ begin
   q^[3] := 33;
   writeln(a[3], ' ', q^[1] + q^[4]);
 end.
-{------------------------------------------------- 232 program_function_array_1}
+{------------------------------------------------- 233 program_function_array_1}
 program arrparam(output);
 type vec = array[0..4] of integer;
 var v: vec; i: integer;
@@ -4035,7 +4050,7 @@ begin
   for i := 0 to 4 do v[i] := i + 1;
   writeln(sumvec(v))
 end.
-{------------------------------------------------- 233 program_function_array_3}
+{------------------------------------------------- 234 program_function_array_3}
 program arrparam(output);
 type vec = array[0..4] of integer;
 var v: vec; i: integer;
@@ -4046,7 +4061,7 @@ begin
   for i := 0 to 4 do v[i] := i + 1;
   writeln(sumvec(v))
 end.
-{------------------------------------------- 234 program_record_array_replace_4}
+{------------------------------------------- 235 program_record_array_replace_4}
 program vrec6;
 type constant = record case cclass: integer of
         1: (rval: packed array [1..8] of char);
@@ -4057,7 +4072,7 @@ begin
   c.pval := 5;
   writeln(c.pval)
 end.
-{------------------------------------------- 235 program_record_array_replace_3}
+{------------------------------------------- 236 program_record_array_replace_3}
 program vrec5;
 type constant = record case cclass: integer of
         1: (rval: packed array [1..8] of char);
@@ -4070,7 +4085,7 @@ begin
   c.slgth := 5;
   writeln(c.slgth)
 end.
-{------------------------------------------- 236 ladder__rung13_ptr_pchar_array}
+{------------------------------------------- 237 ladder__rung13_ptr_pchar_array}
 {$mode objfpc}
 program ptr_pchar_array;
 var c: array[0..4] of char; q: pchar; i: integer;
@@ -4084,7 +4099,7 @@ begin
   for i := 0 to 4 do write(c[i]);
   writeln;
 end.
-{------------------------------------------------- 237 program_function_array_2}
+{------------------------------------------------- 238 program_function_array_2}
 program arr2dtype2;
 type row = array[0..2] of integer;
 var r: row; i: integer;
@@ -4099,7 +4114,7 @@ begin
   for i := 0 to 2 do r[i] := i + 1;
   writeln(sumrow(r))
 end.
-{--------------------------------------------- 238 program_function_procedure_2}
+{--------------------------------------------- 239 program_function_procedure_2}
 program arr2dtype3;
 type vec = array[0..3] of integer;
 var v: vec; i: integer;
@@ -4115,7 +4130,7 @@ begin
   fill(v);
   writeln(get2(v))
 end.
-{--------------------------------------------- 239 program_function_procedure_7}
+{--------------------------------------------- 240 program_function_procedure_7}
 program arr2dtype3;
 type vec = array[0..3] of integer;
 var v: vec; i: integer;
@@ -4131,7 +4146,7 @@ begin
   fill(v);
   writeln(get2(v))
 end.
-{------------------------------------------------- 240 program_record_pointer_4}
+{------------------------------------------------- 241 program_record_pointer_4}
 program nestwith1;
 type
   valu = record ival: integer; rval: integer end;
@@ -4147,7 +4162,7 @@ begin
   writeln(lcp^.values.ival);
   writeln(lcp^.values.rval)
 end.
-{------------------------------------------------ 241 program_record_pointer_10}
+{------------------------------------------------ 242 program_record_pointer_10}
 program with3;
 type
   rp = ^rec;
@@ -4165,7 +4180,7 @@ begin
   end;
   writeln(p^.x)
 end.
-{-------------------------------------- 242 ladder__rung12_move_from_with_field}
+{-------------------------------------- 243 ladder__rung12_move_from_with_field}
 {$mode objfpc}
 program mvw;
 type
@@ -4185,7 +4200,7 @@ begin
     with a[i] do begin move(t[1], s[l], length(t)); inc(l, length(t)); end;
   writeln(s);
 end.
-{----------------------------------------- 243 program_record_pointer_replace_1}
+{----------------------------------------- 244 program_record_pointer_replace_1}
 (* PB-38: test new() and pointer dereference - used heavily in pcom init *)
 program pb38(output);
 type
@@ -4207,7 +4222,7 @@ begin
   writeln(q^.val);
   writeln(q^.next^.val)
 end.
-{------------------------------------------- 244 program_record_array_replace_2}
+{------------------------------------------- 245 program_record_array_replace_2}
 (* PB-36: variant record initialization - same structure as pcom's display[] *)
 program pb36(output);
 type
@@ -4231,7 +4246,7 @@ begin
   writeln(d[0].occur);
   writeln(d[1].occur)
 end.
-{-------------------------------------------------- 245 ladder__rung10_pointers}
+{-------------------------------------------------- 246 ladder__rung10_pointers}
 program rung10pointers;
 type
   node = ^cell;
@@ -4265,7 +4280,7 @@ begin
   dispose(b);
   dispose(a)
 end.
-{--------------------------------------------------- 246 program_array_packed_4}
+{--------------------------------------------------- 247 program_array_packed_4}
 program chararr2;
 type alpha = packed array [1..8] of char;
 var id: alpha;
@@ -4276,7 +4291,42 @@ begin
   for i := 1 to 8 do write(id[i]);
   writeln
 end.
-{--------------------------------------------------- 247 program_array_packed_6}
+{----------------------------------- 248 ladder__rung13_ptr_array_pointer_index}
+{$mode objfpc}
+program ptr_array_pointer_index;
+type tr = record a, b: longint end;
+  ta = array[0..0] of longint; pta = ^ta;
+  tra = array[0..0] of tr; ptra = ^tra;
+var d: array[0..9] of longint; q: pta; r: array[0..3] of tr; pr: ptra; i: integer;
+begin
+  for i := 0 to 9 do d[i] := i * 3;
+  q := @d[2];
+  writeln(q^[0], ' ', q^[3], ' ', q^[7]);
+  q^[2] := 100; writeln(d[4]);
+  for i := 0 to 3 do begin r[i].a := i; r[i].b := i * i end;
+  pr := @r[1];
+  writeln(pr^[0].a, ' ', pr^[2].b);
+  pr^[1].b := 77; writeln(r[2].b);
+end.
+{--------------------------------- 249 ladder__rung13_ptr_row_pointer_var_param}
+{$mode delphi}
+program ptr_row_pointer_var_param;
+type tCnt = array[0..3] of UInt64; tDg = array[0..3] of tCnt;
+var G: tDg;
+procedure Calc(var Dg: tDg);
+var p0, p1: ^tCnt; i, j: NativeUInt;
+begin
+  fillchar(Dg, SizeOf(Dg), #0);
+  p0 := @Dg[0];
+  for i := 0 to 3 do p0^[i] := 1;
+  for j := 1 to High(Dg) do begin
+    p1 := @Dg[j]; p1^[0] := p0^[1]; p1^[3] := p0^[2];
+    for i := 1 to 2 do p1^[i] := p0^[i - 1] + p0^[i + 1];
+    p0 := p1;
+  end;
+end;
+begin Calc(G); writeln(G[0][0], ' ', G[1][1], ' ', G[3][2]); end.
+{--------------------------------------------------- 250 program_array_packed_6}
 (* pb39: element read of a BULK-assigned packed char array must work.
    Regression for arr_get packed-string fallback: bulk assign stores a plain
    string; arr_get previously FAILed for idx>=1, silently severing continuation
@@ -4294,7 +4344,7 @@ begin
   until ch = '.';
   writeln(n:1)
 end.
-{------------------------------------------ 248 ladder__rung13_ptr_addr_element}
+{------------------------------------------ 251 ladder__rung13_ptr_addr_element}
 {$mode objfpc}
 program ptr_addr_element;
 type pint = ^longint;
@@ -4313,7 +4363,7 @@ begin
   for i := 0 to 5 do write(a[i], ' ');
   writeln;
 end.
-{------------------------------------------------- 249 program_record_pointer_9}
+{------------------------------------------------- 252 program_record_pointer_9}
 program ptr5(output);
 type link = ^node; node = record val : integer; next : link end;
 var head, t, p : link; i : integer;
@@ -4333,7 +4383,7 @@ begin
     p := p^.next
   end
 end.
-{----------------------------------------- 250 program_record_pointer_replace_2}
+{----------------------------------------- 253 program_record_pointer_replace_2}
 program vrec3;
 type valu = record case b: boolean of
       true: (ival: integer);
@@ -4356,7 +4406,7 @@ begin
   end;
   writeln(fmin)
 end.
-{-------------------------------------------- 251 program_array_while_replace_1}
+{-------------------------------------------- 254 program_array_while_replace_1}
 (*$c+,d+,l-,t-*)
 (*
   Sieve of Eratosthenes. Displays primes less than 'n'.
@@ -4385,7 +4435,7 @@ begin
         for i := 2 to n do
                 if a[i] then writeln(i);
 end.
-{-------------------------------------------- 252 program_array_while_replace_2}
+{-------------------------------------------- 255 program_array_while_replace_2}
 (*$c+,d+,l-,t-*)
 (*
   Sieve of Eratosthenes. Displays primes less than 'n'.
@@ -4414,7 +4464,7 @@ begin
         for i := 2 to n do
                 if a[i] then writeln(i);
 end.
-{------------------------------------------ 253 program_procedure_set_replace_1}
+{------------------------------------------ 256 program_procedure_set_replace_1}
 (* PB-30: scaled flat stress of setofsys-global repeat/while conditions *)
 (* 20 block-body cycles; procedures reference only params, no globals in nested *)
 program pb30(output);
@@ -4453,7 +4503,7 @@ begin
   writeln(nstmt);
   writeln(ncycles)
 end.
-{------------------------------------------ 254 program_procedure_set_replace_2}
+{------------------------------------------ 257 program_procedure_set_replace_2}
 (* PB-30: scaled flat stress of setofsys-global repeat/while conditions *)
 (* 20 block-body cycles; procedures reference only params, no globals in nested *)
 program pb30(output);
@@ -4492,7 +4542,7 @@ begin
   writeln(nstmt);
   writeln(ncycles)
 end.
-{--------------------------------------------------------- 255 benchmark_queens}
+{--------------------------------------------------------- 258 benchmark_queens}
 (* PROVENANCE: Hennessy "Queens" / Wirth 8-queens — Stanford integer benchmark
    suite (John L. Hennessy, Stanford, c.1981; public domain). Backtracking,
    first solution; output = checksum sum(x[i]*i)=162 for [1,5,8,6,3,7,2,4].
@@ -4536,7 +4586,7 @@ begin
   end;
   writeln(cksum)
 end.
-{------------------------------------- 256 program_function_procedure_replace_3}
+{------------------------------------- 259 program_function_procedure_replace_3}
 program exits(output);
 { exit leaves the routine it names, or the one it is in: a procedure from inside nested loops, a function with the result it holds or
   the value exit passes, a recursion, and the main program's own statement-part. }
@@ -4595,7 +4645,7 @@ begin
     end;
   writeln('not reached')
 end.
-{------------------------------------------- 257 program_record_array_replace_1}
+{------------------------------------------- 260 program_record_array_replace_1}
 program t;
 type dt = (ci, cc);
      r = record case dt of
@@ -4608,7 +4658,7 @@ begin
   for i := 0 to 4 do write(s[i].vc);
   writeln
 end.
-{--------------------------------------------- 258 program_function_procedure_1}
+{--------------------------------------------- 261 program_function_procedure_1}
 program arr2dtype;
 type mat = array[0..1, 0..1] of integer;
 var m: mat; x: integer;
@@ -4630,7 +4680,7 @@ begin
   x := summat(m);
   writeln(x)
 end.
-{--------------------------------------------- 259 program_function_procedure_6}
+{--------------------------------------------- 262 program_function_procedure_6}
 program arr2dtype;
 type mat = array[0..1, 0..1] of integer;
 var m: mat; x: integer;
@@ -4652,7 +4702,7 @@ begin
   x := summat(m);
   writeln(x)
 end.
-{---------------------------------------------------------- 260 benchmark_sieve}
+{---------------------------------------------------------- 263 benchmark_sieve}
 (* PROVENANCE: Sieve of Eratosthenes (Byte-magazine sieve benchmark lineage).
    Public-domain algorithm. Benchmark form: counts primes < limit, repeat knob
    via stdin. SCRIP corpus PAS-BENCH. *)
@@ -4678,7 +4728,7 @@ begin
   end;
   writeln(count)
 end.
-{----------------------------------------------- 261 program_procedure_record_6}
+{----------------------------------------------- 264 program_procedure_record_6}
 program ptr8(output);
 type link = ^node; node = record val : integer; next : link end;
 var head : link;
@@ -4706,7 +4756,7 @@ begin
   setval(head, 77);
   printlist(head)
 end.
-{---------------------------------- 262 ladder__rung12_fill_param_first_element}
+{---------------------------------- 265 ladder__rung12_fill_param_first_element}
 {$mode objfpc}
 program fill_param_first_element;
 type
@@ -4739,7 +4789,7 @@ begin
   for i := 1 to 5 do write(s[i], ' ');
   writeln;
 end.
-{------------------------------------- 263 program_function_procedure_replace_2}
+{------------------------------------- 266 program_function_procedure_replace_2}
 program gotononlocal(output);
 { ISO 7185 6.8.2.4: a goto may leave its routine for a label of an enclosing block; every activation between is terminated. }
 label 9;
@@ -4823,7 +4873,19 @@ begin
   if depth < 9 then begin depth := 9; total := 10 + f(5); writeln('not reached either') end;
   writeln('done hits=', hits)
 end.
-{--------------------------------------- 264 program_procedure_record_replace_1}
+{------------------------------------- 267 ladder__rung13_ptr_with_over_element}
+{$mode objfpc}
+program ptr_with_over_element;
+type tr = record a, b: longint end;
+  tra = array[0..0] of tr; ptra = ^tra;
+var r: array[0..3] of tr; pr: ptra; i: integer;
+begin
+  for i := 0 to 3 do begin r[i].a := i; r[i].b := i * i end;
+  pr := @r[1];
+  with pr^[2] do begin a := 42; b := b + 1 end;
+  writeln(r[3].a, ' ', r[3].b);
+end.
+{--------------------------------------- 268 program_procedure_record_replace_1}
 program w1;
 type valu = record case b: boolean of
         true: (ival: integer);
@@ -4852,7 +4914,7 @@ begin
   getbounds(p, fmin);
   writeln(fmin)
 end.
-{--------------------------------------- 265 program_procedure_record_replace_2}
+{--------------------------------------- 269 program_procedure_record_replace_2}
 program w1;
 type valu = record case b: boolean of
         true: (ival: integer);
@@ -4881,7 +4943,7 @@ begin
   getbounds(p, fmin);
   writeln(fmin)
 end.
-{------------------------------------------------ 266 program_procedure_array_3}
+{------------------------------------------------ 270 program_procedure_array_3}
 program alphacmp(output);
 type alpha = packed array [1..8] of char;
 var rw : array [1..5] of alpha;
@@ -4916,7 +4978,7 @@ begin
   id[5] := ' '; id[6] := ' '; id[7] := ' '; id[8] := ' ';
   lookup(2); writeln(sy);
 end.
-{---------------------------------------------------------- 267 benchmark_intmm}
+{---------------------------------------------------------- 271 benchmark_intmm}
 (* PROVENANCE: Hennessy "Intmm" — Stanford integer benchmark suite
    (John L. Hennessy, Stanford, c.1981; public domain). 40x40 integer
    matrix multiply. Algorithm/constants per llvm-test-suite Stanford C port
@@ -4953,7 +5015,7 @@ begin
   end;
   writeln(cksum)
 end.
-{---------------------------------------- 268 program_procedure_array_replace_1}
+{---------------------------------------- 272 program_procedure_array_replace_1}
 { Regression probe for the in-process binary emitter's forward-reference
   patch table (BB_PATCH_MAX). A single procedure with many statements leaves
   one pending forward-ref patch per statement (the chain jumps to the proc's
@@ -5002,7 +5064,7 @@ begin
   write('E');
   writeln
 end.
-{---------------------------------------- 269 program_procedure_array_replace_6}
+{---------------------------------------- 273 program_procedure_array_replace_6}
 { Regression probe for the in-process binary emitter's forward-reference
   patch table (BB_PATCH_MAX). A single procedure with many statements leaves
   one pending forward-ref patch per statement (the chain jumps to the proc's
@@ -5051,7 +5113,7 @@ begin
   write('E');
   writeln
 end.
-{------------------------------------------ 270 program_record_packed_replace_1}
+{------------------------------------------ 274 program_record_packed_replace_1}
 program mir3(output);
 type
   sf = (scalar,subrange,pointer,arrays);
@@ -5071,7 +5133,7 @@ begin
   writeln(ord(lsp^.form));
   writeln(lsp^.min.ival)
 end.
-{----------------------------------------------------------- 271 benchmark_perm}
+{----------------------------------------------------------- 275 benchmark_perm}
 (* PROVENANCE: Hennessy "Perm" — Stanford integer benchmark suite
    (John L. Hennessy, Stanford, c.1981; public domain). Recursive permutation
    generation; output = pctr (call count), correct value 43300 (=5*P(7), P(7)=8660).
@@ -5108,7 +5170,7 @@ begin
   end;
   writeln(pctr)
 end.
-{--------------------------------------------------------- 272 benchmark_bubble}
+{--------------------------------------------------------- 276 benchmark_bubble}
 (* PROVENANCE: Hennessy "Bubble" — Stanford integer benchmark suite
    (John L. Hennessy, Stanford, c.1981; long-circulated, public domain).
    Algorithm/constants per llvm-test-suite Stanford C port
@@ -5146,7 +5208,7 @@ begin
   writeln(sortlist[1]);
   writeln(sortlist[srtelements])
 end.
-{---------------------------------------- 273 program_procedure_array_replace_3}
+{---------------------------------------- 277 program_procedure_array_replace_3}
 (* PB-32: minimal programme->block->body chain, no decls
    mirrors pcom token flow for "program x; begin end." 
    token stream: period(progsy-done)->beginsy->endsy->period *)
@@ -5231,7 +5293,7 @@ begin
   writeln(ncycles);
   writeln(nstmts)
 end.
-{---------------------------------------- 274 program_procedure_array_replace_8}
+{---------------------------------------- 278 program_procedure_array_replace_8}
 (* PB-32: minimal programme->block->body chain, no decls
    mirrors pcom token flow for "program x; begin end." 
    token stream: period(progsy-done)->beginsy->endsy->period *)
@@ -5316,7 +5378,7 @@ begin
   writeln(ncycles);
   writeln(nstmts)
 end.
-{--------------------------------------- 275 program_procedure_array_replace_10}
+{--------------------------------------- 279 program_procedure_array_replace_10}
 (* PB-34: Test complex repeat-until with eof()-like sentinel
    Simulates block()'s outer repeat: until (sy in statbegsys) or done
    where "done" is an integer boolean flag (like eof check)
@@ -5402,7 +5464,7 @@ begin
   writeln(ncycles);
   writeln(nstmts)
 end.
-{---------------------------------------- 276 program_procedure_array_replace_5}
+{---------------------------------------- 280 program_procedure_array_replace_5}
 (* PB-34: Test complex repeat-until with eof()-like sentinel
    Simulates block()'s outer repeat: until (sy in statbegsys) or done
    where "done" is an integer boolean flag (like eof check)
@@ -5488,7 +5550,7 @@ begin
   writeln(ncycles);
   writeln(nstmts)
 end.
-{---------------------------------------- 277 program_procedure_array_replace_4}
+{---------------------------------------- 281 program_procedure_array_replace_4}
 (* PB-33: exact "program x; begin end." chain
    When block_sim is called: sy=beginsy(31)
    insymbol -> sy=endsy(39)
@@ -5579,7 +5641,7 @@ begin
   writeln(ncycles);
   writeln(nstmts)
 end.
-{---------------------------------------- 278 program_procedure_array_replace_9}
+{---------------------------------------- 282 program_procedure_array_replace_9}
 (* PB-33: exact "program x; begin end." chain
    When block_sim is called: sy=beginsy(31)
    insymbol -> sy=endsy(39)
@@ -5670,7 +5732,7 @@ begin
   writeln(ncycles);
   writeln(nstmts)
 end.
-{---------------------------------------- 279 program_procedure_array_replace_2}
+{---------------------------------------- 283 program_procedure_array_replace_2}
 (* PB-31: full programme->block->body->statement chain simulation
    mirrors pcom token flow for "program hello; begin writeln(...) end." *)
 program pb31(output);
@@ -5767,7 +5829,7 @@ begin
   writeln(nstmts);
   writeln(ndecls)
 end.
-{---------------------------------------- 280 program_procedure_array_replace_7}
+{---------------------------------------- 284 program_procedure_array_replace_7}
 (* PB-31: full programme->block->body->statement chain simulation
    mirrors pcom token flow for "program hello; begin writeln(...) end." *)
 program pb31(output);
@@ -5864,7 +5926,7 @@ begin
   writeln(nstmts);
   writeln(ndecls)
 end.
-{------------------------------- 281 ladder__rung12_fill_with_records_and_procs}
+{------------------------------- 285 ladder__rung12_fill_with_records_and_procs}
 {$mode objfpc}
 program fill_with_records_and_procs;
 type
@@ -5897,7 +5959,7 @@ begin
   g[2] := 0;
   writeln(total, ' ', sum_grid(g));
 end.
-{---------------------------------------------------------- 282 benchmark_quick}
+{---------------------------------------------------------- 286 benchmark_quick}
 (* PROVENANCE: Hennessy "Quick" — Stanford integer benchmark suite
    (John L. Hennessy, Stanford, c.1981; public domain). Hoare quicksort.
    Algorithm/constants per llvm-test-suite Stanford C port. Canonical RNG.
@@ -5938,7 +6000,7 @@ begin
   writeln(sortlist[1]);
   writeln(sortlist[srtelements])
 end.
-{----------------------------------- 283 ladder__rung13_ptr_with_fill_and_procs}
+{----------------------------------- 287 ladder__rung13_ptr_with_fill_and_procs}
 {$mode objfpc}
 program ptr_with_fill_and_procs;
 type
@@ -5978,7 +6040,7 @@ begin
   for i := 1 to 3 do write(cells[i].count, cells[i].mark, ' ');
   writeln;
 end.
-{--------------------------------------------- 284 program_array_case_replace_1}
+{--------------------------------------------- 288 program_array_case_replace_1}
 program charcode(output);
 { #n and #$h are character literals of ordinal n, #0 included: in an expression, a constant definition, a subrange bound and a case label. }
 const nul = #0; bell = #7; big = #$41;

@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=284 features=48 ubiquitous=4(program var writeln assign) distinctive=44 core=35 clusters=35 chunks=3 sizes=100,100,49
+# shape: entries=288 features=48 ubiquitous=4(program var writeln assign) distinctive=44 core=36 clusters=35 chunks=3 sizes=100,100,52
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multi	chunk:01	family:ladder	
@@ -175,6 +175,7 @@ ladder__rung13_ptr_compare	chunk:02	feat:nil	array nil set_literal subrange
 program_set_for_1	chunk:02	feat:set	for in set subrange
 program_procedure_record_2	chunk:01	feat:record	nested_proc procedure record type
 program_procedure_record_9	chunk:01	feat:record	nested_proc procedure record type
+ladder__rung13_ptr_empty_dynarray_nil	chunk:02	feat:nil	array nil set_literal subrange
 ladder__rung08_sets	chunk:02	feat:set	in set subrange type
 program_record_with_1	chunk:02	feat:with_record	record type with with_record
 program_record_with_2	chunk:02	feat:with_record	record type with with_record
@@ -227,7 +228,7 @@ program_function_procedure_8	chunk:02	feat:chr	case chr function nested_proc ord
 benchmark_towers	chunk:03	feat:readln	const for pointer procedure readln repeat
 program_array_for_replace_1	chunk:02	feat:chr	array chr const for for_with_array type
 program_array_for_replace_2	chunk:02	feat:chr	array chr const for for_with_array type
-program_function_procedure_4	chunk:02	feat:ord	for function nested_proc ord procedure type
+program_function_procedure_4	chunk:03	feat:ord	for function nested_proc ord procedure type
 program_function_procedure_9	chunk:03	feat:ord	for function nested_proc ord procedure type
 program_record_array_2	chunk:02	feat:with_record	array record set_literal subrange type with with_record
 program_record_array_1	chunk:02	feat:for_with_array	array for for_with_array record set_literal subrange type
@@ -248,6 +249,8 @@ program_record_pointer_replace_1	chunk:02	feat:nil	in new nil pointer pointer_wi
 program_record_array_replace_2	chunk:02	feat:packed	array case packed record set_literal subrange type
 ladder__rung10_pointers	core	core	dispose new nil pointer pointer_with_new record type
 program_array_packed_4	core	core	array for for_with_array packed set_literal subrange type write
+ladder__rung13_ptr_array_pointer_index	chunk:03	feat:pointer	array for for_with_array pointer record set_literal subrange type
+ladder__rung13_ptr_row_pointer_var_param	chunk:03	feat:pointer	array for for_with_array pointer procedure set_literal subrange type
 program_array_packed_6	core	core	array for for_with_array packed read repeat set_literal subrange
 ladder__rung13_ptr_addr_element	chunk:02	feat:write	array for for_with_array pointer set_literal subrange type write
 program_record_pointer_9	chunk:02	feat:nil	for new nil pointer pointer_with_new record type while
@@ -265,6 +268,7 @@ benchmark_sieve	chunk:03	feat:readln	array const for for_with_array readln repea
 program_procedure_record_6	chunk:02	feat:nil	nested_proc new nil pointer pointer_with_new procedure record type while
 ladder__rung12_fill_param_first_element	chunk:02	feat:write	array for for_with_array nested_proc procedure set_literal subrange type write
 program_function_procedure_replace_2	core	core	for function goto label nested_proc procedure repeat while with
+ladder__rung13_ptr_with_over_element	core	core	array for for_with_array pointer record set_literal subrange type with with_record
 program_procedure_record_replace_1	core	core	case new nil pointer pointer_with_new procedure record type with with_record
 program_procedure_record_replace_2	core	core	case new nil pointer pointer_with_new procedure record type with with_record
 program_procedure_array_3	core	core	array for for_with_array goto label packed procedure set_literal subrange type
