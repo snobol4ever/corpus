@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=273 features=48 ubiquitous=4(program var writeln assign) distinctive=44 core=35 clusters=35 chunks=3 sizes=100,100,38
+# shape: entries=275 features=48 ubiquitous=4(program var writeln assign) distinctive=44 core=35 clusters=35 chunks=3 sizes=100,100,40
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multi	chunk:01	family:ladder	
@@ -29,6 +29,7 @@ program_writeln_1	chunk:03	family:boolassign
 program_writeln_13	chunk:03	family:boolassign	
 program_writeln_16	chunk:03	family:boolnot	
 program_writeln_4	chunk:03	family:boolnot	
+ladder__rung16_real_fixed_decimals	chunk:01	family:ladder	
 program_writeln_14	chunk:03	family:boolchain	
 program_writeln_2	chunk:03	family:boolchain	
 program_function_writeln_3	chunk:01	feat:function	function
@@ -48,7 +49,7 @@ program_procedure_writeln_4	chunk:02	feat:procedure	procedure
 program_procedure_writeln_6	chunk:02	feat:procedure	procedure
 program_repeat_writeln_1	chunk:03	feat:repeat	repeat
 ladder__rung05_proc_func_forward	core	core	forward nested_proc procedure
-program_for_writeln_1	chunk:02	feat:for	for
+program_for_writeln_1	chunk:03	feat:for	for
 program_function_writeln_2	chunk:01	feat:function	function
 program_procedure_writeln_1	chunk:02	feat:procedure	procedure
 program_procedure_writeln_2	chunk:02	feat:procedure	procedure
@@ -62,7 +63,7 @@ program_procedure_writeln_replace_1	chunk:02	feat:procedure	procedure
 program_procedure_writeln_replace_2	chunk:02	feat:procedure	procedure
 ladder__rung03_if_while	chunk:03	feat:while	while
 program_writeln_8	chunk:03	feat:const	const
-ladder__rung16_real_numb2usa_digits	chunk:02	feat:for	for
+ladder__rung16_real_numb2usa_digits	chunk:03	feat:for	for
 program_writeln_sqrt_2	core	core	sqrt
 program_procedure_writeln_5	chunk:02	feat:procedure	procedure
 ladder__rung04_for_repeat_for_downto	core	core	downto for
@@ -109,6 +110,7 @@ program_procedure_nested_3	chunk:01	feat:nested_proc	nested_proc procedure
 program_record_writeln_1	chunk:01	feat:record	record type
 program_procedure_nested_23	chunk:01	feat:nested_proc	nested_proc procedure
 program_procedure_nested_9	chunk:01	feat:nested_proc	nested_proc procedure
+ladder__rung16_real_negative_zero	chunk:01	feat:function	for function
 program_procedure_nested_10	chunk:01	feat:nested_proc	nested_proc procedure
 program_procedure_nested_24	chunk:01	feat:nested_proc	nested_proc procedure
 program_procedure_nested_21	chunk:01	feat:nested_proc	nested_proc procedure
@@ -174,7 +176,7 @@ program_case_for_2	chunk:02	feat:ord	case for ord type
 program_function_procedure_replace_1	chunk:01	feat:function	for function nested_proc procedure
 ladder__rung12_fillqword_int64	chunk:02	feat:for_with_array	array for for_with_array set_literal subrange
 program_array_for_7	chunk:02	feat:for_with_array	array for for_with_array subrange type
-program_array_packed_1	chunk:01	feat:packed	array packed set_literal subrange type
+program_array_packed_1	chunk:02	feat:packed	array packed set_literal subrange type
 program_pointer_writeln_3	chunk:02	feat:nil	new nil pointer pointer_with_new type
 program_record_array_5	chunk:01	feat:record	array record set_literal subrange type
 program_record_array_6	chunk:01	feat:record	array record set_literal subrange type
@@ -182,7 +184,7 @@ program_record_pointer_1	chunk:02	feat:new	new pointer pointer_with_new record t
 program_record_pointer_11	chunk:02	feat:new	new pointer pointer_with_new record type
 ladder__rung06_arrays	chunk:02	feat:for_with_array	array for for_with_array set_literal subrange
 program_record_pointer_2	chunk:02	feat:new	new pointer pointer_with_new record type
-ladder__rung09_strings	chunk:01	feat:packed	array packed set_literal subrange type
+ladder__rung09_strings	chunk:02	feat:packed	array packed set_literal subrange type
 program_array_packed_replace_3	chunk:02	feat:packed	array packed set_literal subrange type
 program_writeln_trunc_1	core	core	abs odd pred succ trunc
 program_array_for_1	chunk:02	feat:for_with_array	array for for_with_array set_literal subrange
