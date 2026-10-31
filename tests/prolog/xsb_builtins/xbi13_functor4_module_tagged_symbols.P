@@ -1,0 +1,38 @@
+% xbi13_functor4_module_tagged_symbols -- XSB's functor(Term, Module, Name, Arity) and term_new_mod(Module, Term, NewTerm): a structure symbol carries its module (usermod unless tagged);
+% term_new_mod/3 re-tags a term's symbol, a module may be a ground term (a parametrised module), two tagged symbols of one module are one symbol, and a tagged symbol is not the untagged one
+% (prolog_tests functor4_tests; ARCH-PROLOG-DIALECTS.md 6.1 R3). Errors are XSB's: the culprit and the argument number come from functor4_builtin.
+:- import functor/4 from standard.
+:- import numbervars/1 from num_vars.
+:- import term_new_mod/3 from machine.
+t(Tag, G) :- ( catch(G, Ball, (write_ball(Tag, Ball), fail)) -> numbervars(G), writeln(Tag-G) ; writeln(Tag-failed) ).
+write_ball(Tag, error(Type, context(Msg, _))) :- write(Tag), write(': '), write(Type), tab(1), writeln(Msg).
+test :-
+	t(a1, functor(f(a,b),_,_,_)),
+	t(a2, functor([a,b],_,_,_)),
+	t(a3, functor(17,_,_,_)),
+	t(a4, functor(aaaa,_,_,_)),
+	t(a5, functor(_,usermod,j,2)),
+	t(a6, functor(_,_,k,2)),
+	t(a7, functor(_,_,17.3,_)),
+	t(a8, functor(_,usermod,aaaa,0)),
+	t(b1, (term_new_mod(m1,f(a),T1), functor(T1,_,_,_))),
+	t(b2, (term_new_mod(m1,f(a),T2), term_new_mod(m1,f(a),T3), T2 == T3)),
+	t(b3, (term_new_mod(m1,f(a),T4), term_new_mod(m2,f(a),T5), T4 = T5)),
+	t(b4, (term_new_mod(m1,f(a),T6), T6 = f(a))),
+	t(b5, (term_new_mod(m1,f(_),T7), term_new_mod(m1,f(b),T8), T7 = T8)),
+	t(b6, (term_new_mod(usermod,m(_,_),T9), functor(T9,_,_,_))),
+	t(c1, (term_new_mod(p(q,r(s)),g(_),T11), functor(T11,_,_,_))),
+	t(c2, (functor(T12,p(q),h,2), functor(T12,_,_,_))),
+	t(c3, (functor(T13,m3,w,2), term_new_mod(m3,w(_,_),T14), T13 = T14)),
+	t(d1, functor(_,_,_,_)),
+	t(d2, functor(_,_,pp,_)),
+	t(d3, functor(_,_,_,3)),
+	t(d4, functor(_,_,pp,-5)),
+	t(d5, functor(_,_,qq,a)),
+	t(d6, functor(_,mod(_),qq,1)),
+	t(d7, functor(_,_,f(x),2)),
+	t(e1, functor(h(1),_,15,_)),
+	t(e2, functor(17.5,_,15,_)),
+	t(e3, functor(h(1),_,17.0,_)),
+	fail.
+test.

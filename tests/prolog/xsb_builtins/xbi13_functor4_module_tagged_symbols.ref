@@ -1,0 +1,34 @@
+a1 - functor(f(a,b),usermod,f,2)
+a2 - functor([a,b],usermod,.,2)
+a3 - functor(17,usermod,17,0)
+a4 - functor(aaaa,usermod,aaaa,0)
+a5 - functor(j(A,B),usermod,j,2)
+a6 - functor(k(A,B),usermod,k,2)
+a7 - functor(17.3,usermod,17.3,0)
+a8 - functor(aaaa,usermod,aaaa,0)
+b1 - (term_new_mod(m1,f(a),f(a)),functor(f(a),m1,f,1))
+b2 - (term_new_mod(m1,f(a),f(a)),term_new_mod(m1,f(a),f(a)),f(a) == f(a))
+b3 - failed
+b4 - failed
+b5 - (term_new_mod(m1,f(b),f(b)),term_new_mod(m1,f(b),f(b)),f(b) = f(b))
+b6 - (term_new_mod(usermod,m(A,B),m(A,B)),functor(m(A,B),usermod,m,2))
+c1 - (term_new_mod(p(q,r(s)),g(A),g(A)),functor(g(A),p(q,r(s)),g,1))
+c2 - (functor(h(A,B),p(q),h,2),functor(h(A,B),p(q),h,2))
+c3 - (functor(w(A,B),m3,w,2),term_new_mod(m3,w(A,B),w(A,B)),w(A,B) = w(A,B))
+d1: instantiation_error  in arg 1 of predicate functor/4
+d1 - failed
+d2: instantiation_error  in arg 4 of predicate functor/4
+d2 - failed
+d3: instantiation_error  in arg 1 of predicate functor/4
+d3 - failed
+d4: domain_error(not_legal_arity,-5) in arg 4 of predicate functor/4)
+d4 - failed
+d5: type_error(integer,a) in arg 4 of predicate functor/4
+d5 - failed
+d6: instantiation_error  in arg 2 of predicate functor/4
+d6 - failed
+d7: type_error(atomic,f(x)) in arg 3 of predicate functor/4
+d7 - failed
+e1 - failed
+e2 - failed
+e3 - failed
