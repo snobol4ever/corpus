@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=315 features=48 ubiquitous=4(program var writeln assign) distinctive=44 core=36 clusters=35 chunks=3 sizes=100,100,79
+# shape: entries=316 features=48 ubiquitous=4(program var writeln assign) distinctive=44 core=37 clusters=35 chunks=3 sizes=100,100,79
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multi	chunk:01	family:ladder	
@@ -296,6 +296,7 @@ program_procedure_record_6	chunk:03	feat:nil	nested_proc new nil pointer pointer
 ladder__rung12_fill_param_first_element	chunk:02	feat:write	array for for_with_array nested_proc procedure set_literal subrange type write
 program_function_procedure_replace_2	core	core	for function goto label nested_proc procedure repeat while with
 ladder__rung13_ptr_with_over_element	core	core	array for for_with_array pointer record set_literal subrange type with with_record
+ladder__rung15_layout_new_ptr_to_nested	core	core	array dispose for for_with_array new pointer pointer_with_new set_literal subrange type
 program_procedure_record_replace_1	core	core	case new nil pointer pointer_with_new procedure record type with with_record
 program_procedure_record_replace_2	core	core	case new nil pointer pointer_with_new procedure record type with with_record
 program_procedure_array_3	core	core	array for for_with_array goto label packed procedure set_literal subrange type
