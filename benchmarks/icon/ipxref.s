@@ -155,7 +155,7 @@ n7_subscript_α:         sub              rsp, 16
                         add              rsp, 16;                             jmp   n12_line_mark_α
 .Lsubscript_α_107_999:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:78
+                        push             rax                                  # gc_poll bb_subscript.cpp:81
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -210,7 +210,7 @@ n8_nulltest_var_α:      sub              rsp, 16
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 24]
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_unop.cpp:65
+                        push             rax                                  # gc_poll bb_unop.cpp:67
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -312,7 +312,7 @@ n11_assign_var_α:       sub              rsp, 16
                         add              rsp, 64;                             jmp   n12_line_mark_α
 .Lassign_var_α_113_999: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_assign_var.cpp:31
+                        push             rax                                  # gc_poll bb_assign_var.cpp:33
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -454,7 +454,7 @@ n19_subscript_α:        sub              rsp, 16
                         add              rsp, 16;                             jmp   n28_line_mark_α
 .Lsubscript_α_127_999:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:78
+                        push             rax                                  # gc_poll bb_subscript.cpp:81
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -512,7 +512,7 @@ n21_subscript_α:        sub              rsp, 16
                         add              rsp, 48;                             jmp   n28_line_mark_α
 .Lsubscript_α_129_999:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:78
+                        push             rax                                  # gc_poll bb_subscript.cpp:81
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -567,7 +567,7 @@ n22_nulltest_var_α:     sub              rsp, 16
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 24]
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_unop.cpp:65
+                        push             rax                                  # gc_poll bb_unop.cpp:67
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -630,7 +630,7 @@ n25_deref_α:            sub              rsp, 16
                         add              rsp, 112;                            jmp   n28_line_mark_α
 .Lderef_α_134_999:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -680,7 +680,7 @@ n26_make_list_α:        sub              rsp, 16
                         add              rsp, 32
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_make_list.cpp:33
+                        push             rax                                  # gc_poll bb_make_list.cpp:36
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -727,7 +727,7 @@ n27_assign_var_α:       sub              rsp, 16
                         add              rsp, 144;                            jmp   n28_line_mark_α
 .Lassign_var_α_137_999: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_assign_var.cpp:31
+                        push             rax                                  # gc_poll bb_assign_var.cpp:33
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -803,7 +803,7 @@ n31_subscript_α:        sub              rsp, 16
                         add              rsp, 16;                             jmp   addword_ω
 .Lsubscript_α_144_999:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:78
+                        push             rax                                  # gc_poll bb_subscript.cpp:81
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -861,7 +861,7 @@ n33_subscript_α:        sub              rsp, 16
                         add              rsp, 48;                             jmp   addword_ω
 .Lsubscript_α_146_999:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:78
+                        push             rax                                  # gc_poll bb_subscript.cpp:81
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -913,7 +913,7 @@ n35_deref_α:            sub              rsp, 16
                         add              rsp, 80;                             jmp   addword_ω
 .Lderef_α_149_999:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -956,7 +956,7 @@ n36_deref_α:            sub              rsp, 16
                         add              rsp, 96;                             jmp   addword_ω
 .Lderef_α_150_999:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1144,7 +1144,7 @@ n45_subscript_α:        sub              rsp, 16
                         add              rsp, 16;                             jmp   n55_line_mark_α
 .Lsubscript_α_166_999:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:78
+                        push             rax                                  # gc_poll bb_subscript.cpp:81
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1196,7 +1196,7 @@ n47_subscript_α:        sub              rsp, 16
                         add              rsp, 32;                             jmp   n55_line_mark_α
 .Lsubscript_α_169_999:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:78
+                        push             rax                                  # gc_poll bb_subscript.cpp:81
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1251,7 +1251,7 @@ n48_nulltest_var_α:     sub              rsp, 16
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 24]
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_unop.cpp:65
+                        push             rax                                  # gc_poll bb_unop.cpp:67
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1312,7 +1312,7 @@ n51_deref_α:            sub              rsp, 16
                         add              rsp, 96;                             jmp   n55_line_mark_α
 .Lderef_α_175_999:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1355,7 +1355,7 @@ n52_deref_α:            sub              rsp, 16
                         add              rsp, 112;                            jmp   n55_line_mark_α
 .Lderef_α_176_999:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1405,7 +1405,7 @@ n53_make_list_α:        sub              rsp, 16
                         add              rsp, 32
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_make_list.cpp:33
+                        push             rax                                  # gc_poll bb_make_list.cpp:36
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1452,7 +1452,7 @@ n54_assign_var_α:       sub              rsp, 16
                         add              rsp, 144;                            jmp   n55_line_mark_α
 .Lassign_var_α_179_999: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_assign_var.cpp:31
+                        push             rax                                  # gc_poll bb_assign_var.cpp:33
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1528,7 +1528,7 @@ n58_subscript_α:        sub              rsp, 16
                         add              rsp, 16;                             jmp   addword_ω
 .Lsubscript_α_186_999:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:78
+                        push             rax                                  # gc_poll bb_subscript.cpp:81
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1580,7 +1580,7 @@ n60_subscript_α:        sub              rsp, 16
                         add              rsp, 32;                             jmp   addword_ω
 .Lsubscript_α_189_999:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:78
+                        push             rax                                  # gc_poll bb_subscript.cpp:81
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1632,7 +1632,7 @@ n62_deref_α:            sub              rsp, 16
                         add              rsp, 64;                             jmp   addword_ω
 .Lderef_α_192_999:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1675,7 +1675,7 @@ n63_deref_α:            sub              rsp, 16
                         add              rsp, 80;                             jmp   addword_ω
 .Lderef_α_193_999:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1826,7 +1826,7 @@ n70_iterate_α:          sub              rsp, 32
                         cmp              al, 104;                             jne   .Literate_α_204_999
                         add              rsp, 32
                         add              rsp, 32;                             jmp   .Ldisjunction_ω_40_af
-.Literate_α_204_999:    push             rax                                  # gc_poll bb_iterate.cpp:34
+.Literate_α_204_999:    push             rax                                  # gc_poll bb_iterate.cpp:37
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1900,7 +1900,7 @@ n71_binop_test_α:       sub              rsp, 16
 .Lgcsite_addword_69:    mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lbinop_test_vd_205_12: mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:67
+                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:69
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1966,7 +1966,7 @@ n74_subscript_α:        sub              rsp, 16
                         add              rsp, 16;                             jmp   n73_var_β
 .Lsubscript_α_210_999:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:78
+                        push             rax                                  # gc_poll bb_subscript.cpp:81
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2089,7 +2089,7 @@ n77_deref_α:            sub              rsp, 16
                         add              rsp, 64;                             jmp   .Ldisjunction_ω_40_af
 .Lderef_α_213_999:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2263,7 +2263,7 @@ n86_deref_α:            sub              rsp, 16
                         add              rsp, 16;                             jmp   n91_scan_α
 .Lderef_α_225_999:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2408,7 +2408,7 @@ n88_scan_any_α:         sub              rsp, 16
                         mov              rax, r14
                         add              rax, 2
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_scan_any.cpp:80
+                        push             rax                                  # gc_poll bb_scan_any.cpp:83
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -3135,7 +3135,7 @@ n00012_lit_charset_α:     sub              rsp, 16
 .Lgcsite_getword_1:     mov              r9,  qword ptr [rip + g_rtccb+48]
                         pop              rdx
                         pop              rax
-                        push             rax                                  # gc_poll bb_lit_scalar.cpp:124
+                        push             rax                                  # gc_poll bb_lit_scalar.cpp:127
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -3183,7 +3183,7 @@ n00013_unop_α:            sub              rsp, 16
 .Lgcsite_getword_3:     mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_unop.cpp:37
+                        push             rax                                  # gc_poll bb_unop.cpp:39
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -3425,7 +3425,7 @@ n00030_deref_α:           sub              rsp, 16
                         add              rsp, 16;                             jmp   n00029_var_ref_β
 .Lderef_α_511_999:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -3625,7 +3625,7 @@ n00041_coerce_numeric_α:  sub              rsp, 16
                         call             c_rt_coerce_num2_d@PLT
 .Lgcsite_getword_9:     mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lcoerce_numeric_vd_528_17:
-                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:45
+                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:48
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -3699,7 +3699,7 @@ n00042_binop_α:           sub              rsp, 16
                         add              rsp, 176;                            jmp   n00024_line_mark_α
 .Lbinop_α_529_999:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:257
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:259
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -3828,7 +3828,7 @@ n00052_unop_α:            sub              rsp, 16
 .Lgcsite_getword_14:    mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lunop_vd_540_18:       mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_unop.cpp:37
+                        push             rax                                  # gc_poll bb_unop.cpp:39
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -3891,7 +3891,7 @@ n00054_coerce_numeric_α:  sub              rsp, 16
                         call             c_rt_coerce_num2_d@PLT
 .Lgcsite_getword_17:    mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lcoerce_numeric_vd_543_19:
-                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:45
+                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:48
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -3965,7 +3965,7 @@ n00055_binop_α:           sub              rsp, 16
                         add              rsp, 64;                             jmp   n00049_unmark_α
 .Lbinop_α_544_999:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:257
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:259
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -4154,7 +4154,7 @@ n00062_deref_α:           sub              rsp, 16
                         add              rsp, 16;                             jmp   n00063_scan_α
 .Lderef_α_554_999:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -4617,7 +4617,7 @@ n00088_coerce_numeric_α:  sub              rsp, 16
                         call             c_rt_coerce_num2_d@PLT
 .Lgcsite_getword_34:    mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lcoerce_numeric_vd_590_20:
-                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:45
+                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:48
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -4691,7 +4691,7 @@ n00089_binop_α:           sub              rsp, 16
                         add              rsp, 48;                             jmp   n00090_line_mark_α
 .Lbinop_α_591_999:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:257
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:259
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -4796,7 +4796,7 @@ n00095_coerce_numeric_α:  sub              rsp, 16
                         call             c_rt_coerce_num2_d@PLT
 .Lgcsite_getword_39:    mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lcoerce_numeric_vd_600_21:
-                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:45
+                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:48
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -4870,7 +4870,7 @@ n00096_binop_α:           sub              rsp, 16
                         add              rsp, 64;                             jmp   getword_ω
 .Lbinop_α_601_999:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:257
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:259
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -4917,7 +4917,7 @@ n00097_subscript_α:       sub              rsp, 16
                         add              rsp, 80;                             jmp   getword_ω
 .Lsubscript_α_602_999:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:78
+                        push             rax                                  # gc_poll bb_subscript.cpp:81
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -5101,7 +5101,7 @@ n00104_deref_α:           sub              rsp, 16
                         add              rsp, 16;                             jmp   n00105_scan_α
 .Lderef_α_612_999:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -5325,7 +5325,7 @@ n00115_subscript_α:       sub              rsp, 16
                         add              rsp, 240;                            jmp   getword_ω
 .Lsubscript_α_628_999:  mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_section.cpp:58
+                        push             rax                                  # gc_poll bb_section.cpp:60
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -5479,7 +5479,7 @@ n00119_deref_α:           sub              rsp, 16
                         add              rsp, 48;                             jmp   .Ldisjunction_ω_306_af
 .Lderef_α_636_999:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -5566,7 +5566,7 @@ n00121_binop_test_α:      sub              rsp, 16
 .Lgcsite_getword_68:    mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lbinop_test_vd_638_25: mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:67
+                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:69
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -5629,7 +5629,7 @@ n00124_unop_α:            sub              rsp, 16
 .Lgcsite_getword_74:    mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lunop_vd_642_27:       mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_unop.cpp:37
+                        push             rax                                  # gc_poll bb_unop.cpp:39
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -5692,7 +5692,7 @@ n00126_coerce_numeric_α:  sub              rsp, 16
                         call             c_rt_coerce_num2_d@PLT
 .Lgcsite_getword_77:    mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lcoerce_numeric_vd_645_28:
-                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:45
+                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:48
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -5766,7 +5766,7 @@ n00127_binop_α:           sub              rsp, 16
                         add              rsp, 352;                            jmp   n00049_unmark_α
 .Lbinop_α_646_999:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:257
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:259
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -5910,7 +5910,7 @@ n00131_deref_α:           sub              rsp, 16
                         add              rsp, 48;                             jmp   .Ldisjunction_ω_303_af
 .Lderef_α_652_999:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -6007,7 +6007,7 @@ n00134_binop_test_α:      sub              rsp, 16
 .Lgcsite_getword_90:    mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lbinop_test_vd_655_31: mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:67
+                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:69
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -6139,7 +6139,7 @@ n00142_coerce_numeric_α:  sub              rsp, 16
                         call             c_rt_coerce_num2_d@PLT
 .Lgcsite_getword_96:    mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lcoerce_numeric_vd_665_33:
-                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:45
+                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:48
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -6213,7 +6213,7 @@ n00143_binop_α:           sub              rsp, 16
                         add              rsp, 352;                            jmp   n00049_unmark_α
 .Lbinop_α_666_999:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:257
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:259
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -6405,7 +6405,7 @@ n00152_deref_α:           sub              rsp, 16
                         add              rsp, 48;                             jmp   n00151_line_mark_α
 .Lderef_α_678_999:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -6501,7 +6501,7 @@ n00156_coerce_numeric_α:  sub              rsp, 16
                         call             c_rt_coerce_num2_d@PLT
 .Lgcsite_getword_109:   mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lcoerce_numeric_vd_685_36:
-                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:45
+                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:48
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -6575,7 +6575,7 @@ n00157_binop_α:           sub              rsp, 16
                         add              rsp, 48;                             jmp   n00158_line_mark_α
 .Lbinop_α_686_999:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:257
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:259
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -6773,7 +6773,7 @@ n00174_coerce_numeric_α:  sub              rsp, 16
                         call             c_rt_coerce_num2_d@PLT
 .Lgcsite_getword_114:   mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lcoerce_numeric_vd_707_37:
-                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:45
+                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:48
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -6847,7 +6847,7 @@ n00175_binop_α:           sub              rsp, 16
                         add              rsp, 48;                             jmp   n00176_line_mark_α
 .Lbinop_α_708_999:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:257
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:259
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -6968,7 +6968,7 @@ n00181_deref_α:           sub              rsp, 16
                         add              rsp, 16;                             jmp   n00178_var_ref_β
 .Lderef_α_718_999:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -7085,7 +7085,7 @@ n00184_lit_charset_α:     sub              rsp, 16
 .Lgcsite_getword_123:   mov              r9,  qword ptr [rip + g_rtccb+48]
                         pop              rdx
                         pop              rax
-                        push             rax                                  # gc_poll bb_lit_scalar.cpp:124
+                        push             rax                                  # gc_poll bb_lit_scalar.cpp:127
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -7138,7 +7138,7 @@ n00185_binop_α:           sub              rsp, 16
                         add              rsp, 16;                             jmp   .Ldisjunction_ω_389_af
 .Lbinop_α_726_999:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:333
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:335
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -7305,7 +7305,7 @@ n00191_deref_α:           sub              rsp, 16
                         add              rsp, 16;                             jmp   n00192_scan_α
 .Lderef_α_734_999:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -7531,7 +7531,7 @@ n00198_coerce_numeric_α:  sub              rsp, 16
                         call             c_rt_coerce_num2_d@PLT
 .Lgcsite_getword_139:   mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lcoerce_numeric_vd_744_38:
-                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:45
+                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:48
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -7606,7 +7606,7 @@ n00199_binop_α:           sub              rsp, 16
                         add              rsp, 16;                             jmp   n00198_coerce_numeric_β
 .Lbinop_α_745_999:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:257
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:259
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -7744,7 +7744,7 @@ n00206_coerce_numeric_α:  sub              rsp, 16
                         call             c_rt_coerce_num2_d@PLT
 .Lgcsite_getword_144:   mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lcoerce_numeric_vd_756_39:
-                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:45
+                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:48
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -7818,7 +7818,7 @@ n00207_binop_α:           sub              rsp, 16
                         add              rsp, 48;                             jmp   n00164_unmark_α
 .Lbinop_α_757_999:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:257
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:259
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -7921,7 +7921,7 @@ n00211_coerce_numeric_α:  sub              rsp, 16
                         call             c_rt_coerce_num2_d@PLT
 .Lgcsite_getword_149:   mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lcoerce_numeric_vd_766_40:
-                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:45
+                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:48
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -7994,7 +7994,7 @@ n00212_binop_α:           sub              rsp, 16
                         add              rsp, 16;                             jmp   n00211_coerce_numeric_β
 .Lbinop_α_767_999:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:257
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:259
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -8105,7 +8105,7 @@ n00214_deref_α:           sub              rsp, 16
                         add              rsp, 96;                             jmp   .Ldisjunction_ω_426_af
 .Lderef_α_769_999:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -8186,7 +8186,7 @@ n00216_binop_test_α:      sub              rsp, 16
 .Lgcsite_getword_162:   mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lbinop_test_vd_772_43: mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:67
+                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:69
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -8334,7 +8334,7 @@ n00220_unop_α:            sub              rsp, 16
 .Lgcsite_getword_168:   mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lunop_vd_787_45:       mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_unop.cpp:37
+                        push             rax                                  # gc_poll bb_unop.cpp:39
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -8399,7 +8399,7 @@ n00222_coerce_numeric_α:  sub              rsp, 16
                         call             c_rt_coerce_num2_d@PLT
 .Lgcsite_getword_171:   mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lcoerce_numeric_vd_790_46:
-                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:45
+                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:48
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -8472,7 +8472,7 @@ n00223_binop_α:           sub              rsp, 16
                         add              rsp, 16;                             jmp   n00222_coerce_numeric_β
 .Lbinop_α_791_999:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:257
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:259
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -8574,7 +8574,7 @@ n00225_binop_test_α:      sub              rsp, 16
 .Lgcsite_getword_177:   cmp              al, 255;                             jne   .Lbinop_test_vd_793_47
                         call             c_rt_relop_val_coerce@PLT
 .Lgcsite_getword_176:   mov              r9,  qword ptr [rip + g_rtccb+48]
-.Lbinop_test_vd_793_47: push             rax                                  # gc_poll bb_binop_relop_val.cpp:67
+.Lbinop_test_vd_793_47: push             rax                                  # gc_poll bb_binop_relop_val.cpp:69
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -8659,7 +8659,7 @@ n00227_unop_α:            sub              rsp, 16
 .Lgcsite_getword_182:   mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lunop_vd_797_49:       mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_unop.cpp:37
+                        push             rax                                  # gc_poll bb_unop.cpp:39
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -8756,7 +8756,7 @@ n00229_binop_test_α:      sub              rsp, 16
 .Lgcsite_getword_186:   cmp              al, 255;                             jne   .Lbinop_test_vd_799_50
                         call             c_rt_relop_val_coerce@PLT
 .Lgcsite_getword_185:   mov              r9,  qword ptr [rip + g_rtccb+48]
-.Lbinop_test_vd_799_50: push             rax                                  # gc_poll bb_binop_relop_val.cpp:67
+.Lbinop_test_vd_799_50: push             rax                                  # gc_poll bb_binop_relop_val.cpp:69
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -8808,7 +8808,7 @@ n00231_deref_α:           sub              rsp, 16
                         add              rsp, 112;                            jmp   getword_ω
 .Lderef_α_802_999:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -9938,7 +9938,7 @@ n00241_make_list_α:       sub              rsp, 64
 .Lgcsite_format_1:      mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_make_list.cpp:33
+                        push             rax                                  # gc_poll bb_make_list.cpp:36
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -10038,7 +10038,7 @@ n00248_iterate_α:         sub              rsp, 32
                         mov              qword ptr [rsp + 8], rdx
                         cmp              al, 104;                             jne   .Literate_α_982_999
                         add              rsp, 32;                             jmp   n00249_line_mark_α
-.Literate_α_982_999:    push             rax                                  # gc_poll bb_iterate.cpp:34
+.Literate_α_982_999:    push             rax                                  # gc_poll bb_iterate.cpp:37
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -10113,7 +10113,7 @@ n00254_iterate_α:         sub              rsp, 32
                         mov              qword ptr [rsp + 8], rdx
                         cmp              al, 104;                             jne   .Literate_α_991_999
                         add              rsp, 32;                             jmp   n00255_unmark_α
-.Literate_α_991_999:    push             rax                                  # gc_poll bb_iterate.cpp:34
+.Literate_α_991_999:    push             rax                                  # gc_poll bb_iterate.cpp:37
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -10220,7 +10220,7 @@ n00262_subscript_α:       sub              rsp, 16
                         add              rsp, 32;                             jmp   n00263_line_mark_α
 .Lsubscript_α_1002_999: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:78
+                        push             rax                                  # gc_poll bb_subscript.cpp:81
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -10284,7 +10284,7 @@ n00266_deref_α:           sub              rsp, 16
                         add              rsp, 80;                             jmp   n00263_line_mark_α
 .Lderef_α_1005_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -10417,7 +10417,7 @@ n00271_subscript_α:       sub              rsp, 16
                         add              rsp, 192;                            jmp   n00263_line_mark_α
 .Lsubscript_α_1013_999: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:78
+                        push             rax                                  # gc_poll bb_subscript.cpp:81
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -10485,7 +10485,7 @@ n00274_coerce_numeric_α:  sub              rsp, 16
                         call             c_rt_coerce_num2_d@PLT
 .Lgcsite_format_17:     mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lcoerce_numeric_vd_1018_54:
-                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:45
+                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:48
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -10559,7 +10559,7 @@ n00275_binop_α:           sub              rsp, 16
                         add              rsp, 240;                            jmp   n00263_line_mark_α
 .Lbinop_α_1019_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:257
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:259
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -10614,7 +10614,7 @@ n00277_deref_α:           sub              rsp, 16
                         add              rsp, 272;                            jmp   n00263_line_mark_α
 .Lderef_α_1021_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -10825,7 +10825,7 @@ n00286_unop_α:            sub              rsp, 16
 .Lgcsite_format_29:     mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lunop_vd_1037_56:      mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_unop.cpp:37
+                        push             rax                                  # gc_poll bb_unop.cpp:39
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -10868,7 +10868,7 @@ n00287_to_α:              sub              rsp, 32
 .Lto_vd_1039_58:        test             eax, eax;                            jne   .Lto_α_1039_996
                         add              rsp, 32
                         add              rsp, 48;                             jmp   n00288_line_mark_α
-.Lto_α_1039_996:        push             rax                                  # gc_poll bb_to.cpp:39
+.Lto_α_1039_996:        push             rax                                  # gc_poll bb_to.cpp:43
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -10905,7 +10905,7 @@ n00287_to_α:              sub              rsp, 32
 .Lto_vd_1039_57:        test             eax, eax;                            jne   .Lto_α_1039_997
                         add              rsp, 32
                         add              rsp, 48;                             jmp   n00288_line_mark_α
-.Lto_α_1039_997:        push             rax                                  # gc_poll bb_to.cpp:39
+.Lto_α_1039_997:        push             rax                                  # gc_poll bb_to.cpp:43
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -10938,7 +10938,7 @@ n00287_to_α:              sub              rsp, 32
                         call             core_icn_to_int_check@PLT
 .Lgcsite_format_34:     mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 16], rax
-                        push             rax                                  # gc_poll bb_to.cpp:132
+                        push             rax                                  # gc_poll bb_to.cpp:136
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -10978,7 +10978,7 @@ n00287_to_α:              sub              rsp, 32
                         add              rsp, 48;                             jmp   n00288_line_mark_α
 .Lto_α_1039_998:        mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:152
+                        push             rax                                  # gc_poll bb_to.cpp:156
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -11028,7 +11028,7 @@ n00289_subscript_α:       sub              rsp, 16
                         add              rsp, 16;                             jmp   n00287_to_β
 .Lsubscript_α_1040_999: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:78
+                        push             rax                                  # gc_poll bb_subscript.cpp:81
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -11094,7 +11094,7 @@ n00292_deref_α:           sub              rsp, 16
                         add              rsp, 16;                             jmp   n00291_lit_string_β
 .Lderef_α_1044_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -11137,7 +11137,7 @@ n00293_deref_α:           sub              rsp, 16
                         add              rsp, 16;                             jmp   n00292_deref_β
 .Lderef_α_1045_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -11360,7 +11360,7 @@ n00303_coerce_numeric_α:  sub              rsp, 16
                         call             c_rt_coerce_num2_d@PLT
 .Lgcsite_format_54:     mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lcoerce_numeric_vd_1063_61:
-                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:45
+                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:48
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -11418,7 +11418,7 @@ n00304_coerce_numeric_α:  sub              rsp, 16
                         call             c_rt_coerce_num2_d@PLT
 .Lgcsite_format_57:     mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lcoerce_numeric_vd_1065_62:
-                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:45
+                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:48
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -11496,7 +11496,7 @@ n00306_binop_α:           sub              rsp, 16
                         add              rsp, 32;                             jmp   n00305_line_mark_α
 .Lbinop_α_1066_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:257
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:259
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -11620,7 +11620,7 @@ n00314_coerce_numeric_α:  sub              rsp, 16
                         call             c_rt_coerce_num2_d@PLT
 .Lgcsite_format_62:     mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lcoerce_numeric_vd_1080_63:
-                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:45
+                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:48
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -11679,7 +11679,7 @@ n00315_coerce_numeric_α:  sub              rsp, 16
                         call             c_rt_coerce_num2_d@PLT
 .Lgcsite_format_65:     mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lcoerce_numeric_vd_1082_64:
-                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:45
+                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:48
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -11756,7 +11756,7 @@ n00316_binop_α:           sub              rsp, 16
                         add              rsp, 16;                             jmp   n00315_coerce_numeric_β
 .Lbinop_α_1083_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:257
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:259
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -11847,7 +11847,7 @@ n00317_binop_test_α:      sub              rsp, 16
                         call             c_rt_relop_val_coerce@PLT
 .Lgcsite_format_70:     mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lbinop_test_vd_1084_65:
-                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:67
+                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:69
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -12152,7 +12152,7 @@ n00333_binop_test_α:      sub              rsp, 16
                         call             c_rt_relop_val_coerce@PLT
 .Lgcsite_format_79:     mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lbinop_test_vd_1112_68:
-                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:67
+                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:69
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -12222,7 +12222,7 @@ n00337_subscript_α:       sub              rsp, 16
                         add              rsp, 80;                             jmp   n00331_line_mark_α
 .Lsubscript_α_1117_999: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_section.cpp:79
+                        push             rax                                  # gc_poll bb_section.cpp:81
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -12313,7 +12313,7 @@ n00341_deref_α:           sub              rsp, 16
                         add              rsp, 32;                             jmp   n00342_line_mark_α
 .Lderef_α_1125_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -12356,7 +12356,7 @@ n00343_deref_α:           sub              rsp, 16
                         add              rsp, 48;                             jmp   n00342_line_mark_α
 .Lderef_α_1126_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -12562,7 +12562,7 @@ n00353_deref_α:           sub              rsp, 16
                         add              rsp, 16;                             jmp   n00354_line_mark_α
 .Lderef_α_1149_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -12711,7 +12711,7 @@ n00360_deref_α:           sub              rsp, 16
                         add              rsp, 32;                             jmp   n00361_line_mark_α
 .Lderef_α_1160_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -13801,7 +13801,7 @@ n00391_nulltest_var_α:   sub              rsp, 16
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 24]
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_unop.cpp:65
+                        push             rax                                  # gc_poll bb_unop.cpp:67
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -13847,7 +13847,7 @@ n00393_lit_charset_α:    sub              rsp, 16
 .Lgcsite_options_3:     mov              r9,  qword ptr [rip + g_rtccb+48]
                         pop              rdx
                         pop              rax
-                        push             rax                                  # gc_poll bb_lit_scalar.cpp:124
+                        push             rax                                  # gc_poll bb_lit_scalar.cpp:127
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -13964,7 +13964,7 @@ n00396_assign_var_α:     sub              rsp, 16
 .Lassign_var_α_1391_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_assign_var.cpp:31
+                        push             rax                                  # gc_poll bb_assign_var.cpp:33
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -14100,7 +14100,7 @@ n00401_make_list_α:      sub              rsp, 16
 .Lgcsite_options_12:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_make_list.cpp:33
+                        push             rax                                  # gc_poll bb_make_list.cpp:36
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -14185,7 +14185,7 @@ n00406_deref_α:          sub              rsp, 16
                         add              rsp, 32;                             jmp   n00407_line_mark_α
 .Lderef_α_1410_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -14451,7 +14451,7 @@ n00424_deref_α:          sub              rsp, 16
                         add              rsp, 32;                             jmp   n00419_scan_α
 .Lderef_α_1433_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -14494,7 +14494,7 @@ n00425_deref_α:          sub              rsp, 16
                         add              rsp, 48;                             jmp   n00419_scan_α
 .Lderef_α_1434_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -15003,7 +15003,7 @@ n00452_deref_α:          sub              rsp, 16
                         add              rsp, 32;                             jmp   n00447_unmark_α
 .Lderef_α_1476_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -15195,7 +15195,7 @@ n00459_deref_α:          sub              rsp, 16
                         add              rsp, 16;                             jmp   n00460_scan_α
 .Lderef_α_1490_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -15392,7 +15392,7 @@ n00466_coerce_numeric_α: sub              rsp, 16
                         call             c_rt_coerce_num2_d@PLT
 .Lgcsite_options_43:    mov              r9,  qword ptr [rip + g_rtccb+48]
 .Lcoerce_numeric_vd_1500_72:
-                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:45
+                        push             rax                                  # gc_poll bb_coerce_numeric.cpp:48
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -15467,7 +15467,7 @@ n00467_binop_α:          sub              rsp, 16
                         add              rsp, 16;                             jmp   n00466_coerce_numeric_β
 .Lbinop_α_1501_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:257
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:259
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -15550,7 +15550,7 @@ n00472_subscript_α:      sub              rsp, 16
                         add              rsp, 208;                            jmp   n00447_unmark_α
 .Lsubscript_α_1509_999: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:78
+                        push             rax                                  # gc_poll bb_subscript.cpp:81
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -15623,7 +15623,7 @@ n00474_assign_var_α:     sub              rsp, 16
 .Lassign_var_α_1512_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_assign_var.cpp:31
+                        push             rax                                  # gc_poll bb_assign_var.cpp:33
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -15690,7 +15690,7 @@ n00473_lit_charset_α:    sub              rsp, 16
 .Lgcsite_options_54:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         pop              rdx
                         pop              rax
-                        push             rax                                  # gc_poll bb_lit_scalar.cpp:124
+                        push             rax                                  # gc_poll bb_lit_scalar.cpp:127
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -15834,7 +15834,7 @@ n00481_deref_α:          sub              rsp, 16
                         add              rsp, 48;                             jmp   .Ldisjunction_ω_1278_af
 .Lderef_α_1521_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -15945,7 +15945,7 @@ n00485_deref_α:          sub              rsp, 16
                         add              rsp, 16;                             jmp   n00486_scan_α
 .Lderef_α_1527_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -16091,7 +16091,7 @@ n00488_scan_any_α:       sub              rsp, 16
                         mov              rax, r14
                         add              rax, 2
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_scan_any.cpp:80
+                        push             rax                                  # gc_poll bb_scan_any.cpp:83
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -16320,7 +16320,7 @@ n00506_binop_test_α:     sub              rsp, 16
                         mov              qword ptr [rsp + 0], rcx
                         mov              rcx, qword ptr [rsp + 24]
                         mov              qword ptr [rsp + 8], rcx
-                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:67
+                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:69
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -16445,7 +16445,7 @@ n00512_deref_α:          sub              rsp, 16
                         add              rsp, 16;                             jmp   n00511_lit_string_β
 .Lderef_α_1557_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -16571,7 +16571,7 @@ n00515_deref_α:          sub              rsp, 16
                         add              rsp, 16;                             jmp   n00508_var_ref_β
 .Lderef_α_1564_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -16721,7 +16721,7 @@ n00518_binop_test_α:     sub              rsp, 16
                         mov              qword ptr [rsp + 0], rcx
                         mov              rcx, qword ptr [rsp + 24]
                         mov              qword ptr [rsp + 8], rcx
-                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:67
+                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:69
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -16846,7 +16846,7 @@ n00524_deref_α:          sub              rsp, 16
                         add              rsp, 16;                             jmp   n00523_lit_string_β
 .Lderef_α_1579_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -16972,7 +16972,7 @@ n00527_deref_α:          sub              rsp, 16
                         add              rsp, 16;                             jmp   n00520_var_ref_β
 .Lderef_α_1586_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -17122,7 +17122,7 @@ n00530_binop_test_α:     sub              rsp, 16
                         mov              qword ptr [rsp + 0], rcx
                         mov              rcx, qword ptr [rsp + 24]
                         mov              qword ptr [rsp + 8], rcx
-                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:67
+                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:69
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -17193,7 +17193,7 @@ n00533_deref_α:          sub              rsp, 16
                         add              rsp, 16;                             jmp   n00532_var_ref_β
 .Lderef_α_1598_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -17315,7 +17315,7 @@ n00536_deref_α:          sub              rsp, 16
                         add              rsp, 16;                             jmp   n00496_var_ref_β
 .Lderef_α_1605_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -17525,7 +17525,7 @@ n00541_binop_test_α:     sub              rsp, 16
 .Lbinop_test_vd_1616_80:
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:67
+                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:69
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -17906,7 +17906,7 @@ n00557_deref_α:          sub              rsp, 16
                         add              rsp, 48;                             jmp   n00558_line_mark_α
 .Lderef_α_1656_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -18009,7 +18009,7 @@ n00561_deref_α:          sub              rsp, 16
                         add              rsp, 96;                             jmp   n00558_line_mark_α
 .Lderef_α_1661_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -20251,7 +20251,7 @@ n00600_make_list_α:      sub              rsp, 16
                         add              rsp, 448
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_make_list.cpp:33
+                        push             rax                                  # gc_poll bb_make_list.cpp:36
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -20430,7 +20430,7 @@ n00610_make_list_α:      sub              rsp, 16
 .Lgcsite_main_8:        mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_make_list.cpp:33
+                        push             rax                                  # gc_poll bb_make_list.cpp:36
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -20495,7 +20495,7 @@ n00613_make_list_α:      sub              rsp, 16
 .Lgcsite_main_10:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_make_list.cpp:33
+                        push             rax                                  # gc_poll bb_make_list.cpp:36
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -20560,7 +20560,7 @@ n00616_make_list_α:      sub              rsp, 16
 .Lgcsite_main_12:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_make_list.cpp:33
+                        push             rax                                  # gc_poll bb_make_list.cpp:36
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -20668,7 +20668,7 @@ n00622_lit_charset_α:    sub              rsp, 16
 .Lgcsite_main_14:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         pop              rdx
                         pop              rax
-                        push             rax                                  # gc_poll bb_lit_scalar.cpp:124
+                        push             rax                                  # gc_poll bb_lit_scalar.cpp:127
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -20722,7 +20722,7 @@ n00623_lit_charset_α:    sub              rsp, 16
 .Lgcsite_main_16:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         pop              rdx
                         pop              rax
-                        push             rax                                  # gc_poll bb_lit_scalar.cpp:124
+                        push             rax                                  # gc_poll bb_lit_scalar.cpp:127
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -20775,7 +20775,7 @@ n00624_binop_α:          sub              rsp, 16
                         add              rsp, 32;                             jmp   n00625_line_mark_α
 .Lbinop_α_2214_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:333
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:335
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -20846,7 +20846,7 @@ n00627_lit_charset_α:    sub              rsp, 16
 .Lgcsite_main_20:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         pop              rdx
                         pop              rax
-                        push             rax                                  # gc_poll bb_lit_scalar.cpp:124
+                        push             rax                                  # gc_poll bb_lit_scalar.cpp:127
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -20908,7 +20908,7 @@ n00629_binop_α:          sub              rsp, 16
                         add              rsp, 32;                             jmp   n00630_line_mark_α
 .Lbinop_α_2220_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_arith.cpp:333
+                        push             rax                                  # gc_poll bb_binop_arith.cpp:335
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -20999,7 +20999,7 @@ n00634_deref_α:          sub              rsp, 16
                         add              rsp, 32;                             jmp   n00635_line_mark_α
 .Lderef_α_2227_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -21114,7 +21114,7 @@ n00638_deref_α:          sub              rsp, 16
                         add              rsp, 64;                             jmp   n00635_line_mark_α
 .Lderef_α_2232_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -21343,7 +21343,7 @@ n00650_deref_α:          sub              rsp, 16
                         add              rsp, 48;                             jmp   n00649_line_mark_α
 .Lderef_α_2248_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -21516,7 +21516,7 @@ n00657_deref_α:          sub              rsp, 16
                         add              rsp, 48;                             jmp   n00656_line_mark_α
 .Lderef_α_2257_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -21689,7 +21689,7 @@ n00664_deref_α:          sub              rsp, 16
                         add              rsp, 48;                             jmp   n00663_line_mark_α
 .Lderef_α_2266_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -21795,7 +21795,7 @@ n00669_subscript_α:      sub              rsp, 16
                         add              rsp, 32;                             jmp   n00670_line_mark_α
 .Lsubscript_α_2274_999: mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_subscript.cpp:78
+                        push             rax                                  # gc_poll bb_subscript.cpp:81
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -21850,7 +21850,7 @@ n00672_deref_α:          sub              rsp, 16
                         add              rsp, 64;                             jmp   n00670_line_mark_α
 .Lderef_α_2276_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -22054,7 +22054,7 @@ n00680_deref_α:          sub              rsp, 16
                         add              rsp, 32;                             jmp   n00679_line_mark_α
 .Lderef_α_2290_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -22505,7 +22505,7 @@ n00713_deref_α:          sub              rsp, 16
                         add              rsp, 64;                             jmp   n00709_line_mark_α
 .Lderef_α_2333_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -22548,7 +22548,7 @@ n00714_deref_α:          sub              rsp, 16
                         add              rsp, 80;                             jmp   n00709_line_mark_α
 .Lderef_α_2334_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -22725,7 +22725,7 @@ n00718_deref_α:          sub              rsp, 16
                         add              rsp, 16;                             jmp   .Ldisjunction_ω_1803_af
 .Lderef_α_2343_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -22825,7 +22825,7 @@ n00721_binop_test_α:     sub              rsp, 16
 .Lbinop_test_vd_2346_90:
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:67
+                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:69
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -23003,7 +23003,7 @@ n00730_deref_α:          sub              rsp, 16
                         add              rsp, 48;                             jmp   n00685_unmark_α
 .Lderef_α_2361_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -23046,7 +23046,7 @@ n00731_deref_α:          sub              rsp, 16
                         add              rsp, 64;                             jmp   n00685_unmark_α
 .Lderef_α_2362_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -23165,7 +23165,7 @@ n00734_deref_α:          sub              rsp, 16
                         add              rsp, 96;                             jmp   n00685_unmark_α
 .Lderef_α_2367_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -23238,7 +23238,7 @@ n00737_iterate_α:        sub              rsp, 32
                         mov              qword ptr [rsp + 8], rdx
                         cmp              al, 104;                             jne   .Literate_α_2373_999
                         add              rsp, 32;                             jmp   n00736_var_β
-.Literate_α_2373_999:   push             rax                                  # gc_poll bb_iterate.cpp:34
+.Literate_α_2373_999:   push             rax                                  # gc_poll bb_iterate.cpp:37
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -23315,7 +23315,7 @@ n00738_binop_test_α:     sub              rsp, 16
 .Lbinop_test_vd_2374_93:
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:67
+                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:69
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -23410,7 +23410,7 @@ n00740_binop_test_α:     sub              rsp, 16
 .Lbinop_test_vd_2378_95:
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:67
+                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:69
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -23516,7 +23516,7 @@ n00746_make_list_α:      sub              rsp, 16
 .Lgcsite_main_106:      mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_make_list.cpp:33
+                        push             rax                                  # gc_poll bb_make_list.cpp:36
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -23593,7 +23593,7 @@ n00750_deref_α:          sub              rsp, 16
                         add              rsp, 16;                             jmp   n00751_line_mark_α
 .Lderef_α_2394_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -23807,7 +23807,7 @@ n00759_assign_var_α:     sub              rsp, 16
 .Lassign_var_α_2406_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_assign_var.cpp:31
+                        push             rax                                  # gc_poll bb_assign_var.cpp:33
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -23884,7 +23884,7 @@ n00762_deref_α:          sub              rsp, 16
                         add              rsp, 32;                             jmp   n00685_unmark_α
 .Lderef_α_2413_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -23927,7 +23927,7 @@ n00763_deref_α:          sub              rsp, 16
                         add              rsp, 48;                             jmp   n00685_unmark_α
 .Lderef_α_2414_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -24115,7 +24115,7 @@ n00769_binop_test_α:     sub              rsp, 16
 .Lbinop_test_vd_2424_99:
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:67
+                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:69
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -24254,7 +24254,7 @@ n00781_deref_α:          sub              rsp, 16
                         add              rsp, 32;                             jmp   n00782_line_mark_α
 .Lderef_α_2438_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -24297,7 +24297,7 @@ n00783_deref_α:          sub              rsp, 16
                         add              rsp, 48;                             jmp   n00782_line_mark_α
 .Lderef_α_2439_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -24448,7 +24448,7 @@ n00789_deref_α:          sub              rsp, 16
                         add              rsp, 48;                             jmp   n00790_line_mark_α
 .Lderef_α_2451_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -24491,7 +24491,7 @@ n00791_deref_α:          sub              rsp, 16
                         add              rsp, 64;                             jmp   n00790_line_mark_α
 .Lderef_α_2452_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -24610,7 +24610,7 @@ n00794_deref_α:          sub              rsp, 16
                         add              rsp, 96;                             jmp   n00790_line_mark_α
 .Lderef_α_2457_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -24739,7 +24739,7 @@ n00799_deref_α:          sub              rsp, 16
                         add              rsp, 32;                             jmp   n00798_line_mark_α
 .Lderef_α_2466_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -24836,7 +24836,7 @@ n00802_binop_test_α:     sub              rsp, 16
 .Lbinop_test_vd_2469_101:
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:67
+                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:69
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -25011,7 +25011,7 @@ n00815_deref_α:          sub              rsp, 16
                         add              rsp, 32;                             jmp   n00816_line_mark_α
 .Lderef_α_2487_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -25054,7 +25054,7 @@ n00817_deref_α:          sub              rsp, 16
                         add              rsp, 48;                             jmp   n00816_line_mark_α
 .Lderef_α_2488_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -25205,7 +25205,7 @@ n00823_deref_α:          sub              rsp, 16
                         add              rsp, -64;                            jmp   n00824_unmark_α
 .Lderef_α_2500_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -25248,7 +25248,7 @@ n00825_deref_α:          sub              rsp, 16
                         add              rsp, -48;                            jmp   n00824_unmark_α
 .Lderef_α_2501_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -25367,7 +25367,7 @@ n00828_deref_α:          sub              rsp, 16
                         add              rsp, -16;                            jmp   n00824_unmark_α
 .Lderef_α_2506_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -25516,7 +25516,7 @@ n00834_deref_α:          sub              rsp, 16
                         add              rsp, 16;                             jmp   .Ldisjunction_ω_1900_af
 .Lderef_α_2518_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -25581,7 +25581,7 @@ n00836_iterate_α:        sub              rsp, 32
                         mov              qword ptr [rsp + 8], rdx
                         cmp              al, 104;                             jne   .Literate_α_2523_999
                         add              rsp, 32;                             jmp   n00835_var_β
-.Literate_α_2523_999:   push             rax                                  # gc_poll bb_iterate.cpp:34
+.Literate_α_2523_999:   push             rax                                  # gc_poll bb_iterate.cpp:37
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -25658,7 +25658,7 @@ n00837_binop_test_α:     sub              rsp, 16
 .Lbinop_test_vd_2524_103:
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:67
+                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:69
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -25755,7 +25755,7 @@ n00842_deref_α:          sub              rsp, 16
                         add              rsp, 48;                             jmp   n00685_unmark_α
 .Lderef_α_2535_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -25798,7 +25798,7 @@ n00843_deref_α:          sub              rsp, 16
                         add              rsp, 64;                             jmp   n00685_unmark_α
 .Lderef_α_2536_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -25999,7 +25999,7 @@ n00850_deref_α:          sub              rsp, 16
                         add              rsp, 16;                             jmp   .Ldisjunction_ω_1870_af
 .Lderef_α_2548_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -26169,7 +26169,7 @@ n00853_binop_test_α:     sub              rsp, 16
 .Lbinop_test_vd_2556_105:
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:67
+                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:69
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -26320,7 +26320,7 @@ n00866_deref_α:          sub              rsp, 16
                         add              rsp, 48;                             jmp   n00867_line_mark_α
 .Lderef_α_2571_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -26363,7 +26363,7 @@ n00868_deref_α:          sub              rsp, 16
                         add              rsp, 64;                             jmp   n00867_line_mark_α
 .Lderef_α_2572_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -26482,7 +26482,7 @@ n00871_deref_α:          sub              rsp, 16
                         add              rsp, 96;                             jmp   n00867_line_mark_α
 .Lderef_α_2577_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -26611,7 +26611,7 @@ n00876_deref_α:          sub              rsp, 16
                         add              rsp, 32;                             jmp   n00875_line_mark_α
 .Lderef_α_2586_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -26708,7 +26708,7 @@ n00879_binop_test_α:     sub              rsp, 16
 .Lbinop_test_vd_2589_107:
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:67
+                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:69
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -26895,7 +26895,7 @@ n00893_deref_α:          sub              rsp, 16
                         add              rsp, -64;                            jmp   n00894_unmark_α
 .Lderef_α_2608_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -26938,7 +26938,7 @@ n00895_deref_α:          sub              rsp, 16
                         add              rsp, -48;                            jmp   n00894_unmark_α
 .Lderef_α_2609_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -27057,7 +27057,7 @@ n00898_deref_α:          sub              rsp, 16
                         add              rsp, -16;                            jmp   n00894_unmark_α
 .Lderef_α_2614_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -27206,7 +27206,7 @@ n00904_deref_α:          sub              rsp, 16
                         add              rsp, 16;                             jmp   .Ldisjunction_ω_1977_af
 .Lderef_α_2626_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -27271,7 +27271,7 @@ n00906_iterate_α:        sub              rsp, 32
                         mov              qword ptr [rsp + 8], rdx
                         cmp              al, 104;                             jne   .Literate_α_2631_999
                         add              rsp, 32;                             jmp   n00905_var_β
-.Literate_α_2631_999:   push             rax                                  # gc_poll bb_iterate.cpp:34
+.Literate_α_2631_999:   push             rax                                  # gc_poll bb_iterate.cpp:37
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -27348,7 +27348,7 @@ n00907_binop_test_α:     sub              rsp, 16
 .Lbinop_test_vd_2632_109:
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:67
+                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:69
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -27445,7 +27445,7 @@ n00912_deref_α:          sub              rsp, 16
                         add              rsp, 48;                             jmp   n00685_unmark_α
 .Lderef_α_2643_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -27488,7 +27488,7 @@ n00913_deref_α:          sub              rsp, 16
                         add              rsp, 64;                             jmp   n00685_unmark_α
 .Lderef_α_2644_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -27689,7 +27689,7 @@ n00919_deref_α:          sub              rsp, 16
                         add              rsp, 16;                             jmp   .Ldisjunction_ω_1954_af
 .Lderef_α_2656_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -27844,7 +27844,7 @@ n00921_binop_test_α:     sub              rsp, 16
 .Lbinop_test_vd_2663_111:
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:67
+                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:69
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -27955,7 +27955,7 @@ n00928_deref_α:          sub              rsp, 16
                         add              rsp, 64;                             jmp   n00929_line_mark_α
 .Lderef_α_2674_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -28068,7 +28068,7 @@ n00932_deref_α:          sub              rsp, 16
                         add              rsp, 144;                            jmp   n00929_line_mark_α
 .Lderef_α_2679_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -28250,7 +28250,7 @@ n00941_deref_α:          sub              rsp, 16
                         add              rsp, 16;                             jmp   n00942_line_mark_α
 .Lderef_α_2693_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -28465,7 +28465,7 @@ n00950_assign_var_α:     sub              rsp, 16
 .Lassign_var_α_2705_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_assign_var.cpp:31
+                        push             rax                                  # gc_poll bb_assign_var.cpp:33
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -28542,7 +28542,7 @@ n00953_deref_α:          sub              rsp, 16
                         add              rsp, 32;                             jmp   n00685_unmark_α
 .Lderef_α_2712_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -28585,7 +28585,7 @@ n00954_deref_α:          sub              rsp, 16
                         add              rsp, 48;                             jmp   n00685_unmark_α
 .Lderef_α_2713_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -28792,7 +28792,7 @@ n00960_deref_α:          sub              rsp, 16
                         add              rsp, 16;                             jmp   .Ldisjunction_ω_2035_af
 .Lderef_α_2727_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -28893,7 +28893,7 @@ n00962_binop_test_α:     sub              rsp, 16
 .Lbinop_test_vd_2731_115:
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:67
+                        push             rax                                  # gc_poll bb_binop_relop_val.cpp:69
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -28962,7 +28962,7 @@ n00965_make_list_α:      sub              rsp, 16
 .Lgcsite_main_288:      mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_make_list.cpp:33
+                        push             rax                                  # gc_poll bb_make_list.cpp:36
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -29116,7 +29116,7 @@ n00974_deref_α:          sub              rsp, 16
                         add              rsp, 16;                             jmp   n00975_line_mark_α
 .Lderef_α_2754_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -29227,7 +29227,7 @@ n00978_deref_α:          sub              rsp, 16
                         add              rsp, 48;                             jmp   n00975_line_mark_α
 .Lderef_α_2759_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -29271,7 +29271,7 @@ n00979_iterate_α:        sub              rsp, 32
                         cmp              al, 104;                             jne   .Literate_α_2761_999
                         add              rsp, 32
                         add              rsp, 64;                             jmp   n00975_line_mark_α
-.Literate_α_2761_999:   push             rax                                  # gc_poll bb_iterate.cpp:34
+.Literate_α_2761_999:   push             rax                                  # gc_poll bb_iterate.cpp:37
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -29479,7 +29479,7 @@ n00986_make_list_α:      sub              rsp, 32
 .Lgcsite_main_302:      mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_make_list.cpp:33
+                        push             rax                                  # gc_poll bb_make_list.cpp:36
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -29552,7 +29552,7 @@ n00990_iterate_α:        sub              rsp, 32
                         mov              qword ptr [rsp + 8], rdx
                         cmp              al, 104;                             jne   .Literate_α_2783_999
                         add              rsp, 32;                             jmp   n00991_line_mark_α
-.Literate_α_2783_999:   push             rax                                  # gc_poll bb_iterate.cpp:34
+.Literate_α_2783_999:   push             rax                                  # gc_poll bb_iterate.cpp:37
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -29728,7 +29728,7 @@ n01001_deref_α:          sub              rsp, 16
                         add              rsp, -240;                           jmp   n00998_unmark_α
 .Lderef_α_2796_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -30141,7 +30141,7 @@ n01012_deref_α:          sub              rsp, 16
                         add              rsp, -64;                            jmp   n00998_unmark_α
 .Lderef_α_2811_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -30291,7 +30291,7 @@ n01017_deref_α:          sub              rsp, 16
                         add              rsp, 16;                             jmp   main_ω
 .Lderef_α_2824_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -30395,7 +30395,7 @@ n01020_iterate_α:        sub              rsp, 32
                         cmp              al, 104;                             jne   .Literate_α_2830_999
                         add              rsp, 32
                         add              rsp, 64;                             jmp   main_ω
-.Literate_α_2830_999:   push             rax                                  # gc_poll bb_iterate.cpp:34
+.Literate_α_2830_999:   push             rax                                  # gc_poll bb_iterate.cpp:37
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -30591,7 +30591,7 @@ n01025_deref_α:          sub              rsp, 16
                         add              rsp, 48;                             jmp   .Ldisjunction_ω_1748_af
 .Lderef_α_2839_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -30765,7 +30765,7 @@ n01031_deref_α:          sub              rsp, 16
                         add              rsp, 48;                             jmp   .Ldisjunction_ω_1746_af
 .Lderef_α_2847_999:     mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_deref.cpp:26
+                        push             rax                                  # gc_poll bb_deref.cpp:28
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
