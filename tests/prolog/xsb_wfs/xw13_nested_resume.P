@@ -1,0 +1,8 @@
+% DESIGN-PLAN xsb-tabling-wfs step 6 (8.10 (10), the W6 witness n2): an independent inner table t resolves its own consumer inside p's resumed continuation; a binding made after a park to a cell the parked continuation sees must be undone before the resume
+:- table p/1, t/1.
+p(1).
+p(X) :- p(Y), s(Y,X).
+s(Y,X) :- t(Y), X is Y+1, X<6.
+t(Y) :- t(Z), Z<3, Y is Z+1.
+t(0).
+test :- findall(X,p(X),L), sort(L,M), write(M), nl.

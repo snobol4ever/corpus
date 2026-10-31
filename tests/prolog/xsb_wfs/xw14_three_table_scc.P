@@ -1,0 +1,9 @@
+% DESIGN-PLAN xsb-tabling-wfs step 6 (8.10 (10), the W6 witness n3): a three-table SCC a -> b -> c -> a completes to its fixpoint; a later clause's binding of a cell a parked consumer references must not survive into its resume
+:- table a/1, b/1, c/1.
+a(X) :- b(X).
+a(1).
+b(X) :- c(X).
+b(2).
+c(X) :- a(Y), X is Y+1, X<6.
+c(3).
+test :- findall(X,a(X),L), sort(L,M), write(M), nl.

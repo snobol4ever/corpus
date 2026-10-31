@@ -8,9 +8,9 @@ step	slug	executor	depends	probe	witnesses
 3	the-xsb-reading	hq_packages	-	entries=neg_tests_q7,table_tests_abol_test3	xw03_reading
 4	auto-table-and-suppl-table	hq_packages	3	entries=delay_tests_seg1,delay_tests_win,delay_tests_fr1,delay_tests_dynstrat1	xw04_auto_table xw05_suppl_table
 5	the-table-builtin-surface	hq_packages	-	entries=table_tests_get_resid,prolog_tests_std1	xw06_builtins
-6	one-body-one-run	cfo	1	entries=delay_tests_przy1,delay_tests_abol_susp1,delay_tests_abol_susp2,delay_tests_ac_tests	xw07_once_per_body xw12_ball_abolish
+6	one-body-one-run	cfo	1	entries=delay_tests_przy1,delay_tests_abol_susp1,delay_tests_abol_susp2	xw07_once_per_body xw12_ball_abolish xw13_nested_resume xw14_three_table_scc
 7	the-scc-depth-number	cfo	6	entries=delay_tests_tabsimp_seq	xw08_scc_ring
-8	delay-lists-as-xsb-prints-them	hq_packages	6	entries=table_tests_test_wcs_1,table_tests_test_wcs_simpl,delay_tests_dl_dupl,delay_tests_asl_dupl	xw09_delay_print
+8	delay-lists-as-xsb-prints-them	hq_packages	6	entries=table_tests_test_wcs_1,table_tests_test_wcs_simpl,delay_tests_dl_dupl,delay_tests_asl_dupl,delay_tests_ac_tests	xw09_delay_print
 9	the-cut-over-an-incomplete-table	hq_packages	6	entries=table_tests_test_cut_over_tables	xw10_cut_over_table
 10	call-subsumption	cfo	1,3	entries=sub_tests_sg1,sub_tests_decker,sub_tests_lrtc1,sub_tests_drtc1	xw11_subsumptive
-11	the-finish	hq_packages	1,2,3,4,5,6,7,8,9,10	families=wfs_tests,delay_tests,neg_tests,sub_tests row=380	xw01_loader_table xw02_wfs_driver:temp:test(xw02_p33) xw03_reading xw04_auto_table xw05_suppl_table xw06_builtins xw07_once_per_body xw08_scc_ring xw09_delay_print xw10_cut_over_table xw11_subsumptive
+11	the-finish	hq_packages	1,2,3,4,5,6,7,8,9,10	families=wfs_tests,delay_tests,neg_tests,sub_tests row=380	xw01_loader_table xw02_wfs_driver:temp:test(xw02_p33) xw03_reading xw04_auto_table xw05_suppl_table xw06_builtins xw07_once_per_body xw08_scc_ring xw09_delay_print xw10_cut_over_table xw11_subsumptive xw13_nested_resume xw14_three_table_scc
