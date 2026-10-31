@@ -1,0 +1,5 @@
+:- module(par(f1,f2),[out/2]).
+
+:- import out/2 from un(f1,f2)>>xun_file as u/2.
+
+out(X,Y) :- u(X,Y).

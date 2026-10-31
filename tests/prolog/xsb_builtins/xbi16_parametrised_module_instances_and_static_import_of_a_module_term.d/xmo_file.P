@@ -1,0 +1,4 @@
+:- export out/2.
+
+out(a,1).
+out(b,2).

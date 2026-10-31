@@ -1,0 +1,10 @@
+% xbi16_parametrised_module_instances_and_static_import_of_a_module_term -- XSB parametrised modules (prolog_tests mod_file_tests test_mod_file, test_mod_file_im): par(A>>FileA, B>>FileB)>>par_file names
+% the module par instantiated with the actual modules A and B, whose formals f1, f2 (from :- module(par(f1,f2), ...), or :- module_parameters) are replaced by the actuals inside the file, so one file
+% loaded under two actual tuples is two modules; :- import P/N from Module [as Q/N] makes the imported predicate callable unqualified, loading the module on the first call. The module files are
+% the witness's .d directory, copied beside the program.
+:- import out/2 from par(xmo>>xmo_file,xmt>>xmt_file)>>xpar_file as pout/2.
+test :- (do_all par(xmo>>xmo_file,xmt>>xmt_file)>>xpar_file:out(X,Y), writeln(lit(X,Y))), fail.
+test :- Mod = (par(xmt>>xmt_file,xmo>>xmo_file)>>xpar_file), (do_all Mod:out(X,Y), writeln(swapped(X,Y))), fail.
+test :- (do_all pout(X,Y), writeln(imported(X,Y))), fail.
+test :- Mod = (xmo>>xmo_file), (do_all Mod:out(X,Y), writeln(base(X,Y))), fail.
+test.

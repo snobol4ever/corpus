@@ -1,0 +1,9 @@
+:- module_parameters(left,right).
+
+:- export out/2.
+
+:- import out/2 from left as l/2.
+:- import out/2 from right as r/2.
+
+out(X,Y) :- l(X,Y).
+out(X,Y) :- r(X,Y).

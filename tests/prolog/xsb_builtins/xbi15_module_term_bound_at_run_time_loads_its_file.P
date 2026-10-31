@@ -1,0 +1,7 @@
+% xbi15_module_term_bound_at_run_time_loads_its_file -- XSB's Name>>File module term held in a variable: Mod:Goal loads File as the module Name on its first touch and calls the goal there
+% (prolog_tests mod_file_tests test_mod_file): a bare file name beside the program, a relative path, an absolute path from expand_filename/2; a second call loads nothing; xp's private q/2 and xq's exported q/2 (and xq's private r/2 beside xr's exported r/2) do not meet. The companion module files are the witness's .d directory, copied beside the program.
+test :- Mod = (xp>>xp_file), (do_all Mod:p(X,Y), writeln(p(X,Y))), fail.
+test :- Mod = (xr>>'sub/xr_file'), (do_all Mod:r(X,Y), writeln(r(X,Y))), fail.
+test :- expand_filename('./xq_file', AbsFN), Mod = (xq>>AbsFN), (do_all Mod:q(X,Y), writeln(q(X,Y))), fail.
+test :- Mod = (xp>>xp_file), (do_all Mod:p(X,Y), writeln(again(X,Y))), fail.
+test.
