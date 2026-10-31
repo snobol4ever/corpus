@@ -2892,147 +2892,147 @@ write(f,"hello world") ----> "hello world"
 close(f) ----> file(foo.baz)
 F := open("gc1.icn") ----> file(gc1.icn)
 )(niam erudecorp
-)"... gnillif"(etirw   
+;)"... gnillif"(etirw   
 { od 001 ot 1 yreve   
 od 001 ot 1 yreve      
 )0001(tsil         
-}      
+;}      
 )snoitcelloc&(etirw#   
-)"... gnitcelloc"(etirw   
-)(tcelloc   
-)"... gnillif"(etirw   
+;)"... gnitcelloc"(etirw   
+;)(tcelloc   
+;)"... gnillif"(etirw   
 { od )0001 ot 1,"x"(lper =: s yreve   
-))esacl&(gnirts(tesc      
-)(elbat =: t      
-)]s[(tes      
+;))esacl&(gnirts(tesc      
+;)(elbat =: t      
+;)]s[(tes      
 ]5 : 2[s      
-}      
-)"enod"(etirw   
+;}      
+;)"enod"(etirw   
 dne
 every write(reverse(!F)) ----> none
 close(F) ----> file(gc1.icn)
 F := open("gc1.icn") ----> file(gc1.icn)
 procedure main()
-   write("filling ...")
+   write("filling ...");
    every 1 to 100 do {
       every 1 to 100 do
          list(1000)
-      }
+      };
    #write(&collections)
-   write("collecting ...")
-   collect()
-   write("filling ...")
+   write("collecting ...");
+   collect();
+   write("filling ...");
    every s := repl("x",1 to 1000) do {
-      cset(string(&lcase))
-      t := table()
-      set([s])
+      cset(string(&lcase));
+      t := table();
+      set([s]);
       s[2 : 5]
-      }
-   write("done")
+      };
+   write("done");
 end
 every write(map(!F)) ----> none
 close(F) ----> file(gc1.icn)
 F := open("gc1.icn") ----> file(gc1.icn)
 pr-c-d-r- m--n()
-   wr-t-("f-ll-ng ...")
+   wr-t-("f-ll-ng ...");
    -v-ry 1 t- 100 d- {
       -v-ry 1 t- 100 d-
          l-st(1000)
-      }
+      };
    #wr-t-(&c-ll-ct--ns)
-   wr-t-("c-ll-ct-ng ...")
-   c-ll-ct()
-   wr-t-("f-ll-ng ...")
+   wr-t-("c-ll-ct-ng ...");
+   c-ll-ct();
+   wr-t-("f-ll-ng ...");
    -v-ry s := r-pl("x",1 t- 1000) d- {
-      cs-t(str-ng(&lc-s-))
-      t := t-bl-()
-      s-t([s])
+      cs-t(str-ng(&lc-s-));
+      t := t-bl-();
+      s-t([s]);
       s[2 : 5]
-      }
-   wr-t-("d-n-")
+      };
+   wr-t-("d-n-");
 -nd
 every write(map(!F,&cset || "aeiou",&cset || "-----")) ----> none
 close(F) ----> file(gc1.icn)
 F := open("gc1.icn") ----> file(gc1.icn)
 procedureumain()
-uuuwrite("fillingu...")
+uuuwrite("fillingu...");
 uuueveryu1utou100udou{
 uuuuuueveryu1utou100udo
 uuuuuuuuulist(1000)
-uuuuuu}
+uuuuuu};
 uuu#write(&collections)
-uuuwrite("collectingu...")
-uuucollect()
-uuuwrite("fillingu...")
+uuuwrite("collectingu...");
+uuucollect();
+uuuwrite("fillingu...");
 uuueveryusu:=urepl("x",1utou1000)udou{
-uuuuuucset(string(&lcase))
-uuuuuutu:=utable()
-uuuuuuset([s])
+uuuuuucset(string(&lcase));
+uuuuuutu:=utable();
+uuuuuuset([s]);
 uuuuuus[2u:u5]
-uuuuuu}
-uuuwrite("done")
+uuuuuu};
+uuuwrite("done");
 end
 every write(map(!F,&cset || "     ",&cset || "aeiou")) ----> none
 close(F) ----> file(gc1.icn)
 f := open("gc1.icn") ----> file(gc1.icn)
 procedure main()
-   write("filling ...")
+   write("filling ...");
    every 1 to 100 do {
       every 1 to 100 do
          list(1000)
-      }
+      };
    #write(&collections)
-   write("collecting ...")
-   collect()
-   write("filling ...")
+   write("collecting ...");
+   collect();
+   write("filling ...");
    every s := repl("x",1 to 1000) do {
-      cset(string(&lcase))
-      t := table()
-      set([s])
+      cset(string(&lcase));
+      t := table();
+      set([s]);
       s[2 : 5]
-      }
-   write("done")
+      };
+   write("done");
 end
 while writes(reads(f)) ----> none
 close(f) ----> file(gc1.icn)
 f := open("gc1.icn") ----> file(gc1.icn)
 procedure main()
-   write("filling ...")
+   write("filling ...");
    every 1 to 100 do {
       every 1 to 100 do
          list(1000)
-      }
+      };
    #write(&collections)
-   write("collecting ...")
-   collect()
-   write("filling ...")
+   write("collecting ...");
+   collect();
+   write("filling ...");
    every s := repl("x",1 to 1000) do {
-      cset(string(&lcase))
-      t := table()
-      set([s])
+      cset(string(&lcase));
+      t := table();
+      set([s]);
       s[2 : 5]
-      }
-   write("done")
+      };
+   write("done");
 end
 while writes(reads(f,10)) ----> none
 f := open("gc1.icn") ----> file(gc1.icn)
 procedure main()
-   write("filling ...")
+   write("filling ...");
    every 1 to 100 do {
       every 1 to 100 do
          list(1000)
-      }
+      };
    #write(&collections)
-   write("collecting ...")
-   collect()
-   write("filling ...")
+   write("collecting ...");
+   collect();
+   write("filling ...");
    every s := repl("x",1 to 1000) do {
-      cset(string(&lcase))
-      t := table()
-      set([s])
+      cset(string(&lcase));
+      t := table();
+      set([s]);
       s[2 : 5]
-      }
-   write("done")
+      };
+   write("done");
 end
 while write(read(f)) ----> none
 close(f) ----> file(gc1.icn)
@@ -5813,19 +5813,19 @@ Sort table pairs on key:
   0.5 :     2
     1 :   2.5
     2 :     1
-    3 :  -0.5
+    3 :   0.0
   3.5 :     4
 
 Sort table pairs on value:
-    3 :  -0.5
+    3 :   0.0
     2 :     1
   0.5 :     2
     1 :   2.5
   3.5 :     4
 
-Sort table pairs on key into linear list: 0.5 2 1 2.5 2 1 3 -0.5 3.5 4
+Sort table pairs on key into linear list: 0.5 2 1 2.5 2 1 3 0.0 3.5 4
 
-Sort table pairs on value into linear list: 3 -0.5 2 1 0.5 2 1 2.5 3.5 4
+Sort table pairs on value into linear list: 3 0.0 2 1 0.5 2 1 2.5 3.5 4
 
 Tests of sortf
   Sort by first field of records:
@@ -11036,7 +11036,9 @@ ssh test done
 #-------------------------------------------------------------- 125 posix/system
 sh: 1: icont: not found
 ...done
-#------------------------------------------------------------- 126 posix/timeout
+#----------------------------------------------------------------- 126 posix/tcp
+ret: !dlrow ,wolleh
+#------------------------------------------------------------- 127 posix/timeout
 25ms failed...
 50ms failed...
 75ms failed...
@@ -11054,18 +11056,18 @@ sh: 1: icont: not found
 375ms failed...
 400ms failed...
 connection timeout > 1.5s
-#----------------------------------------------------------------- 127 posix/udp
+#----------------------------------------------------------------- 128 posix/udp
 Received hello, world!
-#--------------------------------------------------------------- 128 posix/umask
+#--------------------------------------------------------------- 129 posix/umask
 setting the mask to rwxr-xr-x.
 "rwxr-xr-x"; OK
-#------------------------------------------------------------ 129 posix/uxsocket
+#------------------------------------------------------------ 130 posix/uxsocket
 !dlrow ,olleh
-#---------------------------------------------------------------- 130 posix/wait
+#---------------------------------------------------------------- 131 posix/wait
 integer exited:3
 integer terminated:SIGTERM
 integer stopped:SIGSTOP
-#------------------------------------------------------------ 131 samples/btrees
+#------------------------------------------------------------ 132 samples/btrees
 tree walk
 b
 c
@@ -11096,7 +11098,7 @@ leaves
 a
 d
 e
-#---------------------------------------------------------- 132 samples/diffwrds
+#---------------------------------------------------------- 133 samples/diffwrds
 The
 There
 are
@@ -11123,7 +11125,7 @@ sort
 the
 to
 write
-#------------------------------------------------------------- 133 samples/kross
+#------------------------------------------------------------- 134 samples/kross
 
 
 p
@@ -11283,11 +11285,11 @@ gaggle
      e
      s
 gaggle
-#----------------------------------------------------------- 134 samples/meander
+#----------------------------------------------------------- 135 samples/meander
 accbcabbaa
 14434241332312211
 AAACCCCBCCCACCBBCCBACCABCCAACBCBCACBBBCBBACBABCBAACACABBCABACAABCAAABBBBABBAABABAAAA
-#------------------------------------------------------------ 135 samples/prefix
+#------------------------------------------------------------ 136 samples/prefix
 x
 x
 +(x,1)
@@ -11296,7 +11298,7 @@ x
 +(x,1)
 ^(2,^(2,n))
 /(^(x,n),+(z,1))
-#------------------------------------------------------------ 136 samples/recogn
+#------------------------------------------------------------ 137 samples/recogn
 accepted
 rejected
 accepted
@@ -11305,7 +11307,7 @@ rejected
 rejected
 rejected
 rejected
-#------------------------------------------------------------- 137 samples/roman
+#------------------------------------------------------------- 138 samples/roman
 XIII
 IV
 VI
@@ -11314,7 +11316,7 @@ cannot convert
 XXXIX
 MMMCMXCIX
 cannot convert
-#------------------------------------------------------------- 138 samples/sieve
+#------------------------------------------------------------- 139 samples/sieve
 There are 25 primes in the first 100 integers.
 The primes are:
    2
@@ -11342,7 +11344,7 @@ The primes are:
   83
   89
   97
-#----------------------------------------------------------- 139 samples/wordcnt
+#----------------------------------------------------------- 140 samples/wordcnt
 A                   2
 B                   1
 D                   1
@@ -11396,9 +11398,9 @@ write               1
 writes              1
 x                   3
 y                   4
-#---------------------------------------------------------- 140 samples/xcommand
+#---------------------------------------------------------- 141 samples/xcommand
 Can't open f1.xop
-#------------------------------------------------------------- 141 special/1to10
+#------------------------------------------------------------- 142 special/1to10
 1
 2
 3
@@ -11409,15 +11411,15 @@ Can't open f1.xop
 8
 9
 10
-#------------------------------------------------------------- 142 special/audio
+#------------------------------------------------------------- 143 special/audio
 This program requires Audio.
-#------------------------------------------------------------ 143 thread/channel
+#------------------------------------------------------------ 144 thread/channel
 testing private channels...
 I got: Main ==> A ==> B ==> C ==> A ==> Main!
 Correct output!
-#------------------------------------------------------------ 144 thread/critter
+#------------------------------------------------------------ 145 thread/critter
 No errors
-#-------------------------------------------------------------- 145 thread/error
+#-------------------------------------------------------------- 146 thread/error
 The test should crash with a run time error now.
 You should see only one runtime error message. Any repetition
 of the error message indicates a problem in the threads system.
@@ -11429,16 +11431,16 @@ offending value: &null
 Traceback:
    main(list_1 = [])
    {1 + &null} from line 12 in error.icn
-#----------------------------------------------------------------- 146 thread/gc
+#----------------------------------------------------------------- 147 thread/gc
 running 4 thread(s) please wait... 
 sum=1000000
 garbage collection =OK
-#----------------------------------------------------------- 147 thread/hellothr
+#----------------------------------------------------------- 148 thread/hellothr
 Create two threads..
 Hello world! I'm thread 1 I will finish now.
 Hello world! I'm thread 2 I will finish now.
 The process ended successfully, exiting now..
-#----------------------------------------------------------- 148 thread/mutexfun
+#----------------------------------------------------------- 149 thread/mutexfun
 Testing mutex functions..
  calling mutex()...
 mutex() returned a value of type integer This is OK
@@ -11450,36 +11452,36 @@ lock(x) returned x
 unlock(x) returned x
 
 Done! exiting peacefully...
-#-------------------------------------------------------------- 149 thread/queue
+#-------------------------------------------------------------- 150 thread/queue
 Running two producers and one consumer...
 
 Total=1000
-#------------------------------------------------------------ 150 thread/rantest
+#------------------------------------------------------------ 151 thread/rantest
 24 46 33 23 11 62 51 99 31 46 
 76 98 33 9 95 28 72 61 43 33 
 27 50 34 95 79 93 93 24 55 19 
 79 2 34 81 63 59 15 86 68 6 
-#---------------------------------------------------------- 151 thread/sharelist
+#---------------------------------------------------------- 152 thread/sharelist
 firing threads please wait...
 We just did 400000 calls to put() from 4 threads
 The list was protected by a mutex.
 How many elements do we have?
 400000
-#------------------------------------------------------------- 152 thread/stress
+#------------------------------------------------------------- 153 thread/stress
 Busy work threads... 
 Interference threads...
 sum=100000000
-#---------------------------------------------------------------- 153 thread/sum
+#---------------------------------------------------------------- 154 thread/sum
 4 thread(s) will sum 10000000 ones.
 The work will be divided equally between them. Please wait... 
 sum=10000000
-#------------------------------------------------------------- 154 thread/talloc
+#------------------------------------------------------------- 155 thread/talloc
 talloc test: if everything goes well nothing else will be printed
-#--------------------------------------------------------------- 155 thread/tcom
+#--------------------------------------------------------------- 156 thread/tcom
 testing thread communications, inbox/outbox messaging...
 I got: Main ==> A ==> B ==> C ==> A ==> Main!
 Correct output!
-#--------------------------------------------------------------- 156 udb/watchme
+#--------------------------------------------------------------- 157 udb/watchme
 727
 1
 1
@@ -11571,9 +11573,9 @@ Correct output!
 49
 64
 81
-#----------------------------------------------------------- 157 unicon/clin_err
+#----------------------------------------------------------- 158 unicon/clin_err
 A value
-#------------------------------------------------------------- 158 unicon/macros
+#------------------------------------------------------------- 159 unicon/macros
 5
 12
 10
@@ -11589,12 +11591,12 @@ a,b|c(d)|e
 1
 0
 ASSERT_TRUE failed: too few args should fail
-#------------------------------------------------------------ 159 unicon/mintest
+#------------------------------------------------------------ 160 unicon/mintest
 min(3,1,4,9,-3,2)=-3
 max(3,1,4,9,-3,2)=9
-#--------------------------------------------------------------- 160 unicon/ovld
+#--------------------------------------------------------------- 161 unicon/ovld
 This program requires operator overloading.
-#----------------------------------------------------------------- 161 unicon/to
+#----------------------------------------------------------------- 162 unicon/to
 0.0
 0.125
 0.25
@@ -11610,7 +11612,7 @@ This program requires operator overloading.
 2.5
 3.0
 3.5
-#----------------------------------------------------- 162 unicon/triple_strings
+#----------------------------------------------------- 163 unicon/triple_strings
 line@single=4
  This is a multi-line string in Unicon
 line@multi_inline=8

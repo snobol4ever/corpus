@@ -9,9 +9,9 @@
 procedure main()
 
    p := Pos(1) || Len(4) -> yr || (" " .| "") ||
-        Len(2) -> mo || (" " .| "") || Len(2) -> day || Rpos(0)
+        Len(2) -> mo || (" " .| "") || Len(2) -> day || Rpos(0);
 
    while line := read() do
       write(line ?? p := "mo = " || mo ||
-         " day = " || day || " yr = " || yr)
+         " day = " || day || " yr = " || yr);
 end

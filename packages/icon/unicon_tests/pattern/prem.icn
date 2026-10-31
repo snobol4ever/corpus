@@ -2,11 +2,11 @@
 # Tests: ??, ->, Rem(), Len()
 
 procedure main()
-   out := &output
+   out := &output;
    while line := read() do {
-      write(out, line, ":")
-      line ?? "abc" -> out
-      line ?? "def" || Rem() -> out
+      write(out, line, ":");
+      line ?? "abc" -> out;
+      line ?? "def" || Rem() -> out;
       line ?? Len(2) || Rem() -> out
-      }
+      };
 end

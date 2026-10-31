@@ -3,10 +3,10 @@
 # Tests: Fence(), .|, ||, ??, pattern
 
 procedure main()
-   out := &output
+   out := &output;
    p := ("be" .| "ge" .| "fre") || Fence() ||
-        ("d" .| "ts" .| "t")
+        ("d" .| "ts" .| "t");
 
    while line := map(read()) do
-      line ?? p -> out
+      line ?? p -> out;
 end

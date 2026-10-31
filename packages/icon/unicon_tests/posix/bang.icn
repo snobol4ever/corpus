@@ -7,8 +7,8 @@
 # stand/bang.wstd has one fewer line than bang.std.
 #
 procedure main()
-    L := []
-    every put(L, !open("test-dir"))
-    L := sort(L)
-    every write(!L)
+    L := [];
+    every put(L, !open("test-dir"));
+    L := sort(L);
+    every write(!L);
 end

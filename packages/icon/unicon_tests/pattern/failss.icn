@@ -6,11 +6,11 @@
 
 procedure main()
    p := (Break("a") => a .| Break("b") => b .|
-      Break("c") => c) || Fail() 
-   write("Acceptable words are:\n")
+      Break("c") => c) || Fail(); 
+   write("Acceptable words are:\n");
    while s := " " || read() do {
-      a := b := c := &null
-      s ?? (Break("y") || Abort()) .| p
+      a := b := c := &null;
+      s ?? (Break("y") || Abort()) .| p;
       if ( \a & \b & /c) then write(s)
-      }
+      };
 end

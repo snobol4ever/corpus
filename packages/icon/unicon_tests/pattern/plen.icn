@@ -2,11 +2,11 @@
 # Tests: Len(), ||, ??, string concatenation
 
 procedure main()
-   out := &output
+   out := &output;
 
    while s := read() do {
-      write(s || ":")
-      s ?? Len(3) -> out
+      write(s || ":");
+      s ?? Len(3) -> out;
       s ?? Len(2) -> out || "a"
-      }
+      };
 end

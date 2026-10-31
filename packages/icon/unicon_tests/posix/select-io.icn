@@ -13,7 +13,7 @@
 #
 
 procedure main()
-   local f, L, path, data, i
+   local f, L, path, data, i;
 
    #
    # Timed select on &input: must succeed without 1048.  Do not
@@ -22,29 +22,29 @@ procedure main()
    # reported ready (EOF), so *L may be 0 or 1 depending on the runner.
    #
    L := select(&input, 50) |
-      stop("select(&input) failed: ", image(&errornumber), " ", &errortext)
-   write("input-select: ok")
+      stop("select(&input) failed: ", image(&errornumber), " ", &errortext);
+   write("input-select: ok");
 
    #
    # Regular file: always readable to select(2).  Three select/reads
    # rounds must all succeed without 1048.
    #
-   path := "local/select-io.dat"
-   f := open(path, "w") | stop("cannot create ", path)
-   writes(f, "abcdef")
-   close(f)
+   path := "local/select-io.dat";
+   f := open(path, "w") | stop("cannot create ", path);
+   writes(f, "abcdef");
+   close(f);
 
-   f := open(path) | stop("cannot open ", path)
+   f := open(path) | stop("cannot open ", path);
    every i := 1 to 3 do {
       L := select(f, 1000) |
          stop("select(file) #", i, " failed: ", image(&errornumber),
               " ", &errortext)
-      (*L > 0) | stop("select(file) #", i, " returned empty")
-      data := reads(f, 2) | stop("reads(file) #", i, " failed")
+      (*L > 0) | stop("select(file) #", i, " returned empty");
+      data := reads(f, 2) | stop("reads(file) #", i, " failed");
       write("file-chunk-", i, ": ", image(data))
-      }
-   close(f)
-   remove(path)
+      };
+   close(f);
+   remove(path);
 
-   write("select-io done")
+   write("select-io done");
 end

@@ -7,9 +7,9 @@
 # actinium:ac:89:227*:1899:debierne
 
 procedure main()
-   p := Break(" ") -> chars || Span(" ")
+   p := Break(" ") -> chars || Span(" ");
    while s := read() do {
-      every pattern_match(s,p) := chars || ":" 
+      every pattern_match(s,p) := chars || ":"; 
       write(s)
-      }
+      };
 end

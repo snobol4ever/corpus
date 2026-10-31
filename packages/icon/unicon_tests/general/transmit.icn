@@ -3,27 +3,27 @@ global words, lines, writer
 procedure main()
    if not(&features == "co-expressions") then
       stop("co-expressions not supported")
-   &trace := -1
+   &trace := -1;
 
-   words := create word()
-   lines := create reader()
+   words := create word();
+   lines := create reader();
    writer := create output()
-   @writer
+   @writer;
 end
 
 procedure word()
-   static letters
-   initial letters := &lcase ++ &ucase
+   static letters;
+   initial letters := &lcase ++ &ucase;
    while line := @lines do
       line ? while tab(upto(letters)) do
-         tab(many(letters)) @ writer
+         tab(many(letters)) @ writer;
 end
 
 procedure reader()
-   while read() @ words
+   while read() @ words;
 end
 
 procedure output()
    while write(&errout,@words)
-   @&main
+   @&main;
 end

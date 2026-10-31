@@ -43,7 +43,6 @@ pattern/pclass: EXCLUDED.tsv NO_ORACLE_ANSWER: CEO-1696: the oracle prints nothi
 pattern/tab: EXCLUDED.tsv NO_ORACLE_ANSWER: CEO-1696: the oracle crashes (signal 11) on this program under unicon 13.3 d784f58
 pattern/unevalex3ss: EXCLUDED.tsv NO_ORACLE_ANSWER: CEO-1696: the oracle ends in run-time error 309 on line 18 and ships no .std; the program is not answered by the oracle that ships it
 posix/bang: EXCLUDED.tsv NO_ORACLE_ANSWER: CEO-1696: the oracle prints nothing (an empty ref is earned by an engine that prints nothing)
-posix/tcp: oracle timed out -- non-terminating or too slow for the grading timeout
 special/keyboard: EXCLUDED.tsv NO_ORACLE_ANSWER: CEO-1696: the oracle hangs past the timeout (an interactive keyboard test reading the terminal)
 special/mem01: EXCLUDED.tsv NO_ORACLE_ANSWER: CEO-1696: the oracle runs past the timeout (a memory stress test)
 special/mem02: EXCLUDED.tsv NO_ORACLE_ANSWER: CEO-1696: the oracle answers differently on two runs (addresses and sizes in its output)

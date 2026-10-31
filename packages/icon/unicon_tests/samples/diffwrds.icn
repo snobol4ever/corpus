@@ -6,9 +6,9 @@
 #  The definition of a "word" is naive.
 
 procedure main()
-   words := set()
+   words := set();
    while text := read() do
       text ? while tab(upto(&letters)) do
-         insert(words,tab(many(&letters)))
-   every write(!sort(words))
+         insert(words,tab(many(&letters)));
+   every write(!sort(words));
 end

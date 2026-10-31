@@ -8,17 +8,17 @@
 procedure main()
 
     while input := read() do {
-      inputSize := *input
+      inputSize := *input;
       while inputSize >= 0 do {
-          tabsize := (*input - inputSize )
-          pat := Rtab(tabsize) -> out || Rem() -> remain
-          input ?? pat
-          write_output(out, remain)
+          tabsize := (*input - inputSize );
+          pat := Rtab(tabsize) -> out || Rem() -> remain;
+          input ?? pat;
+          write_output(out, remain);
           inputSize -:= 1
           }
-      }
+      };
 end
 
 procedure write_output(out, remainder)
-    write("The match by Rtab is: " || out || " and remainder is: " || remainder)
+    write("The match by Rtab is: " || out || " and remainder is: " || remainder);
 end

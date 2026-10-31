@@ -2,10 +2,10 @@
 # Tests: Span(), =>, ||, Len(), `n`, ->, ??
 
 procedure main()
-   fpat := Span(&digits) => n || Len(`n`) -> field   
+   fpat := Span(&digits) => n || Len(`n`) -> field;   
 
    while line := read() do {
       if line ?? fpat then
       write(field)
-      }
+      };
 end
