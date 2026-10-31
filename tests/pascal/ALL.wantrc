@@ -5,3 +5,9 @@
 # entry declares that exit code here, so an undeclared nonzero rc is a FAIL and not a silent pass.
 ladder__rung16_real_trunc_out_of_int64	207
 ladder__rung17_pending_after_close	103
+ladder__rung17_div_zero_caught_in_callee_and_uncaught	217
+ladder__rung17_div_zero_without_sysutils_stays_200	200
+ladder__rung17_real_div_zero_classes	217
+ladder__rung17_div_zero_sysutils_no_try	217
+ladder__rung17_div_zero_math_closure	217
+ladder__rung17_reset_missing_uncaught	217
