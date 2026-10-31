@@ -1,0 +1,20 @@
+use Test;
+plan 14;
+ok 1 == 1, 'ok takes a relop';
+ok 1 <=> 2, 'ok takes an Order';
+nok 0, 'nok takes a false value';
+is 2 + 2, 4, 'is compares the strings';
+is(1 <=> 1, Order::Same, 'is stringifies an Order');
+pass 'pass';
+dies-ok { die "boom" }, 'dies-ok sees a death';
+lives-ok { 42 }, 'lives-ok sees a life';
+is-deeply [1, 2, 3], [1, 2, 3], 'is-deeply';
+subtest 'a subtest with a plan', {
+    plan 2;
+    ok True, 'inner ok';
+    is 'x', 'x', 'inner is';
+};
+subtest 'a subtest named by a pair' => { plan 1; pass 'in the pair' };
+throws-like { die "zap" }, X::AdHoc, 'throws-like with a matcher', message => 'zap';
+throws-like { 1 }, X::AdHoc, 'throws-like on code that lives';
+throws-like { die "q" }, X::AdHoc;
