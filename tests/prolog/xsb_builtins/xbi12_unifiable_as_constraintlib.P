@@ -1,0 +1,20 @@
+% xbi12_unifiable_as_constraintlib -- XSB's unifiable/3 (lib/constraintLib.P) walks the two terms and lists the equations, the variable on the left, in argument order;
+% it never unifies, so a repeated variable is not checked (constraint_tests test_constraintLib). SWI's unifiable/3 answers the other direction and the reverse order.
+:- import unifiable/3 from constraintLib.
+:- import numbervars/1 from num_vars.
+r(G) :- ( catch(G, error(Er, _), (write(err(Er)), nl, fail)) -> numbervars(G), writeq(yes(G)), nl ; writeq(no), nl ).
+test :-
+	r(unifiable(f(_X1,_Y1),f(_Z1,_W1),_L1)),
+	r(unifiable(f(X2,X2),f(a,b),_L2)),
+	r(unifiable(f(_X3,Y3),f(Y3,a),_L3)),
+	r(unifiable(g(_X4,h(_Y4)),g(_Z4,h(b)),_L4)),
+	r(unifiable(f(a),g(a),_L5)),
+	r(unifiable(f(a,_X6),f(a),_L6)),
+	r(unifiable([a|_T7],[a,b],_L7)),
+	r(unifiable(1,1.0,_L8)),
+	r(unifiable(a,a,_L9)),
+	r(unifiable(_X10,f(_Y10),_L10)),
+	r(unifiable(f(_X11),f(_Y11),[z])),
+	r(unifiable(f(X12),f(X12),_L12)),
+	fail.
+test.

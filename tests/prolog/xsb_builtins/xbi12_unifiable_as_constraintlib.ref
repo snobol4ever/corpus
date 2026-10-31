@@ -1,0 +1,13 @@
+yes(unifiable(f(A,B),f(C,D),[A = C,B = D]))
+yes(unifiable(f(A,A),f(a,b),[A = a,A = b]))
+yes(unifiable(f(A,B),f(B,a),[A = B,B = a]))
+yes(unifiable(g(A,h(B)),g(C,h(b)),[A = C,B = b]))
+no
+no
+yes(unifiable([a|A],[a,b],[A = [b]]))
+no
+yes(unifiable(a,a,[]))
+yes(unifiable(A,f(B),[A = f(B)]))
+err(type_error(variable,[z]))
+no
+yes(unifiable(f(A),f(A),[]))
