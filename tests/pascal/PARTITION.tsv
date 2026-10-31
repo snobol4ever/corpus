@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=302 features=48 ubiquitous=4(program var writeln assign) distinctive=44 core=36 clusters=35 chunks=3 sizes=100,100,66
+# shape: entries=303 features=48 ubiquitous=4(program var writeln assign) distinctive=44 core=36 clusters=35 chunks=3 sizes=100,100,67
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multi	chunk:01	family:ladder	
@@ -86,7 +86,7 @@ program_for_downto_1	core	core	downto for
 program_for_downto_3	chunk:03	feat:downto	downto for
 program_for_writeln_2	chunk:03	feat:in	for in
 program_for_writeln_replace_1	chunk:01	feat:write	for write
-program_writeln_7	chunk:02	feat:chr	chr ord
+program_writeln_7	chunk:03	feat:chr	chr ord
 program_for_downto_2	chunk:03	feat:downto	downto for
 program_for_downto_4	chunk:03	feat:downto	downto for
 program_procedure_nested_19	chunk:01	feat:nested_proc	nested_proc procedure
@@ -218,13 +218,14 @@ program_procedure_record_12	chunk:02	feat:new	new pointer pointer_with_new proce
 program_procedure_record_5	chunk:02	feat:new	new pointer pointer_with_new procedure record type
 ladder__rung12_fillbyte_bytes	chunk:01	feat:write	array for for_with_array set_literal subrange write
 ladder__rung12_fillchar_chars	chunk:01	feat:write	array for for_with_array set_literal subrange write
-ladder__rung12_fillchar_zero	chunk:01	feat:write	array for for_with_array set_literal subrange write
+ladder__rung12_fillchar_zero	chunk:02	feat:write	array for for_with_array set_literal subrange write
 ladder__rung12_fillword_words	chunk:02	feat:write	array for for_with_array set_literal subrange write
 program_record_array_4	chunk:02	feat:packed	array packed record set_literal subrange type
 program_record_pointer_5	chunk:02	feat:case	case new pointer pointer_with_new record type
 ladder__rung13_ptr_index	chunk:02	feat:write	array for for_with_array set_literal subrange write
 ladder__rung14_row_param	chunk:03	feat:const	array const nested_proc procedure set_literal subrange type
 ladder__rung12_move_arrays	chunk:02	feat:write	array for for_with_array set_literal subrange write
+ladder__rung06_arrays_named_string_elem	chunk:01	feat:nested_proc	array nested_proc procedure set_literal subrange type
 program_array_for_2	chunk:02	feat:write	array for for_with_array set_literal subrange write
 program_array_for_3	chunk:02	feat:write	array for for_with_array set_literal subrange write
 program_array_for_6	chunk:02	feat:write	array for for_with_array set_literal subrange write
