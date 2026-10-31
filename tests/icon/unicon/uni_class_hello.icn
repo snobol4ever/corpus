@@ -1,0 +1,14 @@
+class Point(x, y)
+   method dist()
+      return sqrt(x * x + y * y);
+   end
+   method show()
+      write("(", x, ",", y, ") ", dist());
+   end
+end
+procedure main()
+   local p;
+   p := Point(3, 4); p.show();
+   write(p.x + p.y);
+   p.x := 6; p.show();
+end

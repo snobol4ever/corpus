@@ -1,0 +1,8 @@
+procedure main()
+   local L;
+   L := [1, 2, 3, 4];
+   insert(L, 2, 9); every writes(" ", !L); write();
+   every writes(" ", !reverse(L)); write();
+   delete(L, 1); every writes(" ", !L); write();
+   write(*L, " ", L[-1], " ", image(sortf([[2, "b"], [1, "a"]], 2)[1][2]));
+end

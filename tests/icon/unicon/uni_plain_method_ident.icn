@@ -1,0 +1,10 @@
+# a plain Icon program: no class, package, import or method header, so Unicon's eight words are identifiers (IPL progs/when.icn, procs/gdl2.icn)
+procedure main()
+   local method, class, package;
+   method := "none"; class := 3; package := [method, class];
+   every write(!package);
+   write(sortmethod("asc"));
+end
+procedure sortmethod(method)
+   return if method == "asc" then "ascending" else "descending";
+end

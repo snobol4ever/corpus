@@ -1,0 +1,20 @@
+class Stack(items, n)
+   method push(v)
+      put(items, v); n +:= 1; return self;
+   end
+   method pop()
+      n -:= 1; return pull(items);
+   end
+initially
+   items := []; n := 0;
+end
+class Named(name)
+initially(s)
+   name := "<" || s || ">";
+end
+procedure main()
+   local s;
+   s := Stack(); s.push(1).push(2).push(3);
+   write(s.n, " ", s.pop(), " ", s.pop(), " ", s.n);
+   write(Named("a").name, " ", image(Named("b").name));
+end

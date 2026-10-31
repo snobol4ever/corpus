@@ -1,0 +1,13 @@
+class Point(x, y)
+   method sum()
+      return x + y;
+   end
+end
+procedure main()
+   local p;
+   p := Point(1, 2);
+   write(type(p), " ", type(Point), " ", classname(p));
+   write(image(p));
+   write(*membernames(p), " ", image(methodnames(p)[1]));
+   write(p.sum(), " ", (p === p), " ", image(copy(p) === p));
+end

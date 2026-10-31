@@ -1,0 +1,10 @@
+class Logger(prefix)
+   method write(s)
+      ::write(prefix, s);
+   end
+end
+procedure main()
+   local l;
+   l := Logger("log: "); l.write("one");
+   ::write("two");
+end

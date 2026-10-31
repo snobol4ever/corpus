@@ -1,0 +1,7 @@
+procedure main()
+   local s, p;
+   s := "hello wide world";
+   every p := s ?? ("w" || Arb() || "d") do write(p);
+   if s ?? "xyz" then write("no") else write("none");
+   write(image(&errno));
+end

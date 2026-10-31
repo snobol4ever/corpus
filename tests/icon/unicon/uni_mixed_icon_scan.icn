@@ -1,0 +1,13 @@
+class Counter(n)
+   method bump()
+      n +:= 1; return n;
+   end
+end
+procedure main()
+   local c, w;
+   c := Counter(0);
+   "one two three" ? while w := tab(upto(' ') | 0) do {
+      write(c.bump(), ": ", w); move(1) | break;
+   }
+   every write(c.bump() | c.bump());
+end

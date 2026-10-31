@@ -1,0 +1,27 @@
+class Shape(name)
+   method area()
+      return 0;
+   end
+   method show()
+      write(name, " area ", area());
+   end
+initially(s)
+   name := s;
+end
+class Rect : Shape(w, h)
+   method area()
+      return w * h;
+   end
+initially(a, b)
+   self.Shape.initially("rect"); w := a; h := b;
+end
+class Square : Rect()
+   method show()
+      write("square:"); self.Rect.show();
+   end
+initially(s)
+   self.Rect.initially(s, s); name := "square";
+end
+procedure main()
+   every (Shape("shape") | Rect(2, 3) | Square(4)).show();
+end
