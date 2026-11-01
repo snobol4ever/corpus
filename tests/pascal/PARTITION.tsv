@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=329 features=48 ubiquitous=4(program var writeln assign) distinctive=44 core=38 clusters=37 chunks=3 sizes=100,100,91
+# shape: entries=330 features=48 ubiquitous=4(program var writeln assign) distinctive=44 core=38 clusters=37 chunks=3 sizes=100,100,92
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multi	chunk:01	family:ladder	
@@ -230,7 +230,7 @@ program_array_for_5	chunk:02	feat:for_with_array	array for for_with_array subran
 program_record_pointer_3	chunk:02	feat:new	new pointer pointer_with_new record type
 ladder__rung15_layout_ptr_to_nested_row_copy	chunk:02	feat:pointer	array pointer set_literal subrange type
 program_record_pointer_7	chunk:02	feat:new	new pointer pointer_with_new record type
-ladder__rung14_row_string_elem_char	chunk:02	feat:chr	array chr set_literal subrange type
+ladder__rung14_row_string_elem_char	chunk:03	feat:chr	array chr set_literal subrange type
 ladder__rung15_layout_ptr_to_nested_element_pointer	chunk:02	feat:pointer	array pointer set_literal subrange type
 program_array_packed_5	chunk:02	feat:packed	array packed set_literal subrange type
 program_function_procedure_5	core	core	function goto label nested_proc procedure
@@ -292,6 +292,7 @@ ladder__rung13_ptr_array_pointer_index	chunk:02	feat:pointer	array for for_with_
 ladder__rung13_ptr_row_pointer_var_param	chunk:02	feat:pointer	array for for_with_array pointer procedure set_literal subrange type
 program_array_packed_6	core	core	array for for_with_array packed read repeat set_literal subrange
 ladder__rung13_ptr_addr_element	chunk:02	feat:write	array for for_with_array pointer set_literal subrange type write
+ladder__rung12_fill_through_pointer	chunk:02	feat:write	array for for_with_array pointer set_literal subrange type write
 ladder__rung15_layout_nested_move_across_rows	chunk:03	feat:div	array div for for_with_array set_literal subrange type write
 program_record_pointer_9	chunk:03	feat:nil	for new nil pointer pointer_with_new record type while
 program_record_pointer_replace_2	chunk:03	feat:with_record	case new pointer pointer_with_new record type with with_record
