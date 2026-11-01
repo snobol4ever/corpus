@@ -1182,18 +1182,18 @@ n40_statement_begin_bx:
 #         pat = BREAK(',') . f1 ',' BREAK(',') . f2 ',' BREAK(',') . f3
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 4 0
-n40_statement_begin_α:                                                        jmp   n41_lit_string_α
+n40_statement_begin_α:                                                        jmp   n41_lit_thunk_α
 n40_statement_begin_β:                                                        jmp   n45_setexit_test_α
                         .size            n40_statement_begin_bx, .-n40_statement_begin_bx
-                        .type            n41_lit_string_bx, @function
-n41_lit_string_bx:
+                        .type            n41_lit_thunk_bx, @function
+n41_lit_thunk_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n41_lit_string_α:       sub              rsp, 16
+n41_lit_thunk_α:        sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_string_α_101_0]
+                        mov              rax, qword ptr [rip + .Llit_thunk_α_101_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n42_call_direct_α
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_string_α_101_0: .quad .Lthk_.LTp0; .popsection
-                        .size            n41_lit_string_bx, .-n41_lit_string_bx
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_thunk_α_101_0: .quad .Lthk_.LTp0; .popsection
+                        .size            n41_lit_thunk_bx, .-n41_lit_thunk_bx
                         .type            n42_call_direct_bx, @function
 n42_call_direct_bx:
 #-----------------------------------------------------------------------------------------------------------------------

@@ -1152,18 +1152,18 @@ n26_statement_begin_bx:
 #         pat = ('aaa' | 'bbb' | 'ccc' | 'ddd') SPAN('abcd') . tail
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 3 0
-n26_statement_begin_α:                                                        jmp   n27_lit_string_α
+n26_statement_begin_α:                                                        jmp   n27_lit_thunk_α
 n26_statement_begin_β:                                                        jmp   n31_setexit_test_α
                         .size            n26_statement_begin_bx, .-n26_statement_begin_bx
-                        .type            n27_lit_string_bx, @function
-n27_lit_string_bx:
+                        .type            n27_lit_thunk_bx, @function
+n27_lit_thunk_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n27_lit_string_α:       sub              rsp, 16
+n27_lit_thunk_α:        sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_string_α_77_0]
+                        mov              rax, qword ptr [rip + .Llit_thunk_α_77_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n28_call_direct_α
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_string_α_77_0: .quad .Lthk_.LTp0; .popsection
-                        .size            n27_lit_string_bx, .-n27_lit_string_bx
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_thunk_α_77_0: .quad .Lthk_.LTp0; .popsection
+                        .size            n27_lit_thunk_bx, .-n27_lit_thunk_bx
                         .type            n28_call_direct_bx, @function
 n28_call_direct_bx:
 #-----------------------------------------------------------------------------------------------------------------------

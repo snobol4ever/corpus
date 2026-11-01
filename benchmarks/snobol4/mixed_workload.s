@@ -1059,21 +1059,21 @@ n14_statement_begin_bx:
 #         DEFINE('rsum(n)')                               :(rsum_end)
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 3 0
-n14_statement_begin_α:                                                        jmp   n15_define_α
+n14_statement_begin_α:                                                        jmp   n15_define_bind_α
 n14_statement_begin_β:                                                        jmp   n17_setexit_test_α
                         .size            n14_statement_begin_bx, .-n14_statement_begin_bx
-                        .type            n15_define_bx, @function
-n15_define_bx:
+                        .type            n15_define_bind_bx, @function
+n15_define_bind_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n15_define_α:           mov              rdi, qword ptr [rip + .Ldefine_α_173_0] # name
-                        mov              rsi, qword ptr [rip + .Ldefine_α_173_1] # params_csv
+n15_define_bind_α:      mov              rdi, qword ptr [rip + .Ldefine_bind_α_173_0] # name
+                        mov              rsi, qword ptr [rip + .Ldefine_bind_α_173_1] # params_csv
                         mov              edx, 1                               # nparams
                         mov              ecx, 1                               # nformals
                         mov              r8d, 0                               # frame_bytes
                         lea              r9, [rip + LBL__rsum]                # fn
                         call             rt_define_site@PLT
 .Lgcsite_main_5:        mov              r9,  qword ptr [rip + g_rtccb+48]
-                        push             rax                                  # gc_poll bb_define.cpp:163
+                        push             rax                                  # gc_poll bb_define.cpp:159
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1081,7 +1081,7 @@ n15_define_α:           mov              rdi, qword ptr [rip + .Ldefine_α_173_
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
 .Lgcsite_main_4:        mov              r9,  qword ptr [rip + g_rtccb+48]
-1:                      mov              rdi, qword ptr [rip + .Ldefine_α_173_0]
+1:                      mov              rdi, qword ptr [rip + .Ldefine_bind_α_173_0]
                         lea              rsi, [rip + rsum_α]
                         call             bb_ab_seal_alpha@PLT
 .Lgcsite_main_6:        mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -1093,12 +1093,14 @@ entry_cell$rsum:        .quad            LBL__rsum
                         lea              rax, [rip + LBL__rsum]
                         mov              rcx, qword ptr [rip + entry_cell$rsum@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n16_statement_end_α
-n15_define_β:                                                                 jmp   n14_statement_begin_β
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Ldefine_α_173_0: .quad .Ldefine_α_173_0_s; .popsection
-.Ldefine_α_173_0_s:     .string          "rsum"
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Ldefine_α_173_1: .quad .Ldefine_α_173_1_s; .popsection
-.Ldefine_α_173_1_s:     .string          "n"
-                                                                              jmp   .Ldefine_α_174_245
+n15_define_bind_β:                                                            jmp   n14_statement_begin_β
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Ldefine_bind_α_173_0: .quad .Ldefine_bind_α_173_0_s; .popsection
+.Ldefine_bind_α_173_0_s:
+                        .string          "rsum"
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Ldefine_bind_α_173_1: .quad .Ldefine_bind_α_173_1_s; .popsection
+.Ldefine_bind_α_173_1_s:
+                        .string          "n"
+                                                                              jmp   .Ldefine_bind_α_174_245
 #-----------------------------------------------------------------------------------------------------------------------
 rsum_α:                 sub              rsp, 64
                         mov              rax, qword ptr [rip + rt_g_want_name@GOTPCREL]
@@ -1117,7 +1119,7 @@ rsum_α:                 sub              rsp, 64
                         mov              qword ptr [rsp + 32], rcx
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 64]
-                        cmp              rdx, 0;                              jbe   .Ldefine_α_174_250
+                        cmp              rdx, 0;                              jbe   .Ldefine_bind_α_174_250
                         mov              rdi, qword ptr [rcx + 24]
                         add              rdi, r8
                         mov              rax, qword ptr [rdi + 0]
@@ -1127,14 +1129,16 @@ rsum_α:                 sub              rsp, 64
                         mov              rax, qword ptr [rdi + 8]
                         mov              rsi, qword ptr [r9 + 11880]
                         mov              qword ptr [r9 + 11880], rax
-                        mov              qword ptr [rdi + 8], rsi;            jmp   .Ldefine_α_174_251
-.Ldefine_α_174_250:     mov              rax, qword ptr [r9 + 11872]
+                        mov              qword ptr [rdi + 8], rsi;            jmp   .Ldefine_bind_α_174_251
+.Ldefine_bind_α_174_250:
+                        mov              rax, qword ptr [r9 + 11872]
                         mov              qword ptr [rsp + 48], rax
                         mov              rax, qword ptr [r9 + 11880]
                         mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 11872], 0
                         mov              qword ptr [r9 + 11880], 0
-.Ldefine_α_174_251:     mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+.Ldefine_bind_α_174_251:
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         add              dword ptr [rax + 0], 1
                         mov              r11d, dword ptr [rax + 0]
@@ -1147,10 +1151,12 @@ rsum_α:                 sub              rsp, 64
                         mov              qword ptr [rsp + 16], rax
                         mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
                         mov              rax, qword ptr [rax + 592]
-                        mov              qword ptr [rsp + 24], rax;           jmp   .Ldefine_α_174_231
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Ldefine_α_174_232: .quad .Ldefine_α_174_232_s; .popsection
-.Ldefine_α_174_232_s:   .string          "rsum"
-.Ldefine_α_174_231:     lea              rcx, [rip + rsum_γ]
+                        mov              qword ptr [rsp + 24], rax;           jmp   .Ldefine_bind_α_174_231
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Ldefine_bind_α_174_232: .quad .Ldefine_bind_α_174_232_s; .popsection
+.Ldefine_bind_α_174_232_s:
+                        .string          "rsum"
+.Ldefine_bind_α_174_231:
+                        lea              rcx, [rip + rsum_γ]
                         lea              rax, [rip + rsum_ω]
                         push             rax
                         push             rcx
@@ -1162,10 +1168,12 @@ rsum_γ:
                         mov              rax, rdi
                         mov              rdx, rsi
                         push             rdx
-                        push             rax;                                 jmp   .Ldefine_α_174_236
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Ldefine_α_174_237: .quad .Ldefine_α_174_237_s; .popsection
-.Ldefine_α_174_237_s:   .string          "rsum"
-.Ldefine_α_174_236:     pop              rax
+                        push             rax;                                 jmp   .Ldefine_bind_α_174_236
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Ldefine_bind_α_174_237: .quad .Ldefine_bind_α_174_237_s; .popsection
+.Ldefine_bind_α_174_237_s:
+                        .string          "rsum"
+.Ldefine_bind_α_174_236:
+                        pop              rax
                         pop              rdx
                         mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
@@ -1174,7 +1182,7 @@ rsum_γ:
                         mov              qword ptr [r9 + 11856], rax
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 11864], rax
-                        cmp              rdx, 0;                              jbe   .Ldefine_α_174_257
+                        cmp              rdx, 0;                              jbe   .Ldefine_bind_α_174_257
                         mov              rax, qword ptr [rcx + 24]
                         add              rax, r8
                         mov              rax, qword ptr [rax + 0]
@@ -1182,12 +1190,14 @@ rsum_γ:
                         mov              rax, qword ptr [rcx + 24]
                         add              rax, r8
                         mov              rax, qword ptr [rax + 8]
-                        mov              qword ptr [r9 + 11880], rax;         jmp   .Ldefine_α_174_258
-.Ldefine_α_174_257:     mov              rax, qword ptr [rsp + 48]
+                        mov              qword ptr [r9 + 11880], rax;         jmp   .Ldefine_bind_α_174_258
+.Ldefine_bind_α_174_257:
+                        mov              rax, qword ptr [rsp + 48]
                         mov              qword ptr [r9 + 11872], rax
                         mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [r9 + 11880], rax
-.Ldefine_α_174_258:     mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+.Ldefine_bind_α_174_258:
+                        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
                         mov              r11, qword ptr [rax + 568]
                         mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
                         mov              qword ptr [rax + 584], r11
@@ -1224,7 +1234,7 @@ rsum_ω:                 mov              rcx, qword ptr [rsp + 32]
                         mov              qword ptr [r9 + 11856], rax          # rsum
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 11864], rax
-                        cmp              rdx, 0;                              jbe   .Ldefine_α_174_264
+                        cmp              rdx, 0;                              jbe   .Ldefine_bind_α_174_264
                         mov              rax, qword ptr [rcx + 24]
                         add              rax, r8
                         mov              rax, qword ptr [rax + 0]
@@ -1232,12 +1242,14 @@ rsum_ω:                 mov              rcx, qword ptr [rsp + 32]
                         mov              rax, qword ptr [rcx + 24]
                         add              rax, r8
                         mov              rax, qword ptr [rax + 8]
-                        mov              qword ptr [r9 + 11880], rax;         jmp   .Ldefine_α_174_265
-.Ldefine_α_174_264:     mov              rax, qword ptr [rsp + 48]
+                        mov              qword ptr [r9 + 11880], rax;         jmp   .Ldefine_bind_α_174_265
+.Ldefine_bind_α_174_264:
+                        mov              rax, qword ptr [rsp + 48]
                         mov              qword ptr [r9 + 11872], rax
                         mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [r9 + 11880], rax
-.Ldefine_α_174_265:     mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
+.Ldefine_bind_α_174_265:
+                        mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
                         mov              r11, qword ptr [rax + 568]
                         mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
                         mov              qword ptr [rax + 584], r11
@@ -1267,8 +1279,8 @@ rsum_ω:                 mov              rcx, qword ptr [rsp + 32]
                         add              rsp, 64
                         mov              eax, 104
                         xor              edx, edx;                            jmp   rcx
-.Ldefine_α_174_245:
-                        .size            n15_define_bx, .-n15_define_bx
+.Ldefine_bind_α_174_245:
+                        .size            n15_define_bind_bx, .-n15_define_bind_bx
                         .type            n16_statement_end_bx, @function
 n16_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1709,18 +1721,18 @@ n38_statement_begin_bx:
 # rsum_end field = BREAK(',') . word ','
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 6 0
-n38_statement_begin_α:                                                        jmp   n39_lit_string_α
+n38_statement_begin_α:                                                        jmp   n39_lit_thunk_α
 n38_statement_begin_β:                                                        jmp   n43_setexit_test_α
                         .size            n38_statement_begin_bx, .-n38_statement_begin_bx
-                        .type            n39_lit_string_bx, @function
-n39_lit_string_bx:
+                        .type            n39_lit_thunk_bx, @function
+n39_lit_thunk_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n39_lit_string_α:       sub              rsp, 16
+n39_lit_thunk_α:        sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_string_α_208_0]
+                        mov              rax, qword ptr [rip + .Llit_thunk_α_208_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n40_call_direct_α
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_string_α_208_0: .quad .Lthk_.LTp0; .popsection
-                        .size            n39_lit_string_bx, .-n39_lit_string_bx
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_thunk_α_208_0: .quad .Lthk_.LTp0; .popsection
+                        .size            n39_lit_thunk_bx, .-n39_lit_thunk_bx
                         .type            n40_call_direct_bx, @function
 n40_call_direct_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -4677,14 +4689,14 @@ n166_goto_bx:
 n166_goto_α:                                                                  jmp   n131_statement_begin_α
 n166_goto_β:                                                                  jmp   main_ω
                         .size            n166_goto_bx, .-n166_goto_bx
-                        .type            n167_define_bx, @function
-n167_define_bx:
+                        .type            n167_define_return_bx, @function
+n167_define_return_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 RETURN:                 mov              edi, 1
                         call             qword ptr [rip + rt_kw_set_rtntype_role@GOTPCREL]
 .Lgcsite_main_143:      pop              rcx
                         add              rsp, 8;                              jmp   rcx
-                        .size            n167_define_bx, .-n167_define_bx
+                        .size            n167_define_return_bx, .-n167_define_return_bx
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
                                                                               jmp   main_ω
