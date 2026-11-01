@@ -7947,7 +7947,7 @@ n00117_lit_charset_α:     sub              rsp, 16
 .Lgcsite_options_3:     mov              r9,  qword ptr [rip + g_rtccb+48]
                         pop              rdx
                         pop              rax
-                        push             rax                                  # gc_poll bb_lit_scalar.cpp:130
+                        push             rax                                  # gc_poll bb_lit_charset.cpp:38
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -9827,7 +9827,7 @@ n00199_lit_charset_α:     sub              rsp, 16
 .Lgcsite_options_56:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         pop              rdx
                         pop              rax
-                        push             rax                                  # gc_poll bb_lit_scalar.cpp:130
+                        push             rax                                  # gc_poll bb_lit_charset.cpp:38
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
