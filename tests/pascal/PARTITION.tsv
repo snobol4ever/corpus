@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=328 features=48 ubiquitous=4(program var writeln assign) distinctive=44 core=38 clusters=37 chunks=3 sizes=100,100,90
+# shape: entries=329 features=48 ubiquitous=4(program var writeln assign) distinctive=44 core=38 clusters=37 chunks=3 sizes=100,100,91
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multi	chunk:01	family:ladder	
@@ -157,6 +157,7 @@ program_function_record_1	chunk:01	feat:function	function record type
 program_procedure_record_7	chunk:01	feat:record	procedure record type
 ladder__rung17_div_zero_caught_in_callee_and_uncaught	chunk:03	feat:mod	div function mod
 program_function_record_2	chunk:01	feat:function	function record type
+ladder__rung16_string_index_zero_length_byte	chunk:03	feat:ord	const for ord
 program_procedure_record_10	chunk:01	feat:record	procedure record type
 program_procedure_record_3	chunk:01	feat:record	procedure record type
 program_array_setlit_1	chunk:03	feat:set_literal	array set_literal subrange
