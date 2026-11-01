@@ -3950,7 +3950,7 @@ n00097_kw_icon_α:         sub              rsp, 16
                         add              rsp, 64;                             jmp   n00094_line_mark_α
 .Lkw_icon_α_447_999:    mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_keyword_icon.cpp:103
+                        push             rax                                  # gc_poll bb_keyword_icon.cpp:109
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -4936,7 +4936,7 @@ n00138_kw_icon_α:         sub              rsp, 16
                         add              rsp, 16;                             jmp   n00139_line_mark_α
 .Lkw_icon_α_505_999:    mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_keyword_icon.cpp:103
+                        push             rax                                  # gc_poll bb_keyword_icon.cpp:109
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -5113,7 +5113,7 @@ n00148_kw_icon_α:         sub              rsp, 16
                         add              rsp, 16;                             jmp   n00149_line_mark_α
 .Lkw_icon_α_519_999:    mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_keyword_icon.cpp:103
+                        push             rax                                  # gc_poll bb_keyword_icon.cpp:109
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -10741,7 +10741,7 @@ n00328_kw_icon_α:         sub              rsp, 16
                         add              rsp, 16;                             jmp   n00329_line_mark_α
 .Lkw_icon_α_961_999:    mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_keyword_icon.cpp:103
+                        push             rax                                  # gc_poll bb_keyword_icon.cpp:109
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -11210,7 +11210,7 @@ n00342_kw_icon_α:         sub              rsp, 16
                         add              rsp, 48;                             jmp   n00277_scan_tab_β
 .Lkw_icon_α_985_999:    mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_keyword_icon.cpp:103
+                        push             rax                                  # gc_poll bb_keyword_icon.cpp:109
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -16177,7 +16177,7 @@ n00519_kw_icon_α:        sub              rsp, 16
                         add              rsp, 16;                             jmp   n00520_line_mark_α
 .Lkw_icon_α_1446_999:   mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_keyword_icon.cpp:103
+                        push             rax                                  # gc_poll bb_keyword_icon.cpp:109
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -29230,7 +29230,7 @@ n00908_kw_icon_α:        sub              rsp, 16
                         add              rsp, 16;                             jmp   n00909_line_mark_α
 .Lkw_icon_α_2522_999:   mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_keyword_icon.cpp:103
+                        push             rax                                  # gc_poll bb_keyword_icon.cpp:109
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
