@@ -1,0 +1,11 @@
+global x, y
+procedure main()
+   local p, q, s;
+   p := Any("ab") -> x;
+   s := "cabd";
+   every write("[" || (s ?? p) || "]");
+   write("x=", x);
+   q := Len(1) -> y || Any("b");
+   every write("[" || (s ?? q) || "]");
+   write("y=", y);
+end
