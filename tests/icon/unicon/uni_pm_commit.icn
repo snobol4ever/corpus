@@ -1,0 +1,14 @@
+global a, b
+procedure main()
+   local p, s, c;
+   s := "abz";
+   p := Len(1) -> a || "z";
+   every write("[" || (s ?? p) || "]");
+   write("a=", a);
+   p := (Len(1) -> b) .| "q";
+   every write("[" || (s ?? p) || "]");
+   write("b=", b);
+   p := Len(1) -> c || "z";
+   every write("[" || (s ?? p) || "]");
+   write("c=", \c);
+end
