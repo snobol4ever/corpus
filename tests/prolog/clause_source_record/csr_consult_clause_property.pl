@@ -14,6 +14,4 @@ main :-
            (   clause_property(R2, line_count(L2))
            ->  write(dcg_line(L2)), nl
            ;   write(dcg_noline), nl
-           )),
-    listing(lib_rule/2),
-    listing(lib_dcg//1).
+           )).

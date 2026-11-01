@@ -1,0 +1,4 @@
+static
+plain_pair(left, right).
+plain_pair(up, down).
+

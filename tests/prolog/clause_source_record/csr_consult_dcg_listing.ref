@@ -1,0 +1,3 @@
+lib_dcg(A, [hello|B], C) :-
+    B=[A|C].
+
