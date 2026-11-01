@@ -1,0 +1,12 @@
+global gp
+procedure main()
+   local p, s, q;
+   s := "abcd";
+   p := Len(2);
+   every write("[" || (s ?? p) || "]");
+   gp := Any("bc") || Len(1);
+   every write("[" || (s ?? gp) || "]");
+   q := Len(1) .| Len(3);
+   every write("[" || (s ?? q) || "]");
+   every write("[" || (s ?? (Len(1) || p)) || "]");
+end
