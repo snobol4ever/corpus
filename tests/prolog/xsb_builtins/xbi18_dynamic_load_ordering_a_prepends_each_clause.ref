@@ -1,0 +1,4 @@
+ma_file : [p(7,8),p(5,6),p(b,e),p(a,d)]
+mb >> ma_file : [p(7,8),p(5,6),p(b,e),p(a,d)]
+mc >> mz_file : [p(a,b),p(b,c),p(1,2),p(2,3)]
+mz_file : [p(a,b),p(b,c),p(1,2),p(2,3)]

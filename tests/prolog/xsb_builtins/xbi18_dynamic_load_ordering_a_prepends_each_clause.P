@@ -1,0 +1,8 @@
+% xbi18_dynamic_load_ordering_a_prepends_each_clause -- XSB's :- compiler_options([dynamic([canonical(yes), ordering(a)])]). at the top of a module file loads the file as load_dyn(File, a) does (consult.P load_dyn_option/2):
+% every clause is added by asserta, so the file's clauses (the rules and the facts of every predicate, not only the exported one) read back in REVERSE order; the default ordering (z), and a file with an empty dynamic list, keep file order
+% (prolog_tests mod_dyn_tests test_dynmod). The module files are the witness's .d directory, copied beside the program: ma_file.P loads with ordering(a), mz_file.P with dynamic([]).
+test :- Mod = ma_file, findall(p(X,Y), Mod:p(X,Y), L), writeln(Mod:L), fail.
+test :- Mod = (mb>>ma_file), findall(p(X,Y), Mod:p(X,Y), L), writeln(Mod:L), fail.
+test :- Mod = (mc>>mz_file), findall(p(X,Y), Mod:p(X,Y), L), writeln(Mod:L), fail.
+test :- Mod = mz_file, findall(p(X,Y), Mod:p(X,Y), L), writeln(Mod:L), fail.
+test.
