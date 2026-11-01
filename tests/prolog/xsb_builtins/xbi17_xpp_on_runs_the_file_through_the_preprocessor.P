@@ -1,0 +1,36 @@
+:- compiler_options([xpp_on]).
+#include "xbi17_xpp_defs.h"
+#define ppp uuu
+#define CHAIN ppp
+#define LATE CHAIN
+% ppp is not expanded in a line comment
+/* ppp is not expanded in a block comment */
+#ifdef ppp
+cond(1, defined).
+#else
+cond(1, undefined).
+#endif
+#ifndef zzz
+cond(2, no_zzz).
+#endif
+#if defined(ppp)
+cond(3, if_defined).
+#endif
+#ifdef zzz
+cond(4, zzz).
+#elif defined(LATE)
+cond(4, elif_late).
+#else
+cond(4, else_branch).
+#endif
+
+test :-
+    writeln(ppp), writeln('ppp'), writeln(pppx), writeln(xppp), writeln(ppp1),
+    Y is LIMIT + 1, writeln(Y),
+    writeln(CHAIN), writeln(LATE),
+    (cond(N, V), write(N), write(' '), writeln(V), fail ; true),
+    inc_pred(B), writeln(B),
+    inc_second(S), writeln(S).
+
+#undef ppp
+cond(5, ppp).

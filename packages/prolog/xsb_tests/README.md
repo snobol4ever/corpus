@@ -113,6 +113,7 @@ match differed only in the order of tabled answers (identical once sorted); with
   bytes (cmp). An answer carrying CR bytes is an answer (ceo CEO-1926): jsontest's ref holds two mid-line CRs, test_utf8_getput's two at end
   of line, declared with utf8.txt in harness lf_gate_crlf_is_the_subject.tsv. ai_tests/can_mono.H (hq_icon 2026-10-24): XSB's header for
   can_mono.P, holding its export list and its two imports, which XSB reads before can_mono.P; flat vendoring (.P only) left it out.
+- The seven XSB headers a program's `#include` names (hq_packages 2026-11-01, `:- compiler_options([xpp_on]).` is XSB's preprocessor gpp run over the file, `-P -m -nostdinc -curdirinclast -DXSB_PROLOG`): `extensions_xsb.h`, `table_inspection_defs.h`, `socket_defs_xsb.h`, `timer_defs_xsb.h`, `flag_defs_xsb.h` (XSB/emu) and `char_defs.h`, `standard.h` (XSB/prolog_includes), flat beside the programs, XSB's own bytes (cmp). XSB finds them on its include path; SCRIP reads an `#include` beside the including file, and the harness copies a file whose name a program quotes. flora_*.flh (preproc-opt) and janus_defs.h are not vendored: flora_terms.flh holds function-like macros, which SCRIP's xpp does not expand yet.
 - UNGRADED.tsv -- empty: its five NEEDS_RUNNER_WIRING rows (jsontest, pip_0110_format_test and the three utf8 tests) are staged now.
 - UNGRADABLE.tsv -- empty: its rows were swipl's refusals.
 
