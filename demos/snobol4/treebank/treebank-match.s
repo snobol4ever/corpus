@@ -4235,18 +4235,18 @@ n53_statement_begin_bx:
 #         delim       =   SPAN(' ' CHAR(10))
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 2 0
-n53_statement_begin_α:                                                        jmp   n54_lit_string_α
+n53_statement_begin_α:                                                        jmp   n54_lit_thunk_α
 n53_statement_begin_β:                                                        jmp   n58_setexit_test_α
                         .size            n53_statement_begin_bx, .-n53_statement_begin_bx
-                        .type            n54_lit_string_bx, @function
-n54_lit_string_bx:
+                        .type            n54_lit_thunk_bx, @function
+n54_lit_thunk_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n54_lit_string_α:       sub              rsp, 16
+n54_lit_thunk_α:        sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_string_α_137_0]
+                        mov              rax, qword ptr [rip + .Llit_thunk_α_137_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n55_call_direct_α
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_string_α_137_0: .quad .Lthk_.LTp0; .popsection
-                        .size            n54_lit_string_bx, .-n54_lit_string_bx
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_thunk_α_137_0: .quad .Lthk_.LTp0; .popsection
+                        .size            n54_lit_thunk_bx, .-n54_lit_thunk_bx
                         .type            n55_call_direct_bx, @function
 n55_call_direct_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -4330,18 +4330,18 @@ n59_statement_begin_bx:
 #         word        =   NOTANY('( )' CHAR(10))
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 3 0
-n59_statement_begin_α:                                                        jmp   n60_lit_string_α
+n59_statement_begin_α:                                                        jmp   n60_lit_thunk_α
 n59_statement_begin_β:                                                        jmp   n64_setexit_test_α
                         .size            n59_statement_begin_bx, .-n59_statement_begin_bx
-                        .type            n60_lit_string_bx, @function
-n60_lit_string_bx:
+                        .type            n60_lit_thunk_bx, @function
+n60_lit_thunk_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n60_lit_string_α:       sub              rsp, 16
+n60_lit_thunk_α:        sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_string_α_145_0]
+                        mov              rax, qword ptr [rip + .Llit_thunk_α_145_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n61_call_direct_α
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_string_α_145_0: .quad .Lthk_.LTp1; .popsection
-                        .size            n60_lit_string_bx, .-n60_lit_string_bx
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_thunk_α_145_0: .quad .Lthk_.LTp1; .popsection
+                        .size            n60_lit_thunk_bx, .-n60_lit_thunk_bx
                         .type            n61_call_direct_bx, @function
 n61_call_direct_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -4425,18 +4425,18 @@ n65_statement_begin_bx:
 #         group       =   '('
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 5 0
-n65_statement_begin_α:                                                        jmp   n66_lit_string_α
+n65_statement_begin_α:                                                        jmp   n66_lit_thunk_α
 n65_statement_begin_β:                                                        jmp   n79_setexit_test_α
                         .size            n65_statement_begin_bx, .-n65_statement_begin_bx
-                        .type            n66_lit_string_bx, @function
-n66_lit_string_bx:
+                        .type            n66_lit_thunk_bx, @function
+n66_lit_thunk_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n66_lit_string_α:       sub              rsp, 16
+n66_lit_thunk_α:        sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_string_α_153_0]
+                        mov              rax, qword ptr [rip + .Llit_thunk_α_153_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n67_var_α
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_string_α_153_0: .quad .Lthk_.LTp2; .popsection
-                        .size            n66_lit_string_bx, .-n66_lit_string_bx
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_thunk_α_153_0: .quad .Lthk_.LTp2; .popsection
+                        .size            n66_lit_thunk_bx, .-n66_lit_thunk_bx
                         .type            n67_var_bx, @function
 n67_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -4717,18 +4717,18 @@ n80_statement_begin_bx:
 #         treebank    =   POS(0) ARBNO(ARBNO(*group) delim) RPOS(0)
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 9 0
-n80_statement_begin_α:                                                        jmp   n81_lit_string_α
+n80_statement_begin_α:                                                        jmp   n81_lit_thunk_α
 n80_statement_begin_β:                                                        jmp   n88_setexit_test_α
                         .size            n80_statement_begin_bx, .-n80_statement_begin_bx
-                        .type            n81_lit_string_bx, @function
-n81_lit_string_bx:
+                        .type            n81_lit_thunk_bx, @function
+n81_lit_thunk_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n81_lit_string_α:       sub              rsp, 16
+n81_lit_thunk_α:        sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_string_α_170_0]
+                        mov              rax, qword ptr [rip + .Llit_thunk_α_170_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n82_var_α
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_string_α_170_0: .quad .Lthk_.LTp3; .popsection
-                        .size            n81_lit_string_bx, .-n81_lit_string_bx
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_thunk_α_170_0: .quad .Lthk_.LTp3; .popsection
+                        .size            n81_lit_thunk_bx, .-n81_lit_thunk_bx
                         .type            n82_var_bx, @function
 n82_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------

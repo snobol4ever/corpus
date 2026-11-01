@@ -9646,18 +9646,18 @@ n103_statement_begin_bx:
 #         I       =  SPAN('0123456789')
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 2 0
-n103_statement_begin_α:                                                       jmp   n104_lit_string_α
+n103_statement_begin_α:                                                       jmp   n104_lit_thunk_α
 n103_statement_begin_β:                                                       jmp   n108_setexit_test_α
                         .size            n103_statement_begin_bx, .-n103_statement_begin_bx
-                        .type            n104_lit_string_bx, @function
-n104_lit_string_bx:
+                        .type            n104_lit_thunk_bx, @function
+n104_lit_thunk_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n104_lit_string_α:      sub              rsp, 16
+n104_lit_thunk_α:       sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_string_α_223_0]
+                        mov              rax, qword ptr [rip + .Llit_thunk_α_223_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n105_call_direct_α
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_string_α_223_0: .quad .Lthk_.LTp0; .popsection
-                        .size            n104_lit_string_bx, .-n104_lit_string_bx
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_thunk_α_223_0: .quad .Lthk_.LTp0; .popsection
+                        .size            n104_lit_thunk_bx, .-n104_lit_thunk_bx
                         .type            n105_call_direct_bx, @function
 n105_call_direct_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -9741,18 +9741,18 @@ n109_statement_begin_bx:
 #         V       =  ANY(&LCASE)
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 3 0
-n109_statement_begin_α:                                                       jmp   n110_lit_string_α
+n109_statement_begin_α:                                                       jmp   n110_lit_thunk_α
 n109_statement_begin_β:                                                       jmp   n114_setexit_test_α
                         .size            n109_statement_begin_bx, .-n109_statement_begin_bx
-                        .type            n110_lit_string_bx, @function
-n110_lit_string_bx:
+                        .type            n110_lit_thunk_bx, @function
+n110_lit_thunk_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n110_lit_string_α:      sub              rsp, 16
+n110_lit_thunk_α:       sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_string_α_231_0]
+                        mov              rax, qword ptr [rip + .Llit_thunk_α_231_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n111_call_direct_α
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_string_α_231_0: .quad .Lthk_.LTp1; .popsection
-                        .size            n110_lit_string_bx, .-n110_lit_string_bx
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_thunk_α_231_0: .quad .Lthk_.LTp1; .popsection
+                        .size            n110_lit_thunk_bx, .-n110_lit_thunk_bx
                         .type            n111_call_direct_bx, @function
 n111_call_direct_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -9836,18 +9836,18 @@ n115_statement_begin_bx:
 #         A       =  I | V | '(' *X ')'
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 4 0
-n115_statement_begin_α:                                                       jmp   n116_lit_string_α
+n115_statement_begin_α:                                                       jmp   n116_lit_thunk_α
 n115_statement_begin_β:                                                       jmp   n126_setexit_test_α
                         .size            n115_statement_begin_bx, .-n115_statement_begin_bx
-                        .type            n116_lit_string_bx, @function
-n116_lit_string_bx:
+                        .type            n116_lit_thunk_bx, @function
+n116_lit_thunk_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n116_lit_string_α:      sub              rsp, 16
+n116_lit_thunk_α:       sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_string_α_239_0]
+                        mov              rax, qword ptr [rip + .Llit_thunk_α_239_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n117_var_α
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_string_α_239_0: .quad .Lthk_.LTp2; .popsection
-                        .size            n116_lit_string_bx, .-n116_lit_string_bx
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_thunk_α_239_0: .quad .Lthk_.LTp2; .popsection
+                        .size            n116_lit_thunk_bx, .-n116_lit_thunk_bx
                         .type            n117_var_bx, @function
 n117_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -10062,18 +10062,18 @@ n127_statement_begin_bx:
 #         F       =  '+' *F | '-' *F | A
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 5 0
-n127_statement_begin_α:                                                       jmp   n128_lit_string_α
+n127_statement_begin_α:                                                       jmp   n128_lit_thunk_α
 n127_statement_begin_β:                                                       jmp   n135_setexit_test_α
                         .size            n127_statement_begin_bx, .-n127_statement_begin_bx
-                        .type            n128_lit_string_bx, @function
-n128_lit_string_bx:
+                        .type            n128_lit_thunk_bx, @function
+n128_lit_thunk_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n128_lit_string_α:      sub              rsp, 16
+n128_lit_thunk_α:       sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_string_α_253_0]
+                        mov              rax, qword ptr [rip + .Llit_thunk_α_253_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n129_var_α
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_string_α_253_0: .quad .Lthk_.LTp3; .popsection
-                        .size            n128_lit_string_bx, .-n128_lit_string_bx
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_thunk_α_253_0: .quad .Lthk_.LTp3; .popsection
+                        .size            n128_lit_thunk_bx, .-n128_lit_thunk_bx
                         .type            n129_var_bx, @function
 n129_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -10222,18 +10222,18 @@ n136_statement_begin_bx:
 #         T       =  F '*' *T | F '/' *T | F
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 6 0
-n136_statement_begin_α:                                                       jmp   n137_lit_string_α
+n136_statement_begin_α:                                                       jmp   n137_lit_thunk_α
 n136_statement_begin_β:                                                       jmp   n150_setexit_test_α
                         .size            n136_statement_begin_bx, .-n136_statement_begin_bx
-                        .type            n137_lit_string_bx, @function
-n137_lit_string_bx:
+                        .type            n137_lit_thunk_bx, @function
+n137_lit_thunk_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n137_lit_string_α:      sub              rsp, 16
+n137_lit_thunk_α:       sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_string_α_264_0]
+                        mov              rax, qword ptr [rip + .Llit_thunk_α_264_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n138_var_α
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_string_α_264_0: .quad .Lthk_.LTp4; .popsection
-                        .size            n137_lit_string_bx, .-n137_lit_string_bx
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_thunk_α_264_0: .quad .Lthk_.LTp4; .popsection
+                        .size            n137_lit_thunk_bx, .-n137_lit_thunk_bx
                         .type            n138_var_bx, @function
 n138_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -10514,18 +10514,18 @@ n151_statement_begin_bx:
 #         X       =  T '+' *X | T '-' *X | T
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 7 0
-n151_statement_begin_α:                                                       jmp   n152_lit_string_α
+n151_statement_begin_α:                                                       jmp   n152_lit_thunk_α
 n151_statement_begin_β:                                                       jmp   n165_setexit_test_α
                         .size            n151_statement_begin_bx, .-n151_statement_begin_bx
-                        .type            n152_lit_string_bx, @function
-n152_lit_string_bx:
+                        .type            n152_lit_thunk_bx, @function
+n152_lit_thunk_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n152_lit_string_α:      sub              rsp, 16
+n152_lit_thunk_α:       sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_string_α_281_0]
+                        mov              rax, qword ptr [rip + .Llit_thunk_α_281_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n153_var_α
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_string_α_281_0: .quad .Lthk_.LTp5; .popsection
-                        .size            n152_lit_string_bx, .-n152_lit_string_bx
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_thunk_α_281_0: .quad .Lthk_.LTp5; .popsection
+                        .size            n152_lit_thunk_bx, .-n152_lit_thunk_bx
                         .type            n153_var_bx, @function
 n153_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -10806,18 +10806,18 @@ n166_statement_begin_bx:
 #         C       =  POS(0) ARBNO(X CHAR(10)) RPOS(0)
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 8 0
-n166_statement_begin_α:                                                       jmp   n167_lit_string_α
+n166_statement_begin_α:                                                       jmp   n167_lit_thunk_α
 n166_statement_begin_β:                                                       jmp   n174_setexit_test_α
                         .size            n166_statement_begin_bx, .-n166_statement_begin_bx
-                        .type            n167_lit_string_bx, @function
-n167_lit_string_bx:
+                        .type            n167_lit_thunk_bx, @function
+n167_lit_thunk_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n167_lit_string_α:      sub              rsp, 16
+n167_lit_thunk_α:       sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_string_α_298_0]
+                        mov              rax, qword ptr [rip + .Llit_thunk_α_298_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n168_var_α
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_string_α_298_0: .quad .Lthk_.LTp6; .popsection
-                        .size            n167_lit_string_bx, .-n167_lit_string_bx
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_thunk_α_298_0: .quad .Lthk_.LTp6; .popsection
+                        .size            n167_lit_thunk_bx, .-n167_lit_thunk_bx
                         .type            n168_var_bx, @function
 n168_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------

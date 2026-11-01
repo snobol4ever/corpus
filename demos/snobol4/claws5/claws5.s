@@ -1292,21 +1292,21 @@ n62_statement_begin_bx:
 #         DEFINE('token()')  :(token_end)
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 2 0
-n62_statement_begin_α:                                                        jmp   n63_define_α
+n62_statement_begin_α:                                                        jmp   n63_define_bind_α
 n62_statement_begin_β:                                                        jmp   n65_setexit_test_α
                         .size            n62_statement_begin_bx, .-n62_statement_begin_bx
-                        .type            n63_define_bx, @function
-n63_define_bx:
+                        .type            n63_define_bind_bx, @function
+n63_define_bind_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n63_define_α:           mov              rdi, qword ptr [rip + .Ldefine_α_217_0] # name
-                        mov              rsi, qword ptr [rip + .Ldefine_α_217_1] # params_csv
+n63_define_bind_α:      mov              rdi, qword ptr [rip + .Ldefine_bind_α_217_0] # name
+                        mov              rsi, qword ptr [rip + .Ldefine_bind_α_217_1] # params_csv
                         mov              edx, 0                               # nparams
                         mov              ecx, 0                               # nformals
                         mov              r8d, 0                               # frame_bytes
                         lea              r9, [rip + LBL__token]               # fn
                         call             rt_define_site@PLT
 .Lgcsite_main_5:        mov              r9,  qword ptr [rip + g_rtccb+48]
-                        push             rax                                  # gc_poll bb_define.cpp:163
+                        push             rax                                  # gc_poll bb_define.cpp:159
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1314,7 +1314,7 @@ n63_define_α:           mov              rdi, qword ptr [rip + .Ldefine_α_217_
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
 .Lgcsite_main_4:        mov              r9,  qword ptr [rip + g_rtccb+48]
-1:                      mov              rdi, qword ptr [rip + .Ldefine_α_217_0]
+1:                      mov              rdi, qword ptr [rip + .Ldefine_bind_α_217_0]
                         lea              rsi, [rip + token_α]
                         call             bb_ab_seal_alpha@PLT
 .Lgcsite_main_6:        mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -1326,12 +1326,14 @@ entry_cell$token:       .quad            LBL__token
                         lea              rax, [rip + LBL__token]
                         mov              rcx, qword ptr [rip + entry_cell$token@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n64_statement_end_α
-n63_define_β:                                                                 jmp   n62_statement_begin_β
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Ldefine_α_217_0: .quad .Ldefine_α_217_0_s; .popsection
-.Ldefine_α_217_0_s:     .string          "token"
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Ldefine_α_217_1: .quad .Ldefine_α_217_1_s; .popsection
-.Ldefine_α_217_1_s:     .string          ""
-                                                                              jmp   .Ldefine_α_218_245
+n63_define_bind_β:                                                            jmp   n62_statement_begin_β
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Ldefine_bind_α_217_0: .quad .Ldefine_bind_α_217_0_s; .popsection
+.Ldefine_bind_α_217_0_s:
+                        .string          "token"
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Ldefine_bind_α_217_1: .quad .Ldefine_bind_α_217_1_s; .popsection
+.Ldefine_bind_α_217_1_s:
+                        .string          ""
+                                                                              jmp   .Ldefine_bind_α_218_245
 #-----------------------------------------------------------------------------------------------------------------------
 token_α:                sub              rsp, 48
                         mov              rax, qword ptr [rip + rt_g_want_name@GOTPCREL]
@@ -1363,10 +1365,12 @@ token_α:                sub              rsp, 48
                         mov              qword ptr [rsp + 16], rax
                         mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
                         mov              rax, qword ptr [rax + 592]
-                        mov              qword ptr [rsp + 24], rax;           jmp   .Ldefine_α_218_231
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Ldefine_α_218_232: .quad .Ldefine_α_218_232_s; .popsection
-.Ldefine_α_218_232_s:   .string          "token"
-.Ldefine_α_218_231:     lea              rcx, [rip + token_γ]
+                        mov              qword ptr [rsp + 24], rax;           jmp   .Ldefine_bind_α_218_231
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Ldefine_bind_α_218_232: .quad .Ldefine_bind_α_218_232_s; .popsection
+.Ldefine_bind_α_218_232_s:
+                        .string          "token"
+.Ldefine_bind_α_218_231:
+                        lea              rcx, [rip + token_γ]
                         lea              rax, [rip + token_ω]
                         push             rax
                         push             rcx
@@ -1378,10 +1382,12 @@ token_γ:
                         mov              rax, rdi
                         mov              rdx, rsi
                         push             rdx
-                        push             rax;                                 jmp   .Ldefine_α_218_236
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Ldefine_α_218_237: .quad .Ldefine_α_218_237_s; .popsection
-.Ldefine_α_218_237_s:   .string          "token"
-.Ldefine_α_218_236:     pop              rax
+                        push             rax;                                 jmp   .Ldefine_bind_α_218_236
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Ldefine_bind_α_218_237: .quad .Ldefine_bind_α_218_237_s; .popsection
+.Ldefine_bind_α_218_237_s:
+                        .string          "token"
+.Ldefine_bind_α_218_236:
+                        pop              rax
                         pop              rdx
                         mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
@@ -1457,8 +1463,8 @@ token_ω:                mov              rcx, qword ptr [rsp + 32]
                         add              rsp, 48
                         mov              eax, 104
                         xor              edx, edx;                            jmp   rcx
-.Ldefine_α_218_245:
-                        .size            n63_define_bx, .-n63_define_bx
+.Ldefine_bind_α_218_245:
+                        .size            n63_define_bind_bx, .-n63_define_bind_bx
                         .type            n64_statement_end_bx, @function
 n64_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -3449,18 +3455,18 @@ n164_statement_begin_bx:
 #         claws   =   POS(0)
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 13 0
-n164_statement_begin_α:                                                       jmp   n165_lit_string_α
+n164_statement_begin_α:                                                       jmp   n165_lit_thunk_α
 n164_statement_begin_β:                                                       jmp   n169_setexit_test_α
                         .size            n164_statement_begin_bx, .-n164_statement_begin_bx
-                        .type            n165_lit_string_bx, @function
-n165_lit_string_bx:
+                        .type            n165_lit_thunk_bx, @function
+n165_lit_thunk_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n165_lit_string_α:      sub              rsp, 16
+n165_lit_thunk_α:       sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_string_α_351_0]
+                        mov              rax, qword ptr [rip + .Llit_thunk_α_351_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n166_call_direct_α
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_string_α_351_0: .quad .Lthk_.LTp0; .popsection
-                        .size            n165_lit_string_bx, .-n165_lit_string_bx
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_thunk_α_351_0: .quad .Lthk_.LTp0; .popsection
+                        .size            n165_lit_thunk_bx, .-n165_lit_thunk_bx
                         .type            n166_call_direct_bx, @function
 n166_call_direct_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -5396,22 +5402,22 @@ n208_goto_bx:
 n208_goto_α:                                                                  jmp   n201_statement_begin_α
 n208_goto_β:                                                                  jmp   main_ω
                         .size            n208_goto_bx, .-n208_goto_bx
-                        .type            n209_define_bx, @function
-n209_define_bx:
+                        .type            n209_define_return_bx, @function
+n209_define_return_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 RETURN:                 mov              edi, 1
                         call             qword ptr [rip + rt_kw_set_rtntype_role@GOTPCREL]
 .Lgcsite_main_230:      pop              rcx
                         add              rsp, 8;                              jmp   rcx
-                        .size            n209_define_bx, .-n209_define_bx
-                        .type            n210_define_bx, @function
-n210_define_bx:
+                        .size            n209_define_return_bx, .-n209_define_return_bx
+                        .type            n210_define_freturn_bx, @function
+n210_define_freturn_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 FRETURN:                mov              edi, 2
                         call             qword ptr [rip + rt_kw_set_rtntype_role@GOTPCREL]
 .Lgcsite_main_231:      add              rsp, 8
                         pop              rcx;                                 jmp   rcx
-                        .size            n210_define_bx, .-n210_define_bx
+                        .size            n210_define_freturn_bx, .-n210_define_freturn_bx
                         .type            n211_lit_string_bx, @function
 n211_lit_string_bx:
 #-----------------------------------------------------------------------------------------------------------------------

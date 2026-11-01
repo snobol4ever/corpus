@@ -3089,7 +3089,7 @@ n39_match_defer_β:      cmp              qword ptr [rsp + 0], 0;              j
 n40_match_fence0_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n40_match_fence0_α:                                                           jmp   .Lmatch_arbno_γ_36_as
-n40_match_fence0_β:                                                           jmp   n41_match_abort_β
+n40_match_fence0_β:     add              rsp, 16;                             jmp   n41_match_abort_β
                         .size            n40_match_fence0_bx, .-n40_match_fence0_bx
                         .type            n41_match_abort_bx, @function
 n41_match_abort_bx:
@@ -4280,18 +4280,18 @@ n62_statement_begin_bx:
 #         delim       =   SPAN(' ' CHAR(10))
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 2 0
-n62_statement_begin_α:                                                        jmp   n63_lit_string_α
+n62_statement_begin_α:                                                        jmp   n63_lit_thunk_α
 n62_statement_begin_β:                                                        jmp   n67_setexit_test_α
                         .size            n62_statement_begin_bx, .-n62_statement_begin_bx
-                        .type            n63_lit_string_bx, @function
-n63_lit_string_bx:
+                        .type            n63_lit_thunk_bx, @function
+n63_lit_thunk_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n63_lit_string_α:       sub              rsp, 16
+n63_lit_thunk_α:        sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_string_α_146_0]
+                        mov              rax, qword ptr [rip + .Llit_thunk_α_146_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n64_call_direct_α
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_string_α_146_0: .quad .Lthk_.LTp0; .popsection
-                        .size            n63_lit_string_bx, .-n63_lit_string_bx
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_thunk_α_146_0: .quad .Lthk_.LTp0; .popsection
+                        .size            n63_lit_thunk_bx, .-n63_lit_thunk_bx
                         .type            n64_call_direct_bx, @function
 n64_call_direct_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -4375,18 +4375,18 @@ n68_statement_begin_bx:
 #         word        =   NOTANY('( )' CHAR(10))
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 3 0
-n68_statement_begin_α:                                                        jmp   n69_lit_string_α
+n68_statement_begin_α:                                                        jmp   n69_lit_thunk_α
 n68_statement_begin_β:                                                        jmp   n73_setexit_test_α
                         .size            n68_statement_begin_bx, .-n68_statement_begin_bx
-                        .type            n69_lit_string_bx, @function
-n69_lit_string_bx:
+                        .type            n69_lit_thunk_bx, @function
+n69_lit_thunk_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n69_lit_string_α:       sub              rsp, 16
+n69_lit_thunk_α:        sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_string_α_154_0]
+                        mov              rax, qword ptr [rip + .Llit_thunk_α_154_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n70_call_direct_α
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_string_α_154_0: .quad .Lthk_.LTp1; .popsection
-                        .size            n69_lit_string_bx, .-n69_lit_string_bx
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_thunk_α_154_0: .quad .Lthk_.LTp1; .popsection
+                        .size            n69_lit_thunk_bx, .-n69_lit_thunk_bx
                         .type            n70_call_direct_bx, @function
 n70_call_direct_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -4470,18 +4470,18 @@ n74_statement_begin_bx:
 #         group       =   '('
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 5 0
-n74_statement_begin_α:                                                        jmp   n75_lit_string_α
+n74_statement_begin_α:                                                        jmp   n75_lit_thunk_α
 n74_statement_begin_β:                                                        jmp   n88_setexit_test_α
                         .size            n74_statement_begin_bx, .-n74_statement_begin_bx
-                        .type            n75_lit_string_bx, @function
-n75_lit_string_bx:
+                        .type            n75_lit_thunk_bx, @function
+n75_lit_thunk_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n75_lit_string_α:       sub              rsp, 16
+n75_lit_thunk_α:        sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_string_α_162_0]
+                        mov              rax, qword ptr [rip + .Llit_thunk_α_162_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n76_var_α
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_string_α_162_0: .quad .Lthk_.LTp2; .popsection
-                        .size            n75_lit_string_bx, .-n75_lit_string_bx
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_thunk_α_162_0: .quad .Lthk_.LTp2; .popsection
+                        .size            n75_lit_thunk_bx, .-n75_lit_thunk_bx
                         .type            n76_var_bx, @function
 n76_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -4762,18 +4762,18 @@ n89_statement_begin_bx:
 #         treebank    =   POS(0) ARBNO(ARBNO(*group FENCE) delim FENCE) RPOS(0)
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 9 0
-n89_statement_begin_α:                                                        jmp   n90_lit_string_α
+n89_statement_begin_α:                                                        jmp   n90_lit_thunk_α
 n89_statement_begin_β:                                                        jmp   n97_setexit_test_α
                         .size            n89_statement_begin_bx, .-n89_statement_begin_bx
-                        .type            n90_lit_string_bx, @function
-n90_lit_string_bx:
+                        .type            n90_lit_thunk_bx, @function
+n90_lit_thunk_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n90_lit_string_α:       sub              rsp, 16
+n90_lit_thunk_α:        sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_string_α_179_0]
+                        mov              rax, qword ptr [rip + .Llit_thunk_α_179_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n91_var_α
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_string_α_179_0: .quad .Lthk_.LTp3; .popsection
-                        .size            n90_lit_string_bx, .-n90_lit_string_bx
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_thunk_α_179_0: .quad .Lthk_.LTp3; .popsection
+                        .size            n90_lit_thunk_bx, .-n90_lit_thunk_bx
                         .type            n91_var_bx, @function
 n91_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------

@@ -1251,18 +1251,18 @@ n43_statement_begin_bx:
 #         claws   =   POS(0)
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 2 0
-n43_statement_begin_α:                                                        jmp   n44_lit_string_α
+n43_statement_begin_α:                                                        jmp   n44_lit_thunk_α
 n43_statement_begin_β:                                                        jmp   n48_setexit_test_α
                         .size            n43_statement_begin_bx, .-n43_statement_begin_bx
-                        .type            n44_lit_string_bx, @function
-n44_lit_string_bx:
+                        .type            n44_lit_thunk_bx, @function
+n44_lit_thunk_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n44_lit_string_α:       sub              rsp, 16
+n44_lit_thunk_α:        sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_string_α_97_0]
+                        mov              rax, qword ptr [rip + .Llit_thunk_α_97_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n45_call_direct_α
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_string_α_97_0: .quad .Lthk_.LTp0; .popsection
-                        .size            n44_lit_string_bx, .-n44_lit_string_bx
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_thunk_α_97_0: .quad .Lthk_.LTp0; .popsection
+                        .size            n44_lit_thunk_bx, .-n44_lit_thunk_bx
                         .type            n45_call_direct_bx, @function
 n45_call_direct_bx:
 #-----------------------------------------------------------------------------------------------------------------------

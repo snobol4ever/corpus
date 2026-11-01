@@ -1450,18 +1450,18 @@ n39_statement_begin_bx:
 #       WPAT = BREAK(WORD) SPAN(WORD)
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 4 0
-n39_statement_begin_α:                                                        jmp   n40_lit_string_α
+n39_statement_begin_α:                                                        jmp   n40_lit_thunk_α
 n39_statement_begin_β:                                                        jmp   n48_setexit_test_α
                         .size            n39_statement_begin_bx, .-n39_statement_begin_bx
-                        .type            n40_lit_string_bx, @function
-n40_lit_string_bx:
+                        .type            n40_lit_thunk_bx, @function
+n40_lit_thunk_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n40_lit_string_α:       sub              rsp, 16
+n40_lit_thunk_α:        sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_string_α_116_0]
+                        mov              rax, qword ptr [rip + .Llit_thunk_α_116_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n41_var_α
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_string_α_116_0: .quad .Lthk_.LTp0; .popsection
-                        .size            n40_lit_string_bx, .-n40_lit_string_bx
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_thunk_α_116_0: .quad .Lthk_.LTp0; .popsection
+                        .size            n40_lit_thunk_bx, .-n40_lit_thunk_bx
                         .type            n41_var_bx, @function
 n41_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------

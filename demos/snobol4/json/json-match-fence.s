@@ -6,11 +6,11 @@
 .Lgccode_.LTx0_0:
 .LTx0:
 .LTx0_α_body:
-                        .type            n0_define_bx, @function
-n0_define_bx:
+                        .type            n0_define_adopt_bx, @function
+n0_define_adopt_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n0_define_α:                                                                  jmp   n1_var_α
-                        .size            n0_define_bx, .-n0_define_bx
+n0_define_adopt_α:                                                            jmp   n1_var_α
+                        .size            n0_define_adopt_bx, .-n0_define_adopt_bx
                         .type            n1_var_bx, @function
 n1_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -12119,18 +12119,18 @@ n247_statement_begin_bx:
 #                 $' '           =  FENCE(SPAN(' ' CHAR(9) CHAR(10) CHAR(13)) | '')
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 3 0
-n247_statement_begin_α:                                                       jmp   n248_lit_string_α
+n247_statement_begin_α:                                                       jmp   n248_lit_thunk_α
 n247_statement_begin_β:                                                       jmp   n252_setexit_test_α
                         .size            n247_statement_begin_bx, .-n247_statement_begin_bx
-                        .type            n248_lit_string_bx, @function
-n248_lit_string_bx:
+                        .type            n248_lit_thunk_bx, @function
+n248_lit_thunk_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n248_lit_string_α:      sub              rsp, 16
+n248_lit_thunk_α:       sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_string_α_416_0]
+                        mov              rax, qword ptr [rip + .Llit_thunk_α_416_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n249_call_direct_α
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_string_α_416_0: .quad .Lthk_.LTp0; .popsection
-                        .size            n248_lit_string_bx, .-n248_lit_string_bx
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_thunk_α_416_0: .quad .Lthk_.LTp0; .popsection
+                        .size            n248_lit_thunk_bx, .-n248_lit_thunk_bx
                         .type            n249_call_direct_bx, @function
 n249_call_direct_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -12214,18 +12214,18 @@ n253_statement_begin_bx:
 #                 jescape        =  '\'
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 5 0
-n253_statement_begin_α:                                                       jmp   n254_lit_string_α
+n253_statement_begin_α:                                                       jmp   n254_lit_thunk_α
 n253_statement_begin_β:                                                       jmp   n258_setexit_test_α
                         .size            n253_statement_begin_bx, .-n253_statement_begin_bx
-                        .type            n254_lit_string_bx, @function
-n254_lit_string_bx:
+                        .type            n254_lit_thunk_bx, @function
+n254_lit_thunk_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n254_lit_string_α:      sub              rsp, 16
+n254_lit_thunk_α:       sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_string_α_424_0]
+                        mov              rax, qword ptr [rip + .Llit_thunk_α_424_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n255_call_direct_α
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_string_α_424_0: .quad .Lthk_.LTp1; .popsection
-                        .size            n254_lit_string_bx, .-n254_lit_string_bx
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_thunk_α_424_0: .quad .Lthk_.LTp1; .popsection
+                        .size            n254_lit_thunk_bx, .-n254_lit_thunk_bx
                         .type            n255_call_direct_bx, @function
 n255_call_direct_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -12309,18 +12309,18 @@ n259_statement_begin_bx:
 #                 jchunk         =  BREAK('"\' CHAR(10) CHAR(13))
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 13 0
-n259_statement_begin_α:                                                       jmp   n260_lit_string_α
+n259_statement_begin_α:                                                       jmp   n260_lit_thunk_α
 n259_statement_begin_β:                                                       jmp   n264_setexit_test_α
                         .size            n259_statement_begin_bx, .-n259_statement_begin_bx
-                        .type            n260_lit_string_bx, @function
-n260_lit_string_bx:
+                        .type            n260_lit_thunk_bx, @function
+n260_lit_thunk_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n260_lit_string_α:      sub              rsp, 16
+n260_lit_thunk_α:       sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_string_α_432_0]
+                        mov              rax, qword ptr [rip + .Llit_thunk_α_432_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n261_call_direct_α
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_string_α_432_0: .quad .Lthk_.LTp2; .popsection
-                        .size            n260_lit_string_bx, .-n260_lit_string_bx
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_thunk_α_432_0: .quad .Lthk_.LTp2; .popsection
+                        .size            n260_lit_thunk_bx, .-n260_lit_thunk_bx
                         .type            n261_call_direct_bx, @function
 n261_call_direct_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -12404,18 +12404,18 @@ n265_statement_begin_bx:
 #                 jstring        =  '"' jchunk ARBNO(jescape jchunk) '"' FENCE
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 14 0
-n265_statement_begin_α:                                                       jmp   n266_lit_string_α
+n265_statement_begin_α:                                                       jmp   n266_lit_thunk_α
 n265_statement_begin_β:                                                       jmp   n279_setexit_test_α
                         .size            n265_statement_begin_bx, .-n265_statement_begin_bx
-                        .type            n266_lit_string_bx, @function
-n266_lit_string_bx:
+                        .type            n266_lit_thunk_bx, @function
+n266_lit_thunk_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n266_lit_string_α:      sub              rsp, 16
+n266_lit_thunk_α:       sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_string_α_440_0]
+                        mov              rax, qword ptr [rip + .Llit_thunk_α_440_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n267_var_α
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_string_α_440_0: .quad .Lthk_.LTp3; .popsection
-                        .size            n266_lit_string_bx, .-n266_lit_string_bx
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_thunk_α_440_0: .quad .Lthk_.LTp3; .popsection
+                        .size            n266_lit_thunk_bx, .-n266_lit_thunk_bx
                         .type            n267_var_bx, @function
 n267_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -12696,18 +12696,18 @@ n280_statement_begin_bx:
 #                 jnumber        =  FENCE('-' | '')
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 16 0
-n280_statement_begin_α:                                                       jmp   n281_lit_string_α
+n280_statement_begin_α:                                                       jmp   n281_lit_thunk_α
 n280_statement_begin_β:                                                       jmp   n285_setexit_test_α
                         .size            n280_statement_begin_bx, .-n280_statement_begin_bx
-                        .type            n281_lit_string_bx, @function
-n281_lit_string_bx:
+                        .type            n281_lit_thunk_bx, @function
+n281_lit_thunk_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n281_lit_string_α:      sub              rsp, 16
+n281_lit_thunk_α:       sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_string_α_457_0]
+                        mov              rax, qword ptr [rip + .Llit_thunk_α_457_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n282_call_direct_α
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_string_α_457_0: .quad .Lthk_.LTp4; .popsection
-                        .size            n281_lit_string_bx, .-n281_lit_string_bx
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_thunk_α_457_0: .quad .Lthk_.LTp4; .popsection
+                        .size            n281_lit_thunk_bx, .-n281_lit_thunk_bx
                         .type            n282_call_direct_bx, @function
 n282_call_direct_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -12791,18 +12791,18 @@ n286_statement_begin_bx:
 #                 jmember        =  $' ' jstring $' ' ':' *jelement
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 23 0
-n286_statement_begin_α:                                                       jmp   n287_lit_string_α
+n286_statement_begin_α:                                                       jmp   n287_lit_thunk_α
 n286_statement_begin_β:                                                       jmp   n300_setexit_test_α
                         .size            n286_statement_begin_bx, .-n286_statement_begin_bx
-                        .type            n287_lit_string_bx, @function
-n287_lit_string_bx:
+                        .type            n287_lit_thunk_bx, @function
+n287_lit_thunk_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n287_lit_string_α:      sub              rsp, 16
+n287_lit_thunk_α:       sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_string_α_465_0]
+                        mov              rax, qword ptr [rip + .Llit_thunk_α_465_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n288_var_α
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_string_α_465_0: .quad .Lthk_.LTp5; .popsection
-                        .size            n287_lit_string_bx, .-n287_lit_string_bx
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_thunk_α_465_0: .quad .Lthk_.LTp5; .popsection
+                        .size            n287_lit_thunk_bx, .-n287_lit_thunk_bx
                         .type            n288_var_bx, @function
 n288_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -13083,18 +13083,18 @@ n301_statement_begin_bx:
 #                 jobject        =  '{' ( jmember ARBNO($' ' ',' jmember) | $' ' ) '}'
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 24 0
-n301_statement_begin_α:                                                       jmp   n302_lit_string_α
+n301_statement_begin_α:                                                       jmp   n302_lit_thunk_α
 n301_statement_begin_β:                                                       jmp   n318_setexit_test_α
                         .size            n301_statement_begin_bx, .-n301_statement_begin_bx
-                        .type            n302_lit_string_bx, @function
-n302_lit_string_bx:
+                        .type            n302_lit_thunk_bx, @function
+n302_lit_thunk_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n302_lit_string_α:      sub              rsp, 16
+n302_lit_thunk_α:       sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_string_α_482_0]
+                        mov              rax, qword ptr [rip + .Llit_thunk_α_482_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n303_var_α
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_string_α_482_0: .quad .Lthk_.LTp6; .popsection
-                        .size            n302_lit_string_bx, .-n302_lit_string_bx
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_thunk_α_482_0: .quad .Lthk_.LTp6; .popsection
+                        .size            n302_lit_thunk_bx, .-n302_lit_thunk_bx
                         .type            n303_var_bx, @function
 n303_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -13441,18 +13441,18 @@ n319_statement_begin_bx:
 #                 jarray         =  '[' ( *jelement ARBNO($' ' ',' *jelement) | $' ' ) ']'
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 25 0
-n319_statement_begin_α:                                                       jmp   n320_lit_string_α
+n319_statement_begin_α:                                                       jmp   n320_lit_thunk_α
 n319_statement_begin_β:                                                       jmp   n330_setexit_test_α
                         .size            n319_statement_begin_bx, .-n319_statement_begin_bx
-                        .type            n320_lit_string_bx, @function
-n320_lit_string_bx:
+                        .type            n320_lit_thunk_bx, @function
+n320_lit_thunk_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n320_lit_string_α:      sub              rsp, 16
+n320_lit_thunk_α:       sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_string_α_502_0]
+                        mov              rax, qword ptr [rip + .Llit_thunk_α_502_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n321_var_α
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_string_α_502_0: .quad .Lthk_.LTp7; .popsection
-                        .size            n320_lit_string_bx, .-n320_lit_string_bx
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_thunk_α_502_0: .quad .Lthk_.LTp7; .popsection
+                        .size            n320_lit_thunk_bx, .-n320_lit_thunk_bx
                         .type            n321_var_bx, @function
 n321_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -13667,18 +13667,18 @@ n331_statement_begin_bx:
 #                 jvalue         =  ( jstring
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 26 0
-n331_statement_begin_α:                                                       jmp   n332_lit_string_α
+n331_statement_begin_α:                                                       jmp   n332_lit_thunk_α
 n331_statement_begin_β:                                                       jmp   n348_setexit_test_α
                         .size            n331_statement_begin_bx, .-n331_statement_begin_bx
-                        .type            n332_lit_string_bx, @function
-n332_lit_string_bx:
+                        .type            n332_lit_thunk_bx, @function
+n332_lit_thunk_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n332_lit_string_α:      sub              rsp, 16
+n332_lit_thunk_α:       sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_string_α_516_0]
+                        mov              rax, qword ptr [rip + .Llit_thunk_α_516_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n333_var_α
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_string_α_516_0: .quad .Lthk_.LTp8; .popsection
-                        .size            n332_lit_string_bx, .-n332_lit_string_bx
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_thunk_α_516_0: .quad .Lthk_.LTp8; .popsection
+                        .size            n332_lit_thunk_bx, .-n332_lit_thunk_bx
                         .type            n333_var_bx, @function
 n333_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -14035,19 +14035,19 @@ n350_var_α:             sub              rsp, 16
                         mov              rax, qword ptr [r9 + 11856]          #  
                         mov              rdx, qword ptr [r9 + 11864]
                         mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n351_lit_string_α
+                        mov              qword ptr [rsp + 8], rdx;            jmp   n351_lit_dstar_α
                         .size            n350_var_bx, .-n350_var_bx
-                        .type            n351_lit_string_bx, @function
-n351_lit_string_bx:
+                        .type            n351_lit_dstar_bx, @function
+n351_lit_dstar_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n351_lit_string_α:      sub              rsp, 16
+n351_lit_dstar_α:       sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_string_α_537_0]
+                        mov              rax, qword ptr [rip + .Llit_dstar_α_537_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n352_call_direct_α
-n351_lit_string_β:      add              rsp, 16
+n351_lit_dstar_β:       add              rsp, 16
                         add              rsp, 16;                             jmp   n349_statement_begin_β
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_string_α_537_0: .quad .Ldstar_$2A.LTx0; .popsection
-                        .size            n351_lit_string_bx, .-n351_lit_string_bx
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_dstar_α_537_0: .quad .Ldstar_$2A.LTx0; .popsection
+                        .size            n351_lit_dstar_bx, .-n351_lit_dstar_bx
                         .type            n352_call_direct_bx, @function
 n352_call_direct_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -14079,12 +14079,12 @@ n352_call_direct_α:     sub              rsp, 64
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
 1:                      cmp              al, 104;                             jne   .Lcall_direct_α_538_999
-                        add              rsp, 64;                             jmp   n351_lit_string_β
+                        add              rsp, 64;                             jmp   n351_lit_dstar_β
 .Lcall_direct_α_538_999:
                         mov              qword ptr [rsp + 32], rax            # result
                         mov              qword ptr [rsp + 40], rdx
                         add              rsp, 32;                             jmp   n353_binop_α
-n352_call_direct_β:     add              rsp, 64;                             jmp   n351_lit_string_β
+n352_call_direct_β:     add              rsp, 64;                             jmp   n351_lit_dstar_β
                         .size            n352_call_direct_bx, .-n352_call_direct_bx
                         .type            n353_binop_bx, @function
 n353_binop_bx:
@@ -14110,9 +14110,9 @@ n353_binop_α:           sub              rsp, 16
 .Lgcsite_main_58:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              eax, dword ptr [rsp + 0]             # result
                         cmp              al, 104;                             jne   .Lbinop_α_539_999
-                        add              rsp, 48;                             jmp   n351_lit_string_β
+                        add              rsp, 48;                             jmp   n351_lit_dstar_β
 .Lbinop_α_539_999:                                                            jmp   n354_var_α
-n353_binop_β:           add              rsp, 48;                             jmp   n351_lit_string_β
+n353_binop_β:           add              rsp, 48;                             jmp   n351_lit_dstar_β
                         .size            n353_binop_bx, .-n353_binop_bx
                         .type            n354_var_bx, @function
 n354_var_bx:
@@ -14195,18 +14195,18 @@ n359_statement_begin_bx:
 #                 json           =  POS(0) jelement RPOS(0)
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 35 0
-n359_statement_begin_α:                                                       jmp   n360_lit_string_α
+n359_statement_begin_α:                                                       jmp   n360_lit_thunk_α
 n359_statement_begin_β:                                                       jmp   n367_setexit_test_α
                         .size            n359_statement_begin_bx, .-n359_statement_begin_bx
-                        .type            n360_lit_string_bx, @function
-n360_lit_string_bx:
+                        .type            n360_lit_thunk_bx, @function
+n360_lit_thunk_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n360_lit_string_α:      sub              rsp, 16
+n360_lit_thunk_α:       sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_string_α_548_0]
+                        mov              rax, qword ptr [rip + .Llit_thunk_α_548_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n361_var_α
-                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_string_α_548_0: .quad .Lthk_.LTp9; .popsection
-                        .size            n360_lit_string_bx, .-n360_lit_string_bx
+                        .pushsection     .data.rel.ro,"aw",@progbits; .p2align 3; .Llit_thunk_α_548_0: .quad .Lthk_.LTp9; .popsection
+                        .size            n360_lit_thunk_bx, .-n360_lit_thunk_bx
                         .type            n361_var_bx, @function
 n361_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
