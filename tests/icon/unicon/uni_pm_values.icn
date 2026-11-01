@@ -1,0 +1,11 @@
+procedure main()
+   local p, q, r;
+   p := Len(2);
+   write(type(p));
+   q := p || "x";
+   write(type(q));
+   r := Span('ab') .| Arb();
+   write(type(r));
+   write(type(Arbno(Len(1)) || Nspan('c') || Fence() || Any('a') || Pos(0) || Rpos(0) || Tab(1) || Rtab(1) || Break('x') || Breakx('x') || NotAny('a') || Rem() || Bal()));
+   write(type("abc"));
+end
