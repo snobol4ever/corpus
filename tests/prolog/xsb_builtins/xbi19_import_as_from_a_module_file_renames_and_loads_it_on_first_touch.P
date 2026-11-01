@@ -1,0 +1,9 @@
+% xbi19_import_as_from_a_module_file_renames_and_loads_it_on_first_touch -- XSB's :- import p/2 from m as q/2. where m is a plain module name whose file m.P sits beside the program (prolog_tests mod_dyn_tests test_dynmod_im):
+% q/2 is the module's p/2 under the new name, the file loads on the first call of q (ma_file declares ordering(a), so its clauses read back in reverse; mz_file keeps file order), and a second import of the same module under another name loads nothing again.
+:- import p/2 from ma_file as pa/2.
+:- import p/2 from mz_file as pz/2.
+:- import p/2 from ma_file as pb/2.
+test :- findall(pa(X,Y), pa(X,Y), L), writeln(ma_file:L), fail.
+test :- findall(pz(X,Y), pz(X,Y), L), writeln(mz_file:L), fail.
+test :- findall(pb(X,Y), pb(X,Y), L), writeln(ma_file_again:L), fail.
+test.
