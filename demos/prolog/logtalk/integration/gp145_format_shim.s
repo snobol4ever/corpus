@@ -4088,7 +4088,7 @@ n114_call_pl_leaf_α:    sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -4723,7 +4723,7 @@ n123_call_pl_leaf_α:    sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -6575,7 +6575,7 @@ n269_call_pl_leaf_α:    sub              rsp, 64
 .Lgcsite_$yall$2F3_3:   movabs           rcx, 12884901968
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -6757,7 +6757,7 @@ n273_call_pl_leaf_α:    sub              rsp, 64
 .Lgcsite_$yall$2F3_7:   movabs           rcx, 12884901968
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -7205,7 +7205,7 @@ n285_call_value_α:      sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 40]
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$yall$2F3_20:  push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$yall$2F3_20:  push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -7276,7 +7276,7 @@ n285_call_value_α:      sub              rsp, 32
                         cmp              al, 104;                             jne   .Lcall_value_α_320_998
                         add              rsp, 32
                         add              rsp, 16;                             jmp   n283_call_proc_staged_β
-.Lcall_value_α_320_998: push             rax                                  # gc_poll bb_call_value.cpp:141
+.Lcall_value_α_320_998: push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -7767,7 +7767,7 @@ n328_call_pl_leaf_α:    sub              rsp, 64
                         movabs           rcx, 21474836560
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -8599,7 +8599,7 @@ n350_call_pl_leaf_α:    sub              rsp, 64
                         movabs           rcx, 17179869264
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -9369,7 +9369,7 @@ n367_call_pl_leaf_α:    sub              rsp, 64
                         movabs           rcx, 21474836560
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -11629,7 +11629,7 @@ n545_to_α:              sub              rsp, 80
 .Lgcsite_$mod_cl$2F4_28:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 16], rax
-                        push             rax                                  # gc_poll bb_to.cpp:136
+                        push             rax                                  # gc_poll bb_to.cpp:137
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -11686,7 +11686,7 @@ n545_to_α:              sub              rsp, 80
                         mov              r13, qword ptr [rsp + 48]            # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_663_8:           mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:156
+                        push             rax                                  # gc_poll bb_to.cpp:157
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -12082,7 +12082,7 @@ n557_to_α:              sub              rsp, 80
 .Lgcsite_$mod_cl$2F4_42:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 16], rax
-                        push             rax                                  # gc_poll bb_to.cpp:136
+                        push             rax                                  # gc_poll bb_to.cpp:137
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -12139,7 +12139,7 @@ n557_to_α:              sub              rsp, 80
                         mov              r13, qword ptr [rsp + 48]            # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_682_8:           mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:156
+                        push             rax                                  # gc_poll bb_to.cpp:157
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -12402,7 +12402,7 @@ n563_call_pl_leaf_α:    sub              rsp, 48
 .Lgcsite_$mod_cl$2F4_51:
                         mov              qword ptr [rsp + 32], rax
                         mov              qword ptr [rsp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:205
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:206
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -12492,7 +12492,7 @@ n567_call_pl_leaf_α:    sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -13491,7 +13491,7 @@ n598_to_α:              sub              rsp, 80
 .Lgcsite_$mod_cl$2F4_85:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 16], rax
-                        push             rax                                  # gc_poll bb_to.cpp:136
+                        push             rax                                  # gc_poll bb_to.cpp:137
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -13548,7 +13548,7 @@ n598_to_α:              sub              rsp, 80
                         mov              r13, qword ptr [rsp + 48]            # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_752_8:           mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:156
+                        push             rax                                  # gc_poll bb_to.cpp:157
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -13630,7 +13630,7 @@ n599_call_pl_leaf_α:    sub              rsp, 48
 .Lgcsite_$mod_cl$2F4_88:
                         mov              qword ptr [rsp + 32], rax
                         mov              qword ptr [rsp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:205
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:206
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -13919,7 +13919,7 @@ n614_call_pl_leaf_α:    sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -14169,7 +14169,7 @@ n620_call_pl_leaf_α:    sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -17455,7 +17455,7 @@ n861_call_pl_leaf_α:    sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$var_subtract$2F3_16:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -17588,7 +17588,7 @@ n868_call_pl_leaf_α:    sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -17737,7 +17737,7 @@ n869_call_pl_leaf_α:    sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$var_subtract$2F3_24:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -19656,7 +19656,7 @@ n949_call_pl_leaf_α:    sub              rsp, 48
 .Lgcsite_$sort4_take$2F3_25:
                         mov              qword ptr [rsp + 32], rax
                         mov              qword ptr [rsp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:205
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:206
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -21848,7 +21848,7 @@ n1018_call_pl_leaf_α:   sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$mod_qmargs$2F4_27:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -25419,7 +25419,7 @@ n1179_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -25564,7 +25564,7 @@ n1180_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -26592,7 +26592,7 @@ n1195_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 21474836560
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -26764,7 +26764,7 @@ n1199_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -26909,7 +26909,7 @@ n1200_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -28923,7 +28923,7 @@ n1303_to_α:             sub              rsp, 80
 .Lgcsite_$arg_swi$2F3_38:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 16], rax
-                        push             rax                                  # gc_poll bb_to.cpp:136
+                        push             rax                                  # gc_poll bb_to.cpp:137
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -28980,7 +28980,7 @@ n1303_to_α:             sub              rsp, 80
                         mov              r13, qword ptr [rsp + 48]            # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_1410_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:156
+                        push             rax                                  # gc_poll bb_to.cpp:157
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -29062,7 +29062,7 @@ n1304_call_pl_leaf_α:   sub              rsp, 48
 .Lgcsite_$arg_swi$2F3_41:
                         mov              qword ptr [rsp + 32], rax
                         mov              qword ptr [rsp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:205
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:206
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -30825,7 +30825,7 @@ n1475_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 17179869264
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -30997,7 +30997,7 @@ n1479_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -31142,7 +31142,7 @@ n1480_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -33939,7 +33939,7 @@ n1613_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -35299,7 +35299,7 @@ n1654_call_pl_leaf_α:   sub              rsp, 48
                         movabs           rcx, 38654705744
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -35448,7 +35448,7 @@ n1655_call_pl_leaf_α:   sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$when_wake_det$2F1_16:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -35495,7 +35495,7 @@ n1657_call_value_α:     sub              rsp, 32
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
 .Lgcsite_$when_wake_det$2F1_23:
-                        push             rax                                  # gc_poll bb_call_value.cpp:80
+                        push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -35570,7 +35570,7 @@ n1657_call_value_α:     sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 160;                            jmp   n1649_call_proc_staged_β
 .Lcall_value_α_1695_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -36118,7 +36118,7 @@ n1712_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 12884901968
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -36267,7 +36267,7 @@ n1713_call_pl_leaf_α:   sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$xsb_f4_strip$2F2_10:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -37036,7 +37036,7 @@ n1729_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -37391,7 +37391,7 @@ n1738_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -40599,7 +40599,7 @@ n1881_call_pl_leaf_α:   sub              rsp, 48
                         movabs           rcx, 47244640336
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -45769,7 +45769,7 @@ n2170_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 21474836560
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -45941,7 +45941,7 @@ n2174_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -46086,7 +46086,7 @@ n2175_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -46783,7 +46783,7 @@ n2194_call_pl_leaf_α:   sub              rsp, 80
                         movabs           rcx, 51539607632
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -46955,7 +46955,7 @@ n2198_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -47100,7 +47100,7 @@ n2199_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -51858,7 +51858,7 @@ n2378_call_pl_leaf_α:   sub              rsp, 48
                         movabs           rcx, 55834574928
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -52793,7 +52793,7 @@ n2388_call_pl_leaf_α:   sub              rsp, 48
                         movabs           rcx, 64424509520
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -57000,7 +57000,7 @@ n2522_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -59135,7 +59135,7 @@ n2595_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 42949673040
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -59321,7 +59321,7 @@ n2599_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 42949673040
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -60209,7 +60209,7 @@ n2648_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 77309411408
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -60358,7 +60358,7 @@ n2649_call_pl_leaf_α:   sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$mod_head$2F3_17:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -60635,7 +60635,7 @@ n2659_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 77309411408
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -60784,7 +60784,7 @@ n2660_call_pl_leaf_α:   sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$mod_head$2F3_27:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -62287,7 +62287,7 @@ n2764_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 42949673040
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -62441,7 +62441,7 @@ n2766_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -62680,7 +62680,7 @@ n2772_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 42949673040
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -62834,7 +62834,7 @@ n2774_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -63297,7 +63297,7 @@ n2786_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 42949673040
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -64348,7 +64348,7 @@ n2882_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 81604378704
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -64497,7 +64497,7 @@ n2883_call_pl_leaf_α:   sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$freeze_goal$2F2_15:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -65645,7 +65645,7 @@ n2924_call_pl_leaf_α:   sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$f4_accept$2F2_8:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -67201,7 +67201,7 @@ n2983_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 8589934672
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -70740,7 +70740,7 @@ n3028_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 81604378704
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -70889,7 +70889,7 @@ n3029_call_pl_leaf_α:   sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$cp_wtg$2F4_86:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -71022,7 +71022,7 @@ n3033_call_pl_leaf_α:   sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$cp_wtg$2F4_90:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -71149,7 +71149,7 @@ n3040_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 81604378704
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -71298,7 +71298,7 @@ n3041_call_pl_leaf_α:   sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$cp_wtg$2F4_98:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -71973,7 +71973,7 @@ n3179_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -73018,7 +73018,7 @@ n3211_call_pl_leaf_α:   sub              rsp, 64
 .Lgcsite_freeze$2F2_16: movabs           rcx, 98784247888
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -74035,7 +74035,7 @@ n3223_call_value_α:     sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 40]
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_freeze$2F2_38: push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_freeze$2F2_38: push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -74107,7 +74107,7 @@ n3223_call_value_α:     sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 16;                             jmp   freeze$2F2_step
 .Lcall_value_α_3286_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -74754,7 +74754,7 @@ n3297_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -74899,7 +74899,7 @@ n3298_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -75774,7 +75774,7 @@ n3317_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 17179869264
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -75946,7 +75946,7 @@ n3321_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -76091,7 +76091,7 @@ n3322_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -78213,7 +78213,7 @@ n3352_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 21474836560
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -78385,7 +78385,7 @@ n3356_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -78530,7 +78530,7 @@ n3357_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -87435,7 +87435,7 @@ n3601_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 81604378704
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -87584,7 +87584,7 @@ n3602_call_pl_leaf_α:   sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$mod_qb$2F3_168:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -87939,7 +87939,7 @@ n3617_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -88084,7 +88084,7 @@ n3618_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -88361,7 +88361,7 @@ n3627_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 81604378704
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -88522,7 +88522,7 @@ n3629_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -88667,7 +88667,7 @@ n3630_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -90688,7 +90688,7 @@ n3664_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -90938,7 +90938,7 @@ n3670_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -91332,7 +91332,7 @@ n3681_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -98170,7 +98170,7 @@ n4194_call_pl_leaf_α:   sub              rsp, 80
                         movabs           rcx, 120259084368
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -98303,7 +98303,7 @@ n4195_call_value_α:     sub              rsp, 32
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
 .Lgcsite_sequence$2F7_9:
-                        push             rax                                  # gc_poll bb_call_value.cpp:80
+                        push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -98378,7 +98378,7 @@ n4195_call_value_α:     sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 144;                            jmp   sequence$2F7_step
 .Lcall_value_α_4223_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -98661,7 +98661,7 @@ n4206_call_pl_leaf_α:   sub              rsp, 80
                         movabs           rcx, 120259084368
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -98794,7 +98794,7 @@ n4207_call_value_α:     sub              rsp, 32
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
 .Lgcsite_sequence$2F7_21:
-                        push             rax                                  # gc_poll bb_call_value.cpp:80
+                        push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -98869,7 +98869,7 @@ n4207_call_value_α:     sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 144;                            jmp   n4201_call_proc_staged_β
 .Lcall_value_α_4245_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -99087,7 +99087,7 @@ n4213_call_pl_leaf_α:   sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_sequence$2F7_26:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -99668,7 +99668,7 @@ n4267_call_pl_leaf_α:   sub              rsp, 64
 .Lgcsite_$3A$2F2_9:     movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -99809,7 +99809,7 @@ n4268_call_pl_leaf_α:   sub              rsp, 64
 .Lgcsite_$3A$2F2_13:    movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -100222,7 +100222,7 @@ n4279_call_pl_leaf_α:   sub              rsp, 64
 .Lgcsite_$3A$2F2_25:    movabs           rcx, 124554051664
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -100351,7 +100351,7 @@ n4280_call_value_α:     sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 40]
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3A$2F2_31:    push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$3A$2F2_31:    push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -100423,7 +100423,7 @@ n4280_call_value_α:     sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 224;                            jmp   $3A$2F2_ω
 .Lcall_value_α_4321_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -105314,7 +105314,7 @@ n4445_call_value_α:     sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 56]
                         mov              edx, 1
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3A$2F3_8:     push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$3A$2F3_8:     push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -105391,7 +105391,7 @@ n4445_call_value_α:     sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 176;                            jmp   $3A$2F3_step
 .Lcall_value_α_4459_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -106011,7 +106011,7 @@ n4468_call_pl_leaf_α:   sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$xsb_f4_make$2F4_10:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -108328,7 +108328,7 @@ n4580_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -108494,7 +108494,7 @@ n4582_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 128849018960
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -108639,7 +108639,7 @@ n4583_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -109221,7 +109221,7 @@ n4600_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 21474836560
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -109402,7 +109402,7 @@ n4605_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -109568,7 +109568,7 @@ n4607_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 128849018960
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -109713,7 +109713,7 @@ n4608_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -110177,7 +110177,7 @@ n4621_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -110343,7 +110343,7 @@ n4623_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 128849018960
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -110488,7 +110488,7 @@ n4624_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -111884,7 +111884,7 @@ n4654_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 21474836560
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -112065,7 +112065,7 @@ n4659_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -112231,7 +112231,7 @@ n4661_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 128849018960
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -112376,7 +112376,7 @@ n4662_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -113855,7 +113855,7 @@ n4837_call_value_α:     sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 72]
                         mov              edx, 2
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3A$2F4_8:     push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$3A$2F4_8:     push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -113937,7 +113937,7 @@ n4837_call_value_α:     sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 192;                            jmp   $3A$2F4_step
 .Lcall_value_α_4853_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -114645,7 +114645,7 @@ n4865_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -114891,7 +114891,7 @@ n4870_call_pl_leaf_α:   sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$f4_free$2F3_18:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -116552,7 +116552,7 @@ n4939_call_pl_leaf_α:   sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$cp_atts$2F4_18:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -117451,7 +117451,7 @@ n4968_call_pl_leaf_α:   sub              rsp, 48
                         movabs           rcx, 141733920848
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -117584,7 +117584,7 @@ n4969_call_value_α:     sub              rsp, 32
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
 .Lgcsite_$cp_atts$2F4_42:
-                        push             rax                                  # gc_poll bb_call_value.cpp:80
+                        push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -117659,7 +117659,7 @@ n4969_call_value_α:     sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 80;                             jmp   n4983_unmark_α
 .Lcall_value_α_5091_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -117791,7 +117791,7 @@ n4975_call_pl_leaf_α:   sub              rsp, 96
                         movabs           rcx, 137438953552
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -117924,7 +117924,7 @@ n4976_call_value_α:     sub              rsp, 32
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
 .Lgcsite_$cp_atts$2F4_52:
-                        push             rax                                  # gc_poll bb_call_value.cpp:80
+                        push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -117999,7 +117999,7 @@ n4976_call_value_α:     sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 176;                            jmp   n4969_call_value_β
 .Lcall_value_α_5102_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -118337,7 +118337,7 @@ n4990_call_pl_leaf_α:   sub              rsp, 80
                         movabs           rcx, 133143986256
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -118498,7 +118498,7 @@ n4992_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -118647,7 +118647,7 @@ n4993_call_pl_leaf_α:   sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$cp_atts$2F4_65:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -120153,7 +120153,7 @@ n5176_call_pl_leaf_α:   sub              rsp, 48
                         movabs           rcx, 150323855440
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -120325,7 +120325,7 @@ n5180_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -120470,7 +120470,7 @@ n5181_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -121653,7 +121653,7 @@ n5276_call_value_α:     sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 88]
                         mov              edx, 3
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3A$2F5_8:     push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$3A$2F5_8:     push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -121740,7 +121740,7 @@ n5276_call_value_α:     sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 208;                            jmp   $3A$2F5_step
 .Lcall_value_α_5294_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -122155,7 +122155,7 @@ n5305_call_value_α:     sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 104]
                         mov              edx, 4
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3A$2F6_8:     push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$3A$2F6_8:     push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -122247,7 +122247,7 @@ n5305_call_value_α:     sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 224;                            jmp   $3A$2F6_step
 .Lcall_value_α_5325_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -122678,7 +122678,7 @@ n5337_call_value_α:     sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 120]
                         mov              edx, 5
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3A$2F7_8:     push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$3A$2F7_8:     push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -122775,7 +122775,7 @@ n5337_call_value_α:     sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 240;                            jmp   $3A$2F7_step
 .Lcall_value_α_5359_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -124070,7 +124070,7 @@ n5387_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 81604378704
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -124219,7 +124219,7 @@ n5388_call_pl_leaf_α:   sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$mod_ccl$2F3_33:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -124574,7 +124574,7 @@ n5403_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -124719,7 +124719,7 @@ n5404_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -124996,7 +124996,7 @@ n5413_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 81604378704
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -125157,7 +125157,7 @@ n5415_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -125302,7 +125302,7 @@ n5416_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -126584,7 +126584,7 @@ n5539_call_value_α:     sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 136]
                         mov              edx, 6
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3A$2F8_8:     push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$3A$2F8_8:     push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -126686,7 +126686,7 @@ n5539_call_value_α:     sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 256;                            jmp   $3A$2F8_step
 .Lcall_value_α_5563_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -127149,7 +127149,7 @@ n5577_call_value_α:     sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 152]
                         mov              edx, 7
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3A$2F9_8:     push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$3A$2F9_8:     push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -127256,7 +127256,7 @@ n5577_call_value_α:     sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 272;                            jmp   $3A$2F9_step
 .Lcall_value_α_5603_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -127922,7 +127922,7 @@ n5616_call_pl_leaf_α:   sub              rsp, 64
 .Lgcsite_$cp_mq$2F2_13: movabs           rcx, 81604378704
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -128066,7 +128066,7 @@ n5617_call_pl_leaf_α:   sub              rsp, 48
                         lea              rdi, [rsp + 16]
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
-.Lgcsite_$cp_mq$2F2_16: push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+.Lgcsite_$cp_mq$2F2_16: push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -128470,7 +128470,7 @@ n5631_call_pl_leaf_α:   sub              rsp, 64
 .Lgcsite_$cp_mq$2F2_27: movabs           rcx, 154618822736
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -128614,7 +128614,7 @@ n5632_call_pl_leaf_α:   sub              rsp, 48
                         lea              rdi, [rsp + 16]
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
-.Lgcsite_$cp_mq$2F2_30: push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+.Lgcsite_$cp_mq$2F2_30: push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -128749,7 +128749,7 @@ n5637_call_pl_leaf_α:   sub              rsp, 64
 .Lgcsite_$cp_mq$2F2_35: movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -129726,7 +129726,7 @@ n5668_to_α:             sub              rsp, 80
                         call             to_int@PLT
 .Lgcsite_$cp_mq$2F2_64: mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 16], rax
-                        push             rax                                  # gc_poll bb_to.cpp:136
+                        push             rax                                  # gc_poll bb_to.cpp:137
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -129780,7 +129780,7 @@ n5668_to_α:             sub              rsp, 80
                         mov              r13, qword ptr [rsp + 48]            # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_6071_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:156
+                        push             rax                                  # gc_poll bb_to.cpp:157
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -129859,7 +129859,7 @@ n5669_call_pl_leaf_α:   sub              rsp, 48
                         call             qword ptr [rip + rt_pl_is_cold@GOTPCREL]
 .Lgcsite_$cp_mq$2F2_67: mov              qword ptr [rsp + 32], rax
                         mov              qword ptr [rsp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:205
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:206
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -130236,7 +130236,7 @@ n5684_call_pl_leaf_α:   sub              rsp, 48
                         call             qword ptr [rip + rt_pl_is_cold@GOTPCREL]
 .Lgcsite_$cp_mq$2F2_77: mov              qword ptr [rsp + 32], rax
                         mov              qword ptr [rsp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:205
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:206
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -130531,7 +130531,7 @@ n5696_call_pl_leaf_α:   sub              rsp, 64
 .Lgcsite_$cp_mq$2F2_88: movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -130675,7 +130675,7 @@ n5697_call_pl_leaf_α:   sub              rsp, 48
                         lea              rdi, [rsp + 16]
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
-.Lgcsite_$cp_mq$2F2_91: push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+.Lgcsite_$cp_mq$2F2_91: push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -131529,7 +131529,7 @@ n5727_to_α:             sub              rsp, 80
 .Lgcsite_$cp_mq$2F2_118:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 16], rax
-                        push             rax                                  # gc_poll bb_to.cpp:136
+                        push             rax                                  # gc_poll bb_to.cpp:137
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -131586,7 +131586,7 @@ n5727_to_α:             sub              rsp, 80
                         mov              r13, qword ptr [rsp + 48]            # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_6173_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:156
+                        push             rax                                  # gc_poll bb_to.cpp:157
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -131668,7 +131668,7 @@ n5728_call_pl_leaf_α:   sub              rsp, 48
 .Lgcsite_$cp_mq$2F2_121:
                         mov              qword ptr [rsp + 32], rax
                         mov              qword ptr [rsp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:205
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:206
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -132466,7 +132466,7 @@ n5761_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 21474836560
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -132638,7 +132638,7 @@ n5765_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -132783,7 +132783,7 @@ n5766_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -133159,7 +133159,7 @@ n5775_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -133308,7 +133308,7 @@ n5776_call_pl_leaf_α:   sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$cp_mq$2F2_159:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -133651,7 +133651,7 @@ n5791_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 81604378704
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -133796,7 +133796,7 @@ n5792_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 21474836560
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -133968,7 +133968,7 @@ n5796_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -134113,7 +134113,7 @@ n5797_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -134702,7 +134702,7 @@ n5810_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 81604378704
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -134851,7 +134851,7 @@ n5811_call_pl_leaf_α:   sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$cp_mq$2F2_196:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -135474,7 +135474,7 @@ n5825_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 154618822736
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -135623,7 +135623,7 @@ n5826_call_pl_leaf_α:   sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$cp_mq$2F2_214:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -135760,7 +135760,7 @@ n5831_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -136759,7 +136759,7 @@ n5862_to_α:             sub              rsp, 80
 .Lgcsite_$cp_mq$2F2_248:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 16], rax
-                        push             rax                                  # gc_poll bb_to.cpp:136
+                        push             rax                                  # gc_poll bb_to.cpp:137
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -136816,7 +136816,7 @@ n5862_to_α:             sub              rsp, 80
                         mov              r13, qword ptr [rsp + 48]            # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_6400_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:156
+                        push             rax                                  # gc_poll bb_to.cpp:157
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -136898,7 +136898,7 @@ n5863_call_pl_leaf_α:   sub              rsp, 48
 .Lgcsite_$cp_mq$2F2_251:
                         mov              qword ptr [rsp + 32], rax
                         mov              qword ptr [rsp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:205
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:206
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -137282,7 +137282,7 @@ n5878_call_pl_leaf_α:   sub              rsp, 48
 .Lgcsite_$cp_mq$2F2_261:
                         mov              qword ptr [rsp + 32], rax
                         mov              qword ptr [rsp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:205
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:206
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -137583,7 +137583,7 @@ n5890_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -137732,7 +137732,7 @@ n5891_call_pl_leaf_α:   sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$cp_mq$2F2_275:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -138592,7 +138592,7 @@ n5921_to_α:             sub              rsp, 80
 .Lgcsite_$cp_mq$2F2_302:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 16], rax
-                        push             rax                                  # gc_poll bb_to.cpp:136
+                        push             rax                                  # gc_poll bb_to.cpp:137
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -138649,7 +138649,7 @@ n5921_to_α:             sub              rsp, 80
                         mov              r13, qword ptr [rsp + 48]            # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_6502_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:156
+                        push             rax                                  # gc_poll bb_to.cpp:157
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -138731,7 +138731,7 @@ n5922_call_pl_leaf_α:   sub              rsp, 48
 .Lgcsite_$cp_mq$2F2_305:
                         mov              qword ptr [rsp + 32], rax
                         mov              qword ptr [rsp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:205
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:206
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -139544,7 +139544,7 @@ n5952_to_α:             sub              rsp, 80
 .Lgcsite_$cp_mq$2F2_324:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 16], rax
-                        push             rax                                  # gc_poll bb_to.cpp:136
+                        push             rax                                  # gc_poll bb_to.cpp:137
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -139601,7 +139601,7 @@ n5952_to_α:             sub              rsp, 80
                         mov              r13, qword ptr [rsp + 48]            # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_6556_8:          mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:156
+                        push             rax                                  # gc_poll bb_to.cpp:157
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -141987,7 +141987,7 @@ n6577_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -142132,7 +142132,7 @@ n6578_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -142713,7 +142713,7 @@ n6595_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 21474836560
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -142885,7 +142885,7 @@ n6599_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -143030,7 +143030,7 @@ n6600_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -143825,7 +143825,7 @@ n6663_call_value_α:     sub              rsp, 32
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
 .Lgcsite_$scc_cut_loop$2F1_13:
-                        push             rax                                  # gc_poll bb_call_value.cpp:80
+                        push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -143900,7 +143900,7 @@ n6663_call_value_α:     sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 16;                             jmp   n6666_unmark_α
 .Lcall_value_α_6698_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -146423,7 +146423,7 @@ n6784_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 42949673040
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -147872,7 +147872,7 @@ n6829_call_pl_leaf_α:   sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$cp_res$2F3_21:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -149204,7 +149204,7 @@ n6907_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 81604378704
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -149353,7 +149353,7 @@ n6908_call_pl_leaf_α:   sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$mod_callq$2F2_17:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -150047,7 +150047,7 @@ n6932_call_value_α:     sub              rsp, 32
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
 .Lgcsite_$mod_callq$2F2_38:
-                        push             rax                                  # gc_poll bb_call_value.cpp:80
+                        push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -150122,7 +150122,7 @@ n6932_call_value_α:     sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 16;                             jmp   n6935_unmark_α
 .Lcall_value_α_7035_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -150320,7 +150320,7 @@ n6942_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -150465,7 +150465,7 @@ n6943_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 158913790032
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -150626,7 +150626,7 @@ n6945_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -150908,7 +150908,7 @@ n6955_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -151053,7 +151053,7 @@ n6956_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 81604378704
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -151198,7 +151198,7 @@ n6957_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 158913790032
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -151409,7 +151409,7 @@ n6963_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -151554,7 +151554,7 @@ n6964_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 81604378704
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -151699,7 +151699,7 @@ n6965_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -151904,7 +151904,7 @@ n6969_call_value_α:     sub              rsp, 32
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
 .Lgcsite_$mod_callq$2F2_86:
-                        push             rax                                  # gc_poll bb_call_value.cpp:80
+                        push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -151979,7 +151979,7 @@ n6969_call_value_α:     sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 16;                             jmp   $mod_callq$2F2_step
 .Lcall_value_α_7087_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -152843,7 +152843,7 @@ n7097_call_value_α:     sub              rsp, 32
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
 .Lgcsite_$when_check_disj$2F3_11:
-                        push             rax                                  # gc_poll bb_call_value.cpp:80
+                        push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -152918,7 +152918,7 @@ n7097_call_value_α:     sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 16;                             jmp   n7099_unmark_α
 .Lcall_value_α_7119_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -154517,7 +154517,7 @@ n7145_call_pl_leaf_α:   sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$yall_bind$2F4_25:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -156485,7 +156485,7 @@ n7230_call_value_α:     sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 88]
                         mov              edx, 3
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$seq_$2F4_10:  push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$seq_$2F4_10:  push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -156572,7 +156572,7 @@ n7230_call_value_α:     sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 80;                             jmp   $seq_$2F4_step
 .Lcall_value_α_7255_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -157297,7 +157297,7 @@ n7239_call_pl_leaf_α:   sub              rsp, 48
                         lea              rdi, [rsp + 16]
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
-.Lgcsite_$seq_$2F4_25:  push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+.Lgcsite_$seq_$2F4_25:  push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -157931,7 +157931,7 @@ n7284_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -158076,7 +158076,7 @@ n7285_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -158657,7 +158657,7 @@ n7302_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 21474836560
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -158829,7 +158829,7 @@ n7306_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -158974,7 +158974,7 @@ n7307_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -159671,7 +159671,7 @@ n7328_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 17179869264
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -159843,7 +159843,7 @@ n7332_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -159988,7 +159988,7 @@ n7333_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -160632,7 +160632,7 @@ n7433_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -161073,7 +161073,7 @@ n7442_call_pl_leaf_α:   sub              rsp, 48
                         movabs           rcx, 163208757328
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -161261,7 +161261,7 @@ n7447_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -161732,7 +161732,7 @@ n7458_call_pl_leaf_α:   sub              rsp, 48
                         movabs           rcx, 163208757328
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -161920,7 +161920,7 @@ n7463_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -162164,7 +162164,7 @@ n7469_call_pl_leaf_α:   sub              rsp, 48
                         movabs           rcx, 163208757328
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -162352,7 +162352,7 @@ n7474_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -162680,7 +162680,7 @@ n7487_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 128849018960
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -162825,7 +162825,7 @@ n7488_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -163532,7 +163532,7 @@ n7585_call_pl_leaf_α:   sub              rsp, 48
                         lea              rdi, [rsp + 16]
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
-.Lgcsite_$seq_$2F5_6:   push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+.Lgcsite_$seq_$2F5_6:   push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -163739,7 +163739,7 @@ n7591_call_pl_leaf_α:   sub              rsp, 48
                         lea              rdi, [rsp + 16]
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
-.Lgcsite_$seq_$2F5_12:  push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+.Lgcsite_$seq_$2F5_12:  push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -163871,7 +163871,7 @@ n7598_call_value_α:     sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 88]
                         mov              edx, 3
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$seq_$2F5_20:  push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$seq_$2F5_20:  push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -163958,7 +163958,7 @@ n7598_call_value_α:     sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 64;                             jmp   n7644_unmark_α
 .Lcall_value_α_7726_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -164113,7 +164113,7 @@ n7605_call_pl_leaf_α:   sub              rsp, 80
 .Lgcsite_$seq_$2F5_25:  movabs           rcx, 120259084368
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -164242,7 +164242,7 @@ n7606_call_value_α:     sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 40]
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$seq_$2F5_31:  push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$seq_$2F5_31:  push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -164314,7 +164314,7 @@ n7606_call_value_α:     sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 144;                            jmp   n7630_unmark_α
 .Lcall_value_α_7740_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -164572,7 +164572,7 @@ n7613_call_pl_leaf_α:   sub              rsp, 48
                         lea              rdi, [rsp + 16]
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
-.Lgcsite_$seq_$2F5_36:  push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+.Lgcsite_$seq_$2F5_36:  push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -164677,7 +164677,7 @@ n7618_call_pl_leaf_α:   sub              rsp, 64
 .Lgcsite_$seq_$2F5_41:  movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -164821,7 +164821,7 @@ n7619_call_pl_leaf_α:   sub              rsp, 48
                         lea              rdi, [rsp + 16]
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
-.Lgcsite_$seq_$2F5_44:  push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+.Lgcsite_$seq_$2F5_44:  push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -164904,7 +164904,7 @@ n7622_call_pl_leaf_α:   sub              rsp, 48
                         lea              rdi, [rsp + 16]
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
-.Lgcsite_$seq_$2F5_48:  push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+.Lgcsite_$seq_$2F5_48:  push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -165693,7 +165693,7 @@ n7635_call_pl_leaf_α:   sub              rsp, 64
 .Lgcsite_$seq_$2F5_65:  movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -165837,7 +165837,7 @@ n7636_call_pl_leaf_α:   sub              rsp, 48
                         lea              rdi, [rsp + 16]
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
-.Lgcsite_$seq_$2F5_68:  push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+.Lgcsite_$seq_$2F5_68:  push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -165920,7 +165920,7 @@ n7639_call_pl_leaf_α:   sub              rsp, 48
                         lea              rdi, [rsp + 16]
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
-.Lgcsite_$seq_$2F5_72:  push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+.Lgcsite_$seq_$2F5_72:  push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -166175,7 +166175,7 @@ n7649_call_pl_leaf_α:   sub              rsp, 48
                         lea              rdi, [rsp + 16]
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
-.Lgcsite_$seq_$2F5_78:  push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+.Lgcsite_$seq_$2F5_78:  push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -166531,7 +166531,7 @@ n7660_call_value_α:     sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 88]
                         mov              edx, 3
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$seq_$2F5_89:  push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$seq_$2F5_89:  push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -166618,7 +166618,7 @@ n7660_call_value_α:     sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 80;                             jmp   $seq_$2F5_step
 .Lcall_value_α_7837_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -166885,7 +166885,7 @@ n7667_call_pl_leaf_α:   sub              rsp, 48
                         lea              rdi, [rsp + 16]
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
-.Lgcsite_$seq_$2F5_96:  push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+.Lgcsite_$seq_$2F5_96:  push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -167014,7 +167014,7 @@ n7671_call_pl_leaf_α:   sub              rsp, 48
                         lea              rdi, [rsp + 16]
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
-.Lgcsite_$seq_$2F5_100: push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+.Lgcsite_$seq_$2F5_100: push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -167148,7 +167148,7 @@ n7678_call_pl_leaf_α:   sub              rsp, 80
 .Lgcsite_$seq_$2F5_105: movabs           rcx, 120259084368
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -167277,7 +167277,7 @@ n7679_call_value_α:     sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 40]
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$seq_$2F5_111: push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$seq_$2F5_111: push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -167349,7 +167349,7 @@ n7679_call_value_α:     sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 144;                            jmp   n7687_unmark_α
 .Lcall_value_α_7870_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -168292,7 +168292,7 @@ n7692_call_pl_leaf_α:   sub              rsp, 48
                         lea              rdi, [rsp + 16]
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
-.Lgcsite_$seq_$2F5_128: push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+.Lgcsite_$seq_$2F5_128: push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -169875,7 +169875,7 @@ n7924_call_pl_leaf_α:   sub              rsp, 48
                         lea              rdi, [rsp + 16]
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
-.Lgcsite_sort$2F4_16:   push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+.Lgcsite_sort$2F4_16:   push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -170631,7 +170631,7 @@ n7988_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 167503724624
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -175672,7 +175672,7 @@ n8151_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 8589934672
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -175821,7 +175821,7 @@ n8152_call_pl_leaf_α:   sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$conj_nocut$2F1_10:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -175994,7 +175994,7 @@ n8157_call_value_α:     sub              rsp, 32
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
 .Lgcsite_$conj_nocut$2F1_19:
-                        push             rax                                  # gc_poll bb_call_value.cpp:80
+                        push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -176069,7 +176069,7 @@ n8157_call_value_α:     sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 272;                            jmp   $conj_nocut$2F1_ω
 .Lcall_value_α_8184_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -176319,7 +176319,7 @@ n8161_call_value_α:     sub              rsp, 32
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
 .Lgcsite_$conj_nocut$2F1_29:
-                        push             rax                                  # gc_poll bb_call_value.cpp:80
+                        push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -176394,7 +176394,7 @@ n8161_call_value_α:     sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 16;                             jmp   $conj_nocut$2F1_step
 .Lcall_value_α_8192_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -178017,7 +178017,7 @@ n8246_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 77309411408
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -178166,7 +178166,7 @@ n8247_call_pl_leaf_α:   sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$retract_target$2F2_12:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -183007,7 +183007,7 @@ n8411_call_value_α:     sub              rsp, 32
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
 .Lgcsite_$when_trigger_nonvar$2F2_9:
-                        push             rax                                  # gc_poll bb_call_value.cpp:80
+                        push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -183082,7 +183082,7 @@ n8411_call_value_α:     sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 16;                             jmp   n8421_unmark_α
 .Lcall_value_α_8434_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -183221,7 +183221,7 @@ n8418_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 60129542224
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -185669,7 +185669,7 @@ n8497_call_pl_leaf_α:   sub              rsp, 48
                         movabs           rcx, 176093659216
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -186087,7 +186087,7 @@ n8508_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 8589934672
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -186228,7 +186228,7 @@ n8509_call_pl_leaf_α:   sub              rsp, 48
                         movabs           rcx, 176093659216
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -186840,7 +186840,7 @@ n8517_call_pl_leaf_α:   sub              rsp, 48
                         movabs           rcx, 176093659216
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -188016,7 +188016,7 @@ n8582_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -188182,7 +188182,7 @@ n8584_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 128849018960
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -188327,7 +188327,7 @@ n8585_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -188909,7 +188909,7 @@ n8602_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 21474836560
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -189090,7 +189090,7 @@ n8607_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -189256,7 +189256,7 @@ n8609_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 128849018960
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -189401,7 +189401,7 @@ n8610_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -189865,7 +189865,7 @@ n8623_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -190031,7 +190031,7 @@ n8625_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 128849018960
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -190176,7 +190176,7 @@ n8626_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -191050,7 +191050,7 @@ n8649_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 21474836560
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -191231,7 +191231,7 @@ n8654_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -191397,7 +191397,7 @@ n8656_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 128849018960
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -191542,7 +191542,7 @@ n8657_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -192124,7 +192124,7 @@ n8674_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 21474836560
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -192305,7 +192305,7 @@ n8679_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -192471,7 +192471,7 @@ n8681_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 128849018960
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -192616,7 +192616,7 @@ n8682_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -193950,7 +193950,7 @@ n8899_call_value_α:     sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 40]
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$scc_g0$2F1_6: push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$scc_g0$2F1_6: push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -194022,7 +194022,7 @@ n8899_call_value_α:     sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 16;                             jmp   n8904_unmark_α
 .Lcall_value_α_8912_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -196031,7 +196031,7 @@ n8979_call_pl_leaf_α:   sub              rsp, 64
 .Lgcsite_$2F$2F5_3:     movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -196172,7 +196172,7 @@ n8980_call_pl_leaf_α:   sub              rsp, 64
 .Lgcsite_$2F$2F5_7:     movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -196313,7 +196313,7 @@ n8981_call_pl_leaf_α:   sub              rsp, 64
 .Lgcsite_$2F$2F5_11:    movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -197313,7 +197313,7 @@ n9017_call_value_α:     sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 184]
                         mov              edx, 9
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3A$2F11_8:    push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$3A$2F11_8:    push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -197430,7 +197430,7 @@ n9017_call_value_α:     sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 304;                            jmp   $3A$2F11_step
 .Lcall_value_α_9047_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -198374,7 +198374,7 @@ n9066_call_value_α:     sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 88]
                         mov              edx, 3
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$seq_as$2F5_9: push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$seq_as$2F5_9: push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -198461,7 +198461,7 @@ n9066_call_value_α:     sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 80;                             jmp   $seq_as$2F5_step
 .Lcall_value_α_9111_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -198613,7 +198613,7 @@ n9072_call_pl_leaf_α:   sub              rsp, 80
                         movabs           rcx, 120259084368
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -198746,7 +198746,7 @@ n9073_call_value_α:     sub              rsp, 32
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
 .Lgcsite_$seq_as$2F5_20:
-                        push             rax                                  # gc_poll bb_call_value.cpp:80
+                        push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -198821,7 +198821,7 @@ n9073_call_value_α:     sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 144;                            jmp   n9088_unmark_α
 .Lcall_value_α_9123_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -199085,7 +199085,7 @@ n9080_call_pl_leaf_α:   sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$seq_as$2F5_25:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -200022,7 +200022,7 @@ n9092_call_pl_leaf_α:   sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$seq_as$2F5_43:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -200514,7 +200514,7 @@ n9173_call_pl_leaf_α:   sub              rsp, 64
 .Lgcsite_$2F$2F4_3:     movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -200655,7 +200655,7 @@ n9174_call_pl_leaf_α:   sub              rsp, 64
 .Lgcsite_$2F$2F4_7:     movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -201625,7 +201625,7 @@ n9205_call_value_α:     sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 168]
                         mov              edx, 8
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3A$2F10_8:    push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$3A$2F10_8:    push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -201737,7 +201737,7 @@ n9205_call_value_α:     sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 288;                            jmp   $3A$2F10_step
 .Lcall_value_α_9233_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -202271,7 +202271,7 @@ n9244_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -202416,7 +202416,7 @@ n9245_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -203241,7 +203241,7 @@ n9262_call_pl_leaf_α:   sub              rsp, 48
                         movabs           rcx, 55834574928
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -203388,7 +203388,7 @@ n9263_call_pl_leaf_α:   sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$when_cond$2F2_35:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -204072,7 +204072,7 @@ n9282_call_pl_leaf_α:   sub              rsp, 48
                         movabs           rcx, 64424509520
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -204219,7 +204219,7 @@ n9283_call_pl_leaf_α:   sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$when_cond$2F2_55:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -205082,7 +205082,7 @@ n9307_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 167503724624
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -205231,7 +205231,7 @@ n9308_call_pl_leaf_α:   sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$when_cond$2F2_76:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -206146,7 +206146,7 @@ n9331_call_pl_leaf_α:   sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$when_cond$2F2_94:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -206485,7 +206485,7 @@ n9341_call_pl_leaf_α:   sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$when_cond$2F2_102:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -206619,7 +206619,7 @@ n9348_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 8589934672
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -206768,7 +206768,7 @@ n9349_call_pl_leaf_α:   sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$when_cond$2F2_110:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -208484,7 +208484,7 @@ n9397_call_pl_leaf_α:   sub              rsp, 48
                         movabs           rcx, 4294967376
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -208633,7 +208633,7 @@ n9398_call_pl_leaf_α:   sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$when_cond$2F2_146:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -208807,7 +208807,7 @@ n9409_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 17179869264
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -208979,7 +208979,7 @@ n9413_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -209124,7 +209124,7 @@ n9414_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -210440,7 +210440,7 @@ n9754_call_pl_leaf_α:   sub              rsp, 64
 .Lgcsite_$2F$2F7_3:     movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -210581,7 +210581,7 @@ n9755_call_pl_leaf_α:   sub              rsp, 64
 .Lgcsite_$2F$2F7_7:     movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -210722,7 +210722,7 @@ n9756_call_pl_leaf_α:   sub              rsp, 64
 .Lgcsite_$2F$2F7_11:    movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -210863,7 +210863,7 @@ n9757_call_pl_leaf_α:   sub              rsp, 64
 .Lgcsite_$2F$2F7_15:    movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -211004,7 +211004,7 @@ n9758_call_pl_leaf_α:   sub              rsp, 64
 .Lgcsite_$2F$2F7_19:    movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -211972,7 +211972,7 @@ n9802_call_pl_leaf_α:   sub              rsp, 64
 .Lgcsite_$3E$3E$2F8_3:  movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -212113,7 +212113,7 @@ n9803_call_pl_leaf_α:   sub              rsp, 64
 .Lgcsite_$3E$3E$2F8_7:  movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -212254,7 +212254,7 @@ n9804_call_pl_leaf_α:   sub              rsp, 64
 .Lgcsite_$3E$3E$2F8_11: movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -212395,7 +212395,7 @@ n9805_call_pl_leaf_α:   sub              rsp, 64
 .Lgcsite_$3E$3E$2F8_15: movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -212536,7 +212536,7 @@ n9806_call_pl_leaf_α:   sub              rsp, 64
 .Lgcsite_$3E$3E$2F8_19: movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -212677,7 +212677,7 @@ n9807_call_pl_leaf_α:   sub              rsp, 64
 .Lgcsite_$3E$3E$2F8_23: movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -213612,7 +213612,7 @@ n9851_call_pl_leaf_α:   sub              rsp, 64
 .Lgcsite_$2F$2F6_3:     movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -213753,7 +213753,7 @@ n9852_call_pl_leaf_α:   sub              rsp, 64
 .Lgcsite_$2F$2F6_7:     movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -213894,7 +213894,7 @@ n9853_call_pl_leaf_α:   sub              rsp, 64
 .Lgcsite_$2F$2F6_11:    movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -214035,7 +214035,7 @@ n9854_call_pl_leaf_α:   sub              rsp, 64
 .Lgcsite_$2F$2F6_15:    movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -215012,7 +215012,7 @@ n9896_call_pl_leaf_α:   sub              rsp, 64
 .Lgcsite_$3E$3E$2F9_3:  movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -215153,7 +215153,7 @@ n9897_call_pl_leaf_α:   sub              rsp, 64
 .Lgcsite_$3E$3E$2F9_7:  movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -215294,7 +215294,7 @@ n9898_call_pl_leaf_α:   sub              rsp, 64
 .Lgcsite_$3E$3E$2F9_11: movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -215435,7 +215435,7 @@ n9899_call_pl_leaf_α:   sub              rsp, 64
 .Lgcsite_$3E$3E$2F9_15: movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -215576,7 +215576,7 @@ n9900_call_pl_leaf_α:   sub              rsp, 64
 .Lgcsite_$3E$3E$2F9_19: movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -215717,7 +215717,7 @@ n9901_call_pl_leaf_α:   sub              rsp, 64
 .Lgcsite_$3E$3E$2F9_23: movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -215858,7 +215858,7 @@ n9902_call_pl_leaf_α:   sub              rsp, 64
 .Lgcsite_$3E$3E$2F9_27: movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -217395,7 +217395,7 @@ n9954_call_pl_leaf_α:   sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -217544,7 +217544,7 @@ n9955_call_pl_leaf_α:   sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$attv_filter$2F2_20:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -217656,7 +217656,7 @@ n9960_call_pl_leaf_α:   sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$attv_filter$2F2_24:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -218725,7 +218725,7 @@ n10031_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 68719476816
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -219179,7 +219179,7 @@ n10036_call_value_α:    sub              rsp, 32
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
 .Lgcsite_$when_trigger_ground$2F2_20:
-                        push             rax                                  # gc_poll bb_call_value.cpp:80
+                        push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -219261,7 +219261,7 @@ n10036_call_value_α:    sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 16;                             jmp   n10038_unmark_α
 .Lcall_value_α_10071_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -219659,7 +219659,7 @@ n10083_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$2F$2F3_3:     movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -223438,7 +223438,7 @@ n10174_call_value_α:    sub              rsp, 32
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
 .Lgcsite_$when_trigger_determined$2F3_15:
-                        push             rax                                  # gc_poll bb_call_value.cpp:80
+                        push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -223520,7 +223520,7 @@ n10174_call_value_α:    sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 16;                             jmp   n10193_unmark_α
 .Lcall_value_α_10222_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -223702,7 +223702,7 @@ n10184_call_pl_leaf_α:  sub              rsp, 80
                         movabs           rcx, 171798691920
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -223843,7 +223843,7 @@ n10185_call_pl_leaf_α:  sub              rsp, 48
                         movabs           rcx, 38654705744
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -224102,7 +224102,7 @@ n10190_call_pl_leaf_α:  sub              rsp, 48
                         movabs           rcx, 73014444112
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -224578,7 +224578,7 @@ n10196_call_value_α:    sub              rsp, 32
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
 .Lgcsite_$when_trigger_determined$2F3_41:
-                        push             rax                                  # gc_poll bb_call_value.cpp:80
+                        push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -224660,7 +224660,7 @@ n10196_call_value_α:    sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 16;                             jmp   $when_trigger_determined$2F3_step
 .Lcall_value_α_10259_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -225105,7 +225105,7 @@ n10265_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$3E$3E$2F3_3:  movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -226048,7 +226048,7 @@ n10295_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$2F$2F9_3:     movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -226189,7 +226189,7 @@ n10296_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$2F$2F9_7:     movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -226330,7 +226330,7 @@ n10297_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$2F$2F9_11:    movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -226471,7 +226471,7 @@ n10298_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$2F$2F9_15:    movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -226612,7 +226612,7 @@ n10299_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$2F$2F9_19:    movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -226753,7 +226753,7 @@ n10300_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$2F$2F9_23:    movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -226894,7 +226894,7 @@ n10301_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$2F$2F9_27:    movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -227847,7 +227847,7 @@ n10349_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$3E$3E$2F6_3:  movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -227988,7 +227988,7 @@ n10350_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$3E$3E$2F6_7:  movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -228129,7 +228129,7 @@ n10351_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$3E$3E$2F6_11: movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -228270,7 +228270,7 @@ n10352_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$3E$3E$2F6_15: movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -229400,7 +229400,7 @@ n10386_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -230400,7 +230400,7 @@ n10417_to_α:            sub              rsp, 80
 .Lgcsite_$cp_mq1$2F3_39:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 16], rax
-                        push             rax                                  # gc_poll bb_to.cpp:136
+                        push             rax                                  # gc_poll bb_to.cpp:137
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -230457,7 +230457,7 @@ n10417_to_α:            sub              rsp, 80
                         mov              r13, qword ptr [rsp + 48]            # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_10808_8:         mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:156
+                        push             rax                                  # gc_poll bb_to.cpp:157
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -230539,7 +230539,7 @@ n10418_call_pl_leaf_α:  sub              rsp, 48
 .Lgcsite_$cp_mq1$2F3_42:
                         mov              qword ptr [rsp + 32], rax
                         mov              qword ptr [rsp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:205
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:206
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -231058,7 +231058,7 @@ n10439_to_α:            sub              rsp, 80
 .Lgcsite_$cp_mq1$2F3_57:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 16], rax
-                        push             rax                                  # gc_poll bb_to.cpp:136
+                        push             rax                                  # gc_poll bb_to.cpp:137
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -231115,7 +231115,7 @@ n10439_to_α:            sub              rsp, 80
                         mov              r13, qword ptr [rsp + 48]            # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_10846_8:         mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:156
+                        push             rax                                  # gc_poll bb_to.cpp:157
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -231303,7 +231303,7 @@ n10445_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -232306,7 +232306,7 @@ n10476_to_α:            sub              rsp, 80
 .Lgcsite_$cp_mq1$2F3_94:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 16], rax
-                        push             rax                                  # gc_poll bb_to.cpp:136
+                        push             rax                                  # gc_poll bb_to.cpp:137
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -232363,7 +232363,7 @@ n10476_to_α:            sub              rsp, 80
                         mov              r13, qword ptr [rsp + 48]            # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_10909_8:         mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:156
+                        push             rax                                  # gc_poll bb_to.cpp:157
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -232445,7 +232445,7 @@ n10477_call_pl_leaf_α:  sub              rsp, 48
 .Lgcsite_$cp_mq1$2F3_97:
                         mov              qword ptr [rsp + 32], rax
                         mov              qword ptr [rsp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:205
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:206
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -233073,7 +233073,7 @@ n10503_to_α:            sub              rsp, 80
 .Lgcsite_$cp_mq1$2F3_112:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 16], rax
-                        push             rax                                  # gc_poll bb_to.cpp:136
+                        push             rax                                  # gc_poll bb_to.cpp:137
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -233130,7 +233130,7 @@ n10503_to_α:            sub              rsp, 80
                         mov              r13, qword ptr [rsp + 48]            # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_10957_8:         mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:156
+                        push             rax                                  # gc_poll bb_to.cpp:157
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -233283,7 +233283,7 @@ n10508_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -234286,7 +234286,7 @@ n10539_to_α:            sub              rsp, 80
 .Lgcsite_$cp_mq1$2F3_148:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 16], rax
-                        push             rax                                  # gc_poll bb_to.cpp:136
+                        push             rax                                  # gc_poll bb_to.cpp:137
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -234343,7 +234343,7 @@ n10539_to_α:            sub              rsp, 80
                         mov              r13, qword ptr [rsp + 48]            # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_11018_8:         mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:156
+                        push             rax                                  # gc_poll bb_to.cpp:157
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -234425,7 +234425,7 @@ n10540_call_pl_leaf_α:  sub              rsp, 48
 .Lgcsite_$cp_mq1$2F3_151:
                         mov              qword ptr [rsp + 32], rax
                         mov              qword ptr [rsp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:205
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:206
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -234699,7 +234699,7 @@ n10554_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -235702,7 +235702,7 @@ n10585_to_α:            sub              rsp, 80
 .Lgcsite_$cp_mq1$2F3_188:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 16], rax
-                        push             rax                                  # gc_poll bb_to.cpp:136
+                        push             rax                                  # gc_poll bb_to.cpp:137
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -235759,7 +235759,7 @@ n10585_to_α:            sub              rsp, 80
                         mov              r13, qword ptr [rsp + 48]            # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_11098_8:         mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:156
+                        push             rax                                  # gc_poll bb_to.cpp:157
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -235841,7 +235841,7 @@ n10586_call_pl_leaf_α:  sub              rsp, 48
 .Lgcsite_$cp_mq1$2F3_191:
                         mov              qword ptr [rsp + 32], rax
                         mov              qword ptr [rsp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:205
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:206
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -236360,7 +236360,7 @@ n10607_to_α:            sub              rsp, 80
 .Lgcsite_$cp_mq1$2F3_206:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 16], rax
-                        push             rax                                  # gc_poll bb_to.cpp:136
+                        push             rax                                  # gc_poll bb_to.cpp:137
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -236417,7 +236417,7 @@ n10607_to_α:            sub              rsp, 80
                         mov              r13, qword ptr [rsp + 48]            # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_11136_8:         mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:156
+                        push             rax                                  # gc_poll bb_to.cpp:157
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -236571,7 +236571,7 @@ n10612_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -237574,7 +237574,7 @@ n10643_to_α:            sub              rsp, 80
 .Lgcsite_$cp_mq1$2F3_242:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 16], rax
-                        push             rax                                  # gc_poll bb_to.cpp:136
+                        push             rax                                  # gc_poll bb_to.cpp:137
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -237631,7 +237631,7 @@ n10643_to_α:            sub              rsp, 80
                         mov              r13, qword ptr [rsp + 48]            # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_11197_8:         mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:156
+                        push             rax                                  # gc_poll bb_to.cpp:157
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -237713,7 +237713,7 @@ n10644_call_pl_leaf_α:  sub              rsp, 48
 .Lgcsite_$cp_mq1$2F3_245:
                         mov              qword ptr [rsp + 32], rax
                         mov              qword ptr [rsp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:205
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:206
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -238307,7 +238307,7 @@ n10666_to_α:            sub              rsp, 80
 .Lgcsite_$cp_mq1$2F3_261:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 16], rax
-                        push             rax                                  # gc_poll bb_to.cpp:136
+                        push             rax                                  # gc_poll bb_to.cpp:137
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -238364,7 +238364,7 @@ n10666_to_α:            sub              rsp, 80
                         mov              r13, qword ptr [rsp + 48]            # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_11236_8:         mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:156
+                        push             rax                                  # gc_poll bb_to.cpp:157
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -238868,7 +238868,7 @@ n10683_to_α:            sub              rsp, 80
 .Lgcsite_$cp_mq1$2F3_275:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 16], rax
-                        push             rax                                  # gc_poll bb_to.cpp:136
+                        push             rax                                  # gc_poll bb_to.cpp:137
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -238925,7 +238925,7 @@ n10683_to_α:            sub              rsp, 80
                         mov              r13, qword ptr [rsp + 48]            # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_11265_8:         mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:156
+                        push             rax                                  # gc_poll bb_to.cpp:157
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -239113,7 +239113,7 @@ n10689_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -240116,7 +240116,7 @@ n10720_to_α:            sub              rsp, 80
 .Lgcsite_$cp_mq1$2F3_312:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 16], rax
-                        push             rax                                  # gc_poll bb_to.cpp:136
+                        push             rax                                  # gc_poll bb_to.cpp:137
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -240173,7 +240173,7 @@ n10720_to_α:            sub              rsp, 80
                         mov              r13, qword ptr [rsp + 48]            # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_11328_8:         mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:156
+                        push             rax                                  # gc_poll bb_to.cpp:157
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -240255,7 +240255,7 @@ n10721_call_pl_leaf_α:  sub              rsp, 48
 .Lgcsite_$cp_mq1$2F3_315:
                         mov              qword ptr [rsp + 32], rax
                         mov              qword ptr [rsp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:205
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:206
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -242133,7 +242133,7 @@ n11374_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$2F$2F8_3:     movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -242274,7 +242274,7 @@ n11375_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$2F$2F8_7:     movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -242415,7 +242415,7 @@ n11376_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$2F$2F8_11:    movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -242556,7 +242556,7 @@ n11377_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$2F$2F8_15:    movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -242697,7 +242697,7 @@ n11378_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$2F$2F8_19:    movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -242838,7 +242838,7 @@ n11379_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$2F$2F8_23:    movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -243801,7 +243801,7 @@ n11425_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$3E$3E$2F7_3:  movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -243942,7 +243942,7 @@ n11426_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$3E$3E$2F7_7:  movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -244083,7 +244083,7 @@ n11427_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$3E$3E$2F7_11: movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -244224,7 +244224,7 @@ n11428_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$3E$3E$2F7_15: movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -244365,7 +244365,7 @@ n11429_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$3E$3E$2F7_19: movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -245237,7 +245237,7 @@ n11465_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$3E$3E$2F4_3:  movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -245378,7 +245378,7 @@ n11466_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$3E$3E$2F4_7:  movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -246619,7 +246619,7 @@ n11501_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -246811,7 +246811,7 @@ n11505_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -247040,7 +247040,7 @@ n11509_call_pl_leaf_α:  sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$yall_slash$2F3_13:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -247277,7 +247277,7 @@ n11517_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 12884901968
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -247426,7 +247426,7 @@ n11518_call_pl_leaf_α:  sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$yall_slash$2F3_25:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -247856,7 +247856,7 @@ n11535_call_value_α:    sub              rsp, 32
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
 .Lgcsite_$yall_slash$2F3_36:
-                        push             rax                                  # gc_poll bb_call_value.cpp:80
+                        push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -247938,7 +247938,7 @@ n11535_call_value_α:    sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 16;                             jmp   n11533_gate_β
 .Lcall_value_α_11602_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -248415,7 +248415,7 @@ n11612_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$3E$3E$2F5_3:  movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -248556,7 +248556,7 @@ n11613_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$3E$3E$2F5_7:  movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -248697,7 +248697,7 @@ n11614_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$3E$3E$2F5_11: movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -249740,7 +249740,7 @@ n11643_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -250190,7 +250190,7 @@ n11653_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -250774,7 +250774,7 @@ n11670_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 21474836560
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -250940,7 +250940,7 @@ n11672_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -251395,7 +251395,7 @@ n11683_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 21474836560
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -251561,7 +251561,7 @@ n11685_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -253580,7 +253580,7 @@ n11715_call_pl_leaf_α:  sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$f4_build$2F4_96:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -254950,7 +254950,7 @@ n11741_call_pl_leaf_α:  sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$f4_build$2F4_125:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -258248,7 +258248,7 @@ n12018_to_α:            sub              rsp, 80
 .Lgcsite_$mod_q1$2F3_22:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 16], rax
-                        push             rax                                  # gc_poll bb_to.cpp:136
+                        push             rax                                  # gc_poll bb_to.cpp:137
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -258305,7 +258305,7 @@ n12018_to_α:            sub              rsp, 80
                         mov              r13, qword ptr [rsp + 48]            # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_12122_8:         mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:156
+                        push             rax                                  # gc_poll bb_to.cpp:157
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -258703,7 +258703,7 @@ n12030_to_α:            sub              rsp, 80
 .Lgcsite_$mod_q1$2F3_36:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 16], rax
-                        push             rax                                  # gc_poll bb_to.cpp:136
+                        push             rax                                  # gc_poll bb_to.cpp:137
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -258760,7 +258760,7 @@ n12030_to_α:            sub              rsp, 80
                         mov              r13, qword ptr [rsp + 48]            # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_12141_8:         mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:156
+                        push             rax                                  # gc_poll bb_to.cpp:157
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -258913,7 +258913,7 @@ n12035_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -259916,7 +259916,7 @@ n12066_to_α:            sub              rsp, 80
 .Lgcsite_$mod_q1$2F3_72:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 16], rax
-                        push             rax                                  # gc_poll bb_to.cpp:136
+                        push             rax                                  # gc_poll bb_to.cpp:137
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -259973,7 +259973,7 @@ n12066_to_α:            sub              rsp, 80
                         mov              r13, qword ptr [rsp + 48]            # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_12202_8:         mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:156
+                        push             rax                                  # gc_poll bb_to.cpp:157
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -260055,7 +260055,7 @@ n12067_call_pl_leaf_α:  sub              rsp, 48
 .Lgcsite_$mod_q1$2F3_75:
                         mov              qword ptr [rsp + 32], rax
                         mov              qword ptr [rsp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:205
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:206
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -260345,7 +260345,7 @@ n12082_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -260596,7 +260596,7 @@ n12088_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -261672,7 +261672,7 @@ n12250_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 21474836560
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -261838,7 +261838,7 @@ n12252_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -262622,7 +262622,7 @@ n12281_call_pl_leaf_α:  sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$xsb_f4_mk$2F4_9:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -263126,7 +263126,7 @@ n12292_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -263275,7 +263275,7 @@ n12293_call_pl_leaf_α:  sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$xsb_f4_mk$2F4_25:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -263683,7 +263683,7 @@ n12306_call_pl_leaf_α:  sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$xsb_f4_mk$2F4_37:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -264442,7 +264442,7 @@ n12371_call_pl_leaf_α:  sub              rsp, 48
 .Lgcsite_$between_up$2F2_11:
                         mov              qword ptr [rsp + 32], rax
                         mov              qword ptr [rsp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:205
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:206
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -268055,7 +268055,7 @@ n12474_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 81604378704
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -268204,7 +268204,7 @@ n12475_call_pl_leaf_α:  sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$meta_qargs$2F4_32:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -268539,7 +268539,7 @@ n12488_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 81604378704
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -268688,7 +268688,7 @@ n12489_call_pl_leaf_α:  sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$meta_qargs$2F4_42:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -268800,7 +268800,7 @@ n12494_call_pl_leaf_α:  sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$meta_qargs$2F4_46:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -270072,7 +270072,7 @@ n12605_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -270221,7 +270221,7 @@ n12606_call_pl_leaf_α:  sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$yall_free$2F3_10:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -270460,7 +270460,7 @@ n12614_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -270609,7 +270609,7 @@ n12615_call_pl_leaf_α:  sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$yall_free$2F3_20:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -270695,7 +270695,7 @@ n12618_call_pl_leaf_α:  sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$yall_free$2F3_24:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -271502,7 +271502,7 @@ n12665_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -271647,7 +271647,7 @@ n12666_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -273642,7 +273642,7 @@ n12728_call_pl_leaf_α:  sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$att_del$2F3_15:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -273796,7 +273796,7 @@ n12736_call_pl_leaf_α:  sub              rsp, 80
                         movabs           rcx, 146028888144
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -273945,7 +273945,7 @@ n12737_call_pl_leaf_α:  sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$att_del$2F3_23:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -275489,7 +275489,7 @@ n12823_call_pl_leaf_α:  sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$meta_ctx$2F3_15:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -276034,7 +276034,7 @@ n12842_call_pl_leaf_α:  sub              rsp, 48
                         movabs           rcx, 180388626512
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -276167,7 +276167,7 @@ n12843_call_value_α:    sub              rsp, 32
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
 .Lgcsite_$meta_ctx$2F3_39:
-                        push             rax                                  # gc_poll bb_call_value.cpp:80
+                        push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -276249,7 +276249,7 @@ n12843_call_value_α:    sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 80;                             jmp   n12846_unmark_α
 .Lcall_value_α_12955_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -276433,7 +276433,7 @@ n12851_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 158913790032
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -276594,7 +276594,7 @@ n12853_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -276984,7 +276984,7 @@ n12863_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -277240,7 +277240,7 @@ n12869_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -277635,7 +277635,7 @@ n12880_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -278388,7 +278388,7 @@ n13023_call_pl_leaf_α:  sub              rsp, 48
                         movabs           rcx, 193273528400
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -278537,7 +278537,7 @@ n13024_call_pl_leaf_α:  sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$wot_stream_sink$2F1_9:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -279710,7 +279710,7 @@ n13062_to_α:            sub              rsp, 80
 .Lgcsite_$wot_stream_sink$2F1_43:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 16], rax
-                        push             rax                                  # gc_poll bb_to.cpp:136
+                        push             rax                                  # gc_poll bb_to.cpp:137
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -279767,7 +279767,7 @@ n13062_to_α:            sub              rsp, 80
                         mov              r13, qword ptr [rsp + 48]            # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_13248_8:         mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:156
+                        push             rax                                  # gc_poll bb_to.cpp:157
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -279849,7 +279849,7 @@ n13063_call_pl_leaf_α:  sub              rsp, 48
 .Lgcsite_$wot_stream_sink$2F1_46:
                         mov              qword ptr [rsp + 32], rax
                         mov              qword ptr [rsp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:205
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:206
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -280418,7 +280418,7 @@ n13089_call_pl_leaf_α:  sub              rsp, 48
                         movabs           rcx, 184683593808
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -280567,7 +280567,7 @@ n13090_call_pl_leaf_α:  sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$wot_stream_sink$2F1_60:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -281327,7 +281327,7 @@ n13111_call_pl_leaf_α:  sub              rsp, 48
                         movabs           rcx, 188978561104
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -281476,7 +281476,7 @@ n13112_call_pl_leaf_α:  sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$wot_stream_sink$2F1_85:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -281566,7 +281566,7 @@ n13116_call_pl_leaf_α:  sub              rsp, 48
                         movabs           rcx, 184683593808
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -281715,7 +281715,7 @@ n13117_call_pl_leaf_α:  sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$wot_stream_sink$2F1_93:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -282821,7 +282821,7 @@ n13155_to_α:            sub              rsp, 80
 .Lgcsite_$wot_stream_sink$2F1_125:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 16], rax
-                        push             rax                                  # gc_poll bb_to.cpp:136
+                        push             rax                                  # gc_poll bb_to.cpp:137
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -282878,7 +282878,7 @@ n13155_to_α:            sub              rsp, 80
                         mov              r13, qword ptr [rsp + 48]            # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_13413_8:         mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:156
+                        push             rax                                  # gc_poll bb_to.cpp:157
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -282960,7 +282960,7 @@ n13156_call_pl_leaf_α:  sub              rsp, 48
 .Lgcsite_$wot_stream_sink$2F1_128:
                         mov              qword ptr [rsp + 32], rax
                         mov              qword ptr [rsp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:205
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:206
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -284300,7 +284300,7 @@ n13448_call_pl_leaf_α:  sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$xsb_f4_read$2F4_10:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -284522,7 +284522,7 @@ n13454_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -284671,7 +284671,7 @@ n13455_call_pl_leaf_α:  sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$xsb_f4_read$2F4_20:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -286351,7 +286351,7 @@ n13499_call_pl_leaf_α:  sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$xsb_f4_read$2F4_62:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -286437,7 +286437,7 @@ n13502_call_pl_leaf_α:  sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$xsb_f4_read$2F4_66:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -286523,7 +286523,7 @@ n13505_call_pl_leaf_α:  sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$xsb_f4_read$2F4_70:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -288978,7 +288978,7 @@ n13665_call_pl_leaf_α:  sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$att_get$2F3_10:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -291095,7 +291095,7 @@ n13735_call_pl_leaf_α:  sub              rsp, 80
                         movabs           rcx, 146028888144
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -291244,7 +291244,7 @@ n13736_call_pl_leaf_α:  sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$att_put$2F4_33:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -291398,7 +291398,7 @@ n13744_call_pl_leaf_α:  sub              rsp, 80
                         movabs           rcx, 146028888144
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -291547,7 +291547,7 @@ n13745_call_pl_leaf_α:  sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$att_put$2F4_41:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -292863,7 +292863,7 @@ n13834_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$40$2F2_8:     movabs           rcx, 81604378704
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -293007,7 +293007,7 @@ n13835_call_pl_leaf_α:  sub              rsp, 48
                         lea              rdi, [rsp + 16]
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
-.Lgcsite_$40$2F2_11:    push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+.Lgcsite_$40$2F2_11:    push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -293520,7 +293520,7 @@ n13853_call_value_α:    sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 40]
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$40$2F2_25:    push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$40$2F2_25:    push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -293599,7 +293599,7 @@ n13853_call_value_α:    sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 16;                             jmp   n13859_unmark_α
 .Lcall_value_α_13915_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -293677,7 +293677,7 @@ n13857_call_value_α:    sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 40]
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$40$2F2_31:    push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$40$2F2_31:    push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -293756,7 +293756,7 @@ n13857_call_value_α:    sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 16;                             jmp   n13859_unmark_α
 .Lcall_value_α_13923_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -294491,7 +294491,7 @@ n13938_call_pl_leaf_α:  sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$f4_callable$2F3_10:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -295708,7 +295708,7 @@ n13990_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$at_ctx$2F1_9: movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -296219,7 +296219,7 @@ n14014_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$3F$3D$2F2_4:  movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -303043,7 +303043,7 @@ n14267_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 21474836560
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -303217,7 +303217,7 @@ n14271_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -303362,7 +303362,7 @@ n14272_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 30064771152
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -332376,7 +332376,7 @@ n14986_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -333468,7 +333468,7 @@ n15017_call_value_α:    sub              rsp, 32
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
 .Lgcsite_$when_first$2F2_10:
-                        push             rax                                  # gc_poll bb_call_value.cpp:80
+                        push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -333550,7 +333550,7 @@ n15017_call_value_α:    sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 48;                             jmp   $when_first$2F2_ω
 .Lcall_value_α_15043_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -333970,7 +333970,7 @@ n15027_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 60129542224
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -338719,7 +338719,7 @@ n15150_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 85899346000
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -339406,7 +339406,7 @@ n15159_call_pl_leaf_α:  sub              rsp, 80
                         movabs           rcx, 90194313296
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -341554,7 +341554,7 @@ n15261_call_pl_leaf_α:  sub              rsp, 48
                         movabs           rcx, 163208757328
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -341912,7 +341912,7 @@ n15268_call_pl_leaf_α:  sub              rsp, 48
                         movabs           rcx, 163208757328
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -342079,7 +342079,7 @@ n15271_call_pl_leaf_α:  sub              rsp, 48
                         movabs           rcx, 412316860496
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -343463,7 +343463,7 @@ n15311_call_pl_leaf_α:  sub              rsp, 48
                         movabs           rcx, 163208757328
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -344544,7 +344544,7 @@ n15506_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 81604378704
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -344693,7 +344693,7 @@ n15507_call_pl_leaf_α:  sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$meta_strip$2F3_10:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -345299,7 +345299,7 @@ n15523_call_pl_leaf_α:  sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$meta_strip$2F3_25:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -345411,7 +345411,7 @@ n15528_call_pl_leaf_α:  sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$meta_strip$2F3_29:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -346275,7 +346275,7 @@ n15602_call_pl_leaf_α:  sub              rsp, 48
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
 .Lgcsite_$between_to$2F3_8:
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -346668,7 +346668,7 @@ n15608_call_pl_leaf_α:  sub              rsp, 48
 .Lgcsite_$between_to$2F3_20:
                         mov              qword ptr [rsp + 32], rax
                         mov              qword ptr [rsp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:205
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:206
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -348631,7 +348631,7 @@ n15672_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -349634,7 +349634,7 @@ n15703_to_α:            sub              rsp, 80
 .Lgcsite_current_predicate$2F2_58:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 16], rax
-                        push             rax                                  # gc_poll bb_to.cpp:136
+                        push             rax                                  # gc_poll bb_to.cpp:137
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -349691,7 +349691,7 @@ n15703_to_α:            sub              rsp, 80
                         mov              r13, qword ptr [rsp + 48]            # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_15870_8:         mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:156
+                        push             rax                                  # gc_poll bb_to.cpp:157
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -349773,7 +349773,7 @@ n15704_call_pl_leaf_α:  sub              rsp, 48
 .Lgcsite_current_predicate$2F2_61:
                         mov              qword ptr [rsp + 32], rax
                         mov              qword ptr [rsp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:205
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:206
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -350071,7 +350071,7 @@ n15720_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 25769803856
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -351074,7 +351074,7 @@ n15751_to_α:            sub              rsp, 80
 .Lgcsite_current_predicate$2F2_98:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 16], rax
-                        push             rax                                  # gc_poll bb_to.cpp:136
+                        push             rax                                  # gc_poll bb_to.cpp:137
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -351131,7 +351131,7 @@ n15751_to_α:            sub              rsp, 80
                         mov              r13, qword ptr [rsp + 48]            # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_15954_8:         mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:156
+                        push             rax                                  # gc_poll bb_to.cpp:157
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -351213,7 +351213,7 @@ n15752_call_pl_leaf_α:  sub              rsp, 48
 .Lgcsite_current_predicate$2F2_101:
                         mov              qword ptr [rsp + 32], rax
                         mov              qword ptr [rsp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:205
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:206
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -356171,7 +356171,7 @@ n16120_call_pl_leaf_α:  sub              rsp, 48
                         lea              rdi, [rsp + 16]
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
-.Lgcsite_$fc$2F3_25:    push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+.Lgcsite_$fc$2F3_25:    push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -356277,7 +356277,7 @@ n16125_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$fc$2F3_30:    movabs           rcx, 8589934672
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -356421,7 +356421,7 @@ n16126_call_pl_leaf_α:  sub              rsp, 48
                         lea              rdi, [rsp + 16]
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
-.Lgcsite_$fc$2F3_33:    push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+.Lgcsite_$fc$2F3_33:    push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -356991,7 +356991,7 @@ n16141_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$fc$2F3_46:    movabs           rcx, 8589934672
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -357135,7 +357135,7 @@ n16142_call_pl_leaf_α:  sub              rsp, 48
                         lea              rdi, [rsp + 16]
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
-.Lgcsite_$fc$2F3_49:    push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+.Lgcsite_$fc$2F3_49:    push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -357218,7 +357218,7 @@ n16145_call_pl_leaf_α:  sub              rsp, 48
                         lea              rdi, [rsp + 16]
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
-.Lgcsite_$fc$2F3_53:    push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+.Lgcsite_$fc$2F3_53:    push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -357733,7 +357733,7 @@ n16243_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$2C$2F2_4:     movabs           rcx, 8589934672
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -357958,7 +357958,7 @@ n16248_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$2C$2F2_11:    movabs           rcx, 8589934672
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -358324,7 +358324,7 @@ n16256_call_value_α:    sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 40]
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$2C$2F2_21:    push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$2C$2F2_21:    push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -358403,7 +358403,7 @@ n16256_call_value_α:    sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 336;                            jmp   $2C$2F2_ω
 .Lcall_value_α_16305_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -358579,7 +358579,7 @@ n16261_call_value_α:    sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 40]
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$2C$2F2_29:    push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$2C$2F2_29:    push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -358658,7 +358658,7 @@ n16261_call_value_α:    sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 336;                            jmp   $2C$2F2_ω
 .Lcall_value_α_16315_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -358757,7 +358757,7 @@ n16265_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$2C$2F2_33:    movabs           rcx, 8589934672
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -359081,7 +359081,7 @@ n16272_call_value_α:    sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 40]
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$2C$2F2_44:    push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$2C$2F2_44:    push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -359160,7 +359160,7 @@ n16272_call_value_α:    sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 224;                            jmp   $2C$2F2_ω
 .Lcall_value_α_16334_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -359214,7 +359214,7 @@ n16274_call_value_α:    sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 40]
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$2C$2F2_50:    push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$2C$2F2_50:    push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -359293,7 +359293,7 @@ n16274_call_value_α:    sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 16;                             jmp   $2C$2F2_step
 .Lcall_value_α_16338_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -359968,7 +359968,7 @@ n16346_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$3B$2F2_4:     movabs           rcx, 103079215184
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -360292,7 +360292,7 @@ n16353_call_value_α:    sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 40]
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3B$2F2_15:    push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$3B$2F2_15:    push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -360371,7 +360371,7 @@ n16353_call_value_α:    sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 224;                            jmp   $3B$2F2_ω
 .Lcall_value_α_16449_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -360486,7 +360486,7 @@ n16358_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$3B$2F2_19:    movabs           rcx, 107374182480
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -360630,7 +360630,7 @@ n16359_call_pl_leaf_α:  sub              rsp, 48
                         lea              rdi, [rsp + 16]
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
-.Lgcsite_$3B$2F2_22:    push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+.Lgcsite_$3B$2F2_22:    push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -360833,7 +360833,7 @@ n16365_call_value_α:    sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 40]
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3B$2F2_32:    push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$3B$2F2_32:    push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -360912,7 +360912,7 @@ n16365_call_value_α:    sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 16;                             jmp   n16372_unmark_α
 .Lcall_value_α_16470_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -361086,7 +361086,7 @@ n16370_call_value_α:    sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 40]
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3B$2F2_40:    push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$3B$2F2_40:    push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -361165,7 +361165,7 @@ n16370_call_value_α:    sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 16;                             jmp   n16376_unmark_α
 .Lcall_value_α_16480_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -361244,7 +361244,7 @@ n16374_call_value_α:    sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 40]
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3B$2F2_46:    push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$3B$2F2_46:    push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -361323,7 +361323,7 @@ n16374_call_value_α:    sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 16;                             jmp   n16376_unmark_α
 .Lcall_value_α_16488_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -361482,7 +361482,7 @@ n16382_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$3B$2F2_50:    movabs           rcx, 111669149776
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -361626,7 +361626,7 @@ n16383_call_pl_leaf_α:  sub              rsp, 48
                         lea              rdi, [rsp + 16]
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
-.Lgcsite_$3B$2F2_53:    push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+.Lgcsite_$3B$2F2_53:    push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -361834,7 +361834,7 @@ n16390_call_value_α:    sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 40]
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3B$2F2_63:    push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$3B$2F2_63:    push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -361913,7 +361913,7 @@ n16390_call_value_α:    sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 16;                             jmp   n16395_unmark_α
 .Lcall_value_α_16517_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -361972,7 +361972,7 @@ n16393_call_value_α:    sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 40]
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3B$2F2_69:    push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$3B$2F2_69:    push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -362051,7 +362051,7 @@ n16393_call_value_α:    sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 16;                             jmp   n16390_call_value_β
 .Lcall_value_α_16523_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -362144,7 +362144,7 @@ n16398_call_value_α:    sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 40]
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3B$2F2_75:    push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$3B$2F2_75:    push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -362223,7 +362223,7 @@ n16398_call_value_α:    sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 16;                             jmp   n16400_unmark_α
 .Lcall_value_α_16533_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -362442,7 +362442,7 @@ n16407_call_value_α:    sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 40]
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3B$2F2_83:    push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$3B$2F2_83:    push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -362521,7 +362521,7 @@ n16407_call_value_α:    sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 16;                             jmp   n16405_call_proc_staged_β
 .Lcall_value_α_16551_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -362697,7 +362697,7 @@ n16412_call_value_α:    sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 40]
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3B$2F2_91:    push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$3B$2F2_91:    push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -362776,7 +362776,7 @@ n16412_call_value_α:    sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 96;                             jmp   $3B$2F2_ω
 .Lcall_value_α_16561_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -362830,7 +362830,7 @@ n16414_call_value_α:    sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 40]
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3B$2F2_97:    push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$3B$2F2_97:    push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -362909,7 +362909,7 @@ n16414_call_value_α:    sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 16;                             jmp   $3B$2F2_step
 .Lcall_value_α_16565_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -363207,7 +363207,7 @@ n16423_call_value_α:    sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 40]
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3B$2F2_107:   push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$3B$2F2_107:   push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -363286,7 +363286,7 @@ n16423_call_value_α:    sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 96;                             jmp   $3B$2F2_ω
 .Lcall_value_α_16583_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -363462,7 +363462,7 @@ n16428_call_value_α:    sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 40]
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3B$2F2_115:   push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$3B$2F2_115:   push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -363541,7 +363541,7 @@ n16428_call_value_α:    sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 96;                             jmp   $3B$2F2_ω
 .Lcall_value_α_16593_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -363595,7 +363595,7 @@ n16430_call_value_α:    sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 40]
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$3B$2F2_121:   push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$3B$2F2_121:   push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -363674,7 +363674,7 @@ n16430_call_value_α:    sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 16;                             jmp   $3B$2F2_step
 .Lcall_value_α_16597_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -364439,7 +364439,7 @@ n16601_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_$2D$3E$2F2_4:  movabs           rcx, 107374182480
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -364763,7 +364763,7 @@ n16608_call_value_α:    sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 40]
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$2D$3E$2F2_15: push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$2D$3E$2F2_15: push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -364842,7 +364842,7 @@ n16608_call_value_α:    sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 224;                            jmp   $2D$3E$2F2_ω
 .Lcall_value_α_16634_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -364896,7 +364896,7 @@ n16610_call_value_α:    sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 40]
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$2D$3E$2F2_21: push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$2D$3E$2F2_21: push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -364975,7 +364975,7 @@ n16610_call_value_α:    sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 16;                             jmp   $2D$3E$2F2_step
 .Lcall_value_α_16638_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -365151,7 +365151,7 @@ n16615_call_value_α:    sub              rsp, 32
                         mov              rsi, qword ptr [rsp + 40]
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
-.Lgcsite_$2D$3E$2F2_29: push             rax                                  # gc_poll bb_call_value.cpp:80
+.Lgcsite_$2D$3E$2F2_29: push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -365230,7 +365230,7 @@ n16615_call_value_α:    sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 64;                             jmp   $2D$3E$2F2_ω
 .Lcall_value_α_16648_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -365633,7 +365633,7 @@ n16652_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 111669149776
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -365965,7 +365965,7 @@ n16659_call_value_α:    sub              rsp, 32
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
 .Lgcsite_$2A$2D$3E$2F2_15:
-                        push             rax                                  # gc_poll bb_call_value.cpp:80
+                        push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -366047,7 +366047,7 @@ n16659_call_value_α:    sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 224;                            jmp   $2A$2D$3E$2F2_ω
 .Lcall_value_α_16682_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -366104,7 +366104,7 @@ n16661_call_value_α:    sub              rsp, 32
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
 .Lgcsite_$2A$2D$3E$2F2_21:
-                        push             rax                                  # gc_poll bb_call_value.cpp:80
+                        push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -366186,7 +366186,7 @@ n16661_call_value_α:    sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 16;                             jmp   $2A$2D$3E$2F2_step
 .Lcall_value_α_16686_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -366243,7 +366243,7 @@ n16663_call_value_α:    sub              rsp, 32
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
 .Lgcsite_$2A$2D$3E$2F2_27:
-                        push             rax                                  # gc_poll bb_call_value.cpp:80
+                        push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -366325,7 +366325,7 @@ n16663_call_value_α:    sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 16;                             jmp   n16661_call_value_β
 .Lcall_value_α_16690_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -376575,7 +376575,7 @@ n17003_call_pl_leaf_α:  sub              rsp, 80
                         movabs           rcx, 416611827792
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -376708,7 +376708,7 @@ n17004_call_value_α:    sub              rsp, 32
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
 .Lgcsite_char_type$2F2_19:
-                        push             rax                                  # gc_poll bb_call_value.cpp:80
+                        push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -376790,7 +376790,7 @@ n17004_call_value_α:    sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 144;                            jmp   n17006_unmark_α
 .Lcall_value_α_17037_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -378265,7 +378265,7 @@ n17082_to_α:            sub              rsp, 80
 .Lgcsite_atom_concat$2F3_10:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              qword ptr [rsp + 16], rax
-                        push             rax                                  # gc_poll bb_to.cpp:136
+                        push             rax                                  # gc_poll bb_to.cpp:137
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -378322,7 +378322,7 @@ n17082_to_α:            sub              rsp, 80
                         mov              r13, qword ptr [rsp + 48]            # pl_choice_restore inline (D1): the value going out is the enumeration's last, so its header is no choice: B returns to the choice it found, as swipl exits det
 .Lto_α_17101_8:         mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax
-                        push             rax                                  # gc_poll bb_to.cpp:156
+                        push             rax                                  # gc_poll bb_to.cpp:157
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -380799,7 +380799,7 @@ n17175_call_pl_leaf_α:  sub              rsp, 80
                         movabs           rcx, 420906795088
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -380932,7 +380932,7 @@ n17176_call_value_α:    sub              rsp, 32
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
 .Lgcsite_string_concat$2F3_19:
-                        push             rax                                  # gc_poll bb_call_value.cpp:80
+                        push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -381014,7 +381014,7 @@ n17176_call_value_α:    sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 144;                            jmp   n17178_unmark_α
 .Lcall_value_α_17212_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -389887,7 +389887,7 @@ n17571_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -390032,7 +390032,7 @@ n17572_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -390177,7 +390177,7 @@ n17573_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -390322,7 +390322,7 @@ n17574_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -390467,7 +390467,7 @@ n17575_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -390612,7 +390612,7 @@ n17576_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -390757,7 +390757,7 @@ n17577_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -390902,7 +390902,7 @@ n17578_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -391047,7 +391047,7 @@ n17579_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -391192,7 +391192,7 @@ n17580_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -391337,7 +391337,7 @@ n17581_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -391482,7 +391482,7 @@ n17582_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -391627,7 +391627,7 @@ n17583_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -391772,7 +391772,7 @@ n17584_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -391917,7 +391917,7 @@ n17585_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -392062,7 +392062,7 @@ n17586_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -392207,7 +392207,7 @@ n17587_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -392352,7 +392352,7 @@ n17588_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -392497,7 +392497,7 @@ n17589_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -392642,7 +392642,7 @@ n17590_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -392787,7 +392787,7 @@ n17591_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -392932,7 +392932,7 @@ n17592_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -393077,7 +393077,7 @@ n17593_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -393222,7 +393222,7 @@ n17594_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -393367,7 +393367,7 @@ n17595_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -393512,7 +393512,7 @@ n17596_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -393657,7 +393657,7 @@ n17597_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -393802,7 +393802,7 @@ n17598_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -393947,7 +393947,7 @@ n17599_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -394092,7 +394092,7 @@ n17600_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -394237,7 +394237,7 @@ n17601_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -394382,7 +394382,7 @@ n17602_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -394527,7 +394527,7 @@ n17603_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -394672,7 +394672,7 @@ n17604_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -394817,7 +394817,7 @@ n17605_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -394962,7 +394962,7 @@ n17606_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -395107,7 +395107,7 @@ n17607_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -395252,7 +395252,7 @@ n17608_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -395397,7 +395397,7 @@ n17609_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -395542,7 +395542,7 @@ n17610_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -395687,7 +395687,7 @@ n17611_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -395832,7 +395832,7 @@ n17612_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 80
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -395977,7 +395977,7 @@ n17613_call_pl_leaf_α:  sub              rsp, 64
                         movabs           rcx, 425201762384
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -396110,7 +396110,7 @@ n17614_call_value_α:    sub              rsp, 32
                         mov              edx, 0
                         call             qword ptr [rip + rt_pl_goal_resolve@GOTPCREL]
 .Lgcsite_current_prolog_flag$2F2_181:
-                        push             rax                                  # gc_poll bb_call_value.cpp:80
+                        push             rax                                  # gc_poll bb_call_value.cpp:84
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -396192,7 +396192,7 @@ n17614_call_value_α:    sub              rsp, 32
                         add              rsp, 32
                         add              rsp, 4144;                           jmp   n17616_unmark_α
 .Lcall_value_α_17763_998:
-                        push             rax                                  # gc_poll bb_call_value.cpp:141
+                        push             rax                                  # gc_poll bb_call_value.cpp:145
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -421373,7 +421373,7 @@ n18560_call_pl_leaf_α:  sub              rsp, 48
                         lea              rdi, [rsp + 16]
                         lea              rsi, [rsp + 32]
                         call             qword ptr [rip + rt_pl_dop_unify_raise@GOTPCREL]
-.Lgcsite_$3D$2F2_2:     push             rax                                  # gc_poll bb_call_pl_leaf.cpp:415
+.Lgcsite_$3D$2F2_2:     push             rax                                  # gc_poll bb_call_pl_leaf.cpp:416
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -421628,7 +421628,7 @@ n18568_call_pl_leaf_α:  sub              rsp, 48
                         call             qword ptr [rip + rt_pl_is_cold@GOTPCREL]
 .Lgcsite_is$2F2_2:      mov              qword ptr [rsp + 32], rax
                         mov              qword ptr [rsp + 40], rdx
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:205
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:206
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -424380,7 +424380,7 @@ n18678_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_clause$2F2_3:  movabs           rcx, 77309411408
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -424618,7 +424618,7 @@ n18684_call_pl_leaf_α:  sub              rsp, 64
 .Lgcsite_clause$2F2_10: movabs           rcx, 77309411408
                         mov              qword ptr [rsp + 16], rcx            # the result cell is parked in argv[0] (the functor literal's cell, dead once its id is baked above) across the poll and the kid loop: the box's result slot may be one of the kids' argv cells
                         mov              qword ptr [rsp + 24], rax
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:329
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:330
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -426513,7 +426513,7 @@ n18711_call_pl_leaf_α:  sub              rsp, 32
                         mov              rsi, r14
                         call             rt_pl_db_decls_install@PLT
 .Lgcsite_main_3:        mov              r9,  qword ptr [rip + g_rtccb+48]
-                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:391
+                        push             rax                                  # gc_poll bb_call_pl_leaf.cpp:392
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
