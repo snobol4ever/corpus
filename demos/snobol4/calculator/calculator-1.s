@@ -8786,7 +8786,7 @@ n187_define_α:          mov              rdi, qword ptr [rip + .Ldefine_α_586_
                         lea              r9, [rip + LBL__EMIT]                # fn
                         call             rt_define_site@PLT
 .Lgcsite_main_5:        mov              r9,  qword ptr [rip + g_rtccb+48]
-                        push             rax                                  # gc_poll bb_define.cpp:160
+                        push             rax                                  # gc_poll bb_define.cpp:161
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -8986,7 +8986,7 @@ n191_define_α:          mov              rdi, qword ptr [rip + .Ldefine_α_594_
                         lea              r9, [rip + LBL__PSH]                 # fn
                         call             rt_define_site@PLT
 .Lgcsite_main_9:        mov              r9,  qword ptr [rip + g_rtccb+48]
-                        push             rax                                  # gc_poll bb_define.cpp:160
+                        push             rax                                  # gc_poll bb_define.cpp:161
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -9186,7 +9186,7 @@ n195_define_α:          mov              rdi, qword ptr [rip + .Ldefine_α_602_
                         lea              r9, [rip + LBL__DRF]                 # fn
                         call             rt_define_site@PLT
 .Lgcsite_main_13:       mov              r9,  qword ptr [rip + g_rtccb+48]
-                        push             rax                                  # gc_poll bb_define.cpp:160
+                        push             rax                                  # gc_poll bb_define.cpp:161
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -9429,7 +9429,7 @@ n199_define_α:          mov              rdi, qword ptr [rip + .Ldefine_α_610_
                         lea              r9, [rip + LBL__ADD]                 # fn
                         call             rt_define_site@PLT
 .Lgcsite_main_17:       mov              r9,  qword ptr [rip + g_rtccb+48]
-                        push             rax                                  # gc_poll bb_define.cpp:160
+                        push             rax                                  # gc_poll bb_define.cpp:161
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -9629,7 +9629,7 @@ n203_define_α:          mov              rdi, qword ptr [rip + .Ldefine_α_618_
                         lea              r9, [rip + LBL__SUB]                 # fn
                         call             rt_define_site@PLT
 .Lgcsite_main_21:       mov              r9,  qword ptr [rip + g_rtccb+48]
-                        push             rax                                  # gc_poll bb_define.cpp:160
+                        push             rax                                  # gc_poll bb_define.cpp:161
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -9829,7 +9829,7 @@ n207_define_α:          mov              rdi, qword ptr [rip + .Ldefine_α_626_
                         lea              r9, [rip + LBL__MUL]                 # fn
                         call             rt_define_site@PLT
 .Lgcsite_main_25:       mov              r9,  qword ptr [rip + g_rtccb+48]
-                        push             rax                                  # gc_poll bb_define.cpp:160
+                        push             rax                                  # gc_poll bb_define.cpp:161
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -10029,7 +10029,7 @@ n211_define_α:          mov              rdi, qword ptr [rip + .Ldefine_α_634_
                         lea              r9, [rip + LBL__DIV]                 # fn
                         call             rt_define_site@PLT
 .Lgcsite_main_29:       mov              r9,  qword ptr [rip + g_rtccb+48]
-                        push             rax                                  # gc_poll bb_define.cpp:160
+                        push             rax                                  # gc_poll bb_define.cpp:161
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -10229,7 +10229,7 @@ n215_define_α:          mov              rdi, qword ptr [rip + .Ldefine_α_642_
                         lea              r9, [rip + LBL__NEG]                 # fn
                         call             rt_define_site@PLT
 .Lgcsite_main_33:       mov              r9,  qword ptr [rip + g_rtccb+48]
-                        push             rax                                  # gc_poll bb_define.cpp:160
+                        push             rax                                  # gc_poll bb_define.cpp:161
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -11432,7 +11432,7 @@ n260_match_end_α:       sub              rsp, 384
 .Lmatch_end_α_706_61:   lea              rdi, [rsp + 272]
                         call             rt_trace_pend_run@PLT
 .Lgcsite_main_61:       mov              r9,  qword ptr [rip + g_rtccb+48]
-                        push             rax                                  # gc_poll bb_glue_flat.cpp:342
+                        push             rax                                  # gc_poll bb_glue_flat.cpp:343
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -11444,7 +11444,7 @@ n260_match_end_α:       sub              rsp, 384
 .Lmatch_end_α_706_62:   lea              rdi, [rsp + 272]
                         call             rt_trace_pend_close@PLT
 .Lgcsite_main_59:       mov              r9,  qword ptr [rip + g_rtccb+48]
-                        push             rax                                  # gc_poll bb_glue_flat.cpp:346
+                        push             rax                                  # gc_poll bb_glue_flat.cpp:347
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -16772,7 +16772,7 @@ n507_call_try_α:        sub              rsp, 304
                         lea              rdx, [rsp + 192]
                         call             rt_tweak_open@PLT
 .Lgcsite_main_333:      mov              r9,  qword ptr [rip + g_rtccb+48]
-                        push             rax                                  # gc_poll bb_glue_flat.cpp:281
+                        push             rax                                  # gc_poll bb_glue_flat.cpp:282
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -17224,7 +17224,7 @@ n511_var_α:             sub              rsp, 16
                         add              rsp, 16;                             jmp   n510_statement_begin_β
 .Lvar_α_1032_999:       mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        push             rax                                  # gc_poll bb_var_global.cpp:91
+                        push             rax                                  # gc_poll bb_var_global.cpp:92
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -18293,7 +18293,7 @@ n528_match_end_α:       sub              rsp, 384
 .Lmatch_end_α_1056_61:  lea              rdi, [rsp + 272]
                         call             rt_trace_pend_run@PLT
 .Lgcsite_main_379:      mov              r9,  qword ptr [rip + g_rtccb+48]
-                        push             rax                                  # gc_poll bb_glue_flat.cpp:342
+                        push             rax                                  # gc_poll bb_glue_flat.cpp:343
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -18305,7 +18305,7 @@ n528_match_end_α:       sub              rsp, 384
 .Lmatch_end_α_1056_62:  lea              rdi, [rsp + 272]
                         call             rt_trace_pend_close@PLT
 .Lgcsite_main_377:      mov              r9,  qword ptr [rip + g_rtccb+48]
-                        push             rax                                  # gc_poll bb_glue_flat.cpp:346
+                        push             rax                                  # gc_poll bb_glue_flat.cpp:347
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -19174,7 +19174,7 @@ main_β:
 #-----------------------------------------------------------------------------------------------------------------------
 main_γ:
                         call             sno_setexit_fire_on_end@PLT
-.Lgcsite_main_436:      push             rax                                  # gc_poll bb_glue_flat.cpp:61
+.Lgcsite_main_436:      push             rax                                  # gc_poll bb_glue_flat.cpp:62
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
