@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=316 features=48 ubiquitous=4(program var writeln assign) distinctive=44 core=37 clusters=35 chunks=3 sizes=100,100,79
+# shape: entries=317 features=48 ubiquitous=4(program var writeln assign) distinctive=44 core=37 clusters=35 chunks=3 sizes=100,100,80
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multi	chunk:01	family:ladder	
@@ -243,7 +243,7 @@ program_procedure_array_1	chunk:02	feat:packed	array nested_proc packed procedur
 program_procedure_array_4	chunk:02	feat:packed	array nested_proc packed procedure set_literal subrange
 program_record_array_3	chunk:02	feat:case	array case record set_literal subrange type
 program_record_pointer_8	chunk:03	feat:nil	new nil pointer pointer_with_new record type
-program_function_procedure_3	core	core	case chr function nested_proc ord procedure
+program_function_procedure_3	chunk:03	feat:chr	case chr function nested_proc ord procedure
 program_function_procedure_8	chunk:03	feat:chr	case chr function nested_proc ord procedure
 benchmark_towers	chunk:03	feat:readln	const for pointer procedure readln repeat
 program_array_for_replace_1	chunk:03	feat:chr	array chr const for for_with_array type
@@ -270,6 +270,7 @@ ladder__rung15_layout_ptr_to_two_index_array	chunk:02	feat:pointer	array for for
 program_record_pointer_10	chunk:03	feat:with_record	new pointer pointer_with_new record type with with_record
 ladder__rung15_layout_nested_is_one_block	chunk:02	feat:pointer	array for for_with_array pointer set_literal subrange type
 ladder__rung12_move_from_with_field	chunk:03	feat:with_record	array for for_with_array record type with with_record
+ladder__rung06_arrays_bool_index_2d	core	core	array chr for for_with_array ord set_literal subrange
 program_record_pointer_replace_1	chunk:03	feat:nil	in new nil pointer pointer_with_new record type
 program_record_array_replace_2	chunk:02	feat:packed	array case packed record set_literal subrange type
 ladder__rung10_pointers	core	core	dispose new nil pointer pointer_with_new record type
