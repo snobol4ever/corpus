@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=331 features=48 ubiquitous=4(program var writeln assign) distinctive=44 core=38 clusters=37 chunks=3 sizes=100,100,93
+# shape: entries=335 features=48 ubiquitous=4(program var writeln assign) distinctive=44 core=40 clusters=37 chunks=3 sizes=100,100,95
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multi	chunk:01	family:ladder	
@@ -97,7 +97,7 @@ program_for_downto_3	chunk:03	feat:downto	downto for
 program_for_writeln_2	chunk:03	feat:in	for in
 ladder__rung00_crt_row_25_newline_then_cr	chunk:02	feat:write	for write
 program_for_writeln_replace_1	chunk:02	feat:write	for write
-program_writeln_7	chunk:02	feat:chr	chr ord
+program_writeln_7	chunk:03	feat:chr	chr ord
 program_for_downto_2	chunk:03	feat:downto	downto for
 program_for_downto_4	chunk:03	feat:downto	downto for
 program_procedure_nested_19	chunk:01	feat:nested_proc	nested_proc procedure
@@ -226,7 +226,7 @@ program_array_for_1	chunk:02	feat:for_with_array	array for for_with_array set_li
 program_array_for_8	chunk:02	feat:for_with_array	array for for_with_array set_literal subrange
 program_record_pointer_6	chunk:02	feat:new	new pointer pointer_with_new record type
 program_array_packed_replace_2	chunk:02	feat:packed	array packed set_literal subrange type
-program_array_for_5	chunk:02	feat:for_with_array	array for for_with_array subrange type
+program_array_for_5	chunk:03	feat:for_with_array	array for for_with_array subrange type
 program_record_pointer_3	chunk:02	feat:new	new pointer pointer_with_new record type
 ladder__rung15_layout_ptr_to_nested_row_copy	chunk:02	feat:pointer	array pointer set_literal subrange type
 program_record_pointer_7	chunk:02	feat:new	new pointer pointer_with_new record type
@@ -263,7 +263,7 @@ program_function_procedure_4	chunk:03	feat:ord	for function nested_proc ord proc
 program_function_procedure_9	chunk:03	feat:ord	for function nested_proc ord procedure type
 program_record_array_2	chunk:03	feat:with_record	array record set_literal subrange type with with_record
 ladder__rung14_row_forin	chunk:03	feat:const	array const for for_with_array in set_literal subrange
-program_record_array_1	chunk:01	feat:record	array for for_with_array record set_literal subrange type
+program_record_array_1	chunk:02	feat:record	array for for_with_array record set_literal subrange type
 program_array_packed_3	chunk:02	feat:packed	array for for_with_array packed set_literal subrange write
 ladder__rung13_ptr_addr_whole_array	chunk:02	feat:pointer	array for for_with_array pointer set_literal subrange type
 program_function_array_1	chunk:01	feat:function	array for for_with_array function set_literal subrange type
@@ -304,7 +304,7 @@ program_procedure_set_replace_2	chunk:02	feat:set	for in nested_proc procedure r
 benchmark_queens	chunk:03	feat:readln	array for for_with_array procedure readln repeat set_literal subrange
 program_function_procedure_replace_3	chunk:03	feat:mod	for function in mod nested_proc procedure while with
 program_record_array_replace_1	chunk:02	feat:case	array case for for_with_array record set_literal subrange type write
-program_function_procedure_1	core	core	array for for_with_array function nested_proc procedure set_literal subrange type
+program_function_procedure_1	chunk:01	feat:function	array for for_with_array function nested_proc procedure set_literal subrange type
 program_function_procedure_6	chunk:01	feat:function	array for for_with_array function nested_proc procedure set_literal subrange type
 benchmark_sieve	chunk:03	feat:readln	array const for for_with_array readln repeat set_literal subrange while
 program_procedure_record_6	chunk:03	feat:nil	nested_proc new nil pointer pointer_with_new procedure record type while
@@ -312,12 +312,16 @@ ladder__rung12_fill_param_first_element	chunk:02	feat:write	array for for_with_a
 program_function_procedure_replace_2	core	core	for function goto label nested_proc procedure repeat while with
 ladder__rung13_ptr_with_over_element	core	core	array for for_with_array pointer record set_literal subrange type with with_record
 ladder__rung15_layout_new_ptr_to_nested	core	core	array dispose for for_with_array new pointer pointer_with_new set_literal subrange type
+ladder__rung15_layout_arr_of_ptr_two_index	chunk:02	feat:new	array for for_with_array new pointer pointer_with_new record set_literal subrange type
 program_procedure_record_replace_1	core	core	case new nil pointer pointer_with_new procedure record type with with_record
 program_procedure_record_replace_2	core	core	case new nil pointer pointer_with_new procedure record type with with_record
 program_procedure_array_3	core	core	array for for_with_array goto label packed procedure set_literal subrange type
 benchmark_intmm	core	core	array const div for for_with_array mod readln repeat set_literal subrange
 program_procedure_array_replace_1	core	core	array for for_with_array forward in nested_proc procedure type with write
 program_procedure_array_replace_6	core	core	array for for_with_array forward in nested_proc procedure type with write
+ladder__rung15_layout_arr_of_ptr_varparam	core	core	array for for_with_array new pointer pointer_with_new procedure record set_literal subrange type
+ladder__rung15_layout_arr_of_ptr_alias_varparam	core	core	array for for_with_array new pointer pointer_with_new procedure record set_literal subrange type
+ladder__rung15_layout_arr_of_ptr_valueparam	core	core	array for for_with_array function new pointer pointer_with_new record set_literal subrange type
 program_record_packed_replace_1	core	core	case new nil ord packed pointer pointer_with_new record type with with_record
 benchmark_perm	core	core	array const downto for for_with_array nested_proc procedure readln repeat set_literal subrange
 benchmark_bubble	core	core	array const div for for_with_array mod readln repeat set_literal subrange while
