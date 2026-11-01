@@ -922,7 +922,7 @@ n3_define_α:            mov              rdi, qword ptr [rip + .Ldefine_α_46_0
                         lea              r9, [rip + LBL__FIB]                 # fn
                         call             rt_define_site@PLT
 .Lgcsite_main_5:        mov              r9,  qword ptr [rip + g_rtccb+48]
-                        push             rax                                  # gc_poll bb_define.cpp:160
+                        push             rax                                  # gc_poll bb_define.cpp:161
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -1851,7 +1851,7 @@ main_β:
 #-----------------------------------------------------------------------------------------------------------------------
 main_γ:
                         call             sno_setexit_fire_on_end@PLT
-.Lgcsite_main_35:       push             rax                                  # gc_poll bb_glue_flat.cpp:61
+.Lgcsite_main_35:       push             rax                                  # gc_poll bb_glue_flat.cpp:62
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
