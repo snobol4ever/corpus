@@ -8740,19 +8740,19 @@ n100_define_bind_α:     mov              rdi, qword ptr [rip + .Ldefine_bind_α
                         mov              r8d, 0                               # frame_bytes
                         lea              r9, [rip + LBL__ListValue]           # fn
                         call             rt_define_site@PLT
-.Lgcsite_main_38:       mov              r9,  qword ptr [rip + g_rtccb+48]
-                        push             rax                                  # gc_poll bb_define.cpp:159
+.Lgcsite_main_39:       mov              r9,  qword ptr [rip + g_rtccb+48]
+                        push             rax                                  # gc_poll bb_define_bind.cpp:54
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_37:       mov              r9,  qword ptr [rip + g_rtccb+48]
+.Lgcsite_main_38:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              rdi, qword ptr [rip + .Ldefine_bind_α_852_0]
                         lea              rsi, [rip + ListValue_α]
                         call             bb_ab_seal_alpha@PLT
-.Lgcsite_main_39:       mov              r9,  qword ptr [rip + g_rtccb+48]
+.Lgcsite_main_37:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         .section         .data
                         .align           8
 entry_cell$ListValue:   .quad            LBL__ListValue
@@ -9041,19 +9041,19 @@ n104_define_bind_α:     mov              rdi, qword ptr [rip + .Ldefine_bind_α
                         mov              r8d, 0                               # frame_bytes
                         lea              r9, [rip + LBL__ListName]            # fn
                         call             rt_define_site@PLT
-.Lgcsite_main_42:       mov              r9,  qword ptr [rip + g_rtccb+48]
-                        push             rax                                  # gc_poll bb_define.cpp:159
+.Lgcsite_main_43:       mov              r9,  qword ptr [rip + g_rtccb+48]
+                        push             rax                                  # gc_poll bb_define_bind.cpp:54
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_41:       mov              r9,  qword ptr [rip + g_rtccb+48]
+.Lgcsite_main_42:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              rdi, qword ptr [rip + .Ldefine_bind_α_860_0]
                         lea              rsi, [rip + ListName_α]
                         call             bb_ab_seal_alpha@PLT
-.Lgcsite_main_43:       mov              r9,  qword ptr [rip + g_rtccb+48]
+.Lgcsite_main_41:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         .section         .data
                         .align           8
 entry_cell$ListName:    .quad            LBL__ListName
@@ -9342,19 +9342,19 @@ n108_define_bind_α:     mov              rdi, qword ptr [rip + .Ldefine_bind_α
                         mov              r8d, 0                               # frame_bytes
                         lea              r9, [rip + LBL__ListAppend]          # fn
                         call             rt_define_site@PLT
-.Lgcsite_main_46:       mov              r9,  qword ptr [rip + g_rtccb+48]
-                        push             rax                                  # gc_poll bb_define.cpp:159
+.Lgcsite_main_47:       mov              r9,  qword ptr [rip + g_rtccb+48]
+                        push             rax                                  # gc_poll bb_define_bind.cpp:54
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_45:       mov              r9,  qword ptr [rip + g_rtccb+48]
+.Lgcsite_main_46:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              rdi, qword ptr [rip + .Ldefine_bind_α_868_0]
                         lea              rsi, [rip + ListAppend_α]
                         call             bb_ab_seal_alpha@PLT
-.Lgcsite_main_47:       mov              r9,  qword ptr [rip + g_rtccb+48]
+.Lgcsite_main_45:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         .section         .data
                         .align           8
 entry_cell$ListAppend:  .quad            LBL__ListAppend
@@ -9643,19 +9643,19 @@ n112_define_bind_α:     mov              rdi, qword ptr [rip + .Ldefine_bind_α
                         mov              r8d, 0                               # frame_bytes
                         lea              r9, [rip + LBL__ListPrepend]         # fn
                         call             rt_define_site@PLT
-.Lgcsite_main_50:       mov              r9,  qword ptr [rip + g_rtccb+48]
-                        push             rax                                  # gc_poll bb_define.cpp:159
+.Lgcsite_main_51:       mov              r9,  qword ptr [rip + g_rtccb+48]
+                        push             rax                                  # gc_poll bb_define_bind.cpp:54
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_49:       mov              r9,  qword ptr [rip + g_rtccb+48]
+.Lgcsite_main_50:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              rdi, qword ptr [rip + .Ldefine_bind_α_876_0]
                         lea              rsi, [rip + ListPrepend_α]
                         call             bb_ab_seal_alpha@PLT
-.Lgcsite_main_51:       mov              r9,  qword ptr [rip + g_rtccb+48]
+.Lgcsite_main_49:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         .section         .data
                         .align           8
 entry_cell$ListPrepend: .quad            LBL__ListPrepend
@@ -9944,19 +9944,19 @@ n116_define_bind_α:     mov              rdi, qword ptr [rip + .Ldefine_bind_α
                         mov              r8d, 0                               # frame_bytes
                         lea              r9, [rip + LBL__ListInsert]          # fn
                         call             rt_define_site@PLT
-.Lgcsite_main_54:       mov              r9,  qword ptr [rip + g_rtccb+48]
-                        push             rax                                  # gc_poll bb_define.cpp:159
+.Lgcsite_main_55:       mov              r9,  qword ptr [rip + g_rtccb+48]
+                        push             rax                                  # gc_poll bb_define_bind.cpp:54
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_53:       mov              r9,  qword ptr [rip + g_rtccb+48]
+.Lgcsite_main_54:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              rdi, qword ptr [rip + .Ldefine_bind_α_884_0]
                         lea              rsi, [rip + ListInsert_α]
                         call             bb_ab_seal_alpha@PLT
-.Lgcsite_main_55:       mov              r9,  qword ptr [rip + g_rtccb+48]
+.Lgcsite_main_53:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         .section         .data
                         .align           8
 entry_cell$ListInsert:  .quad            LBL__ListInsert
@@ -10333,19 +10333,19 @@ n120_define_bind_α:     mov              rdi, qword ptr [rip + .Ldefine_bind_α
                         mov              r8d, 0                               # frame_bytes
                         lea              r9, [rip + LBL__ListRemove]          # fn
                         call             rt_define_site@PLT
-.Lgcsite_main_58:       mov              r9,  qword ptr [rip + g_rtccb+48]
-                        push             rax                                  # gc_poll bb_define.cpp:159
+.Lgcsite_main_59:       mov              r9,  qword ptr [rip + g_rtccb+48]
+                        push             rax                                  # gc_poll bb_define_bind.cpp:54
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_57:       mov              r9,  qword ptr [rip + g_rtccb+48]
+.Lgcsite_main_58:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              rdi, qword ptr [rip + .Ldefine_bind_α_892_0]
                         lea              rsi, [rip + ListRemove_α]
                         call             bb_ab_seal_alpha@PLT
-.Lgcsite_main_59:       mov              r9,  qword ptr [rip + g_rtccb+48]
+.Lgcsite_main_57:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         .section         .data
                         .align           8
 entry_cell$ListRemove:  .quad            LBL__ListRemove
@@ -10662,19 +10662,19 @@ n124_define_bind_α:     mov              rdi, qword ptr [rip + .Ldefine_bind_α
                         mov              r8d, 0                               # frame_bytes
                         lea              r9, [rip + LBL__ListPop]             # fn
                         call             rt_define_site@PLT
-.Lgcsite_main_62:       mov              r9,  qword ptr [rip + g_rtccb+48]
-                        push             rax                                  # gc_poll bb_define.cpp:159
+.Lgcsite_main_63:       mov              r9,  qword ptr [rip + g_rtccb+48]
+                        push             rax                                  # gc_poll bb_define_bind.cpp:54
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_61:       mov              r9,  qword ptr [rip + g_rtccb+48]
+.Lgcsite_main_62:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              rdi, qword ptr [rip + .Ldefine_bind_α_900_0]
                         lea              rsi, [rip + ListPop_α]
                         call             bb_ab_seal_alpha@PLT
-.Lgcsite_main_63:       mov              r9,  qword ptr [rip + g_rtccb+48]
+.Lgcsite_main_61:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         .section         .data
                         .align           8
 entry_cell$ListPop:     .quad            LBL__ListPop
@@ -10917,19 +10917,19 @@ n128_define_bind_α:     mov              rdi, qword ptr [rip + .Ldefine_bind_α
                         mov              r8d, 0                               # frame_bytes
                         lea              r9, [rip + LBL__ListSize]            # fn
                         call             rt_define_site@PLT
-.Lgcsite_main_66:       mov              r9,  qword ptr [rip + g_rtccb+48]
-                        push             rax                                  # gc_poll bb_define.cpp:159
+.Lgcsite_main_67:       mov              r9,  qword ptr [rip + g_rtccb+48]
+                        push             rax                                  # gc_poll bb_define_bind.cpp:54
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_65:       mov              r9,  qword ptr [rip + g_rtccb+48]
+.Lgcsite_main_66:       mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              rdi, qword ptr [rip + .Ldefine_bind_α_908_0]
                         lea              rsi, [rip + ListSize_α]
                         call             bb_ab_seal_alpha@PLT
-.Lgcsite_main_67:       mov              r9,  qword ptr [rip + g_rtccb+48]
+.Lgcsite_main_65:       mov              r9,  qword ptr [rip + g_rtccb+48]
                         .section         .data
                         .align           8
 entry_cell$ListSize:    .quad            LBL__ListSize
@@ -19948,19 +19948,19 @@ n522_define_bind_α:     mov              rdi, qword ptr [rip + .Ldefine_bind_α
                         mov              r8d, 0                               # frame_bytes
                         lea              r9, [rip + LBL__Init_list]           # fn
                         call             rt_define_site@PLT
-.Lgcsite_main_447:      mov              r9,  qword ptr [rip + g_rtccb+48]
-                        push             rax                                  # gc_poll bb_define.cpp:159
+.Lgcsite_main_448:      mov              r9,  qword ptr [rip + g_rtccb+48]
+                        push             rax                                  # gc_poll bb_define_bind.cpp:54
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_446:      mov              r9,  qword ptr [rip + g_rtccb+48]
+.Lgcsite_main_447:      mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              rdi, qword ptr [rip + .Ldefine_bind_α_1444_0]
                         lea              rsi, [rip + Init_list_α]
                         call             bb_ab_seal_alpha@PLT
-.Lgcsite_main_448:      mov              r9,  qword ptr [rip + g_rtccb+48]
+.Lgcsite_main_446:      mov              r9,  qword ptr [rip + g_rtccb+48]
                         .section         .data
                         .align           8
 entry_cell$Init_list:   .quad            LBL__Init_list
@@ -20204,19 +20204,19 @@ n526_define_bind_α:     mov              rdi, qword ptr [rip + .Ldefine_bind_α
                         mov              r8d, 0                               # frame_bytes
                         lea              r9, [rip + LBL__init_list]           # fn
                         call             rt_define_site@PLT
-.Lgcsite_main_451:      mov              r9,  qword ptr [rip + g_rtccb+48]
-                        push             rax                                  # gc_poll bb_define.cpp:159
+.Lgcsite_main_452:      mov              r9,  qword ptr [rip + g_rtccb+48]
+                        push             rax                                  # gc_poll bb_define_bind.cpp:54
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_450:      mov              r9,  qword ptr [rip + g_rtccb+48]
+.Lgcsite_main_451:      mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              rdi, qword ptr [rip + .Ldefine_bind_α_1452_0]
                         lea              rsi, [rip + init_list_α]
                         call             bb_ab_seal_alpha@PLT
-.Lgcsite_main_452:      mov              r9,  qword ptr [rip + g_rtccb+48]
+.Lgcsite_main_450:      mov              r9,  qword ptr [rip + g_rtccb+48]
                         .section         .data
                         .align           8
 entry_cell$init_list:   .quad            LBL__init_list
@@ -20460,19 +20460,19 @@ n530_define_bind_α:     mov              rdi, qword ptr [rip + .Ldefine_bind_α
                         mov              r8d, 0                               # frame_bytes
                         lea              r9, [rip + LBL__Push_list]           # fn
                         call             rt_define_site@PLT
-.Lgcsite_main_455:      mov              r9,  qword ptr [rip + g_rtccb+48]
-                        push             rax                                  # gc_poll bb_define.cpp:159
+.Lgcsite_main_456:      mov              r9,  qword ptr [rip + g_rtccb+48]
+                        push             rax                                  # gc_poll bb_define_bind.cpp:54
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_454:      mov              r9,  qword ptr [rip + g_rtccb+48]
+.Lgcsite_main_455:      mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              rdi, qword ptr [rip + .Ldefine_bind_α_1460_0]
                         lea              rsi, [rip + Push_list_α]
                         call             bb_ab_seal_alpha@PLT
-.Lgcsite_main_456:      mov              r9,  qword ptr [rip + g_rtccb+48]
+.Lgcsite_main_454:      mov              r9,  qword ptr [rip + g_rtccb+48]
                         .section         .data
                         .align           8
 entry_cell$Push_list:   .quad            LBL__Push_list
@@ -20716,19 +20716,19 @@ n534_define_bind_α:     mov              rdi, qword ptr [rip + .Ldefine_bind_α
                         mov              r8d, 0                               # frame_bytes
                         lea              r9, [rip + LBL__push_list]           # fn
                         call             rt_define_site@PLT
-.Lgcsite_main_459:      mov              r9,  qword ptr [rip + g_rtccb+48]
-                        push             rax                                  # gc_poll bb_define.cpp:159
+.Lgcsite_main_460:      mov              r9,  qword ptr [rip + g_rtccb+48]
+                        push             rax                                  # gc_poll bb_define_bind.cpp:54
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_458:      mov              r9,  qword ptr [rip + g_rtccb+48]
+.Lgcsite_main_459:      mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              rdi, qword ptr [rip + .Ldefine_bind_α_1468_0]
                         lea              rsi, [rip + push_list_α]
                         call             bb_ab_seal_alpha@PLT
-.Lgcsite_main_460:      mov              r9,  qword ptr [rip + g_rtccb+48]
+.Lgcsite_main_458:      mov              r9,  qword ptr [rip + g_rtccb+48]
                         .section         .data
                         .align           8
 entry_cell$push_list:   .quad            LBL__push_list
@@ -20972,19 +20972,19 @@ n538_define_bind_α:     mov              rdi, qword ptr [rip + .Ldefine_bind_α
                         mov              r8d, 0                               # frame_bytes
                         lea              r9, [rip + LBL__Push_item]           # fn
                         call             rt_define_site@PLT
-.Lgcsite_main_463:      mov              r9,  qword ptr [rip + g_rtccb+48]
-                        push             rax                                  # gc_poll bb_define.cpp:159
+.Lgcsite_main_464:      mov              r9,  qword ptr [rip + g_rtccb+48]
+                        push             rax                                  # gc_poll bb_define_bind.cpp:54
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_462:      mov              r9,  qword ptr [rip + g_rtccb+48]
+.Lgcsite_main_463:      mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              rdi, qword ptr [rip + .Ldefine_bind_α_1476_0]
                         lea              rsi, [rip + Push_item_α]
                         call             bb_ab_seal_alpha@PLT
-.Lgcsite_main_464:      mov              r9,  qword ptr [rip + g_rtccb+48]
+.Lgcsite_main_462:      mov              r9,  qword ptr [rip + g_rtccb+48]
                         .section         .data
                         .align           8
 entry_cell$Push_item:   .quad            LBL__Push_item
@@ -21228,19 +21228,19 @@ n542_define_bind_α:     mov              rdi, qword ptr [rip + .Ldefine_bind_α
                         mov              r8d, 0                               # frame_bytes
                         lea              r9, [rip + LBL__push_item]           # fn
                         call             rt_define_site@PLT
-.Lgcsite_main_467:      mov              r9,  qword ptr [rip + g_rtccb+48]
-                        push             rax                                  # gc_poll bb_define.cpp:159
+.Lgcsite_main_468:      mov              r9,  qword ptr [rip + g_rtccb+48]
+                        push             rax                                  # gc_poll bb_define_bind.cpp:54
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_466:      mov              r9,  qword ptr [rip + g_rtccb+48]
+.Lgcsite_main_467:      mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              rdi, qword ptr [rip + .Ldefine_bind_α_1484_0]
                         lea              rsi, [rip + push_item_α]
                         call             bb_ab_seal_alpha@PLT
-.Lgcsite_main_468:      mov              r9,  qword ptr [rip + g_rtccb+48]
+.Lgcsite_main_466:      mov              r9,  qword ptr [rip + g_rtccb+48]
                         .section         .data
                         .align           8
 entry_cell$push_item:   .quad            LBL__push_item
@@ -21484,19 +21484,19 @@ n546_define_bind_α:     mov              rdi, qword ptr [rip + .Ldefine_bind_α
                         mov              r8d, 0                               # frame_bytes
                         lea              r9, [rip + LBL__Pop_list]            # fn
                         call             rt_define_site@PLT
-.Lgcsite_main_471:      mov              r9,  qword ptr [rip + g_rtccb+48]
-                        push             rax                                  # gc_poll bb_define.cpp:159
+.Lgcsite_main_472:      mov              r9,  qword ptr [rip + g_rtccb+48]
+                        push             rax                                  # gc_poll bb_define_bind.cpp:54
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_470:      mov              r9,  qword ptr [rip + g_rtccb+48]
+.Lgcsite_main_471:      mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              rdi, qword ptr [rip + .Ldefine_bind_α_1492_0]
                         lea              rsi, [rip + Pop_list_α]
                         call             bb_ab_seal_alpha@PLT
-.Lgcsite_main_472:      mov              r9,  qword ptr [rip + g_rtccb+48]
+.Lgcsite_main_470:      mov              r9,  qword ptr [rip + g_rtccb+48]
                         .section         .data
                         .align           8
 entry_cell$Pop_list:    .quad            LBL__Pop_list
@@ -21691,19 +21691,19 @@ n550_define_bind_α:     mov              rdi, qword ptr [rip + .Ldefine_bind_α
                         mov              r8d, 0                               # frame_bytes
                         lea              r9, [rip + LBL__pop_list]            # fn
                         call             rt_define_site@PLT
-.Lgcsite_main_475:      mov              r9,  qword ptr [rip + g_rtccb+48]
-                        push             rax                                  # gc_poll bb_define.cpp:159
+.Lgcsite_main_476:      mov              r9,  qword ptr [rip + g_rtccb+48]
+                        push             rax                                  # gc_poll bb_define_bind.cpp:54
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_474:      mov              r9,  qword ptr [rip + g_rtccb+48]
+.Lgcsite_main_475:      mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              rdi, qword ptr [rip + .Ldefine_bind_α_1500_0]
                         lea              rsi, [rip + pop_list_α]
                         call             bb_ab_seal_alpha@PLT
-.Lgcsite_main_476:      mov              r9,  qword ptr [rip + g_rtccb+48]
+.Lgcsite_main_474:      mov              r9,  qword ptr [rip + g_rtccb+48]
                         .section         .data
                         .align           8
 entry_cell$pop_list:    .quad            LBL__pop_list
@@ -21898,19 +21898,19 @@ n554_define_bind_α:     mov              rdi, qword ptr [rip + .Ldefine_bind_α
                         mov              r8d, 0                               # frame_bytes
                         lea              r9, [rip + LBL__Pop_final]           # fn
                         call             rt_define_site@PLT
-.Lgcsite_main_479:      mov              r9,  qword ptr [rip + g_rtccb+48]
-                        push             rax                                  # gc_poll bb_define.cpp:159
+.Lgcsite_main_480:      mov              r9,  qword ptr [rip + g_rtccb+48]
+                        push             rax                                  # gc_poll bb_define_bind.cpp:54
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_478:      mov              r9,  qword ptr [rip + g_rtccb+48]
+.Lgcsite_main_479:      mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              rdi, qword ptr [rip + .Ldefine_bind_α_1508_0]
                         lea              rsi, [rip + Pop_final_α]
                         call             bb_ab_seal_alpha@PLT
-.Lgcsite_main_480:      mov              r9,  qword ptr [rip + g_rtccb+48]
+.Lgcsite_main_478:      mov              r9,  qword ptr [rip + g_rtccb+48]
                         .section         .data
                         .align           8
 entry_cell$Pop_final:   .quad            LBL__Pop_final
@@ -22154,19 +22154,19 @@ n558_define_bind_α:     mov              rdi, qword ptr [rip + .Ldefine_bind_α
                         mov              r8d, 0                               # frame_bytes
                         lea              r9, [rip + LBL__pop_final]           # fn
                         call             rt_define_site@PLT
-.Lgcsite_main_483:      mov              r9,  qword ptr [rip + g_rtccb+48]
-                        push             rax                                  # gc_poll bb_define.cpp:159
+.Lgcsite_main_484:      mov              r9,  qword ptr [rip + g_rtccb+48]
+                        push             rax                                  # gc_poll bb_define_bind.cpp:54
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
                         pop              rax
                                                                               je 1f
                         call             rt_gc_poll_asm@PLT
-.Lgcsite_main_482:      mov              r9,  qword ptr [rip + g_rtccb+48]
+.Lgcsite_main_483:      mov              r9,  qword ptr [rip + g_rtccb+48]
 1:                      mov              rdi, qword ptr [rip + .Ldefine_bind_α_1516_0]
                         lea              rsi, [rip + pop_final_α]
                         call             bb_ab_seal_alpha@PLT
-.Lgcsite_main_484:      mov              r9,  qword ptr [rip + g_rtccb+48]
+.Lgcsite_main_482:      mov              r9,  qword ptr [rip + g_rtccb+48]
                         .section         .data
                         .align           8
 entry_cell$pop_final:   .quad            LBL__pop_final
@@ -33299,17 +33299,20 @@ main_ω:
                         .quad            .Lgcsite_main_36-.Lgccode_main_5
                         .quad            1236950581249
                         .quad            17179869184
+                        .quad            .Lgcsite_main_39-.Lgccode_main_5
+                        .quad            1
+                        .quad            0
                         .quad            .Lgcsite_main_38-.Lgccode_main_5
                         .quad            1
                         .quad            0
                         .quad            .Lgcsite_main_37-.Lgccode_main_5
                         .quad            1
                         .quad            0
-                        .quad            .Lgcsite_main_39-.Lgccode_main_5
-                        .quad            1
-                        .quad            0
                         .quad            .Lgcsite_main_40-.Lgccode_main_5
                         .quad            22518204295741446
+                        .quad            0
+                        .quad            .Lgcsite_main_43-.Lgccode_main_5
+                        .quad            1
                         .quad            0
                         .quad            .Lgcsite_main_42-.Lgccode_main_5
                         .quad            1
@@ -33317,11 +33320,11 @@ main_ω:
                         .quad            .Lgcsite_main_41-.Lgccode_main_5
                         .quad            1
                         .quad            0
-                        .quad            .Lgcsite_main_43-.Lgccode_main_5
-                        .quad            1
-                        .quad            0
                         .quad            .Lgcsite_main_44-.Lgccode_main_5
                         .quad            22518204295741446
+                        .quad            0
+                        .quad            .Lgcsite_main_47-.Lgccode_main_5
+                        .quad            1
                         .quad            0
                         .quad            .Lgcsite_main_46-.Lgccode_main_5
                         .quad            1
@@ -33329,11 +33332,11 @@ main_ω:
                         .quad            .Lgcsite_main_45-.Lgccode_main_5
                         .quad            1
                         .quad            0
-                        .quad            .Lgcsite_main_47-.Lgccode_main_5
-                        .quad            1
-                        .quad            0
                         .quad            .Lgcsite_main_48-.Lgccode_main_5
                         .quad            22518204295741446
+                        .quad            0
+                        .quad            .Lgcsite_main_51-.Lgccode_main_5
+                        .quad            1
                         .quad            0
                         .quad            .Lgcsite_main_50-.Lgccode_main_5
                         .quad            1
@@ -33341,11 +33344,11 @@ main_ω:
                         .quad            .Lgcsite_main_49-.Lgccode_main_5
                         .quad            1
                         .quad            0
-                        .quad            .Lgcsite_main_51-.Lgccode_main_5
-                        .quad            1
-                        .quad            0
                         .quad            .Lgcsite_main_52-.Lgccode_main_5
                         .quad            22518204295741446
+                        .quad            0
+                        .quad            .Lgcsite_main_55-.Lgccode_main_5
+                        .quad            1
                         .quad            0
                         .quad            .Lgcsite_main_54-.Lgccode_main_5
                         .quad            1
@@ -33353,11 +33356,11 @@ main_ω:
                         .quad            .Lgcsite_main_53-.Lgccode_main_5
                         .quad            1
                         .quad            0
-                        .quad            .Lgcsite_main_55-.Lgccode_main_5
-                        .quad            1
-                        .quad            0
                         .quad            .Lgcsite_main_56-.Lgccode_main_5
                         .quad            40532808963653638
+                        .quad            0
+                        .quad            .Lgcsite_main_59-.Lgccode_main_5
+                        .quad            1
                         .quad            0
                         .quad            .Lgcsite_main_58-.Lgccode_main_5
                         .quad            1
@@ -33365,11 +33368,11 @@ main_ω:
                         .quad            .Lgcsite_main_57-.Lgccode_main_5
                         .quad            1
                         .quad            0
-                        .quad            .Lgcsite_main_59-.Lgccode_main_5
-                        .quad            1
-                        .quad            0
                         .quad            .Lgcsite_main_60-.Lgccode_main_5
                         .quad            31525540989435910
+                        .quad            0
+                        .quad            .Lgcsite_main_63-.Lgccode_main_5
+                        .quad            1
                         .quad            0
                         .quad            .Lgcsite_main_62-.Lgccode_main_5
                         .quad            1
@@ -33377,19 +33380,16 @@ main_ω:
                         .quad            .Lgcsite_main_61-.Lgccode_main_5
                         .quad            1
                         .quad            0
-                        .quad            .Lgcsite_main_63-.Lgccode_main_5
-                        .quad            1
-                        .quad            0
                         .quad            .Lgcsite_main_64-.Lgccode_main_5
                         .quad            18014604668370950
+                        .quad            0
+                        .quad            .Lgcsite_main_67-.Lgccode_main_5
+                        .quad            1
                         .quad            0
                         .quad            .Lgcsite_main_66-.Lgccode_main_5
                         .quad            1
                         .quad            0
                         .quad            .Lgcsite_main_65-.Lgccode_main_5
-                        .quad            1
-                        .quad            0
-                        .quad            .Lgcsite_main_67-.Lgccode_main_5
                         .quad            1
                         .quad            0
                         .quad            .Lgcsite_main_68-.Lgccode_main_5
@@ -34526,17 +34526,20 @@ main_ω:
                         .quad            .Lgcsite_main_444-.Lgccode_main_5
                         .quad            206158430209
                         .quad            0
+                        .quad            .Lgcsite_main_448-.Lgccode_main_5
+                        .quad            1
+                        .quad            0
                         .quad            .Lgcsite_main_447-.Lgccode_main_5
                         .quad            1
                         .quad            0
                         .quad            .Lgcsite_main_446-.Lgccode_main_5
                         .quad            1
                         .quad            0
-                        .quad            .Lgcsite_main_448-.Lgccode_main_5
-                        .quad            1
-                        .quad            0
                         .quad            .Lgcsite_main_449-.Lgccode_main_5
                         .quad            18014604668370950
+                        .quad            0
+                        .quad            .Lgcsite_main_452-.Lgccode_main_5
+                        .quad            1
                         .quad            0
                         .quad            .Lgcsite_main_451-.Lgccode_main_5
                         .quad            1
@@ -34544,11 +34547,11 @@ main_ω:
                         .quad            .Lgcsite_main_450-.Lgccode_main_5
                         .quad            1
                         .quad            0
-                        .quad            .Lgcsite_main_452-.Lgccode_main_5
-                        .quad            1
-                        .quad            0
                         .quad            .Lgcsite_main_453-.Lgccode_main_5
                         .quad            18014604668370950
+                        .quad            0
+                        .quad            .Lgcsite_main_456-.Lgccode_main_5
+                        .quad            1
                         .quad            0
                         .quad            .Lgcsite_main_455-.Lgccode_main_5
                         .quad            1
@@ -34556,11 +34559,11 @@ main_ω:
                         .quad            .Lgcsite_main_454-.Lgccode_main_5
                         .quad            1
                         .quad            0
-                        .quad            .Lgcsite_main_456-.Lgccode_main_5
-                        .quad            1
-                        .quad            0
                         .quad            .Lgcsite_main_457-.Lgccode_main_5
                         .quad            18014604668370950
+                        .quad            0
+                        .quad            .Lgcsite_main_460-.Lgccode_main_5
+                        .quad            1
                         .quad            0
                         .quad            .Lgcsite_main_459-.Lgccode_main_5
                         .quad            1
@@ -34568,11 +34571,11 @@ main_ω:
                         .quad            .Lgcsite_main_458-.Lgccode_main_5
                         .quad            1
                         .quad            0
-                        .quad            .Lgcsite_main_460-.Lgccode_main_5
-                        .quad            1
-                        .quad            0
                         .quad            .Lgcsite_main_461-.Lgccode_main_5
                         .quad            18014604668370950
+                        .quad            0
+                        .quad            .Lgcsite_main_464-.Lgccode_main_5
+                        .quad            1
                         .quad            0
                         .quad            .Lgcsite_main_463-.Lgccode_main_5
                         .quad            1
@@ -34580,11 +34583,11 @@ main_ω:
                         .quad            .Lgcsite_main_462-.Lgccode_main_5
                         .quad            1
                         .quad            0
-                        .quad            .Lgcsite_main_464-.Lgccode_main_5
-                        .quad            1
-                        .quad            0
                         .quad            .Lgcsite_main_465-.Lgccode_main_5
                         .quad            18014604668370950
+                        .quad            0
+                        .quad            .Lgcsite_main_468-.Lgccode_main_5
+                        .quad            1
                         .quad            0
                         .quad            .Lgcsite_main_467-.Lgccode_main_5
                         .quad            1
@@ -34592,11 +34595,11 @@ main_ω:
                         .quad            .Lgcsite_main_466-.Lgccode_main_5
                         .quad            1
                         .quad            0
-                        .quad            .Lgcsite_main_468-.Lgccode_main_5
-                        .quad            1
-                        .quad            0
                         .quad            .Lgcsite_main_469-.Lgccode_main_5
                         .quad            18014604668370950
+                        .quad            0
+                        .quad            .Lgcsite_main_472-.Lgccode_main_5
+                        .quad            1
                         .quad            0
                         .quad            .Lgcsite_main_471-.Lgccode_main_5
                         .quad            1
@@ -34604,11 +34607,11 @@ main_ω:
                         .quad            .Lgcsite_main_470-.Lgccode_main_5
                         .quad            1
                         .quad            0
-                        .quad            .Lgcsite_main_472-.Lgccode_main_5
-                        .quad            1
-                        .quad            0
                         .quad            .Lgcsite_main_473-.Lgccode_main_5
                         .quad            13511005041000454
+                        .quad            0
+                        .quad            .Lgcsite_main_476-.Lgccode_main_5
+                        .quad            1
                         .quad            0
                         .quad            .Lgcsite_main_475-.Lgccode_main_5
                         .quad            1
@@ -34616,11 +34619,11 @@ main_ω:
                         .quad            .Lgcsite_main_474-.Lgccode_main_5
                         .quad            1
                         .quad            0
-                        .quad            .Lgcsite_main_476-.Lgccode_main_5
-                        .quad            1
-                        .quad            0
                         .quad            .Lgcsite_main_477-.Lgccode_main_5
                         .quad            13511005041000454
+                        .quad            0
+                        .quad            .Lgcsite_main_480-.Lgccode_main_5
+                        .quad            1
                         .quad            0
                         .quad            .Lgcsite_main_479-.Lgccode_main_5
                         .quad            1
@@ -34628,19 +34631,16 @@ main_ω:
                         .quad            .Lgcsite_main_478-.Lgccode_main_5
                         .quad            1
                         .quad            0
-                        .quad            .Lgcsite_main_480-.Lgccode_main_5
-                        .quad            1
-                        .quad            0
                         .quad            .Lgcsite_main_481-.Lgccode_main_5
                         .quad            18014604668370950
+                        .quad            0
+                        .quad            .Lgcsite_main_484-.Lgccode_main_5
+                        .quad            1
                         .quad            0
                         .quad            .Lgcsite_main_483-.Lgccode_main_5
                         .quad            1
                         .quad            0
                         .quad            .Lgcsite_main_482-.Lgccode_main_5
-                        .quad            1
-                        .quad            0
-                        .quad            .Lgcsite_main_484-.Lgccode_main_5
                         .quad            1
                         .quad            0
                         .quad            .Lgcsite_main_485-.Lgccode_main_5
