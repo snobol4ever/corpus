@@ -9,26 +9,26 @@
 ## as of the day of creation of this test. 
 
 procedure main()
-   clss := stringmethod() 
-   out := &output
+   clss := stringmethod(); 
+   out := &output;
    while s := read() do {
-      s ?? ``return_a()`` || Arb() -> out || ``return_a()``
+      s ?? ``return_a()`` || Arb() -> out || ``return_a()``;
       s ?? ``clss.return_t()`` || Arb() -> out || ``clss.return_mm()``
-      }
+      };
 end
 
 procedure return_a()
-    return "a"
+    return "a";
 end
 
 class stringmethod()
 
 method return_t()
-    return "t"
+    return "t";
 end
 
 method return_mm()
-    return "mm"
+    return "mm";
 end
 
 initially()

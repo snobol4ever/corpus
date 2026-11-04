@@ -53,7 +53,7 @@ procedure main()
     if (x := load("a")) then write("loaded ", image(x))
     else stop("couldn't load(a)");
 
-    write("running a")
+    write("running a");
     @x;
     write("returned to parent, goodbye.");
     remove("a.icn");

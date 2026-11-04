@@ -79,8 +79,8 @@ procedure init()                #: set up globals
    write();
    # make and validate a string of 63 distinct unordered characters
    # (63 so that the six top bits of the length are set)
-   base := "1SPHINX0FBL4CKQUARTZ8JDGEMYVOW$7packmy3boxwth5five6dzn2lqrjugs9"
-   *base = 63 | stop("wrong base length")
+   base := "1SPHINX0FBL4CKQUARTZ8JDGEMYVOW$7packmy3boxwth5five6dzn2lqrjugs9";
+   *base = 63 | stop("wrong base length");
    *cset(base) = 63 | stop("base contains duplicates");
    # initialize the growing string
    mega := base;

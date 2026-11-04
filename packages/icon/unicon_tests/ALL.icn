@@ -13,7 +13,7 @@ procedure main()
            write("S source is NOT correct: ",
                  image(&source), " ~== ", image(B));
 
-       write("\nS=>B")
+       write("\nS=>B");
        @B;
 
        if image(&source) == image(A) then
@@ -35,7 +35,7 @@ procedure main()
            write("B source is NOT correct: ",
                  image(&source), " ~== ", image(A));
 
-       write("\nB=>S")
+       write("\nB=>S");
        @S;
         if image(&source) == image(S) then
            write("B source is correct: ",
@@ -44,7 +44,7 @@ procedure main()
            write("B source is NOT correct: ",
                  image(&source), " ~== ", image(S));
 
-       write("\nB=>A")
+       write("\nB=>A");
        @A;
 
        if image(&source) == image(&main) then
@@ -67,7 +67,7 @@ procedure main()
            write("A source is NOT correct: ",
                  image(&source), " ~== ", image(&main));
 
-       write("\nA=>B")
+       write("\nA=>B");
        @B;
        if image(&source) == image(B) then
            write("A source is correct: ",
@@ -77,10 +77,10 @@ procedure main()
                  image(&source), " ~== ", image(B));
 
 
-       write("\nA=>S")
+       write("\nA=>S");
        @S;
 
-       write("\nA=>main")
+       write("\nA=>main");
        @&main;
        write("A is done")
    };
@@ -90,7 +90,7 @@ procedure main()
    write("B   :", image(B));
    write("A   :", image(A));
 
-   write("\nmain=>A")
+   write("\nmain=>A");
    @A;
 
    if image(&source) == image(A) then
@@ -100,7 +100,7 @@ procedure main()
        write("&main source is NOT correct: ",
              image(&source), " ~== ", image(A));
 
-   write("\nmain=>B")
+   write("\nmain=>B");
    @B;
 end
 #-------------------------------------------------------------- 2 coexpr/cobench
@@ -267,9 +267,9 @@ end
    write("Interference Coexprs...");
    a := create (A());
    b := create B();
-   c := create C()
+   c := create C();
    @a;
-   dowork(m, d, x)
+   dowork(m, d, x);
    @c;
    if \dbg then {
       every @1(!thrdL,writes(&errout,"."));
@@ -297,7 +297,7 @@ end
       write(n , " coexpr(s) will sum ", x, " ones.");
       write("The work will be divided equally between them. Please wait... ")
       };
-   every i:=!n do put(thrd, create suma(d, i))
+   every i:=!n do put(thrd, create suma(d, i));
    @^b;
    every @(!thrd); # do writes(&errout,".")
  end
@@ -337,7 +337,7 @@ end
  end
 
  procedure B()
-   /x:=[]
+   /x:=[];
    /str := "";
    every i := 1 to 10000 do {
       if i%100 = 1 then{ L := []; str := "B" };
@@ -416,9 +416,9 @@ procedure main(argv)
    write("Interference Coexprs...");
    a := create (A());
    b := create B();
-   c := create C()
+   c := create C();
    @a;
-   dowork(m, d, x)
+   dowork(m, d, x);
    @c;
   every @(!thrdL);
 
@@ -440,7 +440,7 @@ procedure dowork(n, d, x)
       write(n , " coexpr(s) will sum ", x, " ones.");
       write("The work will be divided equally between them. Please wait... ")
       };
-   every i:=!n do put(thrd, create suma(d, i))
+   every i:=!n do put(thrd, create suma(d, i));
    @^b;
    every @(!thrd);
 end
@@ -483,7 +483,7 @@ procedure A()
 end
 
 procedure B()
-   /x:=[]
+   /x:=[];
    /str := "";
    every i:=1 to 1000 do {
       if i%100=1 then{ L:=[]; str:="B" };
@@ -1680,7 +1680,7 @@ procedure collate(s1,s2)
     half := 4;
     ltemp := left(&cset,*&cset/2);
     rtemp := right(&cset,*&cset/2)
-    }
+    };
 
     /clabels := collate(ltemp,rtemp) & {
        llabels := ltemp;
@@ -3560,8 +3560,8 @@ procedure init()                #: set up globals
    write();
    # make and validate a string of 63 distinct unordered characters
    # (63 so that the six top bits of the length are set)
-   base := "1SPHINX0FBL4CKQUARTZ8JDGEMYVOW$7packmy3boxwth5five6dzn2lqrjugs9"
-   *base = 63 | stop("wrong base length")
+   base := "1SPHINX0FBL4CKQUARTZ8JDGEMYVOW$7packmy3boxwth5five6dzn2lqrjugs9";
+   *base = 63 | stop("wrong base length");
    *cset(base) = 63 | stop("base contains duplicates");
    # initialize the growing string
    mega := base;
@@ -3802,7 +3802,7 @@ local p,q,a,cs;
          every a := !D.S do
             if D.d[p||":"||a] ~== D.d[q||":"||a] then {
                cs := cset(D.d[p||":"||a]||D.d[q||":"||a]);
-               if cs == cset(p||q) then next
+               if cs == cset(p||q) then next;
                /dlists[cs] := [];
                put(dlists[cs],cset(p||q))
                };
@@ -4500,7 +4500,7 @@ procedure Lifo(a)
       repeat
          if x[ptr] := @a[ptr]
          then {
-            ptr +:= 1
+            ptr +:= 1;
             (a[ptr] := ^a[ptr]) |
             break
             }
@@ -4529,7 +4529,7 @@ procedure Reverse(a)
       repeat
          if x[ptr] := @a[ptr]
          then {
-            ptr -:= 1
+            ptr -:= 1;
             (a[ptr] := ^a[ptr]) |
             break
             }
@@ -5604,7 +5604,7 @@ procedure main()
 
    words := create word();
    lines := create reader();
-   writer := create output()
+   writer := create output();
    @writer;
 end
 
@@ -5621,7 +5621,7 @@ procedure reader()
 end
 
 procedure output()
-   while write(&errout,@words)
+   while write(&errout,@words);
    @&main;
 end
 #--------------------------------------------------------------- 51 general/utf8
@@ -11786,7 +11786,7 @@ procedure main()
 
    write(" keyword(): ",keyword("level", x));
 
-   write("running level_tp")
+   write("running level_tp");
    @x;
    write("returned to parent.");
    write(" keword(): ",keyword("level", x));
@@ -11815,7 +11815,7 @@ procedure main()
    foo(2);
 
    write("\n-- in main: Trying &level from a coexpression");
-   CO := create comain(2)
+   CO := create comain(2);
    @CO;
 
    foo2(2);
@@ -11835,7 +11835,7 @@ procedure foo2(lvl)
          if &level=lvl then " (CORRECT!)" else " (WRONG!)");
 
    write("\n-- in foo2: Now trying &level from a coexpression");
-   CO := create comain(lvl+1)
+   CO := create comain(lvl+1);
    @CO;
 
 end
@@ -11909,7 +11909,7 @@ procedure main()
     if (x := load("a")) then write("loaded ", image(x))
     else stop("couldn't load(a)");
 
-    write("running a")
+    write("running a");
     @x;
     write("returned to parent, goodbye.");
     remove("a.icn");
@@ -11973,7 +11973,7 @@ procedure main()
     if (x := load("a")) then write("loaded ", image(x))
     else stop("couldn't load(a)");
 
-    write("running a")
+    write("running a");
     @x;
     write("returned to parent, goodbye.");
     remove("a.icn");
@@ -12283,26 +12283,26 @@ end
 ## as of the day of creation of this test. 
 
 procedure main()
-   clss := stringmethod() 
-   out := &output
+   clss := stringmethod(); 
+   out := &output;
    while s := read() do {
-      s ?? ``return_a()`` || Arb() -> out || ``return_a()``
+      s ?? ``return_a()`` || Arb() -> out || ``return_a()``;
       s ?? ``clss.return_t()`` || Arb() -> out || ``clss.return_mm()``
-      }
+      };
 end
 
 procedure return_a()
-    return "a"
+    return "a";
 end
 
 class stringmethod()
 
 method return_t()
-    return "t"
+    return "t";
 end
 
 method return_mm()
-    return "mm"
+    return "mm";
 end
 
 initially()
@@ -12804,7 +12804,7 @@ procedure main()
    out := &output;
 
    sawtooth := Succeed() || ( Len(1) || Arb() ) => out ||
-      `curtail()` || Fail()
+      `curtail()` || Fail();
    (s := read()) ?? sawtooth;
 end
 
@@ -14025,7 +14025,7 @@ procedure main()
    every i := 1 to 3 do {
       L := select(f, 1000) |
          stop("select(file) #", i, " failed: ", image(&errornumber),
-              " ", &errortext)
+              " ", &errortext);
       (*L > 0) | stop("select(file) #", i, " returned empty");
       data := reads(f, 2) | stop("reads(file) #", i, " failed");
       write("file-chunk-", i, ": ", image(data))
@@ -14494,7 +14494,7 @@ procedure main()
       close(f);
       delay(10);
       exit(0)
-   }
+   };
    (&errno = 0) | stop("Couldn't accept: ", &errortext | "Unknown");
 end
 

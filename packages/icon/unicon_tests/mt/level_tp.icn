@@ -6,7 +6,7 @@ procedure main()
    foo(2);
 
    write("\n-- in main: Trying &level from a coexpression");
-   CO := create comain(2)
+   CO := create comain(2);
    @CO;
 
    foo2(2);
@@ -26,7 +26,7 @@ procedure foo2(lvl)
          if &level=lvl then " (CORRECT!)" else " (WRONG!)");
 
    write("\n-- in foo2: Now trying &level from a coexpression");
-   CO := create comain(lvl+1)
+   CO := create comain(lvl+1);
    @CO;
 
 end

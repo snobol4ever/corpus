@@ -102,7 +102,7 @@ local p,q,a,cs;
          every a := !D.S do
             if D.d[p||":"||a] ~== D.d[q||":"||a] then {
                cs := cset(D.d[p||":"||a]||D.d[q||":"||a]);
-               if cs == cset(p||q) then next
+               if cs == cset(p||q) then next;
                /dlists[cs] := [];
                put(dlists[cs],cset(p||q))
                };

@@ -19,7 +19,7 @@ procedure collate(s1,s2)
     half := 4;
     ltemp := left(&cset,*&cset/2);
     rtemp := right(&cset,*&cset/2)
-    }
+    };
 
     /clabels := collate(ltemp,rtemp) & {
        llabels := ltemp;

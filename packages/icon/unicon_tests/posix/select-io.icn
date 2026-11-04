@@ -38,7 +38,7 @@ procedure main()
    every i := 1 to 3 do {
       L := select(f, 1000) |
          stop("select(file) #", i, " failed: ", image(&errornumber),
-              " ", &errortext)
+              " ", &errortext);
       (*L > 0) | stop("select(file) #", i, " returned empty");
       data := reads(f, 2) | stop("reads(file) #", i, " failed");
       write("file-chunk-", i, ": ", image(data))

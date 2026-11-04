@@ -12,7 +12,7 @@ procedure main()
            write("S source is NOT correct: ",
                  image(&source), " ~== ", image(B));
 
-       write("\nS=>B")
+       write("\nS=>B");
        @B;
 
        if image(&source) == image(A) then
@@ -34,7 +34,7 @@ procedure main()
            write("B source is NOT correct: ",
                  image(&source), " ~== ", image(A));
 
-       write("\nB=>S")
+       write("\nB=>S");
        @S;
         if image(&source) == image(S) then
            write("B source is correct: ",
@@ -43,7 +43,7 @@ procedure main()
            write("B source is NOT correct: ",
                  image(&source), " ~== ", image(S));
 
-       write("\nB=>A")
+       write("\nB=>A");
        @A;
 
        if image(&source) == image(&main) then
@@ -66,7 +66,7 @@ procedure main()
            write("A source is NOT correct: ",
                  image(&source), " ~== ", image(&main));
 
-       write("\nA=>B")
+       write("\nA=>B");
        @B;
        if image(&source) == image(B) then
            write("A source is correct: ",
@@ -76,10 +76,10 @@ procedure main()
                  image(&source), " ~== ", image(B));
 
 
-       write("\nA=>S")
+       write("\nA=>S");
        @S;
 
-       write("\nA=>main")
+       write("\nA=>main");
        @&main;
        write("A is done")
    };
@@ -89,7 +89,7 @@ procedure main()
    write("B   :", image(B));
    write("A   :", image(A));
 
-   write("\nmain=>A")
+   write("\nmain=>A");
    @A;
 
    if image(&source) == image(A) then
@@ -99,6 +99,6 @@ procedure main()
        write("&main source is NOT correct: ",
              image(&source), " ~== ", image(A));
 
-   write("\nmain=>B")
+   write("\nmain=>B");
    @B;
 end

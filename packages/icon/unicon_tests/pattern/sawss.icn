@@ -8,7 +8,7 @@ procedure main()
    out := &output;
 
    sawtooth := Succeed() || ( Len(1) || Arb() ) => out ||
-      `curtail()` || Fail()
+      `curtail()` || Fail();
    (s := read()) ?? sawtooth;
 end
 

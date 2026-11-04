@@ -7,7 +7,7 @@ procedure main()
 
    words := create word();
    lines := create reader();
-   writer := create output()
+   writer := create output();
    @writer;
 end
 
@@ -24,6 +24,6 @@ procedure reader()
 end
 
 procedure output()
-   while write(&errout,@words)
+   while write(&errout,@words);
    @&main;
 end

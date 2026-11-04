@@ -22,7 +22,7 @@ procedure main()
       close(f);
       delay(10);
       exit(0)
-   }
+   };
    (&errno = 0) | stop("Couldn't accept: ", &errortext | "Unknown");
 end
 

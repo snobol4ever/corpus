@@ -45,9 +45,9 @@ procedure main(argv)
    write("Interference Coexprs...");
    a := create (A());
    b := create B();
-   c := create C()
+   c := create C();
    @a;
-   dowork(m, d, x)
+   dowork(m, d, x);
    @c;
   every @(!thrdL);
 
@@ -69,7 +69,7 @@ procedure dowork(n, d, x)
       write(n , " coexpr(s) will sum ", x, " ones.");
       write("The work will be divided equally between them. Please wait... ")
       };
-   every i:=!n do put(thrd, create suma(d, i))
+   every i:=!n do put(thrd, create suma(d, i));
    @^b;
    every @(!thrd);
 end
@@ -112,7 +112,7 @@ procedure A()
 end
 
 procedure B()
-   /x:=[]
+   /x:=[];
    /str := "";
    every i:=1 to 1000 do {
       if i%100=1 then{ L:=[]; str:="B" };

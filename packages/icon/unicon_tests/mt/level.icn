@@ -15,7 +15,7 @@ procedure main()
 
    write(" keyword(): ",keyword("level", x));
 
-   write("running level_tp")
+   write("running level_tp");
    @x;
    write("returned to parent.");
    write(" keword(): ",keyword("level", x));

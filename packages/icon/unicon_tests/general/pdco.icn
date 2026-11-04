@@ -111,7 +111,7 @@ procedure Lifo(a)
       repeat
          if x[ptr] := @a[ptr]
          then {
-            ptr +:= 1
+            ptr +:= 1;
             (a[ptr] := ^a[ptr]) |
             break
             }
@@ -140,7 +140,7 @@ procedure Reverse(a)
       repeat
          if x[ptr] := @a[ptr]
          then {
-            ptr -:= 1
+            ptr -:= 1;
             (a[ptr] := ^a[ptr]) |
             break
             }
