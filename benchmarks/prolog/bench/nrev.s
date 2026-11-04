@@ -2313,7 +2313,7 @@ n73_unify_const_α:      lea              rdi, [rbp + 416]
                         movabs           rax, 1
                         mov              qword ptr [rdi + 8], rax;            jmp   n74_var_ref_α
 .Lunify_const_α_133_40: movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$ta_close$2F3_3:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -11349,7 +11349,7 @@ n520_unify_const_α:     lea              rdi, [rbp + 176]
                         movabs           rax, 1
                         mov              qword ptr [rdi + 8], rax;            jmp   n521_unify_value_α
 .Lunify_const_α_534_40: movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_steps$2F3_3:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -13136,7 +13136,7 @@ n576_unify_const_α:     lea              rdi, [rbp + 272]
                         movabs           rax, 1
                         mov              qword ptr [rdi + 8], rax;            jmp   n577_unify_const_α
 .Lunify_const_α_607_40: movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$var_subtract$2F3_3:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -13213,7 +13213,7 @@ n577_unify_const_α:     lea              rdi, [rbp + 304]
                         movabs           rax, 1
                         mov              qword ptr [rdi + 8], rax;            jmp   $var_subtract$2F3_γ
 .Lunify_const_α_609_40: movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$var_subtract$2F3_5:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -15077,7 +15077,7 @@ n663_unify_const_α:     lea              rdi, [rbp + 176]
                         movabs           rax, 0
                         mov              qword ptr [rdi + 8], rax;            jmp   n664_unify_const_α
 .Lunify_const_α_684_40: movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_take$2F3_3:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -15154,7 +15154,7 @@ n664_unify_const_α:     lea              rdi, [rbp + 208]
                         movabs           rax, 1
                         mov              qword ptr [rdi + 8], rax;            jmp   n665_cleanup_α
 .Lunify_const_α_686_40: movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_take$2F3_5:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -16985,7 +16985,7 @@ n722_unify_const_α:     lea              rdi, [rbp + 320]
                         movabs           rax, 1
                         mov              qword ptr [rdi + 8], rax;            jmp   n723_unify_const_α
 .Lunify_const_α_757_40: movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$mod_qmargs$2F4_3:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -17062,7 +17062,7 @@ n723_unify_const_α:     lea              rdi, [rbp + 336]
                         movabs           rax, 1
                         mov              qword ptr [rdi + 8], rax;            jmp   n724_unify_const_α
 .Lunify_const_α_759_40: movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$mod_qmargs$2F4_5:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -17139,7 +17139,7 @@ n724_unify_const_α:     lea              rdi, [rbp + 368]
                         movabs           rax, 1
                         mov              qword ptr [rdi + 8], rax;            jmp   $mod_qmargs$2F4_γ
 .Lunify_const_α_761_40: movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$mod_qmargs$2F4_7:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -21372,7 +21372,7 @@ n893_unify_const_α:     lea              rdi, [rbp + 128]
                         movabs           rax, 1
                         mov              qword ptr [rdi + 8], rax;            jmp   n894_unify_value_α
 .Lunify_const_α_927_40: movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_tail$2F5_2:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -22238,7 +22238,7 @@ n907_unify_const_α:     lea              rdi, [rbp + 160]
                         movabs           rax, 450
                         mov              qword ptr [rdi + 8], rax;            jmp   n908_cleanup_α
 .Lunify_const_α_952_40: movabs           rsi, 450                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_tail$2F5_26:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -28227,7 +28227,7 @@ n1250_unify_const_α:    lea              rdi, [rbp + 272]
                         mov              qword ptr [rdi + 8], rax;            jmp   $when_suspend_list$2F2_γ
 .Lunify_const_α_1275_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$when_suspend_list$2F2_3:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -29900,7 +29900,7 @@ n1323_unify_const_α:    lea              rdi, [rbp + 160]
                         mov              qword ptr [rdi + 8], rax;            jmp   n1324_unify_value_α
 .Lunify_const_α_1336_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$reverse_$2F3_3:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -31759,7 +31759,7 @@ n1369_unify_const_α:    lea              rdi, [rbp + 256]
                         mov              qword ptr [rdi + 8], rax;            jmp   n1370_var_ref_α
 .Lunify_const_α_1403_40:
                         movabs           rsi, 168                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$when_wake_det$2F1_9:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -40006,7 +40006,7 @@ n1806_unify_const_α:    lea              rdi, [rbp + 128]
                         mov              qword ptr [rdi + 8], rax;            jmp   n1807_unify_value_α
 .Lunify_const_α_1818_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_key$2F3_2:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -41536,7 +41536,7 @@ n1845_unify_const_α:    lea              rdi, [rbp + 144]
                         mov              qword ptr [rdi + 8], rax;            jmp   n1846_cleanup_α
 .Lunify_const_α_1864_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_plist$2F1_8:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -44892,7 +44892,7 @@ n1992_unify_const_α:    lea              rdi, [rbp + 176]
                         mov              qword ptr [rdi + 8], rax;            jmp   n1993_var_ref_α
 .Lunify_const_α_2014_40:
                         movabs           rsi, 284                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$f4_kind$2F4_2:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -45891,7 +45891,7 @@ n2003_unify_const_α:    lea              rdi, [rbp + 160]
                         mov              qword ptr [rdi + 8], rax;            jmp   n2004_unify_const_α
 .Lunify_const_α_2036_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$f4_kind$2F4_25:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -45980,7 +45980,7 @@ n2004_unify_const_α:    lea              rdi, [rbp + 176]
                         mov              qword ptr [rdi + 8], rax;            jmp   n2005_var_ref_α
 .Lunify_const_α_2038_40:
                         movabs           rsi, 225                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$f4_kind$2F4_27:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -46498,7 +46498,7 @@ n2011_unify_const_α:    lea              rdi, [rbp + 160]
                         mov              qword ptr [rdi + 8], rax;            jmp   n2012_unify_const_α
 .Lunify_const_α_2052_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$f4_kind$2F4_39:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -46587,7 +46587,7 @@ n2012_unify_const_α:    lea              rdi, [rbp + 176]
                         mov              qword ptr [rdi + 8], rax;            jmp   $f4_kind$2F4_γ
 .Lunify_const_α_2054_40:
                         movabs           rsi, 282                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$f4_kind$2F4_41:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -47019,7 +47019,7 @@ n2055_unify_const_α:    lea              rdi, [rbp + 160]
                         mov              qword ptr [rdi + 8], rax;            jmp   n2056_unify_value_α
 .Lunify_const_α_2068_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$cp_append$2F3_3:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -51495,7 +51495,7 @@ n2155_unify_const_α:    lea              rdi, [rbp + 160]
                         mov              qword ptr [rdi + 8], rax;            jmp   $when_trigger_disj$2F2_γ
 .Lunify_const_α_2166_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$when_trigger_disj$2F2_3:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -53516,7 +53516,7 @@ n2228_unify_const_α:    lea              rdi, [rbp + 176]
                         mov              qword ptr [rdi + 8], rax;            jmp   n2229_unify_const_α
 .Lunify_const_α_2245_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$reverse_b$2F4_3:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -53605,7 +53605,7 @@ n2229_unify_const_α:    lea              rdi, [rbp + 192]
                         mov              qword ptr [rdi + 8], rax;            jmp   n2230_unify_value_α
 .Lunify_const_α_2247_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$reverse_b$2F4_5:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -58616,7 +58616,7 @@ n2445_unify_const_α:    lea              rdi, [rbp + 448]
                         mov              qword ptr [rdi + 8], rax;            jmp   n2446_var_ref_α
 .Lunify_const_α_2504_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_copy_term$2F3_7:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -61484,7 +61484,7 @@ n2582_unify_const_α:    mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n2583_unify_value_α
 .Lunify_const_α_2608_40:
                         movabs           rsi, 454                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$freeze_goal$2F2_24:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -62704,7 +62704,7 @@ n2623_unify_const_α:    lea              rdi, [rbp + 128]
                         mov              qword ptr [rdi + 8], rax;            jmp   n2624_unify_const_α
 .Lunify_const_α_2654_40:
                         movabs           rsi, 285                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$f4_accept$2F2_18:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -62793,7 +62793,7 @@ n2624_unify_const_α:    lea              rdi, [rbp + 144]
                         mov              qword ptr [rdi + 8], rax;            jmp   n2625_cleanup_α
 .Lunify_const_α_2656_40:
                         movabs           rsi, 225                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$f4_accept$2F2_20:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -63022,7 +63022,7 @@ n2628_unify_const_α:    lea              rdi, [rbp + 128]
                         mov              qword ptr [rdi + 8], rax;            jmp   n2629_unify_const_α
 .Lunify_const_α_2664_40:
                         movabs           rsi, 285                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$f4_accept$2F2_24:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -63111,7 +63111,7 @@ n2629_unify_const_α:    lea              rdi, [rbp + 144]
                         mov              qword ptr [rdi + 8], rax;            jmp   $f4_accept$2F2_γ
 .Lunify_const_α_2666_40:
                         movabs           rsi, 284                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$f4_accept$2F2_26:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -65494,7 +65494,7 @@ n2692_unify_const_α:    mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n2693_unify_first_α
 .Lunify_const_α_2785_40:
                         movabs           rsi, 168                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$cp_wtg$2F4_45:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -71861,7 +71861,7 @@ n2989_unify_const_α:    lea              rdi, [rbp + 128]
                         mov              qword ptr [rdi + 8], rax;            jmp   n2990_unify_const_α
 .Lunify_const_α_3062_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_kp$2F2_13:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -71954,7 +71954,7 @@ n2990_unify_const_α:    lea              rdi, [rbp + 144]
                         mov              qword ptr [rdi + 8], rax;            jmp   n2991_cleanup_α
 .Lunify_const_α_3064_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_kp$2F2_15:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -73418,7 +73418,7 @@ n3015_unify_const_α:    mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n3016_var_ref_α
 .Lunify_const_α_3103_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_kp$2F2_51:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -74083,7 +74083,7 @@ n3023_unify_const_α:    mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n3024_var_ref_α
 .Lunify_const_α_3119_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_kp$2F2_67:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -91084,7 +91084,7 @@ n3770_unify_const_α:    lea              rdi, [rbp + 160]
                         mov              qword ptr [rdi + 8], rax;            jmp   n3771_unify_value_α
 .Lunify_const_α_3783_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_append$2F3_3:  mov              r9,  qword ptr [rip + g_rtccb+48]
                         test             eax, eax;                            je    append$2F3_step
@@ -92772,7 +92772,7 @@ n3807_unify_const_α:    lea              rdi, [rbp + 128]
                         mov              qword ptr [rdi + 8], rax;            jmp   n3808_unify_value_α
 .Lunify_const_α_3819_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_more$2F3_3:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -95915,7 +95915,7 @@ n3908_unify_const_α:    lea              rdi, [rbp + 192]
                         mov              qword ptr [rdi + 8], rax;            jmp   n3909_unify_const_α
 .Lunify_const_α_3944_40:
                         movabs           rsi, 458                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_out$2F3_3:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -96004,7 +96004,7 @@ n3909_unify_const_α:    lea              rdi, [rbp + 208]
                         mov              qword ptr [rdi + 8], rax;            jmp   n3910_unify_const_α
 .Lunify_const_α_3946_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_out$2F3_5:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -96093,7 +96093,7 @@ n3910_unify_const_α:    lea              rdi, [rbp + 224]
                         mov              qword ptr [rdi + 8], rax;            jmp   $sort4_out$2F3_γ
 .Lunify_const_α_3948_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_out$2F3_7:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -96182,7 +96182,7 @@ n3911_unify_const_α:    lea              rdi, [rbp + 192]
                         mov              qword ptr [rdi + 8], rax;            jmp   n3912_unify_struct_α
 .Lunify_const_α_3950_40:
                         movabs           rsi, 458                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_out$2F3_9:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -97498,7 +97498,7 @@ n3923_unify_const_α:    lea              rdi, [rbp + 192]
                         mov              qword ptr [rdi + 8], rax;            jmp   n3924_unify_const_α
 .Lunify_const_α_3973_40:
                         movabs           rsi, 450                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_out$2F3_39:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -97587,7 +97587,7 @@ n3924_unify_const_α:    lea              rdi, [rbp + 208]
                         mov              qword ptr [rdi + 8], rax;            jmp   n3925_unify_const_α
 .Lunify_const_α_3975_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_out$2F3_41:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -97676,7 +97676,7 @@ n3925_unify_const_α:    lea              rdi, [rbp + 224]
                         mov              qword ptr [rdi + 8], rax;            jmp   $sort4_out$2F3_γ
 .Lunify_const_α_3977_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_out$2F3_43:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -97765,7 +97765,7 @@ n3926_unify_const_α:    lea              rdi, [rbp + 192]
                         mov              qword ptr [rdi + 8], rax;            jmp   n3927_unify_struct_α
 .Lunify_const_α_3979_40:
                         movabs           rsi, 450                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_out$2F3_45:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -100445,7 +100445,7 @@ n4039_unify_const_α:    lea              rdi, [rbp + 256]
                         mov              qword ptr [rdi + 8], rax;            jmp   n4040_var_ref_α
 .Lunify_const_α_4083_40:
                         movabs           rsi, 459                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$xsb_f4_make$2F4_7:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -100635,7 +100635,7 @@ n4043_unify_const_α:    lea              rdi, [rbp + 288]
                         add              rsp, 160;                            jmp   $xsb_f4_make$2F4_γ
 .Lunify_const_α_4090_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$xsb_f4_make$2F4_13:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -109071,7 +109071,7 @@ n4428_unify_const_α:    lea              rdi, [rbp + 192]
                         mov              qword ptr [rdi + 8], rax;            jmp   n4429_cleanup_α
 .Lunify_const_α_4455_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$f4_free$2F3_2:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -110736,7 +110736,7 @@ n4501_unify_const_α:    lea              rdi, [rbp + 592]
                         mov              qword ptr [rdi + 8], rax;            jmp   n4502_unify_value_α
 .Lunify_const_α_4586_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$cp_atts$2F4_3:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -115973,7 +115973,7 @@ n4766_unify_const_α:    lea              rdi, [rbp + 48]
                         mov              qword ptr [rdi + 8], rax;            jmp   n4767_gate_arm_α
 .Lunify_const_α_4819_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_put_attr$2F3_24:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -127816,7 +127816,7 @@ n5334_unify_const_α:    lea              rdi, [rbp + 1104]
                         mov              qword ptr [rdi + 8], rax;            jmp   $cp_mq$2F2_ret0
 .Lunify_const_α_5796_40:
                         movabs           rsi, 454                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$cp_mq$2F2_130:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -130197,7 +130197,7 @@ n5388_unify_const_α:    lea              rdi, [rbp + 1104]
                         mov              qword ptr [rdi + 8], rax;            jmp   n5389_cleanup_α
 .Lunify_const_α_5879_40:
                         movabs           rsi, 454                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$cp_mq$2F2_186:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -140582,7 +140582,7 @@ n6309_unify_const_α:    lea              rdi, [rbp + 160]
                         mov              qword ptr [rdi + 8], rax;            jmp   n6310_var_ref_α
 .Lunify_const_α_6326_40:
                         movabs           rsi, 464                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_dir$2F3_2:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -140752,7 +140752,7 @@ n6313_unify_const_α:    lea              rdi, [rbp + 160]
                         mov              qword ptr [rdi + 8], rax;            jmp   n6314_var_ref_α
 .Lunify_const_α_6333_40:
                         movabs           rsi, 458                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_dir$2F3_7:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -141836,7 +141836,7 @@ n6354_unify_const_α:    lea              rdi, [rbp + 128]
                         mov              qword ptr [rdi + 8], rax;            jmp   n6355_unify_value_α
 .Lunify_const_α_6367_40:
                         movabs           rsi, 459                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$xsb_f4_tag$2F3_2:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -142801,7 +142801,7 @@ n6387_unify_const_α:    lea              rdi, [rbp + 288]
                         mov              qword ptr [rdi + 8], rax;            jmp   n6388_unify_value_α
 .Lunify_const_α_6417_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$cp_res$2F3_3: mov              r9,  qword ptr [rip + g_rtccb+48]
                         test             eax, eax;                            je    $cp_res$2F3_step
@@ -148757,7 +148757,7 @@ n6674_unify_const_α:    lea              rdi, [rbp + 224]
                         mov              qword ptr [rdi + 8], rax;            jmp   n6675_var_α
 .Lunify_const_α_6694_40:
                         movabs           rsi, 168                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$when_check_disj$2F3_5:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -149264,7 +149264,7 @@ n6705_unify_const_α:    lea              rdi, [rbp + 192]
                         mov              qword ptr [rdi + 8], rax;            jmp   n6706_cleanup_α
 .Lunify_const_α_6733_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$yall_bind$2F4_3:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -151263,7 +151263,7 @@ n6730_unify_const_α:    lea              rdi, [rbp + 208]
                         mov              qword ptr [rdi + 8], rax;            jmp   n6731_unify_value_α
 .Lunify_const_α_6782_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$yall_bind$2F4_46:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -161256,7 +161256,7 @@ n7238_unify_const_α:    lea              rdi, [rbp + 160]
                         mov              qword ptr [rdi + 8], rax;            jmp   $sort4_pathok$2F1_γ
 .Lunify_const_α_7247_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_pathok$2F1_3:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -165957,7 +165957,7 @@ n7395_unify_const_α:    lea              rdi, [rbp + 160]
                         mov              qword ptr [rdi + 8], rax;            jmp   n7396_unify_value_α
 .Lunify_const_α_7411_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$yall_ext$2F3_2:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -169716,7 +169716,7 @@ n7477_unify_const_α:    mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 16;                             jmp   $retract_target$2F2_γ
 .Lunify_const_α_7551_40:
                         movabs           rsi, 2                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$retract_target$2F2_64:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -170321,7 +170321,7 @@ n7553_unify_const_α:    lea              rdi, [rbp + 176]
                         mov              qword ptr [rdi + 8], rax;            jmp   n7554_unify_const_α
 .Lunify_const_α_7569_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_nrev$2F2_3:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         test             eax, eax;                            je    nrev$2F2_step
@@ -170408,7 +170408,7 @@ n7554_unify_const_α:    lea              rdi, [rbp + 192]
                         mov              qword ptr [rdi + 8], rax;            jmp   nrev$2F2_γ
 .Lunify_const_α_7571_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_nrev$2F2_5:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         test             eax, eax;                            je    nrev$2F2_step
@@ -171786,7 +171786,7 @@ n7596_unify_const_α:    lea              rdi, [rbp + 192]
                         mov              qword ptr [rdi + 8], rax;            jmp   n7597_unify_const_α
 .Lunify_const_α_7615_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_keyed$2F3_3:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -171875,7 +171875,7 @@ n7597_unify_const_α:    lea              rdi, [rbp + 224]
                         mov              qword ptr [rdi + 8], rax;            jmp   $sort4_keyed$2F3_γ
 .Lunify_const_α_7617_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_keyed$2F3_5:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -174860,7 +174860,7 @@ n7700_unify_const_α:    lea              rdi, [rbp + 160]
                         mov              qword ptr [rdi + 8], rax;            jmp   n7701_unify_value_α
 .Lunify_const_α_7713_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$yall_app$2F3_3:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -186289,7 +186289,7 @@ n8190_unify_const_α:    lea              rdi, [rbp + 160]
                         mov              qword ptr [rdi + 8], rax;            jmp   $cp_del_l$2F1_γ
 .Lunify_const_α_8199_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$cp_del_l$2F1_3:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -191906,7 +191906,7 @@ n8389_unify_const_α:    lea              rdi, [rbp + 448]
                         mov              qword ptr [rdi + 8], rax;            jmp   n8390_gate_arm_α
 .Lunify_const_α_8581_40:
                         movabs           rsi, 2                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$when_cond$2F2_24:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -192769,7 +192769,7 @@ n8409_unify_const_α:    lea              rdi, [rbp + 448]
                         mov              qword ptr [rdi + 8], rax;            jmp   n8410_gate_arm_α
 .Lunify_const_α_8617_40:
                         movabs           rsi, 2                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$when_cond$2F2_44:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -193795,7 +193795,7 @@ n8433_unify_const_α:    lea              rdi, [rbp + 448]
                         mov              qword ptr [rdi + 8], rax;            jmp   n8434_gate_arm_α
 .Lunify_const_α_8662_40:
                         movabs           rsi, 2                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$when_cond$2F2_65:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -196627,7 +196627,7 @@ n8506_unify_const_α:    lea              rdi, [rbp + 448]
                         mov              qword ptr [rdi + 8], rax;            jmp   n8507_gate_arm_α
 .Lunify_const_α_8797_40:
                         movabs           rsi, 2                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$when_cond$2F2_123:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -196982,7 +196982,7 @@ n8514_unify_const_α:    lea              rdi, [rbp + 448]
                         mov              qword ptr [rdi + 8], rax;            jmp   n8515_gate_arm_α
 .Lunify_const_α_8812_40:
                         movabs           rsi, 2                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$when_cond$2F2_129:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -205791,7 +205791,7 @@ n9067_unify_const_α:    lea              rdi, [rbp + 272]
                         mov              qword ptr [rdi + 8], rax;            jmp   n9068_unify_const_α
 .Lunify_const_α_9096_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$attv_filter$2F2_3:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -205880,7 +205880,7 @@ n9068_unify_const_α:    lea              rdi, [rbp + 288]
                         mov              qword ptr [rdi + 8], rax;            jmp   $attv_filter$2F2_γ
 .Lunify_const_α_9098_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$attv_filter$2F2_5:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -210951,7 +210951,7 @@ n9246_unify_const_α:    lea              rdi, [rbp + 192]
                         mov              qword ptr [rdi + 8], rax;            jmp   n9247_unify_const_α
 .Lunify_const_α_9261_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$xsb_f4_strip_l$2F2_3:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -211040,7 +211040,7 @@ n9247_unify_const_α:    lea              rdi, [rbp + 208]
                         mov              qword ptr [rdi + 8], rax;            jmp   $xsb_f4_strip_l$2F2_γ
 .Lunify_const_α_9263_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$xsb_f4_strip_l$2F2_5:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -242543,7 +242543,7 @@ n10824_unify_const_α:   lea              rdi, [rbp + 208]
                         mov              qword ptr [rdi + 8], rax;            jmp   n10825_cleanup_α
 .Lunify_const_α_10973_40:
                         movabs           rsi, 284                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$f4_build$2F4_75:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -243341,7 +243341,7 @@ n10834_unify_const_α:   lea              rdi, [rbp + 192]
                         mov              qword ptr [rdi + 8], rax;            jmp   n10835_unify_const_α
 .Lunify_const_α_10993_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$f4_build$2F4_92:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -243430,7 +243430,7 @@ n10835_unify_const_α:   lea              rdi, [rbp + 208]
                         mov              qword ptr [rdi + 8], rax;            jmp   n10836_cleanup_α
 .Lunify_const_α_10995_40:
                         movabs           rsi, 225                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$f4_build$2F4_94:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -243840,7 +243840,7 @@ n10844_unify_const_α:   lea              rdi, [rbp + 208]
                         mov              qword ptr [rdi + 8], rax;            jmp   n10845_cleanup_α
 .Lunify_const_α_11012_40:
                         movabs           rsi, 285                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$f4_build$2F4_105:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -244552,7 +244552,7 @@ n10852_unify_const_α:   lea              rdi, [rbp + 192]
                         mov              qword ptr [rdi + 8], rax;            jmp   n10853_unify_const_α
 .Lunify_const_α_11028_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$f4_build$2F4_120:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -244641,7 +244641,7 @@ n10853_unify_const_α:   lea              rdi, [rbp + 208]
                         mov              qword ptr [rdi + 8], rax;            jmp   n10854_cleanup_α
 .Lunify_const_α_11030_40:
                         movabs           rsi, 282                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$f4_build$2F4_122:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -246183,7 +246183,7 @@ n11064_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n11065_cleanup_α
 .Lunify_const_α_11088_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$cp_orl$2F2_7: mov              r9,  qword ptr [rip + g_rtccb+48]
                         test             eax, eax;                            jne   .Lunify_const_α_11088_999
@@ -252701,7 +252701,7 @@ n11402_unify_const_α:   lea              rdi, [rbp + 160]
                         mov              qword ptr [rdi + 8], rax;            jmp   n11403_unify_const_α
 .Lunify_const_α_11436_40:
                         movabs           rsi, 459                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$xsb_f4_mk$2F4_2:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -252794,7 +252794,7 @@ n11403_unify_const_α:   lea              rdi, [rbp + 208]
                         mov              qword ptr [rdi + 8], rax;            jmp   n11404_cleanup_α
 .Lunify_const_α_11438_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$xsb_f4_mk$2F4_4:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -253110,7 +253110,7 @@ n11410_unify_const_α:   lea              rdi, [rbp + 160]
                         mov              qword ptr [rdi + 8], rax;            jmp   n11411_unify_const_α
 .Lunify_const_α_11451_40:
                         movabs           rsi, 459                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$xsb_f4_mk$2F4_12:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -253199,7 +253199,7 @@ n11411_unify_const_α:   lea              rdi, [rbp + 192]
                         mov              qword ptr [rdi + 8], rax;            jmp   n11412_unify_const_α
 .Lunify_const_α_11453_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$xsb_f4_mk$2F4_14:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -253292,7 +253292,7 @@ n11412_unify_const_α:   lea              rdi, [rbp + 208]
                         mov              qword ptr [rdi + 8], rax;            jmp   n11413_cleanup_α
 .Lunify_const_α_11455_40:
                         movabs           rsi, 2                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$xsb_f4_mk$2F4_16:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -260205,7 +260205,7 @@ n11686_unify_const_α:   lea              rdi, [rbp + 288]
                         mov              qword ptr [rdi + 8], rax;            jmp   n11687_unify_const_α
 .Lunify_const_α_11717_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$att_del$2F3_3:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -260294,7 +260294,7 @@ n11687_unify_const_α:   lea              rdi, [rbp + 320]
                         mov              qword ptr [rdi + 8], rax;            jmp   $att_del$2F3_γ
 .Lunify_const_α_11719_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$att_del$2F3_5:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -268224,7 +268224,7 @@ n12200_unify_const_α:   lea              rdi, [rbp + 176]
                         mov              qword ptr [rdi + 8], rax;            jmp   n12201_var_ref_α
 .Lunify_const_α_12272_40:
                         movabs           rsi, 459                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$xsb_f4_read$2F4_7:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -268414,7 +268414,7 @@ n12204_unify_const_α:   lea              rdi, [rbp + 208]
                         add              rsp, 160;                            jmp   $xsb_f4_read$2F4_γ
 .Lunify_const_α_12279_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$xsb_f4_read$2F4_13:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -268916,7 +268916,7 @@ n12214_unify_const_α:   lea              rdi, [rbp + 176]
                         mov              qword ptr [rdi + 8], rax;            jmp   n12215_unify_const_α
 .Lunify_const_α_12296_40:
                         movabs           rsi, 459                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$xsb_f4_read$2F4_25:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -269009,7 +269009,7 @@ n12215_unify_const_α:   lea              rdi, [rbp + 192]
                         mov              qword ptr [rdi + 8], rax;            jmp   n12216_unify_const_α
 .Lunify_const_α_12298_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$xsb_f4_read$2F4_27:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -269113,7 +269113,7 @@ n12216_unify_const_α:   lea              rdi, [rbp + 208]
                         add              rsp, 240;                            jmp   $xsb_f4_read$2F4_γ
 .Lunify_const_α_12300_40:
                         movabs           rsi, 2                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$xsb_f4_read$2F4_29:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -270157,7 +270157,7 @@ n12242_unify_const_α:   lea              rdi, [rsp + 0]
                         mov              qword ptr [rdi + 8], rax;            jmp   n12243_gate_arm_α
 .Lunify_const_α_12340_40:
                         movabs           rsi, 459                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$xsb_f4_read$2F4_56:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -271106,7 +271106,7 @@ n12372_unify_const_α:   lea              rdi, [rbp + 128]
                         mov              qword ptr [rdi + 8], rax;            jmp   n12373_unify_const_α
 .Lunify_const_α_12385_40:
                         movabs           rsi, 163                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_ord$2F3_2:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -271195,7 +271195,7 @@ n12373_unify_const_α:   lea              rdi, [rbp + 144]
                         mov              qword ptr [rdi + 8], rax;            jmp   n12374_unify_const_α
 .Lunify_const_α_12387_40:
                         movabs           rsi, 464                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_ord$2F3_4:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -271284,7 +271284,7 @@ n12374_unify_const_α:   lea              rdi, [rbp + 160]
                         mov              qword ptr [rdi + 8], rax;            jmp   $sort4_ord$2F3_γ
 .Lunify_const_α_12389_40:
                         movabs           rsi, 450                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_ord$2F3_6:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -271373,7 +271373,7 @@ n12375_unify_const_α:   lea              rdi, [rbp + 128]
                         mov              qword ptr [rdi + 8], rax;            jmp   n12376_unify_const_α
 .Lunify_const_α_12391_40:
                         movabs           rsi, 165                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_ord$2F3_8:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -271462,7 +271462,7 @@ n12376_unify_const_α:   lea              rdi, [rbp + 144]
                         mov              qword ptr [rdi + 8], rax;            jmp   n12377_unify_const_α
 .Lunify_const_α_12393_40:
                         movabs           rsi, 464                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_ord$2F3_10:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -271551,7 +271551,7 @@ n12377_unify_const_α:   lea              rdi, [rbp + 160]
                         mov              qword ptr [rdi + 8], rax;            jmp   $sort4_ord$2F3_γ
 .Lunify_const_α_12395_40:
                         movabs           rsi, 458                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_ord$2F3_12:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -271640,7 +271640,7 @@ n12378_unify_const_α:   lea              rdi, [rbp + 128]
                         mov              qword ptr [rdi + 8], rax;            jmp   n12379_unify_const_α
 .Lunify_const_α_12397_40:
                         movabs           rsi, 164                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_ord$2F3_14:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -271729,7 +271729,7 @@ n12379_unify_const_α:   lea              rdi, [rbp + 144]
                         mov              qword ptr [rdi + 8], rax;            jmp   n12380_unify_const_α
 .Lunify_const_α_12399_40:
                         movabs           rsi, 458                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_ord$2F3_16:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -271818,7 +271818,7 @@ n12380_unify_const_α:   lea              rdi, [rbp + 160]
                         mov              qword ptr [rdi + 8], rax;            jmp   $sort4_ord$2F3_γ
 .Lunify_const_α_12401_40:
                         movabs           rsi, 450                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_ord$2F3_18:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -271907,7 +271907,7 @@ n12381_unify_const_α:   lea              rdi, [rbp + 128]
                         mov              qword ptr [rdi + 8], rax;            jmp   n12382_unify_const_α
 .Lunify_const_α_12403_40:
                         movabs           rsi, 166                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_ord$2F3_20:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -271996,7 +271996,7 @@ n12382_unify_const_α:   lea              rdi, [rbp + 144]
                         mov              qword ptr [rdi + 8], rax;            jmp   n12383_unify_const_α
 .Lunify_const_α_12405_40:
                         movabs           rsi, 458                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_ord$2F3_22:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -272085,7 +272085,7 @@ n12383_unify_const_α:   lea              rdi, [rbp + 160]
                         mov              qword ptr [rdi + 8], rax;            jmp   $sort4_ord$2F3_γ
 .Lunify_const_α_12407_40:
                         movabs           rsi, 458                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_ord$2F3_24:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -273919,7 +273919,7 @@ n12471_unify_const_α:   lea              rdi, [rbp + 288]
                         mov              qword ptr [rdi + 8], rax;            jmp   n12472_unify_struct_α
 .Lunify_const_α_12510_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$att_put$2F4_3:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -274546,7 +274546,7 @@ n12475_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 16;                             jmp   $att_put$2F4_γ
 .Lunify_const_α_12518_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$att_put$2F4_19:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -276845,7 +276845,7 @@ n12580_unify_const_α:   lea              rdi, [rbp + 160]
                         mov              qword ptr [rdi + 8], rax;            jmp   n12581_cleanup_α
 .Lunify_const_α_12599_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$f4_callable$2F3_2:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -286364,7 +286364,7 @@ n12976_unify_const_α:   lea              rdi, [rbp + 160]
                         mov              qword ptr [rdi + 8], rax;            jmp   n12977_unify_const_α
 .Lunify_const_α_12993_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_data$2F2_3:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         test             eax, eax;                            je    data$2F2_step
@@ -286455,7 +286455,7 @@ n12977_unify_const_α:   lea              rdi, [rbp + 176]
                         mov              qword ptr [rdi + 8], rax;            jmp   data$2F2_γ
 .Lunify_const_α_12995_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_data$2F2_5:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         test             eax, eax;                            je    data$2F2_step
@@ -286680,7 +286680,7 @@ n12979_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n12980_unify_first_α
 .Lunify_const_α_12999_40:
                         movabs           rsi, 464                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_data$2F2_11:   mov              r9,  qword ptr [rip + g_rtccb+48]
                         test             eax, eax;                            jne   .Lunify_const_α_12999_999
@@ -288590,7 +288590,7 @@ n13032_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13033_unify_const_α
 .Lunify_const_α_13243_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_10:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -288695,7 +288695,7 @@ n13033_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13245_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_12:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -289080,7 +289080,7 @@ n13036_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13037_unify_const_α
 .Lunify_const_α_13251_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_22:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -289185,7 +289185,7 @@ n13037_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13253_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_24:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -289570,7 +289570,7 @@ n13040_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13041_unify_const_α
 .Lunify_const_α_13259_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_34:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -289675,7 +289675,7 @@ n13041_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13261_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_36:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -290060,7 +290060,7 @@ n13044_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13045_unify_const_α
 .Lunify_const_α_13267_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_46:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -290165,7 +290165,7 @@ n13045_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13269_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_48:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -290541,7 +290541,7 @@ n13048_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13275_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_58:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -290917,7 +290917,7 @@ n13051_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13281_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_68:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -291302,7 +291302,7 @@ n13054_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13055_unify_const_α
 .Lunify_const_α_13287_40:
                         movabs           rsi, 168                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_78:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -291406,7 +291406,7 @@ n13055_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13056_unify_const_α
 .Lunify_const_α_13289_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_80:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -291501,7 +291501,7 @@ n13056_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13291_40:
                         movabs           rsi, 168                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_82:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -291896,7 +291896,7 @@ n13059_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13060_unify_const_α
 .Lunify_const_α_13297_40:
                         movabs           rsi, 168                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_92:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -292000,7 +292000,7 @@ n13060_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13061_unify_const_α
 .Lunify_const_α_13299_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_94:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -292094,7 +292094,7 @@ n13061_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13062_unify_const_α
 .Lunify_const_α_13301_40:
                         movabs           rsi, 168                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_96:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -292189,7 +292189,7 @@ n13062_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13303_40:
                         movabs           rsi, 168                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_98:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -292574,7 +292574,7 @@ n13065_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13066_unify_const_α
 .Lunify_const_α_13309_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_108:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -292679,7 +292679,7 @@ n13066_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13311_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_110:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -293064,7 +293064,7 @@ n13069_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13070_unify_const_α
 .Lunify_const_α_13317_40:
                         movabs           rsi, 168                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_120:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -293158,7 +293158,7 @@ n13070_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13071_unify_const_α
 .Lunify_const_α_13319_40:
                         movabs           rsi, 180                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_122:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -293253,7 +293253,7 @@ n13071_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13321_40:
                         movabs           rsi, 168                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_124:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -293638,7 +293638,7 @@ n13074_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13075_unify_const_α
 .Lunify_const_α_13327_40:
                         movabs           rsi, 168                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_134:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -293732,7 +293732,7 @@ n13075_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13076_unify_const_α
 .Lunify_const_α_13329_40:
                         movabs           rsi, 180                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_136:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -293827,7 +293827,7 @@ n13076_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13331_40:
                         movabs           rsi, 168                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_138:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -294212,7 +294212,7 @@ n13079_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13080_unify_const_α
 .Lunify_const_α_13337_40:
                         movabs           rsi, 168                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_148:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -294316,7 +294316,7 @@ n13080_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13081_unify_const_α
 .Lunify_const_α_13339_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_150:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -294411,7 +294411,7 @@ n13081_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13341_40:
                         movabs           rsi, 168                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_152:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -294787,7 +294787,7 @@ n13084_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13347_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_162:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -295163,7 +295163,7 @@ n13087_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13353_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_172:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -295539,7 +295539,7 @@ n13090_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13359_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_182:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -295915,7 +295915,7 @@ n13093_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13365_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_192:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -296310,7 +296310,7 @@ n13096_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13097_unify_const_α
 .Lunify_const_α_13371_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_202:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -296404,7 +296404,7 @@ n13097_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13098_unify_const_α
 .Lunify_const_α_13373_40:
                         movabs           rsi, 168                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_204:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -296509,7 +296509,7 @@ n13098_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13375_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_206:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -296894,7 +296894,7 @@ n13101_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13102_unify_const_α
 .Lunify_const_α_13381_40:
                         movabs           rsi, 168                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_216:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -296998,7 +296998,7 @@ n13102_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13103_unify_const_α
 .Lunify_const_α_13383_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_218:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -297093,7 +297093,7 @@ n13103_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13385_40:
                         movabs           rsi, 168                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_220:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -297468,7 +297468,7 @@ n13106_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13107_unify_const_α
 .Lunify_const_α_13391_40:
                         movabs           rsi, 168                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_230:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -297573,7 +297573,7 @@ n13107_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13393_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_232:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -297958,7 +297958,7 @@ n13110_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13111_unify_const_α
 .Lunify_const_α_13399_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_242:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -298053,7 +298053,7 @@ n13111_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13401_40:
                         movabs           rsi, 168                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_244:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -298438,7 +298438,7 @@ n13114_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13115_unify_const_α
 .Lunify_const_α_13407_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_254:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -298533,7 +298533,7 @@ n13115_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13409_40:
                         movabs           rsi, 168                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_256:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -298918,7 +298918,7 @@ n13118_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13119_unify_const_α
 .Lunify_const_α_13415_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_266:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -299013,7 +299013,7 @@ n13119_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13417_40:
                         movabs           rsi, 168                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_268:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -299389,7 +299389,7 @@ n13122_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13423_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_278:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -299765,7 +299765,7 @@ n13125_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13429_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_288:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -300141,7 +300141,7 @@ n13128_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13435_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_298:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -300526,7 +300526,7 @@ n13131_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13132_unify_const_α
 .Lunify_const_α_13441_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_308:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -300631,7 +300631,7 @@ n13132_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13443_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_310:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -301026,7 +301026,7 @@ n13135_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13136_unify_const_α
 .Lunify_const_α_13449_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_320:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -301130,7 +301130,7 @@ n13136_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13137_unify_const_α
 .Lunify_const_α_13451_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_322:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -301235,7 +301235,7 @@ n13137_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13453_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_324:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -301601,7 +301601,7 @@ n13140_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13459_40:
                         movabs           rsi, 446                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_334:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -301967,7 +301967,7 @@ n13143_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13465_40:
                         movabs           rsi, 446                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_344:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -302333,7 +302333,7 @@ n13146_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13471_40:
                         movabs           rsi, 446                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_354:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -302718,7 +302718,7 @@ n13149_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13150_unify_const_α
 .Lunify_const_α_13477_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_364:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -302813,7 +302813,7 @@ n13150_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13479_40:
                         movabs           rsi, 477                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_366:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -303179,7 +303179,7 @@ n13153_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13485_40:
                         movabs           rsi, 446                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_376:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -303545,7 +303545,7 @@ n13156_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13491_40:
                         movabs           rsi, 446                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_386:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -303911,7 +303911,7 @@ n13159_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13497_40:
                         movabs           rsi, 446                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_396:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -304277,7 +304277,7 @@ n13162_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13503_40:
                         movabs           rsi, 446                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_406:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -304643,7 +304643,7 @@ n13165_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13509_40:
                         movabs           rsi, 446                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_416:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -305009,7 +305009,7 @@ n13168_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13515_40:
                         movabs           rsi, 446                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_426:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -305375,7 +305375,7 @@ n13171_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13521_40:
                         movabs           rsi, 446                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_436:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -305741,7 +305741,7 @@ n13174_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13527_40:
                         movabs           rsi, 478                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_446:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -306107,7 +306107,7 @@ n13177_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13533_40:
                         movabs           rsi, 478                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_456:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -306483,7 +306483,7 @@ n13180_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13539_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_466:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -306859,7 +306859,7 @@ n13183_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13545_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_476:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -307254,7 +307254,7 @@ n13186_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13187_unify_const_α
 .Lunify_const_α_13551_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_486:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -307348,7 +307348,7 @@ n13187_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13188_unify_const_α
 .Lunify_const_α_13553_40:
                         movabs           rsi, 168                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_488:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -307443,7 +307443,7 @@ n13188_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13555_40:
                         movabs           rsi, 168                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_490:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -307838,7 +307838,7 @@ n13191_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13192_unify_const_α
 .Lunify_const_α_13561_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_500:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -307932,7 +307932,7 @@ n13192_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13193_unify_const_α
 .Lunify_const_α_13563_40:
                         movabs           rsi, 168                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_502:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -308027,7 +308027,7 @@ n13193_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13565_40:
                         movabs           rsi, 168                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_504:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -308412,7 +308412,7 @@ n13196_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13197_unify_const_α
 .Lunify_const_α_13571_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_514:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -308507,7 +308507,7 @@ n13197_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13573_40:
                         movabs           rsi, 168                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_516:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -308883,7 +308883,7 @@ n13200_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13579_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_526:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -309259,7 +309259,7 @@ n13203_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13585_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_536:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -309634,7 +309634,7 @@ n13206_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13207_unify_const_α
 .Lunify_const_α_13591_40:
                         movabs           rsi, 477                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_546:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -309739,7 +309739,7 @@ n13207_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13593_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_548:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -310115,7 +310115,7 @@ n13210_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13599_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_558:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -310500,7 +310500,7 @@ n13213_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13214_unify_const_α
 .Lunify_const_α_13605_40:
                         movabs           rsi, 477                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_568:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -310604,7 +310604,7 @@ n13214_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13215_unify_const_α
 .Lunify_const_α_13607_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_570:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -310699,7 +310699,7 @@ n13215_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13609_40:
                         movabs           rsi, 167                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_572:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -311074,7 +311074,7 @@ n13218_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13219_unify_const_α
 .Lunify_const_α_13615_40:
                         movabs           rsi, 167                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_582:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -311179,7 +311179,7 @@ n13219_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13617_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_584:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -311554,7 +311554,7 @@ n13222_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13223_unify_const_α
 .Lunify_const_α_13623_40:
                         movabs           rsi, 167                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_594:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -311659,7 +311659,7 @@ n13223_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13625_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_596:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -312044,7 +312044,7 @@ n13226_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13227_unify_const_α
 .Lunify_const_α_13631_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_606:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -312139,7 +312139,7 @@ n13227_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13633_40:
                         movabs           rsi, 477                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_608:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -312514,7 +312514,7 @@ n13230_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13231_unify_const_α
 .Lunify_const_α_13639_40:
                         movabs           rsi, 167                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_618:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -312619,7 +312619,7 @@ n13231_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13641_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_620:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -313014,7 +313014,7 @@ n13234_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13235_unify_const_α
 .Lunify_const_α_13647_40:
                         movabs           rsi, 477                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_630:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -313108,7 +313108,7 @@ n13235_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13236_unify_const_α
 .Lunify_const_α_13649_40:
                         movabs           rsi, 477                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_632:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -313212,7 +313212,7 @@ n13236_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         mov              qword ptr [rdi + 8], rax;            jmp   n13237_unify_const_α
 .Lunify_const_α_13651_40:
                         movabs           rsi, 0                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 0                               # atom
+                        mov              edx, 0
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_634:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -313307,7 +313307,7 @@ n13237_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 32;                             jmp   $lfx_meta$2F2_γ
 .Lunify_const_α_13653_40:
                         movabs           rsi, 168                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$lfx_meta$2F2_636:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -316196,7 +316196,7 @@ n13655_unify_const_α:   lea              rdi, [rbp + 160]
                         mov              qword ptr [rdi + 8], rax;            jmp   n13656_unify_value_α
 .Lunify_const_α_13668_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$sort4_rev$2F3_3:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -317688,7 +317688,7 @@ n13690_unify_const_α:   lea              rdi, [rbp + 144]
                         mov              qword ptr [rdi + 8], rax;            jmp   n13691_cleanup_α
 .Lunify_const_α_13711_40:
                         movabs           rsi, 2                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$when_first$2F2_2:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -325425,7 +325425,7 @@ n13911_unify_const_α:   lea              rdi, [rbp + 736]
                         mov              qword ptr [rdi + 8], rax;            jmp   n13912_unify_const_α
 .Lunify_const_α_14016_40:
                         movabs           rsi, 459                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$xsb_f4_key$2F2_7:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -325519,7 +325519,7 @@ n13912_unify_const_α:   lea              rdi, [rbp + 752]
                         add              rsp, 80;                             jmp   $xsb_f4_key$2F2_γ
 .Lunify_const_α_14018_40:
                         movabs           rsi, 459                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$xsb_f4_key$2F2_9:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -326269,7 +326269,7 @@ n13933_unify_const_α:   lea              rdi, [rbp + 752]
                         mov              qword ptr [rdi + 8], rax;            jmp   n13934_gate_arm_α
 .Lunify_const_α_14056_40:
                         movabs           rsi, 459                             # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$xsb_f4_key$2F2_23:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -337233,7 +337233,7 @@ n14607_unify_const_α:   mov              rax, qword ptr [rsp + 8]             #
                         add              rsp, 16;                             jmp   $when_or_list$2F2_γ
 .Lunify_const_α_14625_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$when_or_list$2F2_22:
                         mov              r9,  qword ptr [rip + g_rtccb+48]
@@ -337627,7 +337627,7 @@ n14627_unify_const_α:   lea              rdi, [rbp + 160]
                         mov              qword ptr [rdi + 8], rax;            jmp   n14628_unify_value_α
 .Lunify_const_α_14640_40:
                         movabs           rsi, 1                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_app$2F3_3:     mov              r9,  qword ptr [rip + g_rtccb+48]
                         test             eax, eax;                            je    app$2F3_step
@@ -341054,7 +341054,7 @@ n14746_unify_const_α:   lea              rdi, [rbp + 208]
                         mov              qword ptr [rdi + 8], rax;            jmp   n14747_unify_const_α
 .Lunify_const_α_14803_40:
                         movabs           rsi, 2                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$fc$2F3_8:     mov              r9,  qword ptr [rip + g_rtccb+48]
                         test             eax, eax;                            je    $fc$2F3_step
@@ -341141,7 +341141,7 @@ n14747_unify_const_α:   lea              rdi, [rbp + 224]
                         mov              qword ptr [rdi + 8], rax;            jmp   n14748_var_ref_α
 .Lunify_const_α_14805_40:
                         movabs           rsi, 2                               # cold: a legacy DT_S atom text, or a number of another kind, compared strictly by class by the value service; it never binds and never allocates, so no poll follows (ARCH-PROLOG-C-OUT-OF-THE-BOX 10)
-                        mov              edx, 1                               # atom
+                        mov              edx, 1
                         call             rt_pl_unify_const_cold@PLT
 .Lgcsite_$fc$2F3_10:    mov              r9,  qword ptr [rip + g_rtccb+48]
                         test             eax, eax;                            je    $fc$2F3_step
@@ -405746,6804 +405746,9716 @@ module_init:
                         sub              rsp, 8
                         .section         .data.rel.ro,"aw",@progbits
 .Lstartup_pname0:       .string          "$cp_orm/2"
-                        .align           8
-.Lstartup_prec0:
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname1:       .string          "$ta_close/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname2:       .string          "get_attr/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname3:       .string          "$yall/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname4:       .string          "$xsb_f4_chk/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname5:       .string          "del_attrs/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname6:       .string          "$sort4_steps/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname7:       .string          "get_attrs/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname8:       .string          "$var_subtract/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname9:       .string          "$sort4_take/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname10:      .string          "$mod_qmargs/4"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname11:      .string          "reverse/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname12:      .string          "list/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname13:      .string          "$sort4_tail/5"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname14:      .string          "$arg_swi/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname15:      .string          "$sort4_idx/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname16:      .string          "$when_suspend_list/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname17:      .string          "$reverse_/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname18:      .string          "$when_wake_det/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname19:      .string          "$xsb_f4_strip/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname20:      .string          "$sort4_skip/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname21:      .string          "$wot_stream/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname22:      .string          "$var_memberchk/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname23:      .string          "$sort4_key/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname24:      .string          "$sort4_plist/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname25:      .string          "$sort4_step/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname26:      .string          "$f4_kind/4"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname27:      .string          "$cp_append/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname28:      .string          "$cp_wgoal/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname29:      .string          "$when_trigger_disj/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname30:      .string          "$mod_call/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname31:      .string          "$reverse_b/4"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname32:      .string          "copy_term/4"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname33:      .string          "$mod_head/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname34:      .string          "copy_term/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname35:      .string          "$freeze_goal/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname36:      .string          "$f4_accept/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname37:      .string          "$cp_wtg/4"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname38:      .string          "nonground/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname39:      .string          "freeze/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname40:      .string          "$sort4_kp/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname41:      .string          "$mod_qb/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname42:      .string          "append/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname43:      .string          "$sort4_more/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname44:      .string          ":/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname45:      .string          "$sort4_out/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname46:      .string          ":/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname47:      .string          "$xsb_f4_make/4"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname48:      .string          "$between_big/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname49:      .string          ":/4"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname50:      .string          "$f4_free/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname51:      .string          "$cp_atts/4"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname52:      .string          "put_attr/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname53:      .string          ":/5"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname54:      .string          ":/6"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname55:      .string          ":/7"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname56:      .string          "bench_work/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname57:      .string          "$mod_ccl/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname58:      .string          ":/8"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname59:      .string          ":/9"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname60:      .string          "$cp_mq/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname61:      .string          "$sort4_cmp/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname62:      .string          "$scc_cut_loop/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname63:      .string          "$sort4_dir/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname64:      .string          "$xsb_f4_tag/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname65:      .string          "$cp_res/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname66:      .string          "$mod_callq/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname67:      .string          "$when_check_disj/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname68:      .string          "$yall_bind/4"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname69:      .string          "attvar/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname70:      .string          "$sort4_oc/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname71:      .string          "$xsb_f4_err/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname72:      .string          "sort/4"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname73:      .string          "$cp_when/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname74:      .string          "$sort4_pathok/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname75:      .string          "functor/4"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname76:      .string          "$conj_nocut/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname77:      .string          "$yall_ext/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname78:      .string          "$retract_target/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname79:      .string          "nrev/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname80:      .string          "$sort4_keyed/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname81:      .string          "$when_trigger_nonvar/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname82:      .string          "$yall_app/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname83:      .string          "$when_suspend/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname84:      .string          "$between_test/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname85:      .string          "$scc_g0/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname86:      .string          "when/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname87:      .string          "$cp_del_l/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname88:      .string          "//5"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname89:      .string          ":/11"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname90:      .string          "$scc_cut/0"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname91:      .string          "//4"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname92:      .string          ":/10"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname93:      .string          "$when_cond/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname94:      .string          "//7"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname95:      .string          ">>/8"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname96:      .string          "//6"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname97:      .string          ">>/9"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname98:      .string          "$attv_filter/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname99:      .string          "$when_trigger_ground/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname100:     .string          "//3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname101:     .string          "//2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname102:     .string          ">>/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname103:     .string          "$xsb_f4_strip_l/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname104:     .string          "$when_trigger_determined/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname105:     .string          ">>/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname106:     .string          "//9"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname107:     .string          ">>/6"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname108:     .string          "$cp_mq1/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname109:     .string          "//8"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname110:     .string          ">>/7"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname111:     .string          ">>/4"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname112:     .string          "$cp_del/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname113:     .string          "$yall_slash/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname114:     .string          ">>/5"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname115:     .string          "$f4_build/4"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname116:     .string          "$cp_orl/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname117:     .string          "$mod_q1/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname118:     .string          "$f4_atom/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname119:     .string          "$xsb_f4_mk/4"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname120:     .string          "$between_up/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname121:     .string          "$retract_head/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname122:     .string          "$yall_free/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname123:     .string          "$sort4_list/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname124:     .string          "$att_del/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname125:     .string          "$wot_stream_sink/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname126:     .string          "$xsb_f4_read/4"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname127:     .string          "$sort4_ord/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname128:     .string          "$att_get/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname129:     .string          "$att_put/4"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname130:     .string          "$f4_callable/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname131:     .string          "?=/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname132:     .string          "$cp_frozen/4"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname133:     .string          "$xsb_f4/4"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname134:     .string          "$ta_memq/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname135:     .string          "compound_name_arity/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname136:     .string          "data/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname137:     .string          "data/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname138:     .string          "$lfx_meta/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname139:     .string          "$sort4_rev/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname140:     .string          "$when_first/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname141:     .string          "$cp_wconj/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname142:     .string          "$when_trigger/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname143:     .string          "$xsb_f4_key/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname144:     .string          "main/0"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname145:     .string          "$between_to/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname146:     .string          "current_predicate/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname147:     .string          "$when_or_list/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname148:     .string          "app/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname149:     .string          "del_attr/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname150:     .string          "term_attvars/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname151:     .string          "$fc/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname152:     .string          ",/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname153:     .string          ";/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname154:     .string          "->/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname155:     .string          "*->/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname156:     .string          "var/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname157:     .string          "nonvar/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname158:     .string          "atom/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname159:     .string          "number/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname160:     .string          "integer/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname161:     .string          "float/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname162:     .string          "atomic/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname163:     .string          "string/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname164:     .string          "compound/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname165:     .string          "callable/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname166:     .string          "ground/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname167:     .string          "is_list/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname168:     .string          "acyclic_term/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname169:     .string          "==/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname170:     .string          "\\==/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname171:     .string          "@</2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname172:     .string          "@=</2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname173:     .string          "@>/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname174:     .string          "@>=/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname175:     .string          "compare/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname176:     .string          "functor/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname177:     .string          "arg/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname178:     .string          "=../2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname179:     .string          "copy_term/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname180:     .string          "term_variables/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname181:     .string          "numbervars/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname182:     .string          "numbervars/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname183:     .string          "succ/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname184:     .string          "setarg/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname185:     .string          "nb_setarg/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname186:     .string          "nb_linkarg/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname187:     .string          "stamp_date_time/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname188:     .string          "date_time_stamp/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname189:     .string          "plus/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname190:     .string          "sort/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname191:     .string          "msort/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname192:     .string          "char_type/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname193:     .string          "term_string/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname194:     .string          "term_to_atom/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname195:     .string          "atom_length/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname196:     .string          "atom_concat/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname197:     .string          "atom_chars/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname198:     .string          "atom_codes/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname199:     .string          "atom_number/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname200:     .string          "atom_string/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname201:     .string          "upcase_atom/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname202:     .string          "downcase_atom/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname203:     .string          "string_concat/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname204:     .string          "string_length/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname205:     .string          "string_lower/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname206:     .string          "string_upper/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname207:     .string          "string_to_atom/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname208:     .string          "number_string/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname209:     .string          "string_chars/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname210:     .string          "string_codes/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname211:     .string          "atomic_concat/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname212:     .string          "atomic_list_concat/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname213:     .string          "atomic_list_concat/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname214:     .string          "concat_atom/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname215:     .string          "concat_atom/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname216:     .string          "char_code/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname217:     .string          "number_codes/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname218:     .string          "number_chars/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname219:     .string          "name/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname220:     .string          "get_char/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname221:     .string          "peek_char/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname222:     .string          "get_code/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname223:     .string          "peek_code/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname224:     .string          "get_byte/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname225:     .string          "peek_byte/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname226:     .string          "put_code/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname227:     .string          "put_byte/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname228:     .string          "unget_char/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname229:     .string          "at_end_of_stream/0"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname230:     .string          "current_prolog_flag/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname231:     .string          "set_prolog_flag/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname232:     .string          "telling/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname233:     .string          "seeing/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname234:     .string          "tell/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname235:     .string          "append/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname236:     .string          "see/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname237:     .string          "told/0"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname238:     .string          "seen/0"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname239:     .string          "at_end_of_stream/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname240:     .string          "put/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname241:     .string          "get0/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname242:     .string          "get/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname243:     .string          "skip/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname244:     .string          "unget_code/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname245:     .string          "unget_byte/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname246:     .string          "get_code/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname247:     .string          "peek_code/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname248:     .string          "get_byte/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname249:     .string          "peek_byte/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname250:     .string          "put_code/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname251:     .string          "put_byte/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname252:     .string          "unget_char/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname253:     .string          "unget_code/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname254:     .string          "unget_byte/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname255:     .string          "read/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname256:     .string          "atom_to_term/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname257:     .string          "read_term_from_atom/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname258:     .string          "read_term_from_chars/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname259:     .string          "read_term_from_codes/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname260:     .string          "writeq/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname261:     .string          "print/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname262:     .string          "write_term/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname263:     .string          "write_term/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname264:     .string          "write_canonical/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname265:     .string          "writeln/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname266:     .string          "display/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname267:     .string          "display/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname268:     .string          "unify_with_occurs_check/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname269:     .string          "put_char/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname270:     .string          "flush_output/0"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname271:     .string          "format/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname272:     .string          "format/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname273:     .string          "write/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname274:     .string          "writeq/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname275:     .string          "print/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname276:     .string          "write_canonical/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname277:     .string          "writeln/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname278:     .string          "nl/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname279:     .string          "put_char/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname280:     .string          "flush_output/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname281:     .string          "format/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname282:     .string          "read/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname283:     .string          "get_char/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname284:     .string          "peek_char/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname285:     .string          "open/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname286:     .string          "open/4"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname287:     .string          "close/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname288:     .string          "close/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname289:     .string          "current_output/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname290:     .string          "current_input/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname291:     .string          "set_output/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname292:     .string          "set_input/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname293:     .string          "keysort/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname294:     .string          "set_stream_position/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname295:     .string          "op/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname296:     .string          "wall_us/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname297:     .string          "wall_ms/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname298:     .string          "sort/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname299:     .string          "msort/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname300:     .string          "keysort/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname301:     .string          "line_count/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname302:     .string          "line_position/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname303:     .string          "character_count/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname304:     .string          "stream_line_column/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname305:     .string          "last_read_start_line_column/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname306:     .string          "absolute_file_name/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname307:     .string          "prolog_file_name/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname308:     .string          "working_directory/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname309:     .string          "change_directory/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname310:     .string          "make_directory/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname311:     .string          "set_stream/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname312:     .string          "delete_file/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname313:     .string          "file_exists/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname314:     .string          "directory_files/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname315:     .string          "term_hash/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname316:     .string          "prolog_pid/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname317:     .string          "pipe/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname318:     .string          "open_null_stream/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname319:     .string          "rational/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname320:     .string          "write/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname321:     .string          "nl/0"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname322:     .string          "true/0"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname323:     .string          "!/0"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname324:     .string          "fail/0"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname325:     .string          "false/0"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname326:     .string          "throw/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname327:     .string          "=/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname328:     .string          "is/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname329:     .string          ">/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname330:     .string          "assert/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname331:     .string          "asserta/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname332:     .string          "assertz/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname333:     .string          "retract/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname334:     .string          "retractall/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname335:     .string          "abolish/1"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname336:     .string          "clause/2"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname337:     .string          "$db_registry/0"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname338:     .string          "$rec/3"
+                        .section         .data.rel.ro,"aw",@progbits
+.Lstartup_pname339:     .string          "c/0"
+                        .section         .data
+                        .balign          16
+                        .quad            0
+                        .long            43536
+                        .short           232
+                        .short           0
+.Lstartup_procs:
                         .quad            .Lstartup_pname0
                         .quad            FN__$cp_orm$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            96
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec0]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname1:       .string          "$ta_close/3"
-                        .align           8
-.Lstartup_prec1:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname1
                         .quad            FN__$ta_close$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            320
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec1]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname2:       .string          "get_attr/3"
-                        .align           8
-.Lstartup_prec2:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname2
                         .quad            FN__get_attr$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            48
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec2]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname3:       .string          "$yall/3"
-                        .align           8
-.Lstartup_prec3:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname3
                         .quad            FN__$yall$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            96
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec3]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname4:       .string          "$xsb_f4_chk/2"
-                        .align           8
-.Lstartup_prec4:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname4
                         .quad            FN__$xsb_f4_chk$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            416
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec4]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname5:       .string          "del_attrs/1"
-                        .align           8
-.Lstartup_prec5:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname5
                         .quad            FN__del_attrs$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            64
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            64
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec5]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname6:       .string          "$sort4_steps/3"
-                        .align           8
-.Lstartup_prec6:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname6
                         .quad            FN__$sort4_steps$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            80
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec6]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname7:       .string          "get_attrs/2"
-                        .align           8
-.Lstartup_prec7:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname7
                         .quad            FN__get_attrs$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec7]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname8:       .string          "$var_subtract/3"
-                        .align           8
-.Lstartup_prec8:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname8
                         .quad            FN__$var_subtract$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            176
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec8]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname9:       .string          "$sort4_take/3"
-                        .align           8
-.Lstartup_prec9:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname9
                         .quad            FN__$sort4_take$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            80
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec9]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname10:      .string          "$mod_qmargs/4"
-                        .align           8
-.Lstartup_prec10:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname10
                         .quad            FN__$mod_qmargs$2F4
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            4
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            224
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec10]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname11:      .string          "reverse/2"
-                        .align           8
-.Lstartup_prec11:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname11
                         .quad            FN__reverse$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            144
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec11]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname12:      .string          "list/1"
-                        .align           8
-.Lstartup_prec12:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname12
                         .quad            FN__list$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec12]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname13:      .string          "$sort4_tail/5"
-                        .align           8
-.Lstartup_prec13:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname13
                         .quad            FN__$sort4_tail$2F5
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            5
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec13]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname14:      .string          "$arg_swi/3"
-                        .align           8
-.Lstartup_prec14:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname14
                         .quad            FN__$arg_swi$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            352
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec14]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname15:      .string          "$sort4_idx/1"
-                        .align           8
-.Lstartup_prec15:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname15
                         .quad            FN__$sort4_idx$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            64
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            64
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec15]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname16:      .string          "$when_suspend_list/2"
-                        .align           8
-.Lstartup_prec16:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname16
                         .quad            FN__$when_suspend_list$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            176
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec16]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname17:      .string          "$reverse_/3"
-                        .align           8
-.Lstartup_prec17:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname17
                         .quad            FN__$reverse_$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            64
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec17]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname18:      .string          "$when_wake_det/1"
-                        .align           8
-.Lstartup_prec18:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname18
                         .quad            FN__$when_wake_det$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            160
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            160
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec18]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname19:      .string          "$xsb_f4_strip/2"
-                        .align           8
-.Lstartup_prec19:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname19
                         .quad            FN__$xsb_f4_strip$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            80
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec19]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname20:      .string          "$sort4_skip/3"
-                        .align           8
-.Lstartup_prec20:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname20
                         .quad            FN__$sort4_skip$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            48
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec20]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname21:      .string          "$wot_stream/2"
-                        .align           8
-.Lstartup_prec21:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname21
                         .quad            FN__$wot_stream$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            464
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec21]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname22:      .string          "$var_memberchk/2"
-                        .align           8
-.Lstartup_prec22:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname22
                         .quad            FN__$var_memberchk$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            160
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec22]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname23:      .string          "$sort4_key/3"
-                        .align           8
-.Lstartup_prec23:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname23
                         .quad            FN__$sort4_key$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec23]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname24:      .string          "$sort4_plist/1"
-                        .align           8
-.Lstartup_prec24:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname24
                         .quad            FN__$sort4_plist$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            48
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            48
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec24]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname25:      .string          "$sort4_step/3"
-                        .align           8
-.Lstartup_prec25:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname25
                         .quad            FN__$sort4_step$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec25]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname26:      .string          "$f4_kind/4"
-                        .align           8
-.Lstartup_prec26:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname26
                         .quad            FN__$f4_kind$2F4
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            4
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec26]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname27:      .string          "$cp_append/3"
-                        .align           8
-.Lstartup_prec27:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname27
                         .quad            FN__$cp_append$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            64
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec27]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname28:      .string          "$cp_wgoal/3"
-                        .align           8
-.Lstartup_prec28:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname28
                         .quad            FN__$cp_wgoal$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            64
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec28]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname29:      .string          "$when_trigger_disj/2"
-                        .align           8
-.Lstartup_prec29:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname29
                         .quad            FN__$when_trigger_disj$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            64
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec29]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname30:      .string          "$mod_call/2"
-                        .align           8
-.Lstartup_prec30:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname30
                         .quad            FN__$mod_call$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            64
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec30]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname31:      .string          "$reverse_b/4"
-                        .align           8
-.Lstartup_prec31:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname31
                         .quad            FN__$reverse_b$2F4
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            4
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            80
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec31]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname32:      .string          "copy_term/4"
-                        .align           8
-.Lstartup_prec32:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname32
                         .quad            FN__copy_term$2F4
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            4
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            80
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec32]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname33:      .string          "$mod_head/3"
-                        .align           8
-.Lstartup_prec33:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname33
                         .quad            FN__$mod_head$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            176
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec33]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname34:      .string          "copy_term/3"
-                        .align           8
-.Lstartup_prec34:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname34
                         .quad            FN__copy_term$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            320
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec34]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname35:      .string          "$freeze_goal/2"
-                        .align           8
-.Lstartup_prec35:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname35
                         .quad            FN__$freeze_goal$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec35]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname36:      .string          "$f4_accept/2"
-                        .align           8
-.Lstartup_prec36:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname36
                         .quad            FN__$f4_accept$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec36]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname37:      .string          "$cp_wtg/4"
-                        .align           8
-.Lstartup_prec37:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname37
                         .quad            FN__$cp_wtg$2F4
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            4
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            128
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec37]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname38:      .string          "nonground/2"
-                        .align           8
-.Lstartup_prec38:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname38
                         .quad            FN__nonground$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec38]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname39:      .string          "freeze/2"
-                        .align           8
-.Lstartup_prec39:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname39
                         .quad            FN__freeze$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            160
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec39]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname40:      .string          "$sort4_kp/2"
-                        .align           8
-.Lstartup_prec40:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname40
                         .quad            FN__$sort4_kp$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec40]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname41:      .string          "$mod_qb/3"
-                        .align           8
-.Lstartup_prec41:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname41
                         .quad            FN__$mod_qb$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            192
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec41]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname42:      .string          "append/3"
-                        .align           8
-.Lstartup_prec42:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname42
                         .quad            FN__append$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            64
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec42]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname43:      .string          "$sort4_more/3"
-                        .align           8
-.Lstartup_prec43:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname43
                         .quad            FN__$sort4_more$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec43]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname44:      .string          ":/2"
-                        .align           8
-.Lstartup_prec44:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname44
                         .quad            FN__$3A$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            48
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec44]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname45:      .string          "$sort4_out/3"
-                        .align           8
-.Lstartup_prec45:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname45
                         .quad            FN__$sort4_out$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            96
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec45]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname46:      .string          ":/3"
-                        .align           8
-.Lstartup_prec46:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname46
                         .quad            FN__$3A$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            48
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec46]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname47:      .string          "$xsb_f4_make/4"
-                        .align           8
-.Lstartup_prec47:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname47
                         .quad            FN__$xsb_f4_make$2F4
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            4
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            144
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec47]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname48:      .string          "$between_big/3"
-                        .align           8
-.Lstartup_prec48:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname48
                         .quad            FN__$between_big$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            64
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec48]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname49:      .string          ":/4"
-                        .align           8
-.Lstartup_prec49:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname49
                         .quad            FN__$3A$2F4
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            4
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            48
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec49]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname50:      .string          "$f4_free/3"
-                        .align           8
-.Lstartup_prec50:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname50
                         .quad            FN__$f4_free$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            64
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec50]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname51:      .string          "$cp_atts/4"
-                        .align           8
-.Lstartup_prec51:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname51
                         .quad            FN__$cp_atts$2F4
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            4
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            496
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec51]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname52:      .string          "put_attr/3"
-                        .align           8
-.Lstartup_prec52:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname52
                         .quad            FN__put_attr$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            128
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec52]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname53:      .string          ":/5"
-                        .align           8
-.Lstartup_prec53:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname53
                         .quad            FN__$3A$2F5
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            5
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            48
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec53]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname54:      .string          ":/6"
-                        .align           8
-.Lstartup_prec54:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname54
                         .quad            FN__$3A$2F6
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            6
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            48
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec54]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname55:      .string          ":/7"
-                        .align           8
-.Lstartup_prec55:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname55
                         .quad            FN__$3A$2F7
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            7
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            48
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec55]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname56:      .string          "bench_work/1"
-                        .align           8
-.Lstartup_prec56:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname56
                         .quad            FN__bench_work$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            48
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            48
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec56]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname57:      .string          "$mod_ccl/3"
-                        .align           8
-.Lstartup_prec57:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname57
                         .quad            FN__$mod_ccl$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            80
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec57]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname58:      .string          ":/8"
-                        .align           8
-.Lstartup_prec58:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname58
                         .quad            FN__$3A$2F8
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            8
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            48
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec58]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname59:      .string          ":/9"
-                        .align           8
-.Lstartup_prec59:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname59
                         .quad            FN__$3A$2F9
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            9
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            48
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec59]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname60:      .string          "$cp_mq/2"
-                        .align           8
-.Lstartup_prec60:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname60
                         .quad            FN__$cp_mq$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            1008
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec60]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname61:      .string          "$sort4_cmp/1"
-                        .align           8
-.Lstartup_prec61:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname61
                         .quad            FN__$sort4_cmp$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            64
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            64
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec61]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname62:      .string          "$scc_cut_loop/1"
-                        .align           8
-.Lstartup_prec62:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname62
                         .quad            FN__$scc_cut_loop$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            256
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            256
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec62]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname63:      .string          "$sort4_dir/3"
-                        .align           8
-.Lstartup_prec63:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname63
                         .quad            FN__$sort4_dir$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            64
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec63]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname64:      .string          "$xsb_f4_tag/3"
-                        .align           8
-.Lstartup_prec64:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname64
                         .quad            FN__$xsb_f4_tag$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec64]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname65:      .string          "$cp_res/3"
-                        .align           8
-.Lstartup_prec65:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname65
                         .quad            FN__$cp_res$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            192
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec65]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname66:      .string          "$mod_callq/2"
-                        .align           8
-.Lstartup_prec66:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname66
                         .quad            FN__$mod_callq$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            224
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec66]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname67:      .string          "$when_check_disj/3"
-                        .align           8
-.Lstartup_prec67:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname67
                         .quad            FN__$when_check_disj$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            128
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec67]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname68:      .string          "$yall_bind/4"
-                        .align           8
-.Lstartup_prec68:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname68
                         .quad            FN__$yall_bind$2F4
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            4
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            96
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec68]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname69:      .string          "attvar/1"
-                        .align           8
-.Lstartup_prec69:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname69
                         .quad            FN__attvar$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec69]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname70:      .string          "$sort4_oc/1"
-                        .align           8
-.Lstartup_prec70:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname70
                         .quad            FN__$sort4_oc$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            160
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            160
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec70]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname71:      .string          "$xsb_f4_err/2"
-                        .align           8
-.Lstartup_prec71:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname71
                         .quad            FN__$xsb_f4_err$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            144
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec71]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname72:      .string          "sort/4"
-                        .align           8
-.Lstartup_prec72:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname72
                         .quad            FN__sort$2F4
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            4
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            144
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec72]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname73:      .string          "$cp_when/3"
-                        .align           8
-.Lstartup_prec73:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname73
                         .quad            FN__$cp_when$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            80
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec73]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname74:      .string          "$sort4_pathok/1"
-                        .align           8
-.Lstartup_prec74:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname74
                         .quad            FN__$sort4_pathok$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            64
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            64
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec74]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname75:      .string          "functor/4"
-                        .align           8
-.Lstartup_prec75:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname75
                         .quad            FN__functor$2F4
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            4
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            48
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec75]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname76:      .string          "$conj_nocut/1"
-                        .align           8
-.Lstartup_prec76:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname76
                         .quad            FN__$conj_nocut$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            64
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            64
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec76]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname77:      .string          "$yall_ext/3"
-                        .align           8
-.Lstartup_prec77:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname77
                         .quad            FN__$yall_ext$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            64
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec77]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname78:      .string          "$retract_target/2"
-                        .align           8
-.Lstartup_prec78:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname78
                         .quad            FN__$retract_target$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            80
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec78]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname79:      .string          "nrev/2"
-                        .align           8
-.Lstartup_prec79:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname79
                         .quad            FN__nrev$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            80
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec79]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname80:      .string          "$sort4_keyed/3"
-                        .align           8
-.Lstartup_prec80:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname80
                         .quad            FN__$sort4_keyed$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            96
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec80]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname81:      .string          "$when_trigger_nonvar/2"
-                        .align           8
-.Lstartup_prec81:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname81
                         .quad            FN__$when_trigger_nonvar$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            128
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec81]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname82:      .string          "$yall_app/3"
-                        .align           8
-.Lstartup_prec82:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname82
                         .quad            FN__$yall_app$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            64
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec82]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname83:      .string          "$when_suspend/2"
-                        .align           8
-.Lstartup_prec83:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname83
                         .quad            FN__$when_suspend$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            144
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec83]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname84:      .string          "$between_test/3"
-                        .align           8
-.Lstartup_prec84:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname84
                         .quad            FN__$between_test$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            64
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec84]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname85:      .string          "$scc_g0/1"
-                        .align           8
-.Lstartup_prec85:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname85
                         .quad            FN__$scc_g0$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            128
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            128
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec85]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname86:      .string          "when/2"
-                        .align           8
-.Lstartup_prec86:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname86
                         .quad            FN__when$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            48
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec86]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname87:      .string          "$cp_del_l/1"
-                        .align           8
-.Lstartup_prec87:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname87
                         .quad            FN__$cp_del_l$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            64
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            64
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec87]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname88:      .string          "//5"
-                        .align           8
-.Lstartup_prec88:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname88
                         .quad            FN__$2F$2F5
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            5
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec88]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname89:      .string          ":/11"
-                        .align           8
-.Lstartup_prec89:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname89
                         .quad            FN__$3A$2F11
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            11
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            48
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec89]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname90:      .string          "$scc_cut/0"
-                        .align           8
-.Lstartup_prec90:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname90
                         .quad            FN__$scc_cut$2F0
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            0
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            48
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec90]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname91:      .string          "//4"
-                        .align           8
-.Lstartup_prec91:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname91
                         .quad            FN__$2F$2F4
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            4
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec91]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname92:      .string          ":/10"
-                        .align           8
-.Lstartup_prec92:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname92
                         .quad            FN__$3A$2F10
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            10
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            48
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec92]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname93:      .string          "$when_cond/2"
-                        .align           8
-.Lstartup_prec93:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname93
                         .quad            FN__$when_cond$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            336
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec93]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname94:      .string          "//7"
-                        .align           8
-.Lstartup_prec94:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname94
                         .quad            FN__$2F$2F7
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            7
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec94]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname95:      .string          ">>/8"
-                        .align           8
-.Lstartup_prec95:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname95
                         .quad            FN__$3E$3E$2F8
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            8
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec95]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname96:      .string          "//6"
-                        .align           8
-.Lstartup_prec96:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname96
                         .quad            FN__$2F$2F6
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            6
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec96]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname97:      .string          ">>/9"
-                        .align           8
-.Lstartup_prec97:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname97
                         .quad            FN__$3E$3E$2F9
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            9
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec97]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname98:      .string          "$attv_filter/2"
-                        .align           8
-.Lstartup_prec98:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname98
                         .quad            FN__$attv_filter$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            176
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec98]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname99:      .string          "$when_trigger_ground/2"
-                        .align           8
-.Lstartup_prec99:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname99
                         .quad            FN__$when_trigger_ground$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            144
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec99]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname100:     .string          "//3"
-                        .align           8
-.Lstartup_prec100:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname100
                         .quad            FN__$2F$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec100]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname101:     .string          "//2"
-                        .align           8
-.Lstartup_prec101:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname101
                         .quad            FN__$2F$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec101]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname102:     .string          ">>/2"
-                        .align           8
-.Lstartup_prec102:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname102
                         .quad            FN__$3E$3E$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec102]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname103:     .string          "$xsb_f4_strip_l/2"
-                        .align           8
-.Lstartup_prec103:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname103
                         .quad            FN__$xsb_f4_strip_l$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            96
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec103]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname104:     .string          "$when_trigger_determined/3"
-                        .align           8
-.Lstartup_prec104:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname104
                         .quad            FN__$when_trigger_determined$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            160
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec104]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname105:     .string          ">>/3"
-                        .align           8
-.Lstartup_prec105:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname105
                         .quad            FN__$3E$3E$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec105]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname106:     .string          "//9"
-                        .align           8
-.Lstartup_prec106:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname106
                         .quad            FN__$2F$2F9
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            9
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec106]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname107:     .string          ">>/6"
-                        .align           8
-.Lstartup_prec107:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname107
                         .quad            FN__$3E$3E$2F6
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            6
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec107]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname108:     .string          "$cp_mq1/3"
-                        .align           8
-.Lstartup_prec108:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname108
                         .quad            FN__$cp_mq1$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            1056
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec108]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname109:     .string          "//8"
-                        .align           8
-.Lstartup_prec109:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname109
                         .quad            FN__$2F$2F8
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            8
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec109]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname110:     .string          ">>/7"
-                        .align           8
-.Lstartup_prec110:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname110
                         .quad            FN__$3E$3E$2F7
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            7
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec110]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname111:     .string          ">>/4"
-                        .align           8
-.Lstartup_prec111:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname111
                         .quad            FN__$3E$3E$2F4
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            4
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec111]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname112:     .string          "$cp_del/1"
-                        .align           8
-.Lstartup_prec112:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname112
                         .quad            FN__$cp_del$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            48
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            48
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec112]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname113:     .string          "$yall_slash/3"
-                        .align           8
-.Lstartup_prec113:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname113
                         .quad            FN__$yall_slash$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            192
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec113]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname114:     .string          ">>/5"
-                        .align           8
-.Lstartup_prec114:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname114
                         .quad            FN__$3E$3E$2F5
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            5
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec114]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname115:     .string          "$f4_build/4"
-                        .align           8
-.Lstartup_prec115:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname115
                         .quad            FN__$f4_build$2F4
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            4
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            64
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec115]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname116:     .string          "$cp_orl/2"
-                        .align           8
-.Lstartup_prec116:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname116
                         .quad            FN__$cp_orl$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            96
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec116]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname117:     .string          "$mod_q1/3"
-                        .align           8
-.Lstartup_prec117:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname117
                         .quad            FN__$mod_q1$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            352
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec117]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname118:     .string          "$f4_atom/1"
-                        .align           8
-.Lstartup_prec118:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname118
                         .quad            FN__$f4_atom$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec118]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname119:     .string          "$xsb_f4_mk/4"
-                        .align           8
-.Lstartup_prec119:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname119
                         .quad            FN__$xsb_f4_mk$2F4
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            4
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            64
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec119]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname120:     .string          "$between_up/2"
-                        .align           8
-.Lstartup_prec120:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname120
                         .quad            FN__$between_up$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            48
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec120]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname121:     .string          "$retract_head/2"
-                        .align           8
-.Lstartup_prec121:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname121
                         .quad            FN__$retract_head$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            80
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec121]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname122:     .string          "$yall_free/3"
-                        .align           8
-.Lstartup_prec122:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname122
                         .quad            FN__$yall_free$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            48
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec122]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname123:     .string          "$sort4_list/3"
-                        .align           8
-.Lstartup_prec123:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname123
                         .quad            FN__$sort4_list$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            64
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec123]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname124:     .string          "$att_del/3"
-                        .align           8
-.Lstartup_prec124:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname124
                         .quad            FN__$att_del$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            192
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec124]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname125:     .string          "$wot_stream_sink/1"
-                        .align           8
-.Lstartup_prec125:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname125
                         .quad            FN__$wot_stream_sink$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            1008
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            1008
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec125]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname126:     .string          "$xsb_f4_read/4"
-                        .align           8
-.Lstartup_prec126:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname126
                         .quad            FN__$xsb_f4_read$2F4
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            4
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            64
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec126]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname127:     .string          "$sort4_ord/3"
-                        .align           8
-.Lstartup_prec127:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname127
                         .quad            FN__$sort4_ord$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec127]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname128:     .string          "$att_get/3"
-                        .align           8
-.Lstartup_prec128:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname128
                         .quad            FN__$att_get$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            176
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec128]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname129:     .string          "$att_put/4"
-                        .align           8
-.Lstartup_prec129:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname129
                         .quad            FN__$att_put$2F4
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            4
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            192
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec129]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname130:     .string          "$f4_callable/3"
-                        .align           8
-.Lstartup_prec130:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname130
                         .quad            FN__$f4_callable$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec130]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname131:     .string          "?=/2"
-                        .align           8
-.Lstartup_prec131:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname131
                         .quad            FN__$3F$3D$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            64
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec131]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname132:     .string          "$cp_frozen/4"
-                        .align           8
-.Lstartup_prec132:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname132
                         .quad            FN__$cp_frozen$2F4
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            4
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            80
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec132]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname133:     .string          "$xsb_f4/4"
-                        .align           8
-.Lstartup_prec133:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname133
                         .quad            FN__$xsb_f4$2F4
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            4
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            128
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec133]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname134:     .string          "$ta_memq/2"
-                        .align           8
-.Lstartup_prec134:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname134
                         .quad            FN__$ta_memq$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            160
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec134]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname135:     .string          "compound_name_arity/3"
-                        .align           8
-.Lstartup_prec135:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname135
                         .quad            FN__compound_name_arity$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            64
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec135]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname136:     .string          "data/2"
-                        .align           8
-.Lstartup_prec136:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname136
                         .quad            FN__data$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            64
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec136]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname137:     .string          "data/1"
-                        .align           8
-.Lstartup_prec137:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname137
                         .quad            FN__data$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec137]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname138:     .string          "$lfx_meta/2"
-                        .align           8
-.Lstartup_prec138:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname138
                         .quad            FN__$lfx_meta$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec138]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname139:     .string          "$sort4_rev/3"
-                        .align           8
-.Lstartup_prec139:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname139
                         .quad            FN__$sort4_rev$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            64
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec139]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname140:     .string          "$when_first/2"
-                        .align           8
-.Lstartup_prec140:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname140
                         .quad            FN__$when_first$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            48
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec140]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname141:     .string          "$cp_wconj/3"
-                        .align           8
-.Lstartup_prec141:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname141
                         .quad            FN__$cp_wconj$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            80
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec141]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname142:     .string          "$when_trigger/2"
-                        .align           8
-.Lstartup_prec142:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname142
                         .quad            FN__$when_trigger$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            64
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec142]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname143:     .string          "$xsb_f4_key/2"
-                        .align           8
-.Lstartup_prec143:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname143
                         .quad            FN__$xsb_f4_key$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            640
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec143]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname144:     .string          "main/0"
-                        .align           8
-.Lstartup_prec144:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname144
                         .quad            FN__main$2F0
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            0
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            48
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec144]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname145:     .string          "$between_to/3"
-                        .align           8
-.Lstartup_prec145:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname145
                         .quad            FN__$between_to$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            48
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec145]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname146:     .string          "current_predicate/2"
-                        .align           8
-.Lstartup_prec146:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname146
                         .quad            FN__current_predicate$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            608
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec146]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname147:     .string          "$when_or_list/2"
-                        .align           8
-.Lstartup_prec147:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname147
                         .quad            FN__$when_or_list$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec147]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname148:     .string          "app/3"
-                        .align           8
-.Lstartup_prec148:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname148
                         .quad            FN__app$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            64
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec148]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname149:     .string          "del_attr/2"
-                        .align           8
-.Lstartup_prec149:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname149
                         .quad            FN__del_attr$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            160
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec149]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname150:     .string          "term_attvars/2"
-                        .align           8
-.Lstartup_prec150:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname150
                         .quad            FN__term_attvars$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            64
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec150]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname151:     .string          "$fc/3"
-                        .align           8
-.Lstartup_prec151:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname151
                         .quad            FN__$fc$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            96
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec151]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname152:     .string          ",/2"
-                        .align           8
-.Lstartup_prec152:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname152
                         .quad            FN__$2C$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            64
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec152]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname153:     .string          ";/2"
-                        .align           8
-.Lstartup_prec153:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname153
                         .quad            FN__$3B$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            224
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec153]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname154:     .string          "->/2"
-                        .align           8
-.Lstartup_prec154:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname154
                         .quad            FN__$2D$3E$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            48
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec154]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname155:     .string          "*->/2"
-                        .align           8
-.Lstartup_prec155:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname155
                         .quad            FN__$2A$2D$3E$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            48
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec155]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname156:     .string          "var/1"
-                        .align           8
-.Lstartup_prec156:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname156
                         .quad            FN__var$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec156]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname157:     .string          "nonvar/1"
-                        .align           8
-.Lstartup_prec157:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname157
                         .quad            FN__nonvar$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec157]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname158:     .string          "atom/1"
-                        .align           8
-.Lstartup_prec158:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname158
                         .quad            FN__atom$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec158]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname159:     .string          "number/1"
-                        .align           8
-.Lstartup_prec159:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname159
                         .quad            FN__number$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec159]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname160:     .string          "integer/1"
-                        .align           8
-.Lstartup_prec160:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname160
                         .quad            FN__integer$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec160]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname161:     .string          "float/1"
-                        .align           8
-.Lstartup_prec161:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname161
                         .quad            FN__float$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec161]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname162:     .string          "atomic/1"
-                        .align           8
-.Lstartup_prec162:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname162
                         .quad            FN__atomic$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec162]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname163:     .string          "string/1"
-                        .align           8
-.Lstartup_prec163:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname163
                         .quad            FN__string$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec163]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname164:     .string          "compound/1"
-                        .align           8
-.Lstartup_prec164:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname164
                         .quad            FN__compound$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec164]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname165:     .string          "callable/1"
-                        .align           8
-.Lstartup_prec165:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname165
                         .quad            FN__callable$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec165]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname166:     .string          "ground/1"
-                        .align           8
-.Lstartup_prec166:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname166
                         .quad            FN__ground$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec166]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname167:     .string          "is_list/1"
-                        .align           8
-.Lstartup_prec167:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname167
                         .quad            FN__is_list$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec167]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname168:     .string          "acyclic_term/1"
-                        .align           8
-.Lstartup_prec168:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname168
                         .quad            FN__acyclic_term$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec168]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname169:     .string          "==/2"
-                        .align           8
-.Lstartup_prec169:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname169
                         .quad            FN__$3D$3D$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec169]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname170:     .string          "\\==/2"
-                        .align           8
-.Lstartup_prec170:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname170
                         .quad            FN__$5C$3D$3D$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec170]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname171:     .string          "@</2"
-                        .align           8
-.Lstartup_prec171:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname171
                         .quad            FN__$40$3C$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec171]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname172:     .string          "@=</2"
-                        .align           8
-.Lstartup_prec172:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname172
                         .quad            FN__$40$3D$3C$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec172]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname173:     .string          "@>/2"
-                        .align           8
-.Lstartup_prec173:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname173
                         .quad            FN__$40$3E$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec173]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname174:     .string          "@>=/2"
-                        .align           8
-.Lstartup_prec174:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname174
                         .quad            FN__$40$3E$3D$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec174]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname175:     .string          "compare/3"
-                        .align           8
-.Lstartup_prec175:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname175
                         .quad            FN__compare$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec175]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname176:     .string          "functor/3"
-                        .align           8
-.Lstartup_prec176:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname176
                         .quad            FN__functor$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec176]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname177:     .string          "arg/3"
-                        .align           8
-.Lstartup_prec177:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname177
                         .quad            FN__arg$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec177]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname178:     .string          "=../2"
-                        .align           8
-.Lstartup_prec178:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname178
                         .quad            FN__$3D..$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec178]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname179:     .string          "copy_term/2"
-                        .align           8
-.Lstartup_prec179:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname179
                         .quad            FN__copy_term$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec179]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname180:     .string          "term_variables/2"
-                        .align           8
-.Lstartup_prec180:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname180
                         .quad            FN__term_variables$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec180]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname181:     .string          "numbervars/3"
-                        .align           8
-.Lstartup_prec181:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname181
                         .quad            FN__numbervars$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec181]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname182:     .string          "numbervars/1"
-                        .align           8
-.Lstartup_prec182:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname182
                         .quad            FN__numbervars$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec182]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname183:     .string          "succ/2"
-                        .align           8
-.Lstartup_prec183:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname183
                         .quad            FN__succ$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec183]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname184:     .string          "setarg/3"
-                        .align           8
-.Lstartup_prec184:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname184
                         .quad            FN__setarg$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec184]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname185:     .string          "nb_setarg/3"
-                        .align           8
-.Lstartup_prec185:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname185
                         .quad            FN__nb_setarg$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec185]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname186:     .string          "nb_linkarg/3"
-                        .align           8
-.Lstartup_prec186:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname186
                         .quad            FN__nb_linkarg$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec186]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname187:     .string          "stamp_date_time/3"
-                        .align           8
-.Lstartup_prec187:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname187
                         .quad            FN__stamp_date_time$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec187]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname188:     .string          "date_time_stamp/2"
-                        .align           8
-.Lstartup_prec188:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname188
                         .quad            FN__date_time_stamp$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec188]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname189:     .string          "plus/3"
-                        .align           8
-.Lstartup_prec189:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname189
                         .quad            FN__plus$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec189]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname190:     .string          "sort/2"
-                        .align           8
-.Lstartup_prec190:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname190
                         .quad            FN__sort$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec190]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname191:     .string          "msort/2"
-                        .align           8
-.Lstartup_prec191:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname191
                         .quad            FN__msort$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec191]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname192:     .string          "char_type/2"
-                        .align           8
-.Lstartup_prec192:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname192
                         .quad            FN__char_type$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            128
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec192]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname193:     .string          "term_string/2"
-                        .align           8
-.Lstartup_prec193:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname193
                         .quad            FN__term_string$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec193]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname194:     .string          "term_to_atom/2"
-                        .align           8
-.Lstartup_prec194:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname194
                         .quad            FN__term_to_atom$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec194]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname195:     .string          "atom_length/2"
-                        .align           8
-.Lstartup_prec195:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname195
                         .quad            FN__atom_length$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec195]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname196:     .string          "atom_concat/3"
-                        .align           8
-.Lstartup_prec196:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname196
                         .quad            FN__atom_concat$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec196]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname197:     .string          "atom_chars/2"
-                        .align           8
-.Lstartup_prec197:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname197
                         .quad            FN__atom_chars$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec197]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname198:     .string          "atom_codes/2"
-                        .align           8
-.Lstartup_prec198:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname198
                         .quad            FN__atom_codes$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec198]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname199:     .string          "atom_number/2"
-                        .align           8
-.Lstartup_prec199:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname199
                         .quad            FN__atom_number$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec199]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname200:     .string          "atom_string/2"
-                        .align           8
-.Lstartup_prec200:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname200
                         .quad            FN__atom_string$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec200]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname201:     .string          "upcase_atom/2"
-                        .align           8
-.Lstartup_prec201:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname201
                         .quad            FN__upcase_atom$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec201]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname202:     .string          "downcase_atom/2"
-                        .align           8
-.Lstartup_prec202:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname202
                         .quad            FN__downcase_atom$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec202]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname203:     .string          "string_concat/3"
-                        .align           8
-.Lstartup_prec203:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname203
                         .quad            FN__string_concat$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            128
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec203]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname204:     .string          "string_length/2"
-                        .align           8
-.Lstartup_prec204:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname204
                         .quad            FN__string_length$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec204]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname205:     .string          "string_lower/2"
-                        .align           8
-.Lstartup_prec205:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname205
                         .quad            FN__string_lower$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec205]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname206:     .string          "string_upper/2"
-                        .align           8
-.Lstartup_prec206:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname206
                         .quad            FN__string_upper$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec206]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname207:     .string          "string_to_atom/2"
-                        .align           8
-.Lstartup_prec207:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname207
                         .quad            FN__string_to_atom$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec207]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname208:     .string          "number_string/2"
-                        .align           8
-.Lstartup_prec208:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname208
                         .quad            FN__number_string$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec208]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname209:     .string          "string_chars/2"
-                        .align           8
-.Lstartup_prec209:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname209
                         .quad            FN__string_chars$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec209]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname210:     .string          "string_codes/2"
-                        .align           8
-.Lstartup_prec210:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname210
                         .quad            FN__string_codes$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec210]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname211:     .string          "atomic_concat/3"
-                        .align           8
-.Lstartup_prec211:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname211
                         .quad            FN__atomic_concat$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec211]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname212:     .string          "atomic_list_concat/2"
-                        .align           8
-.Lstartup_prec212:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname212
                         .quad            FN__atomic_list_concat$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec212]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname213:     .string          "atomic_list_concat/3"
-                        .align           8
-.Lstartup_prec213:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname213
                         .quad            FN__atomic_list_concat$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec213]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname214:     .string          "concat_atom/2"
-                        .align           8
-.Lstartup_prec214:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname214
                         .quad            FN__concat_atom$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec214]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname215:     .string          "concat_atom/3"
-                        .align           8
-.Lstartup_prec215:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname215
                         .quad            FN__concat_atom$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec215]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname216:     .string          "char_code/2"
-                        .align           8
-.Lstartup_prec216:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname216
                         .quad            FN__char_code$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec216]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname217:     .string          "number_codes/2"
-                        .align           8
-.Lstartup_prec217:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname217
                         .quad            FN__number_codes$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec217]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname218:     .string          "number_chars/2"
-                        .align           8
-.Lstartup_prec218:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname218
                         .quad            FN__number_chars$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec218]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname219:     .string          "name/2"
-                        .align           8
-.Lstartup_prec219:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname219
                         .quad            FN__name$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec219]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname220:     .string          "get_char/1"
-                        .align           8
-.Lstartup_prec220:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname220
                         .quad            FN__get_char$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec220]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname221:     .string          "peek_char/1"
-                        .align           8
-.Lstartup_prec221:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname221
                         .quad            FN__peek_char$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec221]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname222:     .string          "get_code/1"
-                        .align           8
-.Lstartup_prec222:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname222
                         .quad            FN__get_code$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec222]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname223:     .string          "peek_code/1"
-                        .align           8
-.Lstartup_prec223:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname223
                         .quad            FN__peek_code$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec223]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname224:     .string          "get_byte/1"
-                        .align           8
-.Lstartup_prec224:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname224
                         .quad            FN__get_byte$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec224]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname225:     .string          "peek_byte/1"
-                        .align           8
-.Lstartup_prec225:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname225
                         .quad            FN__peek_byte$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec225]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname226:     .string          "put_code/1"
-                        .align           8
-.Lstartup_prec226:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname226
                         .quad            FN__put_code$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec226]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname227:     .string          "put_byte/1"
-                        .align           8
-.Lstartup_prec227:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname227
                         .quad            FN__put_byte$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec227]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname228:     .string          "unget_char/1"
-                        .align           8
-.Lstartup_prec228:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname228
                         .quad            FN__unget_char$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec228]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname229:     .string          "at_end_of_stream/0"
-                        .align           8
-.Lstartup_prec229:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname229
                         .quad            FN__at_end_of_stream$2F0
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            0
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec229]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname230:     .string          "current_prolog_flag/2"
-                        .align           8
-.Lstartup_prec230:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname230
                         .quad            FN__current_prolog_flag$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            128
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec230]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname231:     .string          "set_prolog_flag/2"
-                        .align           8
-.Lstartup_prec231:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname231
                         .quad            FN__set_prolog_flag$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec231]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname232:     .string          "telling/1"
-                        .align           8
-.Lstartup_prec232:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname232
                         .quad            FN__telling$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec232]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname233:     .string          "seeing/1"
-                        .align           8
-.Lstartup_prec233:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname233
                         .quad            FN__seeing$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec233]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname234:     .string          "tell/1"
-                        .align           8
-.Lstartup_prec234:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname234
                         .quad            FN__tell$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec234]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname235:     .string          "append/1"
-                        .align           8
-.Lstartup_prec235:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname235
                         .quad            FN__append$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec235]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname236:     .string          "see/1"
-                        .align           8
-.Lstartup_prec236:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname236
                         .quad            FN__see$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec236]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname237:     .string          "told/0"
-                        .align           8
-.Lstartup_prec237:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname237
                         .quad            FN__told$2F0
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            0
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec237]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname238:     .string          "seen/0"
-                        .align           8
-.Lstartup_prec238:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname238
                         .quad            FN__seen$2F0
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            0
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec238]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname239:     .string          "at_end_of_stream/1"
-                        .align           8
-.Lstartup_prec239:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname239
                         .quad            FN__at_end_of_stream$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec239]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname240:     .string          "put/1"
-                        .align           8
-.Lstartup_prec240:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname240
                         .quad            FN__put$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec240]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname241:     .string          "get0/1"
-                        .align           8
-.Lstartup_prec241:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname241
                         .quad            FN__get0$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec241]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname242:     .string          "get/1"
-                        .align           8
-.Lstartup_prec242:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname242
                         .quad            FN__get$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec242]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname243:     .string          "skip/1"
-                        .align           8
-.Lstartup_prec243:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname243
                         .quad            FN__skip$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec243]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname244:     .string          "unget_code/1"
-                        .align           8
-.Lstartup_prec244:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname244
                         .quad            FN__unget_code$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec244]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname245:     .string          "unget_byte/1"
-                        .align           8
-.Lstartup_prec245:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname245
                         .quad            FN__unget_byte$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec245]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname246:     .string          "get_code/2"
-                        .align           8
-.Lstartup_prec246:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname246
                         .quad            FN__get_code$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec246]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname247:     .string          "peek_code/2"
-                        .align           8
-.Lstartup_prec247:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname247
                         .quad            FN__peek_code$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec247]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname248:     .string          "get_byte/2"
-                        .align           8
-.Lstartup_prec248:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname248
                         .quad            FN__get_byte$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec248]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname249:     .string          "peek_byte/2"
-                        .align           8
-.Lstartup_prec249:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname249
                         .quad            FN__peek_byte$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec249]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname250:     .string          "put_code/2"
-                        .align           8
-.Lstartup_prec250:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname250
                         .quad            FN__put_code$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec250]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname251:     .string          "put_byte/2"
-                        .align           8
-.Lstartup_prec251:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname251
                         .quad            FN__put_byte$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec251]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname252:     .string          "unget_char/2"
-                        .align           8
-.Lstartup_prec252:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname252
                         .quad            FN__unget_char$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec252]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname253:     .string          "unget_code/2"
-                        .align           8
-.Lstartup_prec253:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname253
                         .quad            FN__unget_code$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec253]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname254:     .string          "unget_byte/2"
-                        .align           8
-.Lstartup_prec254:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname254
                         .quad            FN__unget_byte$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec254]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname255:     .string          "read/1"
-                        .align           8
-.Lstartup_prec255:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname255
                         .quad            FN__read$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec255]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname256:     .string          "atom_to_term/3"
-                        .align           8
-.Lstartup_prec256:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname256
                         .quad            FN__atom_to_term$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec256]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname257:     .string          "read_term_from_atom/3"
-                        .align           8
-.Lstartup_prec257:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname257
                         .quad            FN__read_term_from_atom$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec257]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname258:     .string          "read_term_from_chars/3"
-                        .align           8
-.Lstartup_prec258:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname258
                         .quad            FN__read_term_from_chars$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec258]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname259:     .string          "read_term_from_codes/3"
-                        .align           8
-.Lstartup_prec259:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname259
                         .quad            FN__read_term_from_codes$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec259]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname260:     .string          "writeq/1"
-                        .align           8
-.Lstartup_prec260:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname260
                         .quad            FN__writeq$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec260]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname261:     .string          "print/1"
-                        .align           8
-.Lstartup_prec261:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname261
                         .quad            FN__print$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec261]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname262:     .string          "write_term/2"
-                        .align           8
-.Lstartup_prec262:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname262
                         .quad            FN__write_term$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec262]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname263:     .string          "write_term/3"
-                        .align           8
-.Lstartup_prec263:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname263
                         .quad            FN__write_term$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec263]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname264:     .string          "write_canonical/1"
-                        .align           8
-.Lstartup_prec264:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname264
                         .quad            FN__write_canonical$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec264]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname265:     .string          "writeln/1"
-                        .align           8
-.Lstartup_prec265:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname265
                         .quad            FN__writeln$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec265]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname266:     .string          "display/1"
-                        .align           8
-.Lstartup_prec266:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname266
                         .quad            FN__display$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec266]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname267:     .string          "display/2"
-                        .align           8
-.Lstartup_prec267:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname267
                         .quad            FN__display$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec267]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname268:     .string          "unify_with_occurs_check/2"
-                        .align           8
-.Lstartup_prec268:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname268
                         .quad            FN__unify_with_occurs_check$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec268]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname269:     .string          "put_char/1"
-                        .align           8
-.Lstartup_prec269:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname269
                         .quad            FN__put_char$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec269]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname270:     .string          "flush_output/0"
-                        .align           8
-.Lstartup_prec270:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname270
                         .quad            FN__flush_output$2F0
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            0
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec270]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname271:     .string          "format/1"
-                        .align           8
-.Lstartup_prec271:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname271
                         .quad            FN__format$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec271]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname272:     .string          "format/2"
-                        .align           8
-.Lstartup_prec272:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname272
                         .quad            FN__format$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec272]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname273:     .string          "write/2"
-                        .align           8
-.Lstartup_prec273:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname273
                         .quad            FN__write$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec273]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname274:     .string          "writeq/2"
-                        .align           8
-.Lstartup_prec274:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname274
                         .quad            FN__writeq$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec274]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname275:     .string          "print/2"
-                        .align           8
-.Lstartup_prec275:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname275
                         .quad            FN__print$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec275]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname276:     .string          "write_canonical/2"
-                        .align           8
-.Lstartup_prec276:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname276
                         .quad            FN__write_canonical$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec276]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname277:     .string          "writeln/2"
-                        .align           8
-.Lstartup_prec277:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname277
                         .quad            FN__writeln$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec277]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname278:     .string          "nl/1"
-                        .align           8
-.Lstartup_prec278:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname278
                         .quad            FN__nl$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec278]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname279:     .string          "put_char/2"
-                        .align           8
-.Lstartup_prec279:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname279
                         .quad            FN__put_char$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec279]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname280:     .string          "flush_output/1"
-                        .align           8
-.Lstartup_prec280:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname280
                         .quad            FN__flush_output$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec280]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname281:     .string          "format/3"
-                        .align           8
-.Lstartup_prec281:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname281
                         .quad            FN__format$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec281]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname282:     .string          "read/2"
-                        .align           8
-.Lstartup_prec282:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname282
                         .quad            FN__read$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec282]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname283:     .string          "get_char/2"
-                        .align           8
-.Lstartup_prec283:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname283
                         .quad            FN__get_char$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec283]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname284:     .string          "peek_char/2"
-                        .align           8
-.Lstartup_prec284:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname284
                         .quad            FN__peek_char$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec284]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname285:     .string          "open/3"
-                        .align           8
-.Lstartup_prec285:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname285
                         .quad            FN__open$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec285]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname286:     .string          "open/4"
-                        .align           8
-.Lstartup_prec286:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname286
                         .quad            FN__open$2F4
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            4
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec286]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname287:     .string          "close/1"
-                        .align           8
-.Lstartup_prec287:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname287
                         .quad            FN__close$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec287]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname288:     .string          "close/2"
-                        .align           8
-.Lstartup_prec288:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname288
                         .quad            FN__close$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec288]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname289:     .string          "current_output/1"
-                        .align           8
-.Lstartup_prec289:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname289
                         .quad            FN__current_output$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec289]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname290:     .string          "current_input/1"
-                        .align           8
-.Lstartup_prec290:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname290
                         .quad            FN__current_input$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec290]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname291:     .string          "set_output/1"
-                        .align           8
-.Lstartup_prec291:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname291
                         .quad            FN__set_output$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec291]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname292:     .string          "set_input/1"
-                        .align           8
-.Lstartup_prec292:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname292
                         .quad            FN__set_input$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec292]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname293:     .string          "keysort/2"
-                        .align           8
-.Lstartup_prec293:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname293
                         .quad            FN__keysort$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec293]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname294:     .string          "set_stream_position/2"
-                        .align           8
-.Lstartup_prec294:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname294
                         .quad            FN__set_stream_position$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec294]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname295:     .string          "op/3"
-                        .align           8
-.Lstartup_prec295:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname295
                         .quad            FN__op$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec295]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname296:     .string          "wall_us/1"
-                        .align           8
-.Lstartup_prec296:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname296
                         .quad            FN__wall_us$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec296]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname297:     .string          "wall_ms/1"
-                        .align           8
-.Lstartup_prec297:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname297
                         .quad            FN__wall_ms$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec297]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname298:     .string          "sort/1"
-                        .align           8
-.Lstartup_prec298:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname298
                         .quad            FN__sort$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec298]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname299:     .string          "msort/1"
-                        .align           8
-.Lstartup_prec299:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname299
                         .quad            FN__msort$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec299]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname300:     .string          "keysort/1"
-                        .align           8
-.Lstartup_prec300:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname300
                         .quad            FN__keysort$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec300]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname301:     .string          "line_count/2"
-                        .align           8
-.Lstartup_prec301:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname301
                         .quad            FN__line_count$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec301]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname302:     .string          "line_position/2"
-                        .align           8
-.Lstartup_prec302:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname302
                         .quad            FN__line_position$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec302]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname303:     .string          "character_count/2"
-                        .align           8
-.Lstartup_prec303:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname303
                         .quad            FN__character_count$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec303]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname304:     .string          "stream_line_column/3"
-                        .align           8
-.Lstartup_prec304:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname304
                         .quad            FN__stream_line_column$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec304]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname305:     .string          "last_read_start_line_column/2"
-                        .align           8
-.Lstartup_prec305:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname305
                         .quad            FN__last_read_start_line_column$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec305]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname306:     .string          "absolute_file_name/2"
-                        .align           8
-.Lstartup_prec306:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname306
                         .quad            FN__absolute_file_name$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec306]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname307:     .string          "prolog_file_name/2"
-                        .align           8
-.Lstartup_prec307:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname307
                         .quad            FN__prolog_file_name$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec307]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname308:     .string          "working_directory/1"
-                        .align           8
-.Lstartup_prec308:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname308
                         .quad            FN__working_directory$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec308]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname309:     .string          "change_directory/1"
-                        .align           8
-.Lstartup_prec309:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname309
                         .quad            FN__change_directory$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec309]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname310:     .string          "make_directory/1"
-                        .align           8
-.Lstartup_prec310:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname310
                         .quad            FN__make_directory$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec310]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname311:     .string          "set_stream/2"
-                        .align           8
-.Lstartup_prec311:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname311
                         .quad            FN__set_stream$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec311]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname312:     .string          "delete_file/1"
-                        .align           8
-.Lstartup_prec312:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname312
                         .quad            FN__delete_file$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec312]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname313:     .string          "file_exists/1"
-                        .align           8
-.Lstartup_prec313:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname313
                         .quad            FN__file_exists$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec313]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname314:     .string          "directory_files/2"
-                        .align           8
-.Lstartup_prec314:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname314
                         .quad            FN__directory_files$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec314]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname315:     .string          "term_hash/2"
-                        .align           8
-.Lstartup_prec315:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname315
                         .quad            FN__term_hash$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec315]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname316:     .string          "prolog_pid/1"
-                        .align           8
-.Lstartup_prec316:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname316
                         .quad            FN__prolog_pid$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec316]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname317:     .string          "pipe/2"
-                        .align           8
-.Lstartup_prec317:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname317
                         .quad            FN__pipe$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec317]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname318:     .string          "open_null_stream/1"
-                        .align           8
-.Lstartup_prec318:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname318
                         .quad            FN__open_null_stream$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec318]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname319:     .string          "rational/1"
-                        .align           8
-.Lstartup_prec319:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname319
                         .quad            FN__rational$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec319]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname320:     .string          "write/1"
-                        .align           8
-.Lstartup_prec320:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname320
                         .quad            FN__write$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec320]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname321:     .string          "nl/0"
-                        .align           8
-.Lstartup_prec321:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname321
                         .quad            FN__nl$2F0
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            0
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec321]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname322:     .string          "true/0"
-                        .align           8
-.Lstartup_prec322:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname322
                         .quad            FN__true$2F0
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            0
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec322]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname323:     .string          "!/0"
-                        .align           8
-.Lstartup_prec323:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname323
                         .quad            FN__$21$2F0
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            0
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec323]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname324:     .string          "fail/0"
-                        .align           8
-.Lstartup_prec324:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname324
                         .quad            FN__fail$2F0
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            0
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec324]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname325:     .string          "false/0"
-                        .align           8
-.Lstartup_prec325:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname325
                         .quad            FN__false$2F0
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            0
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec325]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname326:     .string          "throw/1"
-                        .align           8
-.Lstartup_prec326:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname326
                         .quad            FN__throw$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec326]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname327:     .string          "=/2"
-                        .align           8
-.Lstartup_prec327:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname327
                         .quad            FN__$3D$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec327]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname328:     .string          "is/2"
-                        .align           8
-.Lstartup_prec328:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname328
                         .quad            FN__is$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec328]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname329:     .string          ">/2"
-                        .align           8
-.Lstartup_prec329:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname329
                         .quad            FN__$3E$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec329]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname330:     .string          "assert/1"
-                        .align           8
-.Lstartup_prec330:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname330
                         .quad            FN__assert$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec330]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname331:     .string          "asserta/1"
-                        .align           8
-.Lstartup_prec331:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname331
                         .quad            FN__asserta$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec331]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname332:     .string          "assertz/1"
-                        .align           8
-.Lstartup_prec332:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname332
                         .quad            FN__assertz$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec332]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname333:     .string          "retract/1"
-                        .align           8
-.Lstartup_prec333:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname333
                         .quad            FN__retract$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            160
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            160
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec333]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname334:     .string          "retractall/1"
-                        .align           8
-.Lstartup_prec334:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname334
                         .quad            FN__retractall$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec334]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname335:     .string          "abolish/1"
-                        .align           8
-.Lstartup_prec335:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname335
                         .quad            FN__abolish$2F1
                         .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            32
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
                         .long            1
                         .long            0
-                        .long            32
-                        .long            56
-                        .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec335]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname336:     .string          "clause/2"
-                        .align           8
-.Lstartup_prec336:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname336
                         .quad            FN__clause$2F2
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            2
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            96
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec336]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname337:     .string          "$db_registry/0"
-                        .align           8
-.Lstartup_prec337:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname337
                         .quad            FN__$db_registry$2F0
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            0
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec337]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname338:     .string          "$rec/3"
-                        .align           8
-.Lstartup_prec338:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname338
                         .quad            FN__$rec$2F3
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            3
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec338]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
-.Lstartup_pname339:     .string          "c/0"
-                        .align           8
-.Lstartup_prec339:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            .Lstartup_pname339
                         .quad            FN__c$2F0
                         .quad            0
-                        .quad            0
-                        .quad            0
                         .long            0
+                        .long            -1
                         .long            0
+                        .long            -1
+                        .quad            0
                         .long            32
-                        .long            56
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
                         .long            0
                         .long            0
                         .quad            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
+                        .balign          16
+                        .quad            0
+                        .long            2064
+                        .short           215
+                        .short           0
+.Lstartup_phash:
+                        .long            139
+                        .long            289
+                        .long            245
+                        .long            56
+                        .long            335
+                        .long            32
+                        .long            339
+                        .long            0
+                        .long            0
+                        .long            166
+                        .long            217
+                        .long            0
+                        .long            90
+                        .long            60
+                        .long            260
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            222
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            71
+                        .long            0
+                        .long            0
+                        .long            40
+                        .long            204
+                        .long            249
+                        .long            142
+                        .long            253
+                        .long            295
+                        .long            333
+                        .long            0
+                        .long            78
+                        .long            154
+                        .long            190
+                        .long            72
+                        .long            202
+                        .long            124
+                        .long            146
+                        .long            171
+                        .long            270
+                        .long            86
+                        .long            178
+                        .long            126
+                        .long            141
+                        .long            105
+                        .long            22
+                        .long            39
+                        .long            36
+                        .long            52
+                        .long            123
+                        .long            167
+                        .long            57
+                        .long            191
+                        .long            161
+                        .long            149
+                        .long            226
+                        .long            248
+                        .long            263
+                        .long            272
+                        .long            277
+                        .long            160
+                        .long            281
+                        .long            298
+                        .long            303
+                        .long            321
+                        .long            330
+                        .long            323
+                        .long            279
+                        .long            301
+                        .long            257
+                        .long            58
+                        .long            47
+                        .long            172
+                        .long            258
+                        .long            174
+                        .long            288
+                        .long            297
+                        .long            305
+                        .long            0
+                        .long            0
+                        .long            133
+                        .long            147
+                        .long            180
+                        .long            192
+                        .long            0
+                        .long            0
+                        .long            136
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            111
+                        .long            17
+                        .long            163
+                        .long            152
+                        .long            7
+                        .long            237
+                        .long            251
+                        .long            177
+                        .long            66
+                        .long            0
+                        .long            98
+                        .long            0
+                        .long            254
+                        .long            55
+                        .long            318
+                        .long            49
+                        .long            0
+                        .long            0
+                        .long            92
+                        .long            157
+                        .long            156
+                        .long            210
+                        .long            276
+                        .long            59
+                        .long            43
+                        .long            80
+                        .long            119
+                        .long            153
+                        .long            319
+                        .long            331
+                        .long            143
+                        .long            307
+                        .long            336
+                        .long            199
+                        .long            223
+                        .long            0
+                        .long            0
+                        .long            38
+                        .long            0
+                        .long            168
+                        .long            76
+                        .long            0
+                        .long            216
+                        .long            91
+                        .long            20
+                        .long            229
+                        .long            0
+                        .long            0
+                        .long            31
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            16
+                        .long            269
+                        .long            243
+                        .long            0
+                        .long            138
+                        .long            195
+                        .long            10
+                        .long            207
+                        .long            221
+                        .long            228
+                        .long            313
+                        .long            0
+                        .long            8
+                        .long            0
+                        .long            0
+                        .long            165
+                        .long            246
+                        .long            292
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            275
+                        .long            4
+                        .long            106
+                        .long            259
+                        .long            271
+                        .long            273
+                        .long            338
+                        .long            291
+                        .long            0
+                        .long            0
+                        .long            82
+                        .long            109
+                        .long            266
+                        .long            322
+                        .long            45
+                        .long            114
+                        .long            200
+                        .long            311
+                        .long            23
+                        .long            68
+                        .long            84
+                        .long            110
+                        .long            0
+                        .long            0
+                        .long            332
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            145
+                        .long            108
+                        .long            155
+                        .long            184
+                        .long            173
+                        .long            41
+                        .long            328
+                        .long            340
+                        .long            129
+                        .long            198
+                        .long            0
+                        .long            96
+                        .long            0
+                        .long            131
+                        .long            3
+                        .long            302
+                        .long            334
+                        .long            314
+                        .long            265
+                        .long            30
+                        .long            89
+                        .long            274
+                        .long            290
+                        .long            304
+                        .long            206
+                        .long            33
+                        .long            325
+                        .long            0
+                        .long            193
+                        .long            159
+                        .long            317
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            2
+                        .long            299
+                        .long            130
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            215
+                        .long            0
+                        .long            234
+                        .long            0
+                        .long            0
+                        .long            197
+                        .long            213
+                        .long            326
+                        .long            0
+                        .long            102
+                        .long            283
+                        .long            294
+                        .long            26
+                        .long            296
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            75
+                        .long            0
+                        .long            0
+                        .long            53
+                        .long            183
+                        .long            85
+                        .long            140
+                        .long            18
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            121
+                        .long            9
+                        .long            103
+                        .long            48
+                        .long            186
+                        .long            218
+                        .long            220
+                        .long            88
+                        .long            242
+                        .long            261
+                        .long            282
+                        .long            327
+                        .long            0
+                        .long            278
+                        .long            104
+                        .long            54
+                        .long            179
+                        .long            0
+                        .long            0
+                        .long            70
+                        .long            107
+                        .long            0
+                        .long            0
+                        .long            312
+                        .long            0
+                        .long            0
+                        .long            268
+                        .long            316
+                        .long            65
+                        .long            329
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            77
+                        .long            63
+                        .long            94
+                        .long            125
+                        .long            128
+                        .long            151
+                        .long            44
+                        .long            61
+                        .long            0
+                        .long            12
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            164
+                        .long            0
+                        .long            0
+                        .long            97
+                        .long            148
+                        .long            0
+                        .long            62
+                        .long            0
+                        .long            0
+                        .long            310
+                        .long            0
+                        .long            37
+                        .long            0
+                        .long            284
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            83
+                        .long            132
+                        .long            0
+                        .long            113
+                        .long            231
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            169
+                        .long            324
+                        .long            214
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            101
+                        .long            79
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            158
+                        .long            233
+                        .long            0
+                        .long            250
+                        .long            0
+                        .long            0
+                        .long            127
+                        .long            240
+                        .long            162
+                        .long            239
+                        .long            0
+                        .long            14
+                        .long            0
+                        .long            189
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            115
+                        .long            19
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            219
+                        .long            87
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            205
+                        .long            337
+                        .long            50
+                        .long            0
+                        .long            0
+                        .long            116
+                        .long            51
+                        .long            188
+                        .long            0
+                        .long            315
+                        .long            0
+                        .long            93
+                        .long            300
+                        .long            236
+                        .long            0
+                        .long            0
+                        .long            211
+                        .long            0
+                        .long            99
+                        .long            0
+                        .long            194
+                        .long            0
+                        .long            73
+                        .long            285
+                        .long            293
+                        .long            0
+                        .long            122
+                        .long            64
+                        .long            232
+                        .long            0
+                        .long            225
+                        .long            235
+                        .long            46
+                        .long            0
+                        .long            176
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            118
+                        .long            280
+                        .long            95
+                        .long            256
+                        .long            262
+                        .long            0
+                        .long            0
+                        .long            6
+                        .long            13
+                        .long            28
+                        .long            187
+                        .long            201
+                        .long            25
+                        .long            241
+                        .long            264
+                        .long            308
+                        .long            224
+                        .long            306
+                        .long            247
+                        .long            117
+                        .long            69
+                        .long            203
+                        .long            309
+                        .long            0
+                        .long            244
+                        .long            287
+                        .long            0
+                        .long            150
+                        .long            81
+                        .long            170
+                        .long            181
+                        .long            212
+                        .long            0
+                        .long            29
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            320
+                        .long            0
+                        .long            5
+                        .long            11
+                        .long            15
+                        .long            42
+                        .long            137
+                        .long            34
+                        .long            27
+                        .long            134
+                        .long            182
+                        .long            230
+                        .long            238
+                        .long            252
+                        .long            35
+                        .long            267
+                        .long            21
+                        .long            24
+                        .long            135
+                        .long            208
+                        .long            120
+                        .long            196
+                        .long            255
+                        .long            112
+                        .long            100
+                        .long            175
+                        .long            286
+                        .long            144
+                        .long            74
+                        .long            67
+                        .long            185
+                        .long            209
+                        .long            227
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec339]
-                        call             rt_proc_register_rec@PLT
+                        lea              rdi, [rip + .Lstartup_procs]
+                        mov              esi, 340
+                        lea              rdx, [rip + .Lstartup_phash]
+                        mov              ecx, 512
+                        call             rt_procs_install@PLT
                         add              rsp, 8
                         ret
                         .section         .data.rel.ro,"aw",@progbits
