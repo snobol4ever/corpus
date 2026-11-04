@@ -47363,24 +47363,6 @@ module_init:
                         .long            32
                         .long            80
                         .long            48
-                        .align           8
-.Lstartup_prec0:
-                        .quad            .Lstartup_pname0
-                        .quad            FN__loadfile
-                        .quad            0
-                        .quad            0
-                        .quad            0
-                        .long            0
-                        .long            0
-                        .long            112
-                        .long            48
-                        .long            0
-                        .long            0
-                        .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec0]
-                        call             rt_proc_register_rec@PLT
                         .section         .data.rel.ro,"aw",@progbits
 .Lstartup_pname1:       .string          "kgen"
 .Lstartup_ipp1_0:       .string          "t"
@@ -47399,27 +47381,6 @@ module_init:
 .Lstartup_iloffs1:
                         .long            48
                         .long            32
-                        .align           8
-.Lstartup_prec1:
-                        .quad            .Lstartup_pname1
-                        .quad            FN__kgen
-                        .quad            0
-                        .quad            0
-                        .quad            .Lstartup_ipnames1
-                        .long            1
-                        .long            0
-                        .long            96
-                        .long            56
-                        .long            0
-                        .long            0
-                        .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec1]
-                        call             rt_proc_register_rec@PLT
-                        lea              rdi, [rip + .Lstartup_pname1]
-                        mov              esi, 208
-                        call             rt_proc_set_gen_region_ft@PLT
                         .section         .data.rel.ro,"aw",@progbits
 .Lstartup_pname2:       .string          "dumpcode"
 .Lstartup_ipp2_0:       .string          "code"
@@ -47453,24 +47414,6 @@ module_init:
                         .long            32
                         .long            64
                         .long            336
-                        .align           8
-.Lstartup_prec2:
-                        .quad            .Lstartup_pname2
-                        .quad            FN__dumpcode
-                        .quad            0
-                        .quad            0
-                        .quad            .Lstartup_ipnames2
-                        .long            1
-                        .long            0
-                        .long            128
-                        .long            48
-                        .long            0
-                        .long            0
-                        .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec2]
-                        call             rt_proc_register_rec@PLT
                         .section         .data.rel.ro,"aw",@progbits
 .Lstartup_pname3:       .string          "aseq"
 .Lstartup_iln3_0:       .string          "v"
@@ -47484,27 +47427,6 @@ module_init:
 .Lstartup_iloffs3:
                         .long            32
                         .long            48
-                        .align           8
-.Lstartup_prec3:
-                        .quad            .Lstartup_pname3
-                        .quad            FN__aseq
-                        .quad            0
-                        .quad            0
-                        .quad            0
-                        .long            0
-                        .long            0
-                        .long            64
-                        .long            56
-                        .long            0
-                        .long            0
-                        .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec3]
-                        call             rt_proc_register_rec@PLT
-                        lea              rdi, [rip + .Lstartup_pname3]
-                        mov              esi, 160
-                        call             rt_proc_set_gen_region_ft@PLT
                         .section         .data.rel.ro,"aw",@progbits
 .Lstartup_pname4:       .string          "putchain"
 .Lstartup_ipp4_0:       .string          "code"
@@ -47557,24 +47479,6 @@ module_init:
                         .long            464
                         .long            416
                         .long            16
-                        .align           8
-.Lstartup_prec4:
-                        .quad            .Lstartup_pname4
-                        .quad            FN__putchain
-                        .quad            0
-                        .quad            0
-                        .quad            .Lstartup_ipnames4
-                        .long            3
-                        .long            0
-                        .long            64
-                        .long            48
-                        .long            0
-                        .long            0
-                        .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec4]
-                        call             rt_proc_register_rec@PLT
                         .section         .data.rel.ro,"aw",@progbits
 .Lstartup_pname5:       .string          "putdel"
 .Lstartup_ipp5_0:       .string          "o"
@@ -47596,24 +47500,6 @@ module_init:
                         .long            48
                         .long            16
                         .long            -1
-                        .align           8
-.Lstartup_prec5:
-                        .quad            .Lstartup_pname5
-                        .quad            FN__putdel
-                        .quad            0
-                        .quad            0
-                        .quad            .Lstartup_ipnames5
-                        .long            1
-                        .long            0
-                        .long            96
-                        .long            48
-                        .long            0
-                        .long            0
-                        .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec5]
-                        call             rt_proc_register_rec@PLT
                         .section         .data.rel.ro,"aw",@progbits
 .Lstartup_pname6:       .string          "collapse"
 .Lstartup_iln6_0:       .string          "maxsq"
@@ -47663,24 +47549,6 @@ module_init:
                         .long            48
                         .long            32
                         .long            -1
-                        .align           8
-.Lstartup_prec6:
-                        .quad            .Lstartup_pname6
-                        .quad            FN__collapse
-                        .quad            0
-                        .quad            0
-                        .quad            0
-                        .long            0
-                        .long            0
-                        .long            256
-                        .long            48
-                        .long            0
-                        .long            0
-                        .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec6]
-                        call             rt_proc_register_rec@PLT
                         .section         .data.rel.ro,"aw",@progbits
 .Lstartup_pname7:       .string          "successor"
 .Lstartup_ipp7_0:       .string          "r"
@@ -47711,24 +47579,6 @@ module_init:
                         .long            16
                         .long            32
                         .long            48
-                        .align           8
-.Lstartup_prec7:
-                        .quad            .Lstartup_pname7
-                        .quad            FN__successor
-                        .quad            0
-                        .quad            0
-                        .quad            .Lstartup_ipnames7
-                        .long            1
-                        .long            0
-                        .long            176
-                        .long            48
-                        .long            0
-                        .long            0
-                        .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec7]
-                        call             rt_proc_register_rec@PLT
                         .section         .data.rel.ro,"aw",@progbits
 .Lstartup_pname8:       .string          "crack"
 .Lstartup_ipp8_0:       .string          "line"
@@ -47765,24 +47615,6 @@ module_init:
                         .long            336
                         .long            -1
                         .long            -1
-                        .align           8
-.Lstartup_prec8:
-                        .quad            .Lstartup_pname8
-                        .quad            FN__crack
-                        .quad            0
-                        .quad            0
-                        .quad            .Lstartup_ipnames8
-                        .long            1
-                        .long            0
-                        .long            112
-                        .long            48
-                        .long            0
-                        .long            0
-                        .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec8]
-                        call             rt_proc_register_rec@PLT
                         .section         .data.rel.ro,"aw",@progbits
 .Lstartup_pname9:       .string          "options"
 .Lstartup_ipp9_0:       .string          "arg"
@@ -47827,43 +47659,367 @@ module_init:
                         .long            -1
                         .long            128
                         .long            160
-                        .align           8
-.Lstartup_prec9:
-                        .quad            .Lstartup_pname9
-                        .quad            FN__options
-                        .quad            0
-                        .quad            0
-                        .quad            .Lstartup_ipnames9
-                        .long            2
-                        .long            0
-                        .long            336
-                        .long            48
-                        .long            0
-                        .long            0
-                        .quad            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec9]
-                        call             rt_proc_register_rec@PLT
-                        .section         .data.rel.ro,"aw",@progbits
+                        .section         .rodata
 .Lstartup_rootcall:     .string          "main"
-                        .align           8
-.Lstartup_prec_root:    .quad            .Lstartup_rootcall
-                        .quad            main_α
+                        .section         .data
+                        .balign          16
+                        .quad            0
+                        .long            1424
+                        .short           232
+                        .short           0
+.Lstartup_procs:
+                        .quad            .Lstartup_pname0
+                        .quad            FN__loadfile
+                        .quad            0
+                        .long            0
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            112
+                        .long            0
                         .quad            0
                         .quad            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
                         .quad            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
+                        .quad            .Lstartup_pname1
+                        .quad            FN__kgen
+                        .quad            .Lstartup_ipnames1
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            96
+                        .long            208
+                        .quad            0
+                        .quad            0
+                        .long            0
                         .long            1
                         .long            0
                         .long            0
-                        .long            16
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
+                        .quad            .Lstartup_pname2
+                        .quad            FN__dumpcode
+                        .quad            .Lstartup_ipnames2
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            128
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
                         .long            0
                         .long            0
                         .quad            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
+                        .quad            .Lstartup_pname3
+                        .quad            FN__aseq
+                        .quad            0
+                        .long            0
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            64
+                        .long            160
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            1
+                        .long            0
+                        .long            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
+                        .quad            .Lstartup_pname4
+                        .quad            FN__putchain
+                        .quad            .Lstartup_ipnames4
+                        .long            3
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            64
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
+                        .quad            .Lstartup_pname5
+                        .quad            FN__putdel
+                        .quad            .Lstartup_ipnames5
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            96
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
+                        .quad            .Lstartup_pname6
+                        .quad            FN__collapse
+                        .quad            0
+                        .long            0
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            256
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
+                        .quad            .Lstartup_pname7
+                        .quad            FN__successor
+                        .quad            .Lstartup_ipnames7
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            176
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
+                        .quad            .Lstartup_pname8
+                        .quad            FN__crack
+                        .quad            .Lstartup_ipnames8
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            112
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
+                        .quad            .Lstartup_pname9
+                        .quad            FN__options
+                        .quad            .Lstartup_ipnames9
+                        .long            2
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            336
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            65536
+                        .long            0
+                        .long            0
+                        .long            0
+                        .quad            .Lstartup_rootcall
+                        .quad            main_α
+                        .quad            0
+                        .long            1
+                        .long            -1
+                        .long            0
+                        .long            -1
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .balign          16
+                        .quad            0
+                        .long            272
+                        .short           215
+                        .short           0
+.Lstartup_phash:
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            11
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            8
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            6
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            7
+                        .long            0
+                        .long            0
+                        .long            9
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            10
+                        .long            3
+                        .long            0
+                        .long            2
+                        .long            0
+                        .long            0
+                        .long            4
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            1
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            5
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec_root]
-                        call             rt_proc_register_rec@PLT
+                        lea              rdi, [rip + .Lstartup_procs]
+                        mov              esi, 11
+                        lea              rdx, [rip + .Lstartup_phash]
+                        mov              ecx, 64
+                        call             rt_procs_install@PLT
                         lea              rdi, [rip + .Lstartup_gnames]
                         mov              esi, 49
                         lea              rdx, [rip + .Lstartup_icn_loc]
