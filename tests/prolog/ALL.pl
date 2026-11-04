@@ -4659,7 +4659,17 @@ main :-
     X = original,
     ( A == original -> write(aliased) ; write(independent) ), nl,
     copy_term([H|T], Copy), numbervars(Copy, 0, _), write(Copy), nl.
-%----------------------------------------------------- 564 findall_bagof_setof_1
+%------------ 564 ladder__rung09_call_cleanup_after_a_choice_point_under_findall
+cfr(R) :- ( true ; true ), call_cleanup(member(R, [1,2]), true).
+scc(R) :- ( true ; true ), setup_call_cleanup(true, member(R, [a,b,c]), true).
+cfail(R) :- ( R = 1 ; R = 2 ), call_cleanup(fail, true).
+cthrow(R) :- ( R = 1 ; R = 2 ), catch(call_cleanup(throw(oops), true), oops, true).
+main :- findall(R, cfr(R), Rs), print(Rs), nl,
+        findall(S, scc(S), Ss), print(Ss), nl,
+        findall(F, cfail(F), Fs), print(Fs), nl,
+        findall(T, cthrow(T), Ts), print(Ts), nl.
+:- initialization(main).
+%----------------------------------------------------- 565 findall_bagof_setof_1
 :- initialization(main).
 num(1).
 num(2).
@@ -4670,7 +4680,7 @@ main :-
     write(F), nl,
     keysort([b-2, a-1, b-1, a-9], K),
     write(K), nl.
-%----------------------------------------------------------- 565 ite_univ_list_1
+%----------------------------------------------------------- 566 ite_univ_list_1
 % compound/1, atomic/1, is_list/1 style checks via =..
 :- initialization(main).
 main :-
@@ -4681,7 +4691,7 @@ main :-
     ( atomic(foo(a))   -> write(yes) ; write(no) ), nl,
     T = p(1,p(2,p(3,nil))),
     T =.. [p, H | _], write(H), nl.
-%---------------------------------------------------- 566 forall_catch_assertz_1
+%---------------------------------------------------- 567 forall_catch_assertz_1
 :- initialization(main).
 
 main :-
@@ -4693,7 +4703,7 @@ main :-
     catch(cat(_), error(E, _), true),
     write(E), nl,
     forall(bird(X), (write(X), nl)).
-%------------------------------------------------------- 567 ite_writeq_format_1
+%------------------------------------------------------- 568 ite_writeq_format_1
 :- initialization(main).
 main :-
     write_to_atom(A1, foo(x,y)), writeq(A1), nl,
@@ -4706,7 +4716,7 @@ main :-
     format(atom(A8), "~w!~w", [x,y]), writeq(A8), nl,
     ( with_output_to(atom(_), fail) -> write(unexpected) ; write(goal_failed) ), nl,
     write(done), nl.
-%----------------------------------------------------- 568 assertz_retract_ite_1
+%----------------------------------------------------- 569 assertz_retract_ite_1
 :- initialization(main).
 :- assertz(item(a)).
 :- assertz(item(b)).
@@ -4720,7 +4730,7 @@ retract_loop.
 main :-
     retract_loop,
     ( item(_) -> write(notempty) ; write(empty) ), nl.
-%--------------------------------------------------- 569 catch_assertz_abolish_1
+%--------------------------------------------------- 570 catch_assertz_abolish_1
 % abolish/1 removes the predicate, so the later call is a call to an UNKNOWN procedure.
 % Under the ISO default unknown=error that raises existence_error -- it does NOT fail.
 % The setup lives in the initialization goal, not in load-time `:- assertz(...)` directives:
@@ -4734,7 +4744,7 @@ main :-
     abolish(fact/1),
     catch(fact(_), error(E, _), true),
     write(E), nl.
-%--------------------------------------------- 570 catch_ite_directive_replace_2
+%--------------------------------------------- 571 catch_ite_directive_replace_2
 :- initialization(main).
 t(N, G) :- ( catch(G, error(E,_), true) -> ( var(E) -> write(N=success) ; E = permission_error(Op,Ty,_), write(N=perm(Op,Ty)) ) ; write(N=failed) ), nl.
 main :-
@@ -4752,7 +4762,7 @@ main :-
     close(R),
     write(done), nl,
     halt.
-%------------------------------------------- 571 catch_throw_directive_replace_1
+%------------------------------------------- 572 catch_throw_directive_replace_1
 % rung31_bridge_catch/05_var_goal_throw — goal-as-var throws; catch recovers.
 % Bridge requirement: when the dispatched goal throws via the synth-EXPR path,
 % the throw must propagate to catch/3's setjmp boundary, not be swallowed by
@@ -4770,7 +4780,7 @@ main :-
     G = risky(99),
     catch(G, _, write(caught)),
     nl.
-%------------------------------------------------- 572 findall_cut_ite_replace_1
+%------------------------------------------------- 573 findall_cut_ite_replace_1
 :- initialization(main).
 lv(0, _) :- !.
 lv(N, _) :- N1 is N - 1, lv(N1, _).
@@ -4789,24 +4799,24 @@ u(X, 0) :- !, X = 1.
 u(X, N) :- N1 is N - 1, u(X, N1).
 main :- lv(1000000, _), write(lv), nl, lx(1000000, _), write(lx), nl, t2(100000),
         p(A), A = f(Z), Z = 5, write(A), nl, findall(X, cp(X), L), write(L), nl, fz, write(done), nl.
-%---------------------------------------- 573 retract_retract_clause_with_body_1
+%---------------------------------------- 574 retract_retract_clause_with_body_1
 :- dynamic(u10a/1).
 :- initialization(main).
 main :- assertz((u10a(X) :- X > 100)), retract((u10a(_) :- _ > 100)), (catch(u10a(200),_,fail) -> write(yes) ; write(no)), nl.
-%-- 574 ladder__rung05_negation_over_a_call_after_a_first_write_survives_a_retry
+%-- 575 ladder__rung05_negation_over_a_call_after_a_first_write_survives_a_retry
 m(x). m(y).
 item(c(C), S0, S) :- S0 = [C|S1], \+ m(C), S1 = S.
 item(r(A,B), S0, S) :- item(c(A), S0, S1), S1 = [45|S2], item(c(B), S2, S).
 main :- ( item(S, [48,45,57], R), R = [] -> writeq(S) ; write(no) ), nl.
 :- initialization(main).
-%----------------------------------------------------- 575 findall_bagof_setof_2
+%----------------------------------------------------- 576 findall_bagof_setof_2
 :- initialization(main).
 main :-
     findall(X, (X=1;X=2;X=3), La), write(La), nl,
     ( findall(Y, (Y=4;Y=5), Lb) -> write(Lb) ; write(none) ), nl,
     ( bagof(Z, (Z=6;Z=7;Z=8), Lc) -> write(Lc) ; write(none) ), nl,
     ( setof(W, (W=3;W=1;W=2;W=1), Ld) -> write(Ld) ; write(none) ), nl.
-%- 576 ladder__rung10_assertz_retract_with_pending_choice_points_keeps_the_predicate_entry
+%- 577 ladder__rung10_assertz_retract_with_pending_choice_points_keeps_the_predicate_entry
 :- dynamic kp/3.
 ins(N,K,V,I) :- ( kp(N,K,V0) -> ( V0 == V -> I = 0 ; I = -1 ) ; assertz(kp(N,K,V)), I = 1 ).
 insb(N,K,V,I) :- ( kp(N,K,V0) -> ( V0 == V -> I = 0 ; I = -1 ) ; assertz(kp(N,K,V)), I = 1, ( true ; retract(kp(N,K,V)), fail ) ).
@@ -4818,10 +4828,10 @@ del(N,K,D) :- ( retract(kp(N,K,_)) -> D = 1 ; D = 0 ).
 :- del(s,111,X), write(X), nl.
 :- insb(s,aaa,pp,_).
 :- ( kp(s,aaa,X) -> writeln(found(X)) ; writeln(none) ).
-%------------------------------------------------------- 577 termops_directive_1
+%------------------------------------------------------- 578 termops_directive_1
 :- initialization(main).
 main :- functor(f(a,b), Nm, Ar), arg(1, f(a,b), A1), T =.. [g, 1, 2], copy_term(h(X,X,_), Cp), numbervars(Cp, 0, End), succ(3, S), plus(2, 3, P), sort([c,a,b,a], Srt), write(Nm), nl, write(Ar), nl, write(A1), nl, write(T), nl, write(Cp), nl, write(End), nl, write(S), nl, write(P), nl, write(Srt), nl.
-%-------------------------------------------------------- 578 functor_ite_univ_1
+%-------------------------------------------------------- 579 functor_ite_univ_1
 % rung09_builtins — functor/3, arg/3, =../2, type tests
 % Expected output: foo 2  b  [foo,a,b]  yes yes no no
 :- initialization(main).
@@ -4840,7 +4850,7 @@ main :-
     ( integer(42)   -> write(yes) ; write(no) ), nl,
     ( atom(42)      -> write(yes) ; write(no) ), nl,
     ( integer(hello)-> write(yes) ; write(no) ), nl.
-%---------------------------------------------- 579 copy_term_call_cut_replace_1
+%---------------------------------------------- 580 copy_term_call_cut_replace_1
 :- initialization(main).
 deep(0) :- !.
 deep(N) :- N1 is N - 1, deep(N1), true.
@@ -4866,7 +4876,7 @@ t13 :- T = f(P, Q), member(M, [1, 2]), u(P, Q), M = 2, P = M, write(T), nl.
 t14 :- u(X, Y), u(Y, Z), u(Z, X), X = 7, write(Y-Z), nl.
 t15 :- T = g(A, B, C), u(C, B), u(B, A), A = z, write(T), nl.
 main :- t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, write(done), nl.
-%------------------------------------------------------ 580 benchmark_meta_qsort
+%------------------------------------------------------ 581 benchmark_meta_qsort
 % meta_qsort — a meta-interpreter running the Warren qsort benchmark (van Roy suite).
 % Bottleneck: clause/call indirection through interpret/1-2 (meta-level dispatch).
 % Source: SWI-Prolog/bench (meta_qsort, Ralph M. Haygood). Prints ok on success.
@@ -4897,7 +4907,7 @@ define(qsort([],R,R),true).
 define(partition([X|L],Y,[X|L1],L2),(X=<Y,!,partition(L,Y,L1,L2))).
 define(partition([X|L],Y,L1,[X|L2]),(partition(L,Y,L1,L2))).
 define(partition([],_,[],[]),true).
-%- 581 ladder__rung10_predicate_property_answers_meta_predicate_as_swipl_for_a_head_bound_at_run_time
+%- 582 ladder__rung10_predicate_property_answers_meta_predicate_as_swipl_for_a_head_bound_at_run_time
 :- meta_predicate solve(2, -).
 solve(G, X) :- call(G, 1, X).
 spec(H) :- ( predicate_property(H, meta_predicate(M)) -> true ; M = none ), functor(H, N, A), write(N/A-M), nl.

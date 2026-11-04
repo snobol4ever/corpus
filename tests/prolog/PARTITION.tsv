@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=581 features=39 ubiquitous=3(write nl directive) distinctive=36 core=47 clusters=65 chunks=6 sizes=100,100,100,100,100,34
+# shape: entries=582 features=39 ubiquitous=3(write nl directive) distinctive=36 core=47 clusters=65 chunks=6 sizes=100,100,100,100,100,35
 entry	part	cluster	shells
 write_family_writeln_1	chunk:01	family:ladder	
 directive_32	chunk:06	family:rung22_write_canonical	
@@ -139,7 +139,7 @@ directive_52	chunk:05	family:rung24_string_io
 directive_57	chunk:05	family:rung25	
 directive_58	chunk:05	family:rung25_term_string	
 directive_60	chunk:05	family:rung25_term_string	
-directive_61	chunk:05	family:rung26	
+directive_61	chunk:06	family:rung26	
 directive_62	chunk:06	family:rung26	
 directive_63	chunk:06	family:rung26	
 directive_64	chunk:05	family:rung26_copy_concat	
@@ -207,7 +207,7 @@ termio_write_term_numbervars_1	chunk:02	feat:unify	unify
 directive_17	chunk:06	family:rung02_facts_facts	
 simple_program_103	chunk:05	family:rung39_atom_iso	
 simple_program_97	chunk:05	family:rung36_arith_edge	
-directive_19	chunk:04	family:rung12_atom_builtins	
+directive_19	chunk:05	family:rung12_atom_builtins	
 directive_78	chunk:06	family:rung35_bridge_setup	
 simple_program_101	chunk:05	family:rung39_atom_iso	
 streamio_get_byte_peek_byte_1	chunk:02	family:ladder	
@@ -486,7 +486,7 @@ test_rung10_programs_puzzle_08	chunk:04	feat:negation	if_then_else negation unif
 test_rung10_programs_puzzle_11	chunk:04	feat:negation	cut negation unify
 test_rung10_programs_puzzle_12	chunk:03	feat:list_cons	cut list_cons unify
 test_rung10_programs_puzzle_07	chunk:03	feat:list_cons	cut list_cons unify
-catch_throw_ball_is_compound_1	core	core	catch catch_with_throw throw
+catch_throw_ball_is_compound_1	chunk:04	feat:catch_with_throw	catch catch_with_throw throw
 catch_throw_catcher_does_not_unify_rethrows_1	chunk:04	feat:catch_with_throw	catch catch_with_throw throw
 catch_throw_directive_5	chunk:04	feat:catch_with_throw	catch catch_with_throw throw
 catch_throw_nested_catch_1	chunk:04	feat:catch_with_throw	catch catch_with_throw throw
@@ -565,6 +565,7 @@ retract_resatisfiable_on_backtracking_1	chunk:04	feat:assert_then_retract	assert
 retract_retract_then_findall_1	chunk:04	feat:assert_then_retract	assert_then_retract assertz findall retract
 between_ite_naf_1	core	core	between if_then_else negation unify
 copy_term_ite_list_replace_1	core	core	copy_term if_then_else list_cons unify
+ladder__rung09_call_cleanup_after_a_choice_point_under_findall	core	core	catch catch_with_throw findall throw unify
 findall_bagof_setof_1	core	core	bagof findall if_then_else setof
 ite_univ_list_1	core	core	if_then_else list_cons unify univ
 forall_catch_assertz_1	core	core	abolish assertz catch forall
