@@ -33,3 +33,11 @@ step	slug	executor	depends	probe
 28	a-done-holds-the-bus-identity-only-for-its-write-never-for-the-done-when-run	cqo	-	bash harness/scripts/s4e_msg.sh done --probe-lock | grep -E '^DONE lock_held_s=[0-4]( |$)'
 29	the-seat-shell-greps-as-gnu-grep-the-same-as-bash-c	cqo	-	bash -ic 'printf "aa\n" | grep -E "(a)\1"' 2>/dev/null | grep -q aa
 30	a-ruling-is-found-by-its-number-after-compaction	cqo	17	bash harness/scripts/s4e_ruling.sh CTO-486 | grep -q 'R6 EXTENDED IS AN INLINE DESCR KIND'
+31	park-parked-awaiting-takes-a-test-request-id-and-clears-on-its-verdict	cio	8	bash harness/scripts/s4e_msg.sh park --probe-awaiting | grep -q '^PARK awaiting=request cleared_by=verdict'
+32	next-writes-nothing-serves-assigned-rows-in-assign-order-and-counts-only-claimed-rows	cio	-	bash harness/scripts/s4e_msg.sh next --probe-serve | grep -E '^NEXT writes=0 order=assign-time counted_live=0'
+33	mint-writes-goal-once-and-a-next-from-the-goal-never-a-template	cio	-	bash harness/scripts/s4e_msg.sh mint --probe-baton | grep -E '^MINT goal_once=1 next_from_goal=1 template_lines=0'
+34	a-premise-runs-under-the-rows-own-budget-line	cio	-	bash harness/scripts/s4e_msg.sh premise --probe-budget | grep -E '^PREMISE budget=row default_s=120 max_s=600 '
+35	a-done-restores-and-telegrams-every-row-blocked-on-the-row-it-closed	cio	28	bash harness/scripts/s4e_msg.sh done --probe-unblock | grep -E '^DONE unblocked=[1-9][0-9]* restored_state=1 telegrams=[1-9]'
+36	one-whole-root-worktree-helper-four-repos-the-build-fetched-under-the-cap	cio	18	bash harness/scripts/s4e_worktree.sh --probe | grep -E '^WORKTREE repos=4 build=fetched size_mb=[0-9]+ '
+37	the-unread-banner-prints-a-heading-once-per-arrival	cio	-	bash harness/scripts/s4e_msg.sh banner --probe-once | grep -E '^BANNER headings_reprinted=0 '
+38	the-sweep-selects-rows-whose-inputs-moved-since-their-last-reading-under-a-per-row-budget	cio	8,28	bash harness/scripts/s4e_msg.sh sweep --plant-selection | grep -E '^SWEEP selected=[0-9]+ skipped_unchanged=[1-9][0-9]* budget_s=60 lock_held_s=[0-4]( |$)'
