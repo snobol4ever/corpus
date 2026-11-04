@@ -257,7 +257,7 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 256,spiral-matrix,rosetta-pascal__spiral-matrix,rosetta-pascal,70,0,0,131072,4096,,,1,0,1,1,1,1,1,1,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,1,0,0
 257,split-a-character-string-based-on-change-of-character,rosetta-pascal__split-a-character-string-based-on-change-of-character,rosetta-pascal,32,0,0,131072,4096,,,1,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
 258,square-but-not-cube,rosetta-pascal__square-but-not-cube,rosetta-pascal,48,0,0,131072,4096,,,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0
-259,stern-brocot-sequence,rosetta-pascal__stern-brocot-sequence,rosetta-pascal,87,0,0,131072,4096,,,1,0,1,1,1,1,0,1,1,0,0,0,0,0,0,1,1,1,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,1,1,0,0
+259,stern-brocot-sequence,rosetta-pascal__stern-brocot-sequence,rosetta-pascal,87,0,0,1048576,4096,,,1,0,1,1,1,1,0,1,1,0,0,0,0,0,0,1,1,1,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,1,1,0,0
 260,strange-numbers,rosetta-pascal__strange-numbers,rosetta-pascal,87,0,0,131072,4096,,,1,1,0,1,1,1,0,1,1,0,0,0,0,0,0,0,0,1,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,1,1,0,0
 261,strange-unique-prime-triplets,rosetta-pascal__strange-unique-prime-triplets,rosetta-pascal,144,0,0,131072,4096,,,1,1,1,1,1,1,0,1,0,0,0,0,0,1,0,1,1,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,1,1,1,1,1,0,0
 262,string-append,rosetta-pascal__string-append,rosetta-pascal,17,0,0,131072,4096,,,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -306,7 +306,7 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 305,unprimeable-numbers-2,rosetta-pascal__unprimeable-numbers-2,rosetta-pascal,417,0,0,131072,4096,,,1,1,1,1,1,1,1,1,0,0,0,0,0,1,0,1,1,1,1,0,0,1,0,0,1,1,0,0,1,0,1,1,0,0,0,0,0,1,0,0,0,1,1,0,1,1,1,1,1,0
 306,user-input-text,rosetta-pascal__user-input-text,rosetta-pascal,9,0,0,131072,4096,,,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 307,van-der-corput-sequence,rosetta-pascal__van-der-corput-sequence,rosetta-pascal,88,0,0,131072,4096,,,1,1,1,1,0,1,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0
-308,van-eck-sequence,rosetta-pascal__van-eck-sequence,rosetta-pascal,99,0,0,131072,4096,,,1,1,0,1,1,0,0,1,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,1,1,0,0
+308,van-eck-sequence,rosetta-pascal__van-eck-sequence,rosetta-pascal,99,0,0,1048576,4096,,,1,1,0,1,1,0,0,1,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,1,1,0,0
 309,vector-products,rosetta-pascal__vector-products,rosetta-pascal,48,0,0,131072,4096,,,1,1,1,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0
 310,vigen-re-cipher,rosetta-pascal__vigen-re-cipher,rosetta-pascal,104,0,0,131072,4096,,,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,1,1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,1,0,1,1,1,0,0,0
 311,walk-a-directory-non-recursively,rosetta-pascal__walk-a-directory-non-recursively,rosetta-pascal,31,0,0,131072,4096,,,1,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
