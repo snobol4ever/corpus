@@ -282,7 +282,7 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 281,the-isaac-cipher,rosetta-pascal__the-isaac-cipher,rosetta-pascal,221,0,0,131072,4096,,,1,1,1,1,0,1,0,1,1,0,0,0,0,1,1,0,1,1,0,0,0,0,1,1,1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,1,0,1,1,1,1,0,0
 282,the-twelve-days-of-christmas-1,rosetta-pascal__the-twelve-days-of-christmas-1,rosetta-pascal,32,0,0,131072,4096,,,1,0,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,1,0,0
 283,the-twelve-days-of-christmas-2,rosetta-pascal__the-twelve-days-of-christmas-2,rosetta-pascal,33,0,0,131072,4096,,,1,0,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,1,0,0
-284,thue-morse,rosetta-pascal__thue-morse,rosetta-pascal,59,0,0,131072,4096,,,1,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
+284,thue-morse,rosetta-pascal__thue-morse,rosetta-pascal,59,0,0,2621440,4096,,,1,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
 285,tic-tac-toe,rosetta-pascal__tic-tac-toe,rosetta-pascal,211,0,216,131072,4096,,,1,1,1,1,0,1,0,1,0,0,0,0,0,0,0,1,1,1,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,1,1,0,0
 286,tokenize-a-string,rosetta-pascal__tokenize-a-string,rosetta-pascal,25,0,0,131072,4096,,,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
 287,top-rank-per-group,rosetta-pascal__top-rank-per-group,rosetta-pascal,69,0,0,131072,4096,,,1,0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,1,0,0
