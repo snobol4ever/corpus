@@ -229,7 +229,7 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 228,hakank_swi_sonet,puzzles__hakank_swi_sonet,puzzles,97,0,0,131072,4096,,,,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,1,0,0,1,1,0,0
 229,hakank_swi_spreadsheet,puzzles__hakank_swi_spreadsheet,puzzles,40,0,0,131072,4096,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
 230,hakank_swi_square_root_of_wonderful,puzzles__hakank_swi_square_root_of_wonderful,puzzles,41,0,0,131072,4096,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0
-231,hakank_swi_stable_marriage,puzzles__hakank_swi_stable_marriage,puzzles,635,0,0,131072,4096,,,,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,0,0,1,1,0,0
+231,hakank_swi_stable_marriage,puzzles__hakank_swi_stable_marriage,puzzles,635,0,0,262144,16384,,,,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,0,0,1,1,0,0
 232,hakank_swi_steiner,puzzles__hakank_swi_steiner,puzzles,164,0,0,131072,4096,,,,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,0,0,0,1,1,1,0,1,1,0,0,0
 233,hakank_swi_strimko2,puzzles__hakank_swi_strimko2,puzzles,165,0,0,131072,4096,,,,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
 234,hakank_swi_stuckey_seesaw,puzzles__hakank_swi_stuckey_seesaw,puzzles,67,0,0,131072,4096,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
