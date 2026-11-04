@@ -738,9 +738,9 @@ n23_match_defer_α:      sub              rsp, 16
                         test             rdx, rdx;                            je    .Lmatch_defer_α_35_17
                         mov              rax, qword ptr [rdx + 0]
                         test             rax, rax;                            jne   .Lmatch_defer_α_35_18
-.Lmatch_defer_α_35_17:  mov              rdi, qword ptr [rbp + -24]           # hv
-                        mov              esi, 1                               # i
-                        xor              edx, edx                             # fb
+.Lmatch_defer_α_35_17:  mov              rdi, qword ptr [rbp + -24]
+                        mov              esi, 1
+                        xor              edx, edx
                         call             rt_patv_defer_get_pat_dtp@PLT
 .Lgcsite_.LTp2_44:      mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              rdx, rax
@@ -1137,9 +1137,9 @@ n24_match_defer_α:      sub              rsp, 16
                         test             rdx, rdx;                            je    .Lmatch_defer_α_36_17
                         mov              rax, qword ptr [rdx + 0]
                         test             rax, rax;                            jne   .Lmatch_defer_α_36_18
-.Lmatch_defer_α_36_17:  mov              rdi, qword ptr [rbp + -24]           # hv
-                        mov              esi, 0                               # i
-                        xor              edx, edx                             # fb
+.Lmatch_defer_α_36_17:  mov              rdi, qword ptr [rbp + -24]
+                        mov              esi, 0
+                        xor              edx, edx
                         call             rt_patv_defer_get_pat_dtp@PLT
 .Lgcsite_.LTp2_66:      mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              rdx, rax
@@ -2311,9 +2311,9 @@ n46_match_defer_α:      sub              rsp, 16
                         test             rdx, rdx;                            je    .Lmatch_defer_α_63_17
                         mov              rax, qword ptr [rdx + 0]
                         test             rax, rax;                            jne   .Lmatch_defer_α_63_18
-.Lmatch_defer_α_63_17:  mov              rdi, qword ptr [rbp + -24]           # hv
-                        mov              esi, 0                               # i
-                        xor              edx, edx                             # fb
+.Lmatch_defer_α_63_17:  mov              rdi, qword ptr [rbp + -24]
+                        mov              esi, 0
+                        xor              edx, edx
                         call             rt_patv_defer_get_pat_dtp@PLT
 .Lgcsite_.LTp3_44:      mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              rdx, rax
@@ -2927,9 +2927,9 @@ n65_match_defer_α:      sub              rsp, 16
                         test             rdx, rdx;                            je    .Lmatch_defer_α_77_17
                         mov              rax, qword ptr [rdx + 0]
                         test             rax, rax;                            jne   .Lmatch_defer_α_77_18
-.Lmatch_defer_α_77_17:  mov              rdi, qword ptr [rbp + -24]           # hv
-                        mov              esi, 0                               # i
-                        xor              edx, edx                             # fb
+.Lmatch_defer_α_77_17:  mov              rdi, qword ptr [rbp + -24]
+                        mov              esi, 0
+                        xor              edx, edx
                         call             rt_patv_defer_get_pat_dtp@PLT
 .Lgcsite_.LTp4_21:      mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              rdx, rax
@@ -3436,9 +3436,9 @@ n70_match_defer_α:      sub              rsp, 16
                         test             rdx, rdx;                            je    .Lmatch_defer_α_86_17
                         mov              rax, qword ptr [rdx + 0]
                         test             rax, rax;                            jne   .Lmatch_defer_α_86_18
-.Lmatch_defer_α_86_17:  mov              rdi, qword ptr [rbp + -24]           # hv
-                        mov              esi, 2                               # i
-                        xor              edx, edx                             # fb
+.Lmatch_defer_α_86_17:  mov              rdi, qword ptr [rbp + -24]
+                        mov              esi, 2
+                        xor              edx, edx
                         call             rt_patv_defer_get_pat_dtp@PLT
 .Lgcsite_.LTp4_43:      mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              rdx, rax
@@ -3872,9 +3872,9 @@ n74_match_defer_α:      sub              rsp, 16
                         test             rdx, rdx;                            je    .Lmatch_defer_α_93_17
                         mov              rax, qword ptr [rdx + 0]
                         test             rax, rax;                            jne   .Lmatch_defer_α_93_18
-.Lmatch_defer_α_93_17:  mov              rdi, qword ptr [rbp + -24]           # hv
-                        mov              esi, 1                               # i
-                        xor              edx, edx                             # fb
+.Lmatch_defer_α_93_17:  mov              rdi, qword ptr [rbp + -24]
+                        mov              esi, 1
+                        xor              edx, edx
                         call             rt_patv_defer_get_pat_dtp@PLT
 .Lgcsite_.LTp4_65:      mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              rdx, rax
@@ -4567,9 +4567,9 @@ n97_match_defer_α:      sub              rsp, 16
                         test             rdx, rdx;                            je    .Lmatch_defer_α_109_17
                         mov              rax, qword ptr [rdx + 0]
                         test             rax, rax;                            jne   .Lmatch_defer_α_109_18
-.Lmatch_defer_α_109_17: mov              rdi, qword ptr [rbp + -24]           # hv
-                        mov              esi, 0                               # i
-                        xor              edx, edx                             # fb
+.Lmatch_defer_α_109_17: mov              rdi, qword ptr [rbp + -24]
+                        mov              esi, 0
+                        xor              edx, edx
                         call             rt_patv_defer_get_pat_dtp@PLT
 .Lgcsite_.LTp5_21:      mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              rdx, rax
@@ -5080,9 +5080,9 @@ n102_match_defer_α:     sub              rsp, 16
                         test             rdx, rdx;                            je    .Lmatch_defer_α_118_17
                         mov              rax, qword ptr [rdx + 0]
                         test             rax, rax;                            jne   .Lmatch_defer_α_118_18
-.Lmatch_defer_α_118_17: mov              rdi, qword ptr [rbp + -24]           # hv
-                        mov              esi, 2                               # i
-                        xor              edx, edx                             # fb
+.Lmatch_defer_α_118_17: mov              rdi, qword ptr [rbp + -24]
+                        mov              esi, 2
+                        xor              edx, edx
                         call             rt_patv_defer_get_pat_dtp@PLT
 .Lgcsite_.LTp5_43:      mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              rdx, rax
@@ -5520,9 +5520,9 @@ n106_match_defer_α:     sub              rsp, 16
                         test             rdx, rdx;                            je    .Lmatch_defer_α_125_17
                         mov              rax, qword ptr [rdx + 0]
                         test             rax, rax;                            jne   .Lmatch_defer_α_125_18
-.Lmatch_defer_α_125_17: mov              rdi, qword ptr [rbp + -24]           # hv
-                        mov              esi, 1                               # i
-                        xor              edx, edx                             # fb
+.Lmatch_defer_α_125_17: mov              rdi, qword ptr [rbp + -24]
+                        mov              esi, 1
+                        xor              edx, edx
                         call             rt_patv_defer_get_pat_dtp@PLT
 .Lgcsite_.LTp5_65:      mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              rdx, rax
@@ -6340,9 +6340,9 @@ n140_match_defer_α:     sub              rsp, 16
                         test             rdx, rdx;                            je    .Lmatch_defer_α_150_17
                         mov              rax, qword ptr [rdx + 0]
                         test             rax, rax;                            jne   .Lmatch_defer_α_150_18
-.Lmatch_defer_α_150_17: mov              rdi, qword ptr [rbp + -24]           # hv
-                        mov              esi, 0                               # i
-                        xor              edx, edx                             # fb
+.Lmatch_defer_α_150_17: mov              rdi, qword ptr [rbp + -24]
+                        mov              esi, 0
+                        xor              edx, edx
                         call             rt_patv_defer_get_pat_dtp@PLT
 .Lgcsite_.LTp7_21:      mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              rdx, rax
@@ -6743,9 +6743,9 @@ n141_match_defer_α:     sub              rsp, 16
                         test             rdx, rdx;                            je    .Lmatch_defer_α_151_17
                         mov              rax, qword ptr [rdx + 0]
                         test             rax, rax;                            jne   .Lmatch_defer_α_151_18
-.Lmatch_defer_α_151_17: mov              rdi, qword ptr [rbp + -24]           # hv
-                        mov              esi, 1                               # i
-                        xor              edx, edx                             # fb
+.Lmatch_defer_α_151_17: mov              rdi, qword ptr [rbp + -24]
+                        mov              esi, 1
+                        xor              edx, edx
                         call             rt_patv_defer_get_pat_dtp@PLT
 .Lgcsite_.LTp7_43:      mov              r9,  qword ptr [rip + g_rtccb+48]
                         mov              rdx, rax
@@ -16168,9 +16168,9 @@ n483_kw_assign_snobol4_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n483_kw_assign_snobol4_α:
                         sub              rsp, 16
-                        mov              rdi, qword ptr [rip + .Lkw_assign_snobol4_α_1032_0] # idx
-                        mov              rsi, qword ptr [rsp + 16]            # v
-                        mov              rdx, qword ptr [rsp + 24]            # v
+                        mov              rdi, qword ptr [rip + .Lkw_assign_snobol4_α_1032_0]
+                        mov              rsi, qword ptr [rsp + 16]
+                        mov              rdx, qword ptr [rsp + 24]
                         call             rt_kw_write_idx@PLT
 .Lgcsite_main_279:      mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lkw_assign_snobol4_α_1032_999

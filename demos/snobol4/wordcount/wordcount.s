@@ -1161,9 +1161,9 @@ n20_kw_assign_snobol4_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n20_kw_assign_snobol4_α:
                         sub              rsp, 16
-                        mov              rdi, qword ptr [rip + .Lkw_assign_snobol4_α_90_0] # idx
-                        mov              rsi, qword ptr [rsp + 16]            # v
-                        mov              rdx, qword ptr [rsp + 24]            # v
+                        mov              rdi, qword ptr [rip + .Lkw_assign_snobol4_α_90_0]
+                        mov              rsi, qword ptr [rsp + 16]
+                        mov              rdx, qword ptr [rsp + 24]
                         call             rt_kw_write_idx@PLT
 .Lgcsite_main_5:        mov              r9,  qword ptr [rip + g_rtccb+48]
                         cmp              al, 104;                             jne   .Lkw_assign_snobol4_α_90_999
