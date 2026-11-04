@@ -206,7 +206,7 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 205,priority-queue-1,rosetta-pascal__priority-queue-1,rosetta-pascal,74,0,0,131072,4096,,,1,1,1,1,0,1,1,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,1,0,0,1
 206,proper-divisors,rosetta-pascal__proper-divisors,rosetta-pascal,220,0,0,131072,4096,,,0,1,1,1,1,1,1,1,0,0,0,0,0,1,0,1,1,1,0,0,0,1,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,1,1,1,0
 207,pythagorean-quadruples-2,rosetta-pascal__pythagorean-quadruples-2,rosetta-pascal,70,0,0,131072,4096,,,1,1,0,1,1,1,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,1,0,1,1,1,1,0,0
-208,pythagorean-triples,rosetta-pascal__pythagorean-triples,rosetta-pascal,31,0,0,131072,4096,,,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
+208,pythagorean-triples,rosetta-pascal__pythagorean-triples,rosetta-pascal,31,0,0,131072,65536,,,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
 209,queue-definition,rosetta-pascal__queue-definition,rosetta-pascal,101,0,0,131072,4096,,,1,1,1,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,1,0,0,1
 210,quine-1,rosetta-pascal__quine-1,rosetta-pascal,1,0,0,131072,4096,,,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 211,quine-2,rosetta-pascal__quine-2,rosetta-pascal,1,0,0,131072,4096,,,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
