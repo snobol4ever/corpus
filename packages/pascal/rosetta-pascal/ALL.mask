@@ -1,0 +1,2 @@
+# ALL.mask -- CEO-409 line masks for rosetta-pascal (FORMAT: entry<TAB>python-regex<TAB>reason), read by corpus_suite_harness.py read_mask_sidecar().
+amicable-pairs-3	^Time to (calc sum of divs|find amicable pairs) +[0-9]{2}:[0-9]{2}:[0-9]{2}\.[0-9]{3}$	FormatDateTime('HH:NN:SS.ZZZ', T1 - T0) of time() differences: a wall-clock reading the machine fixes, not the language (the cto, CEO-2125, preferring the mask to an exclusion so the other 26 lines stay graded); fpc prints 00:00:00.000 on its fast runs, SCRIP printed 00:00:00.009 and 00:00:00.001 (measured 2026-11-04)
