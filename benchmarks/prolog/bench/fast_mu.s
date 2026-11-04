@@ -3148,7 +3148,7 @@ n86_unmark_α:           mov              r13, qword ptr [rbp + 192]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_159_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_159_409:     mov              rsp, qword ptr [rbp + 184];          jmp   n87_var_ref_α
+.Lunmark_α_159_409:     lea              rsp, [rbp + -16];                    jmp   n87_var_ref_α
                         .size            n86_unmark_bx, .-n86_unmark_bx
                         .type            n87_var_ref_bx, @function
 n87_var_ref_bx:
@@ -3650,7 +3650,7 @@ n92_unmark_α:           mov              rsi, qword ptr [rbp + 176]           #
                         test             r15, r15;                            je    .Lunmark_α_171_999
                         add              rsp, 16;                             jmp   $ta_close$2F3_step
 .Lunmark_α_171_999:     mov              r13, qword ptr [rbp + 192]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 184];          jmp   n93_bound_α
+                        lea              rsp, [rbp + -16];                    jmp   n93_bound_α
                         .size            n92_unmark_bx, .-n92_unmark_bx
                         .type            n93_bound_bx, @function
 n93_bound_bx:
@@ -3923,7 +3923,7 @@ n99_unmark_α:           mov              r13, qword ptr [rbp + 288]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_185_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_185_409:     mov              rsp, qword ptr [rbp + 280];          jmp   n100_var_ref_α
+.Lunmark_α_185_409:     lea              rsp, [rbp + -16];                    jmp   n100_var_ref_α
                         .size            n99_unmark_bx, .-n99_unmark_bx
                         .type            n100_var_ref_bx, @function
 n100_var_ref_bx:
@@ -4908,7 +4908,7 @@ n118_unmark_α:          mov              rsi, qword ptr [rbp + 272]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n130_unmark_α
                         mov              r13, qword ptr [rbp + 288]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 280];          jmp   n119_var_ref_α
+                        lea              rsp, [rbp + -16];                    jmp   n119_var_ref_α
                         .size            n118_unmark_bx, .-n118_unmark_bx
                         .type            n119_var_ref_bx, @function
 n119_var_ref_bx:
@@ -5585,7 +5585,7 @@ n127_unmark_α:          mov              rsi, qword ptr [rbp + 272]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n130_unmark_α
                         mov              r13, qword ptr [rbp + 288]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 280];          jmp   n128_gate_α
+                        lea              rsp, [rbp + -16];                    jmp   n128_gate_α
                         .size            n127_unmark_bx, .-n127_unmark_bx
                         .type            n128_gate_bx, @function
 n128_gate_bx:
@@ -5626,7 +5626,7 @@ n130_unmark_α:          mov              rsi, qword ptr [rbp + 176]           #
                         test             r15, r15;                            je    .Lunmark_α_242_999
                         add              rsp, 16;                             jmp   $ta_close$2F3_step
 .Lunmark_α_242_999:     mov              r13, qword ptr [rbp + 192]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 184];          jmp   n131_gate_α
+                        lea              rsp, [rbp + -16];                    jmp   n131_gate_α
                         .size            n130_unmark_bx, .-n130_unmark_bx
                         .type            n131_gate_bx, @function
 n131_gate_bx:
@@ -8099,7 +8099,7 @@ n324_unmark_α:          mov              r13, qword ptr [rbp + 384]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_387_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_387_409:     mov              rsp, qword ptr [rbp + 376];          jmp   n325_lit_integer_α
+.Lunmark_α_387_409:     lea              rsp, [rbp + 0];                      jmp   n325_lit_integer_α
                         .size            n324_unmark_bx, .-n324_unmark_bx
                         .type            n325_lit_integer_bx, @function
 n325_lit_integer_bx:
@@ -8383,7 +8383,7 @@ n332_unmark_α:          mov              rsi, qword ptr [rbp + 368]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   $xsb_f4_chk$2F2_step
                         mov              r13, qword ptr [rbp + 384]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 376];          jmp   n335_gate_α
+                        lea              rsp, [rbp + 0];                      jmp   n335_gate_α
                         .size            n332_unmark_bx, .-n332_unmark_bx
                         .type            n333_unmark_bx, @function
 n333_unmark_bx:
@@ -8402,7 +8402,7 @@ n333_unmark_α:          mov              rsi, qword ptr [rbp + 368]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   $xsb_f4_chk$2F2_step
                         mov              r13, qword ptr [rbp + 384]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 376];          jmp   n334_gate_arm_α
+                        lea              rsp, [rbp + 0];                      jmp   n334_gate_arm_α
                         .size            n333_unmark_bx, .-n333_unmark_bx
                         .type            n334_gate_arm_bx, @function
 n334_gate_arm_bx:
@@ -10921,7 +10921,7 @@ n488_unmark_α:          mov              r13, qword ptr [rbp + -32]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_505_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_505_409:     mov              rsp, qword ptr [rbp + -40]
+.Lunmark_α_505_409:     lea              rsp, [rbp + -48]
                         add              rsp, 48;                             jmp   n489_var_ref_α
                         .size            n488_unmark_bx, .-n488_unmark_bx
                         .type            n489_var_ref_bx, @function
@@ -11028,7 +11028,7 @@ n494_unmark_α:          mov              rsi, qword ptr [rbp + -48]           #
                         test             r15, r15;                            je    .Lunmark_α_515_999
                         add              rsp, 48;                             jmp   del_attrs$2F1_step
 .Lunmark_α_515_999:     mov              r13, qword ptr [rbp + -32]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + -40]
+                        lea              rsp, [rbp + -48]
                         add              rsp, 48;                             jmp   n495_gate_arm_α
                         .size            n494_unmark_bx, .-n494_unmark_bx
                         .type            n495_gate_arm_bx, @function
@@ -13710,7 +13710,7 @@ n587_unmark_α:          mov              r13, qword ptr [rbp + 144]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_629_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_629_409:     mov              rsp, qword ptr [rbp + 136];          jmp   n588_var_ref_α
+.Lunmark_α_629_409:     lea              rsp, [rbp + -16];                    jmp   n588_var_ref_α
                         .size            n587_unmark_bx, .-n587_unmark_bx
                         .type            n588_var_ref_bx, @function
 n588_var_ref_bx:
@@ -13822,7 +13822,7 @@ n592_unmark_α:          mov              rsi, qword ptr [rbp + 128]           #
                         test             r15, r15;                            je    .Lunmark_α_638_999
                         add              rsp, 16;                             jmp   $var_subtract$2F3_step
 .Lunmark_α_638_999:     mov              r13, qword ptr [rbp + 144]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 136];          jmp   n593_var_ref_α
+                        lea              rsp, [rbp + -16];                    jmp   n593_var_ref_α
                         .size            n592_unmark_bx, .-n592_unmark_bx
                         .type            n593_var_ref_bx, @function
 n593_var_ref_bx:
@@ -14104,7 +14104,7 @@ n600_unmark_α:          mov              rsi, qword ptr [rbp + 128]           #
                         test             r15, r15;                            je    .Lunmark_α_651_999
                         add              rsp, 16;                             jmp   $var_subtract$2F3_step
 .Lunmark_α_651_999:     mov              r13, qword ptr [rbp + 144]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 136];          jmp   n601_gate_α
+                        lea              rsp, [rbp + -16];                    jmp   n601_gate_α
                         .size            n600_unmark_bx, .-n600_unmark_bx
                         .type            n601_gate_bx, @function
 n601_gate_bx:
@@ -18029,7 +18029,7 @@ n738_unmark_α:          mov              r13, qword ptr [rbp + 192]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_788_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_788_409:     mov              rsp, qword ptr [rbp + 184];          jmp   n739_var_ref_α
+.Lunmark_α_788_409:     lea              rsp, [rbp + -48];                    jmp   n739_var_ref_α
                         .size            n738_unmark_bx, .-n738_unmark_bx
                         .type            n739_var_ref_bx, @function
 n739_var_ref_bx:
@@ -18178,7 +18178,7 @@ n744_unmark_α:          mov              rsi, qword ptr [rbp + 176]           #
                         test             r15, r15;                            je    .Lunmark_α_800_999
                         add              rsp, 48;                             jmp   $mod_qmargs$2F4_step
 .Lunmark_α_800_999:     mov              r13, qword ptr [rbp + 192]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 184];          jmp   n745_var_ref_α
+                        lea              rsp, [rbp + -48];                    jmp   n745_var_ref_α
                         .size            n744_unmark_bx, .-n744_unmark_bx
                         .type            n745_var_ref_bx, @function
 n745_var_ref_bx:
@@ -18289,7 +18289,7 @@ n749_unmark_α:          mov              rsi, qword ptr [rbp + 176]           #
                         test             r15, r15;                            je    .Lunmark_α_809_999
                         add              rsp, 48;                             jmp   $mod_qmargs$2F4_step
 .Lunmark_α_809_999:     mov              r13, qword ptr [rbp + 192]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 184];          jmp   n750_gate_α
+                        lea              rsp, [rbp + -48];                    jmp   n750_gate_α
                         .size            n749_unmark_bx, .-n749_unmark_bx
                         .type            n750_gate_bx, @function
 n750_gate_bx:
@@ -19643,7 +19643,7 @@ n831_unmark_α:          mov              r13, qword ptr [rbp + 112]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_861_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_861_409:     mov              rsp, qword ptr [rbp + 104];          jmp   n832_var_ref_α
+.Lunmark_α_861_409:     lea              rsp, [rbp + -128];                   jmp   n832_var_ref_α
                         .size            n831_unmark_bx, .-n831_unmark_bx
                         .type            n832_var_ref_bx, @function
 n832_var_ref_bx:
@@ -20141,7 +20141,7 @@ n837_unmark_α:          mov              rsi, qword ptr [rbp + 96]            #
                         test             r15, r15;                            je    .Lunmark_α_872_999
                         add              rsp, 128;                            jmp   reverse$2F2_step
 .Lunmark_α_872_999:     mov              r13, qword ptr [rbp + 112]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 104];          jmp   n838_var_ref_α
+                        lea              rsp, [rbp + -128];                   jmp   n838_var_ref_α
                         .size            n837_unmark_bx, .-n837_unmark_bx
                         .type            n838_var_ref_bx, @function
 n838_var_ref_bx:
@@ -20777,7 +20777,7 @@ n844_unmark_α:          mov              rsi, qword ptr [rbp + 96]            #
                         test             r15, r15;                            je    .Lunmark_α_885_999
                         add              rsp, 128;                            jmp   reverse$2F2_step
 .Lunmark_α_885_999:     mov              r13, qword ptr [rbp + 112]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 104];          jmp   n845_gate_α
+                        lea              rsp, [rbp + -128];                   jmp   n845_gate_α
                         .size            n844_unmark_bx, .-n844_unmark_bx
                         .type            n845_gate_bx, @function
 n845_gate_bx:
@@ -24303,7 +24303,7 @@ n988_unmark_α:          mov              r13, qword ptr [rbp + 128]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_1070_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_1070_409:    mov              rsp, qword ptr [rbp + 120];          jmp   n989_var_ref_α
+.Lunmark_α_1070_409:    lea              rsp, [rbp + -80];                    jmp   n989_var_ref_α
                         .size            n988_unmark_bx, .-n988_unmark_bx
                         .type            n989_var_ref_bx, @function
 n989_var_ref_bx:
@@ -24691,7 +24691,7 @@ n998_unmark_α:          mov              r13, qword ptr [rbp + 224]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_1087_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_1087_409:    mov              rsp, qword ptr [rbp + 216];          jmp   n999_lit_integer_α
+.Lunmark_α_1087_409:    lea              rsp, [rbp + -288];                   jmp   n999_lit_integer_α
                         .size            n998_unmark_bx, .-n998_unmark_bx
                         .type            n999_lit_integer_bx, @function
 n999_lit_integer_bx:
@@ -24833,7 +24833,7 @@ n1004_unmark_α:         mov              rsi, qword ptr [rbp + 208]           #
                         test             r15, r15;                            je    .Lunmark_α_1098_999
                         add              rsp, 208;                            jmp   n1045_unmark_α
 .Lunmark_α_1098_999:    mov              r13, qword ptr [rbp + 224]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 216];          jmp   n1005_bound_α
+                        lea              rsp, [rbp + -288];                   jmp   n1005_bound_α
                         .size            n1004_unmark_bx, .-n1004_unmark_bx
                         .type            n1005_bound_bx, @function
 n1005_bound_bx:
@@ -25004,7 +25004,7 @@ n1009_unmark_α:         mov              r13, qword ptr [rbp + 320]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_1106_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_1106_409:    mov              rsp, qword ptr [rbp + 312];          jmp   n1010_lit_integer_α
+.Lunmark_α_1106_409:    lea              rsp, [rbp + -288];                   jmp   n1010_lit_integer_α
                         .size            n1009_unmark_bx, .-n1009_unmark_bx
                         .type            n1010_lit_integer_bx, @function
 n1010_lit_integer_bx:
@@ -25145,7 +25145,7 @@ n1015_unmark_α:         mov              rsi, qword ptr [rbp + 304]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n1028_unmark_α
                         mov              r13, qword ptr [rbp + 320]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 312];          jmp   n1016_var_ref_α
+                        lea              rsp, [rbp + -288];                   jmp   n1016_var_ref_α
                         .size            n1015_unmark_bx, .-n1015_unmark_bx
                         .type            n1016_var_ref_bx, @function
 n1016_var_ref_bx:
@@ -25504,7 +25504,7 @@ n1025_unmark_α:         mov              rsi, qword ptr [rbp + 304]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n1028_unmark_α
                         mov              r13, qword ptr [rbp + 320]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 312];          jmp   n1026_gate_α
+                        lea              rsp, [rbp + -288];                   jmp   n1026_gate_α
                         .size            n1025_unmark_bx, .-n1025_unmark_bx
                         .type            n1026_gate_bx, @function
 n1026_gate_bx:
@@ -25546,7 +25546,7 @@ n1028_unmark_α:         mov              rsi, qword ptr [rbp + 208]           #
                         test             r15, r15;                            je    .Lunmark_α_1140_999
                         add              rsp, 208;                            jmp   n1045_unmark_α
 .Lunmark_α_1140_999:    mov              r13, qword ptr [rbp + 224]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 216];          jmp   n1029_gate_α
+                        lea              rsp, [rbp + -288];                   jmp   n1029_gate_α
                         .size            n1028_unmark_bx, .-n1028_unmark_bx
                         .type            n1029_gate_bx, @function
 n1029_gate_bx:
@@ -25810,7 +25810,7 @@ n1037_unmark_α:         mov              rsi, qword ptr [rbp + 112]           #
                         test             r15, r15;                            je    .Lunmark_α_1155_999
                         add              rsp, 80;                             jmp   $arg_swi$2F3_step
 .Lunmark_α_1155_999:    mov              r13, qword ptr [rbp + 128]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 120];          jmp   n1038_var_ref_α
+                        lea              rsp, [rbp + -80];                    jmp   n1038_var_ref_α
                         .size            n1037_unmark_bx, .-n1037_unmark_bx
                         .type            n1038_var_ref_bx, @function
 n1038_var_ref_bx:
@@ -26056,7 +26056,7 @@ n1045_unmark_α:         mov              rsi, qword ptr [rbp + 112]           #
                         test             r15, r15;                            je    .Lunmark_α_1168_999
                         add              rsp, 80;                             jmp   $arg_swi$2F3_step
 .Lunmark_α_1168_999:    mov              r13, qword ptr [rbp + 128]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 120];          jmp   n1046_gate_α
+                        lea              rsp, [rbp + -80];                    jmp   n1046_gate_α
                         .size            n1045_unmark_bx, .-n1045_unmark_bx
                         .type            n1046_gate_bx, @function
 n1046_gate_bx:
@@ -27158,7 +27158,7 @@ n1189_unmark_α:         mov              r13, qword ptr [rbp + -112]          #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_1225_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_1225_409:    mov              rsp, qword ptr [rbp + -120]
+.Lunmark_α_1225_409:    lea              rsp, [rbp + -128]
                         add              rsp, 48;                             jmp   n1190_lit_integer_α
                         .size            n1189_unmark_bx, .-n1189_unmark_bx
                         .type            n1190_lit_integer_bx, @function
@@ -27735,7 +27735,7 @@ n1202_unmark_α:         mov              rsi, qword ptr [rbp + -128]          #
                         test             r15, r15;                            je    .Lunmark_α_1241_999
                         add              rsp, 128;                            jmp   $sort4_idx$2F1_step
 .Lunmark_α_1241_999:    mov              r13, qword ptr [rbp + -112]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + -120]
+                        lea              rsp, [rbp + -128]
                         add              rsp, 48;                             jmp   n1203_gate_arm_α
                         .size            n1202_unmark_bx, .-n1202_unmark_bx
                         .type            n1203_gate_arm_bx, @function
@@ -31466,7 +31466,7 @@ n1361_unmark_α:         mov              r13, qword ptr [rbp + 128]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_1389_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_1389_409:    mov              rsp, qword ptr [rbp + 120];          jmp   n1362_var_ref_α
+.Lunmark_α_1389_409:    lea              rsp, [rbp + 0];                      jmp   n1362_var_ref_α
                         .size            n1361_unmark_bx, .-n1361_unmark_bx
                         .type            n1362_var_ref_bx, @function
 n1362_var_ref_bx:
@@ -32159,7 +32159,7 @@ n1378_unmark_α:         mov              rsi, qword ptr [rbp + 112]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   $when_wake_det$2F1_step
                         mov              r13, qword ptr [rbp + 128]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 120];          jmp   n1381_gate_α
+                        lea              rsp, [rbp + 0];                      jmp   n1381_gate_α
                         .size            n1378_unmark_bx, .-n1378_unmark_bx
                         .type            n1379_unmark_bx, @function
 n1379_unmark_bx:
@@ -32178,7 +32178,7 @@ n1379_unmark_α:         mov              rsi, qword ptr [rbp + 112]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   $when_wake_det$2F1_step
                         mov              r13, qword ptr [rbp + 128]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 120];          jmp   n1380_gate_arm_α
+                        lea              rsp, [rbp + 0];                      jmp   n1380_gate_arm_α
                         .size            n1379_unmark_bx, .-n1379_unmark_bx
                         .type            n1380_gate_arm_bx, @function
 n1380_gate_arm_bx:
@@ -36683,7 +36683,7 @@ n1575_unmark_α:         mov              r13, qword ptr [rbp + -112]          #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_1649_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_1649_409:    mov              rsp, qword ptr [rbp + -120]
+.Lunmark_α_1649_409:    lea              rsp, [rbp + -128]
                         add              rsp, 48;                             jmp   n1576_gate_arm_α
                         .size            n1575_unmark_bx, .-n1575_unmark_bx
                         .type            n1576_gate_arm_bx, @function
@@ -36708,7 +36708,7 @@ n1577_unmark_α:         mov              rsi, qword ptr [rbp + -128]          #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n1580_cleanup_α
                         mov              r13, qword ptr [rbp + -112]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + -120]
+                        lea              rsp, [rbp + -128]
                         add              rsp, 48;                             jmp   n1578_unmark_α
                         .size            n1577_unmark_bx, .-n1577_unmark_bx
                         .type            n1578_unmark_bx, @function
@@ -36998,7 +36998,7 @@ n1588_unmark_α:         mov              r13, qword ptr [rbp + 112]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_1674_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_1674_409:    mov              rsp, qword ptr [rbp + 104]
+.Lunmark_α_1674_409:    lea              rsp, [rbp + -80]
                         mov              rax, qword ptr [rbp + 416]
                         mov              rcx, rax
                         sub              rcx, rsp
@@ -37240,7 +37240,7 @@ n1595_unmark_α:         mov              r13, qword ptr [rbp + -112]          #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_1685_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_1685_409:    mov              rsp, qword ptr [rbp + -120]
+.Lunmark_α_1685_409:    lea              rsp, [rbp + -128]
                         mov              rax, qword ptr [rbp + 416]
                         mov              rcx, rax
                         sub              rcx, rsp
@@ -37273,7 +37273,7 @@ n1597_unmark_α:         mov              rsi, qword ptr [rbp + -128]          #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n1580_cleanup_α
                         mov              r13, qword ptr [rbp + -112]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + -120]
+                        lea              rsp, [rbp + -128]
                         mov              rax, qword ptr [rbp + 416]
                         mov              rcx, rax
                         sub              rcx, rsp
@@ -37484,7 +37484,7 @@ n1602_unmark_α:         mov              rsi, qword ptr [rbp + 96]            #
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
                         mov              r13, qword ptr [rbp + 112]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 104]
+                        lea              rsp, [rbp + -80]
                         mov              rax, qword ptr [rbp + 416]
                         mov              rcx, rax
                         sub              rcx, rsp
@@ -37819,7 +37819,7 @@ n1612_unmark_α:         mov              r13, qword ptr [rbp + -160]          #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_1714_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_1714_409:    mov              rsp, qword ptr [rbp + -168]
+.Lunmark_α_1714_409:    lea              rsp, [rbp + -176]
                         mov              rax, qword ptr [rbp + 416]
                         mov              rcx, rax
                         sub              rcx, rsp
@@ -37852,7 +37852,7 @@ n1614_unmark_α:         mov              rsi, qword ptr [rbp + -176]          #
                         test             r15, r15;                            je    .Lunmark_α_1718_999
                         add              rsp, 48;                             jmp   n1619_unmark_α
 .Lunmark_α_1718_999:    mov              r13, qword ptr [rbp + -160]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + -168]
+                        lea              rsp, [rbp + -176]
                         mov              rax, qword ptr [rbp + 416]
                         mov              rcx, rax
                         sub              rcx, rsp
@@ -37970,7 +37970,7 @@ n1619_unmark_α:         mov              rsi, qword ptr [rbp + 256]           #
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
                         mov              r13, qword ptr [rbp + 272]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 264]
+                        lea              rsp, [rbp + -128]
                         mov              rax, qword ptr [rbp + 416]
                         mov              rcx, rax
                         sub              rcx, rsp
@@ -38346,7 +38346,7 @@ n1632_unmark_α:         mov              r13, qword ptr [rbp + -128]          #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_1749_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_1749_409:    mov              rsp, qword ptr [rbp + -136]
+.Lunmark_α_1749_409:    lea              rsp, [rbp + -144]
                         mov              rax, qword ptr [rbp + 416]
                         mov              rcx, rax
                         sub              rcx, rsp
@@ -38378,7 +38378,7 @@ n1634_unmark_α:         mov              rsi, qword ptr [rbp + -144]          #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n1580_cleanup_α
                         mov              r13, qword ptr [rbp + -128]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + -136]
+                        lea              rsp, [rbp + -144]
                         mov              rax, qword ptr [rbp + 416]
                         mov              rcx, rax
                         sub              rcx, rsp
@@ -42884,7 +42884,7 @@ n1874_unmark_α:         mov              r13, qword ptr [rbp + 128]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_1898_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_1898_409:    mov              rsp, qword ptr [rbp + 120];          jmp   n1875_gate_arm_α
+.Lunmark_α_1898_409:    lea              rsp, [rbp + -16];                    jmp   n1875_gate_arm_α
                         .size            n1874_unmark_bx, .-n1874_unmark_bx
                         .type            n1875_gate_arm_bx, @function
 n1875_gate_arm_bx:
@@ -42909,7 +42909,7 @@ n1876_unmark_α:         mov              rsi, qword ptr [rbp + 112]           #
                         test             r15, r15;                            je    .Lunmark_α_1902_999
                         add              rsp, 16;                             jmp   $var_memberchk$2F2_step
 .Lunmark_α_1902_999:    mov              r13, qword ptr [rbp + 128]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 120];          jmp   n1877_var_ref_α
+                        lea              rsp, [rbp + -16];                    jmp   n1877_var_ref_α
                         .size            n1876_unmark_bx, .-n1876_unmark_bx
                         .type            n1877_var_ref_bx, @function
 n1877_var_ref_bx:
@@ -43278,7 +43278,7 @@ n1881_unmark_α:         mov              rsi, qword ptr [rbp + 112]           #
                         test             r15, r15;                            je    .Lunmark_α_1912_999
                         add              rsp, 16;                             jmp   $var_memberchk$2F2_step
 .Lunmark_α_1912_999:    mov              r13, qword ptr [rbp + 128]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 120];          jmp   n1882_gate_α
+                        lea              rsp, [rbp + -16];                    jmp   n1882_gate_α
                         .size            n1881_unmark_bx, .-n1881_unmark_bx
                         .type            n1882_gate_bx, @function
 n1882_gate_bx:
@@ -63552,7 +63552,7 @@ n2559_unmark_α:         mov              r13, qword ptr [rbp + 144]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_2608_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_2608_409:    mov              rsp, qword ptr [rbp + 136];          jmp   n2560_var_ref_α
+.Lunmark_α_2608_409:    lea              rsp, [rbp + -176];                   jmp   n2560_var_ref_α
                         .size            n2559_unmark_bx, .-n2559_unmark_bx
                         .type            n2560_var_ref_bx, @function
 n2560_var_ref_bx:
@@ -63957,7 +63957,7 @@ n2571_unmark_α:         mov              rsi, qword ptr [rbp + 128]           #
                         test             r15, r15;                            je    .Lunmark_α_2629_999
                         add              rsp, 176;                            jmp   $mod_head$2F3_step
 .Lunmark_α_2629_999:    mov              r13, qword ptr [rbp + 144]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 136];          jmp   n2572_var_ref_α
+                        lea              rsp, [rbp + -176];                   jmp   n2572_var_ref_α
                         .size            n2571_unmark_bx, .-n2571_unmark_bx
                         .type            n2572_var_ref_bx, @function
 n2572_var_ref_bx:
@@ -64106,7 +64106,7 @@ n2577_unmark_α:         mov              rsi, qword ptr [rbp + 128]           #
                         test             r15, r15;                            je    .Lunmark_α_2641_999
                         add              rsp, 176;                            jmp   $mod_head$2F3_step
 .Lunmark_α_2641_999:    mov              r13, qword ptr [rbp + 144]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 136];          jmp   n2578_gate_α
+                        lea              rsp, [rbp + -176];                   jmp   n2578_gate_α
                         .size            n2577_unmark_bx, .-n2577_unmark_bx
                         .type            n2578_gate_bx, @function
 n2578_gate_bx:
@@ -74345,7 +74345,7 @@ n2939_unmark_α:         mov              r13, qword ptr [rbp + -80]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_3060_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_3060_409:    mov              rsp, qword ptr [rbp + -88]
+.Lunmark_α_3060_409:    lea              rsp, [rbp + -96]
                         add              rsp, 48;                             jmp   n2940_var_ref_α
                         .size            n2939_unmark_bx, .-n2939_unmark_bx
                         .type            n2940_var_ref_bx, @function
@@ -74458,7 +74458,7 @@ n2944_unmark_α:         mov              rsi, qword ptr [rbp + -96]           #
                         test             r15, r15;                            je    .Lunmark_α_3069_999
                         add              rsp, 96;                             jmp   $cp_wtg$2F4_step
 .Lunmark_α_3069_999:    mov              r13, qword ptr [rbp + -80]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + -88]
+                        lea              rsp, [rbp + -96]
                         add              rsp, 48;                             jmp   n2945_var_ref_α
                         .size            n2944_unmark_bx, .-n2944_unmark_bx
                         .type            n2945_var_ref_bx, @function
@@ -91311,7 +91311,7 @@ n3502_unmark_α:         mov              r13, qword ptr [rbp + -704]          #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_3835_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_3835_409:    mov              rsp, qword ptr [rbp + -712]
+.Lunmark_α_3835_409:    lea              rsp, [rbp + -720]
                         add              rsp, 48;                             jmp   n3503_unmark_α
                         .size            n3502_unmark_bx, .-n3502_unmark_bx
                         .type            n3503_unmark_bx, @function
@@ -91339,7 +91339,7 @@ n3504_unmark_α:         mov              rsi, qword ptr [rbp + -720]          #
                         test             r15, r15;                            je    .Lunmark_α_3839_999
                         add              rsp, 720;                            jmp   $mod_qb$2F3_step
 .Lunmark_α_3839_999:    mov              r13, qword ptr [rbp + -704]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + -712]
+                        lea              rsp, [rbp + -720]
                         add              rsp, 48;                             jmp   n3505_gate_arm_α
                         .size            n3504_unmark_bx, .-n3504_unmark_bx
                         .type            n3505_gate_arm_bx, @function
@@ -112500,7 +112500,7 @@ n4435_unmark_α:         mov              r13, qword ptr [rbp + -32]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_4547_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_4547_409:    mov              rsp, qword ptr [rbp + -40]
+.Lunmark_α_4547_409:    lea              rsp, [rbp + -48]
                         add              rsp, 48;                             jmp   n4436_unmark_α
                         .size            n4435_unmark_bx, .-n4435_unmark_bx
                         .type            n4436_unmark_bx, @function
@@ -112527,7 +112527,7 @@ n4437_unmark_α:         mov              rsi, qword ptr [rbp + -48]           #
                         test             r15, r15;                            je    .Lunmark_α_4551_999
                         add              rsp, 48;                             jmp   $between_big$2F3_step
 .Lunmark_α_4551_999:    mov              r13, qword ptr [rbp + -32]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + -40]
+                        lea              rsp, [rbp + -48]
                         add              rsp, 48;                             jmp   n4438_gate_arm_α
                         .size            n4437_unmark_bx, .-n4437_unmark_bx
                         .type            n4438_gate_arm_bx, @function
@@ -115255,7 +115255,7 @@ n4489_unmark_α:         mov              r13, qword ptr [rbp + -32]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_4631_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_4631_409:    mov              rsp, qword ptr [rbp + -40]
+.Lunmark_α_4631_409:    lea              rsp, [rbp + -48]
                         add              rsp, 48;                             jmp   n4490_unmark_α
                         .size            n4489_unmark_bx, .-n4489_unmark_bx
                         .type            n4490_unmark_bx, @function
@@ -115282,7 +115282,7 @@ n4491_unmark_α:         mov              rsi, qword ptr [rbp + -48]           #
                         test             r15, r15;                            je    .Lunmark_α_4635_999
                         add              rsp, 48;                             jmp   $between_big$2F3_step
 .Lunmark_α_4635_999:    mov              r13, qword ptr [rbp + -32]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + -40]
+                        lea              rsp, [rbp + -48]
                         add              rsp, 48;                             jmp   n4492_gate_arm_α
                         .size            n4491_unmark_bx, .-n4491_unmark_bx
                         .type            n4492_gate_arm_bx, @function
@@ -118266,7 +118266,7 @@ n4708_unmark_α:         mov              r13, qword ptr [rbp + -64]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_4742_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_4742_409:    mov              rsp, qword ptr [rbp + -72]
+.Lunmark_α_4742_409:    lea              rsp, [rbp + -80]
                         add              rsp, 48;                             jmp   n4709_lit_integer_α
                         .size            n4708_unmark_bx, .-n4708_unmark_bx
                         .type            n4709_lit_integer_bx, @function
@@ -118515,7 +118515,7 @@ n4714_unmark_α:         mov              rsi, qword ptr [rbp + -80]           #
                         test             r15, r15;                            je    .Lunmark_α_4750_999
                         add              rsp, 80;                             jmp   $f4_free$2F3_step
 .Lunmark_α_4750_999:    mov              r13, qword ptr [rbp + -64]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + -72]
+                        lea              rsp, [rbp + -80]
                         add              rsp, 48;                             jmp   n4715_var_ref_α
                         .size            n4714_unmark_bx, .-n4714_unmark_bx
                         .type            n4715_var_ref_bx, @function
@@ -120250,7 +120250,7 @@ n4783_unmark_α:         mov              r13, qword ptr [rbp + 176]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_4877_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_4877_409:    mov              rsp, qword ptr [rbp + 168];          jmp   n4784_var_ref_α
+.Lunmark_α_4877_409:    lea              rsp, [rbp + -16];                    jmp   n4784_var_ref_α
                         .size            n4783_unmark_bx, .-n4783_unmark_bx
                         .type            n4784_var_ref_bx, @function
 n4784_var_ref_bx:
@@ -120361,7 +120361,7 @@ n4788_unmark_α:         mov              rsi, qword ptr [rbp + 160]           #
                         test             r15, r15;                            je    .Lunmark_α_4886_999
                         add              rsp, 16;                             jmp   $cp_atts$2F4_step
 .Lunmark_α_4886_999:    mov              r13, qword ptr [rbp + 176]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 168];          jmp   n4789_bound_α
+                        lea              rsp, [rbp + -16];                    jmp   n4789_bound_α
                         .size            n4788_unmark_bx, .-n4788_unmark_bx
                         .type            n4789_bound_bx, @function
 n4789_bound_bx:
@@ -120603,7 +120603,7 @@ n4793_unmark_α:         mov              r13, qword ptr [rbp + 272]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_4895_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_4895_409:    mov              rsp, qword ptr [rbp + 264];          jmp   n4794_var_ref_α
+.Lunmark_α_4895_409:    lea              rsp, [rbp + -16];                    jmp   n4794_var_ref_α
                         .size            n4793_unmark_bx, .-n4793_unmark_bx
                         .type            n4794_var_ref_bx, @function
 n4794_var_ref_bx:
@@ -120771,7 +120771,7 @@ n4800_unmark_α:         mov              rsi, qword ptr [rbp + 256]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n4851_unmark_α
                         mov              r13, qword ptr [rbp + 272]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 264];          jmp   n4801_bound_α
+                        lea              rsp, [rbp + -16];                    jmp   n4801_bound_α
                         .size            n4800_unmark_bx, .-n4800_unmark_bx
                         .type            n4801_bound_bx, @function
 n4801_bound_bx:
@@ -121013,7 +121013,7 @@ n4805_unmark_α:         mov              r13, qword ptr [rbp + 368]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_4918_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_4918_409:    mov              rsp, qword ptr [rbp + 360];          jmp   n4806_var_ref_α
+.Lunmark_α_4918_409:    lea              rsp, [rbp + -16];                    jmp   n4806_var_ref_α
                         .size            n4805_unmark_bx, .-n4805_unmark_bx
                         .type            n4806_var_ref_bx, @function
 n4806_var_ref_bx:
@@ -121161,7 +121161,7 @@ n4811_unmark_α:         mov              rsi, qword ptr [rbp + 352]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n4848_unmark_α
                         mov              r13, qword ptr [rbp + 368]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 360];          jmp   n4812_bound_α
+                        lea              rsp, [rbp + -16];                    jmp   n4812_bound_α
                         .size            n4811_unmark_bx, .-n4811_unmark_bx
                         .type            n4812_bound_bx, @function
 n4812_bound_bx:
@@ -121885,7 +121885,7 @@ n4824_unmark_α:         mov              r13, qword ptr [rbp + 464]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_4951_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_4951_409:    mov              rsp, qword ptr [rbp + 456];          jmp   n4825_var_ref_α
+.Lunmark_α_4951_409:    lea              rsp, [rbp + -16];                    jmp   n4825_var_ref_α
                         .size            n4824_unmark_bx, .-n4824_unmark_bx
                         .type            n4825_var_ref_bx, @function
 n4825_var_ref_bx:
@@ -122033,7 +122033,7 @@ n4830_unmark_α:         mov              rsi, qword ptr [rbp + 448]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n4845_unmark_α
                         mov              r13, qword ptr [rbp + 464]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 456];          jmp   n4831_var_ref_α
+                        lea              rsp, [rbp + -16];                    jmp   n4831_var_ref_α
                         .size            n4830_unmark_bx, .-n4830_unmark_bx
                         .type            n4831_var_ref_bx, @function
 n4831_var_ref_bx:
@@ -122503,7 +122503,7 @@ n4842_unmark_α:         mov              rsi, qword ptr [rbp + 448]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n4845_unmark_α
                         mov              r13, qword ptr [rbp + 464]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 456];          jmp   n4843_gate_α
+                        lea              rsp, [rbp + -16];                    jmp   n4843_gate_α
                         .size            n4842_unmark_bx, .-n4842_unmark_bx
                         .type            n4843_gate_bx, @function
 n4843_gate_bx:
@@ -122549,7 +122549,7 @@ n4845_unmark_α:         mov              rsi, qword ptr [rbp + 352]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n4848_unmark_α
                         mov              r13, qword ptr [rbp + 368]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 360];          jmp   n4846_gate_α
+                        lea              rsp, [rbp + -16];                    jmp   n4846_gate_α
                         .size            n4845_unmark_bx, .-n4845_unmark_bx
                         .type            n4846_gate_bx, @function
 n4846_gate_bx:
@@ -122589,7 +122589,7 @@ n4848_unmark_α:         mov              rsi, qword ptr [rbp + 256]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n4851_unmark_α
                         mov              r13, qword ptr [rbp + 272]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 264];          jmp   n4849_gate_α
+                        lea              rsp, [rbp + -16];                    jmp   n4849_gate_α
                         .size            n4848_unmark_bx, .-n4848_unmark_bx
                         .type            n4849_gate_bx, @function
 n4849_gate_bx:
@@ -122630,7 +122630,7 @@ n4851_unmark_α:         mov              rsi, qword ptr [rbp + 160]           #
                         test             r15, r15;                            je    .Lunmark_α_5000_999
                         add              rsp, 16;                             jmp   $cp_atts$2F4_step
 .Lunmark_α_5000_999:    mov              r13, qword ptr [rbp + 176]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 168];          jmp   n4852_gate_α
+                        lea              rsp, [rbp + -16];                    jmp   n4852_gate_α
                         .size            n4851_unmark_bx, .-n4851_unmark_bx
                         .type            n4852_gate_bx, @function
 n4852_gate_bx:
@@ -123951,7 +123951,7 @@ n5017_unmark_α:         mov              r13, qword ptr [rbp + -32]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_5058_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_5058_409:    mov              rsp, qword ptr [rbp + -40]
+.Lunmark_α_5058_409:    lea              rsp, [rbp + -48]
                         add              rsp, 48;                             jmp   n5018_gate_arm_α
                         .size            n5017_unmark_bx, .-n5017_unmark_bx
                         .type            n5018_gate_arm_bx, @function
@@ -123978,7 +123978,7 @@ n5019_unmark_α:         mov              rsi, qword ptr [rbp + -48]           #
                         test             r15, r15;                            je    .Lunmark_α_5062_999
                         add              rsp, 48;                             jmp   put_attr$2F3_step
 .Lunmark_α_5062_999:    mov              r13, qword ptr [rbp + -32]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + -40]
+                        lea              rsp, [rbp + -48]
                         add              rsp, 48;                             jmp   n5020_lit_integer_α
                         .size            n5019_unmark_bx, .-n5019_unmark_bx
                         .type            n5020_lit_integer_bx, @function
@@ -124718,7 +124718,7 @@ n5036_unmark_α:         mov              r13, qword ptr [rbp + -336]          #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_5086_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_5086_409:    mov              rsp, qword ptr [rbp + -344]
+.Lunmark_α_5086_409:    lea              rsp, [rbp + -352]
                         add              rsp, 48;                             jmp   n5037_gate_arm_α
                         .size            n5036_unmark_bx, .-n5036_unmark_bx
                         .type            n5037_gate_arm_bx, @function
@@ -124745,7 +124745,7 @@ n5038_unmark_α:         mov              rsi, qword ptr [rbp + -352]          #
                         test             r15, r15;                            je    .Lunmark_α_5090_999
                         add              rsp, 352;                            jmp   put_attr$2F3_step
 .Lunmark_α_5090_999:    mov              r13, qword ptr [rbp + -336]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + -344]
+                        lea              rsp, [rbp + -352]
                         add              rsp, 48;                             jmp   n5039_unify_const_α
                         .size            n5038_unmark_bx, .-n5038_unmark_bx
                         .type            n5039_unify_const_bx, @function
@@ -127101,7 +127101,7 @@ n5211_unmark_α:         mov              r13, qword ptr [rbp + 96]            #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_5228_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_5228_409:    mov              rsp, qword ptr [rbp + 88];           jmp   n5212_unify_const_α
+.Lunmark_α_5228_409:    lea              rsp, [rbp + 0];                      jmp   n5212_unify_const_α
                         .size            n5211_unmark_bx, .-n5211_unmark_bx
                         .type            n5212_unify_const_bx, @function
 n5212_unify_const_bx:
@@ -127214,7 +127214,7 @@ n5214_unmark_α:         mov              rsi, qword ptr [rbp + 80]            #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   bench_work$2F1_step
                         mov              r13, qword ptr [rbp + 96]            # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 88];           jmp   n5215_unify_const_α
+                        lea              rsp, [rbp + 0];                      jmp   n5215_unify_const_α
                         .size            n5214_unmark_bx, .-n5214_unmark_bx
                         .type            n5215_unify_const_bx, @function
 n5215_unify_const_bx:
@@ -127327,7 +127327,7 @@ n5217_unmark_α:         mov              rsi, qword ptr [rbp + 80]            #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   bench_work$2F1_step
                         mov              r13, qword ptr [rbp + 96]            # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 88];           jmp   n5218_gate_α
+                        lea              rsp, [rbp + 0];                      jmp   n5218_gate_α
                         .size            n5217_unmark_bx, .-n5217_unmark_bx
                         .type            n5218_gate_bx, @function
 n5218_gate_bx:
@@ -128842,7 +128842,7 @@ n5272_unmark_α:         mov              r13, qword ptr [rbp + -736]          #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_5355_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_5355_409:    mov              rsp, qword ptr [rbp + -744]
+.Lunmark_α_5355_409:    lea              rsp, [rbp + -752]
                         add              rsp, 48;                             jmp   n5273_unmark_α
                         .size            n5272_unmark_bx, .-n5272_unmark_bx
                         .type            n5273_unmark_bx, @function
@@ -128870,7 +128870,7 @@ n5274_unmark_α:         mov              rsi, qword ptr [rbp + -752]          #
                         test             r15, r15;                            je    .Lunmark_α_5359_999
                         add              rsp, 752;                            jmp   $mod_ccl$2F3_step
 .Lunmark_α_5359_999:    mov              r13, qword ptr [rbp + -736]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + -744]
+                        lea              rsp, [rbp + -752]
                         add              rsp, 48;                             jmp   n5275_gate_arm_α
                         .size            n5274_unmark_bx, .-n5274_unmark_bx
                         .type            n5275_gate_arm_bx, @function
@@ -132703,7 +132703,7 @@ n5501_unmark_α:         mov              r13, qword ptr [rbp + 496]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_5867_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_5867_409:    mov              rsp, qword ptr [rbp + 488];          jmp   n5502_var_ref_α
+.Lunmark_α_5867_409:    lea              rsp, [rbp + -80];                    jmp   n5502_var_ref_α
                         .size            n5501_unmark_bx, .-n5501_unmark_bx
                         .type            n5502_var_ref_bx, @function
 n5502_var_ref_bx:
@@ -132830,7 +132830,7 @@ n5506_unmark_α:         mov              rsi, qword ptr [rbp + 480]           #
                         test             r15, r15;                            je    .Lunmark_α_5877_999
                         add              rsp, 80;                             jmp   $cp_mq$2F2_step
 .Lunmark_α_5877_999:    mov              r13, qword ptr [rbp + 496]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 488];          jmp   n5507_bound_α
+                        lea              rsp, [rbp + -80];                    jmp   n5507_bound_α
                         .size            n5506_unmark_bx, .-n5506_unmark_bx
                         .type            n5507_bound_bx, @function
 n5507_bound_bx:
@@ -133267,7 +133267,7 @@ n5516_unmark_α:         mov              r13, qword ptr [rbp + 592]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_5894_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_5894_409:    mov              rsp, qword ptr [rbp + 584];          jmp   n5517_lit_integer_α
+.Lunmark_α_5894_409:    lea              rsp, [rbp + -80];                    jmp   n5517_lit_integer_α
                         .size            n5516_unmark_bx, .-n5516_unmark_bx
                         .type            n5517_lit_integer_bx, @function
 n5517_lit_integer_bx:
@@ -133737,7 +133737,7 @@ n5527_unmark_α:         mov              r13, qword ptr [rbp + 688]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_5912_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_5912_409:    mov              rsp, qword ptr [rbp + 680];          jmp   n5528_lit_integer_α
+.Lunmark_α_5912_409:    lea              rsp, [rbp + -272];                   jmp   n5528_lit_integer_α
                         .size            n5527_unmark_bx, .-n5527_unmark_bx
                         .type            n5528_lit_integer_bx, @function
 n5528_lit_integer_bx:
@@ -133877,7 +133877,7 @@ n5533_unmark_α:         mov              rsi, qword ptr [rbp + 672]           #
                         test             r15, r15;                            je    .Lunmark_α_5923_999
                         add              rsp, 192;                            jmp   n5623_unmark_α
 .Lunmark_α_5923_999:    mov              r13, qword ptr [rbp + 688]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 680];          jmp   n5534_bound_α
+                        lea              rsp, [rbp + -272];                   jmp   n5534_bound_α
                         .size            n5533_unmark_bx, .-n5533_unmark_bx
                         .type            n5534_bound_bx, @function
 n5534_bound_bx:
@@ -134045,7 +134045,7 @@ n5538_unmark_α:         mov              r13, qword ptr [rbp + 784]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_5931_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_5931_409:    mov              rsp, qword ptr [rbp + 776];          jmp   n5539_lit_integer_α
+.Lunmark_α_5931_409:    lea              rsp, [rbp + -272];                   jmp   n5539_lit_integer_α
                         .size            n5538_unmark_bx, .-n5538_unmark_bx
                         .type            n5539_lit_integer_bx, @function
 n5539_lit_integer_bx:
@@ -134184,7 +134184,7 @@ n5544_unmark_α:         mov              rsi, qword ptr [rbp + 768]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n5557_unmark_α
                         mov              r13, qword ptr [rbp + 784]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 776];          jmp   n5545_var_ref_α
+                        lea              rsp, [rbp + -272];                   jmp   n5545_var_ref_α
                         .size            n5544_unmark_bx, .-n5544_unmark_bx
                         .type            n5545_var_ref_bx, @function
 n5545_var_ref_bx:
@@ -134530,7 +134530,7 @@ n5554_unmark_α:         mov              rsi, qword ptr [rbp + 768]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n5557_unmark_α
                         mov              r13, qword ptr [rbp + 784]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 776];          jmp   n5555_gate_α
+                        lea              rsp, [rbp + -272];                   jmp   n5555_gate_α
                         .size            n5554_unmark_bx, .-n5554_unmark_bx
                         .type            n5555_gate_bx, @function
 n5555_gate_bx:
@@ -134572,7 +134572,7 @@ n5557_unmark_α:         mov              rsi, qword ptr [rbp + 672]           #
                         test             r15, r15;                            je    .Lunmark_α_5965_999
                         add              rsp, 192;                            jmp   n5623_unmark_α
 .Lunmark_α_5965_999:    mov              r13, qword ptr [rbp + 688]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 680];          jmp   n5558_gate_α
+                        lea              rsp, [rbp + -272];                   jmp   n5558_gate_α
                         .size            n5557_unmark_bx, .-n5557_unmark_bx
                         .type            n5558_gate_bx, @function
 n5558_gate_bx:
@@ -135018,7 +135018,7 @@ n5572_unmark_α:         mov              rsi, qword ptr [rbp + 576]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n5626_unmark_α
                         mov              r13, qword ptr [rbp + 592]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 584];          jmp   n5573_var_ref_α
+                        lea              rsp, [rbp + -80];                    jmp   n5573_var_ref_α
                         .size            n5572_unmark_bx, .-n5572_unmark_bx
                         .type            n5573_var_ref_bx, @function
 n5573_var_ref_bx:
@@ -135572,7 +135572,7 @@ n5586_unmark_α:         mov              r13, qword ptr [rbp + 880]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_6014_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_6014_409:    mov              rsp, qword ptr [rbp + 872];          jmp   n5587_lit_integer_α
+.Lunmark_α_6014_409:    lea              rsp, [rbp + -352];                   jmp   n5587_lit_integer_α
                         .size            n5586_unmark_bx, .-n5586_unmark_bx
                         .type            n5587_lit_integer_bx, @function
 n5587_lit_integer_bx:
@@ -135714,7 +135714,7 @@ n5592_unmark_α:         mov              rsi, qword ptr [rbp + 864]           #
                         test             r15, r15;                            je    .Lunmark_α_6025_999
                         add              rsp, 272;                            jmp   n5623_unmark_α
 .Lunmark_α_6025_999:    mov              r13, qword ptr [rbp + 880]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 872];          jmp   n5593_bound_α
+                        lea              rsp, [rbp + -352];                   jmp   n5593_bound_α
                         .size            n5592_unmark_bx, .-n5592_unmark_bx
                         .type            n5593_bound_bx, @function
 n5593_bound_bx:
@@ -135885,7 +135885,7 @@ n5597_unmark_α:         mov              r13, qword ptr [rbp + 976]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_6033_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_6033_409:    mov              rsp, qword ptr [rbp + 968];          jmp   n5598_lit_integer_α
+.Lunmark_α_6033_409:    lea              rsp, [rbp + -352];                   jmp   n5598_lit_integer_α
                         .size            n5597_unmark_bx, .-n5597_unmark_bx
                         .type            n5598_lit_integer_bx, @function
 n5598_lit_integer_bx:
@@ -136026,7 +136026,7 @@ n5603_unmark_α:         mov              rsi, qword ptr [rbp + 960]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n5616_unmark_α
                         mov              r13, qword ptr [rbp + 976]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 968];          jmp   n5604_var_ref_α
+                        lea              rsp, [rbp + -352];                   jmp   n5604_var_ref_α
                         .size            n5603_unmark_bx, .-n5603_unmark_bx
                         .type            n5604_var_ref_bx, @function
 n5604_var_ref_bx:
@@ -136385,7 +136385,7 @@ n5613_unmark_α:         mov              rsi, qword ptr [rbp + 960]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n5616_unmark_α
                         mov              r13, qword ptr [rbp + 976]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 968];          jmp   n5614_gate_α
+                        lea              rsp, [rbp + -352];                   jmp   n5614_gate_α
                         .size            n5613_unmark_bx, .-n5613_unmark_bx
                         .type            n5614_gate_bx, @function
 n5614_gate_bx:
@@ -136427,7 +136427,7 @@ n5616_unmark_α:         mov              rsi, qword ptr [rbp + 864]           #
                         test             r15, r15;                            je    .Lunmark_α_6067_999
                         add              rsp, 272;                            jmp   n5623_unmark_α
 .Lunmark_α_6067_999:    mov              r13, qword ptr [rbp + 880]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 872];          jmp   n5617_gate_α
+                        lea              rsp, [rbp + -352];                   jmp   n5617_gate_α
                         .size            n5616_unmark_bx, .-n5616_unmark_bx
                         .type            n5617_gate_bx, @function
 n5617_gate_bx:
@@ -136570,7 +136570,7 @@ n5623_unmark_α:         mov              rsi, qword ptr [rbp + 576]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n5626_unmark_α
                         mov              r13, qword ptr [rbp + 592]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 584];          jmp   n5624_gate_α
+                        lea              rsp, [rbp + -80];                    jmp   n5624_gate_α
                         .size            n5623_unmark_bx, .-n5623_unmark_bx
                         .type            n5624_gate_bx, @function
 n5624_gate_bx:
@@ -136613,7 +136613,7 @@ n5626_unmark_α:         mov              rsi, qword ptr [rbp + 480]           #
                         test             r15, r15;                            je    .Lunmark_α_6086_999
                         add              rsp, 80;                             jmp   $cp_mq$2F2_step
 .Lunmark_α_6086_999:    mov              r13, qword ptr [rbp + 496]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 488];          jmp   n5627_gate_α
+                        lea              rsp, [rbp + -80];                    jmp   n5627_gate_α
                         .size            n5626_unmark_bx, .-n5626_unmark_bx
                         .type            n5627_gate_bx, @function
 n5627_gate_bx:
@@ -136912,7 +136912,7 @@ n5632_unmark_α:         mov              r13, qword ptr [rbp + -32]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_6098_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_6098_409:    mov              rsp, qword ptr [rbp + -40]
+.Lunmark_α_6098_409:    lea              rsp, [rbp + -48]
                         add              rsp, 48;                             jmp   n5633_unmark_α
                         .size            n5632_unmark_bx, .-n5632_unmark_bx
                         .type            n5633_unmark_bx, @function
@@ -136939,7 +136939,7 @@ n5634_unmark_α:         mov              rsi, qword ptr [rbp + -48]           #
                         test             r15, r15;                            je    .Lunmark_α_6102_999
                         add              rsp, 48;                             jmp   $cp_mq$2F2_step
 .Lunmark_α_6102_999:    mov              r13, qword ptr [rbp + -32]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + -40]
+                        lea              rsp, [rbp + -48]
                         add              rsp, 48;                             jmp   n5635_gate_arm_α
                         .size            n5634_unmark_bx, .-n5634_unmark_bx
                         .type            n5635_gate_arm_bx, @function
@@ -138098,7 +138098,7 @@ n5660_unmark_α:         mov              r13, qword ptr [rbp + -80]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_6141_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_6141_409:    mov              rsp, qword ptr [rbp + -88]
+.Lunmark_α_6141_409:    lea              rsp, [rbp + -96]
                         add              rsp, 48;                             jmp   n5661_unmark_α
                         .size            n5660_unmark_bx, .-n5660_unmark_bx
                         .type            n5661_unmark_bx, @function
@@ -138126,7 +138126,7 @@ n5662_unmark_α:         mov              rsi, qword ptr [rbp + -96]           #
                         test             r15, r15;                            je    .Lunmark_α_6145_999
                         add              rsp, 96;                             jmp   $cp_mq$2F2_step
 .Lunmark_α_6145_999:    mov              r13, qword ptr [rbp + -80]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + -88]
+                        lea              rsp, [rbp + -96]
                         add              rsp, 48;                             jmp   n5663_gate_arm_α
                         .size            n5662_unmark_bx, .-n5662_unmark_bx
                         .type            n5663_gate_arm_bx, @function
@@ -139689,7 +139689,7 @@ n5695_unmark_α:         mov              r13, qword ptr [rbp + 496]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_6196_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_6196_409:    mov              rsp, qword ptr [rbp + 488];          jmp   n5696_var_ref_α
+.Lunmark_α_6196_409:    lea              rsp, [rbp + -32];                    jmp   n5696_var_ref_α
                         .size            n5695_unmark_bx, .-n5695_unmark_bx
                         .type            n5696_var_ref_bx, @function
 n5696_var_ref_bx:
@@ -140058,7 +140058,7 @@ n5700_unmark_α:         mov              rsi, qword ptr [rbp + 480]           #
                         test             r15, r15;                            je    .Lunmark_α_6206_999
                         add              rsp, 32;                             jmp   $cp_mq$2F2_step
 .Lunmark_α_6206_999:    mov              r13, qword ptr [rbp + 496]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 488];          jmp   n5701_bound_α
+                        lea              rsp, [rbp + -32];                    jmp   n5701_bound_α
                         .size            n5700_unmark_bx, .-n5700_unmark_bx
                         .type            n5701_bound_bx, @function
 n5701_bound_bx:
@@ -140505,7 +140505,7 @@ n5710_unmark_α:         mov              r13, qword ptr [rbp + 592]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_6223_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_6223_409:    mov              rsp, qword ptr [rbp + 584];          jmp   n5711_lit_integer_α
+.Lunmark_α_6223_409:    lea              rsp, [rbp + -32];                    jmp   n5711_lit_integer_α
                         .size            n5710_unmark_bx, .-n5710_unmark_bx
                         .type            n5711_lit_integer_bx, @function
 n5711_lit_integer_bx:
@@ -140986,7 +140986,7 @@ n5721_unmark_α:         mov              r13, qword ptr [rbp + 688]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_6241_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_6241_409:    mov              rsp, qword ptr [rbp + 680];          jmp   n5722_lit_integer_α
+.Lunmark_α_6241_409:    lea              rsp, [rbp + -224];                   jmp   n5722_lit_integer_α
                         .size            n5721_unmark_bx, .-n5721_unmark_bx
                         .type            n5722_lit_integer_bx, @function
 n5722_lit_integer_bx:
@@ -141128,7 +141128,7 @@ n5727_unmark_α:         mov              rsi, qword ptr [rbp + 672]           #
                         test             r15, r15;                            je    .Lunmark_α_6252_999
                         add              rsp, 192;                            jmp   n5817_unmark_α
 .Lunmark_α_6252_999:    mov              r13, qword ptr [rbp + 688]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 680];          jmp   n5728_bound_α
+                        lea              rsp, [rbp + -224];                   jmp   n5728_bound_α
                         .size            n5727_unmark_bx, .-n5727_unmark_bx
                         .type            n5728_bound_bx, @function
 n5728_bound_bx:
@@ -141299,7 +141299,7 @@ n5732_unmark_α:         mov              r13, qword ptr [rbp + 784]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_6260_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_6260_409:    mov              rsp, qword ptr [rbp + 776];          jmp   n5733_lit_integer_α
+.Lunmark_α_6260_409:    lea              rsp, [rbp + -224];                   jmp   n5733_lit_integer_α
                         .size            n5732_unmark_bx, .-n5732_unmark_bx
                         .type            n5733_lit_integer_bx, @function
 n5733_lit_integer_bx:
@@ -141440,7 +141440,7 @@ n5738_unmark_α:         mov              rsi, qword ptr [rbp + 768]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n5751_unmark_α
                         mov              r13, qword ptr [rbp + 784]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 776];          jmp   n5739_var_ref_α
+                        lea              rsp, [rbp + -224];                   jmp   n5739_var_ref_α
                         .size            n5738_unmark_bx, .-n5738_unmark_bx
                         .type            n5739_var_ref_bx, @function
 n5739_var_ref_bx:
@@ -141799,7 +141799,7 @@ n5748_unmark_α:         mov              rsi, qword ptr [rbp + 768]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n5751_unmark_α
                         mov              r13, qword ptr [rbp + 784]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 776];          jmp   n5749_gate_α
+                        lea              rsp, [rbp + -224];                   jmp   n5749_gate_α
                         .size            n5748_unmark_bx, .-n5748_unmark_bx
                         .type            n5749_gate_bx, @function
 n5749_gate_bx:
@@ -141841,7 +141841,7 @@ n5751_unmark_α:         mov              rsi, qword ptr [rbp + 672]           #
                         test             r15, r15;                            je    .Lunmark_α_6294_999
                         add              rsp, 192;                            jmp   n5817_unmark_α
 .Lunmark_α_6294_999:    mov              r13, qword ptr [rbp + 688]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 680];          jmp   n5752_gate_α
+                        lea              rsp, [rbp + -224];                   jmp   n5752_gate_α
                         .size            n5751_unmark_bx, .-n5751_unmark_bx
                         .type            n5752_gate_bx, @function
 n5752_gate_bx:
@@ -142296,7 +142296,7 @@ n5766_unmark_α:         mov              rsi, qword ptr [rbp + 576]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n5820_unmark_α
                         mov              r13, qword ptr [rbp + 592]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 584];          jmp   n5767_var_ref_α
+                        lea              rsp, [rbp + -32];                    jmp   n5767_var_ref_α
                         .size            n5766_unmark_bx, .-n5766_unmark_bx
                         .type            n5767_var_ref_bx, @function
 n5767_var_ref_bx:
@@ -142863,7 +142863,7 @@ n5780_unmark_α:         mov              r13, qword ptr [rbp + 880]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_6343_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_6343_409:    mov              rsp, qword ptr [rbp + 872];          jmp   n5781_lit_integer_α
+.Lunmark_α_6343_409:    lea              rsp, [rbp + -304];                   jmp   n5781_lit_integer_α
                         .size            n5780_unmark_bx, .-n5780_unmark_bx
                         .type            n5781_lit_integer_bx, @function
 n5781_lit_integer_bx:
@@ -143005,7 +143005,7 @@ n5786_unmark_α:         mov              rsi, qword ptr [rbp + 864]           #
                         test             r15, r15;                            je    .Lunmark_α_6354_999
                         add              rsp, 272;                            jmp   n5817_unmark_α
 .Lunmark_α_6354_999:    mov              r13, qword ptr [rbp + 880]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 872];          jmp   n5787_bound_α
+                        lea              rsp, [rbp + -304];                   jmp   n5787_bound_α
                         .size            n5786_unmark_bx, .-n5786_unmark_bx
                         .type            n5787_bound_bx, @function
 n5787_bound_bx:
@@ -143176,7 +143176,7 @@ n5791_unmark_α:         mov              r13, qword ptr [rbp + 976]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_6362_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_6362_409:    mov              rsp, qword ptr [rbp + 968];          jmp   n5792_lit_integer_α
+.Lunmark_α_6362_409:    lea              rsp, [rbp + -304];                   jmp   n5792_lit_integer_α
                         .size            n5791_unmark_bx, .-n5791_unmark_bx
                         .type            n5792_lit_integer_bx, @function
 n5792_lit_integer_bx:
@@ -143317,7 +143317,7 @@ n5797_unmark_α:         mov              rsi, qword ptr [rbp + 960]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n5810_unmark_α
                         mov              r13, qword ptr [rbp + 976]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 968];          jmp   n5798_var_ref_α
+                        lea              rsp, [rbp + -304];                   jmp   n5798_var_ref_α
                         .size            n5797_unmark_bx, .-n5797_unmark_bx
                         .type            n5798_var_ref_bx, @function
 n5798_var_ref_bx:
@@ -143676,7 +143676,7 @@ n5807_unmark_α:         mov              rsi, qword ptr [rbp + 960]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n5810_unmark_α
                         mov              r13, qword ptr [rbp + 976]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 968];          jmp   n5808_gate_α
+                        lea              rsp, [rbp + -304];                   jmp   n5808_gate_α
                         .size            n5807_unmark_bx, .-n5807_unmark_bx
                         .type            n5808_gate_bx, @function
 n5808_gate_bx:
@@ -143718,7 +143718,7 @@ n5810_unmark_α:         mov              rsi, qword ptr [rbp + 864]           #
                         test             r15, r15;                            je    .Lunmark_α_6396_999
                         add              rsp, 272;                            jmp   n5817_unmark_α
 .Lunmark_α_6396_999:    mov              r13, qword ptr [rbp + 880]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 872];          jmp   n5811_gate_α
+                        lea              rsp, [rbp + -304];                   jmp   n5811_gate_α
                         .size            n5810_unmark_bx, .-n5810_unmark_bx
                         .type            n5811_gate_bx, @function
 n5811_gate_bx:
@@ -143861,7 +143861,7 @@ n5817_unmark_α:         mov              rsi, qword ptr [rbp + 576]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n5820_unmark_α
                         mov              r13, qword ptr [rbp + 592]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 584];          jmp   n5818_gate_α
+                        lea              rsp, [rbp + -32];                    jmp   n5818_gate_α
                         .size            n5817_unmark_bx, .-n5817_unmark_bx
                         .type            n5818_gate_bx, @function
 n5818_gate_bx:
@@ -143904,7 +143904,7 @@ n5820_unmark_α:         mov              rsi, qword ptr [rbp + 480]           #
                         test             r15, r15;                            je    .Lunmark_α_6415_999
                         add              rsp, 32;                             jmp   $cp_mq$2F2_step
 .Lunmark_α_6415_999:    mov              r13, qword ptr [rbp + 496]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 488];          jmp   n5821_gate_α
+                        lea              rsp, [rbp + -32];                    jmp   n5821_gate_α
                         .size            n5820_unmark_bx, .-n5820_unmark_bx
                         .type            n5821_gate_bx, @function
 n5821_gate_bx:
@@ -147072,7 +147072,7 @@ n6461_unmark_α:         mov              r13, qword ptr [rbp + -32]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_6500_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_6500_409:    mov              rsp, qword ptr [rbp + -40]
+.Lunmark_α_6500_409:    lea              rsp, [rbp + -48]
                         add              rsp, 48;                             jmp   n6462_unmark_α
                         .size            n6461_unmark_bx, .-n6461_unmark_bx
                         .type            n6462_unmark_bx, @function
@@ -147099,7 +147099,7 @@ n6463_unmark_α:         mov              rsi, qword ptr [rbp + -48]           #
                         test             r15, r15;                            je    .Lunmark_α_6504_999
                         add              rsp, 48;                             jmp   $sort4_cmp$2F1_step
 .Lunmark_α_6504_999:    mov              r13, qword ptr [rbp + -32]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + -40]
+                        lea              rsp, [rbp + -48]
                         add              rsp, 48;                             jmp   n6464_gate_arm_α
                         .size            n6463_unmark_bx, .-n6463_unmark_bx
                         .type            n6464_gate_arm_bx, @function
@@ -148632,7 +148632,7 @@ n6539_unmark_α:         mov              rsi, qword ptr [rbp + 208]           #
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
                         mov              r13, qword ptr [rbp + 224]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 216];          jmp   n6540_var_ref_α
+                        lea              rsp, [rbp + -112];                   jmp   n6540_var_ref_α
                         .size            n6539_unmark_bx, .-n6539_unmark_bx
                         .type            n6540_var_ref_bx, @function
 n6540_var_ref_bx:
@@ -148851,7 +148851,7 @@ n6546_unmark_α:         mov              r13, qword ptr [rbp + 128]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_6590_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_6590_409:    mov              rsp, qword ptr [rbp + 120];          jmp   n6547_gate_arm_α
+.Lunmark_α_6590_409:    lea              rsp, [rbp + -112];                   jmp   n6547_gate_arm_α
                         .size            n6546_unmark_bx, .-n6546_unmark_bx
                         .type            n6547_gate_arm_bx, @function
 n6547_gate_arm_bx:
@@ -148875,7 +148875,7 @@ n6548_unmark_α:         mov              rsi, qword ptr [rbp + 112]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   $scc_cut_loop$2F1_step
                         mov              r13, qword ptr [rbp + 128]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 120];          jmp   n6549_gate_arm_α
+                        lea              rsp, [rbp + -112];                   jmp   n6549_gate_arm_α
                         .size            n6548_unmark_bx, .-n6548_unmark_bx
                         .type            n6549_gate_arm_bx, @function
 n6549_gate_arm_bx:
@@ -152388,7 +152388,7 @@ n6692_unmark_α:         mov              r13, qword ptr [rbp + 160]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_6733_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_6733_409:    mov              rsp, qword ptr [rbp + 152];          jmp   n6693_var_ref_α
+.Lunmark_α_6733_409:    lea              rsp, [rbp + -16];                    jmp   n6693_var_ref_α
                         .size            n6692_unmark_bx, .-n6692_unmark_bx
                         .type            n6693_var_ref_bx, @function
 n6693_var_ref_bx:
@@ -152557,7 +152557,7 @@ n6699_unmark_α:         mov              rsi, qword ptr [rbp + 144]           #
                         test             r15, r15;                            je    .Lunmark_α_6747_999
                         add              rsp, 16;                             jmp   $cp_res$2F3_step
 .Lunmark_α_6747_999:    mov              r13, qword ptr [rbp + 160]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 152];          jmp   n6700_var_ref_α
+                        lea              rsp, [rbp + -16];                    jmp   n6700_var_ref_α
                         .size            n6699_unmark_bx, .-n6699_unmark_bx
                         .type            n6700_var_ref_bx, @function
 n6700_var_ref_bx:
@@ -152668,7 +152668,7 @@ n6704_unmark_α:         mov              rsi, qword ptr [rbp + 144]           #
                         test             r15, r15;                            je    .Lunmark_α_6756_999
                         add              rsp, 16;                             jmp   $cp_res$2F3_step
 .Lunmark_α_6756_999:    mov              r13, qword ptr [rbp + 160]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 152];          jmp   n6705_gate_α
+                        lea              rsp, [rbp + -16];                    jmp   n6705_gate_α
                         .size            n6704_unmark_bx, .-n6704_unmark_bx
                         .type            n6705_gate_bx, @function
 n6705_gate_bx:
@@ -154238,7 +154238,7 @@ n6782_unmark_α:         mov              r13, qword ptr [rbp + -208]          #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_6868_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_6868_409:    mov              rsp, qword ptr [rbp + -216]
+.Lunmark_α_6868_409:    lea              rsp, [rbp + -224]
                         add              rsp, 48;                             jmp   n6783_unmark_α
                         .size            n6782_unmark_bx, .-n6782_unmark_bx
                         .type            n6783_unmark_bx, @function
@@ -154266,7 +154266,7 @@ n6784_unmark_α:         mov              rsi, qword ptr [rbp + -224]          #
                         test             r15, r15;                            je    .Lunmark_α_6872_999
                         add              rsp, 224;                            jmp   $mod_callq$2F2_step
 .Lunmark_α_6872_999:    mov              r13, qword ptr [rbp + -208]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + -216]
+                        lea              rsp, [rbp + -224]
                         add              rsp, 48;                             jmp   n6785_gate_arm_α
                         .size            n6784_unmark_bx, .-n6784_unmark_bx
                         .type            n6785_gate_arm_bx, @function
@@ -159035,7 +159035,7 @@ n7007_unmark_α:         mov              r13, qword ptr [rbp + 96]            #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_7024_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_7024_409:    mov              rsp, qword ptr [rbp + 88];           jmp   n7008_gate_arm_α
+.Lunmark_α_7024_409:    lea              rsp, [rbp + 0];                      jmp   n7008_gate_arm_α
                         .size            n7007_unmark_bx, .-n7007_unmark_bx
                         .type            n7008_gate_arm_bx, @function
 n7008_gate_arm_bx:
@@ -159059,7 +159059,7 @@ n7009_unmark_α:         mov              rsi, qword ptr [rbp + 80]            #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   $when_check_disj$2F3_step
                         mov              r13, qword ptr [rbp + 96]            # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 88];           jmp   n7010_unify_const_α
+                        lea              rsp, [rbp + 0];                      jmp   n7010_unify_const_α
                         .size            n7009_unmark_bx, .-n7009_unmark_bx
                         .type            n7010_unify_const_bx, @function
 n7010_unify_const_bx:
@@ -159302,7 +159302,7 @@ n7014_unmark_α:         mov              rsi, qword ptr [rbp + 80]            #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   $when_check_disj$2F3_step
                         mov              r13, qword ptr [rbp + 96]            # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 88];           jmp   n7015_gate_α
+                        lea              rsp, [rbp + 0];                      jmp   n7015_gate_α
                         .size            n7014_unmark_bx, .-n7014_unmark_bx
                         .type            n7015_gate_bx, @function
 n7015_gate_bx:
@@ -163201,7 +163201,7 @@ n7149_unmark_α:         mov              r13, qword ptr [rbp + -32]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_7214_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_7214_409:    mov              rsp, qword ptr [rbp + -40]
+.Lunmark_α_7214_409:    lea              rsp, [rbp + -48]
                         add              rsp, 48;                             jmp   n7150_unmark_α
                         .size            n7149_unmark_bx, .-n7149_unmark_bx
                         .type            n7150_unmark_bx, @function
@@ -163228,7 +163228,7 @@ n7151_unmark_α:         mov              rsi, qword ptr [rbp + -48]           #
                         test             r15, r15;                            je    .Lunmark_α_7218_999
                         add              rsp, 48;                             jmp   $sort4_oc$2F1_step
 .Lunmark_α_7218_999:    mov              r13, qword ptr [rbp + -32]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + -40]
+                        lea              rsp, [rbp + -48]
                         add              rsp, 48;                             jmp   n7152_gate_arm_α
                         .size            n7151_unmark_bx, .-n7151_unmark_bx
                         .type            n7152_gate_arm_bx, @function
@@ -164237,7 +164237,7 @@ n7175_unmark_α:         mov              r13, qword ptr [rbp + 128]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_7256_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_7256_409:    mov              rsp, qword ptr [rbp + 120];          jmp   n7176_unmark_α
+.Lunmark_α_7256_409:    lea              rsp, [rbp + 0];                      jmp   n7176_unmark_α
                         .size            n7175_unmark_bx, .-n7175_unmark_bx
                         .type            n7176_unmark_bx, @function
 n7176_unmark_bx:
@@ -164256,7 +164256,7 @@ n7176_unmark_α:         mov              rsi, qword ptr [rbp + 112]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   $sort4_oc$2F1_step
                         mov              r13, qword ptr [rbp + 128]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 120];          jmp   n7179_gate_α
+                        lea              rsp, [rbp + 0];                      jmp   n7179_gate_α
                         .size            n7176_unmark_bx, .-n7176_unmark_bx
                         .type            n7177_unmark_bx, @function
 n7177_unmark_bx:
@@ -164275,7 +164275,7 @@ n7177_unmark_α:         mov              rsi, qword ptr [rbp + 112]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   $sort4_oc$2F1_step
                         mov              r13, qword ptr [rbp + 128]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 120];          jmp   n7178_gate_arm_α
+                        lea              rsp, [rbp + 0];                      jmp   n7178_gate_arm_α
                         .size            n7177_unmark_bx, .-n7177_unmark_bx
                         .type            n7178_gate_arm_bx, @function
 n7178_gate_arm_bx:
@@ -165843,7 +165843,7 @@ n7293_unmark_α:         mov              r13, qword ptr [rbp + -224]          #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_7361_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_7361_409:    mov              rsp, qword ptr [rbp + -232]
+.Lunmark_α_7361_409:    lea              rsp, [rbp + -240]
                         add              rsp, 48;                             jmp   n7294_lit_integer_α
                         .size            n7293_unmark_bx, .-n7293_unmark_bx
                         .type            n7294_lit_integer_bx, @function
@@ -166275,7 +166275,7 @@ n7304_unmark_α:         mov              rsi, qword ptr [rbp + -240]          #
                         test             r15, r15;                            je    .Lunmark_α_7376_999
                         add              rsp, 240;                            jmp   $xsb_f4_err$2F2_step
 .Lunmark_α_7376_999:    mov              r13, qword ptr [rbp + -224]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + -232]
+                        lea              rsp, [rbp + -240]
                         add              rsp, 48;                             jmp   n7305_bound_α
                         .size            n7304_unmark_bx, .-n7304_unmark_bx
                         .type            n7305_bound_bx, @function
@@ -166518,7 +166518,7 @@ n7309_unmark_α:         mov              r13, qword ptr [rbp + -224]          #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_7385_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_7385_409:    mov              rsp, qword ptr [rbp + -232]
+.Lunmark_α_7385_409:    lea              rsp, [rbp + -240]
                         add              rsp, 48;                             jmp   n7310_lit_integer_α
                         .size            n7309_unmark_bx, .-n7309_unmark_bx
                         .type            n7310_lit_integer_bx, @function
@@ -166950,7 +166950,7 @@ n7320_unmark_α:         mov              rsi, qword ptr [rbp + -240]          #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n7334_unmark_α
                         mov              r13, qword ptr [rbp + -224]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + -232]
+                        lea              rsp, [rbp + -240]
                         add              rsp, 48;                             jmp   n7321_lit_integer_α
                         .size            n7320_unmark_bx, .-n7320_unmark_bx
                         .type            n7321_lit_integer_bx, @function
@@ -181799,7 +181799,7 @@ n7912_unmark_α:         mov              r13, qword ptr [rbp + -432]          #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_7975_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_7975_409:    mov              rsp, qword ptr [rbp + -440]
+.Lunmark_α_7975_409:    lea              rsp, [rbp + -448]
                         add              rsp, 48;                             jmp   n7913_var_ref_α
                         .size            n7912_unmark_bx, .-n7912_unmark_bx
                         .type            n7913_var_ref_bx, @function
@@ -181991,7 +181991,7 @@ n7919_unmark_α:         mov              rsi, qword ptr [rbp + -448]          #
                         test             r15, r15;                            je    .Lunmark_α_7987_999
                         add              rsp, 448;                            jmp   lower_bound$2F3_step
 .Lunmark_α_7987_999:    mov              r13, qword ptr [rbp + -432]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + -440]
+                        lea              rsp, [rbp + -448]
                         add              rsp, 48;                             jmp   n7920_var_ref_α
                         .size            n7919_unmark_bx, .-n7919_unmark_bx
                         .type            n7920_var_ref_bx, @function
@@ -184887,7 +184887,7 @@ n8066_unmark_α:         mov              r13, qword ptr [rbp + 96]            #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_8087_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_8087_409:    mov              rsp, qword ptr [rbp + 88];           jmp   n8067_var_α
+.Lunmark_α_8087_409:    lea              rsp, [rbp + 0];                      jmp   n8067_var_α
                         .size            n8066_unmark_bx, .-n8066_unmark_bx
                         .type            n8067_var_bx, @function
 n8067_var_bx:
@@ -185041,7 +185041,7 @@ n8070_unmark_α:         mov              rsi, qword ptr [rbp + 80]            #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   $when_trigger_nonvar$2F2_step
                         mov              r13, qword ptr [rbp + 96]            # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 88];           jmp   n8071_var_ref_α
+                        lea              rsp, [rbp + 0];                      jmp   n8071_var_ref_α
                         .size            n8070_unmark_bx, .-n8070_unmark_bx
                         .type            n8071_var_ref_bx, @function
 n8071_var_ref_bx:
@@ -185583,7 +185583,7 @@ n8078_unmark_α:         mov              rsi, qword ptr [rbp + 80]            #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   $when_trigger_nonvar$2F2_step
                         mov              r13, qword ptr [rbp + 96]            # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 88];           jmp   n8079_gate_α
+                        lea              rsp, [rbp + 0];                      jmp   n8079_gate_α
                         .size            n8078_unmark_bx, .-n8078_unmark_bx
                         .type            n8079_gate_bx, @function
 n8079_gate_bx:
@@ -187993,7 +187993,7 @@ n8158_unmark_α:         mov              r13, qword ptr [rbp + 112]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_8195_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_8195_409:    mov              rsp, qword ptr [rbp + 104];          jmp   n8159_var_ref_α
+.Lunmark_α_8195_409:    lea              rsp, [rbp + 0];                      jmp   n8159_var_ref_α
                         .size            n8158_unmark_bx, .-n8158_unmark_bx
                         .type            n8159_var_ref_bx, @function
 n8159_var_ref_bx:
@@ -188817,7 +188817,7 @@ n8169_unmark_α:         mov              rsi, qword ptr [rbp + 96]            #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   $when_suspend$2F2_step
                         mov              r13, qword ptr [rbp + 112]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 104];          jmp   n8170_var_ref_α
+                        lea              rsp, [rbp + 0];                      jmp   n8170_var_ref_α
                         .size            n8169_unmark_bx, .-n8169_unmark_bx
                         .type            n8170_var_ref_bx, @function
 n8170_var_ref_bx:
@@ -189471,7 +189471,7 @@ n8177_unmark_α:         mov              rsi, qword ptr [rbp + 96]            #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   $when_suspend$2F2_step
                         mov              r13, qword ptr [rbp + 112]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 104];          jmp   n8178_gate_α
+                        lea              rsp, [rbp + 0];                      jmp   n8178_gate_α
                         .size            n8177_unmark_bx, .-n8177_unmark_bx
                         .type            n8178_gate_bx, @function
 n8178_gate_bx:
@@ -190798,7 +190798,7 @@ n8247_unmark_α:         mov              r13, qword ptr [rbp + -32]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_8385_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_8385_409:    mov              rsp, qword ptr [rbp + -40]
+.Lunmark_α_8385_409:    lea              rsp, [rbp + -48]
                         add              rsp, 48;                             jmp   n8248_unmark_α
                         .size            n8247_unmark_bx, .-n8247_unmark_bx
                         .type            n8248_unmark_bx, @function
@@ -190825,7 +190825,7 @@ n8249_unmark_α:         mov              rsi, qword ptr [rbp + -48]           #
                         test             r15, r15;                            je    .Lunmark_α_8389_999
                         add              rsp, 48;                             jmp   $between_test$2F3_step
 .Lunmark_α_8389_999:    mov              r13, qword ptr [rbp + -32]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + -40]
+                        lea              rsp, [rbp + -48]
                         add              rsp, 48;                             jmp   n8250_gate_arm_α
                         .size            n8249_unmark_bx, .-n8249_unmark_bx
                         .type            n8250_gate_arm_bx, @function
@@ -192695,7 +192695,7 @@ n8288_unmark_α:         mov              r13, qword ptr [rbp + -32]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_8445_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_8445_409:    mov              rsp, qword ptr [rbp + -40]
+.Lunmark_α_8445_409:    lea              rsp, [rbp + -48]
                         add              rsp, 48;                             jmp   n8289_unmark_α
                         .size            n8288_unmark_bx, .-n8288_unmark_bx
                         .type            n8289_unmark_bx, @function
@@ -192722,7 +192722,7 @@ n8290_unmark_α:         mov              rsi, qword ptr [rbp + -48]           #
                         test             r15, r15;                            je    .Lunmark_α_8449_999
                         add              rsp, 48;                             jmp   $between_test$2F3_step
 .Lunmark_α_8449_999:    mov              r13, qword ptr [rbp + -32]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + -40]
+                        lea              rsp, [rbp + -48]
                         add              rsp, 48;                             jmp   n8291_gate_arm_α
                         .size            n8290_unmark_bx, .-n8290_unmark_bx
                         .type            n8291_gate_arm_bx, @function
@@ -194093,7 +194093,7 @@ n8319_unmark_α:         mov              r13, qword ptr [rbp + -32]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_8493_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_8493_409:    mov              rsp, qword ptr [rbp + -40]
+.Lunmark_α_8493_409:    lea              rsp, [rbp + -48]
                         add              rsp, 48;                             jmp   n8320_unmark_α
                         .size            n8319_unmark_bx, .-n8319_unmark_bx
                         .type            n8320_unmark_bx, @function
@@ -194120,7 +194120,7 @@ n8321_unmark_α:         mov              rsi, qword ptr [rbp + -48]           #
                         test             r15, r15;                            je    .Lunmark_α_8497_999
                         add              rsp, 48;                             jmp   $between_test$2F3_step
 .Lunmark_α_8497_999:    mov              r13, qword ptr [rbp + -32]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + -40]
+                        lea              rsp, [rbp + -48]
                         add              rsp, 48;                             jmp   n8322_gate_arm_α
                         .size            n8321_unmark_bx, .-n8321_unmark_bx
                         .type            n8322_gate_arm_bx, @function
@@ -195310,7 +195310,7 @@ n8347_unmark_α:         mov              r13, qword ptr [rbp + -112]          #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_8537_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_8537_409:    mov              rsp, qword ptr [rbp + -120]
+.Lunmark_α_8537_409:    lea              rsp, [rbp + -128]
                         add              rsp, 48;                             jmp   n8348_var_α
                         .size            n8347_unmark_bx, .-n8347_unmark_bx
                         .type            n8348_var_bx, @function
@@ -195455,7 +195455,7 @@ n8353_unmark_α:         mov              rsi, qword ptr [rbp + -128]          #
                         test             r15, r15;                            je    .Lunmark_α_8549_999
                         add              rsp, 128;                            jmp   $between_test$2F3_step
 .Lunmark_α_8549_999:    mov              r13, qword ptr [rbp + -112]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + -120]
+                        lea              rsp, [rbp + -128]
                         add              rsp, 48;                             jmp   n8354_gate_arm_α
                         .size            n8353_unmark_bx, .-n8353_unmark_bx
                         .type            n8354_gate_arm_bx, @function
@@ -196389,7 +196389,7 @@ n8559_unmark_α:         mov              r13, qword ptr [rbp + 96]            #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_8575_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_8575_409:    mov              rsp, qword ptr [rbp + 88];           jmp   n8560_gate_arm_α
+.Lunmark_α_8575_409:    lea              rsp, [rbp + 0];                      jmp   n8560_gate_arm_α
                         .size            n8559_unmark_bx, .-n8559_unmark_bx
                         .type            n8560_gate_arm_bx, @function
 n8560_gate_arm_bx:
@@ -196413,7 +196413,7 @@ n8561_unmark_α:         mov              rsi, qword ptr [rbp + 80]            #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   $scc_g0$2F1_step
                         mov              r13, qword ptr [rbp + 96]            # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 88];           jmp   n8562_unmark_α
+                        lea              rsp, [rbp + 0];                      jmp   n8562_unmark_α
                         .size            n8561_unmark_bx, .-n8561_unmark_bx
                         .type            n8562_unmark_bx, @function
 n8562_unmark_bx:
@@ -196432,7 +196432,7 @@ n8562_unmark_α:         mov              rsi, qword ptr [rbp + 80]            #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   $scc_g0$2F1_step
                         mov              r13, qword ptr [rbp + 96]            # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 88];           jmp   n8563_gate_α
+                        lea              rsp, [rbp + 0];                      jmp   n8563_gate_α
                         .size            n8562_unmark_bx, .-n8562_unmark_bx
                         .type            n8563_gate_bx, @function
 n8563_gate_bx:
@@ -202916,7 +202916,7 @@ n8800_unmark_α:         mov              r13, qword ptr [rbp + -80]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_8991_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_8991_409:    mov              rsp, qword ptr [rbp + -88]
+.Lunmark_α_8991_409:    lea              rsp, [rbp + -96]
                         add              rsp, 48;                             jmp   n8801_unify_const_α
                         .size            n8800_unmark_bx, .-n8800_unmark_bx
                         .type            n8801_unify_const_bx, @function
@@ -203036,7 +203036,7 @@ n8803_unmark_α:         mov              rsi, qword ptr [rbp + -96]           #
                         test             r15, r15;                            je    .Lunmark_α_8997_999
                         add              rsp, 96;                             jmp   $when_cond$2F2_step
 .Lunmark_α_8997_999:    mov              r13, qword ptr [rbp + -80]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + -88]
+                        lea              rsp, [rbp + -96]
                         add              rsp, 48;                             jmp   n8804_var_ref_α
                         .size            n8803_unmark_bx, .-n8803_unmark_bx
                         .type            n8804_var_ref_bx, @function
@@ -203779,7 +203779,7 @@ n8820_unmark_α:         mov              r13, qword ptr [rbp + -80]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_9027_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_9027_409:    mov              rsp, qword ptr [rbp + -88]
+.Lunmark_α_9027_409:    lea              rsp, [rbp + -96]
                         add              rsp, 48;                             jmp   n8821_unify_const_α
                         .size            n8820_unmark_bx, .-n8820_unmark_bx
                         .type            n8821_unify_const_bx, @function
@@ -203899,7 +203899,7 @@ n8823_unmark_α:         mov              rsi, qword ptr [rbp + -96]           #
                         test             r15, r15;                            je    .Lunmark_α_9033_999
                         add              rsp, 96;                             jmp   $when_cond$2F2_step
 .Lunmark_α_9033_999:    mov              r13, qword ptr [rbp + -80]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + -88]
+                        lea              rsp, [rbp + -96]
                         add              rsp, 48;                             jmp   n8824_var_ref_α
                         .size            n8823_unmark_bx, .-n8823_unmark_bx
                         .type            n8824_var_ref_bx, @function
@@ -204808,7 +204808,7 @@ n8844_unmark_α:         mov              r13, qword ptr [rbp + 208]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_9072_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_9072_409:    mov              rsp, qword ptr [rbp + 200];          jmp   n8845_unify_const_α
+.Lunmark_α_9072_409:    lea              rsp, [rbp + -48];                    jmp   n8845_unify_const_α
                         .size            n8844_unmark_bx, .-n8844_unmark_bx
                         .type            n8845_unify_const_bx, @function
 n8845_unify_const_bx:
@@ -204922,7 +204922,7 @@ n8847_unmark_α:         mov              rsi, qword ptr [rbp + 192]           #
                         test             r15, r15;                            je    .Lunmark_α_9078_999
                         add              rsp, 48;                             jmp   $when_cond$2F2_step
 .Lunmark_α_9078_999:    mov              r13, qword ptr [rbp + 208]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 200];          jmp   n8848_var_ref_α
+                        lea              rsp, [rbp + -48];                    jmp   n8848_var_ref_α
                         .size            n8847_unmark_bx, .-n8847_unmark_bx
                         .type            n8848_var_ref_bx, @function
 n8848_var_ref_bx:
@@ -205204,7 +205204,7 @@ n8855_unmark_α:         mov              rsi, qword ptr [rbp + 192]           #
                         test             r15, r15;                            je    .Lunmark_α_9091_999
                         add              rsp, 48;                             jmp   $when_cond$2F2_step
 .Lunmark_α_9091_999:    mov              r13, qword ptr [rbp + 208]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 200];          jmp   n8856_gate_α
+                        lea              rsp, [rbp + -48];                    jmp   n8856_gate_α
                         .size            n8855_unmark_bx, .-n8855_unmark_bx
                         .type            n8856_gate_bx, @function
 n8856_gate_bx:
@@ -217462,7 +217462,7 @@ n9489_unmark_α:         mov              r13, qword ptr [rbp + 144]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_9528_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_9528_409:    mov              rsp, qword ptr [rbp + 136];          jmp   n9490_var_ref_α
+.Lunmark_α_9528_409:    lea              rsp, [rbp + -16];                    jmp   n9490_var_ref_α
                         .size            n9489_unmark_bx, .-n9489_unmark_bx
                         .type            n9490_var_ref_bx, @function
 n9490_var_ref_bx:
@@ -217744,7 +217744,7 @@ n9497_unmark_α:         mov              rsi, qword ptr [rbp + 128]           #
                         test             r15, r15;                            je    .Lunmark_α_9541_999
                         add              rsp, 16;                             jmp   $attv_filter$2F2_step
 .Lunmark_α_9541_999:    mov              r13, qword ptr [rbp + 144]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 136];          jmp   n9498_var_ref_α
+                        lea              rsp, [rbp + -16];                    jmp   n9498_var_ref_α
                         .size            n9497_unmark_bx, .-n9497_unmark_bx
                         .type            n9498_var_ref_bx, @function
 n9498_var_ref_bx:
@@ -217856,7 +217856,7 @@ n9502_unmark_α:         mov              rsi, qword ptr [rbp + 128]           #
                         test             r15, r15;                            je    .Lunmark_α_9550_999
                         add              rsp, 16;                             jmp   $attv_filter$2F2_step
 .Lunmark_α_9550_999:    mov              r13, qword ptr [rbp + 144]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 136];          jmp   n9503_gate_α
+                        lea              rsp, [rbp + -16];                    jmp   n9503_gate_α
                         .size            n9502_unmark_bx, .-n9502_unmark_bx
                         .type            n9503_gate_bx, @function
 n9503_gate_bx:
@@ -218838,7 +218838,7 @@ n9566_unmark_α:         mov              r13, qword ptr [rbp + 112]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_9593_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_9593_409:    mov              rsp, qword ptr [rbp + 104];          jmp   n9567_var_ref_α
+.Lunmark_α_9593_409:    lea              rsp, [rbp + 0];                      jmp   n9567_var_ref_α
                         .size            n9566_unmark_bx, .-n9566_unmark_bx
                         .type            n9567_var_ref_bx, @function
 n9567_var_ref_bx:
@@ -219380,7 +219380,7 @@ n9574_unmark_α:         mov              rsi, qword ptr [rbp + 96]            #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   $when_trigger_ground$2F2_step
                         mov              r13, qword ptr [rbp + 112]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 104];          jmp   n9575_var_α
+                        lea              rsp, [rbp + 0];                      jmp   n9575_var_α
                         .size            n9574_unmark_bx, .-n9574_unmark_bx
                         .type            n9575_var_bx, @function
 n9575_var_bx:
@@ -219534,7 +219534,7 @@ n9578_unmark_α:         mov              rsi, qword ptr [rbp + 96]            #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   $when_trigger_ground$2F2_step
                         mov              r13, qword ptr [rbp + 112]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 104];          jmp   n9579_gate_α
+                        lea              rsp, [rbp + 0];                      jmp   n9579_gate_α
                         .size            n9578_unmark_bx, .-n9578_unmark_bx
                         .type            n9579_gate_bx, @function
 n9579_gate_bx:
@@ -223846,7 +223846,7 @@ n9712_unmark_α:         mov              r13, qword ptr [rbp + 128]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_9758_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_9758_409:    mov              rsp, qword ptr [rbp + 120];          jmp   n9713_var_α
+.Lunmark_α_9758_409:    lea              rsp, [rbp + -144];                   jmp   n9713_var_α
                         .size            n9712_unmark_bx, .-n9712_unmark_bx
                         .type            n9713_var_bx, @function
 n9713_var_bx:
@@ -224001,7 +224001,7 @@ n9716_unmark_α:         mov              rsi, qword ptr [rbp + 112]           #
                         test             r15, r15;                            je    .Lunmark_α_9766_999
                         add              rsp, 144;                            jmp   $when_trigger_determined$2F3_step
 .Lunmark_α_9766_999:    mov              r13, qword ptr [rbp + 128]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 120];          jmp   n9717_var_ref_α
+                        lea              rsp, [rbp + -144];                   jmp   n9717_var_ref_α
                         .size            n9716_unmark_bx, .-n9716_unmark_bx
                         .type            n9717_var_ref_bx, @function
 n9717_var_ref_bx:
@@ -224983,7 +224983,7 @@ n9733_unmark_α:         mov              rsi, qword ptr [rbp + 112]           #
                         test             r15, r15;                            je    .Lunmark_α_9793_999
                         add              rsp, 144;                            jmp   $when_trigger_determined$2F3_step
 .Lunmark_α_9793_999:    mov              r13, qword ptr [rbp + 128]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 120];          jmp   n9734_gate_α
+                        lea              rsp, [rbp + -144];                   jmp   n9734_gate_α
                         .size            n9733_unmark_bx, .-n9733_unmark_bx
                         .type            n9734_gate_bx, @function
 n9734_gate_bx:
@@ -230364,7 +230364,7 @@ n9933_unmark_α:         mov              r13, qword ptr [rbp + 912]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_10306_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_10306_409:   mov              rsp, qword ptr [rbp + 904];          jmp   n9934_lit_integer_α
+.Lunmark_α_10306_409:   lea              rsp, [rbp + -272];                   jmp   n9934_lit_integer_α
                         .size            n9933_unmark_bx, .-n9933_unmark_bx
                         .type            n9934_lit_integer_bx, @function
 n9934_lit_integer_bx:
@@ -230507,7 +230507,7 @@ n9939_unmark_α:         mov              rsi, qword ptr [rbp + 896]           #
                         test             r15, r15;                            je    .Lunmark_α_10317_999
                         add              rsp, 192;                            jmp   .Ldisjunction_ω_9922_af
 .Lunmark_α_10317_999:   mov              r13, qword ptr [rbp + 912]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 904];          jmp   n9940_bound_α
+                        lea              rsp, [rbp + -272];                   jmp   n9940_bound_α
                         .size            n9939_unmark_bx, .-n9939_unmark_bx
                         .type            n9940_bound_bx, @function
 n9940_bound_bx:
@@ -230679,7 +230679,7 @@ n9944_unmark_α:         mov              r13, qword ptr [rbp + 1008]          #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_10325_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_10325_409:   mov              rsp, qword ptr [rbp + 1000];         jmp   n9945_lit_integer_α
+.Lunmark_α_10325_409:   lea              rsp, [rbp + -272];                   jmp   n9945_lit_integer_α
                         .size            n9944_unmark_bx, .-n9944_unmark_bx
                         .type            n9945_lit_integer_bx, @function
 n9945_lit_integer_bx:
@@ -230821,7 +230821,7 @@ n9950_unmark_α:         mov              rsi, qword ptr [rbp + 992]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n9963_unmark_α
                         mov              r13, qword ptr [rbp + 1008]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 1000];         jmp   n9951_var_ref_α
+                        lea              rsp, [rbp + -272];                   jmp   n9951_var_ref_α
                         .size            n9950_unmark_bx, .-n9950_unmark_bx
                         .type            n9951_var_ref_bx, @function
 n9951_var_ref_bx:
@@ -231181,7 +231181,7 @@ n9960_unmark_α:         mov              rsi, qword ptr [rbp + 992]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n9963_unmark_α
                         mov              r13, qword ptr [rbp + 1008]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 1000];         jmp   n9961_gate_α
+                        lea              rsp, [rbp + -272];                   jmp   n9961_gate_α
                         .size            n9960_unmark_bx, .-n9960_unmark_bx
                         .type            n9961_gate_bx, @function
 n9961_gate_bx:
@@ -231223,7 +231223,7 @@ n9963_unmark_α:         mov              rsi, qword ptr [rbp + 896]           #
                         test             r15, r15;                            je    .Lunmark_α_10359_999
                         add              rsp, 192;                            jmp   .Ldisjunction_ω_9922_af
 .Lunmark_α_10359_999:   mov              r13, qword ptr [rbp + 912]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 904];          jmp   n9964_gate_α
+                        lea              rsp, [rbp + -272];                   jmp   n9964_gate_α
                         .size            n9963_unmark_bx, .-n9963_unmark_bx
                         .type            n9964_gate_bx, @function
 n9964_gate_bx:
@@ -234378,7 +234378,7 @@ n10055_unmark_α:        mov              r13, qword ptr [rbp + 416]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_10516_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_10516_409:   mov              rsp, qword ptr [rbp + 408];          jmp   n10056_lit_integer_α
+.Lunmark_α_10516_409:   lea              rsp, [rbp + -704];                   jmp   n10056_lit_integer_α
                         .size            n10055_unmark_bx, .-n10055_unmark_bx
                         .type            n10056_lit_integer_bx, @function
 n10056_lit_integer_bx:
@@ -234521,7 +234521,7 @@ n10061_unmark_α:        mov              rsi, qword ptr [rbp + 400]           #
                         test             r15, r15;                            je    .Lunmark_α_10527_999
                         add              rsp, 272;                            jmp   n10043_to_β
 .Lunmark_α_10527_999:   mov              r13, qword ptr [rbp + 416]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 408];          jmp   n10062_bound_α
+                        lea              rsp, [rbp + -704];                   jmp   n10062_bound_α
                         .size            n10061_unmark_bx, .-n10061_unmark_bx
                         .type            n10062_bound_bx, @function
 n10062_bound_bx:
@@ -234693,7 +234693,7 @@ n10066_unmark_α:        mov              r13, qword ptr [rbp + 512]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_10535_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_10535_409:   mov              rsp, qword ptr [rbp + 504];          jmp   n10067_lit_integer_α
+.Lunmark_α_10535_409:   lea              rsp, [rbp + -704];                   jmp   n10067_lit_integer_α
                         .size            n10066_unmark_bx, .-n10066_unmark_bx
                         .type            n10067_lit_integer_bx, @function
 n10067_lit_integer_bx:
@@ -234835,7 +234835,7 @@ n10072_unmark_α:        mov              rsi, qword ptr [rbp + 496]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n10085_unmark_α
                         mov              r13, qword ptr [rbp + 512]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 504];          jmp   n10073_var_ref_α
+                        lea              rsp, [rbp + -704];                   jmp   n10073_var_ref_α
                         .size            n10072_unmark_bx, .-n10072_unmark_bx
                         .type            n10073_var_ref_bx, @function
 n10073_var_ref_bx:
@@ -235195,7 +235195,7 @@ n10082_unmark_α:        mov              rsi, qword ptr [rbp + 496]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n10085_unmark_α
                         mov              r13, qword ptr [rbp + 512]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 504];          jmp   n10083_gate_α
+                        lea              rsp, [rbp + -704];                   jmp   n10083_gate_α
                         .size            n10082_unmark_bx, .-n10082_unmark_bx
                         .type            n10083_gate_bx, @function
 n10083_gate_bx:
@@ -235237,7 +235237,7 @@ n10085_unmark_α:        mov              rsi, qword ptr [rbp + 400]           #
                         test             r15, r15;                            je    .Lunmark_α_10569_999
                         add              rsp, 272;                            jmp   n10043_to_β
 .Lunmark_α_10569_999:   mov              r13, qword ptr [rbp + 416]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 408];          jmp   n10086_gate_α
+                        lea              rsp, [rbp + -704];                   jmp   n10086_gate_α
                         .size            n10085_unmark_bx, .-n10085_unmark_bx
                         .type            n10086_gate_bx, @function
 n10086_gate_bx:
@@ -235838,7 +235838,7 @@ n10101_unmark_α:        mov              r13, qword ptr [rbp + 416]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_10596_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_10596_409:   mov              rsp, qword ptr [rbp + 408];          jmp   n10102_lit_integer_α
+.Lunmark_α_10596_409:   lea              rsp, [rbp + -192];                   jmp   n10102_lit_integer_α
                         .size            n10101_unmark_bx, .-n10101_unmark_bx
                         .type            n10102_lit_integer_bx, @function
 n10102_lit_integer_bx:
@@ -235981,7 +235981,7 @@ n10107_unmark_α:        mov              rsi, qword ptr [rbp + 400]           #
                         test             r15, r15;                            je    .Lunmark_α_10607_999
                         add              rsp, 192;                            jmp   $cp_mq1$2F3_step
 .Lunmark_α_10607_999:   mov              r13, qword ptr [rbp + 416]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 408];          jmp   n10108_bound_α
+                        lea              rsp, [rbp + -192];                   jmp   n10108_bound_α
                         .size            n10107_unmark_bx, .-n10107_unmark_bx
                         .type            n10108_bound_bx, @function
 n10108_bound_bx:
@@ -236153,7 +236153,7 @@ n10112_unmark_α:        mov              r13, qword ptr [rbp + 512]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_10615_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_10615_409:   mov              rsp, qword ptr [rbp + 504];          jmp   n10113_lit_integer_α
+.Lunmark_α_10615_409:   lea              rsp, [rbp + -192];                   jmp   n10113_lit_integer_α
                         .size            n10112_unmark_bx, .-n10112_unmark_bx
                         .type            n10113_lit_integer_bx, @function
 n10113_lit_integer_bx:
@@ -236295,7 +236295,7 @@ n10118_unmark_α:        mov              rsi, qword ptr [rbp + 496]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n10131_unmark_α
                         mov              r13, qword ptr [rbp + 512]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 504];          jmp   n10119_var_ref_α
+                        lea              rsp, [rbp + -192];                   jmp   n10119_var_ref_α
                         .size            n10118_unmark_bx, .-n10118_unmark_bx
                         .type            n10119_var_ref_bx, @function
 n10119_var_ref_bx:
@@ -236655,7 +236655,7 @@ n10128_unmark_α:        mov              rsi, qword ptr [rbp + 496]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n10131_unmark_α
                         mov              r13, qword ptr [rbp + 512]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 504];          jmp   n10129_gate_α
+                        lea              rsp, [rbp + -192];                   jmp   n10129_gate_α
                         .size            n10128_unmark_bx, .-n10128_unmark_bx
                         .type            n10129_gate_bx, @function
 n10129_gate_bx:
@@ -236697,7 +236697,7 @@ n10131_unmark_α:        mov              rsi, qword ptr [rbp + 400]           #
                         test             r15, r15;                            je    .Lunmark_α_10649_999
                         add              rsp, 192;                            jmp   $cp_mq1$2F3_step
 .Lunmark_α_10649_999:   mov              r13, qword ptr [rbp + 416]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 408];          jmp   n10132_gate_α
+                        lea              rsp, [rbp + -192];                   jmp   n10132_gate_α
                         .size            n10131_unmark_bx, .-n10131_unmark_bx
                         .type            n10132_gate_bx, @function
 n10132_gate_bx:
@@ -237766,7 +237766,7 @@ n10159_unmark_α:        mov              r13, qword ptr [rbp + 720]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_10695_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_10695_409:   mov              rsp, qword ptr [rbp + 712];          jmp   n10160_lit_integer_α
+.Lunmark_α_10695_409:   lea              rsp, [rbp + -192];                   jmp   n10160_lit_integer_α
                         .size            n10159_unmark_bx, .-n10159_unmark_bx
                         .type            n10160_lit_integer_bx, @function
 n10160_lit_integer_bx:
@@ -237909,7 +237909,7 @@ n10165_unmark_α:        mov              rsi, qword ptr [rbp + 704]           #
                         test             r15, r15;                            je    .Lunmark_α_10706_999
                         add              rsp, 192;                            jmp   $cp_mq1$2F3_step
 .Lunmark_α_10706_999:   mov              r13, qword ptr [rbp + 720]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 712];          jmp   n10166_bound_α
+                        lea              rsp, [rbp + -192];                   jmp   n10166_bound_α
                         .size            n10165_unmark_bx, .-n10165_unmark_bx
                         .type            n10166_bound_bx, @function
 n10166_bound_bx:
@@ -238081,7 +238081,7 @@ n10170_unmark_α:        mov              r13, qword ptr [rbp + 816]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_10714_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_10714_409:   mov              rsp, qword ptr [rbp + 808];          jmp   n10171_lit_integer_α
+.Lunmark_α_10714_409:   lea              rsp, [rbp + -192];                   jmp   n10171_lit_integer_α
                         .size            n10170_unmark_bx, .-n10170_unmark_bx
                         .type            n10171_lit_integer_bx, @function
 n10171_lit_integer_bx:
@@ -238223,7 +238223,7 @@ n10176_unmark_α:        mov              rsi, qword ptr [rbp + 800]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n10189_unmark_α
                         mov              r13, qword ptr [rbp + 816]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 808];          jmp   n10177_var_ref_α
+                        lea              rsp, [rbp + -192];                   jmp   n10177_var_ref_α
                         .size            n10176_unmark_bx, .-n10176_unmark_bx
                         .type            n10177_var_ref_bx, @function
 n10177_var_ref_bx:
@@ -238583,7 +238583,7 @@ n10186_unmark_α:        mov              rsi, qword ptr [rbp + 800]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n10189_unmark_α
                         mov              r13, qword ptr [rbp + 816]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 808];          jmp   n10187_gate_α
+                        lea              rsp, [rbp + -192];                   jmp   n10187_gate_α
                         .size            n10186_unmark_bx, .-n10186_unmark_bx
                         .type            n10187_gate_bx, @function
 n10187_gate_bx:
@@ -238625,7 +238625,7 @@ n10189_unmark_α:        mov              rsi, qword ptr [rbp + 704]           #
                         test             r15, r15;                            je    .Lunmark_α_10748_999
                         add              rsp, 192;                            jmp   $cp_mq1$2F3_step
 .Lunmark_α_10748_999:   mov              r13, qword ptr [rbp + 720]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 712];          jmp   n10190_gate_α
+                        lea              rsp, [rbp + -192];                   jmp   n10190_gate_α
                         .size            n10189_unmark_bx, .-n10189_unmark_bx
                         .type            n10190_gate_bx, @function
 n10190_gate_bx:
@@ -248516,7 +248516,7 @@ n11059_unmark_α:        mov              r13, qword ptr [rbp + 160]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_11110_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_11110_409:   mov              rsp, qword ptr [rbp + 152];          jmp   n11060_var_ref_α
+.Lunmark_α_11110_409:   lea              rsp, [rbp + -368];                   jmp   n11060_var_ref_α
                         .size            n11059_unmark_bx, .-n11059_unmark_bx
                         .type            n11060_var_ref_bx, @function
 n11060_var_ref_bx:
@@ -248685,7 +248685,7 @@ n11066_unmark_α:        mov              rsi, qword ptr [rbp + 144]           #
                         test             r15, r15;                            je    .Lunmark_α_11124_999
                         add              rsp, 368;                            jmp   $yall_slash$2F3_step
 .Lunmark_α_11124_999:   mov              r13, qword ptr [rbp + 160]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 152];          jmp   n11067_var_ref_α
+                        lea              rsp, [rbp + -368];                   jmp   n11067_var_ref_α
                         .size            n11066_unmark_bx, .-n11066_unmark_bx
                         .type            n11067_var_ref_bx, @function
 n11067_var_ref_bx:
@@ -248834,7 +248834,7 @@ n11072_unmark_α:        mov              rsi, qword ptr [rbp + 144]           #
                         test             r15, r15;                            je    .Lunmark_α_11136_999
                         add              rsp, 368;                            jmp   $yall_slash$2F3_step
 .Lunmark_α_11136_999:   mov              r13, qword ptr [rbp + 160]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 152];          jmp   n11073_gate_α
+                        lea              rsp, [rbp + -368];                   jmp   n11073_gate_α
                         .size            n11072_unmark_bx, .-n11072_unmark_bx
                         .type            n11073_gate_bx, @function
 n11073_gate_bx:
@@ -251624,7 +251624,7 @@ n11198_unmark_α:        mov              r13, qword ptr [rbp + -32]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_11321_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_11321_409:   mov              rsp, qword ptr [rbp + -40]
+.Lunmark_α_11321_409:   lea              rsp, [rbp + -48]
                         add              rsp, 48;                             jmp   n11199_unmark_α
                         .size            n11198_unmark_bx, .-n11198_unmark_bx
                         .type            n11199_unmark_bx, @function
@@ -251651,7 +251651,7 @@ n11200_unmark_α:        mov              rsi, qword ptr [rbp + -48]           #
                         test             r15, r15;                            je    .Lunmark_α_11325_999
                         add              rsp, 48;                             jmp   $f4_build$2F4_step
 .Lunmark_α_11325_999:   mov              r13, qword ptr [rbp + -32]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + -40]
+                        lea              rsp, [rbp + -48]
                         add              rsp, 48;                             jmp   n11201_gate_arm_α
                         .size            n11200_unmark_bx, .-n11200_unmark_bx
                         .type            n11201_gate_arm_bx, @function
@@ -256183,7 +256183,7 @@ n11274_unmark_α:        mov              r13, qword ptr [rbp + -112]          #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_11460_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_11460_409:   mov              rsp, qword ptr [rbp + -120]
+.Lunmark_α_11460_409:   lea              rsp, [rbp + -128]
                         add              rsp, 48;                             jmp   n11275_unmark_α
                         .size            n11274_unmark_bx, .-n11274_unmark_bx
                         .type            n11275_unmark_bx, @function
@@ -256211,7 +256211,7 @@ n11276_unmark_α:        mov              rsi, qword ptr [rbp + -128]          #
                         test             r15, r15;                            je    .Lunmark_α_11464_999
                         add              rsp, 128;                            jmp   $f4_build$2F4_step
 .Lunmark_α_11464_999:   mov              r13, qword ptr [rbp + -112]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + -120]
+                        lea              rsp, [rbp + -128]
                         add              rsp, 48;                             jmp   n11277_gate_arm_α
                         .size            n11276_unmark_bx, .-n11276_unmark_bx
                         .type            n11277_gate_arm_bx, @function
@@ -260785,7 +260785,7 @@ n11582_unmark_α:        mov              r13, qword ptr [rbp + 224]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_11700_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_11700_409:   mov              rsp, qword ptr [rbp + 216];          jmp   n11583_lit_integer_α
+.Lunmark_α_11700_409:   lea              rsp, [rbp + -1360];                  jmp   n11583_lit_integer_α
                         .size            n11582_unmark_bx, .-n11582_unmark_bx
                         .type            n11583_lit_integer_bx, @function
 n11583_lit_integer_bx:
@@ -260928,7 +260928,7 @@ n11588_unmark_α:        mov              rsi, qword ptr [rbp + 208]           #
                         test             r15, r15;                            je    .Lunmark_α_11711_999
                         add              rsp, 272;                            jmp   n11570_to_β
 .Lunmark_α_11711_999:   mov              r13, qword ptr [rbp + 224]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 216];          jmp   n11589_bound_α
+                        lea              rsp, [rbp + -1360];                  jmp   n11589_bound_α
                         .size            n11588_unmark_bx, .-n11588_unmark_bx
                         .type            n11589_bound_bx, @function
 n11589_bound_bx:
@@ -261100,7 +261100,7 @@ n11593_unmark_α:        mov              r13, qword ptr [rbp + 320]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_11719_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_11719_409:   mov              rsp, qword ptr [rbp + 312];          jmp   n11594_lit_integer_α
+.Lunmark_α_11719_409:   lea              rsp, [rbp + -1360];                  jmp   n11594_lit_integer_α
                         .size            n11593_unmark_bx, .-n11593_unmark_bx
                         .type            n11594_lit_integer_bx, @function
 n11594_lit_integer_bx:
@@ -261242,7 +261242,7 @@ n11599_unmark_α:        mov              rsi, qword ptr [rbp + 304]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n11612_unmark_α
                         mov              r13, qword ptr [rbp + 320]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 312];          jmp   n11600_var_ref_α
+                        lea              rsp, [rbp + -1360];                  jmp   n11600_var_ref_α
                         .size            n11599_unmark_bx, .-n11599_unmark_bx
                         .type            n11600_var_ref_bx, @function
 n11600_var_ref_bx:
@@ -261602,7 +261602,7 @@ n11609_unmark_α:        mov              rsi, qword ptr [rbp + 304]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n11612_unmark_α
                         mov              r13, qword ptr [rbp + 320]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 312];          jmp   n11610_gate_α
+                        lea              rsp, [rbp + -1360];                  jmp   n11610_gate_α
                         .size            n11609_unmark_bx, .-n11609_unmark_bx
                         .type            n11610_gate_bx, @function
 n11610_gate_bx:
@@ -261644,7 +261644,7 @@ n11612_unmark_α:        mov              rsi, qword ptr [rbp + 208]           #
                         test             r15, r15;                            je    .Lunmark_α_11753_999
                         add              rsp, 272;                            jmp   n11570_to_β
 .Lunmark_α_11753_999:   mov              r13, qword ptr [rbp + 224]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 216];          jmp   n11613_gate_α
+                        lea              rsp, [rbp + -1360];                  jmp   n11613_gate_α
                         .size            n11612_unmark_bx, .-n11612_unmark_bx
                         .type            n11613_gate_bx, @function
 n11613_gate_bx:
@@ -271925,7 +271925,7 @@ n12108_unmark_α:        mov              r13, qword ptr [rbp + 160]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_12149_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_12149_409:   mov              rsp, qword ptr [rbp + 152];          jmp   n12109_var_ref_α
+.Lunmark_α_12149_409:   lea              rsp, [rbp + -16];                    jmp   n12109_var_ref_α
                         .size            n12108_unmark_bx, .-n12108_unmark_bx
                         .type            n12109_var_ref_bx, @function
 n12109_var_ref_bx:
@@ -272037,7 +272037,7 @@ n12113_unmark_α:        mov              rsi, qword ptr [rbp + 144]           #
                         test             r15, r15;                            je    .Lunmark_α_12158_999
                         add              rsp, 16;                             jmp   $att_del$2F3_step
 .Lunmark_α_12158_999:   mov              r13, qword ptr [rbp + 160]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 152];          jmp   n12114_var_ref_α
+                        lea              rsp, [rbp + -16];                    jmp   n12114_var_ref_α
                         .size            n12113_unmark_bx, .-n12113_unmark_bx
                         .type            n12114_var_ref_bx, @function
 n12114_var_ref_bx:
@@ -272818,7 +272818,7 @@ n12126_unmark_α:        mov              rsi, qword ptr [rbp + 144]           #
                         test             r15, r15;                            je    .Lunmark_α_12181_999
                         add              rsp, 16;                             jmp   $att_del$2F3_step
 .Lunmark_α_12181_999:   mov              r13, qword ptr [rbp + 160]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 152];          jmp   n12127_gate_α
+                        lea              rsp, [rbp + -16];                    jmp   n12127_gate_α
                         .size            n12126_unmark_bx, .-n12126_unmark_bx
                         .type            n12127_gate_bx, @function
 n12127_gate_bx:
@@ -273811,7 +273811,7 @@ n12198_unmark_α:        mov              r13, qword ptr [rbp + 336]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_12360_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_12360_409:   mov              rsp, qword ptr [rbp + 328];          jmp   n12199_bound_α
+.Lunmark_α_12360_409:   lea              rsp, [rbp + -288];                   jmp   n12199_bound_α
                         .size            n12198_unmark_bx, .-n12198_unmark_bx
                         .type            n12199_bound_bx, @function
 n12199_bound_bx:
@@ -274097,7 +274097,7 @@ n12205_unmark_α:        mov              r13, qword ptr [rbp + 528]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_12373_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_12373_409:   mov              rsp, qword ptr [rbp + 520];          jmp   n12206_lit_integer_α
+.Lunmark_α_12373_409:   lea              rsp, [rbp + -336];                   jmp   n12206_lit_integer_α
                         .size            n12205_unmark_bx, .-n12205_unmark_bx
                         .type            n12206_lit_integer_bx, @function
 n12206_lit_integer_bx:
@@ -274240,7 +274240,7 @@ n12211_unmark_α:        mov              rsi, qword ptr [rbp + 512]           #
                         test             r15, r15;                            je    .Lunmark_α_12384_999
                         add              rsp, 48;                             jmp   n12243_unmark_α
 .Lunmark_α_12384_999:   mov              r13, qword ptr [rbp + 528]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 520];          jmp   n12212_bound_α
+                        lea              rsp, [rbp + -336];                   jmp   n12212_bound_α
                         .size            n12211_unmark_bx, .-n12211_unmark_bx
                         .type            n12212_bound_bx, @function
 n12212_bound_bx:
@@ -274412,7 +274412,7 @@ n12216_unmark_α:        mov              r13, qword ptr [rbp + 624]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_12392_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_12392_409:   mov              rsp, qword ptr [rbp + 616];          jmp   n12217_lit_integer_α
+.Lunmark_α_12392_409:   lea              rsp, [rbp + -336];                   jmp   n12217_lit_integer_α
                         .size            n12216_unmark_bx, .-n12216_unmark_bx
                         .type            n12217_lit_integer_bx, @function
 n12217_lit_integer_bx:
@@ -274554,7 +274554,7 @@ n12222_unmark_α:        mov              rsi, qword ptr [rbp + 608]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n12235_unmark_α
                         mov              r13, qword ptr [rbp + 624]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 616];          jmp   n12223_var_ref_α
+                        lea              rsp, [rbp + -336];                   jmp   n12223_var_ref_α
                         .size            n12222_unmark_bx, .-n12222_unmark_bx
                         .type            n12223_var_ref_bx, @function
 n12223_var_ref_bx:
@@ -274914,7 +274914,7 @@ n12232_unmark_α:        mov              rsi, qword ptr [rbp + 608]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n12235_unmark_α
                         mov              r13, qword ptr [rbp + 624]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 616];          jmp   n12233_gate_α
+                        lea              rsp, [rbp + -336];                   jmp   n12233_gate_α
                         .size            n12232_unmark_bx, .-n12232_unmark_bx
                         .type            n12233_gate_bx, @function
 n12233_gate_bx:
@@ -274956,7 +274956,7 @@ n12235_unmark_α:        mov              rsi, qword ptr [rbp + 512]           #
                         test             r15, r15;                            je    .Lunmark_α_12426_999
                         add              rsp, 48;                             jmp   n12243_unmark_α
 .Lunmark_α_12426_999:   mov              r13, qword ptr [rbp + 528]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 520];          jmp   n12236_gate_α
+                        lea              rsp, [rbp + -336];                   jmp   n12236_gate_α
                         .size            n12235_unmark_bx, .-n12235_unmark_bx
                         .type            n12236_gate_bx, @function
 n12236_gate_bx:
@@ -275137,7 +275137,7 @@ n12241_unmark_α:        mov              r13, qword ptr [rbp + 432]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_12437_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_12437_409:   mov              rsp, qword ptr [rbp + 424];          jmp   n12242_gate_arm_α
+.Lunmark_α_12437_409:   lea              rsp, [rbp + -288];                   jmp   n12242_gate_arm_α
                         .size            n12241_unmark_bx, .-n12241_unmark_bx
                         .type            n12242_gate_arm_bx, @function
 n12242_gate_arm_bx:
@@ -275161,7 +275161,7 @@ n12243_unmark_α:        mov              rsi, qword ptr [rbp + 416]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n12247_unmark_α
                         mov              r13, qword ptr [rbp + 432]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 424];          jmp   n12244_unmark_α
+                        lea              rsp, [rbp + -288];                   jmp   n12244_unmark_α
                         .size            n12243_unmark_bx, .-n12243_unmark_bx
                         .type            n12244_unmark_bx, @function
 n12244_unmark_bx:
@@ -275180,7 +275180,7 @@ n12244_unmark_α:        mov              rsi, qword ptr [rbp + 416]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n12247_unmark_α
                         mov              r13, qword ptr [rbp + 432]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 424];          jmp   n12245_gate_α
+                        lea              rsp, [rbp + -288];                   jmp   n12245_gate_α
                         .size            n12244_unmark_bx, .-n12244_unmark_bx
                         .type            n12245_gate_bx, @function
 n12245_gate_bx:
@@ -275221,7 +275221,7 @@ n12247_unmark_α:        mov              rsi, qword ptr [rbp + 320]           #
                         test             r15, r15;                            je    .Lunmark_α_12449_999
                         add              rsp, 80;                             jmp   n12285_unmark_α
 .Lunmark_α_12449_999:   mov              r13, qword ptr [rbp + 336]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 328];          jmp   n12248_gate_α
+                        lea              rsp, [rbp + -288];                   jmp   n12248_gate_α
                         .size            n12247_unmark_bx, .-n12247_unmark_bx
                         .type            n12248_gate_bx, @function
 n12248_gate_bx:
@@ -276291,7 +276291,7 @@ n12272_unmark_α:        mov              r13, qword ptr [rbp + 976]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_12494_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_12494_409:   mov              rsp, qword ptr [rbp + 968];          jmp   n12273_unmark_α
+.Lunmark_α_12494_409:   lea              rsp, [rbp + -384];                   jmp   n12273_unmark_α
                         .size            n12272_unmark_bx, .-n12272_unmark_bx
                         .type            n12273_unmark_bx, @function
 n12273_unmark_bx:
@@ -276311,7 +276311,7 @@ n12273_unmark_α:        mov              rsi, qword ptr [rbp + 960]           #
                         test             r15, r15;                            je    .Lunmark_α_12496_999
                         add              rsp, 96;                             jmp   .Ldisjunction_ω_12197_af
 .Lunmark_α_12496_999:   mov              r13, qword ptr [rbp + 976]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 968];          jmp   n12274_gate_α
+                        lea              rsp, [rbp + -384];                   jmp   n12274_gate_α
                         .size            n12273_unmark_bx, .-n12273_unmark_bx
                         .type            n12274_gate_bx, @function
 n12274_gate_bx:
@@ -276832,7 +276832,7 @@ n12285_unmark_α:        mov              rsi, qword ptr [rbp + 224]           #
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
                         mov              r13, qword ptr [rbp + 240]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 232];          jmp   n12286_var_ref_α
+                        lea              rsp, [rbp + -208];                   jmp   n12286_var_ref_α
                         .size            n12285_unmark_bx, .-n12285_unmark_bx
                         .type            n12286_var_ref_bx, @function
 n12286_var_ref_bx:
@@ -277071,7 +277071,7 @@ n12292_unmark_α:        mov              rsi, qword ptr [rbp + 320]           #
                         test             r15, r15;                            je    .Lunmark_α_12527_999
                         add              rsp, 80;                             jmp   n12285_unmark_α
 .Lunmark_α_12527_999:   mov              r13, qword ptr [rbp + 336]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 328];          jmp   n12293_var_ref_α
+                        lea              rsp, [rbp + -288];                   jmp   n12293_var_ref_α
                         .size            n12292_unmark_bx, .-n12292_unmark_bx
                         .type            n12293_var_ref_bx, @function
 n12293_var_ref_bx:
@@ -277322,7 +277322,7 @@ n12298_unmark_α:        mov              r13, qword ptr [rbp + 720]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_12538_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_12538_409:   mov              rsp, qword ptr [rbp + 712];          jmp   n12299_lit_integer_α
+.Lunmark_α_12538_409:   lea              rsp, [rbp + -336];                   jmp   n12299_lit_integer_α
                         .size            n12298_unmark_bx, .-n12298_unmark_bx
                         .type            n12299_lit_integer_bx, @function
 n12299_lit_integer_bx:
@@ -277465,7 +277465,7 @@ n12304_unmark_α:        mov              rsi, qword ptr [rbp + 704]           #
                         test             r15, r15;                            je    .Lunmark_α_12549_999
                         add              rsp, 48;                             jmp   n12247_unmark_α
 .Lunmark_α_12549_999:   mov              r13, qword ptr [rbp + 720]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 712];          jmp   n12305_bound_α
+                        lea              rsp, [rbp + -336];                   jmp   n12305_bound_α
                         .size            n12304_unmark_bx, .-n12304_unmark_bx
                         .type            n12305_bound_bx, @function
 n12305_bound_bx:
@@ -277637,7 +277637,7 @@ n12309_unmark_α:        mov              r13, qword ptr [rbp + 816]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_12557_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_12557_409:   mov              rsp, qword ptr [rbp + 808];          jmp   n12310_lit_integer_α
+.Lunmark_α_12557_409:   lea              rsp, [rbp + -336];                   jmp   n12310_lit_integer_α
                         .size            n12309_unmark_bx, .-n12309_unmark_bx
                         .type            n12310_lit_integer_bx, @function
 n12310_lit_integer_bx:
@@ -277779,7 +277779,7 @@ n12315_unmark_α:        mov              rsi, qword ptr [rbp + 800]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n12328_unmark_α
                         mov              r13, qword ptr [rbp + 816]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 808];          jmp   n12316_var_ref_α
+                        lea              rsp, [rbp + -336];                   jmp   n12316_var_ref_α
                         .size            n12315_unmark_bx, .-n12315_unmark_bx
                         .type            n12316_var_ref_bx, @function
 n12316_var_ref_bx:
@@ -278139,7 +278139,7 @@ n12325_unmark_α:        mov              rsi, qword ptr [rbp + 800]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n12328_unmark_α
                         mov              r13, qword ptr [rbp + 816]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 808];          jmp   n12326_gate_α
+                        lea              rsp, [rbp + -336];                   jmp   n12326_gate_α
                         .size            n12325_unmark_bx, .-n12325_unmark_bx
                         .type            n12326_gate_bx, @function
 n12326_gate_bx:
@@ -278181,7 +278181,7 @@ n12328_unmark_α:        mov              rsi, qword ptr [rbp + 704]           #
                         test             r15, r15;                            je    .Lunmark_α_12591_999
                         add              rsp, 48;                             jmp   n12247_unmark_α
 .Lunmark_α_12591_999:   mov              r13, qword ptr [rbp + 720]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 712];          jmp   n12329_gate_α
+                        lea              rsp, [rbp + -336];                   jmp   n12329_gate_α
                         .size            n12328_unmark_bx, .-n12328_unmark_bx
                         .type            n12329_gate_bx, @function
 n12329_gate_bx:
@@ -278325,7 +278325,7 @@ n12335_unmark_α:        mov              rsi, qword ptr [rbp + 960]           #
                         test             r15, r15;                            je    .Lunmark_α_12604_999
                         add              rsp, 96;                             jmp   .Ldisjunction_ω_12197_af
 .Lunmark_α_12604_999:   mov              r13, qword ptr [rbp + 976]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 968];          jmp   n12336_gate_arm_α
+                        lea              rsp, [rbp + -384];                   jmp   n12336_gate_arm_α
                         .size            n12335_unmark_bx, .-n12335_unmark_bx
                         .type            n12336_gate_arm_bx, @function
 n12336_gate_arm_bx:
@@ -281616,7 +281616,7 @@ n12660_unmark_α:        mov              r13, qword ptr [rbp + -768]          #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_12757_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_12757_409:   mov              rsp, qword ptr [rbp + -776]
+.Lunmark_α_12757_409:   lea              rsp, [rbp + -784]
                         add              rsp, 48;                             jmp   n12661_unify_const_α
                         .size            n12660_unmark_bx, .-n12660_unmark_bx
                         .type            n12661_unify_const_bx, @function
@@ -281736,7 +281736,7 @@ n12663_unmark_α:        mov              rsi, qword ptr [rbp + -784]          #
                         test             r15, r15;                            je    .Lunmark_α_12763_999
                         add              rsp, 784;                            jmp   $xsb_f4_read$2F4_step
 .Lunmark_α_12763_999:   mov              r13, qword ptr [rbp + -768]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + -776]
+                        lea              rsp, [rbp + -784]
                         add              rsp, 48;                             jmp   n12664_var_ref_α
                         .size            n12663_unmark_bx, .-n12663_unmark_bx
                         .type            n12664_var_ref_bx, @function
@@ -284468,7 +284468,7 @@ n12836_unmark_α:        mov              r13, qword ptr [rbp + 144]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_12866_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_12866_409:   mov              rsp, qword ptr [rbp + 136];          jmp   n12837_var_ref_α
+.Lunmark_α_12866_409:   lea              rsp, [rbp + -16];                    jmp   n12837_var_ref_α
                         .size            n12836_unmark_bx, .-n12836_unmark_bx
                         .type            n12837_var_ref_bx, @function
 n12837_var_ref_bx:
@@ -284580,7 +284580,7 @@ n12841_unmark_α:        mov              rsi, qword ptr [rbp + 128]           #
                         test             r15, r15;                            je    .Lunmark_α_12875_999
                         add              rsp, 16;                             jmp   $att_get$2F3_step
 .Lunmark_α_12875_999:   mov              r13, qword ptr [rbp + 144]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 136];          jmp   n12842_var_ref_α
+                        lea              rsp, [rbp + -16];                    jmp   n12842_var_ref_α
                         .size            n12841_unmark_bx, .-n12841_unmark_bx
                         .type            n12842_var_ref_bx, @function
 n12842_var_ref_bx:
@@ -285084,7 +285084,7 @@ n12847_unmark_α:        mov              rsi, qword ptr [rbp + 128]           #
                         test             r15, r15;                            je    .Lunmark_α_12887_999
                         add              rsp, 16;                             jmp   $att_get$2F3_step
 .Lunmark_α_12887_999:   mov              r13, qword ptr [rbp + 144]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 136];          jmp   n12848_gate_α
+                        lea              rsp, [rbp + -16];                    jmp   n12848_gate_α
                         .size            n12847_unmark_bx, .-n12847_unmark_bx
                         .type            n12848_gate_bx, @function
 n12848_gate_bx:
@@ -286618,7 +286618,7 @@ n12903_unmark_α:        mov              r13, qword ptr [rbp + 160]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_12955_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_12955_409:   mov              rsp, qword ptr [rbp + 152];          jmp   n12904_var_ref_α
+.Lunmark_α_12955_409:   lea              rsp, [rbp + -16];                    jmp   n12904_var_ref_α
                         .size            n12903_unmark_bx, .-n12903_unmark_bx
                         .type            n12904_var_ref_bx, @function
 n12904_var_ref_bx:
@@ -286921,7 +286921,7 @@ n12912_unmark_α:        mov              rsi, qword ptr [rbp + 144]           #
                         test             r15, r15;                            je    .Lunmark_α_12970_999
                         add              rsp, 16;                             jmp   $att_put$2F4_step
 .Lunmark_α_12970_999:   mov              r13, qword ptr [rbp + 160]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 152];          jmp   n12913_var_ref_α
+                        lea              rsp, [rbp + -16];                    jmp   n12913_var_ref_α
                         .size            n12912_unmark_bx, .-n12912_unmark_bx
                         .type            n12913_var_ref_bx, @function
 n12913_var_ref_bx:
@@ -287837,7 +287837,7 @@ n12926_unmark_α:        mov              rsi, qword ptr [rbp + 144]           #
                         test             r15, r15;                            je    .Lunmark_α_12995_999
                         add              rsp, 16;                             jmp   $att_put$2F4_step
 .Lunmark_α_12995_999:   mov              r13, qword ptr [rbp + 160]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 152];          jmp   n12927_gate_α
+                        lea              rsp, [rbp + -16];                    jmp   n12927_gate_α
                         .size            n12926_unmark_bx, .-n12926_unmark_bx
                         .type            n12927_gate_bx, @function
 n12927_gate_bx:
@@ -290019,7 +290019,7 @@ n13059_unmark_α:        mov              r13, qword ptr [rbp + -32]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_13078_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_13078_409:   mov              rsp, qword ptr [rbp + -40]
+.Lunmark_α_13078_409:   lea              rsp, [rbp + -48]
                         add              rsp, 48;                             jmp   n13060_unmark_α
                         .size            n13059_unmark_bx, .-n13059_unmark_bx
                         .type            n13060_unmark_bx, @function
@@ -290046,7 +290046,7 @@ n13061_unmark_α:        mov              rsi, qword ptr [rbp + -48]           #
                         test             r15, r15;                            je    .Lunmark_α_13082_999
                         add              rsp, 48;                             jmp   $3F$3D$2F2_step
 .Lunmark_α_13082_999:   mov              r13, qword ptr [rbp + -32]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + -40]
+                        lea              rsp, [rbp + -48]
                         add              rsp, 48;                             jmp   n13062_gate_arm_α
                         .size            n13061_unmark_bx, .-n13061_unmark_bx
                         .type            n13062_gate_arm_bx, @function
@@ -294997,7 +294997,7 @@ n13227_unmark_α:        mov              r13, qword ptr [rbp + 128]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_13251_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_13251_409:   mov              rsp, qword ptr [rbp + 120];          jmp   n13228_gate_arm_α
+.Lunmark_α_13251_409:   lea              rsp, [rbp + -16];                    jmp   n13228_gate_arm_α
                         .size            n13227_unmark_bx, .-n13227_unmark_bx
                         .type            n13228_gate_arm_bx, @function
 n13228_gate_arm_bx:
@@ -295022,7 +295022,7 @@ n13229_unmark_α:        mov              rsi, qword ptr [rbp + 112]           #
                         test             r15, r15;                            je    .Lunmark_α_13255_999
                         add              rsp, 16;                             jmp   $ta_memq$2F2_step
 .Lunmark_α_13255_999:   mov              r13, qword ptr [rbp + 128]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 120];          jmp   n13230_var_ref_α
+                        lea              rsp, [rbp + -16];                    jmp   n13230_var_ref_α
                         .size            n13229_unmark_bx, .-n13229_unmark_bx
                         .type            n13230_var_ref_bx, @function
 n13230_var_ref_bx:
@@ -295391,7 +295391,7 @@ n13234_unmark_α:        mov              rsi, qword ptr [rbp + 112]           #
                         test             r15, r15;                            je    .Lunmark_α_13265_999
                         add              rsp, 16;                             jmp   $ta_memq$2F2_step
 .Lunmark_α_13265_999:   mov              r13, qword ptr [rbp + 128]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 120];          jmp   n13235_gate_α
+                        lea              rsp, [rbp + -16];                    jmp   n13235_gate_α
                         .size            n13234_unmark_bx, .-n13234_unmark_bx
                         .type            n13235_gate_bx, @function
 n13235_gate_bx:
@@ -304389,7 +304389,7 @@ n13585_unmark_α:        mov              r13, qword ptr [rbp + -112]          #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_13652_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_13652_409:   mov              rsp, qword ptr [rbp + -120]
+.Lunmark_α_13652_409:   lea              rsp, [rbp + -128]
                         add              rsp, 48;                             jmp   n13586_lit_atom_α
                         .size            n13585_unmark_bx, .-n13585_unmark_bx
                         .type            n13586_lit_atom_bx, @function
@@ -304507,7 +304507,7 @@ n13591_unmark_α:        mov              rsi, qword ptr [rbp + -128]          #
                         test             r15, r15;                            je    .Lunmark_α_13662_999
                         add              rsp, 128;                            jmp   compound_name_arity$2F3_step
 .Lunmark_α_13662_999:   mov              r13, qword ptr [rbp + -112]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + -120]
+                        lea              rsp, [rbp + -128]
                         add              rsp, 48;                             jmp   n13592_var_ref_α
                         .size            n13591_unmark_bx, .-n13591_unmark_bx
                         .type            n13592_var_ref_bx, @function
@@ -343114,7 +343114,7 @@ n14576_unmark_α:        mov              r13, qword ptr [rbp + 608]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_14685_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_14685_409:   mov              rsp, qword ptr [rbp + 600];          jmp   n14577_gate_arm_α
+.Lunmark_α_14685_409:   lea              rsp, [rbp + 0];                      jmp   n14577_gate_arm_α
                         .size            n14576_unmark_bx, .-n14576_unmark_bx
                         .type            n14577_gate_arm_bx, @function
 n14577_gate_arm_bx:
@@ -343138,7 +343138,7 @@ n14578_unmark_α:        mov              rsi, qword ptr [rbp + 592]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   $xsb_f4_key$2F2_step
                         mov              r13, qword ptr [rbp + 608]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 600];          jmp   n14579_lit_atom_α
+                        lea              rsp, [rbp + 0];                      jmp   n14579_lit_atom_α
                         .size            n14578_unmark_bx, .-n14578_unmark_bx
                         .type            n14579_lit_atom_bx, @function
 n14579_lit_atom_bx:
@@ -343253,7 +343253,7 @@ n14583_unmark_α:        mov              rsi, qword ptr [rbp + 592]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   $xsb_f4_key$2F2_step
                         mov              r13, qword ptr [rbp + 608]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 600];          jmp   n14584_gate_α
+                        lea              rsp, [rbp + 0];                      jmp   n14584_gate_α
                         .size            n14583_unmark_bx, .-n14583_unmark_bx
                         .type            n14584_gate_bx, @function
 n14584_gate_bx:
@@ -349738,7 +349738,7 @@ n14931_unmark_α:        mov              r13, qword ptr [rbp + 192]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_15070_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_15070_409:   mov              rsp, qword ptr [rbp + 184];          jmp   n14932_var_ref_α
+.Lunmark_α_15070_409:   lea              rsp, [rbp + 0];                      jmp   n14932_var_ref_α
                         .size            n14931_unmark_bx, .-n14931_unmark_bx
                         .type            n14932_var_ref_bx, @function
 n14932_var_ref_bx:
@@ -350417,7 +350417,7 @@ n14948_unmark_α:        mov              r13, qword ptr [rbp + 288]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_15097_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_15097_409:   mov              rsp, qword ptr [rbp + 280];          jmp   n14949_lit_integer_α
+.Lunmark_α_15097_409:   lea              rsp, [rbp + -400];                   jmp   n14949_lit_integer_α
                         .size            n14948_unmark_bx, .-n14948_unmark_bx
                         .type            n14949_lit_integer_bx, @function
 n14949_lit_integer_bx:
@@ -350560,7 +350560,7 @@ n14954_unmark_α:        mov              rsi, qword ptr [rbp + 272]           #
                         test             r15, r15;                            je    .Lunmark_α_15108_999
                         add              rsp, 400;                            jmp   n15039_unmark_α
 .Lunmark_α_15108_999:   mov              r13, qword ptr [rbp + 288]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 280];          jmp   n14955_bound_α
+                        lea              rsp, [rbp + -400];                   jmp   n14955_bound_α
                         .size            n14954_unmark_bx, .-n14954_unmark_bx
                         .type            n14955_bound_bx, @function
 n14955_bound_bx:
@@ -350732,7 +350732,7 @@ n14959_unmark_α:        mov              r13, qword ptr [rbp + 384]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_15116_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_15116_409:   mov              rsp, qword ptr [rbp + 376];          jmp   n14960_lit_integer_α
+.Lunmark_α_15116_409:   lea              rsp, [rbp + -400];                   jmp   n14960_lit_integer_α
                         .size            n14959_unmark_bx, .-n14959_unmark_bx
                         .type            n14960_lit_integer_bx, @function
 n14960_lit_integer_bx:
@@ -350874,7 +350874,7 @@ n14965_unmark_α:        mov              rsi, qword ptr [rbp + 368]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n14978_unmark_α
                         mov              r13, qword ptr [rbp + 384]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 376];          jmp   n14966_var_ref_α
+                        lea              rsp, [rbp + -400];                   jmp   n14966_var_ref_α
                         .size            n14965_unmark_bx, .-n14965_unmark_bx
                         .type            n14966_var_ref_bx, @function
 n14966_var_ref_bx:
@@ -351234,7 +351234,7 @@ n14975_unmark_α:        mov              rsi, qword ptr [rbp + 368]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n14978_unmark_α
                         mov              r13, qword ptr [rbp + 384]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 376];          jmp   n14976_gate_α
+                        lea              rsp, [rbp + -400];                   jmp   n14976_gate_α
                         .size            n14975_unmark_bx, .-n14975_unmark_bx
                         .type            n14976_gate_bx, @function
 n14976_gate_bx:
@@ -351276,7 +351276,7 @@ n14978_unmark_α:        mov              rsi, qword ptr [rbp + 272]           #
                         test             r15, r15;                            je    .Lunmark_α_15150_999
                         add              rsp, 400;                            jmp   n15039_unmark_α
 .Lunmark_α_15150_999:   mov              r13, qword ptr [rbp + 288]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 280];          jmp   n14979_gate_α
+                        lea              rsp, [rbp + -400];                   jmp   n14979_gate_α
                         .size            n14978_unmark_bx, .-n14978_unmark_bx
                         .type            n14979_gate_bx, @function
 n14979_gate_bx:
@@ -351419,7 +351419,7 @@ n14985_unmark_α:        mov              rsi, qword ptr [rbp + 176]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   current_predicate$2F2_step
                         mov              r13, qword ptr [rbp + 192]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 184];          jmp   n14986_lit_integer_α
+                        lea              rsp, [rbp + 0];                      jmp   n14986_lit_integer_α
                         .size            n14985_unmark_bx, .-n14985_unmark_bx
                         .type            n14986_lit_integer_bx, @function
 n14986_lit_integer_bx:
@@ -351901,7 +351901,7 @@ n14996_unmark_α:        mov              r13, qword ptr [rbp + 480]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_15181_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_15181_409:   mov              rsp, qword ptr [rbp + 472];          jmp   n14997_lit_integer_α
+.Lunmark_α_15181_409:   lea              rsp, [rbp + -192];                   jmp   n14997_lit_integer_α
                         .size            n14996_unmark_bx, .-n14996_unmark_bx
                         .type            n14997_lit_integer_bx, @function
 n14997_lit_integer_bx:
@@ -352044,7 +352044,7 @@ n15002_unmark_α:        mov              rsi, qword ptr [rbp + 464]           #
                         test             r15, r15;                            je    .Lunmark_α_15192_999
                         add              rsp, 192;                            jmp   n15039_unmark_α
 .Lunmark_α_15192_999:   mov              r13, qword ptr [rbp + 480]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 472];          jmp   n15003_bound_α
+                        lea              rsp, [rbp + -192];                   jmp   n15003_bound_α
                         .size            n15002_unmark_bx, .-n15002_unmark_bx
                         .type            n15003_bound_bx, @function
 n15003_bound_bx:
@@ -352216,7 +352216,7 @@ n15007_unmark_α:        mov              r13, qword ptr [rbp + 576]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_15200_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_15200_409:   mov              rsp, qword ptr [rbp + 568];          jmp   n15008_lit_integer_α
+.Lunmark_α_15200_409:   lea              rsp, [rbp + -192];                   jmp   n15008_lit_integer_α
                         .size            n15007_unmark_bx, .-n15007_unmark_bx
                         .type            n15008_lit_integer_bx, @function
 n15008_lit_integer_bx:
@@ -352358,7 +352358,7 @@ n15013_unmark_α:        mov              rsi, qword ptr [rbp + 560]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n15026_unmark_α
                         mov              r13, qword ptr [rbp + 576]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 568];          jmp   n15014_var_ref_α
+                        lea              rsp, [rbp + -192];                   jmp   n15014_var_ref_α
                         .size            n15013_unmark_bx, .-n15013_unmark_bx
                         .type            n15014_var_ref_bx, @function
 n15014_var_ref_bx:
@@ -352718,7 +352718,7 @@ n15023_unmark_α:        mov              rsi, qword ptr [rbp + 560]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n15026_unmark_α
                         mov              r13, qword ptr [rbp + 576]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 568];          jmp   n15024_gate_α
+                        lea              rsp, [rbp + -192];                   jmp   n15024_gate_α
                         .size            n15023_unmark_bx, .-n15023_unmark_bx
                         .type            n15024_gate_bx, @function
 n15024_gate_bx:
@@ -352760,7 +352760,7 @@ n15026_unmark_α:        mov              rsi, qword ptr [rbp + 464]           #
                         test             r15, r15;                            je    .Lunmark_α_15234_999
                         add              rsp, 192;                            jmp   n15039_unmark_α
 .Lunmark_α_15234_999:   mov              r13, qword ptr [rbp + 480]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 472];          jmp   n15027_gate_α
+                        lea              rsp, [rbp + -192];                   jmp   n15027_gate_α
                         .size            n15026_unmark_bx, .-n15026_unmark_bx
                         .type            n15027_gate_bx, @function
 n15027_gate_bx:
@@ -353100,7 +353100,7 @@ n15039_unmark_α:        mov              rsi, qword ptr [rbp + 176]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   current_predicate$2F2_step
                         mov              r13, qword ptr [rbp + 192]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 184];          jmp   n15040_gate_α
+                        lea              rsp, [rbp + 0];                      jmp   n15040_gate_α
                         .size            n15039_unmark_bx, .-n15039_unmark_bx
                         .type            n15040_gate_bx, @function
 n15040_gate_bx:
@@ -355106,7 +355106,7 @@ n15291_unmark_α:        mov              r13, qword ptr [rbp + 128]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_15312_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_15312_409:   mov              rsp, qword ptr [rbp + 120];          jmp   n15292_var_ref_α
+.Lunmark_α_15312_409:   lea              rsp, [rbp + 0];                      jmp   n15292_var_ref_α
                         .size            n15291_unmark_bx, .-n15291_unmark_bx
                         .type            n15292_var_ref_bx, @function
 n15292_var_ref_bx:
@@ -355334,7 +355334,7 @@ n15300_unmark_α:        mov              rsi, qword ptr [rbp + 112]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   del_attr$2F2_step
                         mov              r13, qword ptr [rbp + 128]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 120];          jmp   n15303_gate_α
+                        lea              rsp, [rbp + 0];                      jmp   n15303_gate_α
                         .size            n15300_unmark_bx, .-n15300_unmark_bx
                         .type            n15301_unmark_bx, @function
 n15301_unmark_bx:
@@ -355353,7 +355353,7 @@ n15301_unmark_α:        mov              rsi, qword ptr [rbp + 112]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   del_attr$2F2_step
                         mov              r13, qword ptr [rbp + 128]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 120];          jmp   n15302_gate_arm_α
+                        lea              rsp, [rbp + 0];                      jmp   n15302_gate_arm_α
                         .size            n15301_unmark_bx, .-n15301_unmark_bx
                         .type            n15302_gate_arm_bx, @function
 n15302_gate_arm_bx:
@@ -362712,7 +362712,7 @@ n15637_unmark_α:        mov              r13, qword ptr [rbp + 128]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_15745_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_15745_409:   mov              rsp, qword ptr [rbp + 120];          jmp   n15638_var_α
+.Lunmark_α_15745_409:   lea              rsp, [rbp + -208];                   jmp   n15638_var_α
                         .size            n15637_unmark_bx, .-n15637_unmark_bx
                         .type            n15638_var_bx, @function
 n15638_var_bx:
@@ -362870,7 +362870,7 @@ n15641_unmark_α:        mov              rsi, qword ptr [rbp + 112]           #
                         test             r15, r15;                            je    .Lunmark_α_15753_999
                         add              rsp, 208;                            jmp   $3B$2F2_step
 .Lunmark_α_15753_999:   mov              r13, qword ptr [rbp + 128]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 120];          jmp   n15642_var_α
+                        lea              rsp, [rbp + -208];                   jmp   n15642_var_α
                         .size            n15641_unmark_bx, .-n15641_unmark_bx
                         .type            n15642_var_bx, @function
 n15642_var_bx:
@@ -363028,7 +363028,7 @@ n15645_unmark_α:        mov              rsi, qword ptr [rbp + 112]           #
                         test             r15, r15;                            je    .Lunmark_α_15761_999
                         add              rsp, 208;                            jmp   $3B$2F2_step
 .Lunmark_α_15761_999:   mov              r13, qword ptr [rbp + 128]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 120];          jmp   n15646_gate_α
+                        lea              rsp, [rbp + -208];                   jmp   n15646_gate_α
                         .size            n15645_unmark_bx, .-n15645_unmark_bx
                         .type            n15646_gate_bx, @function
 n15646_gate_bx:
@@ -363943,7 +363943,7 @@ n15669_unmark_α:        mov              rsi, qword ptr [rbp + 176]           #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   n15670_gate_α
                         mov              r13, qword ptr [rbp + 192]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 184];          jmp   n15670_gate_α
+                        lea              rsp, [rbp + -208];                   jmp   n15670_gate_α
                         .size            n15669_unmark_bx, .-n15669_unmark_bx
                         .type            n15670_gate_bx, @function
 n15670_gate_bx:
@@ -378065,7 +378065,7 @@ n16262_unmark_α:        mov              r13, qword ptr [rbp + 96]            #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_16288_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_16288_409:   mov              rsp, qword ptr [rbp + 88];           jmp   n16263_var_ref_α
+.Lunmark_α_16288_409:   lea              rsp, [rbp + 0];                      jmp   n16263_var_ref_α
                         .size            n16262_unmark_bx, .-n16262_unmark_bx
                         .type            n16263_var_ref_bx, @function
 n16263_var_ref_bx:
@@ -378170,7 +378170,7 @@ n16267_unmark_α:        mov              rsi, qword ptr [rbp + 80]            #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   char_type$2F2_step
                         mov              r13, qword ptr [rbp + 96]            # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 88];           jmp   n16268_lit_integer_α
+                        lea              rsp, [rbp + 0];                      jmp   n16268_lit_integer_α
                         .size            n16267_unmark_bx, .-n16267_unmark_bx
                         .type            n16268_lit_integer_bx, @function
 n16268_lit_integer_bx:
@@ -378524,7 +378524,7 @@ n16275_unmark_α:        mov              rsi, qword ptr [rbp + 80]            #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   char_type$2F2_step
                         mov              r13, qword ptr [rbp + 96]            # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 88];           jmp   n16276_gate_α
+                        lea              rsp, [rbp + 0];                      jmp   n16276_gate_α
                         .size            n16275_unmark_bx, .-n16275_unmark_bx
                         .type            n16276_gate_bx, @function
 n16276_gate_bx:
@@ -382248,7 +382248,7 @@ n16433_unmark_α:        mov              r13, qword ptr [rbp + 96]            #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_16460_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_16460_409:   mov              rsp, qword ptr [rbp + 88];           jmp   n16434_var_ref_α
+.Lunmark_α_16460_409:   lea              rsp, [rbp + 0];                      jmp   n16434_var_ref_α
                         .size            n16433_unmark_bx, .-n16433_unmark_bx
                         .type            n16434_var_ref_bx, @function
 n16434_var_ref_bx:
@@ -382373,7 +382373,7 @@ n16439_unmark_α:        mov              rsi, qword ptr [rbp + 80]            #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   string_concat$2F3_step
                         mov              r13, qword ptr [rbp + 96]            # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 88];           jmp   n16440_lit_integer_α
+                        lea              rsp, [rbp + 0];                      jmp   n16440_lit_integer_α
                         .size            n16439_unmark_bx, .-n16439_unmark_bx
                         .type            n16440_lit_integer_bx, @function
 n16440_lit_integer_bx:
@@ -382734,7 +382734,7 @@ n16447_unmark_α:        mov              rsi, qword ptr [rbp + 80]            #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   string_concat$2F3_step
                         mov              r13, qword ptr [rbp + 96]            # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 88];           jmp   n16448_gate_α
+                        lea              rsp, [rbp + 0];                      jmp   n16448_gate_α
                         .size            n16447_unmark_bx, .-n16447_unmark_bx
                         .type            n16448_gate_bx, @function
 n16448_gate_bx:
@@ -390616,7 +390616,7 @@ n16752_unmark_α:        mov              r13, qword ptr [rbp + 96]            #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_16774_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_16774_409:   mov              rsp, qword ptr [rbp + 88];           jmp   n16753_lit_integer_α
+.Lunmark_α_16774_409:   lea              rsp, [rbp + 0];                      jmp   n16753_lit_integer_α
                         .size            n16752_unmark_bx, .-n16752_unmark_bx
                         .type            n16753_lit_integer_bx, @function
 n16753_lit_integer_bx:
@@ -391170,7 +391170,7 @@ n16760_unmark_α:        mov              rsi, qword ptr [rbp + 80]            #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   current_prolog_flag$2F2_step
                         mov              r13, qword ptr [rbp + 96]            # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 88];           jmp   n16763_gate_α
+                        lea              rsp, [rbp + 0];                      jmp   n16763_gate_α
                         .size            n16760_unmark_bx, .-n16760_unmark_bx
                         .type            n16761_unmark_bx, @function
 n16761_unmark_bx:
@@ -391189,7 +391189,7 @@ n16761_unmark_α:        mov              rsi, qword ptr [rbp + 80]            #
                         mov              qword ptr [rax + 0], r12
                         test             r15, r15;                            jne   current_prolog_flag$2F2_step
                         mov              r13, qword ptr [rbp + 96]            # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 88];           jmp   n16762_gate_arm_α
+                        lea              rsp, [rbp + 0];                      jmp   n16762_gate_arm_α
                         .size            n16761_unmark_bx, .-n16761_unmark_bx
                         .type            n16762_gate_arm_bx, @function
 n16762_gate_arm_bx:
@@ -420840,7 +420840,7 @@ n17744_unmark_α:        mov              rsi, qword ptr [rbp + 192]           #
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
                         mov              r13, qword ptr [rbp + 208]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 200];          jmp   n17745_var_ref_α
+                        lea              rsp, [rbp + -48];                    jmp   n17745_var_ref_α
                         .size            n17744_unmark_bx, .-n17744_unmark_bx
                         .type            n17745_var_ref_bx, @function
 n17745_var_ref_bx:
@@ -421302,7 +421302,7 @@ n17758_unmark_α:        mov              r13, qword ptr [rbp + 112]           #
                         cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_17797_409
                         mov              qword ptr [rcx + -16], 3
                         mov              qword ptr [rcx + -8], r12
-.Lunmark_α_17797_409:   mov              rsp, qword ptr [rbp + 104];          jmp   n17759_gate_arm_α
+.Lunmark_α_17797_409:   lea              rsp, [rbp + -48];                    jmp   n17759_gate_arm_α
                         .size            n17758_unmark_bx, .-n17758_unmark_bx
                         .type            n17759_gate_arm_bx, @function
 n17759_gate_arm_bx:
@@ -421327,7 +421327,7 @@ n17760_unmark_α:        mov              rsi, qword ptr [rbp + 96]            #
                         test             r15, r15;                            je    .Lunmark_α_17801_999
                         add              rsp, 48;                             jmp   main_step
 .Lunmark_α_17801_999:   mov              r13, qword ptr [rbp + 112]           # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
-                        mov              rsp, qword ptr [rbp + 104];          jmp   n17761_gate_arm_α
+                        lea              rsp, [rbp + -48];                    jmp   n17761_gate_arm_α
                         .size            n17760_unmark_bx, .-n17760_unmark_bx
                         .type            n17761_gate_arm_bx, @function
 n17761_gate_arm_bx:
