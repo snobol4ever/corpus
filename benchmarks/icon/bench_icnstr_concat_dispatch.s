@@ -1308,34 +1308,34 @@ main_ω:
                         .quad            0
                         .quad            .Lgcsite_main_11-.Lgccode_main_0
                         .quad            65537
-                        .quad            440
+                        .quad            51539608008
                         .quad            .Lgcsite_main_10-.Lgccode_main_0
                         .quad            65537
-                        .quad            440
+                        .quad            51539608008
                         .quad            .Lgcsite_main_9-.Lgccode_main_0
                         .quad            65537
-                        .quad            456
+                        .quad            85899346360
                         .quad            .Lgcsite_main_8-.Lgccode_main_0
                         .quad            65537
-                        .quad            440
+                        .quad            51539608008
                         .quad            .Lgcsite_main_7-.Lgccode_main_0
                         .quad            65537
-                        .quad            440
+                        .quad            51539608008
                         .quad            .Lgcsite_main_6-.Lgccode_main_0
                         .quad            65537
-                        .quad            456
+                        .quad            85899346360
                         .quad            .Lgcsite_main_5-.Lgccode_main_0
                         .quad            65537
-                        .quad            440
+                        .quad            51539608008
                         .quad            .Lgcsite_main_4-.Lgccode_main_0
                         .quad            65537
-                        .quad            456
+                        .quad            85899346360
                         .quad            .Lgcsite_main_3-.Lgccode_main_0
                         .quad            65537
-                        .quad            440
+                        .quad            51539608008
                         .quad            .Lgcsite_main_2-.Lgccode_main_0
                         .quad            65537
-                        .quad            456
+                        .quad            85899346360
                         .quad            .Lgcsite_main_14-.Lgccode_main_0
                         .quad            65537
                         .quad            0
@@ -1347,18 +1347,14 @@ main_ω:
                         .quad            0
                         .quad            .Lgcsite_main_15-.Lgccode_main_0
                         .quad            65537
-                        .quad            472
+                        .quad            51539608016
                         .quad            .Lgcsite_main_16-.Lgccode_main_0
                         .quad            65537
-                        .quad            488
-                        .quad            12
-                        .quad            1360
-                        .quad            20
+                        .quad            68719477184
                         .quad            348160
-                        .quad            12
-                        .quad            16
-                        .quad            16
                         .quad            256
+                        .quad            1360
+                        .quad            16
                         .popsection
 module_init:
                         sub              rsp, 8
