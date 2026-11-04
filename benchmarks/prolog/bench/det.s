@@ -46455,7 +46455,14 @@ n2031_gate_arm_α:       mov              dword ptr [rbp + 384], 1
 n2032_gate_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n2032_gate_α:                                                                 jmp   n2016_cleanup_α
-n2032_gate_β:           test             r15, r15;                            je    .Lgate_β_2126_30
+n2032_gate_β:           mov              eax, dword ptr [rbp + 384]
+                        test             r15, r15;                            je    .Lgate_β_2126_69
+                        cmp              eax, 0;                              jne   .Lgate_β_2126_70
+                        add              rsp, -80;                            jmp   n2032_gate_α
+.Lgate_β_2126_70:       cmp              eax, 1;                              jne   .Lgate_β_2126_71
+                        add              rsp, -80;                            jmp   n2032_gate_α
+.Lgate_β_2126_71:
+.Lgate_β_2126_69:       test             r15, r15;                            je    .Lgate_β_2126_30
                         mov              rax, r12
                         and              rax, -536870912
                         mov              rax, qword ptr [rax + 32]
@@ -46463,9 +46470,11 @@ n2032_gate_β:           test             r15, r15;                            j
                         lea              rdx, [rbp + 560]
                         cmp              rax, rdx;                            jae   n2016_cleanup_α
 .Lgate_β_2126_30:       mov              eax, dword ptr [rbp + 384]
-                        cmp              eax, 0;                              je    n2032_gate_α
-                        cmp              eax, 1;                              je    n2032_gate_α
-                                                                              jmp   n2016_cleanup_α
+                        cmp              eax, 0;                              jne   .Lgate_β_2126_10
+                        add              rsp, -80;                            jmp   n2032_gate_α
+.Lgate_β_2126_10:       cmp              eax, 1;                              jne   .Lgate_β_2126_11
+                        add              rsp, -80;                            jmp   n2032_gate_α
+.Lgate_β_2126_11:                                                             jmp   n2016_cleanup_α
                         .size            n2032_gate_bx, .-n2032_gate_bx
                         .type            n2033_call_pl_leaf_bx, @function
 n2033_call_pl_leaf_bx:
@@ -283823,7 +283832,12 @@ n12817_unmark_α:        mov              rsi, qword ptr [rbp + 960]           #
 n12818_gate_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n12818_gate_α:          add              rsp, 96;                             jmp   .Ldisjunction_ω_12741_af
-n12818_gate_β:          test             r15, r15;                            je    .Lgate_β_13042_30
+n12818_gate_β:          mov              eax, dword ptr [rbp + 928]
+                        test             r15, r15;                            je    .Lgate_β_13042_69
+                        cmp              eax, 1;                              jne   .Lgate_β_13042_71
+                        add              rsp, -96;                            jmp   n12818_gate_α
+.Lgate_β_13042_71:
+.Lgate_β_13042_69:      test             r15, r15;                            je    .Lgate_β_13042_30
                         mov              rax, r12
                         and              rax, -536870912
                         mov              rax, qword ptr [rax + 32]
@@ -283835,8 +283849,9 @@ n12818_gate_β:          test             r15, r15;                            j
 .Lgate_β_13042_999:
 .Lgate_β_13042_30:      mov              eax, dword ptr [rbp + 928]
                         cmp              eax, 0;                              je    n12818_gate_α
-                        cmp              eax, 1;                              je    n12818_gate_α
-                        add              rsp, 96;                             jmp   .Ldisjunction_ω_12741_af
+                        cmp              eax, 1;                              jne   .Lgate_β_13042_11
+                        add              rsp, -96;                            jmp   n12818_gate_α
+.Lgate_β_13042_11:      add              rsp, 96;                             jmp   .Ldisjunction_ω_12741_af
                         .size            n12818_gate_bx, .-n12818_gate_bx
                         .type            n12819_var_ref_bx, @function
 n12819_var_ref_bx:
