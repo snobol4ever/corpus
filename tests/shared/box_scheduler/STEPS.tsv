@@ -28,3 +28,8 @@ step	slug	executor	depends	probe
 23	runners-default-their-outputs-under-tmp-and-delete-them-at-the-verdict	cqo	-	python3 harness/scripts/util_runner_outputs.py --check | grep -E '^RUNNERS under_root=0 kept_after_verdict=0 '
 24	verdicts-readable-by-the-filer-and-a-blast-radius-query-names-the-eight	coo	13	bash harness/scripts/s4e_test_request.sh --read --probe | grep -q '^VERDICTS ' && python3 harness/scripts/util_impact_set.py --root SCRIP --commit HEAD --eight | grep -E '^EIGHT [a-z]'
 25	a-toolchain-preflight-and-a-two-tree-corpus-a-b	hq_snobol4	-	bash harness/scripts/util_toolchain_preflight.sh | grep -q '^TOOLCHAIN OK' && bash harness/scripts/util_ab_trees.sh --probe | grep -q '^AB '
+26	a-controller-moved-knob-reads-its-declared-value-as-a-ceiling-in-the-budget-check	coo	4	python3 harness/scripts/util_seat_census.py --budget-check
+27	a-done-when-is-re-cut-by-a-verb-that-leaves-a-done-when-was-receipt	cqo	-	bash harness/scripts/s4e_msg.sh recut --probe | grep -q '^RECUT wrote DONE-WHEN-WAS'
+28	a-done-holds-the-bus-identity-only-for-its-write-never-for-the-done-when-run	cqo	-	bash harness/scripts/s4e_msg.sh done --probe-lock | grep -E '^DONE lock_held_s=[0-4]( |$)'
+29	the-seat-shell-greps-as-gnu-grep-the-same-as-bash-c	cqo	-	bash -ic 'printf "aa\n" | grep -E "(a)\1"' 2>/dev/null | grep -q aa
+30	a-ruling-is-found-by-its-number-after-compaction	cqo	17	bash harness/scripts/s4e_ruling.sh CTO-486 | grep -q 'R6 EXTENDED IS AN INLINE DESCR KIND'
