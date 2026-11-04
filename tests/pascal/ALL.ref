@@ -760,23 +760,27 @@ TRUE FALSE
 {------------------------------------------------------ 200 ladder__rung08_sets}
 yes
 no
-{---------- 201 ladder__rung05_a_routine_cast_to_a_procedural_type_is_an_actual}
+{-------------------- 201 ladder__rung16_ansistring_index_past_length_reads_nul}
+0 0
+4
+ok
+{---------- 202 ladder__rung05_a_routine_cast_to_a_procedural_type_is_an_actual}
 4
 -4
-{---------------------------------------------------- 202 program_record_with_1}
+{---------------------------------------------------- 203 program_record_with_1}
           3
           4
          13
-{---------------------------------------------------- 203 program_record_with_2}
+{---------------------------------------------------- 204 program_record_with_2}
          10
          20
          15
           3
-{-------------------------------------------- 204 program_case_repeat_replace_1}
+{-------------------------------------------- 205 program_case_repeat_replace_1}
 0
-{-------------------------------------------- 205 program_case_repeat_replace_2}
+{-------------------------------------------- 206 program_case_repeat_replace_2}
 0
-{------------------------------------------------------- 206 program_case_for_2}
+{------------------------------------------------------- 207 program_case_for_2}
           1
           1
           3
@@ -784,7 +788,7 @@ no
           1
           2
          30
-{------------------------------------- 207 program_function_procedure_replace_1}
+{------------------------------------- 208 program_function_procedure_replace_1}
 show n=3
 42
   9.0000
@@ -796,52 +800,52 @@ leaf sees 2 7
 leaf sees 2 7
 g after leaf 414
 ticks 3
-{------------------------------------------- 208 ladder__rung12_fillqword_int64}
+{------------------------------------------- 209 ladder__rung12_fillqword_int64}
 123456789012
 5
 123456789012
 123456789012
-{------------------------------------------------------ 209 program_array_for_7}
+{------------------------------------------------------ 210 program_array_for_7}
           1
           4
           9
          16
-{--------------------------------------------------- 210 program_array_packed_1}
+{--------------------------------------------------- 211 program_array_packed_1}
 ab      
 cd      
-{------------------------------------------------ 211 program_pointer_writeln_3}
+{------------------------------------------------ 212 program_pointer_writeln_3}
           1
           2
-{--------------------------------------------------- 212 program_record_array_5}
+{--------------------------------------------------- 213 program_record_array_5}
           5
-{--------------------------------------------------- 213 program_record_array_6}
+{--------------------------------------------------- 214 program_record_array_6}
           5
-{------------------------------------------------ 214 ladder__rung14_row_assign}
+{------------------------------------------------ 215 ladder__rung14_row_assign}
 cd
 fe
-{------------------------------------------------- 215 ladder__rung14_row_store}
+{------------------------------------------------- 216 ladder__rung14_row_store}
 21 23
 21 99 22
-{------------------------------------------------- 216 program_record_pointer_1}
+{------------------------------------------------- 217 program_record_pointer_1}
           1
           0
-{------------------------------------------------ 217 program_record_pointer_11}
+{------------------------------------------------ 218 program_record_pointer_11}
           1
           0
-{---------------------------------------------------- 218 ladder__rung06_arrays}
+{---------------------------------------------------- 219 ladder__rung06_arrays}
          55
-{------------------------------------------ 219 ladder__rung14_row_enum_indexed}
+{------------------------------------------ 220 ladder__rung14_row_enum_indexed}
 def
 ihg
-{------------------------------------------------- 220 program_record_pointer_2}
+{------------------------------------------------- 221 program_record_pointer_2}
         111
         222
-{--------------------------------------------------- 221 ladder__rung09_strings}
+{--------------------------------------------------- 222 ladder__rung09_strings}
 eq
 foo
-{------------------------------------------- 222 program_array_packed_replace_3}
+{------------------------------------------- 223 program_array_packed_replace_3}
          21
-{-------------------------------------------------- 223 program_writeln_trunc_1}
+{-------------------------------------------------- 224 program_writeln_trunc_1}
           7
           5
           3
@@ -850,265 +854,265 @@ no
 yes
           9
          11
-{-------------------------------------- 224 ladder__rung16_const_fold_odd_bound}
+{-------------------------------------- 225 ladder__rung16_const_fold_odd_bound}
 9 0 9 10
 2 2
 TRUE 1
-{------------------------------------------------------ 225 program_array_for_1}
+{------------------------------------------------------ 226 program_array_for_1}
          19
          22
          43
          50
-{------------------------------------------------------ 226 program_array_for_8}
+{------------------------------------------------------ 227 program_array_for_8}
          19
          22
          43
          50
-{------------------------------------------------- 227 program_record_pointer_6}
+{------------------------------------------------- 228 program_record_pointer_6}
           3
          77
-{------------------- 228 ladder__rung13_pchar_at_a_string_formal_and_its_length}
+{------------------- 229 ladder__rung13_pchar_at_a_string_formal_and_its_length}
 [wxyz] 4 4
 [wx] 2 2
 z
-{------------------------------------------- 229 program_array_packed_replace_2}
+{------------------------------------------- 230 program_array_packed_replace_2}
         707
-{------------------------------------------------------ 230 program_array_for_5}
+{------------------------------------------------------ 231 program_array_for_5}
          91
          92
          91
          90
           3
          36
-{------------------------------------------------- 231 program_record_pointer_3}
+{------------------------------------------------- 232 program_record_pointer_3}
           1
          42
           7
          99
-{----------------------------- 232 ladder__rung15_layout_ptr_to_nested_row_copy}
+{----------------------------- 233 ladder__rung15_layout_ptr_to_nested_row_copy}
 5 7
 6
-{------------------------------------------------- 233 program_record_pointer_7}
+{------------------------------------------------- 234 program_record_pointer_7}
           3
          42
          88
-{-------------------------------------- 234 ladder__rung14_row_string_elem_char}
+{-------------------------------------- 235 ladder__rung14_row_string_elem_char}
 k1 .! z A1
-{---------------------- 235 ladder__rung15_layout_ptr_to_nested_element_pointer}
+{---------------------- 236 ladder__rung15_layout_ptr_to_nested_element_pointer}
 7 9
-{--------------------------------------------------- 236 program_array_packed_5}
+{--------------------------------------------------- 237 program_array_packed_5}
          55
 eq
-{--------------------------------------------- 237 program_function_procedure_5}
+{--------------------------------------------- 238 program_function_procedure_5}
          11
          15
-{---------------------------------------------- 238 program_procedure_record_12}
+{---------------------------------------------- 239 program_procedure_record_12}
          42
          99
-{----------------------------------------------- 239 program_procedure_record_5}
+{----------------------------------------------- 240 program_procedure_record_5}
          42
          99
-{-------------------------------------------- 240 ladder__rung12_fillbyte_bytes}
+{-------------------------------------------- 241 ladder__rung12_fillbyte_bytes}
 9 9 200 200 200 9 9 9 
-{-------------------------------------------- 241 ladder__rung12_fillchar_chars}
+{-------------------------------------------- 242 ladder__rung12_fillchar_chars}
 x--xx
-{--------------------------------------------- 242 ladder__rung12_fillchar_zero}
+{--------------------------------------------- 243 ladder__rung12_fillchar_zero}
 0 0 0 0 0 0 
-{-------------------------------------------- 243 ladder__rung12_fillword_words}
+{-------------------------------------------- 244 ladder__rung12_fillword_words}
 1 1 500 500 1 1 
-{--------------------------------------------------- 244 program_record_array_4}
+{--------------------------------------------------- 245 program_record_array_4}
           5
-{------------------------------------------------- 245 program_record_pointer_5}
+{------------------------------------------------- 246 program_record_pointer_5}
          99
          99
-{------------------------------------------------- 246 ladder__rung13_ptr_index}
+{------------------------------------------------- 247 ladder__rung13_ptr_index}
 101 103
 100 101 7 103 104 
-{------------------------------------------------- 247 ladder__rung14_row_param}
+{------------------------------------------------- 248 ladder__rung14_row_param}
 ba
 zz
 dc
-{----------------------------------------------- 248 ladder__rung12_move_arrays}
+{----------------------------------------------- 249 ladder__rung12_move_arrays}
 1 4 9 -1 -1 -1 
 0 1 0 1 4 9 
-{---------------------------------- 249 ladder__rung06_arrays_named_string_elem}
+{---------------------------------- 250 ladder__rung06_arrays_named_string_elem}
 k
 m
 z
 y
 ky
-{------------------------------------------------------ 250 program_array_for_2}
+{------------------------------------------------------ 251 program_array_for_2}
           1           2           3 
           4           5           6 
-{------------------------------------------------------ 251 program_array_for_3}
+{------------------------------------------------------ 252 program_array_for_3}
           0           1           2 
           3           4           5 
           6           7           8 
-{------------------------------------------------------ 252 program_array_for_6}
+{------------------------------------------------------ 253 program_array_for_6}
           1           0           0 
           0           1           0 
           0           0           1 
-{------------------------------------------- 253 program_array_packed_replace_1}
+{------------------------------------------- 254 program_array_packed_replace_1}
         111
-{------------------------------------------------ 254 program_procedure_array_1}
+{------------------------------------------------ 255 program_procedure_array_1}
  abi
  abr
-{------------------------------------------------ 255 program_procedure_array_4}
+{------------------------------------------------ 256 program_procedure_array_4}
  abi
  abr
-{--------------------------------------------------- 256 program_record_array_3}
+{--------------------------------------------------- 257 program_record_array_3}
           3          4
           3          4
          42
-{------------------------------------------------- 257 program_record_pointer_8}
+{------------------------------------------------- 258 program_record_pointer_8}
           1
           2
-{--------------------------------------------- 258 program_function_procedure_3}
+{--------------------------------------------- 259 program_function_procedure_3}
 M
 N
 mid
-{--------------------------------------------- 259 program_function_procedure_8}
+{--------------------------------------------- 260 program_function_procedure_8}
 M
 N
 mid
-{--------------------------------------------------------- 260 benchmark_towers}
+{--------------------------------------------------------- 261 benchmark_towers}
      262143
-{---------------------------------------------- 261 program_array_for_replace_1}
+{---------------------------------------------- 262 program_array_for_replace_1}
 letter
 chperiod
 chspace
 illegal
-{---------------------------------------------- 262 program_array_for_replace_2}
+{---------------------------------------------- 263 program_array_for_replace_2}
 letter
 chperiod
 chspace
 illegal
-{--------------------------------------------- 263 program_function_procedure_4}
+{--------------------------------------------- 264 program_function_procedure_4}
           2
           1
          32
           6
-{--------------------------------------------- 264 program_function_procedure_9}
+{--------------------------------------------- 265 program_function_procedure_9}
           2
           1
          32
           6
-{--------------------------------------------------- 265 program_record_array_2}
+{--------------------------------------------------- 266 program_record_array_2}
           7
           9
-{------------------------------------------------- 266 ladder__rung14_row_forin}
+{------------------------------------------------- 267 ladder__rung14_row_forin}
 1 ab
 2 cd
 3 ef
-{--------------------------------------------------- 267 program_record_array_1}
+{--------------------------------------------------- 268 program_record_array_1}
           0        100
          10        101
          20        102
          30        103
-{--------------------------------------------------- 268 program_array_packed_3}
+{--------------------------------------------------- 269 program_array_packed_3}
 hello   
-{-------------------------------------- 269 ladder__rung13_ptr_addr_whole_array}
+{-------------------------------------- 270 ladder__rung13_ptr_addr_whole_array}
 33 5
-{------------------------------------------------- 270 program_function_array_1}
+{------------------------------------------------- 271 program_function_array_1}
          15
-{------------------------------------------------- 271 program_function_array_3}
+{------------------------------------------------- 272 program_function_array_3}
          15
-{------------------------------------------- 272 program_record_array_replace_4}
+{------------------------------------------- 273 program_record_array_replace_4}
           5
-{------------------------------------------- 273 program_record_array_replace_3}
+{------------------------------------------- 274 program_record_array_replace_3}
           5
-{------------------------------------------- 274 ladder__rung13_ptr_pchar_array}
+{------------------------------------------- 275 ladder__rung13_ptr_pchar_array}
 c
 abZYe
-{------------------------------------------------- 275 program_function_array_2}
+{------------------------------------------------- 276 program_function_array_2}
           6
-{------------------------------------------- 276 ladder__rung13_ptr_punned_view}
+{------------------------------------------- 277 ladder__rung13_ptr_punned_view}
 0002000001000000 33554432 256
 1 2 3 4 254 255 255 255 67370753
 65534 65535 524286
 -2 -1 -1 -1 -2
 1145258561 abcd
-{--------------------------------------------- 277 program_function_procedure_2}
+{--------------------------------------------- 278 program_function_procedure_2}
          30
-{--------------------------------------------- 278 program_function_procedure_7}
+{--------------------------------------------- 279 program_function_procedure_7}
          30
-{------------------------------------------------- 279 program_record_pointer_4}
+{------------------------------------------------- 280 program_record_pointer_4}
          10
          55
          77
-{------------------------------ 280 ladder__rung15_layout_ptr_to_nested_chained}
+{------------------------------ 281 ladder__rung15_layout_ptr_to_nested_chained}
 4 2
 42
-{---------------------------- 281 ladder__rung15_layout_ptr_to_nested_two_index}
+{---------------------------- 282 ladder__rung15_layout_ptr_to_nested_two_index}
 23 12
 99
-{----------------------------- 282 ladder__rung15_layout_ptr_to_two_index_array}
+{----------------------------- 283 ladder__rung15_layout_ptr_to_two_index_array}
 4 2
 42
-{------------------------------------------------ 283 program_record_pointer_10}
+{------------------------------------------------ 284 program_record_pointer_10}
          10
          20
          15
-{-------------------------------- 284 ladder__rung15_layout_nested_is_one_block}
+{-------------------------------- 285 ladder__rung15_layout_nested_is_one_block}
 12 13 20 23
-{------------------------------------- 285 ladder__rung16_real_const_fold_bound}
+{------------------------------------- 286 ladder__rung16_real_const_fold_bound}
 9685 9685 7
 2 1 2
 4 4 11 8
-{-------------------------------------- 286 ladder__rung12_move_from_with_field}
+{-------------------------------------- 287 ladder__rung12_move_from_with_field}
 abcde
-{-------------------------------------- 287 ladder__rung06_arrays_bool_index_2d}
+{-------------------------------------- 288 ladder__rung06_arrays_bool_index_2d}
           0          2         10         12
 f1f2
          12
-{----------------------------------------- 288 program_record_pointer_replace_1}
+{----------------------------------------- 289 program_record_pointer_replace_1}
          99
          42
-{------------------------------------------- 289 program_record_array_replace_2}
+{------------------------------------------- 290 program_record_array_replace_2}
 blck
 blck
-{-------------------------------------------------- 290 ladder__rung10_pointers}
+{-------------------------------------------------- 291 ladder__rung10_pointers}
           1
           2
 linked
 distinct
 terminated
-{--------------------------------------------------- 291 program_array_packed_4}
+{--------------------------------------------------- 292 program_array_packed_4}
 pascal  
-{------------------------------------- 292 ladder__rung15_layout_dense_from_one}
+{------------------------------------- 293 ladder__rung15_layout_dense_from_one}
 4
 6
-{----------------------------------- 293 ladder__rung13_ptr_array_pointer_index}
+{----------------------------------- 294 ladder__rung13_ptr_array_pointer_index}
 6 15 27
 100
 1 9
 77
-{--------------------------------- 294 ladder__rung13_ptr_row_pointer_var_param}
+{--------------------------------- 295 ladder__rung13_ptr_row_pointer_var_param}
 1 2 5
-{--------------------------------------------------- 295 program_array_packed_6}
+{--------------------------------------------------- 296 program_array_packed_6}
 E1ok
 E2ok
 2
-{------------------------------------------ 296 ladder__rung13_ptr_addr_element}
+{------------------------------------------ 297 ladder__rung13_ptr_addr_element}
 20
 50
 40
 0 10 21 31 40 50 
-{-------------------------------------- 297 ladder__rung12_fill_through_pointer}
+{-------------------------------------- 298 ladder__rung12_fill_through_pointer}
 AAAAAAAAAA
 000099
 0 7 7 7 0 0 
-{---------------------------- 298 ladder__rung15_layout_nested_move_across_rows}
+{---------------------------- 299 ladder__rung15_layout_nested_move_across_rows}
 0 1 2 3 
 10 11 0 1 
 2 3 22 23 
-{------------------------------------------------- 299 program_record_pointer_9}
+{------------------------------------------------- 300 program_record_pointer_9}
          30
          20
          10
-{----------------------------------------- 300 program_record_pointer_replace_2}
+{----------------------------------------- 301 program_record_pointer_replace_2}
           9
-{-------------------------------------------- 301 program_array_while_replace_1}
+{-------------------------------------------- 302 program_array_while_replace_1}
           2
           3
           5
@@ -1134,7 +1138,7 @@ AAAAAAAAAA
          83
          89
          97
-{-------------------------------------------- 302 program_array_while_replace_2}
+{-------------------------------------------- 303 program_array_while_replace_2}
           2
           3
           5
@@ -1160,17 +1164,17 @@ AAAAAAAAAA
          83
          89
          97
-{------------------------------------------ 303 program_procedure_set_replace_1}
+{------------------------------------------ 304 program_procedure_set_replace_1}
          20
         120
          20
-{------------------------------------------ 304 program_procedure_set_replace_2}
+{------------------------------------------ 305 program_procedure_set_replace_2}
          20
         120
          20
-{--------------------------------------------------------- 305 benchmark_queens}
+{--------------------------------------------------------- 306 benchmark_queens}
         162
-{------------------------------------- 306 program_function_procedure_replace_3}
+{------------------------------------- 307 program_function_procedure_replace_3}
 found          23 at           2,          3
 found          42 at           4,          2
 no          99
@@ -1178,25 +1182,25 @@ firstdiv           7          97           2
 sign          -1           0           1
 depth        4321
 main exits at k=          3 calls=          3
-{------------------------------------------- 307 program_record_array_replace_1}
+{------------------------------------------- 308 program_record_array_replace_1}
 Hello
-{----------------------------- 308 ladder__rung12_move_through_a_record_pointer}
+{----------------------------- 309 ladder__rung12_move_through_a_record_pointer}
 0:0 99:9 10:1 20:2 30:3 50:5 
 -1:0 99:9 10:1 20:2 0:0 50:5 
-{--------------------------------------------- 309 program_function_procedure_1}
+{--------------------------------------------- 310 program_function_procedure_1}
          10
-{--------------------------------------------- 310 program_function_procedure_6}
+{--------------------------------------------- 311 program_function_procedure_6}
          10
-{---------------------------------------------------------- 311 benchmark_sieve}
+{---------------------------------------------------------- 312 benchmark_sieve}
        1899
-{----------------------------------------------- 312 program_procedure_record_6}
+{----------------------------------------------- 313 program_procedure_record_6}
          77
           2
-{---------------------------------- 313 ladder__rung12_fill_param_first_element}
+{---------------------------------- 314 ladder__rung12_fill_param_first_element}
 0 0 0 0 
 0 6 6 6 
 0 0 0 0 0 
-{------------------------------------- 314 program_function_procedure_replace_2}
+{------------------------------------- 315 program_function_procedure_replace_2}
 c from the activation with tag          11
 a at 1 lvl=          1 tag=         11
 p1 at 7 s=         42 hits=          6
@@ -1212,81 +1216,81 @@ outer at 5, n=          3 mine=        300 total=        116
 main at 9, depth=          4 total=        119
 main at 9, depth=          9 total=        119
 done hits=         12
-{------------------------------------- 315 ladder__rung13_ptr_with_over_element}
+{------------------------------------- 316 ladder__rung13_ptr_with_over_element}
 42 10
-{---------------------------------- 316 ladder__rung15_layout_new_ptr_to_nested}
+{---------------------------------- 317 ladder__rung15_layout_new_ptr_to_nested}
 6 9
-{------------------------------- 317 ladder__rung15_layout_arr_of_ptr_two_index}
+{------------------------------- 318 ladder__rung15_layout_arr_of_ptr_two_index}
          12         -21          22
-{--------------------------------------- 318 program_procedure_record_replace_1}
+{--------------------------------------- 319 program_procedure_record_replace_1}
          77
-{--------------------------------------- 319 program_procedure_record_replace_2}
+{--------------------------------------- 320 program_procedure_record_replace_2}
          77
-{------------------------------------------------ 320 program_procedure_array_3}
+{------------------------------------------------ 321 program_procedure_array_3}
           2
           0
           0
-{---------------------------------------------------------- 321 benchmark_intmm}
+{---------------------------------------------------------- 322 benchmark_intmm}
      -73408
-{---------------------------------------- 322 program_procedure_array_replace_1}
+{---------------------------------------- 323 program_procedure_array_replace_1}
 SABE
-{---------------------------------------- 323 program_procedure_array_replace_6}
+{---------------------------------------- 324 program_procedure_array_replace_6}
 SABE
-{-------------------------- 324 ladder__rung13_new_of_a_pointer_to_a_char_array}
+{-------------------------- 325 ladder__rung13_new_of_a_pointer_to_a_char_array}
 x
 1111111111
-{-------------------------------- 325 ladder__rung15_layout_arr_of_ptr_varparam}
+{-------------------------------- 326 ladder__rung15_layout_arr_of_ptr_varparam}
          11          13
-{-------------------------- 326 ladder__rung15_layout_arr_of_ptr_alias_varparam}
+{-------------------------- 327 ladder__rung15_layout_arr_of_ptr_alias_varparam}
          11          13
-{------------------------------ 327 ladder__rung15_layout_arr_of_ptr_valueparam}
+{------------------------------ 328 ladder__rung15_layout_arr_of_ptr_valueparam}
          30
-{------------------------------------------ 328 program_record_packed_replace_1}
+{------------------------------------------ 329 program_record_packed_replace_1}
           1
           7
-{----------------------------------------------------------- 329 benchmark_perm}
+{----------------------------------------------------------- 330 benchmark_perm}
       43300
-{--------------------------------------------------------- 330 benchmark_bubble}
+{--------------------------------------------------------- 331 benchmark_bubble}
      -50000
       15505
-{---------------------------------------- 331 program_procedure_array_replace_3}
+{---------------------------------------- 332 program_procedure_array_replace_3}
           1
           1
-{---------------------------------------- 332 program_procedure_array_replace_8}
+{---------------------------------------- 333 program_procedure_array_replace_8}
           1
           1
-{--------------------------------------- 333 program_procedure_array_replace_10}
-          1
-          0
-{---------------------------------------- 334 program_procedure_array_replace_5}
+{--------------------------------------- 334 program_procedure_array_replace_10}
           1
           0
-{---------------------------------------- 335 program_procedure_array_replace_4}
+{---------------------------------------- 335 program_procedure_array_replace_5}
           1
           0
-{---------------------------------------- 336 program_procedure_array_replace_9}
+{---------------------------------------- 336 program_procedure_array_replace_4}
           1
           0
-{---------------------------------------- 337 program_procedure_array_replace_2}
+{---------------------------------------- 337 program_procedure_array_replace_9}
+          1
+          0
+{---------------------------------------- 338 program_procedure_array_replace_2}
           1
           1
           2
-{---------------------------------------- 338 program_procedure_array_replace_7}
+{---------------------------------------- 339 program_procedure_array_replace_7}
           1
           1
           2
-{------------------------------- 339 ladder__rung12_fill_with_records_and_procs}
+{------------------------------- 340 ladder__rung12_fill_with_records_and_procs}
 1 10 TRUE
 2 0 FALSE
 3 30 TRUE
 100 75
-{---------------------------------------------------------- 340 benchmark_quick}
+{---------------------------------------------------------- 341 benchmark_quick}
      -50000
       15505
-{----------------------------------- 341 ladder__rung13_ptr_with_fill_and_procs}
+{----------------------------------- 342 ladder__rung13_ptr_with_fill_and_procs}
 6
 1b 4c 9d 
-{--------------------------------------------- 342 program_array_case_replace_1}
+{--------------------------------------------- 343 program_array_case_replace_1}
           0           0           7 A BC
 c = #0
 c = chr(0)
