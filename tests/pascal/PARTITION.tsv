@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=340 features=48 ubiquitous=4(program var writeln assign) distinctive=44 core=40 clusters=37 chunks=3 sizes=100,100,100
+# shape: entries=341 features=48 ubiquitous=4(program var writeln assign) distinctive=44 core=41 clusters=37 chunks=3 sizes=100,100,100
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multi	chunk:01	family:ladder	
@@ -324,6 +324,7 @@ program_procedure_array_3	core	core	array for for_with_array goto label packed p
 benchmark_intmm	core	core	array const div for for_with_array mod readln repeat set_literal subrange
 program_procedure_array_replace_1	core	core	array for for_with_array forward in nested_proc procedure type with write
 program_procedure_array_replace_6	core	core	array for for_with_array forward in nested_proc procedure type with write
+ladder__rung13_new_of_a_pointer_to_a_char_array	core	core	array dispose for for_with_array new pointer pointer_with_new set_literal subrange type write
 ladder__rung15_layout_arr_of_ptr_varparam	core	core	array for for_with_array new pointer pointer_with_new procedure record set_literal subrange type
 ladder__rung15_layout_arr_of_ptr_alias_varparam	core	core	array for for_with_array new pointer pointer_with_new procedure record set_literal subrange type
 ladder__rung15_layout_arr_of_ptr_valueparam	core	core	array for for_with_array function new pointer pointer_with_new record set_literal subrange type

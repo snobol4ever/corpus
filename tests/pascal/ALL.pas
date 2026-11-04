@@ -5863,7 +5863,21 @@ begin
   write('E');
   writeln
 end.
-{-------------------------------- 323 ladder__rung15_layout_arr_of_ptr_varparam}
+{-------------------------- 323 ladder__rung13_new_of_a_pointer_to_a_char_array}
+{$mode objfpc}
+program nw;
+type tA = array[0..9] of ansichar;
+var p: ^tA; i: integer;
+begin
+  new(p);
+  p^[3] := 'x';
+  writeln(p^[3]);
+  fillchar(p^[0], SizeOf(tA), #49);
+  for i := 0 to 9 do write(p^[i]);
+  writeln;
+  dispose(p);
+end.
+{-------------------------------- 324 ladder__rung15_layout_arr_of_ptr_varparam}
 program arr_ptr_varparam_direct(output);
 type
   PR = ^R;
@@ -5880,7 +5894,7 @@ begin
   Fill(g, 10);
   writeln(g[1]^.f, ' ', g[3]^.f);
 end.
-{-------------------------- 324 ladder__rung15_layout_arr_of_ptr_alias_varparam}
+{-------------------------- 325 ladder__rung15_layout_arr_of_ptr_alias_varparam}
 program arr_ptr_varparam_alias(output);
 type
   PR = ^R;
@@ -5898,7 +5912,7 @@ begin
   Fill(g, 10);
   writeln(g[1]^.f, ' ', g[3]^.f);
 end.
-{------------------------------ 325 ladder__rung15_layout_arr_of_ptr_valueparam}
+{------------------------------ 326 ladder__rung15_layout_arr_of_ptr_valueparam}
 program arr_ptr_valueparam(output);
 type
   PR = ^R;
@@ -5918,7 +5932,7 @@ begin
   for i := 1 to 3 do begin new(g[i]); g[i]^.f := i * 5; end;
   writeln(Sum(g));
 end.
-{------------------------------------------ 326 program_record_packed_replace_1}
+{------------------------------------------ 327 program_record_packed_replace_1}
 program mir3(output);
 type
   sf = (scalar,subrange,pointer,arrays);
@@ -5938,7 +5952,7 @@ begin
   writeln(ord(lsp^.form));
   writeln(lsp^.min.ival)
 end.
-{----------------------------------------------------------- 327 benchmark_perm}
+{----------------------------------------------------------- 328 benchmark_perm}
 (* PROVENANCE: Hennessy "Perm" — Stanford integer benchmark suite
    (John L. Hennessy, Stanford, c.1981; public domain). Recursive permutation
    generation; output = pctr (call count), correct value 43300 (=5*P(7), P(7)=8660).
@@ -5975,7 +5989,7 @@ begin
   end;
   writeln(pctr)
 end.
-{--------------------------------------------------------- 328 benchmark_bubble}
+{--------------------------------------------------------- 329 benchmark_bubble}
 (* PROVENANCE: Hennessy "Bubble" — Stanford integer benchmark suite
    (John L. Hennessy, Stanford, c.1981; long-circulated, public domain).
    Algorithm/constants per llvm-test-suite Stanford C port
@@ -6013,7 +6027,7 @@ begin
   writeln(sortlist[1]);
   writeln(sortlist[srtelements])
 end.
-{---------------------------------------- 329 program_procedure_array_replace_3}
+{---------------------------------------- 330 program_procedure_array_replace_3}
 (* PB-32: minimal programme->block->body chain, no decls
    mirrors pcom token flow for "program x; begin end." 
    token stream: period(progsy-done)->beginsy->endsy->period *)
@@ -6098,7 +6112,7 @@ begin
   writeln(ncycles);
   writeln(nstmts)
 end.
-{---------------------------------------- 330 program_procedure_array_replace_8}
+{---------------------------------------- 331 program_procedure_array_replace_8}
 (* PB-32: minimal programme->block->body chain, no decls
    mirrors pcom token flow for "program x; begin end." 
    token stream: period(progsy-done)->beginsy->endsy->period *)
@@ -6183,7 +6197,7 @@ begin
   writeln(ncycles);
   writeln(nstmts)
 end.
-{--------------------------------------- 331 program_procedure_array_replace_10}
+{--------------------------------------- 332 program_procedure_array_replace_10}
 (* PB-34: Test complex repeat-until with eof()-like sentinel
    Simulates block()'s outer repeat: until (sy in statbegsys) or done
    where "done" is an integer boolean flag (like eof check)
@@ -6269,7 +6283,7 @@ begin
   writeln(ncycles);
   writeln(nstmts)
 end.
-{---------------------------------------- 332 program_procedure_array_replace_5}
+{---------------------------------------- 333 program_procedure_array_replace_5}
 (* PB-34: Test complex repeat-until with eof()-like sentinel
    Simulates block()'s outer repeat: until (sy in statbegsys) or done
    where "done" is an integer boolean flag (like eof check)
@@ -6355,7 +6369,7 @@ begin
   writeln(ncycles);
   writeln(nstmts)
 end.
-{---------------------------------------- 333 program_procedure_array_replace_4}
+{---------------------------------------- 334 program_procedure_array_replace_4}
 (* PB-33: exact "program x; begin end." chain
    When block_sim is called: sy=beginsy(31)
    insymbol -> sy=endsy(39)
@@ -6446,7 +6460,7 @@ begin
   writeln(ncycles);
   writeln(nstmts)
 end.
-{---------------------------------------- 334 program_procedure_array_replace_9}
+{---------------------------------------- 335 program_procedure_array_replace_9}
 (* PB-33: exact "program x; begin end." chain
    When block_sim is called: sy=beginsy(31)
    insymbol -> sy=endsy(39)
@@ -6537,7 +6551,7 @@ begin
   writeln(ncycles);
   writeln(nstmts)
 end.
-{---------------------------------------- 335 program_procedure_array_replace_2}
+{---------------------------------------- 336 program_procedure_array_replace_2}
 (* PB-31: full programme->block->body->statement chain simulation
    mirrors pcom token flow for "program hello; begin writeln(...) end." *)
 program pb31(output);
@@ -6634,7 +6648,7 @@ begin
   writeln(nstmts);
   writeln(ndecls)
 end.
-{---------------------------------------- 336 program_procedure_array_replace_7}
+{---------------------------------------- 337 program_procedure_array_replace_7}
 (* PB-31: full programme->block->body->statement chain simulation
    mirrors pcom token flow for "program hello; begin writeln(...) end." *)
 program pb31(output);
@@ -6731,7 +6745,7 @@ begin
   writeln(nstmts);
   writeln(ndecls)
 end.
-{------------------------------- 337 ladder__rung12_fill_with_records_and_procs}
+{------------------------------- 338 ladder__rung12_fill_with_records_and_procs}
 {$mode objfpc}
 program fill_with_records_and_procs;
 type
@@ -6764,7 +6778,7 @@ begin
   g[2] := 0;
   writeln(total, ' ', sum_grid(g));
 end.
-{---------------------------------------------------------- 338 benchmark_quick}
+{---------------------------------------------------------- 339 benchmark_quick}
 (* PROVENANCE: Hennessy "Quick" — Stanford integer benchmark suite
    (John L. Hennessy, Stanford, c.1981; public domain). Hoare quicksort.
    Algorithm/constants per llvm-test-suite Stanford C port. Canonical RNG.
@@ -6805,7 +6819,7 @@ begin
   writeln(sortlist[1]);
   writeln(sortlist[srtelements])
 end.
-{----------------------------------- 339 ladder__rung13_ptr_with_fill_and_procs}
+{----------------------------------- 340 ladder__rung13_ptr_with_fill_and_procs}
 {$mode objfpc}
 program ptr_with_fill_and_procs;
 type
@@ -6845,7 +6859,7 @@ begin
   for i := 1 to 3 do write(cells[i].count, cells[i].mark, ' ');
   writeln;
 end.
-{--------------------------------------------- 340 program_array_case_replace_1}
+{--------------------------------------------- 341 program_array_case_replace_1}
 program charcode(output);
 { #n and #$h are character literals of ordinal n, #0 included: in an expression, a constant definition, a subrange bound and a case label. }
 const nul = #0; bell = #7; big = #$41;
