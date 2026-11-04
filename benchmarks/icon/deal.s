@@ -1857,7 +1857,7 @@ n67_iterate_α:          sub              rsp, 32
                         cmp              al, 104;                             jne   .Literate_α_215_999
                         add              rsp, 32
                         add              rsp, 80;                             jmp   n70_line_mark_α
-.Literate_α_215_999:    push             rax                                  # gc_poll bb_iterate.cpp:38
+.Literate_α_215_999:    push             rax                                  # gc_poll bb_iterate.cpp:40
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -2948,7 +2948,7 @@ n00010_iterate_α:         sub              rsp, 32
                         cmp              al, 104;                             jne   .Literate_α_281_999
                         add              rsp, 32
                         add              rsp, 80;                             jmp   n00008_line_mark_α
-.Literate_α_281_999:    push             rax                                  # gc_poll bb_iterate.cpp:38
+.Literate_α_281_999:    push             rax                                  # gc_poll bb_iterate.cpp:40
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -12020,7 +12020,7 @@ n00310_iterate_α:        sub              rsp, 32
                         cmp              al, 104;                             jne   .Literate_α_1053_999
                         add              rsp, 32
                         add              rsp, 16;                             jmp   n00311_line_mark_α
-.Literate_α_1053_999:   push             rax                                  # gc_poll bb_iterate.cpp:38
+.Literate_α_1053_999:   push             rax                                  # gc_poll bb_iterate.cpp:40
                         mov              rax, qword ptr [rip + g_gc_pending@GOTPCREL]
                         mov              eax, dword ptr [rax + 0]
                         test             eax, eax
@@ -15163,46 +15163,64 @@ module_init:
 .Lstartup_ign16:        .string          "real"
 .Lstartup_ign17:        .string          "put"
 .Lstartup_ign18:        .string          "table"
+.Lstartup_ign19:        .string          "deck"
+.Lstartup_ign20:        .string          "deckimage"
+.Lstartup_ign21:        .string          "handsize"
+.Lstartup_ign22:        .string          "suitsize"
+.Lstartup_ign23:        .string          "denom"
+.Lstartup_ign24:        .string          "rank"
+.Lstartup_ign25:        .string          "blanker"
+.Lstartup_ign26:        .string          "display__STATIC__bar"
+.Lstartup_ign27:        .string          "display__STATIC__offset"
+.Lstartup_ign28:        .string          "display__INITFLAG__0"
+.Lstartup_ign29:        .string          "show__STATIC__clubmap"
+.Lstartup_ign30:        .string          "show__STATIC__diamondmap"
+.Lstartup_ign31:        .string          "show__STATIC__heartmap"
+.Lstartup_ign32:        .string          "show__STATIC__spademap"
+.Lstartup_ign33:        .string          "show__INITFLAG__0"
+                        .section         .data.rel.ro,"aw",@progbits
+                        .balign          8
+                        .quad            4851575594099624754
+                        .quad            304
+                        .quad            0
+                        .quad            0
+.Lstartup_gnames:
+                        .quad            .Lstartup_ign0
+                        .quad            .Lstartup_ign1
+                        .quad            .Lstartup_ign2
+                        .quad            .Lstartup_ign3
+                        .quad            .Lstartup_ign4
+                        .quad            .Lstartup_ign5
+                        .quad            .Lstartup_ign6
+                        .quad            .Lstartup_ign7
+                        .quad            .Lstartup_ign8
+                        .quad            .Lstartup_ign9
+                        .quad            .Lstartup_ign10
+                        .quad            .Lstartup_ign11
+                        .quad            .Lstartup_ign12
+                        .quad            .Lstartup_ign13
+                        .quad            .Lstartup_ign14
+                        .quad            .Lstartup_ign15
+                        .quad            .Lstartup_ign16
+                        .quad            .Lstartup_ign17
+                        .quad            .Lstartup_ign18
+                        .quad            .Lstartup_ign19
+                        .quad            .Lstartup_ign20
+                        .quad            .Lstartup_ign21
+                        .quad            .Lstartup_ign22
+                        .quad            .Lstartup_ign23
+                        .quad            .Lstartup_ign24
+                        .quad            .Lstartup_ign25
+                        .quad            .Lstartup_ign26
+                        .quad            .Lstartup_ign27
+                        .quad            .Lstartup_ign28
+                        .quad            .Lstartup_ign29
+                        .quad            .Lstartup_ign30
+                        .quad            .Lstartup_ign31
+                        .quad            .Lstartup_ign32
+                        .quad            .Lstartup_ign33
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_ign0]
-                        call             rt_icn_global_note@PLT
-                        lea              rdi, [rip + .Lstartup_ign1]
-                        call             rt_icn_global_note@PLT
-                        lea              rdi, [rip + .Lstartup_ign2]
-                        call             rt_icn_global_note@PLT
-                        lea              rdi, [rip + .Lstartup_ign3]
-                        call             rt_icn_global_note@PLT
-                        lea              rdi, [rip + .Lstartup_ign4]
-                        call             rt_icn_global_note@PLT
-                        lea              rdi, [rip + .Lstartup_ign5]
-                        call             rt_icn_global_note@PLT
-                        lea              rdi, [rip + .Lstartup_ign6]
-                        call             rt_icn_global_note@PLT
-                        lea              rdi, [rip + .Lstartup_ign7]
-                        call             rt_icn_global_note@PLT
-                        lea              rdi, [rip + .Lstartup_ign8]
-                        call             rt_icn_global_note@PLT
-                        lea              rdi, [rip + .Lstartup_ign9]
-                        call             rt_icn_global_note@PLT
-                        lea              rdi, [rip + .Lstartup_ign10]
-                        call             rt_icn_global_note@PLT
-                        lea              rdi, [rip + .Lstartup_ign11]
-                        call             rt_icn_global_note@PLT
-                        lea              rdi, [rip + .Lstartup_ign12]
-                        call             rt_icn_global_note@PLT
-                        lea              rdi, [rip + .Lstartup_ign13]
-                        call             rt_icn_global_note@PLT
-                        lea              rdi, [rip + .Lstartup_ign14]
-                        call             rt_icn_global_note@PLT
-                        lea              rdi, [rip + .Lstartup_ign15]
-                        call             rt_icn_global_note@PLT
-                        lea              rdi, [rip + .Lstartup_ign16]
-                        call             rt_icn_global_note@PLT
-                        lea              rdi, [rip + .Lstartup_ign17]
-                        call             rt_icn_global_note@PLT
-                        lea              rdi, [rip + .Lstartup_ign18]
-                        call             rt_icn_global_note@PLT
                         .section         .data.rel.ro,"aw",@progbits
 .Lstartup_rootnm:       .string          "main"
 .Lstartup_ipp00385_0:    .string          "args"
@@ -15232,13 +15250,6 @@ module_init:
                         .long            -1
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_rootnm]
-                        lea              rsi, [rip + .Lstartup_ipnames9000]
-                        mov              edx, 1
-                        lea              rcx, [rip + .Lstartup_ilnames9000]
-                        mov              r8d, 5
-                        lea              r9, [rip + .Lstartup_iloffs9000]
-                        call             rt_proc_loc_add@PLT
                         .section         .data.rel.ro,"aw",@progbits
 .Lstartup_pname0:       .string          "display"
 .Lstartup_iln0_0:       .string          "layout"
@@ -15270,13 +15281,6 @@ module_init:
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec0]
                         call             rt_proc_register_rec@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        xor              esi, esi
-                        xor              edx, edx
-                        lea              rcx, [rip + .Lstartup_ilnames0]
-                        mov              r8d, 2
-                        lea              r9, [rip + .Lstartup_iloffs0]
-                        call             rt_proc_loc_add@PLT
                         .section         .data.rel.ro,"aw",@progbits
 .Lstartup_pname1:       .string          "show"
 .Lstartup_ipp1_0:       .string          "hand"
@@ -15302,13 +15306,6 @@ module_init:
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec1]
                         call             rt_proc_register_rec@PLT
-                        lea              rdi, [rip + .Lstartup_pname1]
-                        lea              rsi, [rip + .Lstartup_ipnames1]
-                        mov              edx, 1
-                        xor              ecx, ecx
-                        xor              r8d, r8d
-                        xor              r9d, r9d
-                        call             rt_proc_loc_add@PLT
                         .section         .data.rel.ro,"aw",@progbits
 .Lstartup_pname2:       .string          "arrange"
 .Lstartup_ipp2_0:       .string          "hand"
@@ -15336,13 +15333,6 @@ module_init:
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec2]
                         call             rt_proc_register_rec@PLT
-                        lea              rdi, [rip + .Lstartup_pname2]
-                        lea              rsi, [rip + .Lstartup_ipnames2]
-                        mov              edx, 2
-                        xor              ecx, ecx
-                        xor              r8d, r8d
-                        xor              r9d, r9d
-                        call             rt_proc_loc_add@PLT
                         .section         .data.rel.ro,"aw",@progbits
 .Lstartup_pname3:       .string          "options"
 .Lstartup_ipp3_0:       .string          "arg"
@@ -15405,13 +15395,6 @@ module_init:
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec3]
                         call             rt_proc_register_rec@PLT
-                        lea              rdi, [rip + .Lstartup_pname3]
-                        lea              rsi, [rip + .Lstartup_ipnames3]
-                        mov              edx, 2
-                        lea              rcx, [rip + .Lstartup_ilnames3]
-                        mov              r8d, 10
-                        lea              r9, [rip + .Lstartup_iloffs3]
-                        call             rt_proc_loc_add@PLT
                         .section         .data.rel.ro,"aw",@progbits
 .Lstartup_pname4:       .string          "shuffle"
 .Lstartup_ipp4_0:       .string          "x"
@@ -15437,13 +15420,6 @@ module_init:
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec4]
                         call             rt_proc_register_rec@PLT
-                        lea              rdi, [rip + .Lstartup_pname4]
-                        lea              rsi, [rip + .Lstartup_ipnames4]
-                        mov              edx, 1
-                        xor              ecx, ecx
-                        xor              r8d, r8d
-                        xor              r9d, r9d
-                        call             rt_proc_loc_add@PLT
                         .section         .data.rel.ro,"aw",@progbits
 .Lstartup_rootcall:     .string          "main"
                         .align           8
@@ -15463,8 +15439,70 @@ module_init:
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec_root]
                         call             rt_proc_register_rec@PLT
+                        lea              rdi, [rip + .Lstartup_gnames]
+                        mov              esi, 34
+                        lea              rdx, [rip + .Lstartup_icn_loc]
+                        mov              ecx, 6
+                        call             rt_icn_tabs_install@PLT
                         add              rsp, 8
                         ret
+                        .section         .data.rel.ro,"aw",@progbits
+                        .balign          8
+                        .quad            4851575594099624754
+                        .quad            320
+                        .quad            0
+                        .quad            0
+.Lstartup_icn_loc:
+                        .quad            .Lstartup_rootnm
+                        .quad            .Lstartup_ilnames9000
+                        .long            5
+                        .long            0
+                        .quad            .Lstartup_iloffs9000
+                        .quad            .Lstartup_ipnames9000
+                        .long            1
+                        .long            0
+                        .quad            .Lstartup_pname0
+                        .quad            .Lstartup_ilnames0
+                        .long            2
+                        .long            0
+                        .quad            .Lstartup_iloffs0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .quad            .Lstartup_pname1
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .quad            0
+                        .quad            .Lstartup_ipnames1
+                        .long            1
+                        .long            0
+                        .quad            .Lstartup_pname2
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .quad            0
+                        .quad            .Lstartup_ipnames2
+                        .long            2
+                        .long            0
+                        .quad            .Lstartup_pname3
+                        .quad            .Lstartup_ilnames3
+                        .long            10
+                        .long            0
+                        .quad            .Lstartup_iloffs3
+                        .quad            .Lstartup_ipnames3
+                        .long            2
+                        .long            0
+                        .quad            .Lstartup_pname4
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .quad            0
+                        .quad            .Lstartup_ipnames4
+                        .long            1
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
                         .section         .data.rel.ro,"aw",@progbits
                         .align           8
 __gc_frame_maps:        .quad            6
