@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=582 features=39 ubiquitous=3(write nl directive) distinctive=36 core=47 clusters=65 chunks=6 sizes=100,100,100,100,100,35
+# shape: entries=584 features=39 ubiquitous=3(write nl directive) distinctive=36 core=47 clusters=65 chunks=6 sizes=100,100,100,100,100,37
 entry	part	cluster	shells
 write_family_writeln_1	chunk:01	family:ladder	
 directive_32	chunk:06	family:rung22_write_canonical	
@@ -64,6 +64,7 @@ global_vars_b_setval_getval_1	chunk:01	family:ladder
 global_vars_b_setval_trails_on_backtrack_1	chunk:01	family:ladder	
 global_vars_nb_setval_getval_1	chunk:01	family:ladder	
 init_directive_1	chunk:01	family:ladder	
+ladder__rung01_rule_ssu_over_a_long_list	chunk:01	family:ladder	
 ladder__rung06_term_compare_iso_number_compares_by_value_float_first_when_equal	chunk:01	family:ladder	
 misc17_halt_0_1	chunk:01	family:ladder	
 misc17_halt_1_status_1	chunk:01	family:ladder	
@@ -138,7 +139,7 @@ directive_51	chunk:05	family:rung24_string_io
 directive_52	chunk:05	family:rung24_string_io	
 directive_57	chunk:05	family:rung25	
 directive_58	chunk:05	family:rung25_term_string	
-directive_60	chunk:05	family:rung25_term_string	
+directive_60	chunk:06	family:rung25_term_string	
 directive_61	chunk:06	family:rung26	
 directive_62	chunk:06	family:rung26	
 directive_63	chunk:06	family:rung26	
@@ -167,7 +168,7 @@ directive_34	chunk:05	family:rung23
 directive_37	chunk:05	family:rung23	
 directive_48	chunk:05	family:rung24_string_io	
 directive_50	chunk:05	family:rung24_string_io	
-directive_59	chunk:05	family:rung25_term_string	
+directive_59	chunk:06	family:rung25_term_string	
 directive_68	chunk:05	family:rung27	
 directive_69	chunk:05	family:rung27	
 directive_70	chunk:05	family:rung27	
@@ -175,7 +176,7 @@ directive_72	chunk:05	family:rung27
 directive_75	chunk:05	family:rung29	
 directive_76	chunk:05	family:rung29	
 evaluable_exp_log_sqrt_1	chunk:01	family:ladder	
-evaluable_sign_1	chunk:01	family:ladder	
+evaluable_sign_1	chunk:02	family:ladder	
 evaluable_sin_cos_atan_1	chunk:02	family:ladder	
 index_directive_1	chunk:02	family:ladder	
 indexing_distinct_constant_first_args_1	chunk:02	family:ladder	
@@ -191,8 +192,8 @@ clause_choice_three_clauses_enumerate_1	chunk:02	family:ladder
 declarations_discontiguous_1	chunk:02	family:ladder	
 directive_20	chunk:04	family:rung12_atom_builtins	
 directive_21	chunk:04	family:rung12_atom_builtins	
-directive_22	chunk:04	family:rung12_atom_builtins	
-directive_23	chunk:04	family:rung12_atom_builtins	
+directive_22	chunk:05	family:rung12_atom_builtins	
+directive_23	chunk:05	family:rung12_atom_builtins	
 directive_38	chunk:05	family:rung23_arith_ext	
 directive_71	chunk:05	family:rung27	
 directive_74	chunk:05	family:rung29	
@@ -256,7 +257,7 @@ repeat_repeat_with_cut_1	chunk:03	feat:cut	cut
 streams_current_input_1	chunk:02	feat:if_then_else	if_then_else
 streams_stream_term_1	chunk:02	feat:unify	unify
 sub_atom_empty_substring_1	chunk:02	feat:if_then_else	if_then_else
-sub_atom_enumerate_all_1	chunk:03	feat:findall	findall
+sub_atom_enumerate_all_1	chunk:04	feat:findall	findall
 sub_atom_find_substring_1	chunk:02	feat:if_then_else	if_then_else
 term_compare_standard_order_lt_1	chunk:02	feat:if_then_else	if_then_else
 term_compare_term_eq_1	chunk:02	feat:if_then_else	if_then_else
@@ -299,7 +300,7 @@ cut_directive_2	chunk:03	feat:cut	cut
 cut_directive_3	chunk:03	feat:cut	cut
 cut_first_goal_1	chunk:03	feat:cut	cut
 declarations_op_3_1	chunk:06	feat:op	op
-findall_directive_2	chunk:03	feat:findall	findall
+findall_directive_2	chunk:04	feat:findall	findall
 ite_directive_3	chunk:02	feat:if_then_else	if_then_else
 ite_directive_5	chunk:02	feat:if_then_else	if_then_else
 ite_directive_6	chunk:02	feat:if_then_else	if_then_else
@@ -461,7 +462,7 @@ asserta_assertz_directive_1	core	core	asserta assertz
 findall_dcg_directive_1	chunk:04	feat:dcg	dcg findall
 ite_directive_replace_2	chunk:02	feat:unify	if_then_else unify
 call_directive_replace_4	chunk:03	feat:call	call unify
-ite_directive_replace_1	chunk:02	feat:unify	if_then_else unify
+ite_directive_replace_1	chunk:03	feat:unify	if_then_else unify
 termio_read_term_variable_names_1	chunk:04	feat:findall	findall unify
 ite_writeq_directive_2	chunk:04	feat:writeq	if_then_else writeq
 catch_ite_directive_3	chunk:03	feat:catch	catch if_then_else
@@ -574,6 +575,7 @@ assertz_retract_ite_1	chunk:04	feat:assert_then_retract	assert_then_retract asse
 catch_assertz_abolish_1	core	core	abolish assertz catch unify
 catch_ite_directive_replace_2	chunk:06	feat:var	catch if_then_else unify var
 catch_throw_directive_replace_1	core	core	catch catch_with_throw throw unify
+ladder__rung01_rule_ssu_head_matching	chunk:03	feat:list_cons	catch if_then_else list_cons unify
 findall_cut_ite_replace_1	chunk:04	feat:findall	cut findall if_then_else unify
 retract_retract_clause_with_body_1	core	core	assert_then_retract assertz catch if_then_else retract
 ladder__rung05_negation_over_a_call_after_a_first_write_survives_a_retry	core	core	if_then_else list_cons negation unify writeq
