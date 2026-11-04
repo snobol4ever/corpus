@@ -41,3 +41,5 @@ step	slug	executor	depends	probe
 36	one-whole-root-worktree-helper-four-repos-the-build-fetched-under-the-cap	cio	18	bash harness/scripts/s4e_worktree.sh --probe | grep -E '^WORKTREE repos=4 build=fetched size_mb=[0-9]+ '
 37	the-unread-banner-prints-a-heading-once-per-arrival	cio	-	bash harness/scripts/s4e_msg.sh banner --probe-once | grep -E '^BANNER headings_reprinted=0 '
 38	the-sweep-selects-rows-whose-inputs-moved-since-their-last-reading-under-a-per-row-budget	cio	8,28	bash harness/scripts/s4e_msg.sh sweep --plant-selection | grep -E '^SWEEP selected=[0-9]+ skipped_unchanged=[1-9][0-9]* budget_s=60 lock_held_s=[0-4]( |$)'
+39	the-fleet-outcome-ledger-is-written-every-tick-and-its-bars-hold-over-a-day	cio	10,28	bash harness/scripts/test_gate_fleet_outcomes.sh | grep -E '^FLEET window_h=24 ticks=[1-9][0-9]* idle_with_work_min=0 hand_wakes=0 lock_refusals=0 unanswered_wake_min=0 '
+40	the-controller-fast-forwards-every-roots-harness-and-runs-every-landed-step-probe-each-lap	cio	39	bash harness/scripts/test_gate_fleet_lap.sh | grep -E '^LAP age_min=([0-9]|[1-5][0-9]) roots_behind=0 steps_landed=[1-9][0-9]* steps_red=0 '
