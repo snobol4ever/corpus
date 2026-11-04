@@ -109,8 +109,9 @@ main :-
     t(sleep(-1)),
     t(sleep(_)),
     p(temporary_name_keeps_the_prefix, (temporary_name('/tmp/gnu_drvXXXXXX', T1), atom(T1), sub_atom(T1, 0, _, _, '/tmp/gnu_drv'))),
+    % gprolog's temporary_file/3 is glibc tempnam, which puts the file under $TMPDIR when it is set (a fleet runner sets one per seat), and the six random characters may begin with r: the check reads the base name only, five prefix characters then six.
     p(temporary_file_names_a_path_under_the_directory_with_the_prefix_cut_to_five,
-      (temporary_file('/tmp', gnu_drv_tf, T2), atom(T2), sub_atom(T2, 0, _, _, '/tmp/gnu_d'), \+ sub_atom(T2, 0, _, _, '/tmp/gnu_dr'))),
+      (temporary_file('/tmp', gnu_drv_tf, T2), atom(T2), atom_concat(Dir2, Base2, T2), sub_atom(Dir2, _, 1, 0, '/'), \+ sub_atom(Base2, _, _, _, '/'), atom_length(Base2, 11), sub_atom(Base2, 0, 5, _, 'gnu_d'))),
     p(date_time_is_a_dt_term_this_century, (date_time(dt(Y, Mo, Dy, H, Mi, S)), integer(Y), Y > 2000, integer(Mo), integer(Dy),
        integer(H), integer(Mi), integer(S))),
     p(host_name_is_an_atom, (host_name(Hn), atom(Hn))),
