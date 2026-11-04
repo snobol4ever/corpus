@@ -182,7 +182,7 @@ procedure p13()
    every writes(" ", "a:" | !sort(a) | "\n");
 end
 
-procedure main()
+procedure main();
    &random := 0;
    p1();
    p2();

@@ -6,36 +6,36 @@
 #  writes the corresponding prefix expressions to standard output.
 
 procedure main()
-   while write(prefix(read()))
+   while write(prefix(read()));
 end
 
 procedure prefix(s)
-   s := strip(s)
-   return lassoc(s,'+-' | '*/') | rassoc(s,'^') | s
+   s := strip(s);
+   return lassoc(s,'+-' | '*/') | rassoc(s,'^') | s;
 end
 
 procedure strip(s)
-   while s ? (="(" & s <- tab(bal(')')) & pos(-1))
-   return s
+   while s ? (="(" & s <- tab(bal(')')) & pos(-1));
+   return s;
 end
 
 procedure lassoc(s,c)
-   local j
-   s ? every j := bal(c)
-   return form(s,\j)
+   local j;
+   s ? every j := bal(c);
+   return form(s,\j);
 end
 
 procedure rassoc(s,c)
-   local j
-   return form(s,s ? bal(c))
+   local j;
+   return form(s,s ? bal(c));
 end
 
 procedure form(s,k)
-   local a1, a2, op
+   local a1, a2, op;
    s ? $(
-      a1 := tab(k)
-      op := move(1)
+      a1 := tab(k);
+      op := move(1);
       a2 := tab(0)
-      $)
-   return op || "(" || prefix(a1) || "," || prefix(a2) || ")"
+      $);
+   return op || "(" || prefix(a1) || "," || prefix(a2) || ")";
 end

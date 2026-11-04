@@ -1,8 +1,8 @@
 global s
-procedure main()
+procedure main();
    &random := 0; &trace := -1;
-   s := "abcdef"
-   &subject := "123456"
+   s := "abcdef";
+   &subject := "123456";
    &pos := 4;
    every tracer(1);
    every foo(&pos | &subject | &pos[1] | &subject[2:5]);

@@ -116,7 +116,7 @@ end
 procedure marklists(l)
 local e;
 
-   if /l then return
+   if /l then return;
    every e := !l do {
       distab[e] := "X";
       marklists(dlists[e])

@@ -2,9 +2,9 @@
 # Tests: ??, ->, ||, Arb(), string literals
 
 procedure main()
-   out := &output
+   out := &output;
    while s := read() do {
-      s ?? "a" || Arb() -> out || "a"
+      s ?? "a" || Arb() -> out || "a";
       s ?? "t" || Arb() -> out || "mm"
-      }
+      };
 end

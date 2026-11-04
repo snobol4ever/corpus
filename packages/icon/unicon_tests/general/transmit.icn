@@ -2,7 +2,7 @@ global words, lines, writer
 
 procedure main()
    if not(&features == "co-expressions") then
-      stop("co-expressions not supported")
+      stop("co-expressions not supported");
    &trace := -1;
 
    words := create word();

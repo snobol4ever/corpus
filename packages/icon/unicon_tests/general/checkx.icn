@@ -5,7 +5,7 @@ procedure dummy(u,v,x,y,z)
    return x;
 end
 
-procedure main()
+procedure main();
    &random := 0; # for testing purposes
    p1();
    p2();

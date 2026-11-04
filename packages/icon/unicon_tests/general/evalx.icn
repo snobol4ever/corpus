@@ -213,7 +213,7 @@ procedure p16()
    write("y ----> ",image(y) | "none");
 end
 
-procedure main()
+procedure main();
    &random := 0; # for testing purposes
    p1();
    p2();

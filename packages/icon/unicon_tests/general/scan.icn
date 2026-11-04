@@ -50,7 +50,7 @@ procedure p4()
    write("\"abcdef\" ? (tab(0) & (while write(move(-1)))) ----> ",image("abcdef" ? (tab(0) & (while write(move(-1))))) | "none");
 end
 
-procedure main()
+procedure main();
    &random := 0; # for testing purposes
    p1();
    p2();

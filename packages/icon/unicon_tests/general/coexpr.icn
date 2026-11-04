@@ -49,7 +49,7 @@ procedure main()
    write(image(@trim) | "failed");
    write(image(write(image(trim))) | "failed");
    write(image(write(image(tab))) | "failed");
-   write(image(write(image(main))) | "failed")
+   write(image(write(image(main))) | "failed");
    &trace := -1;
    dummy{1,2,3,4};
    dummy{};
@@ -59,7 +59,7 @@ procedure main()
    dummy(image("|||"([],[])));
    dummy("+"(1,2));
    dummy("+"(1));
-   dummy("image"(image(image)))
+   dummy("image"(image(image)));
    &trace := 0;
 collect(); 
    e := create writer(1 to 4);

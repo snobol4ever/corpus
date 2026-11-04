@@ -178,7 +178,7 @@ procedure p9()
    write(image(&output) | "failed");
    write(image(&phi) | "failed");
    write(image(&pi) | "failed");
-   write(image(&pos) | "failed")
+   write(image(&pos) | "failed");
    &random := 0; # for testing purposes
    write(image(&random) | "failed");
    write(image(&subject) | "failed");

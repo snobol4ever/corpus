@@ -119,9 +119,9 @@ procedure live_test()
    # of wedging CI.  5s is generous for a local/LAN printf.
    got := "";
    every 1 to 50 do {
-      L := select(s, 100) | break
+      L := select(s, 100) | break;
       if *L = 0 then next;
-      chunk := reads(s, 64) | break
+      chunk := reads(s, 64) | break;
       got ||:= chunk;
       if find("partial_ssh_line", got) then break
       };

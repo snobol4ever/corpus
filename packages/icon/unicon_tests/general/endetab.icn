@@ -30,14 +30,14 @@ procedure ferr (err, func, args)
    val := "";
    every val ||:= image(!args) || ",";
    val := val[1:-1];
-   msg := "oops -- " || image(func) || "(" || val || ") "
+   msg := "oops -- " || image(func) || "(" || val || ") ";
    &error := 1;
    if func!args
       then write (msg, "succeeded")
    else if &error ~= 0
       then write (msg, "failed but no error")
    else if &errornumber ~= err
-      then write (msg, "got error ",&errornumber," instead of ",err)
+      then write (msg, "got error ",&errornumber," instead of ",err);
    &error := 0;
    return;
    end

@@ -10,8 +10,8 @@ record X(x)
 
 #============================= main =========================
 
-procedure main(argl)
-&trace:=-1
+procedure main(argl);
+&trace:=-1;
 &random:=0;
 if not (&features == "operator overloading") then
       stop("This program requires operator overloading.");

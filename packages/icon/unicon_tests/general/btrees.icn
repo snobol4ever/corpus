@@ -21,7 +21,7 @@ end
 
 procedure tform(s)
    local value,left,right;
-   if /s then return
+   if /s then return;
    s ? if value := tab(upto('(')) then {
       move(1);
       left := tab(bal(','));

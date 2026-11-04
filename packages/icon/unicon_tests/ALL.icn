@@ -720,7 +720,7 @@ end
 
 procedure tform(s)
    local value,left,right;
-   if /s then return
+   if /s then return;
    s ? if value := tab(upto('(')) then {
       move(1);
       left := tab(bal(','));
@@ -942,7 +942,7 @@ procedure p9()
    write(image(&output) | "failed");
    write(image(&phi) | "failed");
    write(image(&pi) | "failed");
-   write(image(&pos) | "failed")
+   write(image(&pos) | "failed");
    &random := 0; # for testing purposes
    write(image(&random) | "failed");
    write(image(&subject) | "failed");
@@ -960,7 +960,7 @@ procedure main()
    write("produced in local tests are approximately the same in magnitude");
    write("as shown in the standard results, there's nothing to worry about.");
    write("In addition, some platforms may show 0.0 as \"-0.0\".  You can");
-   write("ignore this if you wish.")
+   write("ignore this if you wish.");
    &random := 0; # for testing purposes
    p1();
    p2();
@@ -1089,7 +1089,7 @@ procedure main()
    write("produced in local tests are approximately the same in magnitude");
    write("as shown in the standard results, there's nothing to worry about.");
    write("In addition, some platforms may show 0.0 as \"-0.0\".  You can");
-   write("ignore this if you wish.")
+   write("ignore this if you wish.");
    &random := 0; # for testing purposes
    p1();
    p2();
@@ -1217,7 +1217,7 @@ procedure dummy(u,v,x,y,z)
    return x;
 end
 
-procedure main()
+procedure main();
    &random := 0; # for testing purposes
    p1();
    p2();
@@ -1636,7 +1636,7 @@ procedure main()
    write(image(@trim) | "failed");
    write(image(write(image(trim))) | "failed");
    write(image(write(image(tab))) | "failed");
-   write(image(write(image(main))) | "failed")
+   write(image(write(image(main))) | "failed");
    &trace := -1;
    dummy{1,2,3,4};
    dummy{};
@@ -1646,7 +1646,7 @@ procedure main()
    dummy(image("|||"([],[])));
    dummy("+"(1,2));
    dummy("+"(1));
-   dummy("image"(image(image)))
+   dummy("image"(image(image)));
    &trace := 0;
 collect(); 
    e := create writer(1 to 4);
@@ -1820,14 +1820,14 @@ procedure ferr (err, func, args)
    val := "";
    every val ||:= image(!args) || ",";
    val := val[1:-1];
-   msg := "oops -- " || image(func) || "(" || val || ") "
+   msg := "oops -- " || image(func) || "(" || val || ") ";
    &error := 1;
    if func!args
       then write (msg, "succeeded")
    else if &error ~= 0
       then write (msg, "failed but no error")
    else if &errornumber ~= err
-      then write (msg, "got error ",&errornumber," instead of ",err)
+      then write (msg, "got error ",&errornumber," instead of ",err);
    &error := 0;
    return;
    end
@@ -2114,7 +2114,7 @@ procedure p8()
       image((-36. ^ -9.) | monitor(&line)) | "none");
 end
 
-procedure main()
+procedure main();
    &error := -1;
    p1();
    p2();
@@ -2353,7 +2353,7 @@ procedure p16()
    write("y ----> ",image(y) | "none");
 end
 
-procedure main()
+procedure main();
    &random := 0; # for testing purposes
    p1();
    p2();
@@ -2663,46 +2663,46 @@ record charset(chars)
 record query(name)
 
 procedure main(x)
-   local line, plist
-   &random:=0
-   plist := [define,generate,grammar,source,comment,prompter,error]
-   defs := table()
-   defs["lb"] := [["<"]]
-   defs["rb"] := [[">"]]
-   defs["vb"] := [["|"]]
-   defs["nl"] := [["\n"]]
-   defs[""] := [[""]]
-   defs["&lcase"] := [[charset(&lcase)]]
-   defs["&ucase"] := [[charset(&ucase)]]
-   defs["&digit"] := [[charset('0123456789')]]
-   i := 0
+   local line, plist;
+   &random:=0;
+   plist := [define,generate,grammar,source,comment,prompter,error];
+   defs := table();
+   defs["lb"] := [["<"]];
+   defs["rb"] := [[">"]];
+   defs["vb"] := [["|"]];
+   defs["nl"] := [["\n"]];
+   defs[""] := [[""]];
+   defs["&lcase"] := [[charset(&lcase)]];
+   defs["&ucase"] := [[charset(&ucase)]];
+   defs["&digit"] := [[charset('0123456789')]];
+   i := 0;
    while i < *x do {
-      s := x[i +:= 1] | break
+      s := x[i +:= 1] | break;
       case s of {
-         "-t":   tswitch := 1
-         "-l":   limit := integer(x[i +:= 1]) | stop("usage: [-t] [-l n]")
+         "-t":   tswitch := 1;
+         "-l":   limit := integer(x[i +:= 1]) | stop("usage: [-t] [-l n]");
          default:   stop("usage: [-t] [-l n]")
          }
-      }
-   ifile := [&input]
-   prompt := ""
+      };
+   ifile := [&input];
+   prompt := "";
    test := ["<a>::=1|2|3","<a>10","->","<b>::=<a>|<a><a>|<b><b>","<b>5",
-      "<c>::=<b><b><b>","<c>100","<b>100"]
+      "<c>::=<b><b><b>","<c>100","<b>100"];
    every line := !test do {
-      (!plist)(line)
-      collect()
-      every write(&collections)
+      (!plist)(line);
+      collect();
+      every write(&collections);
       write("----------")
-      }
+      };
 end
 
 procedure comment(line)
-   if line[1] == "#" then return
+   if line[1] == "#" then return;
 end
 
 procedure define(line)
    return line ?
-      defs[(="<",tab(find(">::=")))] := (move(4),alts(tab(0)))
+      defs[(="<",tab(find(">::=")))] := (move(4),alts(tab(0)));
 end
 
 procedure defnon(sym)
@@ -2717,52 +2717,52 @@ procedure defnon(sym)
       name := tab(0)
       }
    then return query(name)
-   else return nonterm(sym)
+   else return nonterm(sym);
 end
 
 procedure error(line)
-   write("*** erroneous line:  ",line)
-   return
+   write("*** erroneous line:  ",line);
+   return;
 end
 
 procedure gener(goal)
-   local pending, genstr, symbol
+   local pending, genstr, symbol;
    repeat {
-      pending := [nonterm(goal)]
-      genstr := ""
+      pending := [nonterm(goal)];
+      genstr := "";
       while symbol := get(pending) do {
-         if \tswitch then write(genstr,symimage(symbol),listimage(pending))
+         if \tswitch then write(genstr,symimage(symbol),listimage(pending));
          case type(symbol) of {
-            "string":   genstr ||:= symbol
-            "charset":  genstr ||:= ?symbol.chars
+            "string":   genstr ||:= symbol;
+            "charset":  genstr ||:= ?symbol.chars;
             "query":    {
-               writes("*** supply string for ",symbol.name,"  ")
+               writes("*** supply string for ",symbol.name,"  ");
                genstr ||:= read() | {
-                  write("*** no value for query to ",symbol.name)
-                  suspend genstr
+                  write("*** no value for query to ",symbol.name);
+                  suspend genstr;
                   break next
                   }
-               }
+               };
             "nonterm":  {
                pending := ?\defs[symbol.name] ||| pending | {
-                  write("*** undefined nonterminal:  <",symbol.name,">")
-                  suspend genstr
+                  write("*** undefined nonterminal:  <",symbol.name,">");
+                  suspend genstr;
                   break next
-                  }
+                  };
                if *pending > \limit then {
-                  write("*** excessive symbols remaining")
-                  suspend genstr
+                  write("*** excessive symbols remaining");
+                  suspend genstr;
                   break next
                   }
                }
             }
-         }
+         };
       suspend genstr
-      }
+      };
 end
 
 procedure generate(line)
-   local goal, count
+   local goal, count;
    if line ? {
       ="<" &
       goal := tab(upto('>')) \ 1 &
@@ -2770,113 +2770,113 @@ procedure generate(line)
       count := (pos(0) & 1) | integer(tab(0))
       }
    then {
-      every write(gener(goal)) \ count
+      every write(gener(goal)) \ count;
       return
       }
-   else fail
+   else fail;
 end
 
 procedure getrhs(a)
-   local rhs
-   rhs := ""
-   every rhs ||:= sform(!a) || "|"
-   return rhs[1:-1]
+   local rhs;
+   rhs := "";
+   every rhs ||:= sform(!a) || "|";
+   return rhs[1:-1];
 end
 
 procedure grammar(line)
-   local file, out
+   local file, out;
    if line ? {
       name := tab(find("->")) &
       move(2) &
       file := tab(0) &
       out := if *file = 0 then &output else {
          open(file,"w") | {
-            write("*** cannot open ",file)
+            write("*** cannot open ",file);
             fail
             }
          }
       }
    then {
-      (*name = 0) | (name[1] == "<" & name[-1] == ">") | fail
-      pwrite(name,out)
-      if *file ~= 0 then close(out)
+      (*name = 0) | (name[1] == "<" & name[-1] == ">") | fail;
+      pwrite(name,out);
+      if *file ~= 0 then close(out);
       return
       }
-   else fail
+   else fail;
 end
 
 procedure listimage(a)
-   local s, x
-   s := ""
+   local s, x;
+   s := "";
    every x := !a do
-      s ||:= symimage(x)
-   return s
+      s ||:= symimage(x);
+   return s;
 end
 
 procedure alts(defn)
-   local alist
-   alist := []
-   defn ? while put(alist,syms(tab(many(~'|')))) do move(1)
-   return alist
+   local alist;
+   alist := [];
+   defn ? while put(alist,syms(tab(many(~'|')))) do move(1);
+   return alist;
 end
 
 procedure prompter(line)
    if line[1] == "=" then {
-      prompt := line[2:0]
+      prompt := line[2:0];
       return
-      }
+      };
 end
 
 procedure pwrite(name,ofile)
-   local nt, a
-   static builtin
-   initial builtin := ["lb","rb","vb","nl","","&lcase","&ucase","&digit"]
+   local nt, a;
+   static builtin;
+   initial builtin := ["lb","rb","vb","nl","","&lcase","&ucase","&digit"];
    if *name = 0 then {
-      a := sort(defs)
+      a := sort(defs);
       every nt := !a do {
-         if nt[1] == !builtin then next
+         if nt[1] == !builtin then next;
          write(ofile,"<",nt[1],">::=",getrhs(nt[2]))
          }
       }
    else write(ofile,name,"::=",getrhs(\defs[name[2:-1]])) |
-      write("*** undefined nonterminal:  ",name)
+      write("*** undefined nonterminal:  ",name);
 end
 
 procedure sform(alt)
-   local s, x
-   s := ""
+   local s, x;
+   s := "";
    every x := !alt do
       s ||:= case type(x) of {
-         "string":  x
-         "nonterm": "<" || x.name || ">"
+         "string":  x;
+         "nonterm": "<" || x.name || ">";
          "charset": "<'" || x.chars || "'>"
-         }
-   return s
+         };
+   return s;
 end
 
 procedure source(line)
    return line ? (="@" & push(ifile,in) & {
       in := open(file := tab(0)) | {
-         write("*** cannot open ",file)
+         write("*** cannot open ",file);
          fail
          }
-      })
+      });
 end
 
 procedure symimage(x)
    return case type(x) of {
-      "string":   x
-      "nonterm":  "<" || x.name || ">"
+      "string":   x;
+      "nonterm":  "<" || x.name || ">";
       "charset":  "<'" || x.chars || "'>"
-      }
+      };
 end
 
 procedure syms(alt)
-   local slist
-   slist := []
+   local slist;
+   slist := [];
    alt ? while put(slist,tab(many(~'<')) |
-      defnon(2(="<",tab(upto('>')),move(1))))
-   return slist
+      defnon(2(="<",tab(upto('>')),move(1))));
+   return slist;
 end
 
 #-------------------------------------------------------------- 25 general/gener
@@ -2990,390 +2990,390 @@ $define LSIZE 16
 $define GENLIMIT 25
 
 procedure main()
-   local L, LR, T, r1, r2, r3, argv
+   local L, LR, T, r1, r2, r3, argv;
 
-   L := [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5]
-   LR := lreverse(L)
-   T := table("0")
-   T["one"] := 101
-   T["two"] := 22
-   T["three"] := 333
+   L := [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5];
+   LR := lreverse(L);
+   T := table("0");
+   T["one"] := 101;
+   T["two"] := 22;
+   T["three"] := 333;
 
-   write()
-   write("convert:")                    # convert
-   gen(exbase10, 11213, 8)
-   gen(inbase10, 11213, 8)
-   gen(radcon, 11213, 4, 7)
+   write();
+   write("convert:");                    # convert
+   gen(exbase10, 11213, 8);
+   gen(inbase10, 11213, 8);
+   gen(radcon, 11213, 4, 7);
 
-   write()
-   write("datetime:")                   # datetime
-   HoursFromGmt := 7
-   gen(ClockToSec, "14:27:43")
-   gen(DateLineToSec, "Friday, September 7, 1984  1:07 pm")
-   gen(DateToSec, "1984/09/07")
-   gen(SecToClock, 14 * 3600 + 27 * 60 + 43)
-   gen(SecToDate, 463338000)
-   gen(SecToDateLine, 463385237)
-   gen(SecToUnixDate, 463385237)
-   gen(IsLeapYear, 2004)
-   gen(dayoweek, 7, 9, 1984)
-   gen(julian, 9, 7, 1984)
-   gen(saytime, "15:00:47")
+   write();
+   write("datetime:");                   # datetime
+   HoursFromGmt := 7;
+   gen(ClockToSec, "14:27:43");
+   gen(DateLineToSec, "Friday, September 7, 1984  1:07 pm");
+   gen(DateToSec, "1984/09/07");
+   gen(SecToClock, 14 * 3600 + 27 * 60 + 43);
+   gen(SecToDate, 463338000);
+   gen(SecToDateLine, 463385237);
+   gen(SecToUnixDate, 463385237);
+   gen(IsLeapYear, 2004);
+   gen(dayoweek, 7, 9, 1984);
+   gen(julian, 9, 7, 1984);
+   gen(saytime, "15:00:47");
    # several procedures that return records omitted
 
-   write()
-   write("factors:")                    # factors
-   gen(divisors, 360)
-   gen(factorial, 0)
-   gen(factorial, 6)
-   lst(factors, 360)
-   gen(genfactors, 360)
-   gen(gfactorial, 5, 2)
-   gen(ispower, 81, 4)
-   gen(isprime, 97)
-   gen(nxtprime, 97)
-   lst(pfactors, 360)
-   lst(prdecomp, 360)
-   lst(prdecomp, 504)
-   gen(prime)
+   write();
+   write("factors:");                    # factors
+   gen(divisors, 360);
+   gen(factorial, 0);
+   gen(factorial, 6);
+   lst(factors, 360);
+   gen(genfactors, 360);
+   gen(gfactorial, 5, 2);
+   gen(ispower, 81, 4);
+   gen(isprime, 97);
+   gen(nxtprime, 97);
+   lst(pfactors, 360);
+   lst(prdecomp, 360);
+   lst(prdecomp, 504);
+   gen(prime);
 #  gen(primel)          # not testable without data file
 #  gen(primeorial, 12)  # not testable without data file
-   gen(sfactors, 360)
+   gen(sfactors, 360);
 
-   write("[testing factorizations]")
-   every tfact(1 to 100)
-   write("[testing prime numbers]")
-   tprimes(100)
+   write("[testing factorizations]");
+   every tfact(1 to 100);
+   write("[testing prime numbers]");
+   tprimes(100);
 
-   write()
-   write("io:")                                 # io
-   gen(exists, "/foo/bar/baz/not/very/likely")
-   gen(directory, "stand")
+   write();
+   write("io:");                                 # io
+   gen(exists, "/foo/bar/baz/not/very/likely");
+   gen(directory, "stand");
    # several others omitted
 
-   write()
-   write("lists:")                      # lists
-   lst(lcollate, L, LR)
-   lst(lcompact, L)
-   lst(lclose, [3, 1, 4, 1])
-   lst(ldelete, copy(L), 3)
-   lst(ldupl, L, 2)
-   lst(lequiv, L, copy(L))
-   lst(lextend, L, 20)
-   lst(lfliph, L)
-   lst(lflipv, L)
-   lst(limage, L)
-   lst(linterl, L, LR)
-   lst(llayer, L, L)
-   lst(llpad, L, 14, 0)
-   lst(lltrim, L, set([3]))
-   lst(lpalin, L)
-   lst(lpermute, L)
-   lst(lreflect, L)
-   lst(lremvals, L, 1, 5)
-   lst(lrepl, L, 2)
-   lst(lresidue, L, 3)
-   lst(lreverse, L)
-   lst(lrotate, L, 4)
-   lst(lrpad, L, 14, 0)
-   lst(lrtrim, L, set([3, 5]))
-   lst(lrundown, L, LR)
-   lst(lrunup, L, LR)
-   lst(lshift, L, 3)
-   lst(lswap, L)
-   lst(lunique, L)
-   lst(lmaxlen, L, integer)
-   lst(lminlen, L, integer)
-   lst(sortkeys, L)
-   lst(sortvalues, L)
-   lst(str2lst, "Once upon a midnight dreary", 5)
+   write();
+   write("lists:");                      # lists
+   lst(lcollate, L, LR);
+   lst(lcompact, L);
+   lst(lclose, [3, 1, 4, 1]);
+   lst(ldelete, copy(L), 3);
+   lst(ldupl, L, 2);
+   lst(lequiv, L, copy(L));
+   lst(lextend, L, 20);
+   lst(lfliph, L);
+   lst(lflipv, L);
+   lst(limage, L);
+   lst(linterl, L, LR);
+   lst(llayer, L, L);
+   lst(llpad, L, 14, 0);
+   lst(lltrim, L, set([3]));
+   lst(lpalin, L);
+   lst(lpermute, L);
+   lst(lreflect, L);
+   lst(lremvals, L, 1, 5);
+   lst(lrepl, L, 2);
+   lst(lresidue, L, 3);
+   lst(lreverse, L);
+   lst(lrotate, L, 4);
+   lst(lrpad, L, 14, 0);
+   lst(lrtrim, L, set([3, 5]));
+   lst(lrundown, L, LR);
+   lst(lrunup, L, LR);
+   lst(lshift, L, 3);
+   lst(lswap, L);
+   lst(lunique, L);
+   lst(lmaxlen, L, integer);
+   lst(lminlen, L, integer);
+   lst(sortkeys, L);
+   lst(sortvalues, L);
+   lst(str2lst, "Once upon a midnight dreary", 5);
    # several others omitted
 
-   write()
-   write("math:")                       # math
-   gen(binocoef, 16, 5)
-   gen(cosh, &pi / 3)
-   gen(sinh, &pi / 3)
-   gen(tanh, &pi / 3)
+   write();
+   write("math:");                       # math
+   gen(binocoef, 16, 5);
+   gen(cosh, &pi / 3);
+   gen(sinh, &pi / 3);
+   gen(tanh, &pi / 3);
 
-   write()
-   write("numbers:")                    # numbers
-   gen(adp, 2147483647)
-   gen(adr, 2147483647)
-   gen(amean, 1, 1, 2, 3, 5, 8, 13, 21, 42)
-   gen(ceil, &pi)
-   gen(commas, 2147483647)
-   every gen(decimal, 1, 1 to 20)
-   gen(decipos, &pi, 6, 10)
-   gen(digprod, 2147483647)
-   gen(digred,  2147483647)
-   gen(digroot, 2147483647)
-   gen(digsum,  2147483647)
-   gen(distseq, 1, GENLIMIT)
-   gen(div, 355, 113)
-   gen(fix, 355, 113, 10, 4)
-   gen(floor, &phi)
-   gen(frn, &pi, 10, 4)
-   gen(gcd, 42, 120)
-   gen(gcdl, 42, 120, 81)
-   gen(gmean, 1, 1, 2, 3, 5, 8, 13, 21, 42)
-   gen(hmean, 1, 1, 2, 3, 5, 8, 13, 21, 42)
+   write();
+   write("numbers:");                    # numbers
+   gen(adp, 2147483647);
+   gen(adr, 2147483647);
+   gen(amean, 1, 1, 2, 3, 5, 8, 13, 21, 42);
+   gen(ceil, &pi);
+   gen(commas, 2147483647);
+   every gen(decimal, 1, 1 to 20);
+   gen(decipos, &pi, 6, 10);
+   gen(digprod, 2147483647);
+   gen(digred,  2147483647);
+   gen(digroot, 2147483647);
+   gen(digsum,  2147483647);
+   gen(distseq, 1, GENLIMIT);
+   gen(div, 355, 113);
+   gen(fix, 355, 113, 10, 4);
+   gen(floor, &phi);
+   gen(frn, &pi, 10, 4);
+   gen(gcd, 42, 120);
+   gen(gcdl, 42, 120, 81);
+   gen(gmean, 1, 1, 2, 3, 5, 8, 13, 21, 42);
+   gen(hmean, 1, 1, 2, 3, 5, 8, 13, 21, 42);
    #
    # modify value to be tested to be larger than 128 bits to cover future
    # implementation changes that allow 128 bit systems.
    #
-   gen(large, 214748364721474836472147483647214748364721474836472147483647)
-   gen(lcm, 20, 24)
-   gen(lcm, 20, 24, 16)
-   gen(mantissa, &e)
-   gen(max, &e, &pi, &phi)
-   gen(mdp, 2147483647)
-   gen(mdr, 2147483647)
-   gen(min, &e, &pi, &phi)
-   gen(mod1, 21, 7)
-   gen(npalins, 2)
-   gen(residue, 21, 7, 14)
-   gen(roman, 1989)
-   gen(round, &e)
-   gen(sign, -47)
-   gen(spell, 47193)                            # result is not strictly correct
-   gen(sum, 1, 1, 2, 3, 5, 8, 13, 21, 42)
-   gen(trunc, &phi)
-   gen(unroman, "MCMLXXIV")
+   gen(large, 214748364721474836472147483647214748364721474836472147483647);
+   gen(lcm, 20, 24);
+   gen(lcm, 20, 24, 16);
+   gen(mantissa, &e);
+   gen(max, &e, &pi, &phi);
+   gen(mdp, 2147483647);
+   gen(mdr, 2147483647);
+   gen(min, &e, &pi, &phi);
+   gen(mod1, 21, 7);
+   gen(npalins, 2);
+   gen(residue, 21, 7, 14);
+   gen(roman, 1989);
+   gen(round, &e);
+   gen(sign, -47);
+   gen(spell, 47193);                            # result is not strictly correct
+   gen(sum, 1, 1, 2, 3, 5, 8, 13, 21, 42);
+   gen(trunc, &phi);
+   gen(unroman, "MCMLXXIV");
 
-   write()
-   write("options:")                    # options  (not part of core)
-   argv := ["-abc","-","-s","-v","-i","42","-r","98.6","--","-b","x","y"]
-   tbl(options, copy(argv))
-   tbl(options, copy(argv), "scrivab")
-   tbl(options, copy(argv), "a:s:i:r:b:")
-   tbl(options, copy(argv), "a:s!v!i+r.b!")
-   tbl(options, copy(argv), "-abc: -s: irvb")
-   tbl(options, argv, "a:svi:r")
-   every writes(" ", "  argv        " | !argv | "\n")
+   write();
+   write("options:");                    # options  (not part of core)
+   argv := ["-abc","-","-s","-v","-i","42","-r","98.6","--","-b","x","y"];
+   tbl(options, copy(argv));
+   tbl(options, copy(argv), "scrivab");
+   tbl(options, copy(argv), "a:s:i:r:b:");
+   tbl(options, copy(argv), "a:s!v!i+r.b!");
+   tbl(options, copy(argv), "-abc: -s: irvb");
+   tbl(options, argv, "a:svi:r");
+   every writes(" ", "  argv        " | !argv | "\n");
 
-   write()
-   write("random:")                     # random
-   gen(rand_num)
-   gen(rand_int, 20)
-   gen(randomize)
-   gen(randrange, 30, 50)
-   gen(randrangeseq, 52, 99)
-   gen(randseq, 1903)
-   gen(rng)
-   gen(shuffle, "A23456789TJQK")
+   write();
+   write("random:");                     # random
+   gen(rand_num);
+   gen(rand_int, 20);
+   gen(randomize);
+   gen(randrange, 30, 50);
+   gen(randrangeseq, 52, 99);
+   gen(randseq, 1903);
+   gen(rng);
+   gen(shuffle, "A23456789TJQK");
 
-   write()
-   write("rational:")                   # rational  (not part of core)
-   rat(str2rat, "(355/113)")
-   r1 := rat(real2rat, 355. / 113.)
-   gen(rat2str, r1)
-   gen(rat2real, r1)
-   r2 := rat(negrat, r1)
-   r3 := rat(reciprat, r1)
-   rat(addrat, r1, r3)
-   rat(subrat, r1, r3)
-   rat(mpyrat, r1, r2)
-   rat(divrat, r1, r3)
-   rat(medrat, rational(2,5,1), rational(11,7,1))
-   rat(medrat, rational(5,13,1), rational(4,5,1))
-   trat()
+   write();
+   write("rational:");                   # rational  (not part of core)
+   rat(str2rat, "(355/113)");
+   r1 := rat(real2rat, 355. / 113.);
+   gen(rat2str, r1);
+   gen(rat2real, r1);
+   r2 := rat(negrat, r1);
+   r3 := rat(reciprat, r1);
+   rat(addrat, r1, r3);
+   rat(subrat, r1, r3);
+   rat(mpyrat, r1, r2);
+   rat(divrat, r1, r3);
+   rat(medrat, rational(2,5,1), rational(11,7,1));
+   rat(medrat, rational(5,13,1), rational(4,5,1));
+   trat();
 
-   write()
-   write("records:")                    # records
-   gen(field, DateRec(), 7)
-   gen(fieldnum, DateRec(), "weekday")
+   write();
+   write("records:");                    # records
+   gen(field, DateRec(), 7);
+   gen(fieldnum, DateRec(), "weekday");
 
-   write()
-   write("scan:")                       # scan
+   write();
+   write("scan:");                       # scan
 
-   write()
-   write("sets:")                       # sets
-   lst(cset2set, &digits)
-   lst(domain, T)
-   lst(inverse, T)
+   write();
+   write("sets:");                       # sets
+   lst(cset2set, &digits);
+   lst(domain, T);
+   lst(inverse, T);
    #   pairset, T    returns list of lists
-   lst(range, T)
-   lst(seteq, set([4, 7, 1]), set([7, 1, 4]))
-   lst(setlt, set([4, 7, 1]), set([7, 3, 1, 4]))
-   gen(simage, set(L))
+   lst(range, T);
+   lst(seteq, set([4, 7, 1]), set([7, 1, 4]));
+   lst(setlt, set([4, 7, 1]), set([7, 3, 1, 4]));
+   gen(simage, set(L));
 
-   write()
-   write("sort:")                       # sort
-   lst(isort, "Quoth The Raven: Nevermore", map)
+   write();
+   write("sort:");                       # sort
+   lst(isort, "Quoth The Raven: Nevermore", map);
 
-   write()
-   write("strings:")                    # strings
-   gen(cat, "abc", "def", "ghi")
-   gen(charcnt, "deinstitutionalization", 'aeiou')
-   gen(collate, "abcde", "12345")
-   gen(comb, "abcde", 3)
+   write();
+   write("strings:");                    # strings
+   gen(cat, "abc", "def", "ghi");
+   gen(charcnt, "deinstitutionalization", 'aeiou');
+   gen(collate, "abcde", "12345");
+   gen(comb, "abcde", 3);
    gen(compress,
-      "Mississippi bookkeeper unsuccessfully lobbies heedless committee")
-   gen(csort,    "sphinx of black quartz judge my vow")
-   gen(decollate,"saturday in the park")
-   gen(deletec,  "deinstitutionalization", 'aeiou')
-   gen(deletep,  "deinstitutionalization", [3, 4])
-   gen(deletes,  "deinstitutionalization", "ti")
-   gen(diffcnt,  "deinstitutionalization")
-   gen(extend,   "choco", 60)
-   gen(fchars,   "deinstitutionalization")
-   gen(interleave,"abcde", "123")
-   gen(ispal,    "abcdcba")
-   gen(maxlen,   ["quick", "brown", "fox", "jumped"])
-   gen(meander,  "abcd", 3)
-   gen(multicoll,["quick", "brown", "fox"])
-   gen(ochars,   "deinstitutionalization")
-   gen(odd_even, "31415926535")
-   gen(palins,   "abcd", 3)
-   gen(permutes, "abc")
-   gen(pretrim,  "   And in conclusion...")
-   gen(reflect,  "abc",  , "*")
-   gen(reflect,  "abc", 1, "*")
-   gen(reflect,  "abc", 2, "*")
-   gen(reflect,  "abc", 3, "*")
-   gen(replace,  "deinstitutionalization", "ti", "le")
-   gen(replacem, "deinstitutionalization", "ti", "le", "eon", "ine")
-   gen(replc,    "abc", [3, 1, 2])
-   gen(rotate,   "housecat", -3)
-   gen(schars,   "deinstitutionalization")
-   gen(scramble, "deinstitutionalization")
-   gen(selectp,  "deinstitutionalization", [3, 4, 6, 9, 11, 19])
-   gen(slugs,    "fly.me.to.the.moon.and.let.me.sing.among.the.stars", 11, '.')
-   gen(starseq,  "ab")
-   gen(strcnt,   "ti", "deinstitutionalization")
-   gen(substrings, "deinstitutionalization", 3, 3)
-   gen(transpose, "housecat", "12345678", "61785234")
-   gen(words,    "fly.me.to.the.moon.and.let.me.sing.among.the.stars", '.')
+      "Mississippi bookkeeper unsuccessfully lobbies heedless committee");
+   gen(csort,    "sphinx of black quartz judge my vow");
+   gen(decollate,"saturday in the park");
+   gen(deletec,  "deinstitutionalization", 'aeiou');
+   gen(deletep,  "deinstitutionalization", [3, 4]);
+   gen(deletes,  "deinstitutionalization", "ti");
+   gen(diffcnt,  "deinstitutionalization");
+   gen(extend,   "choco", 60);
+   gen(fchars,   "deinstitutionalization");
+   gen(interleave,"abcde", "123");
+   gen(ispal,    "abcdcba");
+   gen(maxlen,   ["quick", "brown", "fox", "jumped"]);
+   gen(meander,  "abcd", 3);
+   gen(multicoll,["quick", "brown", "fox"]);
+   gen(ochars,   "deinstitutionalization");
+   gen(odd_even, "31415926535");
+   gen(palins,   "abcd", 3);
+   gen(permutes, "abc");
+   gen(pretrim,  "   And in conclusion...");
+   gen(reflect,  "abc",  , "*");
+   gen(reflect,  "abc", 1, "*");
+   gen(reflect,  "abc", 2, "*");
+   gen(reflect,  "abc", 3, "*");
+   gen(replace,  "deinstitutionalization", "ti", "le");
+   gen(replacem, "deinstitutionalization", "ti", "le", "eon", "ine");
+   gen(replc,    "abc", [3, 1, 2]);
+   gen(rotate,   "housecat", -3);
+   gen(schars,   "deinstitutionalization");
+   gen(scramble, "deinstitutionalization");
+   gen(selectp,  "deinstitutionalization", [3, 4, 6, 9, 11, 19]);
+   gen(slugs,    "fly.me.to.the.moon.and.let.me.sing.among.the.stars", 11, '.');
+   gen(starseq,  "ab");
+   gen(strcnt,   "ti", "deinstitutionalization");
+   gen(substrings, "deinstitutionalization", 3, 3);
+   gen(transpose, "housecat", "12345678", "61785234");
+   gen(words,    "fly.me.to.the.moon.and.let.me.sing.among.the.stars", '.');
 
-   write()
-   write("tables:")                     # tables
-   lst(keylist, T)
-   lst(kvallist, T)
-   tbl(tbleq, T, copy(T))
-   tbl(tblunion, T, copy(T))
-   tbl(tblinter, T, copy(T))
-   tbl(tbldiff, T, copy(T))
-   tbl(tblinvrt, T)
-   lst(tbldflt, T)
-   tbl(twt, T)
-   lst(vallist, T)
+   write();
+   write("tables:");                     # tables
+   lst(keylist, T);
+   lst(kvallist, T);
+   tbl(tbleq, T, copy(T));
+   tbl(tblunion, T, copy(T));
+   tbl(tblinter, T, copy(T));
+   tbl(tbldiff, T, copy(T));
+   tbl(tblinvrt, T);
+   lst(tbldflt, T);
+   tbl(twt, T);
+   lst(vallist, T);
 
 end
 
 # for output, truncate real's to a portable multiplatform number of digits
 procedure unreal(x)
    if type(x) == "real" then {
-      s := string(x)
-      s := s[1:10]
+      s := string(x);
+      s := s[1:10];
       return s
       }
-   else return x
+   else return x;
 end
 
-procedure gen(p, a[])                   #: test a simple procedure or generator
-   &random := 4747
-   outp := (image(p) ? (=("procedure "|"function ") & tab(0)))
-   writes(left(outp, LSIZE - 1))
-   every writes(" ", unreal((p ! a) \ GENLIMIT) | "\n")
-   return
+procedure gen(p, a[]);                   #: test a simple procedure or generator
+   &random := 4747;
+   outp := (image(p) ? (=("procedure "|"function ") & tab(0)));
+   writes(left(outp, LSIZE - 1));
+   every writes(" ", unreal((p ! a) \ GENLIMIT) | "\n");
+   return;
 end
 
 procedure lst(p, a[])                   #: test a procedure that returns a list
-   local L
+   local L;
 
-   L := (p ! a) | ["[FAILED]"]
-   writes(left(image(p)[11:0], LSIZE - 1))
-   if type(L)=="integer" then L := string(L)
-   if type(L)=="set" then L:= sort(L)
-   every writes(" ", (!L \ GENLIMIT) | "\n")
-   return
+   L := (p ! a) | ["[FAILED]"];
+   writes(left(image(p)[11:0], LSIZE - 1));
+   if type(L)=="integer" then L := string(L);
+   if type(L)=="set" then L:= sort(L);
+   every writes(" ", (!L \ GENLIMIT) | "\n");
+   return;
 end
 
 procedure tbl(p, a[])                   #: test a procedure that returns a table
-   local k, T, L
+   local k, T, L;
 
-   writes(left(image(p)[11:0] | "", LSIZE - 1))
+   writes(left(image(p)[11:0] | "", LSIZE - 1));
    if T := (p ! a) then {
-      L := sort(T, 3)
-      while writes(" ", get(L), ":", get(L))
+      L := sort(T, 3);
+      while writes(" ", get(L), ":", get(L));
       write()
       }
    else
-      write("[FAILED]")
-   return \T
+      write("[FAILED]");
+   return \T;
 end
 
 procedure rat(p, a[])                   #: test a procedure that rets a rational
-   local v
-   v := p ! a
-   write(left(image(p)[11:0], LSIZE), rat2str(\v) | ["[FAILED]"])
-   return \v
+   local v;
+   v := p ! a;
+   write(left(image(p)[11:0], LSIZE), rat2str(\v) | ["[FAILED]"]);
+   return \v;
 end
 
 procedure tfact(n)                      #: test factorization of n
-   local D, F, P, i, v
+   local D, F, P, i, v;
 
-   F := factors(n)
+   F := factors(n);
    # every writes(" ", (n || ":") | !F | "\n")      # uncomment to show factors
-   v := 1
-   every v *:= !F
+   v := 1;
+   every v *:= !F;
    if v ~= n then
-      write("   ", n, ": PRODUCT OF FACTORS = ", v)
+      write("   ", n, ": PRODUCT OF FACTORS = ", v);
 
-   F := set(F)
-   P := pfactors(n)
+   F := set(F);
+   P := pfactors(n);
    if *P ~= *F then
-      write("   ", n, ": PRIME FACTOR COUNT = ", *P)
+      write("   ", n, ": PRIME FACTOR COUNT = ", *P);
    every i := !P do
       if not member(F, i) then
-         write("   ", n, ": MISSING PRIME FACTOR ", i)
+         write("   ", n, ": MISSING PRIME FACTOR ", i);
 
-   D := set()
-   every insert(D, divisors(n))
+   D := set();
+   every insert(D, divisors(n));
    every i := 1 to n do
       if member(D, i) then {
          if n % i ~= 0 then write ("   ", n, ": BOGUS DIVISOR ", i)
          }
       else {
          if n % i == 0 then write ("   ", n, ": MISSING DIVISOR ", i)
-         }
+         };
 end
 
 procedure tprimes(n)                    #: test the first n primes
-   local i, L1, L2, L3
+   local i, L1, L2, L3;
 
-   L1 := []
+   L1 := [];
    every i := seq() do {
       if isprime(i) then {
-         put(L1, i)
+         put(L1, i);
          if *L1 = n then break
          }
-      }
+      };
 
-   every put(L2 := [], prime() \ n)
+   every put(L2 := [], prime() \ n);
 
-   L3 := []
-   i := 1
+   L3 := [];
+   i := 1;
    while *L3 < n do
-      put(L3, i := nxtprime(i))
+      put(L3, i := nxtprime(i));
 
    every i := 1 to n do
       if not (L1[i] = L2[i] = L3[i]) then
-         write("   PRIME ENTRY ", i, ":   ", L1[i], ", ", L2[i], ", ", L3[i])
+         write("   PRIME ENTRY ", i, ":   ", L1[i], ", ", L2[i], ", ", L3[i]);
 end
 
 procedure trat()                        #: test rational arithmetic
-   local r1, r2, L, n, d, r, g
+   local r1, r2, L, n, d, r, g;
 
-   write("[testing conversions]")
-   L := [2, 3, 5, 7, 9, 17, 19, 27, 45, 63, 75, 81, 98, 99, 121, 175, 225]
+   write("[testing conversions]");
+   L := [2, 3, 5, 7, 9, 17, 19, 27, 45, 63, 75, 81, 98, 99, 121, 175, 225];
    every (n := !L) & (d := !L) do {
-      r := real2rat(n * (1. / d))
-      g := gcd(n, d)
+      r := real2rat(n * (1. / d));
+      g := gcd(n, d);
       if r.numer ~= n / g | r.denom ~= d / g then
          write("   REAL2RAT: ", n, " / ", d, " => ", r.numer, " / ", r.denom)
-      }
+      };
 end
 #-------------------------------------------------------------- 27 general/kross
 #
@@ -3385,26 +3385,26 @@ end
 #  intersections of the two strings in a common character.
 
 procedure main()
-   local line, j
+   local line, j;
    while line := read() do $(
-      write()
-      j := upto(':',line)
+      write();
+      j := upto(':',line);
       cross(line$<1:j$>,line$<j+1:0$>)
-      $)
+      $);
 end
 
 procedure cross(s1,s2)
-   local j, k
+   local j, k;
    every j := upto(s2,s1) do
       every k := upto(s1$<j$>,s2) do
-         xprint(s1,s2,j,k)
+         xprint(s1,s2,j,k);
 end
 
 procedure xprint(s1,s2,j,k)
-   write()
-   every write(right(s2$<1 to k-1$>,j))
-   write(s1)
-   every write(right(s2$<k+1 to *s2$>,j))
+   write();
+   every write(right(s2$<1 to k-1$>,j));
+   write(s1);
+   every write(right(s2$<k+1 to *s2$>,j));
 end
 #-------------------------------------------------------------- 28 general/large
 invocable "+", "-", "*", "/", "%", "iand", "ior", "ixor", "<", "=" , "^"
@@ -3428,7 +3428,7 @@ procedure main ()
 
    every optest ("^", big | -big | small | -small, 2 | 5);
    every optest ("^", 2 | 3, 10 | 30 );
-   every optest ("ishift", big |-big | med1 | -med1 | small, 1 | 8 | -1 | -39)
+   every optest ("ishift", big |-big | med1 | -med1 | small, 1 | 8 | -1 | -39);
 
    &trace := -1;
    every i := 10 | 30 | 70 | 100 do {
@@ -3454,7 +3454,7 @@ end
 #  a colon.
 
 procedure main()
-   local line, alpha, n
+   local line, alpha, n;
    while line := read() do $(
       line ? if $(
          alpha := tab(upto(':')) &
@@ -3463,20 +3463,20 @@ procedure main()
          $)
          then write(meander(alpha,n)) 
          else stop("*** erroneous input ***")
-      $)
+      $);
 end
 
 procedure meander(alpha,n)
-   local result, t, i, c, k
-   i := k := *alpha
-   t := n-1
-   result := repl(alpha$<1$>,t)
+   local result, t, i, c, k;
+   i := k := *alpha;
+   t := n-1;
+   result := repl(alpha$<1$>,t);
    while c := alpha$<i$> do $(
       if find(result$<-t:0$> || c,result)
       then i -:= 1
       else $(result ||:= c; i := k$)
-      $)
-   return result
+      $);
+   return result;
 end
 #--------------------------------------------------------------- 30 general/mega
 #  mega.icn -- build really long strings
@@ -3816,7 +3816,7 @@ end
 procedure marklists(l)
 local e;
 
-   if /l then return
+   if /l then return;
    every e := !l do {
       distab[e] := "X";
       marklists(dlists[e])
@@ -4395,7 +4395,7 @@ end
 #  implemented in Icon using co-expressions and the p{ ... }
 #  syntax that facilitates their use.
 
-procedure main()
+procedure main();
    &random := 0;
    if not(&features == "co-expressions") then
       stop("co-expressions not supported");
@@ -5137,7 +5137,7 @@ procedure p4()
    write("\"abcdef\" ? (tab(0) & (while write(move(-1)))) ----> ",image("abcdef" ? (tab(0) & (while write(move(-1))))) | "none");
 end
 
-procedure main()
+procedure main();
    &random := 0; # for testing purposes
    p1();
    p2();
@@ -5184,7 +5184,7 @@ procedure main(A)
    t := table();
    t[1] := 2.5;
    t[2] := 1;
-   t[3] := -0.;5;
+   t[3] := -0.5;
    t[0.5] := 2;
    t[3.5] := 4;
    write("Sort table pairs on key:");
@@ -5521,7 +5521,7 @@ procedure p13()
    every writes(" ", "a:" | !sort(a) | "\n");
 end
 
-procedure main()
+procedure main();
    &random := 0;
    p1();
    p2();
@@ -5565,10 +5565,10 @@ procedure realseq()
 end
 #------------------------------------------------------------- 49 general/tracer
 global s
-procedure main()
+procedure main();
    &random := 0; &trace := -1;
-   s := "abcdef"
-   &subject := "123456"
+   s := "abcdef";
+   &subject := "123456";
    &pos := 4;
    every tracer(1);
    every foo(&pos | &subject | &pos[1] | &subject[2:5]);
@@ -5599,7 +5599,7 @@ global words, lines, writer
 
 procedure main()
    if not(&features == "co-expressions") then
-      stop("co-expressions not supported")
+      stop("co-expressions not supported");
    &trace := -1;
 
    words := create word();
@@ -11456,88 +11456,88 @@ class TestTestSuite : TestCase(__testSuite)
    $define EXIT_FAILURE 1
 
    method setup()
-      self.__testSuite := TestSuite()
-      self.__testSuite.__includeElapsedInSummary := 0
+      self.__testSuite := TestSuite();
+      self.__testSuite.__includeElapsedInSummary := 0;
    end
 
    method testInitialState()
-      assertEqual(0, *self.__testSuite.__tests)
-      assertEqual("unittest__TestReporter", classname(self.__testSuite.__testReporter))
+      assertEqual(0, *self.__testSuite.__tests);
+      assertEqual("unittest__TestReporter", classname(self.__testSuite.__testReporter));
    end
 
    method testAddTest()
-      st := SimpleTest()
-      self.__testSuite.add(st)
-      assertEqual(1, *self.__testSuite.__tests)
+      st := SimpleTest();
+      self.__testSuite.add(st);
+      assertEqual(1, *self.__testSuite.__tests);
    end
 
    method testAddNonTest()
-      assertEqual(0, *self.__testSuite.__tests)
-      self.__testSuite.add(Empty())
-      self.__testSuite.add(&null)
-      self.__testSuite.add("StringClass")
-      assertEqual(0, *self.__testSuite.__tests)
+      assertEqual(0, *self.__testSuite.__tests);
+      self.__testSuite.add(Empty());
+      self.__testSuite.add(&null);
+      self.__testSuite.add("StringClass");
+      assertEqual(0, *self.__testSuite.__tests);
    end
 
    method testRunTests()
-      assertEqual(0, *self.__testSuite.__tests)
-      assertEqual(EXIT_SUCCESS, self.__testSuite.run())
+      assertEqual(0, *self.__testSuite.__tests);
+      assertEqual(EXIT_SUCCESS, self.__testSuite.run());
 
-      st := SimpleTest()
-      self.__testSuite.add(st)
-      assertEqual(EXIT_SUCCESS, self.__testSuite.run())
+      st := SimpleTest();
+      self.__testSuite.add(st);
+      assertEqual(EXIT_SUCCESS, self.__testSuite.run());
    end
 
    method testRuntime()
-      local runtime
+      local runtime;
 
-      st := SlowTest()
-      self.__testSuite.add(st)
+      st := SlowTest();
+      self.__testSuite.add(st);
 
-      self.__testSuite.run()
-      runtime := self.__testSuite.__testReporter.__summary.runtime
+      self.__testSuite.run();
+      runtime := self.__testSuite.__testReporter.__summary.runtime;
 
-      assert { 2.0 <= runtime & 3.0 > runtime }
+      assert { 2.0 <= runtime & 3.0 > runtime };
    end
 
    method testRunFailureTests()
-      local results
+      local results;
 
-      assertEqual(0, *self.__testSuite.__tests)
+      assertEqual(0, *self.__testSuite.__tests);
 
-      ft := FailureTest()
-      self.__testSuite.add(ft)
-      assertEqual(EXIT_FAILURE, self.__testSuite.run())
+      ft := FailureTest();
+      self.__testSuite.add(ft);
+      assertEqual(EXIT_FAILURE, self.__testSuite.run());
 
-      results := self.__testSuite.__testReporter.results()
-      assertEqual(0, results[1])
-      assertNotEqual(0, results[2])
+      results := self.__testSuite.__testReporter.results();
+      assertEqual(0, results[1]);
+      assertNotEqual(0, results[2]);
    end
 end
 
 class SimpleTest : TestCase()
    method testAssertEqual()
-      assertEqual(1, 1)
+      assertEqual(1, 1);
    end
 
    method testAssert()
-      assert { 1 == 1 }
+      assert { 1 == 1 };
    end
 end
 
 class SuccessTest : TestCase()
    method testSuccessAssertEqual()
-      assertEqual(1, 1)
+      assertEqual(1, 1);
    end
 
    method testSuccessAssert()
-      assert { 1 == 1 }
+      assert { 1 == 1 };
    end
 end
 
 class SlowTest : TestCase()
    method testSlow()
-      delay(2000)
+      delay(2000);
    end
 end
 
@@ -11545,26 +11545,26 @@ end
 #        these tests are isolated in a different test runner.
 class FailureTest : TestCase()
    method testFailAssertEqual()
-      assertEqual(0, 9)
-      assertEqual("Unicon", "Icon")
+      assertEqual(0, 9);
+      assertEqual("Unicon", "Icon");
    end
 
    method testFailAssertNotEqual()
-      assertNotEqual(0, 0)
-      assertNotEqual("Unicon", "Unicon")
+      assertNotEqual(0, 0);
+      assertNotEqual("Unicon", "Unicon");
    end
 
    method testFailAssert()
-      assert { 0 == 9 }
-      assert { 0 ~= 0 }
-      assert { "Unicon" == "Icon" }
-      assert { "Unicon" ~== "Unicon" }
+      assert { 0 == 9 };
+      assert { 0 ~= 0 };
+      assert { "Unicon" == "Icon" };
+      assert { "Unicon" ~== "Unicon" };
    end
 end
 
 class Empty()
    method testNotReal()
-      write("This should not be displayed.")
+      write("This should not be displayed.");
    end
 end
 
@@ -11573,200 +11573,200 @@ class TestTestCase : TestCase(__calls)
    $define STATUS_FAIL 1
 
    method setupClass()
-      self.__calls["setupClass"] +:= 1
-      assertEqual(1, self.__calls["setupClass"])
+      self.__calls["setupClass"] +:= 1;
+      assertEqual(1, self.__calls["setupClass"]);
    end
 
    method teardownClass()
-      self.__calls["teardownClass"] +:= 1
-      assertEqual(1, self.__calls["teardownClass"])
-      assertEqual(1, self.__calls["setupClass"])
+      self.__calls["teardownClass"] +:= 1;
+      assertEqual(1, self.__calls["teardownClass"]);
+      assertEqual(1, self.__calls["setupClass"]);
    end
 
    method setup()
-      self.__calls["setup"] +:= 1
-      assertEqual(self.__calls["tests"] + 1, self.__calls["setup"])
+      self.__calls["setup"] +:= 1;
+      assertEqual(self.__calls["tests"] + 1, self.__calls["setup"]);
    end
 
    method teardown()
-      self.__calls["teardown"] +:= 1
-      assertEqual(self.__calls["tests"], self.__calls["teardown"])
-      assertEqual(self.__calls["tests"], self.__calls["setup"])
+      self.__calls["teardown"] +:= 1;
+      assertEqual(self.__calls["tests"], self.__calls["teardown"]);
+      assertEqual(self.__calls["tests"], self.__calls["setup"]);
    end
 
    method testInitialState()
-      assertEqual(STATUS_SUCCESS, self.__status)
-      self.__calls["tests"] +:= 1
+      assertEqual(STATUS_SUCCESS, self.__status);
+      self.__calls["tests"] +:= 1;
    end
 
    method testResetStatus()
-      assertEqual(STATUS_SUCCESS, self.__status)
-      self.__status := 255
-      self.__reset()
-      assertEqual(STATUS_SUCCESS, self.__status)
-      self.__calls["tests"] +:= 1
+      assertEqual(STATUS_SUCCESS, self.__status);
+      self.__status := 255;
+      self.__reset();
+      assertEqual(STATUS_SUCCESS, self.__status);
+      self.__calls["tests"] +:= 1;
    end
 
    method testAssertEqual()
-      assertEqual(1, 1)
-      assertEqual("Unicon", "Unicon")
+      assertEqual(1, 1);
+      assertEqual("Unicon", "Unicon");
 
-      self.__calls["tests"] +:= 1
+      self.__calls["tests"] +:= 1;
    end
 
    method testAssertNotEqual()
-      assertNotEqual(1, 2)
-      assertNotEqual("Unicon", "Icon")
+      assertNotEqual(1, 2);
+      assertNotEqual("Unicon", "Icon");
 
-      self.__calls["tests"] +:= 1
+      self.__calls["tests"] +:= 1;
    end
 
    method testAssert()
-      assert { 1 == 1 }
-      assert { "Unicon" == "Unicon" }
+      assert { 1 == 1 };
+      assert { "Unicon" == "Unicon" };
 
-      self.__calls["tests"] +:= 1
+      self.__calls["tests"] +:= 1;
    end
 
    method testAssertFail()
-      assertFail { 1 == 2 }
-      assertFail { 1 == "Unicon" }
-      assertFail { "Unicon" == 1 }
+      assertFail { 1 == 2 };
+      assertFail { 1 == "Unicon" };
+      assertFail { "Unicon" == 1 };
 
-      self.__calls["tests"] +:= 1
+      self.__calls["tests"] +:= 1;
    end
 
 initially
-   __calls := table()
+   __calls := table();
    every call := !["setupClass", "teardownClass", "setup", "teardown", "tests"] do
-      __calls[call] := 0
+      __calls[call] := 0;
 end
 
 class TestTestReporter : TestCase(__reporter)
    method setup()
-      self.__reporter := TestReporter()
+      self.__reporter := TestReporter();
    end
 
    method testInitialState()
-      local results
+      local results;
 
-      assertEqual(0, *self.__reporter.__results)
+      assertEqual(0, *self.__reporter.__results);
 
-      results := self.__reporter.results()
-      assertEqual(0, results.passed)
-      assertEqual(0, results.failed)
-      assertEqual(0.0, results.runtime)
+      results := self.__reporter.results();
+      assertEqual(0, results.passed);
+      assertEqual(0, results.failed);
+      assertEqual(0.0, results.runtime);
 
-      assertEqual(0.0, self.__reporter.__summary.runtime)
+      assertEqual(0.0, self.__reporter.__summary.runtime);
    end
 
    method testResult()
-      assertEqual(0, *self.__reporter.__results)
+      assertEqual(0, *self.__reporter.__results);
 
-      self.__reporter.result(classname(self), "testResult", 0)
-      assertEqual(1, *self.__reporter.__results)
-      assertEqual(classname(self), self.__reporter.__results[1][1])
-      assertEqual("testResult", self.__reporter.__results[1][2])
-      assertEqual(0, self.__reporter.__results[1][3])
+      self.__reporter.result(classname(self), "testResult", 0);
+      assertEqual(1, *self.__reporter.__results);
+      assertEqual(classname(self), self.__reporter.__results[1][1]);
+      assertEqual("testResult", self.__reporter.__results[1][2]);
+      assertEqual(0, self.__reporter.__results[1][3]);
    end
 
    method testRuntime()
-     self.__reporter.runtime(5.5)
-     assertEqual(5.5, self.__reporter.__summary.runtime)
+     self.__reporter.runtime(5.5);
+     assertEqual(5.5, self.__reporter.__summary.runtime);
    end
 
    # TODO: not much luck with capture()'ing the output.
    method testSummary()
-      local results
+      local results;
 
-      assertEqual(0, *self.__reporter.__results)
-      results := self.__reporter.summary(0)
-      assertEqual(0, results.passed)
-      assertEqual(0, results.failed)
-      assertEqual(0.0, results.runtime)
+      assertEqual(0, *self.__reporter.__results);
+      results := self.__reporter.summary(0);
+      assertEqual(0, results.passed);
+      assertEqual(0, results.failed);
+      assertEqual(0.0, results.runtime);
 
-      self.__reporter.result(classname(self), "testResult", 0)
-      assertEqual(1, *self.__reporter.__results)
-      results := self.__reporter.summary(0)
-      assertEqual(1, results[1])
-      assertEqual(0, results[2])
+      self.__reporter.result(classname(self), "testResult", 0);
+      assertEqual(1, *self.__reporter.__results);
+      results := self.__reporter.summary(0);
+      assertEqual(1, results[1]);
+      assertEqual(0, results[2]);
 
-      self.__reporter.result(classname(self), "testResultFail", 1)
-      assertEqual(2, *self.__reporter.__results)
-      results := self.__reporter.summary(0)
-      assertEqual(1, results[1])
-      assertEqual(1, results[2])
+      self.__reporter.result(classname(self), "testResultFail", 1);
+      assertEqual(2, *self.__reporter.__results);
+      results := self.__reporter.summary(0);
+      assertEqual(1, results[1]);
+      assertEqual(1, results[2]);
 
-      results := self.__reporter.results()
-      assertEqual(1, results[1])
-      assertEqual(1, results[2])
+      results := self.__reporter.results();
+      assertEqual(1, results[1]);
+      assertEqual(1, results[2]);
    end
 end
 
 class TestMock : TestCase(__mock)
    method setup()
-      self.__mock := Mock()
+      self.__mock := Mock();
    end
 
    method testInitialState()
-      assertEqual(0, *self.__mock.__expectations)
+      assertEqual(0, *self.__mock.__expectations);
    end
 
    method testExpect()
-      self.__mock.expect("success", 1)
-      assertEqual(1, *self.__mock.__expectations)
-      assertEqual(1, self.__mock.__expectations["success"])
+      self.__mock.expect("success", 1);
+      assertEqual(1, *self.__mock.__expectations);
+      assertEqual(1, self.__mock.__expectations["success"]);
 
-      self.__mock.expect("str", "Unicon")
-      assertEqual("Unicon", self.__mock.__expectations["str"])
-      assertEqual(2, *self.__mock.__expectations)
+      self.__mock.expect("str", "Unicon");
+      assertEqual("Unicon", self.__mock.__expectations["str"]);
+      assertEqual(2, *self.__mock.__expectations);
    end
 
    method testVerify()
-      local expectation
+      local expectation;
 
-      expectation := self.__mock.verify("unknown", [])
-      assertEqual(1, (((expectation === &null) & 1) | 0))
+      expectation := self.__mock.verify("unknown", []);
+      assertEqual(1, (((expectation === &null) & 1) | 0));
 
-      self.__mock.expect("verify", "expected")
-      expectation := self.__mock.verify("verify", [])
-      assertEqual("verify", expectation)
-      assertEqual(1, *self.__mock.__expectations)
+      self.__mock.expect("verify", "expected");
+      expectation := self.__mock.verify("verify", []);
+      assertEqual("verify", expectation);
+      assertEqual(1, *self.__mock.__expectations);
    end
 
    method testInvoke()
-      local expectation, value
+      local expectation, value;
 
-      expectation := self.__mock.invoke("unknown", [])
-      assertEqual(1, (((expectation === &null) & 1) | 0))
+      expectation := self.__mock.invoke("unknown", []);
+      assertEqual(1, (((expectation === &null) & 1) | 0));
 
-      self.__mock.expect("invoke", "expected")
-      value := self.__mock.invoke("invoke", [])
-      assertEqual("expected", value)
-      assertEqual(1, *self.__mock.__expectations)
+      self.__mock.expect("invoke", "expected");
+      value := self.__mock.invoke("invoke", []);
+      assertEqual("expected", value);
+      assertEqual(1, *self.__mock.__expectations);
    end
 
 initially
-   __mock := &null
+   __mock := &null;
 end
 
 procedure main()
-   ts := TestSuite()
-   ts.__includeElapsedInSummary := 0
+   ts := TestSuite();
+   ts.__includeElapsedInSummary := 0;
 
-   tss := TestTestSuite()
-   ts.add(tss)
+   tss := TestTestSuite();
+   ts.add(tss);
 
-   tc := TestTestCase()
-   ts.add(tc)
+   tc := TestTestCase();
+   ts.add(tc);
 
-   tm := TestMock()
-   ts.add(tm)
+   tm := TestMock();
+   ts.add(tm);
 
-   tr := TestTestReporter()
-   ts.add(tr)
+   tr := TestTestReporter();
+   ts.add(tr);
 
-   exit(ts.run())
+   exit(ts.run());
 end
 #------------------------------------------------------------------- 63 mt/level
 procedure main()
@@ -12090,15 +12090,15 @@ end
 
 procedure main()
    while s := read() do {
-      p1 := Break("e") -> s2
-      p2 := Break("e") -> s2  || "er"
-      p3 := Breakx("e") -> s2 || "er"
+      p1 := Break("e") -> s2;
+      p2 := Break("e") -> s2  || "er";
+      p3 := Breakx("e") -> s2 || "er";
 
-      write(s, ":")
-      if s ?? p1 then write("Matched ", s2)
-      if s ?? p2 then write("Matched ", s2, " <- wanted 2nd e")
+      write(s, ":");
+      if s ?? p1 then write("Matched ", s2);
+      if s ?? p2 then write("Matched ", s2, " <- wanted 2nd e");
       if s ?? p3 then write("Matched ", s2)
-      }
+      };
 end
 #-------------------------------------------------------------- 72 pattern/expss
 # expss.icn
@@ -12249,11 +12249,11 @@ end
 # Tests: ??, ->, ||, Arb(), string literals
 
 procedure main()
-   out := &output
+   out := &output;
    while s := read() do {
-      s ?? "a" || Arb() -> out || "a"
+      s ?? "a" || Arb() -> out || "a";
       s ?? "t" || Arb() -> out || "mm"
-      }
+      };
 end
 #------------------------------------------------------------- 82 pattern/parbno
 # parbno.icn
@@ -12309,53 +12309,53 @@ initially()
 end
 #----------------------------------------------------------- 84 pattern/pimgtest
 procedure main()
-    f := foo(1, 2, 3)
-    write(image(f), " vs ", image([1,2,3]), " vs ", image(table("key", "val")))
-    p1 := "this is a string" && "this is also a string"
-    p2 := "this is a string" .| "this is also a string"
-    p3 := "this is a string" .| Any('abc')
-    p4 := "this is a string" .| Any(1) -> x
-    p5 := "this is a string" || `stringcall("one", "two")`
-    p6 := "this is a string" || Any(`stringcall("one")`)
-    p7 := Any('abc') -> x || "this string"
-    p8 := `stringcall("one", "two")`.| "this string"
+    f := foo(1, 2, 3);
+    write(image(f), " vs ", image([1,2,3]), " vs ", image(table("key", "val")));
+    p1 := "this is a string" && "this is also a string";
+    p2 := "this is a string" .| "this is also a string";
+    p3 := "this is a string" .| Any('abc');
+    p4 := "this is a string" .| Any(1) -> x;
+    p5 := "this is a string" || `stringcall("one", "two")`;
+    p6 := "this is a string" || Any(`stringcall("one")`);
+    p7 := Any('abc') -> x || "this string";
+    p8 := `stringcall("one", "two")`.| "this string";
     p9 := Any(`f.stringcall("one", "two")`);
-    p10 := .> x
-    p11 := Abort()
-    p12 := Any(&letters)
-    p13 := Any(1)
-    p14 := Any("this")
-    p15 := Arb() || Bal()
-    p16 := Break("this")
-    p17 := Breakx("sthis")
-    p18 := Fail()
-    p19 := Fence() || Bal()
-    p20 := Bal() .| Fence() .| "this string"
-    p21 := Len(1)
-    p23 := Len(1) || Bal()
-    p24 := NotAny(&digits)
-    p25 := Pos(22) => x
-    p26 := Rem()
-    p27 := Span("this string") || Succeed()
-    p28 := Tab(20) || "this string in here"
-    p29 := Rpos(20) || "this string"
-    p30 := Rtab(20) && "this string"
-    p31 := Rpos(`stringcall("one", "two")`) || Rpos(`f.stringcall("one", "two")`) || Breakx("that") || Breakx("thsi")
+    p10 := .> x;
+    p11 := Abort();
+    p12 := Any(&letters);
+    p13 := Any(1);
+    p14 := Any("this");
+    p15 := Arb() || Bal();
+    p16 := Break("this");
+    p17 := Breakx("sthis");
+    p18 := Fail();
+    p19 := Fence() || Bal();
+    p20 := Bal() .| Fence() .| "this string";
+    p21 := Len(1);
+    p23 := Len(1) || Bal();
+    p24 := NotAny(&digits);
+    p25 := Pos(22) => x;
+    p26 := Rem();
+    p27 := Span("this string") || Succeed();
+    p28 := Tab(20) || "this string in here";
+    p29 := Rpos(20) || "this string";
+    p30 := Rtab(20) && "this string";
+    p31 := Rpos(`stringcall("one", "two")`) || Rpos(`f.stringcall("one", "two")`) || Breakx("that") || Breakx("thsi");
     every i := 1 to 31 do {
-        write(i)
+        write(i);
         write(image(variable("p"||i)))
-    }
+    };
 
 end
 
 procedure stringcall(var1, var2)
-  return 'abc'
+  return 'abc';
 end
 
 
 class foo(a, b, c)
   method stringcall(var1, var2)
-  return 'abc'
+  return 'abc';
 end
 
 end
@@ -13848,7 +13848,7 @@ procedure raw_denied()
    t := \(&errortext) | fail;
    if find("not permitted", t) | find("Permission denied", t) |
       find("forbidden", t) | find("Access is denied", t) then
-      return
+      return;
    fail;
 end
 
@@ -14379,9 +14379,9 @@ procedure live_test()
    # of wedging CI.  5s is generous for a local/LAN printf.
    got := "";
    every 1 to 50 do {
-      L := select(s, 100) | break
+      L := select(s, 100) | break;
       if *L = 0 then next;
-      chunk := reads(s, 64) | break
+      chunk := reads(s, 64) | break;
       got ||:= chunk;
       if find("partial_ssh_line", got) then break
       };
@@ -14677,37 +14677,37 @@ end
 record node(data,ltree,rtree)
 
 procedure main()
-   local line, tree
+   local line, tree;
    while line := read() do $(
-      tree := tform(line)
-      write("tree walk")
-      every write(walk(tree))
-      write("leaves")
+      tree := tform(line);
+      write("tree walk");
+      every write(walk(tree));
+      write("leaves");
       every write(leaves(tree))
-      $)
+      $);
 end
 
 procedure tform(s)
-   local value,left,right
-   if /s then return
+   local value,left,right;
+   if /s then return;
    s ? if value := tab(upto('(')) then $(
-      move(1)
-      left := tab(bal(','))
-      move(1)
-      right := tab(bal(')'))
+      move(1);
+      left := tab(bal(','));
+      move(1);
+      right := tab(bal(')'));
       return node(value,tform(left),tform(right))
       $)
-      else return node(s)
+      else return node(s);
 end
 
 procedure walk(t)
-   suspend walk(\t.ltree | \t.rtree)
-   return t.data
+   suspend walk(\t.ltree | \t.rtree);
+   return t.data;
 end
 
 procedure leaves(t)
-   if not(\t.ltree | \t.rtree) then return t.data
-   suspend leaves(\t.ltree | \t.rtree)
+   if not(\t.ltree | \t.rtree) then return t.data;
+   suspend leaves(\t.ltree | \t.rtree);
 end
 #---------------------------------------------------------- 133 samples/diffwrds
 #
@@ -14734,26 +14734,26 @@ end
 #  intersections of the two strings in a common character.
 
 procedure main()
-   local line, j
+   local line, j;
    while line := read() do $(
-      write()
-      j := upto(':',line)
+      write();
+      j := upto(':',line);
       cross(line$<1:j$>,line$<j+1:0$>)
-      $)
+      $);
 end
 
 procedure cross(s1,s2)
-   local j, k
+   local j, k;
    every j := upto(s2,s1) do
       every k := upto(s1$<j$>,s2) do
-         xprint(s1,s2,j,k)
+         xprint(s1,s2,j,k);
 end
 
 procedure xprint(s1,s2,j,k)
-   write()
-   every write(right(s2$<1 to k-1$>,j))
-   write(s1)
-   every write(right(s2$<k+1 to *s2$>,j))
+   write();
+   every write(right(s2$<1 to k-1$>,j));
+   write(s1);
+   every write(right(s2$<k+1 to *s2$>,j));
 end
 #----------------------------------------------------------- 135 samples/meander
 #
@@ -14765,7 +14765,7 @@ end
 #  a colon.
 
 procedure main()
-   local line, alpha, n
+   local line, alpha, n;
    while line := read() do $(
       line ? if $(
          alpha := tab(upto(':')) &
@@ -14774,20 +14774,20 @@ procedure main()
          $)
          then write(meander(alpha,n)) 
          else stop("*** erroneous input ***")
-      $)
+      $);
 end
 
 procedure meander(alpha,n)
-   local result, t, i, c, k
-   i := k := *alpha
-   t := n-1
-   result := repl(alpha$<1$>,t)
+   local result, t, i, c, k;
+   i := k := *alpha;
+   t := n-1;
+   result := repl(alpha$<1$>,t);
    while c := alpha$<i$> do $(
       if find(result$<-t:0$> || c,result)
       then i -:= 1
       else $(result ||:= c; i := k$)
-      $)
-   return result
+      $);
+   return result;
 end
 #------------------------------------------------------------ 136 samples/prefix
 #
@@ -14798,38 +14798,38 @@ end
 #  writes the corresponding prefix expressions to standard output.
 
 procedure main()
-   while write(prefix(read()))
+   while write(prefix(read()));
 end
 
 procedure prefix(s)
-   s := strip(s)
-   return lassoc(s,'+-' | '*/') | rassoc(s,'^') | s
+   s := strip(s);
+   return lassoc(s,'+-' | '*/') | rassoc(s,'^') | s;
 end
 
 procedure strip(s)
-   while s ? (="(" & s <- tab(bal(')')) & pos(-1))
-   return s
+   while s ? (="(" & s <- tab(bal(')')) & pos(-1));
+   return s;
 end
 
 procedure lassoc(s,c)
-   local j
-   s ? every j := bal(c)
-   return form(s,\j)
+   local j;
+   s ? every j := bal(c);
+   return form(s,\j);
 end
 
 procedure rassoc(s,c)
-   local j
-   return form(s,s ? bal(c))
+   local j;
+   return form(s,s ? bal(c));
 end
 
 procedure form(s,k)
-   local a1, a2, op
+   local a1, a2, op;
    s ? $(
-      a1 := tab(k)
-      op := move(1)
+      a1 := tab(k);
+      op := move(1);
       a2 := tab(0)
-      $)
-   return op || "(" || prefix(a1) || "," || prefix(a2) || ")"
+      $);
+   return op || "(" || prefix(a1) || "," || prefix(a2) || ")";
 end
 #------------------------------------------------------------ 137 samples/recogn
 #
@@ -16306,8 +16306,8 @@ record X(x)
 
 #============================= main =========================
 
-procedure main(argl)
-&trace:=-1
+procedure main(argl);
+&trace:=-1;
 &random:=0;
 if not (&features == "operator overloading") then
       stop("This program requires operator overloading.");

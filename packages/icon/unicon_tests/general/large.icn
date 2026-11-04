@@ -19,7 +19,7 @@ procedure main ()
 
    every optest ("^", big | -big | small | -small, 2 | 5);
    every optest ("^", 2 | 3, 10 | 30 );
-   every optest ("ishift", big |-big | med1 | -med1 | small, 1 | 8 | -1 | -39)
+   every optest ("ishift", big |-big | med1 | -med1 | small, 1 | 8 | -1 | -39);
 
    &trace := -1;
    every i := 10 | 30 | 70 | 100 do {

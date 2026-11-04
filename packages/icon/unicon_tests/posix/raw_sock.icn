@@ -13,7 +13,7 @@ procedure raw_denied()
    t := \(&errortext) | fail;
    if find("not permitted", t) | find("Permission denied", t) |
       find("forbidden", t) | find("Access is denied", t) then
-      return
+      return;
    fail;
 end
 
