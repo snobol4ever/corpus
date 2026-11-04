@@ -1,0 +1,12 @@
+procedure f(n);
+   local x, y, s, m;
+   s := "abcdefgh";
+   m := n - 1;
+   if n > 0 then s ?? (Len(2) => x) || `f(m)` || (Len(n) => y);
+   write("f", n, " x=", \x | "-", " y=", \y | "-");
+   return;
+end
+procedure main();
+   f(3);
+   f(0);
+end

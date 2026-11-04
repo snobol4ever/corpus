@@ -1,0 +1,14 @@
+procedure show(k);
+   write("show ", k);
+   return;
+end
+procedure h(n, t);
+   local x;
+   t ?? (Len(1) => x) || `show(n)` || `show(t)`;
+   write("h ", n, " ", x);
+   return;
+end
+procedure main();
+   h(7, "abc");
+   h(8, "xyz");
+end

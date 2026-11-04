@@ -1921,7 +1921,7 @@ procedure main()
   if s ?? (Break(",") => a || "," || Span(" ") || Rem() => b) then {
     write("[", a, "]");
     write("[", b, "]");
-  }
+  };
 end
 #---------------------------------------------- 329 ladder_rung41_rt_remove_file
 procedure main()
@@ -4390,7 +4390,7 @@ end
 procedure main()
   every s := "cat" | "dog" | "cow" do {
     if s ?? ("d" .| "c") => m then write(s, " starts ", m) else write(s, " no");
-  }
+  };
 end
 #--------------------------------- 624 ladder_rung08_strbuiltins_scan_refuse_tab
 procedure main()
