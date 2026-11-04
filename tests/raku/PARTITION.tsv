@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1332 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=13 sizes=100,100,100,100,100,100,100,100,100,100,100,100,80
+# shape: entries=1336 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=13 sizes=100,100,100,100,100,100,100,100,100,100,100,100,84
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:01	family:ladder	
@@ -254,6 +254,8 @@ ladder__rung07_subs_a_sigilless_parameter_takes_a_literal_argument	chunk:07	feat
 ladder__rung07_subs_a_sigilless_plus_parameter_is_a_term_in_the_body	chunk:07	feat:sub	sub
 ladder__rung07_subs_implicit_return_bare_literal_tail	chunk:07	feat:sub	sub
 ladder__rung15_blocks_a_builtin_routine_reference_is_passed_to_a_code_parameter	chunk:07	feat:sub	sub
+ladder__rung16_bool_relops_a_chained_numeric_relop_counts_a_list_returning_method_call	chunk:12	feat:grep	grep
+ladder__rung16_bool_relops_a_list_returning_method_call_is_counted_in_a_numeric_relop	chunk:12	feat:grep	grep
 say_90	chunk:04	feat:say	say
 simple_assign_46	chunk:03	family:smoke	
 simple_assign_47	chunk:03	family:smoke	
@@ -399,6 +401,7 @@ ladder__rung028_quote_qq_hash_angle	chunk:08	feat:sigil_hash	sigil_hash
 ladder__rung028_quote_qq_hash_brace	chunk:08	feat:sigil_hash	sigil_hash
 ladder__rung028_quote_qq_scalar_array_subscript	chunk:02	family:ladder	
 ladder__rung028_quote_qq_scalar_hash_subscript	chunk:02	family:ladder	
+ladder__rung02_arith_a_list_returning_method_call_is_counted_in_arithmetic	chunk:12	feat:grep	grep say
 ladder__rung02_arithmetic_the_atomic_postfix_increments_an_atomicint	chunk:02	family:ladder	
 ladder__rung04_arrays_negative_index	chunk:06	feat:sigil_array	sigil_array
 ladder__rung04_arrays_out_of_bounds	chunk:06	feat:sigil_array	sigil_array
@@ -433,6 +436,7 @@ ladder__rung15_blocks_first	chunk:06	feat:sigil_array	sigil_array
 ladder__rung15_blocks_placeholders	chunk:02	family:ladder	
 ladder__rung15_blocks_pointy	chunk:02	family:ladder	
 ladder__rung15_blocks_topic	chunk:02	family:ladder	
+ladder__rung16_bool_relops_numeric_equality_counts_a_list_returning_method_call	chunk:12	feat:grep	grep say
 ladder__rung18_two_arg_block_reduce_add	chunk:06	feat:sigil_array	sigil_array
 ladder__rung18_two_arg_block_reduce_mul	chunk:06	feat:sigil_array	sigil_array
 ladder__rung19_block_a_sub_reads_its_own_topic	chunk:07	feat:sub	sub
@@ -1048,10 +1052,10 @@ class_say_replace_27	chunk:05	feat:has	has say
 class_say_replace_29	chunk:05	feat:has	has say
 for_range_1	chunk:06	feat:for_with_say	for for_with_say range_op
 for_range_11	chunk:06	feat:for_with_say	for for_with_say range_op
-junction_say_1	chunk:12	feat:junction	if junction say
-junction_say_2	chunk:12	feat:junction	if junction say
-junction_say_3	chunk:12	feat:junction	if junction say
-junction_say_4	chunk:12	feat:junction	if junction say
+junction_say_1	chunk:13	feat:junction	if junction say
+junction_say_2	chunk:13	feat:junction	if junction say
+junction_say_3	chunk:13	feat:junction	if junction say
+junction_say_4	chunk:13	feat:junction	if junction say
 multi_sub_array_2	chunk:11	feat:multi	multi sigil_array string_concat sub
 multi_sub_say_1	chunk:11	feat:multi	multi say string_concat sub
 multi_sub_say_5	chunk:11	feat:multi	multi say string_concat sub
