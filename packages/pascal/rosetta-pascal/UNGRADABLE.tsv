@@ -213,6 +213,7 @@ sieve-of-eratosthenes.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses 
 singly-linked-list-element-definition.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 singly-linked-list-element-insertion-1.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
 singly-linked-list-element-insertion-2.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sleeping-beauty-problem.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth; MEASURED the cqo 2026-11-04: randomize seeds from the clock in whole seconds, three runs 2.5 s apart printed 1500363, 1498900 and 1499633 wakings, and util_build_package_suite.py --twice now reruns in a later second
 smallest-numbers-1.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 smallest-numbers-2.pas	NONDETERMINISTIC	fpc (any mode, ISO first): the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 smarandache-prime-digital-sequence.pas	ORACLE_REFUSES	fpc (any mode, ISO first): fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)

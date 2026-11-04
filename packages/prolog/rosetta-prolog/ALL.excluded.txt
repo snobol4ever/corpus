@@ -25,7 +25,6 @@ apply-a-callback-to-an-array: oracle produced EMPTY output -- refusing to mint a
 arbitrary-precision-integers-included--2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 arithmetic-geometric-mean: oracle produced EMPTY output -- refusing to mint a vacuous ref
 arithmetic-integer-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-arithmetic-rational: oracle timed out -- non-terminating or too slow for the grading timeout
 array-concatenation: oracle produced EMPTY output -- refusing to mint a vacuous ref
 array-length: oracle produced EMPTY output -- refusing to mint a vacuous ref
 associative-array-creation: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -283,7 +282,6 @@ sum-and-product-of-an-array-2: oracle produced EMPTY output -- refusing to mint 
 tic-tac-toe-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
 tic-tac-toe-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 tokenize-a-string-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-topswops: oracle timed out -- non-terminating or too slow for the grading timeout
 truncatable-primes-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 twelve-statements: oracle produced EMPTY output -- refusing to mint a vacuous ref
 unicode-variable-names-2: oracle produced EMPTY output -- refusing to mint a vacuous ref

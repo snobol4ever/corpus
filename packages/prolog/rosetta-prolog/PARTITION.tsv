@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=512 features=37 ubiquitous=4(package format unify directive) distinctive=33 core=41 clusters=87 chunks=5 sizes=100,100,100,100,71
+# shape: entries=514 features=37 ubiquitous=4(package format unify directive) distinctive=33 core=41 clusters=87 chunks=5 sizes=100,100,100,100,73
 entry	part	cluster	shells
 100-doors-1	chunk:02	feat:between	between forall
 100-doors-2	chunk:02	feat:between	between cut forall if_then_else list_cons
@@ -278,7 +278,7 @@ modular-exponentiation	chunk:05	family:modular-exponentiation
 modular-inverse	chunk:02	feat:cut	cut
 morse-code-2	chunk:05	feat:nonvar	nonvar
 multiplication-tables	chunk:01	feat:write	between forall nl write
-multisplit	chunk:03	feat:dcg	dcg if_then_else list_cons
+multisplit	chunk:04	feat:dcg	dcg if_then_else list_cons
 mutex-2	chunk:04	feat:call	call forall
 mutual-recursion-1	chunk:03	feat:between	between forall nl
 n-queens-problem-1	chunk:01	feat:findall	findall forall list_cons
@@ -486,7 +486,7 @@ zero-to-the-zero-power	chunk:05	family:zero-to-the-zero-power
 zig-zag-matrix	chunk:04	feat:nl	nl
 aks-test-for-primes-2	chunk:05	family:aks-test-for-primes	
 bitmap-bresenhams-line-algorithm	chunk:05	family:bitmap-bresenhams-line-algorithm	
-bitmap-write-a-ppm-file-2	chunk:04	family:bitmap-write-a-ppm-file	
+bitmap-write-a-ppm-file-2	chunk:05	family:bitmap-write-a-ppm-file	
 box-the-compass-1	chunk:05	family:box-the-compass	
 bulls-and-cows-player-1	chunk:05	family:bulls-and-cows-player	
 catamorphism-3	chunk:04	family:catamorphism	
@@ -497,7 +497,7 @@ concurrent-computing	chunk:05	family:concurrent-computing
 determine-if-a-string-is-numeric-1	chunk:05	family:determine-if-a-string-is-numeric	
 function-definition-1	chunk:04	family:function-definition	
 general-fizzbuzz-2	chunk:05	family:general-fizzbuzz	
-hailstone-sequence-1	chunk:04	family:hailstone-sequence	
+hailstone-sequence-1	chunk:05	family:hailstone-sequence	
 hailstone-sequence-5	chunk:05	family:hailstone-sequence	
 integer-comparison-1	chunk:05	family:integer-comparison	
 middle-three-digits-1	chunk:05	family:middle-three-digits	
@@ -514,3 +514,5 @@ spelling-of-ordinal-numbers-2	chunk:05	family:spelling-of-ordinal-numbers
 truncatable-primes-2	chunk:05	family:truncatable-primes	
 universal-turing-machine-1	chunk:05	family:universal-turing-machine	
 variables-1	chunk:05	family:variables	
+topswops	chunk:03	feat:succ	between if_then_else list_cons succ
+arithmetic-rational	chunk:04	feat:setof	between forall list_cons setof

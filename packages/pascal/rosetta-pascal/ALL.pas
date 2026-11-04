@@ -23579,3 +23579,1278 @@ begin
   end;
 
 end.
+{-------------------------------------------------------------------- 320 a_b-1}
+var
+   a, b: integer;
+begin
+   readln(a, b);
+   writeln(a + b);
+end.
+{-------------------------------------------------------------------- 321 a_b-2}
+var
+   a, b: integer;
+begin
+   reset(input, 'input.txt');
+   rewrite(output, 'output.txt');
+   readln(a, b);
+   writeln(a + b);
+   close(input);
+   close(output);
+end.
+{--------------------------------------------------------- 322 amicable-pairs-1}
+ Program SumOfFactors; uses crt; {Perpetrated by R.N.McLean, December MCMXCV}
+//{$DEFINE ShowOverflow}
+{$IFDEF FPC}
+  {$MODE DELPHI}//tested with lots = 524*1000*1000 takes 75 secs generating KnownSum
+{$ENDIF}
+  var outf: text;
+  const Limit = 2147483647;
+  const lots = 20000;       {This should be much bigger, but problems apply.}
+  var KnownSum: array[1..lots] of longint;
+  Function SumF(N: Longint): Longint;
+   var f,f2,s,ulp: longint;
+   Begin
+    if n <= lots then SumF:=KnownSum[N] {Hurrah!}
+     else
+      begin      {This is really crude...}
+       s:=1;     {1 is always a factor, but N is not.}
+       f:=2;
+       f2:=f*f;
+       while f2 < N do
+        begin
+         if N mod f = 0 then
+          begin  {We have a divisor, and its friend.}
+           ulp:=f + (N div f);
+           if s > Limit - ulp then begin SumF:=-666; exit; end;
+           s:=s + ulp;
+          end;
+         f:=f + 1;
+         f2:=f*f;
+        end;
+        if f2 = N then {A perfect square gets its factor in once only.}
+         if s <= Limit - f then s:=s + f
+          else begin SumF:=-667; exit; end;
+       SumF:=s;
+      end;
+   End;
+  var i,j,l,sf,fs: LongInt;
+  const enuff = 666; {Only so much sociability.}
+  var trail: array[0..enuff] of longint;
+  BEGIN
+   ClrScr;
+   WriteLn('Chasing Chains of Sums of Factors of Numbers.');
+   for i:=1 to lots do KnownSum[i]:=1; {Sigh. KnownSum:=1;}
+
+{start summing every divisor }
+   for i:=2 to lots do
+    begin
+     j:=i + i;
+     While j <= lots do    {Sigh. For j:=i + i:Lots:i do KnownSum[j]:=KnownSum[j] + i;}
+     begin
+       KnownSum[j]:=KnownSum[j] + i;
+       j:=j + i;
+      end;
+    end;
+
+ {Enough preparation.}
+   Assign(outf,'Factors.txt'); ReWrite(Outf);
+   WriteLn(Outf,'Chasing Chains of Sums of Factors of Numbers.');
+
+   for i:=2 to lots do    {Search.}
+    begin
+     l:=0;
+     sf:=SumF(i);
+     while (sf > i) and (l < enuff) do
+      begin
+       l:=l + 1;
+       trail[l]:=sf;
+       sf:=SumF(sf);
+      end;
+     if l >= enuff then writeln('Rope ran out! ',i);
+{$IFDEF ShowOverflow}
+     if sf < 0 then writeln('Overflow with ',i);
+{$ENDIF}
+     if i = sf then      {A loop?}
+      begin              {Yes. Reveal its members.}
+       trail[0]:=i;      {The first.}
+       if l = 0 then write('Perfect!! ')
+        else if l = 1 then write('Amicable! ')
+         else write('Sociable: ');
+       for j:=0 to l do Write(Trail[j],',');
+       WriteLn;
+       if l = 0 then write(outf,'Perfect!! ')
+        else if l = 1 then write(outf,'Amicable! ')
+         else write(outf,'Sociable: ');
+       for j:=0 to l do write(outf,Trail[j],',');
+       WriteLn(outf);
+      end;
+    end;
+   Close (outf);
+  END.
+{------------------------------------------------ 323 arithmetic-geometric-mean}
+Program ArithmeticGeometricMean;
+
+uses
+  gmp;
+
+procedure agm (in1, in2: mpf_t; var out1, out2: mpf_t);
+begin
+  mpf_add (out1, in1, in2);
+  mpf_div_ui (out1, out1, 2);
+  mpf_mul (out2, in1, in2);
+  mpf_sqrt (out2, out2);
+end;
+
+const
+  nl = chr(13)+chr(10);
+var
+  x0, y0, resA, resB: mpf_t;
+  i: integer;
+begin
+  mpf_set_default_prec (65568);
+
+  mpf_init_set_ui (y0, 1);
+  mpf_init_set_d (x0, 0.5);
+  mpf_sqrt (x0, x0);
+  mpf_init (resA);
+  mpf_init (resB);
+
+  for i := 0 to 6 do
+  begin
+    agm(x0, y0, resA, resB);
+    agm(resA, resB, x0, y0);
+  end;
+  mp_printf ('%.20000Ff'+nl, @x0);
+  mp_printf ('%.20000Ff'+nl+nl, @y0);
+end.
+{----------------------------------------------------- 324 copy-stdin-to-stdout}
+program writeInput(input, output);
+var
+	buffer: char;
+begin
+	while not EOF() do
+	begin
+		read(buffer); // shorthand for read(input, buffer)
+		write(buffer); // shorthand for write(output, buffer)
+	end;
+end.
+{------------------------------------------------------------- 325 fasta-format}
+program FASTA_Format;
+// FPC 3.0.2
+var InF,
+    OutF: Text;
+    ch: char;
+    First: Boolean=True;
+    InDef: Boolean=False;
+
+begin
+  Assign(InF,'');
+  Reset(InF);
+  Assign(OutF,'');
+  Rewrite(OutF);
+  While Not Eof(InF) do
+  begin
+    Read(InF,ch);
+    Case Ch of
+      '>': begin
+            if Not(First) then
+              Write(OutF,#13#10)
+            else
+              First:=False;
+            InDef:=true;
+          end;
+      #13: Begin
+               if InDef then
+               begin
+                 InDef:=false;
+                 Write(OutF,': ');
+               end;
+               Ch:=#0;
+             end;
+      #10: ch:=#0;
+      else Write(OutF,Ch);
+    end;
+  end;
+  Close(OutF);
+  Close(InF);
+end.
+{--------------------------------------------------------- 326 gapful-numbers-1}
+program gapful;
+
+
+{$IFDEF FPC}
+   {$MODE DELPHI}{$OPTIMIZATION ON,ALL}
+{$ELSE}
+  {$APPTYPE CONSOLE}
+{$ENDIF}
+
+uses
+  sysutils // IntToStr
+{$IFDEF FPC}
+  ,strUtils // Numb2USA aka commatize
+{$ENDIF};
+
+const
+  cIdx = 5;
+  starts: array[0..cIdx - 1] of Uint64 = (100, 1000 * 1000, 10 * 1000 * 1000,
+    1000 * 1000 * 1000, 7123);
+  counts: array[0..cIdx - 1] of Uint64 = (30, 15, 15, 10, 25);
+  //100|  74623687  =>    1000*1000*1000
+  //100| 746236131  => 10*1000*1000*1000
+  //100|7462360431  =>100*1000*1000*1000
+  Base = 10;
+
+var
+  ModsHL: array[0..99] of NativeUint;
+  Pow10: Uint64;    //global, seldom used
+  countLmt: NativeUint; //Uint64; only for extreme counting
+
+{$IFNDEF FPC}
+
+function Numb2USA(const S: string): string;
+var
+  i, NA: Integer;
+begin
+  i := Length(S);
+  Result := S;
+  NA := 0;
+  while (i > 0) do
+  begin
+    if ((Length(Result) - i + 1 - NA) mod 3 = 0) and (i <> 1) then
+    begin
+      insert(',', Result, i);
+      inc(NA);
+    end;
+    Dec(i);
+  end;
+end;
+{$ENDIF}
+
+procedure OutHeader(i: NativeInt);
+begin
+  writeln('First ', counts[i], ', gapful numbers starting at ', Numb2USA(IntToStr
+    (starts[i])));
+end;
+
+procedure OutNum(n: Uint64);
+begin
+  write(' ', n);
+end;
+
+procedure InitMods(n: Uint64; H_dgt: NativeUint);
+//calculate first mod of n, when it reaches n
+var
+  i, j: NativeInt;
+begin
+  j := H_dgt; //= H_dgt+i
+  for i := 0 to Base - 1 do
+  begin
+    ModsHL[j] := n mod j;
+    inc(n);
+    inc(j);
+  end;
+end;
+
+procedure InitMods2(n: Uint64; H_dgt, L_Dgt: NativeUint);
+//calculate first mod of n, when it reaches n
+//beware, that the lower n are reached in the next base round
+var
+  i, j: NativeInt;
+begin
+  j := H_dgt;
+  n := n - L_Dgt;
+  for i := 0 to L_Dgt - 1 do
+  begin
+    ModsHL[j] := (n + base) mod j;
+    inc(n);
+    inc(j);
+  end;
+  for i := L_Dgt to Base - 1 do
+  begin
+    ModsHL[j] := n mod j;
+    inc(n);
+    inc(j);
+  end;
+end;
+
+procedure Main(TestNum: Uint64; Cnt: NativeUint);
+var
+  LmtNextNewHiDgt: Uint64;
+  tmp, LowDgt, GapNum: NativeUint;
+begin
+  countLmt := Cnt;
+  Pow10 := Base * Base;
+  LmtNextNewHiDgt := Base * Pow10;
+  while LmtNextNewHiDgt <= TestNum do
+  begin
+    Pow10 := LmtNextNewHiDgt;
+    LmtNextNewHiDgt := LmtNextNewHiDgt * Base;
+  end;
+  LowDgt := TestNum mod Base;
+  GapNum := TestNum div Pow10;
+  LmtNextNewHiDgt := (GapNum + 1) * Pow10;
+  GapNum := Base * GapNum;
+  if LowDgt <> 0 then
+    InitMods2(TestNum, GapNum, LowDgt)
+  else
+    InitMODS(TestNum, GapNum);
+
+  GapNum := GapNum + LowDgt;
+  repeat
+//     if TestNum MOD (GapNum) = 0 then
+    if ModsHL[GapNum] = 0 then
+    begin
+      tmp := countLmt - 1;
+      if tmp < 32 then
+        OutNum(TestNum);
+      countLmt := tmp;
+      // Test and BREAK only if something has changed
+      if tmp = 0 then
+        BREAK;
+    end;
+    tmp := Base + ModsHL[GapNum];
+    //translate into "if-less" version 3.35s -> 1.85s
+    //bad branch prediction :-(
+    //if tmp >= GapNum then tmp -= GapNum;
+    tmp := tmp - (-ORD(tmp >= GapNum) and GapNum);
+    ModsHL[GapNum] := tmp;
+
+    TestNum := TestNum + 1;
+    tmp := LowDgt + 1;
+
+    inc(GapNum);
+    if tmp >= Base then
+    begin
+      tmp := 0;
+      GapNum := GapNum - Base;
+    end;
+    LowDgt := tmp;
+    //next Hi Digit
+    if TestNum >= LmtNextNewHiDgt then
+    begin
+      LowDgt := 0;
+      GapNum := GapNum + Base;
+      LmtNextNewHiDgt := LmtNextNewHiDgt + Pow10;
+      //next power of 10
+      if GapNum >= Base * Base then
+      begin
+        Pow10 := Pow10 * Base;
+        LmtNextNewHiDgt := 2 * Pow10;
+        GapNum := Base;
+      end;
+      initMods(TestNum, GapNum);
+    end;
+  until false;
+end;
+
+var
+  i: integer;
+
+begin
+  for i := 0 to High(starts) do
+  begin
+    OutHeader(i);
+    Main(starts[i], counts[i]);
+    writeln(#13#10);
+  end;
+  {$IFNDEF LINUX}  readln; {$ENDIF}
+end.
+{----------------------------------- 327 guess-the-number-with-feedback-player-}
+Program GuessIt(input, output);
+
+var
+  done, ok:        boolean;
+  guess, upp, low: integer;
+  res:             char;
+
+begin
+  writeln ('Choose a number between 0 and 1000.');
+  write ('Press Enter and I will start to guess the number.');
+  readln;
+  upp := 1000;
+  low := 0;
+  repeat
+    ok := false;
+    guess := ( ( upp - low ) div 2 ) + low;
+    write ('My guess is: ', guess:4);
+    write ('. How did i score? ''l'' = too low, ''h'' = too high, ''c'' = correct : ');
+    repeat
+      readln (res);
+      res := lowercase(res);
+    until (res = 'c') or (res = 'l') or (res = 'h');
+    case  res  of
+      'l': low := guess;
+      'h': upp := guess;
+    else
+      ok := true
+    end;
+  until ok;
+  writeln ('So the number is: ', guess:4);
+  writeln ('It was nice to play with you.');
+end.
+{---------------------------------------- 328 input-output-for-pairs-of-numbers}
+program inputOutputForPairsOfNumbers(input, output);
+var
+	lines: integer;
+	x: integer;
+	y: integer;
+begin
+	readLn(lines);
+	for lines := 1 to lines do
+	begin
+		readLn(x, y);
+		writeLn(x + y)
+	end
+end.
+{---------------------------------------------------------- 329 ludic-numbers-2}
+program ludic;
+{$IFDEF FPC}{$MODE DELPHI}{$ELSE}{$APPTYPE CONSOLE}{$ENDIF}
+uses
+  sysutils;
+const
+  MAXNUM =21511;// > 1
+  //1561333;-> 100000 ludic numbers
+  //1561243,1561291,1561301,1561307,1561313,1561333
+type
+  tarrLudic = array of byte;
+  tLudics = array of LongWord;
+
+var
+  Ludiclst : tarrLudic;
+
+procedure Firsttwentyfive;
+var
+  i,actLudic : NativeInt;
+Begin
+  writeln('First 25 ludic numbers');
+  actLudic:= 1;
+  For i := 1 to 25 do
+  Begin
+    write(actLudic:3,',');
+    inc(actLudic,Ludiclst[actLudic]);
+    IF i MOD 5 = 0 then
+      writeln(#8#32);
+  end;
+  writeln;
+end;
+
+procedure CountBelowOneThousand;
+var
+  cnt,actLudic : NativeInt;
+Begin
+  write('Count of ludic numbers below 1000 = ');
+  actLudic:= 1;
+  cnt := 1;
+  while actLudic <= 1000 do
+  Begin
+    inc(actLudic,Ludiclst[actLudic]);
+    inc(cnt);
+  end;
+  dec(cnt);
+  writeln(cnt);writeln;
+end;
+
+procedure Show2000til2005;
+var
+  cnt,actLudic : NativeInt;
+Begin
+  writeln('ludic number #2000 to #2005');
+  actLudic:= 1;
+  cnt := 1;
+  while cnt < 2000 do
+  Begin
+    inc(actLudic,Ludiclst[actLudic]);
+    inc(cnt);
+  end;
+  while cnt < 2005 do
+  Begin
+    write(actLudic,',');
+    inc(actLudic,Ludiclst[actLudic]);
+    inc(cnt);
+  end;
+  writeln(actLudic);writeln;
+end;
+
+procedure ShowTriplets;
+var
+  actLudic,lastDelta : NativeInt;
+Begin
+  writeln('ludic numbers triplets below 250');
+  actLudic:= 1;
+  while actLudic < 250-5 do
+  Begin
+    IF (Ludiclst[actLudic]   <> 0) AND
+       (Ludiclst[actLudic+2] <> 0) AND
+       (Ludiclst[actLudic+6] <> 0) then
+      writeln('{',actLudic,'|',actLudic+2,'|',actLudic+6,'} ');
+    inc(actLudic);
+  end;
+  writeln;
+end;
+
+procedure CheckMaxdist;
+var
+  actLudic,Delta,MaxDelta : NativeInt;
+Begin
+  MaxDelta := 0;
+  actLudic:= 1;
+  repeat
+    delta := Ludiclst[actLudic];
+    inc(actLudic,delta);
+    IF MAxDelta<delta then
+       MAxDelta:= delta;
+  until actLudic>= MAXNUM;
+  writeln('MaxDist ',MAxDelta);writeln;
+end;
+
+function GetLudics:tLudics;
+//Array of byte containing the distance to next ludic number
+//eliminated numbers are set to 0
+var
+  i,actLudic,actcnt,delta,actPos,lastPos,ludicCnt: NativeInt;
+Begin
+  setlength(Ludiclst,MAXNUM+1);
+  For i := MAXNUM downto 0 do
+    Ludiclst[i]:= 1;
+  actLudic := 1;
+  ludicCnt := 1;
+
+  repeat
+    inc(actLudic,Ludiclst[actLudic]);
+    IF actLudic> MAXNUM then
+      BREAK;
+    inc(ludicCnt);
+    actPos := actLudic;
+    actcnt := 0;
+    // Only if there are enough ludics left
+    IF MaxNum-ludicCnt-actPos > actPos then
+    Begin
+    //eliminate every element in actLudic-distance
+      //delta so i can set Ludiclst[actpos] to zero
+      delta := Ludiclst[actpos];
+      repeat
+        lastPos := actPos;
+        inc(actpos,delta);
+        if actPos>=MAXNUM then
+          BREAK;
+        delta := Ludiclst[actpos];
+        inc(actcnt);
+        IF actcnt= actLudic then
+        Begin
+          inc(Ludiclst[LastPos],delta);
+          //mark as not ludic
+          Ludiclst[actpos] := 0;
+          actcnt := 0;
+        end;
+      until false;
+    end;
+  until false;
+  writeln(ludicCnt,' ludic numbers upto ',MAXNUM,#13#10);
+end;
+
+BEGIN
+  GetLudics;
+  CheckMaxdist;
+  Firsttwentyfive;CountBelowOneThousand;Show2000til2005;ShowTriplets ;
+  setlength(Ludiclst,0)
+END.
+{---------------------------------------------------------- 330 natural-sorting}
+Program Natural; Uses DOS, crt;	{Simple selection.}
+{Demonstrates a "natural" order of sorting text with nameish parts.}
+
+ Const null=#0; BS=#8; HT=#9; LF=#10{0A}; VT=#11{0B}; FF=#12{0C}; CR=#13{0D};
+
+ Procedure Croak(gasp: string);
+  Begin
+   WriteLn(Gasp);
+   HALT;
+  End;
+
+ Function Space(n: integer): string;	{Can't use n*" " either.}
+  var text: string;	{A scratchpad.}
+  var i: integer;	{A stepper.}
+  Begin
+   if n > 255 then n:=255	{A value parameter,}
+    else if n < 0 then n:=0;	{So this just messes with my copy.}
+   for i:=1 to n do text[i]:=' ';	{Place some spaces.}
+   text[0]:=char(n);			{Place the length thereof.}
+   Space:=text;		{Take that.}
+  End; {of Space.}
+
+ Function DeFang(x: string): string;	{Certain character codes cause action.}
+  var text: string;	{A scratchpad, as using DeFang directly might imply recursion.}
+  var i: integer;	{A stepper.}
+  var c: char;		{Reduce repetition.}
+  Begin			{I hope that appending is recognised by the compiler...}
+   text:='';			{Scrub the scratchpad.}
+   for i:=1 to Length(x) do	{Step through the source text.}
+    begin			{Inspecting each character.}
+     c:=char(x[i]);		{Grab it.}
+     if c > CR then text:=text + c	{Deemed not troublesome.}
+      else if c < BS then text:=text + c	{Lacks an agreed alternative, and may not cause trouble.}
+       else text:=text + '!' + copy('btnvfr',ord(c) - ord(BS) + 1,1);	{The alternative codes.}
+    end;			{On to the next.}
+   DeFang:=text;	{Alas, the "escape" convention lengthens the text.}
+  End; {of DeFang.}	{But that only mars the layout, rather than ruining it.}
+
+ Const mEntry = 66;	{Sufficient for demonstrations.}
+ Type EntryList = array[0..mEntry] of integer;	{Identifies texts by their index.}
+ var  EntryText: array[1..mEntry] of string;	{Inbto this array.}
+ var nEntry: integer;				{The current number.}
+ Function AddEntry(x: string): integer;	{Add another text to the collection.}
+  Begin	 {Could extend to checking for duplicates via a sorted list...}
+   if nEntry >= mEntry then Croak('Too many entries!');	{Perhaps not!}
+   inc(nEntry);			{So, another.}
+   EntryText[nEntry]:=x;	{Placed.}
+   AddEntry:=nEntry;		{The caller will want to know where.}
+  End; {of AddEntry.}
+
+ Function TextOrder(i,j: integer): boolean;	{This is easy.}
+  Begin						{But despite being only one statement, and simple at that,}
+   TextOrder:=EntryText[i] <= EntryText[j];	{Begin...End is insisted upon.}
+  End;	{of TextOrder.}
+
+ Function NaturalOrder(e1,e2: integer): boolean;{Not so easy.}
+  const Article: array[1..3] of string[4] = ('A ','AN ','THE ');	{Each with its trailing space.}
+  Function Crush(var c: char): char;	{Suppresses divergence.}
+   Begin				{To simplify comparisons.}
+    if c <= ' ' then Crush:=' '		{Crush the fancy control characters.}
+     else Crush:=UpCase(c);		{Also crush a < A or a > A or a = A questions.}
+   End; {of Crush.}
+  var Wot: array[1..2] of integer;	{Which text is being fingered.}
+  var Tail: array[1..2] of integer;	{Which article has been found at the start.}
+  var l,lst: array[1..2] of integer;	{Finger to the current point, and last character.}
+  Procedure Librarian;		{Initial inspection of the texts.}
+   var Blocked: boolean;	{Further progress may be obstructed.}
+   var a,is,i: integer;		{Odds and ends.}
+   label Hic;			{For escaping the search when a match is complete.}
+   Begin		{There are two texts to inspect.}
+    for is:=1 to 2 do	{Treat them alike.}
+     begin			{This is the first encounter.}
+      l[is]:=1;			{So start the scan with the first character.}
+      Tail[is]:=0;		{No articles found.}
+      while (l[is] <= lst[is]) and (EntryText[wot[is]][l[is]] <= ' ') do inc(l[is]);	{Leading spaceish.}
+      for a:=1 to 3 do		{Try to match an article at the start of the text.}
+       begin				{Each article's text has a trailing space to be matched also.}
+        i:=0;				{Start a for-loop, but with early escape in mind.}
+        Repeat 				{Compare successive characters, for i:=0 to a...}
+         if l[is] + i > lst[is] then Blocked:=true	{Probed past the end of text?}
+          else Blocked:=Crush(EntryText[wot[is]][l[is] + i]) <> Article[a][i + 1];	{No. Compare capitals.}
+         inc(i);			{Stepping on to the next character.}
+        Until Blocked or (i > a);	{Conveniently, Length(Article[a]) = a.}
+        if not Blocked then	{Was a mismatch found?}
+         begin			{No!}
+          Tail[is]:=a;		{So, identify the discovery.}
+          l[is]:=l[is] + i;	{And advance the scan to whatever follows.}
+          goto Hic;		{Escape so as to consider the other text.}
+         end;			{Since two texts are being considered separately.}
+      end;		{Sigh. no "Next a" or similar syntax.}
+ Hic:dec(l[is]);	{Backstep one, ready to advance later.}
+     end;	{Likewise, no "for is:=1 to 2 do ... Next is" syntax.}
+   End; {of Librarian.}
+  var c: array[1..2] of string[1];	{Selected by Advance for comparison.}
+  var d: integer;		{Their difference.}
+  type moody = (Done,Bored,Grist,Numeric);	{Might as well have some mnemonics.}
+  var Mood: array[1..2] of moody;		{As the scan proceeds, moods vary.}
+  var depth: array[1..2] of integer;	{Digit depth.}
+  Procedure Another;	{Choose a pair of characters to compare.}
+  {Digit sequences are special! But periods are ignored, also signs, avoiding confusion over "+6" and " 6".}
+   var is: integer;	{Selects from one text or the other.}
+   var ll: integer;	{Looks past the text into any Article.}
+   var d: char;		{Possibly a digit.}
+   Begin
+    for is:=1 to 2 do	{Same treatment for both texts.}
+     begin			{Find the next character, and taste it.}
+      repeat			{If already bored, slog through any following spaces.}
+       inc(l[is]);			{So, advance one character onwards.}
+       ll:=l[is] - lst[is];		{Compare to the end of the normal text.}
+       if ll <= 0 then c[is]:=Crush(EntryText[wot[is]][l[is]])	{Still in the normal text.}
+        else if Tail[is] <= 0 then c[is]:=''		{Perhaps there is no tail.}
+         else if ll <= 2 then c[is]:=copy(', ',ll,1)	{If there is, this is the junction.}
+          else if ll <= 2 + Tail[is] then c[is]:=copy(Article[Tail[is]],ll - 2,1)	{And this the tail.}
+           else c[is]:='';				{Actually, the copy would do this.}
+      until not ((c[is] = ' ') and (Mood[is] = Bored));	{Thus pass multiple enclosed spaces, but not the first.}
+      if length(c[is]) <= 0 then Mood[is]:=Done 	{Perhaps we ran off the end, even of the tail.}
+       else if c[is] = ' ' then Mood[is]:=Bored		{The first taste of a space induces boredom.}
+        else if ('0' <= c[is]) and (c[is] <= '9') then Mood[is]:=Numeric	{Paired, evokes special attention.}
+         else Mood[is]:=Grist;		{All else is grist for my comparisons.}
+     end;		{Switch to the next text.}
+{Comparing digit sequences is to be done as if numbers. "007" vs "70" is to become vs. "070" by length matching.}
+    if (Mood[1] = Numeric) and (Mood[2] = Numeric) then	{Are both texts yielding a digit?}
+     begin					{Yes. Special treatment impends.}
+      if (Depth[1] = 0) and (Depth[2] = 0) then	{Do I already know how many digits impend?}
+       for is:=1 to 2 do				{No. So for each text,}
+         repeat						{Keep looking until I stop seeing digits.}
+          inc(Depth[is]);				{I am seeing a digit, so there will be one to count.}
+          ll:=l[is] + Depth[is];			{Finger the next position.}
+          if ll > lst[is] then d:=null			{And if not off the end,}
+           else d:=EntryText[wot[is]][ll];		{Grab a potential digit.}
+         until (d < '0') or (d > '9');			{If it is one, probe again.}
+      if Depth[1] < Depth[2] then	{Righto, if the first sequence has fewer digits,}
+       begin					{Supply a free zero.}
+        dec(Depth[2]);				{The second's digit will be consumed.}
+        dec(l[1]);				{The first's will be re-encountered.}
+        c[1]:='0';				{Here is the zero}
+       end					{For the comparison.}
+       else if Depth[2] < Depth[1] then	{But if the second has fewer digits to come,}
+        begin					{Don't dig into them yet.}
+         dec(Depth[1]);				{The first's digit will be used.}
+         dec(l[2]);				{But the second's seen again.}
+         c[2]:='0';				{After this has been used}
+        end					{In the comparison.}
+        else				{But if both have the same number of digits remaining,}
+         begin					{Then the comparison is aligned.}
+          dec(Depth[1]);			{So this digit will be used.}
+          dec(Depth[2]);			{As will this.}
+         end;					{In the comparison.}
+     end;			{Thus, arbitrary-size numbers are allowed, as they're never numbers.}
+   End; {of Another.}	{Possibly, the two characters will be the same, and another pair will be requested.}
+  Begin {of NaturalOrder.}
+   Wot[1]:=e1; Wot[2]:=e2;		{Make the two texts accessible via indexing.}
+   lst[1]:=Length(EntryText[e1]);	{The last character of the first text.}
+   lst[2]:=Length(EntryText[e2]);	{And of the second. Saves on repetition.}
+   Mood[1]:=Bored; Mood[2]:=Bored;	{Behave as if we have already seen a space.}
+   depth[1]:=0;     depth[2]:=0;	{And, no digits in concert have been seen.}
+   Librarian;		{Start the inspection.}
+   repeat		{Chug along, until a difference is found.}
+    Another;			{To do so, choose another pair of characters to compare.}
+    d:=Length(c[2]) - Length(c[1]);	{If one text has run out, favour the shorter.}
+    if (d = 0) and (Length(c[1]) > 0) then d:=ord(c[2][1]) - ord(c[1][1]);	{Otherwise, their difference.}
+   until (d <> 0) or ((Mood[1] = Done) and (Mood[2] = Done));	{Well? Are we there yet?}
+   NaturalOrder:=d >= 0;	{And so, does e1's text precede e2's?}
+  End; {of NatualOrder.}
+
+ var TextSort: boolean;		{Because I can't pass a function as a parameter,}
+ Function InOrder(i,j: integer): boolean;	{I can only use one function.}
+  Begin						{Which messes with a selector.}
+   if TextSort then InOrder:=TextOrder(i,j)	{So then,}
+    else InOrder:=NaturalOrder(i,j);		{Which is it to be?}
+  End; {of InOrder.}
+ Procedure OrderEntry(var List: EntryList);	{Passing a ordinary array is not Pascalish, damnit.}
+{Crank up a Comb sort of the entries fingered by List. Working backwards, just for fun.}
+{Caution: the H*10/13 means that H ought not be INTEGER*2. Otherwise, use H/1.3.}
+  var t: integer;	{Same type as the elements of List.}
+  var N,i,h: integer;	{Odds and ends.}
+  var happy: boolean;	{To be attained.}
+  Begin
+   N:=List[0];		{Extract the count.}
+   h:=N - 1;		{"Last" - "First", and not +1.}
+   if h <= 0 then exit;	{Ha ha.}
+   Repeat		{Start the pounding.}
+    h:=LongInt(h)*10 div 13;	{Beware overflow, or, use /1.3.}
+    if h <= 0 then h:=1;	{No "max" function, damnit.}
+    if (h = 9) or (h = 10) then h:=11;	{A fiddle.}
+    happy:=true;		{No disorder seen.}
+    for i:=N - h downto 1 do	{So, go looking. If h = 1, this is a Bubblesort.}
+     if not InOrder(List[i],List[i + h]) then	{How about this pair?}
+      begin						{Alas.}
+       t:=List[i]; List[i]:=List[i + h]; List[i + h]:=t;{No Swap(a,b), damnit.}
+       happy:=false;				{Disorder has been discovered.}
+      end;				{On to the next comparison.}
+   Until happy and (h = 1);	{No suspicion remains?}
+  End; {of OrderEntry.}
+
+ var Item,Fancy: EntryList;	{Two lists of entry indices.}
+ var i: integer;	{A stepper.}
+ var t1: string;	{A scratchpad.}
+ BEGIN
+  nEntry:=0;	{No entries are stored.}
+  i:=0;		{Start a stepper.}
+  inc(i);Item[i]:=AddEntry('ignore leading spaces: 2-2');
+  inc(i);Item[i]:=AddEntry(' ignore leading spaces: 2-1');
+  inc(i);Item[i]:=AddEntry('  ignore leading spaces: 2+0');
+  inc(i);Item[i]:=AddEntry('   ignore leading spaces: 2+1');
+  inc(i);Item[i]:=AddEntry('ignore m.a.s spaces: 2-2');
+  inc(i);Item[i]:=AddEntry('ignore m.a.s  spaces: 2-1');
+  inc(i);Item[i]:=AddEntry('ignore m.a.s   spaces: 2+0');
+  inc(i);Item[i]:=AddEntry('ignore m.a.s    spaces: 2+1');
+  inc(i);Item[i]:=AddEntry('Equiv.'+' '+'spaces: 3-3');
+  inc(i);Item[i]:=AddEntry('Equiv.'+CR+'spaces: 3-2');	{CR can't appear as itself.}
+  inc(i);Item[i]:=AddEntry('Equiv.'+FF+'spaces: 3-1');	{As it is used to mark line endings.}
+  inc(i);Item[i]:=AddEntry('Equiv.'+VT+'spaces: 3+0');	{And if typed in an editor,}
+  inc(i);Item[i]:=AddEntry('Equiv.'+LF+'spaces: 3+1');	{It is acted upon there and then.}
+  inc(i);Item[i]:=AddEntry('Equiv.'+HT+'spaces: 3+2');	{So, name instead of value.}
+  inc(i);Item[i]:=AddEntry('cASE INDEPENDENT: 3-2');
+  inc(i);Item[i]:=AddEntry('caSE INDEPENDENT: 3-1');
+  inc(i);Item[i]:=AddEntry('casE INDEPENDENT: 3+0');
+  inc(i);Item[i]:=AddEntry('case INDEPENDENT: 3+1');
+  inc(i);Item[i]:=AddEntry('foo100bar99baz0.txt');
+  inc(i);Item[i]:=AddEntry('foo100bar10baz0.txt');
+  inc(i);Item[i]:=AddEntry('foo1000bar99baz10.txt');
+  inc(i);Item[i]:=AddEntry('foo1000bar99baz9.txt');
+  inc(i);Item[i]:=AddEntry('The Wind in the Willows');
+  inc(i);Item[i]:=AddEntry('The 40th step more');
+  inc(i);Item[i]:=AddEntry('The 39 steps');
+  inc(i);Item[i]:=AddEntry('Wanda');
+  {inc(i);Item[i]:=AddEntry('The Worth of Wirth''s Way');}
+  Item[0]:=nEntry;	{Complete the EntryList protocol.}
+  for i:=0 to nEntry do Fancy[i]:=Item[i];	{Sigh. Fancy:=Item.}
+
+  TextSort:=true; OrderEntry(Item);	{Plain text ordering.}
+
+  TextSort:=false; OrderEntry(Fancy);	{Natural order.}
+
+  WriteLn('    Text order                         Natural order');
+  for i:=1 to nEntry do
+   begin
+    t1:=DeFang(EntryText[Item[i]]);
+    WriteLn(Item[i]:3,'|',t1,Space(30 - length(t1)),' ',
+           Fancy[i]:3,'|',DeFang(EntryText[Fancy[i]]));
+   end;
+
+ END.
+{-------------------------------------------------------------- 331 paraffins-1}
+Program Paraffins;
+
+uses
+  gmp;
+
+const
+  max_n = 500;
+  branch = 4;
+
+var
+  rooted, unrooted: array [0 .. max_n-1] of mpz_t;
+  c: array [0 .. branch-1] of mpz_t;
+  cnt, tmp: mpz_t;
+  n: integer;
+  fmt: pchar;
+  sum: integer;
+
+procedure tree(br, n, l: integer; sum: integer; cnt: mpz_t);
+  var
+    b, m: integer;
+  begin
+    for b := br + 1 to branch do
+    begin
+      sum := sum + n;
+      if sum >= max_n then
+	exit;
+
+      (* prevent unneeded long math *)
+      if (l * 2 >= sum) and (b >= branch) then
+	exit;
+
+      if b = (br + 1) then
+	mpz_mul(c[br], rooted[n], cnt)
+      else
+      begin
+	mpz_add_ui(tmp, rooted[n], b - br - 1);
+	mpz_mul(c[br], c[br], tmp);
+	mpz_divexact_ui(c[br], c[br], b - br);
+      end;
+
+      if l * 2 < sum then
+	mpz_add(unrooted[sum], unrooted[sum], c[br]);
+
+      if b < branch then
+      begin
+	mpz_add(rooted[sum], rooted[sum], c[br]);
+	for m := n-1 downto 1 do
+	  tree(b, m, l, sum, c[br]);
+      end;
+    end;
+  end;
+
+procedure bicenter(s: integer);
+begin
+  if odd(s) then
+    exit;
+  mpz_add_ui(tmp, rooted[s div 2], 1);
+  mpz_mul(tmp, rooted[s div 2], tmp);
+  mpz_tdiv_q_2exp(tmp, tmp, 1);
+
+  mpz_add(unrooted[s], unrooted[s], tmp);
+end;
+
+begin
+  for n := 0 to 1 do
+  begin
+    mpz_init_set_ui(rooted[n], 1);
+    mpz_init_set_ui(unrooted[n], 1);
+  end;
+  for n := 2 to max_n-1 do
+  begin
+    mpz_init_set_ui(rooted[n], 0);
+    mpz_init_set_ui(unrooted[n], 0);
+  end;
+  for n := 0 to BRANCH-1 do
+    mpz_init(c[n]);
+
+  mpz_init(tmp);
+
+  mpz_init_set_ui(cnt, 1);
+  sum := 1;
+  for n := 1 to MAX_N do
+  begin
+    tree(0, n, n, sum, cnt);
+    bicenter(n);
+    mp_printf('%d: %Zd'+chr(13)+chr(10), n, @unrooted[n]);
+  end;
+end.
+{------------------------------------------------------ 332 primorial-numbers-2}
+program Primorial;
+{$IFDEF FPC} {$MODE DELPHI} {$ENDIF}
+uses
+  sysutils;
+var
+  primes : array[0..1000000] of LongInt;
+
+procedure InitSieve;
+const
+  HiSieve = 15485864;
+var
+  sieve: array of boolean;
+  i, j: NativeInt;
+Begin
+  setlength(sieve,HiSieve);
+  fillchar(sieve[0],HiSieve,chr(ord(True)));
+  For i := 2 to Trunc(sqrt(HiSieve)) do
+    IF sieve[i] then Begin
+      j := i*i;repeat sieve[j]:= false;inc(j,i);until j>= HiSieve-1;end;
+  i:= 2;j:= 1;
+  repeat
+    IF sieve[i] then begin primes[j]:= i;inc(j) end;
+    inc(i);
+  until i > HiSieve;
+  primes[0] := 1;setlength(sieve,0);
+end;
+
+function getPrimorial(n:NativeInt):Uint64;
+Begin
+  result := ORD(n>=0);
+  IF (n >= 0) AND (n < 16) then
+    repeat result := result*primes[n]; dec(n); until n < 1;
+end;
+
+function getPrimorialDecDigits(n:NativeInt):NativeInt;
+var
+  res: extended;
+Begin
+  result := -1;
+  IF (n > 0) AND (n <= 1000*1000) then
+  Begin
+    res := 0;
+    repeat res := res+ln(primes[n]); dec(n); until n < 1;
+    result := trunc(res/ln(10))+1;
+  end;
+end;
+
+function getPrimorialExact(n:NativeInt):NativeInt;
+const
+  LongWordDec = 1000000000;
+var
+  MulArr : array of LongWord;
+  pMul : ^LongWord;
+  Mul1,prod,carry : Uint64;
+  i,j,ul : NativeInt;
+begin
+  i := getPrimorialDecDigits(n) DIV 9 +10;
+  Setlength(MulArr,i);
+  Ul := 0;
+  MulArr[Ul]:= 1;
+  i := 1;
+  repeat
+    Mul1 := 1;
+    //Make Mul1 as large as possible
+    while (i<= n) AND ((LongWordDec DIV MUL1) >= primes[i])  do
+      Begin Mul1 := Mul1*primes[i]; inc(i); end;
+    carry := 0;
+    pMul := @MulArr[0];
+    For j := 0 to UL do
+    Begin
+      prod  := Mul1*pMul^+Carry;
+      Carry := prod Div LongWordDec;
+      pMul^ := Prod - Carry*LongWordDec;
+      inc(pMul);
+    end;
+    IF Carry <> 0 then Begin inc(Ul);pMul^:= Carry; End;
+  until i> n;
+  //count digits
+  i := Ul*9;
+  Carry := MulArr[Ul];
+  repeat
+    Carry := Carry DIV 10;
+    inc(i);
+  until Carry = 0;
+  result := i;
+end;
+
+
+var
+  i: NativeInt;
+Begin
+  InitSieve;
+  write('Primorial (0->9) ');
+  For i := 0 to 9 do
+    write(getPrimorial(i),',');
+  writeln(#8#32#13#10);
+  i:= 10;
+  repeat
+    writeln('Primorial (',i,') = digits ',
+            getPrimorialDecDigits(i),' digits');
+    i := i*10;
+  until i> 1000000;
+  writeln;
+  i:= 10;
+  repeat
+    writeln('PrimorialExact (',i,') = digits ',
+            getPrimorialExact(i),' digits');
+    i := i*10;
+  until i> 100000;
+end.
+{-------------------------------------------- 333 remove-vowels-from-a-string-1}
+program removeVowelsFromString(input, output);
+
+const
+	stringLength = 80;
+
+type
+	stringIndex = 1..stringLength;
+	string = array[stringIndex] of char;
+
+var
+	sourceIndex, destinationIndex: stringIndex;
+	line, disemvoweledLine: string;
+	vowels: set of char;
+
+function lineHasVowels: Boolean;
+var
+	sourceIndex: stringIndex;
+	vowelIndices: set of stringIndex;
+begin
+	vowelIndices := [];
+	
+	for sourceIndex := 1 to stringLength do
+	begin
+		if line[sourceIndex] in vowels then
+		begin
+			vowelIndices := vowelIndices + [sourceIndex]
+		end
+	end;
+	
+	lineHasVowels := vowelIndices <> []
+end;
+
+begin
+	vowels := ['A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u'];
+	
+	{ - - input - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+	for destinationIndex := 1 to stringLength do
+	begin
+		line[destinationIndex] := ' ';
+		if not EOLn(input) then
+		begin
+			read(line[destinationIndex])
+		end
+	end;
+	
+	{ - - processing  - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+	if lineHasVowels then
+	begin
+		destinationIndex := 1;
+		for sourceIndex := 1 to stringLength do
+		begin
+			if not (line[sourceIndex] in vowels) then
+			begin
+				disemvoweledLine[destinationIndex] := line[sourceIndex];
+				destinationIndex := destinationIndex + 1
+			end
+		end;
+		{ pad remaining characters in `disemvoweledLine` with spaces }
+		for destinationIndex := destinationIndex to stringLength do
+		begin
+			disemvoweledLine[destinationIndex] := ' '
+		end;
+	end
+	else
+	begin
+		disemvoweledLine := line
+	end;
+	
+	{ - - output  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+	for destinationIndex := 1 to stringLength do
+	begin
+		write(disemvoweledLine[destinationIndex])
+	end;
+	writeLn
+end.
+{- 334 reverse-the-order-of-lines-in-a-text-file-while-preserving-the-contents-of-each-line}
+program tac(input, output);
+
+procedure reverse;
+var
+	line: text;
+begin
+	{ Open for (over-)writing. }
+	rewrite(line);
+	
+	{ `EOLn` is shorthand for `EOLn(input)`. }
+	while not EOLn do
+	begin
+		{ `line^` and `input^` refer to buffer variables [their values]. }
+		line^ := input^;
+		{ Write buffer and advance writing position. }
+		put(line);
+		{ Advance reading cursor and obtain next value [if such exists]. }
+		get(input)
+	end;
+	
+	{ Consume “newline” character in `input` }
+	readLn;
+	
+	{ Likewise, `EOF` is shorthand for `EOF(input)`. }
+	if not EOF then
+	begin
+		reverse
+	end;
+	
+	{ (Re‑)open for reading. }
+	reset(line);
+	
+	while not EOLn(line) do
+	begin
+		output^ := line^;
+		put(output);
+		get(line)
+	end;
+	
+	{ `writeLn` is shorthand for `writeLn(output)`. }
+	writeLn
+end;
+
+begin
+	reverse
+end.
+{------------------------------------------- 335 terminal-control-inverse-video}
+program InverseVideo;
+{$LINKLIB tinfo}
+uses
+  ncurses;
+begin
+  initscr;
+  attron(A_REVERSE);
+  printw('reversed');
+  attroff(A_REVERSE);
+  printw(' normal');
+  refresh;
+  getch;
+  endwin;
+end.
+{------------------------------------------------------------------ 336 two-sum}
+program twosum;
+{$IFDEF FPC}{$MODE DELPHI}{$ELSE}{$APPTYPE CONSOLE}{$ENDIF}
+uses
+  sysutils;
+type
+  tSolRec = record
+              SolRecI,
+              SolRecJ : NativeInt;
+            end;
+  tMyArray = array of NativeInt;
+const
+// just a gag using unusual index limits
+  ConstArray :array[-17..-13] of NativeInt = (0, 2, 11, 19, 90);
+
+function Check2SumUnSorted(const A  :tMyArray;
+                                 sum:NativeInt;
+                           var   Sol:tSolRec):boolean;
+//Check every possible sum A[max] + A[max-1..0]
+//than A[max-1] + A[max-2..0] etc pp.
+//quadratic runtime: maximal  (max-1)*max/ 2 checks
+//High(A) always checked for dynamic array, even const
+//therefore run High(A) to low(A), which is always 0 for dynamic array
+label
+  SolFound;
+var
+  i,j,tmpSum: NativeInt;
+Begin
+  Sol.SolRecI:=0;
+  Sol.SolRecJ:=0;
+  i := High(A);
+  while i > low(A) do
+  Begin
+    tmpSum := sum-A[i];
+    j := i-1;
+    while j >= low(A) do
+    begin
+      //Goto is bad, but fast...
+      if tmpSum = a[j] Then
+        GOTO SolFound;
+      dec(j);
+    end;
+    dec(i);
+  end;
+  result := false;
+  exit;
+SolFound:
+  Sol.SolRecI:=j;Sol.SolRecJ:=i;
+  result := true;
+end;
+
+function Check2SumSorted(const  A  :tMyArray;
+                                sum:NativeInt;
+                         var    Sol:tSolRec):boolean;
+var
+  i,j,tmpSum: NativeInt;
+Begin
+  Sol.SolRecI:=0;
+  Sol.SolRecJ:=0;
+  i := low(A);
+  j := High(A);
+  while(i < j) do
+  Begin
+    tmpSum := a[i] + a[j];
+    if tmpSum = sum then
+    Begin
+      Sol.SolRecI:=i;Sol.SolRecJ:=j;
+      result := true;
+      EXIT;
+    end;
+    if tmpSum < sum then
+    begin
+      inc(i);
+      continue;
+    end;
+    //if tmpSum > sum then
+    dec(j);
+  end;
+  writeln(i:10,j:10);
+  result := false;
+end;
+
+var
+  Sol :tSolRec;
+  CheckArr : tMyArray;
+  MySum,i : NativeInt;
+
+Begin
+  randomize;
+  setlength(CheckArr,High(ConstArray)-Low(ConstArray)+1);
+  For i := High(CheckArr) downto low(CheckArr) do
+    CheckArr[i] := ConstArray[i+low(ConstArray)];
+
+  MySum  := 21;
+  IF Check2SumSorted(CheckArr,MySum,Sol) then
+    writeln('[',Sol.SolRecI,',',Sol.SolRecJ,'] sum to ',MySum)
+  else
+    writeln('No solution found');
+
+  //now test a bigger sorted array..
+  setlength(CheckArr,83667);
+  For i := High(CheckArr) downto 0 do
+    CheckArr[i] := i;
+  MySum := CheckArr[Low(CheckArr)]+CheckArr[Low(CheckArr)+1];
+  writeln(#13#10,'Now checking array of ',length(CheckArr),
+          ' elements',#13#10);
+  //runtime about 1 second
+  IF Check2SumUnSorted(CheckArr,MySum,Sol) then
+    writeln('[',Sol.SolRecI,',',Sol.SolRecJ,'] sum to ',MySum)
+  else
+    writeln('No solution found');
+  //runtime not measurable
+  IF Check2SumSorted(CheckArr,MySum,Sol) then
+    writeln('[',Sol.SolRecI,',',Sol.SolRecJ,'] sum to ',MySum)
+  else
+    writeln('No solution found');
+end.
