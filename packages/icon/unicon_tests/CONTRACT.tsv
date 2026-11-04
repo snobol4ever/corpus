@@ -1,2 +1,3 @@
 stderr	merged	Unicon tests/Makefile.test runs each program as prog < data/NAME.dat > out 2>&1 and diffs it against stand/NAME.std
 oracle	unicon	CEO-2072: the refs of this package are cut from the Unicon translator through unicon_bin(), never from a .std alone
+unmarked_compile_args	--dialect=unicon	CTO-473 (2026-11-04): a program of this package that carries no class, package, import, thread, critical or abstract marker is a Unicon program because the package says so; its ALL.csv compile_args names the driver switch
