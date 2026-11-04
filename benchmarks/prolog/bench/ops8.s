@@ -312,7 +312,16 @@ n4_cut_α:               mov              qword ptr [rbp + 136], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_33_405
                         mov              rsi, rcx
-.Lcut_α_33_405:         cmp              rsi, r12;                            jae   .Lcut_α_33_409
+.Lcut_α_33_405:         mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_33_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_33_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_33_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_33_406
+                        mov              rsi, rdx
+.Lcut_α_33_406:         cmp              rsi, r12;                            jae   .Lcut_α_33_407
                         mov              rdi, rsi
 .Lcut_α_33_400:         mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_33_403
@@ -343,6 +352,13 @@ n4_cut_α:               mov              qword ptr [rbp + 136], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_33_407:         mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_33_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_33_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_33_409:         lea              rsp, [rbp + -48];                    jmp   n5_var_ref_α
                         .size            n4_cut_bx, .-n4_cut_bx
                         .type            n5_var_ref_bx, @function
@@ -1171,7 +1187,16 @@ n16_cut_α:              mov              qword ptr [rbp + 136], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_57_405
                         mov              rsi, rcx
-.Lcut_α_57_405:         cmp              rsi, r12;                            jae   .Lcut_α_57_409
+.Lcut_α_57_405:         mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_57_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_57_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_57_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_57_406
+                        mov              rsi, rdx
+.Lcut_α_57_406:         cmp              rsi, r12;                            jae   .Lcut_α_57_407
                         mov              rdi, rsi
 .Lcut_α_57_400:         mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_57_403
@@ -1202,6 +1227,13 @@ n16_cut_α:              mov              qword ptr [rbp + 136], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_57_407:         mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_57_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_57_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_57_409:         lea              rsp, [rbp + -64];                    jmp   n17_var_ref_α
                         .size            n16_cut_bx, .-n16_cut_bx
                         .type            n17_var_ref_bx, @function
@@ -3069,7 +3101,16 @@ n86_unmark_α:           mov              r13, qword ptr [rbp + 192]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_159_405
                         mov              rsi, rcx
-.Lunmark_α_159_405:     cmp              rsi, r12;                            jae   .Lunmark_α_159_409
+.Lunmark_α_159_405:     mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_159_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_159_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_159_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_159_406
+                        mov              rsi, rdx
+.Lunmark_α_159_406:     cmp              rsi, r12;                            jae   .Lunmark_α_159_407
                         mov              rdi, rsi
 .Lunmark_α_159_400:     mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_159_403
@@ -3100,6 +3141,13 @@ n86_unmark_α:           mov              r13, qword ptr [rbp + 192]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_159_407:     mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_159_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_159_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_159_409:     mov              rsp, qword ptr [rbp + 184];          jmp   n87_var_ref_α
                         .size            n86_unmark_bx, .-n86_unmark_bx
                         .type            n87_var_ref_bx, @function
@@ -3828,7 +3876,16 @@ n99_unmark_α:           mov              r13, qword ptr [rbp + 288]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_185_405
                         mov              rsi, rcx
-.Lunmark_α_185_405:     cmp              rsi, r12;                            jae   .Lunmark_α_185_409
+.Lunmark_α_185_405:     mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_185_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_185_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_185_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_185_406
+                        mov              rsi, rdx
+.Lunmark_α_185_406:     cmp              rsi, r12;                            jae   .Lunmark_α_185_407
                         mov              rdi, rsi
 .Lunmark_α_185_400:     mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_185_403
@@ -3859,6 +3916,13 @@ n99_unmark_α:           mov              r13, qword ptr [rbp + 288]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_185_407:     mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_185_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_185_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_185_409:     mov              rsp, qword ptr [rbp + 280];          jmp   n100_var_ref_α
                         .size            n99_unmark_bx, .-n99_unmark_bx
                         .type            n100_var_ref_bx, @function
@@ -7988,7 +8052,16 @@ n324_unmark_α:          mov              r13, qword ptr [rbp + 384]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_387_405
                         mov              rsi, rcx
-.Lunmark_α_387_405:     cmp              rsi, r12;                            jae   .Lunmark_α_387_409
+.Lunmark_α_387_405:     mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_387_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_387_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_387_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_387_406
+                        mov              rsi, rdx
+.Lunmark_α_387_406:     cmp              rsi, r12;                            jae   .Lunmark_α_387_407
                         mov              rdi, rsi
 .Lunmark_α_387_400:     mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_387_403
@@ -8019,6 +8092,13 @@ n324_unmark_α:          mov              r13, qword ptr [rbp + 384]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_387_407:     mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_387_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_387_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_387_409:     mov              rsp, qword ptr [rbp + 376];          jmp   n325_lit_integer_α
                         .size            n324_unmark_bx, .-n324_unmark_bx
                         .type            n325_lit_integer_bx, @function
@@ -8487,7 +8567,16 @@ n339_unmark_α:          mov              r13, qword ptr [rbp + 96]            #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_413_405
                         mov              rsi, rcx
-.Lunmark_α_413_405:     cmp              rsi, r12;                            jae   .Lunmark_α_413_409
+.Lunmark_α_413_405:     mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_413_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_413_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_413_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_413_406
+                        mov              rsi, rdx
+.Lunmark_α_413_406:     cmp              rsi, r12;                            jae   .Lunmark_α_413_407
                         mov              rdi, rsi
 .Lunmark_α_413_400:     mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_413_403
@@ -8518,6 +8607,13 @@ n339_unmark_α:          mov              r13, qword ptr [rbp + 96]            #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_413_407:     mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_413_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_413_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_413_409:     mov              rsp, qword ptr [rbp + 88];           jmp   n340_bound_α
                         .size            n339_unmark_bx, .-n339_unmark_bx
                         .type            n340_bound_bx, @function
@@ -8663,7 +8759,16 @@ n343_unmark_α:          mov              r13, qword ptr [rbp + 192]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_421_405
                         mov              rsi, rcx
-.Lunmark_α_421_405:     cmp              rsi, r12;                            jae   .Lunmark_α_421_409
+.Lunmark_α_421_405:     mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_421_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_421_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_421_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_421_406
+                        mov              rsi, rdx
+.Lunmark_α_421_406:     cmp              rsi, r12;                            jae   .Lunmark_α_421_407
                         mov              rdi, rsi
 .Lunmark_α_421_400:     mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_421_403
@@ -8694,6 +8799,13 @@ n343_unmark_α:          mov              r13, qword ptr [rbp + 192]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_421_407:     mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_421_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_421_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_421_409:     mov              rsp, qword ptr [rbp + 184];          jmp   n344_bound_α
                         .size            n343_unmark_bx, .-n343_unmark_bx
                         .type            n344_bound_bx, @function
@@ -8820,7 +8932,16 @@ n346_unmark_α:          mov              r13, qword ptr [rbp + 288]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_427_405
                         mov              rsi, rcx
-.Lunmark_α_427_405:     cmp              rsi, r12;                            jae   .Lunmark_α_427_409
+.Lunmark_α_427_405:     mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_427_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_427_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_427_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_427_406
+                        mov              rsi, rdx
+.Lunmark_α_427_406:     cmp              rsi, r12;                            jae   .Lunmark_α_427_407
                         mov              rdi, rsi
 .Lunmark_α_427_400:     mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_427_403
@@ -8851,6 +8972,13 @@ n346_unmark_α:          mov              r13, qword ptr [rbp + 288]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_427_407:     mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_427_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_427_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_427_409:     mov              rsp, qword ptr [rbp + 280];          jmp   n347_lit_integer_α
                         .size            n346_unmark_bx, .-n346_unmark_bx
                         .type            n347_lit_integer_bx, @function
@@ -10746,7 +10874,16 @@ n488_unmark_α:          mov              r13, qword ptr [rbp + -32]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_505_405
                         mov              rsi, rcx
-.Lunmark_α_505_405:     cmp              rsi, r12;                            jae   .Lunmark_α_505_409
+.Lunmark_α_505_405:     mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_505_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_505_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_505_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_505_406
+                        mov              rsi, rdx
+.Lunmark_α_505_406:     cmp              rsi, r12;                            jae   .Lunmark_α_505_407
                         mov              rdi, rsi
 .Lunmark_α_505_400:     mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_505_403
@@ -10777,6 +10914,13 @@ n488_unmark_α:          mov              r13, qword ptr [rbp + -32]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_505_407:     mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_505_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_505_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_505_409:     mov              rsp, qword ptr [rbp + -40]
                         add              rsp, 48;                             jmp   n489_var_ref_α
                         .size            n488_unmark_bx, .-n488_unmark_bx
@@ -13519,7 +13663,16 @@ n587_unmark_α:          mov              r13, qword ptr [rbp + 144]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_629_405
                         mov              rsi, rcx
-.Lunmark_α_629_405:     cmp              rsi, r12;                            jae   .Lunmark_α_629_409
+.Lunmark_α_629_405:     mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_629_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_629_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_629_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_629_406
+                        mov              rsi, rdx
+.Lunmark_α_629_406:     cmp              rsi, r12;                            jae   .Lunmark_α_629_407
                         mov              rdi, rsi
 .Lunmark_α_629_400:     mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_629_403
@@ -13550,6 +13703,13 @@ n587_unmark_α:          mov              r13, qword ptr [rbp + 144]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_629_407:     mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_629_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_629_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_629_409:     mov              rsp, qword ptr [rbp + 136];          jmp   n588_var_ref_α
                         .size            n587_unmark_bx, .-n587_unmark_bx
                         .type            n588_var_ref_bx, @function
@@ -15096,7 +15256,16 @@ n667_cut_α:             mov              qword ptr [rbp + 120], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_692_405
                         mov              rsi, rcx
-.Lcut_α_692_405:        cmp              rsi, r12;                            jae   .Lcut_α_692_409
+.Lcut_α_692_405:        mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_692_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_692_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_692_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_692_406
+                        mov              rsi, rdx
+.Lcut_α_692_406:        cmp              rsi, r12;                            jae   .Lcut_α_692_407
                         mov              rdi, rsi
 .Lcut_α_692_400:        mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_692_403
@@ -15127,6 +15296,13 @@ n667_cut_α:             mov              qword ptr [rbp + 120], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_692_407:        mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_692_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_692_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_692_409:        lea              rsp, [rbp + -32];                    jmp   $sort4_take$2F3_γ
                         .size            n667_cut_bx, .-n667_cut_bx
                         .type            n668_unify_struct_bx, @function
@@ -17806,7 +17982,16 @@ n738_unmark_α:          mov              r13, qword ptr [rbp + 192]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_788_405
                         mov              rsi, rcx
-.Lunmark_α_788_405:     cmp              rsi, r12;                            jae   .Lunmark_α_788_409
+.Lunmark_α_788_405:     mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_788_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_788_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_788_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_788_406
+                        mov              rsi, rdx
+.Lunmark_α_788_406:     cmp              rsi, r12;                            jae   .Lunmark_α_788_407
                         mov              rdi, rsi
 .Lunmark_α_788_400:     mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_788_403
@@ -17837,6 +18022,13 @@ n738_unmark_α:          mov              r13, qword ptr [rbp + 192]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_788_407:     mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_788_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_788_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_788_409:     mov              rsp, qword ptr [rbp + 184];          jmp   n739_var_ref_α
                         .size            n738_unmark_bx, .-n738_unmark_bx
                         .type            n739_var_ref_bx, @function
@@ -19404,7 +19596,16 @@ n831_unmark_α:          mov              r13, qword ptr [rbp + 112]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_861_405
                         mov              rsi, rcx
-.Lunmark_α_861_405:     cmp              rsi, r12;                            jae   .Lunmark_α_861_409
+.Lunmark_α_861_405:     mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_861_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_861_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_861_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_861_406
+                        mov              rsi, rdx
+.Lunmark_α_861_406:     cmp              rsi, r12;                            jae   .Lunmark_α_861_407
                         mov              rdi, rsi
 .Lunmark_α_861_400:     mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_861_403
@@ -19435,6 +19636,13 @@ n831_unmark_α:          mov              r13, qword ptr [rbp + 112]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_861_407:     mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_861_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_861_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_861_409:     mov              rsp, qword ptr [rbp + 104];          jmp   n832_var_ref_α
                         .size            n831_unmark_bx, .-n831_unmark_bx
                         .type            n832_var_ref_bx, @function
@@ -21433,7 +21641,16 @@ n897_cut_α:             mov              qword ptr [rbp + 72], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_935_405
                         mov              rsi, rcx
-.Lcut_α_935_405:        cmp              rsi, r12;                            jae   .Lcut_α_935_409
+.Lcut_α_935_405:        mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_935_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_935_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_935_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_935_406
+                        mov              rsi, rdx
+.Lcut_α_935_406:        cmp              rsi, r12;                            jae   .Lcut_α_935_407
                         mov              rdi, rsi
 .Lcut_α_935_400:        mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_935_403
@@ -21464,6 +21681,13 @@ n897_cut_α:             mov              qword ptr [rbp + 72], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_935_407:        mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_935_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_935_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_935_409:        lea              rsp, [rbp + -32];                    jmp   $sort4_tail$2F5_γ
                         .size            n897_cut_bx, .-n897_cut_bx
                         .type            n898_var_ref_bx, @function
@@ -21653,7 +21877,16 @@ n902_cut_α:             mov              qword ptr [rbp + 72], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_945_405
                         mov              rsi, rcx
-.Lcut_α_945_405:        cmp              rsi, r12;                            jae   .Lcut_α_945_409
+.Lcut_α_945_405:        mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_945_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_945_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_945_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_945_406
+                        mov              rsi, rdx
+.Lcut_α_945_406:        cmp              rsi, r12;                            jae   .Lcut_α_945_407
                         mov              rdi, rsi
 .Lcut_α_945_400:        mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_945_403
@@ -21684,6 +21917,13 @@ n902_cut_α:             mov              qword ptr [rbp + 72], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_945_407:        mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_945_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_945_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_945_409:        lea              rsp, [rbp + -80];                    jmp   n903_lit_integer_α
                         .size            n902_cut_bx, .-n902_cut_bx
                         .type            n903_lit_integer_bx, @function
@@ -22104,7 +22344,16 @@ n910_cut_α:             mov              qword ptr [rbp + 72], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_958_405
                         mov              rsi, rcx
-.Lcut_α_958_405:        cmp              rsi, r12;                            jae   .Lcut_α_958_409
+.Lcut_α_958_405:        mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_958_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_958_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_958_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_958_406
+                        mov              rsi, rdx
+.Lcut_α_958_406:        cmp              rsi, r12;                            jae   .Lcut_α_958_407
                         mov              rdi, rsi
 .Lcut_α_958_400:        mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_958_403
@@ -22135,6 +22384,13 @@ n910_cut_α:             mov              qword ptr [rbp + 72], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_958_407:        mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_958_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_958_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_958_409:        lea              rsp, [rbp + -48];                    jmp   n911_var_ref_α
                         .size            n910_cut_bx, .-n910_cut_bx
                         .type            n911_var_ref_bx, @function
@@ -23809,7 +24065,16 @@ n984_cut_α:             mov              qword ptr [rbp + 392], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_1062_405
                         mov              rsi, rcx
-.Lcut_α_1062_405:       cmp              rsi, r12;                            jae   .Lcut_α_1062_409
+.Lcut_α_1062_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_1062_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_1062_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_1062_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_1062_406
+                        mov              rsi, rdx
+.Lcut_α_1062_406:       cmp              rsi, r12;                            jae   .Lcut_α_1062_407
                         mov              rdi, rsi
 .Lcut_α_1062_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_1062_403
@@ -23840,6 +24105,13 @@ n984_cut_α:             mov              qword ptr [rbp + 392], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_1062_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_1062_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_1062_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_1062_409:       lea              rsp, [rbp + -80];                    jmp   n985_bound_α
                         .size            n984_cut_bx, .-n984_cut_bx
                         .type            n985_bound_bx, @function
@@ -23984,7 +24256,16 @@ n988_unmark_α:          mov              r13, qword ptr [rbp + 128]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_1070_405
                         mov              rsi, rcx
-.Lunmark_α_1070_405:    cmp              rsi, r12;                            jae   .Lunmark_α_1070_409
+.Lunmark_α_1070_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_1070_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_1070_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_1070_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_1070_406
+                        mov              rsi, rdx
+.Lunmark_α_1070_406:    cmp              rsi, r12;                            jae   .Lunmark_α_1070_407
                         mov              rdi, rsi
 .Lunmark_α_1070_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_1070_403
@@ -24015,6 +24296,13 @@ n988_unmark_α:          mov              r13, qword ptr [rbp + 128]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_1070_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_1070_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_1070_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_1070_409:    mov              rsp, qword ptr [rbp + 120];          jmp   n989_var_ref_α
                         .size            n988_unmark_bx, .-n988_unmark_bx
                         .type            n989_var_ref_bx, @function
@@ -24356,7 +24644,16 @@ n998_unmark_α:          mov              r13, qword ptr [rbp + 224]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_1087_405
                         mov              rsi, rcx
-.Lunmark_α_1087_405:    cmp              rsi, r12;                            jae   .Lunmark_α_1087_409
+.Lunmark_α_1087_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_1087_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_1087_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_1087_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_1087_406
+                        mov              rsi, rdx
+.Lunmark_α_1087_406:    cmp              rsi, r12;                            jae   .Lunmark_α_1087_407
                         mov              rdi, rsi
 .Lunmark_α_1087_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_1087_403
@@ -24387,6 +24684,13 @@ n998_unmark_α:          mov              r13, qword ptr [rbp + 224]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_1087_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_1087_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_1087_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_1087_409:    mov              rsp, qword ptr [rbp + 216];          jmp   n999_lit_integer_α
                         .size            n998_unmark_bx, .-n998_unmark_bx
                         .type            n999_lit_integer_bx, @function
@@ -24653,7 +24957,16 @@ n1009_unmark_α:         mov              r13, qword ptr [rbp + 320]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_1106_405
                         mov              rsi, rcx
-.Lunmark_α_1106_405:    cmp              rsi, r12;                            jae   .Lunmark_α_1106_409
+.Lunmark_α_1106_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_1106_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_1106_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_1106_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_1106_406
+                        mov              rsi, rdx
+.Lunmark_α_1106_406:    cmp              rsi, r12;                            jae   .Lunmark_α_1106_407
                         mov              rdi, rsi
 .Lunmark_α_1106_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_1106_403
@@ -24684,6 +24997,13 @@ n1009_unmark_α:         mov              r13, qword ptr [rbp + 320]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_1106_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_1106_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_1106_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_1106_409:    mov              rsp, qword ptr [rbp + 312];          jmp   n1010_lit_integer_α
                         .size            n1009_unmark_bx, .-n1009_unmark_bx
                         .type            n1010_lit_integer_bx, @function
@@ -26583,7 +26903,16 @@ n1184_cut_α:            mov              qword ptr [rbp + 104], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_1216_405
                         mov              rsi, rcx
-.Lcut_α_1216_405:       cmp              rsi, r12;                            jae   .Lcut_α_1216_409
+.Lcut_α_1216_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_1216_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_1216_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_1216_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_1216_406
+                        mov              rsi, rdx
+.Lcut_α_1216_406:       cmp              rsi, r12;                            jae   .Lcut_α_1216_407
                         mov              rdi, rsi
 .Lcut_α_1216_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_1216_403
@@ -26614,6 +26943,13 @@ n1184_cut_α:            mov              qword ptr [rbp + 104], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_1216_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_1216_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_1216_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_1216_409:       lea              rsp, [rbp + -80];                    jmp   n1185_bound_α
                         .size            n1184_cut_bx, .-n1184_cut_bx
                         .type            n1185_bound_bx, @function
@@ -26775,7 +27111,16 @@ n1189_unmark_α:         mov              r13, qword ptr [rbp + -112]          #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_1225_405
                         mov              rsi, rcx
-.Lunmark_α_1225_405:    cmp              rsi, r12;                            jae   .Lunmark_α_1225_409
+.Lunmark_α_1225_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_1225_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_1225_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_1225_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_1225_406
+                        mov              rsi, rdx
+.Lunmark_α_1225_406:    cmp              rsi, r12;                            jae   .Lunmark_α_1225_407
                         mov              rdi, rsi
 .Lunmark_α_1225_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_1225_403
@@ -26806,6 +27151,13 @@ n1189_unmark_α:         mov              r13, qword ptr [rbp + -112]          #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_1225_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_1225_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_1225_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_1225_409:    mov              rsp, qword ptr [rbp + -120]
                         add              rsp, 48;                             jmp   n1190_lit_integer_α
                         .size            n1189_unmark_bx, .-n1189_unmark_bx
@@ -28542,7 +28894,16 @@ n1262_unmark_α:         mov              r13, qword ptr [rbp + 144]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_1299_405
                         mov              rsi, rcx
-.Lunmark_α_1299_405:    cmp              rsi, r12;                            jae   .Lunmark_α_1299_409
+.Lunmark_α_1299_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_1299_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_1299_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_1299_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_1299_406
+                        mov              rsi, rdx
+.Lunmark_α_1299_406:    cmp              rsi, r12;                            jae   .Lunmark_α_1299_407
                         mov              rdi, rsi
 .Lunmark_α_1299_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_1299_403
@@ -28573,6 +28934,13 @@ n1262_unmark_α:         mov              r13, qword ptr [rbp + 144]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_1299_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_1299_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_1299_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_1299_409:    mov              rsp, qword ptr [rbp + 136];          jmp   n1263_var_ref_α
                         .size            n1262_unmark_bx, .-n1262_unmark_bx
                         .type            n1263_var_ref_bx, @function
@@ -31051,7 +31419,16 @@ n1361_unmark_α:         mov              r13, qword ptr [rbp + 128]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_1389_405
                         mov              rsi, rcx
-.Lunmark_α_1389_405:    cmp              rsi, r12;                            jae   .Lunmark_α_1389_409
+.Lunmark_α_1389_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_1389_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_1389_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_1389_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_1389_406
+                        mov              rsi, rdx
+.Lunmark_α_1389_406:    cmp              rsi, r12;                            jae   .Lunmark_α_1389_407
                         mov              rdi, rsi
 .Lunmark_α_1389_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_1389_403
@@ -31082,6 +31459,13 @@ n1361_unmark_α:         mov              r13, qword ptr [rbp + 128]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_1389_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_1389_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_1389_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_1389_409:    mov              rsp, qword ptr [rbp + 120];          jmp   n1362_var_ref_α
                         .size            n1361_unmark_bx, .-n1361_unmark_bx
                         .type            n1362_var_ref_bx, @function
@@ -32544,7 +32928,16 @@ n1435_cut_α:            mov              qword ptr [rbp + 120], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_1478_405
                         mov              rsi, rcx
-.Lcut_α_1478_405:       cmp              rsi, r12;                            jae   .Lcut_α_1478_409
+.Lcut_α_1478_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_1478_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_1478_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_1478_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_1478_406
+                        mov              rsi, rdx
+.Lcut_α_1478_406:       cmp              rsi, r12;                            jae   .Lcut_α_1478_407
                         mov              rdi, rsi
 .Lcut_α_1478_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_1478_403
@@ -32575,6 +32968,13 @@ n1435_cut_α:            mov              qword ptr [rbp + 120], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_1478_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_1478_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_1478_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_1478_409:       lea              rsp, [rbp + -256];                   jmp   n1436_var_ref_α
                         .size            n1435_cut_bx, .-n1435_cut_bx
                         .type            n1436_var_ref_bx, @function
@@ -33108,7 +33508,16 @@ n1443_cut_α:            mov              qword ptr [rbp + 120], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_1494_405
                         mov              rsi, rcx
-.Lcut_α_1494_405:       cmp              rsi, r12;                            jae   .Lcut_α_1494_409
+.Lcut_α_1494_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_1494_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_1494_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_1494_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_1494_406
+                        mov              rsi, rdx
+.Lcut_α_1494_406:       cmp              rsi, r12;                            jae   .Lcut_α_1494_407
                         mov              rdi, rsi
 .Lcut_α_1494_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_1494_403
@@ -33139,6 +33548,13 @@ n1443_cut_α:            mov              qword ptr [rbp + 120], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_1494_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_1494_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_1494_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_1494_409:       lea              rsp, [rbp + -80];                    jmp   n1444_var_ref_α
                         .size            n1443_cut_bx, .-n1443_cut_bx
                         .type            n1444_var_ref_bx, @function
@@ -34934,7 +35350,16 @@ n1530_cut_α:            mov              qword ptr [rbp + 88], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_1555_405
                         mov              rsi, rcx
-.Lcut_α_1555_405:       cmp              rsi, r12;                            jae   .Lcut_α_1555_409
+.Lcut_α_1555_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_1555_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_1555_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_1555_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_1555_406
+                        mov              rsi, rdx
+.Lcut_α_1555_406:       cmp              rsi, r12;                            jae   .Lcut_α_1555_407
                         mov              rdi, rsi
 .Lcut_α_1555_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_1555_403
@@ -34965,6 +35390,13 @@ n1530_cut_α:            mov              qword ptr [rbp + 88], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_1555_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_1555_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_1555_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_1555_409:       lea              rsp, [rbp + -160];                   jmp   n1531_var_ref_α
                         .size            n1530_cut_bx, .-n1530_cut_bx
                         .type            n1531_var_ref_bx, @function
@@ -36204,7 +36636,16 @@ n1575_unmark_α:         mov              r13, qword ptr [rbp + -112]          #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_1649_405
                         mov              rsi, rcx
-.Lunmark_α_1649_405:    cmp              rsi, r12;                            jae   .Lunmark_α_1649_409
+.Lunmark_α_1649_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_1649_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_1649_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_1649_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_1649_406
+                        mov              rsi, rdx
+.Lunmark_α_1649_406:    cmp              rsi, r12;                            jae   .Lunmark_α_1649_407
                         mov              rdi, rsi
 .Lunmark_α_1649_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_1649_403
@@ -36235,13 +36676,20 @@ n1575_unmark_α:         mov              r13, qword ptr [rbp + -112]          #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_1649_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_1649_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_1649_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_1649_409:    mov              rsp, qword ptr [rbp + -120]
                         add              rsp, 48;                             jmp   n1576_gate_arm_α
                         .size            n1575_unmark_bx, .-n1575_unmark_bx
                         .type            n1576_gate_arm_bx, @function
 n1576_gate_arm_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n1576_gate_arm_α:       mov              dword ptr [rbp + 448], 0;            jmp   n1580_bound_α
+n1576_gate_arm_α:       mov              dword ptr [rbp + 448], 0;            jmp   n1581_bound_α
                         .size            n1576_gate_arm_bx, .-n1576_gate_arm_bx
                         .type            n1577_unmark_bx, @function
 n1577_unmark_bx:
@@ -36258,7 +36706,7 @@ n1577_unmark_α:         mov              rsi, qword ptr [rbp + -128]          #
 .Lunmark_α_1653_201:    mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
-                        test             r15, r15;                            jne   n1583_cleanup_α
+                        test             r15, r15;                            jne   n1580_cleanup_α
                         mov              r13, qword ptr [rbp + -112]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
                         mov              rsp, qword ptr [rbp + -120]
                         add              rsp, 48;                             jmp   n1578_unmark_α
@@ -36267,40 +36715,50 @@ n1577_unmark_α:         mov              rsi, qword ptr [rbp + -128]          #
 n1578_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1578_unmark_α:         test             r15, r15;                            je    .Lunmark_α_1655_999
-                        add              rsp, -48;                            jmp   n1583_cleanup_α
+                        add              rsp, -48;                            jmp   n1580_cleanup_α
 .Lunmark_α_1655_999:                                                          jmp   n1579_gate_α
                         .size            n1578_unmark_bx, .-n1578_unmark_bx
                         .type            n1579_gate_bx, @function
 n1579_gate_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n1579_gate_α:           add              rsp, -48;                            jmp   n1583_cleanup_α
+n1579_gate_α:           add              rsp, -48;                            jmp   n1580_cleanup_α
 n1579_gate_β:           test             r15, r15;                            je    .Lgate_β_1657_30
                         mov              rax, r12
                         and              rax, -536870912
                         mov              rax, qword ptr [rax + 32]
                         test             rax, rax;                            jne   .Lgate_β_1657_998
-                        add              rsp, -48;                            jmp   n1583_cleanup_α
+                        add              rsp, -48;                            jmp   n1580_cleanup_α
 .Lgate_β_1657_998:      lea              rdx, [rbp + 560]
                         cmp              rax, rdx;                            jb    .Lgate_β_1657_999
-                        add              rsp, -48;                            jmp   n1583_cleanup_α
+                        add              rsp, -48;                            jmp   n1580_cleanup_α
 .Lgate_β_1657_999:
 .Lgate_β_1657_30:       mov              eax, dword ptr [rbp + 448]
                         cmp              eax, 0;                              je    n1579_gate_α
                         cmp              eax, 1;                              je    n1579_gate_α
-                        add              rsp, -48;                            jmp   n1583_cleanup_α
+                        add              rsp, -48;                            jmp   n1580_cleanup_α
                         .size            n1579_gate_bx, .-n1579_gate_bx
-                        .type            n1580_bound_bx, @function
-n1580_bound_bx:
+                        .type            n1580_cleanup_bx, @function
+n1580_cleanup_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n1580_bound_α:
-.Lbound_α_1659_245:     mov              rax, r12                             # pl_choice_mark inline: sentinels at the trail top above the current B's mark are dead choices' and are dropped; then this choice's sentinel {0, HB = the heap frontier} goes under its mark
+n1580_cleanup_α:
+.Lcleanup_α_1659_8:     mov              rsp, qword ptr [rbp + 104];          jmp   $wot_stream$2F2_step
+n1580_cleanup_β:        mov              rax, qword ptr [rbp + 176]
+                        cmp              rax, 2;                              jne   .Lcleanup_α_1659_8
+                        mov              edx, 1
+                        mov              qword ptr [rbp + 176], rdx;          jmp   n1586_call_proc_staged_β
+                        .size            n1580_cleanup_bx, .-n1580_cleanup_bx
+                        .type            n1581_bound_bx, @function
+n1581_bound_bx:
+#-----------------------------------------------------------------------------------------------------------------------
+n1581_bound_α:
+.Lbound_α_1661_245:     mov              rax, r12                             # pl_choice_mark inline: sentinels at the trail top above the current B's mark are dead choices' and are dropped; then this choice's sentinel {0, HB = the heap frontier} goes under its mark
                         and              rax, 536870911
-                        cmp              rax, 160;                            jbe   .Lbound_α_1659_246
-                        test             r13, r13;                            je    .Lbound_α_1659_247
-                        cmp              r12, qword ptr [r13 + 0];            jbe   .Lbound_α_1659_246
-.Lbound_α_1659_247:     cmp              qword ptr [r12 + -32], 0;            jne   .Lbound_α_1659_246
-                        sub              r12, 32;                             jmp   .Lbound_α_1659_245
-.Lbound_α_1659_246:     cmp              rax, 536870880;                      jae   .Lbound_α_1659_248
+                        cmp              rax, 160;                            jbe   .Lbound_α_1661_246
+                        test             r13, r13;                            je    .Lbound_α_1661_247
+                        cmp              r12, qword ptr [r13 + 0];            jbe   .Lbound_α_1661_246
+.Lbound_α_1661_247:     cmp              qword ptr [r12 + -32], 0;            jne   .Lbound_α_1661_246
+                        sub              r12, 32;                             jmp   .Lbound_α_1661_245
+.Lbound_α_1661_246:     cmp              rax, 536870880;                      jae   .Lbound_α_1661_248
                         mov              rax, qword ptr [rip + g_runtime@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         mov              qword ptr [r12 + 0], 0
@@ -36311,53 +36769,44 @@ n1580_bound_α:
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
-                        mov              qword ptr [rbp + 96], r12;           jmp   .Lbound_α_1659_249
-.Lbound_α_1659_248:     mov              rdi, r12
+                        mov              qword ptr [rbp + 96], r12;           jmp   .Lbound_α_1661_249
+.Lbound_α_1661_248:     mov              rdi, r12
                         call             rt_pl_tr_refuse@PLT
 .Lgcsite_$wot_stream$2F2_13:
                         ud2
-.Lbound_α_1659_249:     mov              qword ptr [rbp + 104], rsp
+.Lbound_α_1661_249:     mov              qword ptr [rbp + 104], rsp
                         mov              rax, rsp
                         shl              rax, 8
                         or               rax, 152
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 112], r13
-                        lea              r13, [rbp + 96];                     jmp   n1581_lit_integer_α
-                        .size            n1580_bound_bx, .-n1580_bound_bx
-                        .type            n1581_lit_integer_bx, @function
-n1581_lit_integer_bx:
+                        lea              r13, [rbp + 96];                     jmp   n1582_lit_integer_α
+                        .size            n1581_bound_bx, .-n1581_bound_bx
+                        .type            n1582_lit_integer_bx, @function
+n1582_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n1581_lit_integer_α:    sub              rsp, 16
+n1582_lit_integer_α:    sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_integer_α_1660_0]
-                        mov              qword ptr [rsp + 8], rax;            jmp   n1582_var_ref_α
-.Llit_integer_α_1660_0: .quad            11
-                        .size            n1581_lit_integer_bx, .-n1581_lit_integer_bx
-                        .type            n1582_var_ref_bx, @function
-n1582_var_ref_bx:
+                        mov              rax, qword ptr [rip + .Llit_integer_α_1662_0]
+                        mov              qword ptr [rsp + 8], rax;            jmp   n1583_var_ref_α
+.Llit_integer_α_1662_0: .quad            11
+                        .size            n1582_lit_integer_bx, .-n1582_lit_integer_bx
+                        .type            n1583_var_ref_bx, @function
+n1583_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n1582_var_ref_α:        sub              rsp, 16
+n1583_var_ref_α:        sub              rsp, 16
                         lea              rdx, [rbp + 64]                      # a Prolog variable is created at its first reference, in textual order: a virgin frame slot (the zero DESCR) becomes a self-referencing unbound cell that draws its creation serial
                         mov              ecx, dword ptr [rdx + 0]
-                        test             ecx, ecx;                            jne   .Lvar_ref_α_1662_30
+                        test             ecx, ecx;                            jne   .Lvar_ref_α_1664_30
                         mov              rax, qword ptr [r14 + -2064]         # creation serial: the next unbound cell's tag word is the root record's standing cell 255, which then advances by 512
                         add              qword ptr [r14 + -2064], 512
                         mov              qword ptr [rdx + 0], rax
                         mov              qword ptr [rdx + 8], rdx
-.Lvar_ref_α_1662_30:    mov              rax, 4294967336
+.Lvar_ref_α_1664_30:    mov              rax, 4294967336
                         mov              qword ptr [rsp + 0], rax             # result
                         lea              rax, [rbp + 64]
                         mov              qword ptr [rsp + 8], rax;            jmp   n1600_call_pl_leaf_α
-                        .size            n1582_var_ref_bx, .-n1582_var_ref_bx
-                        .type            n1583_cleanup_bx, @function
-n1583_cleanup_bx:
-#-----------------------------------------------------------------------------------------------------------------------
-n1583_cleanup_α:                                                              jmp   $wot_stream$2F2_step
-n1583_cleanup_β:        mov              rax, qword ptr [rbp + 176]
-                        cmp              rax, 2;                              jne   $wot_stream$2F2_step
-                        mov              edx, 1
-                        mov              qword ptr [rbp + 176], rdx;          jmp   n1586_call_proc_staged_β
-                        .size            n1583_cleanup_bx, .-n1583_cleanup_bx
+                        .size            n1583_var_ref_bx, .-n1583_var_ref_bx
                         .type            n1584_cleanup_bx, @function
 n1584_cleanup_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -36502,7 +36951,16 @@ n1588_unmark_α:         mov              r13, qword ptr [rbp + 112]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_1674_405
                         mov              rsi, rcx
-.Lunmark_α_1674_405:    cmp              rsi, r12;                            jae   .Lunmark_α_1674_409
+.Lunmark_α_1674_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_1674_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_1674_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_1674_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_1674_406
+                        mov              rsi, rdx
+.Lunmark_α_1674_406:    cmp              rsi, r12;                            jae   .Lunmark_α_1674_407
                         mov              rdi, rsi
 .Lunmark_α_1674_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_1674_403
@@ -36533,6 +36991,13 @@ n1588_unmark_α:         mov              r13, qword ptr [rbp + 112]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_1674_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_1674_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_1674_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_1674_409:    mov              rsp, qword ptr [rbp + 104]
                         mov              rax, qword ptr [rbp + 416]
                         mov              rcx, rax
@@ -36728,7 +37193,16 @@ n1595_unmark_α:         mov              r13, qword ptr [rbp + -112]          #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_1685_405
                         mov              rsi, rcx
-.Lunmark_α_1685_405:    cmp              rsi, r12;                            jae   .Lunmark_α_1685_409
+.Lunmark_α_1685_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_1685_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_1685_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_1685_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_1685_406
+                        mov              rsi, rdx
+.Lunmark_α_1685_406:    cmp              rsi, r12;                            jae   .Lunmark_α_1685_407
                         mov              rdi, rsi
 .Lunmark_α_1685_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_1685_403
@@ -36759,6 +37233,13 @@ n1595_unmark_α:         mov              r13, qword ptr [rbp + -112]          #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_1685_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_1685_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_1685_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_1685_409:    mov              rsp, qword ptr [rbp + -120]
                         mov              rax, qword ptr [rbp + 416]
                         mov              rcx, rax
@@ -36790,7 +37271,7 @@ n1597_unmark_α:         mov              rsi, qword ptr [rbp + -128]          #
 .Lunmark_α_1689_201:    mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
-                        test             r15, r15;                            jne   n1583_cleanup_α
+                        test             r15, r15;                            jne   n1580_cleanup_α
                         mov              r13, qword ptr [rbp + -112]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
                         mov              rsp, qword ptr [rbp + -120]
                         mov              rax, qword ptr [rbp + 416]
@@ -36811,7 +37292,7 @@ n1598_gate_arm_α:       mov              dword ptr [rbp + 384], 1
                         .type            n1599_gate_bx, @function
 n1599_gate_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n1599_gate_α:                                                                 jmp   n1583_cleanup_α
+n1599_gate_α:                                                                 jmp   n1580_cleanup_α
 n1599_gate_β:           mov              eax, dword ptr [rbp + 384]
                         test             r15, r15;                            je    .Lgate_β_1693_69
                         cmp              eax, 0;                              jne   .Lgate_β_1693_70
@@ -36823,15 +37304,15 @@ n1599_gate_β:           mov              eax, dword ptr [rbp + 384]
                         mov              rax, r12
                         and              rax, -536870912
                         mov              rax, qword ptr [rax + 32]
-                        test             rax, rax;                            je    n1583_cleanup_α
+                        test             rax, rax;                            je    n1580_cleanup_α
                         lea              rdx, [rbp + 560]
-                        cmp              rax, rdx;                            jae   n1583_cleanup_α
+                        cmp              rax, rdx;                            jae   n1580_cleanup_α
 .Lgate_β_1693_30:       mov              eax, dword ptr [rbp + 384]
                         cmp              eax, 0;                              jne   .Lgate_β_1693_10
                         add              rsp, -80;                            jmp   n1599_gate_α
 .Lgate_β_1693_10:       cmp              eax, 1;                              jne   .Lgate_β_1693_11
                         add              rsp, -80;                            jmp   n1599_gate_α
-.Lgate_β_1693_11:                                                             jmp   n1583_cleanup_α
+.Lgate_β_1693_11:                                                             jmp   n1580_cleanup_α
                         .size            n1599_gate_bx, .-n1599_gate_bx
                         .type            n1600_call_pl_leaf_bx, @function
 n1600_call_pl_leaf_bx:
@@ -36967,12 +37448,12 @@ n1600_call_pl_leaf_α:   sub              rsp, 48
 .Lcall_pl_leaf_α_1694_249:
                         cmp              al, 104;                             jne   .Lcall_pl_leaf_α_1694_999
                         add              rsp, 48
-                        add              rsp, -16;                            jmp   n1583_cleanup_α
+                        add              rsp, -16;                            jmp   n1580_cleanup_α
 .Lcall_pl_leaf_α_1694_999:
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n1584_cleanup_α
 n1600_call_pl_leaf_β:   add              rsp, 48
-                        add              rsp, -16;                            jmp   n1583_cleanup_α
+                        add              rsp, -16;                            jmp   n1580_cleanup_α
                         .size            n1600_call_pl_leaf_bx, .-n1600_call_pl_leaf_bx
                         .type            n1601_cleanup_bx, @function
 n1601_cleanup_bx:
@@ -37291,7 +37772,16 @@ n1612_unmark_α:         mov              r13, qword ptr [rbp + -160]          #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_1714_405
                         mov              rsi, rcx
-.Lunmark_α_1714_405:    cmp              rsi, r12;                            jae   .Lunmark_α_1714_409
+.Lunmark_α_1714_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_1714_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_1714_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_1714_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_1714_406
+                        mov              rsi, rdx
+.Lunmark_α_1714_406:    cmp              rsi, r12;                            jae   .Lunmark_α_1714_407
                         mov              rdi, rsi
 .Lunmark_α_1714_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_1714_403
@@ -37322,6 +37812,13 @@ n1612_unmark_α:         mov              r13, qword ptr [rbp + -160]          #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_1714_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_1714_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_1714_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_1714_409:    mov              rsp, qword ptr [rbp + -168]
                         mov              rax, qword ptr [rbp + 416]
                         mov              rcx, rax
@@ -37402,7 +37899,16 @@ n1617_unmark_α:         lea              rax, [rbp + 256]
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_1724_405
                         mov              rsi, rcx
-.Lunmark_α_1724_405:    cmp              rsi, r12;                            jae   .Lunmark_α_1724_409
+.Lunmark_α_1724_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_1724_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_1724_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_1724_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_1724_406
+                        mov              rsi, rdx
+.Lunmark_α_1724_406:    cmp              rsi, r12;                            jae   .Lunmark_α_1724_407
                         mov              rdi, rsi
 .Lunmark_α_1724_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_1724_403
@@ -37433,6 +37939,13 @@ n1617_unmark_α:         lea              rax, [rbp + 256]
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_1724_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_1724_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_1724_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_1724_409:
 .Lunmark_α_1724_1:                                                            jmp   n1618_gate_arm_α
                         .size            n1617_unmark_bx, .-n1617_unmark_bx
@@ -37534,18 +38047,18 @@ n1622_gate_arm_α:       mov              dword ptr [rbp + 224], 1;            j
                         .type            n1623_gate_bx, @function
 n1623_gate_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n1623_gate_α:                                                                 jmp   n1583_cleanup_α
+n1623_gate_α:                                                                 jmp   n1580_cleanup_α
 n1623_gate_β:           test             r15, r15;                            je    .Lgate_β_1735_30
                         mov              rax, r12
                         and              rax, -536870912
                         mov              rax, qword ptr [rax + 32]
-                        test             rax, rax;                            je    n1583_cleanup_α
+                        test             rax, rax;                            je    n1580_cleanup_α
                         lea              rdx, [rbp + 560]
-                        cmp              rax, rdx;                            jae   n1583_cleanup_α
+                        cmp              rax, rdx;                            jae   n1580_cleanup_α
 .Lgate_β_1735_30:       mov              eax, dword ptr [rbp + 224]
                         cmp              eax, 0;                              je    n1616_gate_β
                         cmp              eax, 1;                              je    n1623_gate_α
-                                                                              jmp   n1583_cleanup_α
+                                                                              jmp   n1580_cleanup_α
                         .size            n1623_gate_bx, .-n1623_gate_bx
                         .type            n1624_var_bx, @function
 n1624_var_bx:
@@ -37596,7 +38109,7 @@ n1625_call_direct_α:    sub              rsp, 32
                         add              rsp, 16;                             jmp   n1623_gate_β
 .Lcall_direct_α_1738_999:
                         mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n1583_cleanup_α
+                        mov              qword ptr [rsp + 8], rdx;            jmp   n1580_cleanup_α
 n1625_call_direct_β:    add              rsp, 32
                         add              rsp, 16;                             jmp   n1623_gate_β
                         .size            n1625_call_direct_bx, .-n1625_call_direct_bx
@@ -37786,7 +38299,16 @@ n1632_unmark_α:         mov              r13, qword ptr [rbp + -128]          #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_1749_405
                         mov              rsi, rcx
-.Lunmark_α_1749_405:    cmp              rsi, r12;                            jae   .Lunmark_α_1749_409
+.Lunmark_α_1749_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_1749_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_1749_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_1749_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_1749_406
+                        mov              rsi, rdx
+.Lunmark_α_1749_406:    cmp              rsi, r12;                            jae   .Lunmark_α_1749_407
                         mov              rdi, rsi
 .Lunmark_α_1749_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_1749_403
@@ -37817,6 +38339,13 @@ n1632_unmark_α:         mov              r13, qword ptr [rbp + -128]          #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_1749_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_1749_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_1749_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_1749_409:    mov              rsp, qword ptr [rbp + -136]
                         mov              rax, qword ptr [rbp + 416]
                         mov              rcx, rax
@@ -37847,7 +38376,7 @@ n1634_unmark_α:         mov              rsi, qword ptr [rbp + -144]          #
 .Lunmark_α_1753_201:    mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
-                        test             r15, r15;                            jne   n1583_cleanup_α
+                        test             r15, r15;                            jne   n1580_cleanup_α
                         mov              r13, qword ptr [rbp + -128]          # pl_choice_restore inline (D1): the condition failed, so the bound's header is no choice: B returns to the choice banked at the bound
                         mov              rsp, qword ptr [rbp + -136]
                         mov              rax, qword ptr [rbp + 416]
@@ -37863,31 +38392,31 @@ n1634_unmark_α:         mov              rsi, qword ptr [rbp + -144]          #
 n1635_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1635_unmark_α:         test             r15, r15;                            je    .Lunmark_α_1755_999
-                        add              rsp, -48;                            jmp   n1583_cleanup_α
+                        add              rsp, -48;                            jmp   n1580_cleanup_α
 .Lunmark_α_1755_999:                                                          jmp   n1636_gate_α
                         .size            n1635_unmark_bx, .-n1635_unmark_bx
                         .type            n1636_gate_bx, @function
 n1636_gate_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n1636_gate_α:           add              rsp, -48;                            jmp   n1583_cleanup_α
+n1636_gate_α:           add              rsp, -48;                            jmp   n1580_cleanup_α
 n1636_gate_β:           test             r15, r15;                            je    .Lgate_β_1757_30
                         mov              rax, r12
                         and              rax, -536870912
                         mov              rax, qword ptr [rax + 32]
                         test             rax, rax;                            jne   .Lgate_β_1757_998
-                        add              rsp, -48;                            jmp   n1583_cleanup_α
+                        add              rsp, -48;                            jmp   n1580_cleanup_α
 .Lgate_β_1757_998:      lea              rdx, [rbp + 560]
                         cmp              rax, rdx;                            jb    .Lgate_β_1757_999
-                        add              rsp, -48;                            jmp   n1583_cleanup_α
+                        add              rsp, -48;                            jmp   n1580_cleanup_α
 .Lgate_β_1757_999:
 .Lgate_β_1757_30:       mov              eax, dword ptr [rbp + 352]
                         cmp              eax, 0;                              je    n1636_gate_α
                         cmp              eax, 1;                              je    n1636_gate_α
-                        add              rsp, -48;                            jmp   n1583_cleanup_α
+                        add              rsp, -48;                            jmp   n1580_cleanup_α
                         .size            n1636_gate_bx, .-n1636_gate_bx
 #-----------------------------------------------------------------------------------------------------------------------
 $wot_stream$2F2_ret0:
-                        lea              rcx, [rip + n1583_cleanup_β]
+                        lea              rcx, [rip + n1580_cleanup_β]
                         mov              qword ptr [rbp + 512], rcx
                         mov              eax, 3
                         mov              edx, 1
@@ -38684,7 +39213,16 @@ n1765_unmark_α:         mov              r13, qword ptr [rbp + 128]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_1789_405
                         mov              rsi, rcx
-.Lunmark_α_1789_405:    cmp              rsi, r12;                            jae   .Lunmark_α_1789_409
+.Lunmark_α_1789_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_1789_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_1789_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_1789_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_1789_406
+                        mov              rsi, rdx
+.Lunmark_α_1789_406:    cmp              rsi, r12;                            jae   .Lunmark_α_1789_407
                         mov              rdi, rsi
 .Lunmark_α_1789_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_1789_403
@@ -38715,6 +39253,13 @@ n1765_unmark_α:         mov              r13, qword ptr [rbp + 128]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_1789_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_1789_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_1789_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_1789_409:    mov              rsp, qword ptr [rbp + 120];          jmp   n1766_gate_arm_α
                         .size            n1765_unmark_bx, .-n1765_unmark_bx
                         .type            n1766_gate_arm_bx, @function
@@ -39753,7 +40298,16 @@ n1810_cut_α:            mov              qword ptr [rbp + 72], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_1826_405
                         mov              rsi, rcx
-.Lcut_α_1826_405:       cmp              rsi, r12;                            jae   .Lcut_α_1826_409
+.Lcut_α_1826_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_1826_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_1826_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_1826_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_1826_406
+                        mov              rsi, rdx
+.Lcut_α_1826_406:       cmp              rsi, r12;                            jae   .Lcut_α_1826_407
                         mov              rdi, rsi
 .Lcut_α_1826_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_1826_403
@@ -39784,6 +40338,13 @@ n1810_cut_α:            mov              qword ptr [rbp + 72], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_1826_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_1826_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_1826_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_1826_409:       lea              rsp, [rbp + -32];                    jmp   $sort4_key$2F3_γ
                         .size            n1810_cut_bx, .-n1810_cut_bx
                         .type            n1811_var_ref_bx, @function
@@ -40849,7 +41410,16 @@ n1844_cut_α:            mov              qword ptr [rbp + 88], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_1862_405
                         mov              rsi, rcx
-.Lcut_α_1862_405:       cmp              rsi, r12;                            jae   .Lcut_α_1862_409
+.Lcut_α_1862_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_1862_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_1862_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_1862_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_1862_406
+                        mov              rsi, rdx
+.Lcut_α_1862_406:       cmp              rsi, r12;                            jae   .Lcut_α_1862_407
                         mov              rdi, rsi
 .Lcut_α_1862_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_1862_403
@@ -40880,6 +41450,13 @@ n1844_cut_α:            mov              qword ptr [rbp + 88], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_1862_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_1862_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_1862_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_1862_409:       lea              rsp, [rbp + -80];                    jmp   $sort4_plist$2F1_ω
                         .size            n1844_cut_bx, .-n1844_cut_bx
                         .type            n1845_unify_const_bx, @function
@@ -41062,7 +41639,16 @@ n1848_cut_α:            mov              qword ptr [rbp + 88], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_1870_405
                         mov              rsi, rcx
-.Lcut_α_1870_405:       cmp              rsi, r12;                            jae   .Lcut_α_1870_409
+.Lcut_α_1870_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_1870_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_1870_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_1870_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_1870_406
+                        mov              rsi, rdx
+.Lcut_α_1870_406:       cmp              rsi, r12;                            jae   .Lcut_α_1870_407
                         mov              rdi, rsi
 .Lcut_α_1870_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_1870_403
@@ -41093,6 +41679,13 @@ n1848_cut_α:            mov              qword ptr [rbp + 88], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_1870_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_1870_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_1870_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_1870_409:       lea              rsp, [rbp + -32];                    jmp   $sort4_plist$2F1_γ
                         .size            n1848_cut_bx, .-n1848_cut_bx
                         .type            n1849_unify_struct_bx, @function
@@ -42005,7 +42598,16 @@ n1884_cut_α:            mov              qword ptr [rbp + 72], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_1935_405
                         mov              rsi, rcx
-.Lcut_α_1935_405:       cmp              rsi, r12;                            jae   .Lcut_α_1935_409
+.Lcut_α_1935_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_1935_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_1935_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_1935_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_1935_406
+                        mov              rsi, rdx
+.Lcut_α_1935_406:       cmp              rsi, r12;                            jae   .Lcut_α_1935_407
                         mov              rdi, rsi
 .Lcut_α_1935_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_1935_403
@@ -42036,6 +42638,13 @@ n1884_cut_α:            mov              qword ptr [rbp + 72], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_1935_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_1935_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_1935_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_1935_409:       lea              rsp, [rbp + -80];                    jmp   n1885_lit_integer_α
                         .size            n1884_cut_bx, .-n1884_cut_bx
                         .type            n1885_lit_integer_bx, @function
@@ -42999,7 +43608,16 @@ n1907_cut_α:            mov              qword ptr [rbp + 72], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_1968_405
                         mov              rsi, rcx
-.Lcut_α_1968_405:       cmp              rsi, r12;                            jae   .Lcut_α_1968_409
+.Lcut_α_1968_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_1968_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_1968_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_1968_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_1968_406
+                        mov              rsi, rdx
+.Lcut_α_1968_406:       cmp              rsi, r12;                            jae   .Lcut_α_1968_407
                         mov              rdi, rsi
 .Lcut_α_1968_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_1968_403
@@ -43030,6 +43648,13 @@ n1907_cut_α:            mov              qword ptr [rbp + 72], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_1968_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_1968_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_1968_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_1968_409:       lea              rsp, [rbp + -352];                   jmp   n1908_lit_integer_α
                         .size            n1907_cut_bx, .-n1907_cut_bx
                         .type            n1908_lit_integer_bx, @function
@@ -44466,7 +45091,16 @@ n1997_cut_α:            mov              qword ptr [rbp + 72], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_2024_405
                         mov              rsi, rcx
-.Lcut_α_2024_405:       cmp              rsi, r12;                            jae   .Lcut_α_2024_409
+.Lcut_α_2024_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_2024_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_2024_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_2024_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_2024_406
+                        mov              rsi, rdx
+.Lcut_α_2024_406:       cmp              rsi, r12;                            jae   .Lcut_α_2024_407
                         mov              rdi, rsi
 .Lcut_α_2024_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_2024_403
@@ -44497,6 +45131,13 @@ n1997_cut_α:            mov              qword ptr [rbp + 72], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_2024_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_2024_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_2024_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_2024_409:       lea              rsp, [rbp + -80];                    jmp   n1998_var_ref_α
                         .size            n1997_cut_bx, .-n1997_cut_bx
                         .type            n1998_var_ref_bx, @function
@@ -45538,7 +46179,16 @@ n2009_cut_α:            mov              qword ptr [rbp + 72], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_2048_405
                         mov              rsi, rcx
-.Lcut_α_2048_405:       cmp              rsi, r12;                            jae   .Lcut_α_2048_409
+.Lcut_α_2048_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_2048_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_2048_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_2048_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_2048_406
+                        mov              rsi, rdx
+.Lcut_α_2048_406:       cmp              rsi, r12;                            jae   .Lcut_α_2048_407
                         mov              rdi, rsi
 .Lcut_α_2048_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_2048_403
@@ -45569,6 +46219,13 @@ n2009_cut_α:            mov              qword ptr [rbp + 72], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_2048_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_2048_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_2048_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_2048_409:       lea              rsp, [rbp + -80];                    jmp   $f4_kind$2F4_γ
                         .size            n2009_cut_bx, .-n2009_cut_bx
                         .type            n2010_unify_value_bx, @function
@@ -52138,7 +52795,16 @@ n2196_cut_α:            mov              qword ptr [rbp + 104], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_2221_405
                         mov              rsi, rcx
-.Lcut_α_2221_405:       cmp              rsi, r12;                            jae   .Lcut_α_2221_409
+.Lcut_α_2221_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_2221_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_2221_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_2221_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_2221_406
+                        mov              rsi, rdx
+.Lcut_α_2221_406:       cmp              rsi, r12;                            jae   .Lcut_α_2221_407
                         mov              rdi, rsi
 .Lcut_α_2221_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_2221_403
@@ -52169,6 +52835,13 @@ n2196_cut_α:            mov              qword ptr [rbp + 104], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_2221_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_2221_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_2221_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_2221_409:       lea              rsp, [rbp + -80];                    jmp   n2197_var_ref_α
                         .size            n2196_cut_bx, .-n2196_cut_bx
                         .type            n2197_var_ref_bx, @function
@@ -56289,7 +56962,16 @@ n2344_unmark_α:         mov              r13, qword ptr [rbp + 144]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_2393_405
                         mov              rsi, rcx
-.Lunmark_α_2393_405:    cmp              rsi, r12;                            jae   .Lunmark_α_2393_409
+.Lunmark_α_2393_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_2393_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_2393_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_2393_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_2393_406
+                        mov              rsi, rdx
+.Lunmark_α_2393_406:    cmp              rsi, r12;                            jae   .Lunmark_α_2393_407
                         mov              rdi, rsi
 .Lunmark_α_2393_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_2393_403
@@ -56320,6 +57002,13 @@ n2344_unmark_α:         mov              r13, qword ptr [rbp + 144]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_2393_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_2393_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_2393_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_2393_409:    mov              rsp, qword ptr [rbp + 136];          jmp   n2345_var_ref_α
                         .size            n2344_unmark_bx, .-n2344_unmark_bx
                         .type            n2345_var_ref_bx, @function
@@ -56987,7 +57676,16 @@ n2366_cut_α:            mov              qword ptr [rbp + 216], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_2434_405
                         mov              rsi, rcx
-.Lcut_α_2434_405:       cmp              rsi, r12;                            jae   .Lcut_α_2434_409
+.Lcut_α_2434_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_2434_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_2434_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_2434_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_2434_406
+                        mov              rsi, rdx
+.Lcut_α_2434_406:       cmp              rsi, r12;                            jae   .Lcut_α_2434_407
                         mov              rdi, rsi
 .Lcut_α_2434_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_2434_403
@@ -57018,6 +57716,13 @@ n2366_cut_α:            mov              qword ptr [rbp + 216], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_2434_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_2434_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_2434_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_2434_409:       lea              rsp, [rbp + -256];                   jmp   $mod_head$2F3_γ
                         .size            n2366_cut_bx, .-n2366_cut_bx
                         .type            n2367_unify_value_bx, @function
@@ -57785,7 +58490,16 @@ n2444_unmark_α:         mov              r13, qword ptr [rbp + 144]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_2502_405
                         mov              rsi, rcx
-.Lunmark_α_2502_405:    cmp              rsi, r12;                            jae   .Lunmark_α_2502_409
+.Lunmark_α_2502_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_2502_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_2502_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_2502_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_2502_406
+                        mov              rsi, rdx
+.Lunmark_α_2502_406:    cmp              rsi, r12;                            jae   .Lunmark_α_2502_407
                         mov              rdi, rsi
 .Lunmark_α_2502_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_2502_403
@@ -57816,6 +58530,13 @@ n2444_unmark_α:         mov              r13, qword ptr [rbp + 144]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_2502_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_2502_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_2502_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_2502_409:    mov              rsp, qword ptr [rbp + 136];          jmp   n2445_unify_const_α
                         .size            n2444_unmark_bx, .-n2444_unmark_bx
                         .type            n2445_unify_const_bx, @function
@@ -60495,7 +61216,16 @@ n2580_cut_α:            mov              qword ptr [rbp + 72], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_2604_405
                         mov              rsi, rcx
-.Lcut_α_2604_405:       cmp              rsi, r12;                            jae   .Lcut_α_2604_409
+.Lcut_α_2604_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_2604_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_2604_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_2604_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_2604_406
+                        mov              rsi, rdx
+.Lcut_α_2604_406:       cmp              rsi, r12;                            jae   .Lcut_α_2604_407
                         mov              rdi, rsi
 .Lcut_α_2604_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_2604_403
@@ -60526,6 +61256,13 @@ n2580_cut_α:            mov              qword ptr [rbp + 72], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_2604_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_2604_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_2604_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_2604_409:       lea              rsp, [rbp + -288];                   jmp   $freeze_goal$2F2_γ
                         .size            n2580_cut_bx, .-n2580_cut_bx
                         .type            n2581_unify_struct_bx, @function
@@ -61425,7 +62162,16 @@ n2615_cut_α:            mov              qword ptr [rbp + 72], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_2639_405
                         mov              rsi, rcx
-.Lcut_α_2639_405:       cmp              rsi, r12;                            jae   .Lcut_α_2639_409
+.Lcut_α_2639_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_2639_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_2639_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_2639_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_2639_406
+                        mov              rsi, rdx
+.Lcut_α_2639_406:       cmp              rsi, r12;                            jae   .Lcut_α_2639_407
                         mov              rdi, rsi
 .Lcut_α_2639_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_2639_403
@@ -61456,6 +62202,13 @@ n2615_cut_α:            mov              qword ptr [rbp + 72], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_2639_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_2639_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_2639_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_2639_409:       lea              rsp, [rbp + -80];                    jmp   n2616_var_ref_α
                         .size            n2615_cut_bx, .-n2615_cut_bx
                         .type            n2616_var_ref_bx, @function
@@ -61825,7 +62578,16 @@ n2622_cut_α:            mov              qword ptr [rbp + 72], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_2652_405
                         mov              rsi, rcx
-.Lcut_α_2652_405:       cmp              rsi, r12;                            jae   .Lcut_α_2652_409
+.Lcut_α_2652_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_2652_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_2652_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_2652_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_2652_406
+                        mov              rsi, rdx
+.Lcut_α_2652_406:       cmp              rsi, r12;                            jae   .Lcut_α_2652_407
                         mov              rdi, rsi
 .Lcut_α_2652_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_2652_403
@@ -61856,6 +62618,13 @@ n2622_cut_α:            mov              qword ptr [rbp + 72], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_2652_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_2652_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_2652_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_2652_409:       lea              rsp, [rbp + -32];                    jmp   $f4_accept$2F2_γ
                         .size            n2622_cut_bx, .-n2622_cut_bx
                         .type            n2623_unify_const_bx, @function
@@ -62127,7 +62896,16 @@ n2627_cut_α:            mov              qword ptr [rbp + 72], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_2662_405
                         mov              rsi, rcx
-.Lcut_α_2662_405:       cmp              rsi, r12;                            jae   .Lcut_α_2662_409
+.Lcut_α_2662_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_2662_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_2662_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_2662_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_2662_406
+                        mov              rsi, rdx
+.Lcut_α_2662_406:       cmp              rsi, r12;                            jae   .Lcut_α_2662_407
                         mov              rdi, rsi
 .Lcut_α_2662_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_2662_403
@@ -62158,6 +62936,13 @@ n2627_cut_α:            mov              qword ptr [rbp + 72], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_2662_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_2662_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_2662_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_2662_409:       lea              rsp, [rbp + -32];                    jmp   $f4_accept$2F2_γ
                         .size            n2627_cut_bx, .-n2627_cut_bx
                         .type            n2628_unify_const_bx, @function
@@ -62984,7 +63769,16 @@ n2673_cut_α:            mov              qword ptr [rbp + 168], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_2750_405
                         mov              rsi, rcx
-.Lcut_α_2750_405:       cmp              rsi, r12;                            jae   .Lcut_α_2750_409
+.Lcut_α_2750_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_2750_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_2750_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_2750_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_2750_406
+                        mov              rsi, rdx
+.Lcut_α_2750_406:       cmp              rsi, r12;                            jae   .Lcut_α_2750_407
                         mov              rdi, rsi
 .Lcut_α_2750_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_2750_403
@@ -63015,6 +63809,13 @@ n2673_cut_α:            mov              qword ptr [rbp + 168], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_2750_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_2750_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_2750_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_2750_409:       lea              rsp, [rbp + -48];                    jmp   n2674_lit_integer_α
                         .size            n2673_cut_bx, .-n2673_cut_bx
                         .type            n2674_lit_integer_bx, @function
@@ -64420,7 +65221,16 @@ n2690_cut_α:            mov              qword ptr [rbp + 168], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_2781_405
                         mov              rsi, rcx
-.Lcut_α_2781_405:       cmp              rsi, r12;                            jae   .Lcut_α_2781_409
+.Lcut_α_2781_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_2781_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_2781_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_2781_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_2781_406
+                        mov              rsi, rdx
+.Lcut_α_2781_406:       cmp              rsi, r12;                            jae   .Lcut_α_2781_407
                         mov              rdi, rsi
 .Lcut_α_2781_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_2781_403
@@ -64451,6 +65261,13 @@ n2690_cut_α:            mov              qword ptr [rbp + 168], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_2781_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_2781_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_2781_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_2781_409:       lea              rsp, [rbp + -128];                   jmp   $cp_wtg$2F4_γ
                         .size            n2690_cut_bx, .-n2690_cut_bx
                         .type            n2691_unify_struct_bx, @function
@@ -65013,7 +65830,16 @@ n2700_cut_α:            mov              qword ptr [rbp + 168], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_2800_405
                         mov              rsi, rcx
-.Lcut_α_2800_405:       cmp              rsi, r12;                            jae   .Lcut_α_2800_409
+.Lcut_α_2800_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_2800_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_2800_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_2800_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_2800_406
+                        mov              rsi, rdx
+.Lcut_α_2800_406:       cmp              rsi, r12;                            jae   .Lcut_α_2800_407
                         mov              rdi, rsi
 .Lcut_α_2800_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_2800_403
@@ -65044,6 +65870,13 @@ n2700_cut_α:            mov              qword ptr [rbp + 168], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_2800_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_2800_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_2800_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_2800_409:       lea              rsp, [rbp + -128];                   jmp   n2701_var_ref_α
                         .size            n2700_cut_bx, .-n2700_cut_bx
                         .type            n2701_var_ref_bx, @function
@@ -66922,7 +67755,16 @@ n2724_unmark_α:         mov              r13, qword ptr [rbp + -80]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_2845_405
                         mov              rsi, rcx
-.Lunmark_α_2845_405:    cmp              rsi, r12;                            jae   .Lunmark_α_2845_409
+.Lunmark_α_2845_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_2845_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_2845_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_2845_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_2845_406
+                        mov              rsi, rdx
+.Lunmark_α_2845_406:    cmp              rsi, r12;                            jae   .Lunmark_α_2845_407
                         mov              rdi, rsi
 .Lunmark_α_2845_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_2845_403
@@ -66953,6 +67795,13 @@ n2724_unmark_α:         mov              r13, qword ptr [rbp + -80]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_2845_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_2845_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_2845_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_2845_409:    mov              rsp, qword ptr [rbp + -88]
                         add              rsp, 48;                             jmp   n2725_var_ref_α
                         .size            n2724_unmark_bx, .-n2724_unmark_bx
@@ -68524,7 +69373,16 @@ n2888_cut_α:            mov              qword ptr [rbp + 200], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_2927_405
                         mov              rsi, rcx
-.Lcut_α_2927_405:       cmp              rsi, r12;                            jae   .Lcut_α_2927_409
+.Lcut_α_2927_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_2927_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_2927_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_2927_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_2927_406
+                        mov              rsi, rdx
+.Lcut_α_2927_406:       cmp              rsi, r12;                            jae   .Lcut_α_2927_407
                         mov              rdi, rsi
 .Lcut_α_2927_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_2927_403
@@ -68555,6 +69413,13 @@ n2888_cut_α:            mov              qword ptr [rbp + 200], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_2927_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_2927_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_2927_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_2927_409:       lea              rsp, [rbp + -80];                    jmp   n2889_var_ref_α
                         .size            n2888_cut_bx, .-n2888_cut_bx
                         .type            n2889_var_ref_bx, @function
@@ -68895,7 +69760,16 @@ n2899_unmark_α:         mov              r13, qword ptr [rbp + 128]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_2948_405
                         mov              rsi, rcx
-.Lunmark_α_2948_405:    cmp              rsi, r12;                            jae   .Lunmark_α_2948_409
+.Lunmark_α_2948_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_2948_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_2948_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_2948_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_2948_406
+                        mov              rsi, rdx
+.Lunmark_α_2948_406:    cmp              rsi, r12;                            jae   .Lunmark_α_2948_407
                         mov              rdi, rsi
 .Lunmark_α_2948_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_2948_403
@@ -68926,6 +69800,13 @@ n2899_unmark_α:         mov              r13, qword ptr [rbp + 128]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_2948_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_2948_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_2948_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_2948_409:    mov              rsp, qword ptr [rbp + 120];          jmp   n2900_var_ref_α
                         .size            n2899_unmark_bx, .-n2899_unmark_bx
                         .type            n2900_var_ref_bx, @function
@@ -70745,7 +71626,16 @@ n2985_cut_α:            mov              qword ptr [rbp + 72], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_3057_405
                         mov              rsi, rcx
-.Lcut_α_3057_405:       cmp              rsi, r12;                            jae   .Lcut_α_3057_409
+.Lcut_α_3057_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3057_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3057_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_3057_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_3057_406
+                        mov              rsi, rdx
+.Lcut_α_3057_406:       cmp              rsi, r12;                            jae   .Lcut_α_3057_407
                         mov              rdi, rsi
 .Lcut_α_3057_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_3057_403
@@ -70776,6 +71666,13 @@ n2985_cut_α:            mov              qword ptr [rbp + 72], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_3057_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3057_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3057_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_3057_409:       lea              rsp, [rbp + -80];                    jmp   n2986_lit_integer_α
                         .size            n2985_cut_bx, .-n2985_cut_bx
                         .type            n2986_lit_integer_bx, @function
@@ -71160,7 +72057,16 @@ n2993_cut_α:            mov              qword ptr [rbp + 72], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_3070_405
                         mov              rsi, rcx
-.Lcut_α_3070_405:       cmp              rsi, r12;                            jae   .Lcut_α_3070_409
+.Lcut_α_3070_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3070_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3070_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_3070_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_3070_406
+                        mov              rsi, rdx
+.Lcut_α_3070_406:       cmp              rsi, r12;                            jae   .Lcut_α_3070_407
                         mov              rdi, rsi
 .Lcut_α_3070_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_3070_403
@@ -71191,6 +72097,13 @@ n2993_cut_α:            mov              qword ptr [rbp + 72], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_3070_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3070_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3070_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_3070_409:       lea              rsp, [rbp + -32];                    jmp   $sort4_kp$2F2_γ
                         .size            n2993_cut_bx, .-n2993_cut_bx
                         .type            n2994_var_ref_bx, @function
@@ -71492,7 +72405,16 @@ n3001_cut_α:            mov              qword ptr [rbp + 72], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_3085_405
                         mov              rsi, rcx
-.Lcut_α_3085_405:       cmp              rsi, r12;                            jae   .Lcut_α_3085_409
+.Lcut_α_3085_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3085_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3085_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_3085_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_3085_406
+                        mov              rsi, rdx
+.Lcut_α_3085_406:       cmp              rsi, r12;                            jae   .Lcut_α_3085_407
                         mov              rdi, rsi
 .Lcut_α_3085_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_3085_403
@@ -71523,6 +72445,13 @@ n3001_cut_α:            mov              qword ptr [rbp + 72], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_3085_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3085_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3085_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_3085_409:       lea              rsp, [rbp + -160];                   jmp   n3002_lit_integer_α
                         .size            n3001_cut_bx, .-n3001_cut_bx
                         .type            n3002_lit_integer_bx, @function
@@ -72691,7 +73620,16 @@ n3020_cut_α:            mov              qword ptr [rbp + 72], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_3113_405
                         mov              rsi, rcx
-.Lcut_α_3113_405:       cmp              rsi, r12;                            jae   .Lcut_α_3113_409
+.Lcut_α_3113_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3113_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3113_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_3113_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_3113_406
+                        mov              rsi, rdx
+.Lcut_α_3113_406:       cmp              rsi, r12;                            jae   .Lcut_α_3113_407
                         mov              rdi, rsi
 .Lcut_α_3113_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_3113_403
@@ -72722,6 +73660,13 @@ n3020_cut_α:            mov              qword ptr [rbp + 72], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_3113_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3113_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3113_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_3113_409:       lea              rsp, [rbp + -96];                    jmp   $sort4_kp$2F2_γ
                         .size            n3020_cut_bx, .-n3020_cut_bx
                         .type            n3021_unify_struct_bx, @function
@@ -73339,7 +74284,16 @@ n3028_cut_α:            mov              qword ptr [rbp + 72], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_3129_405
                         mov              rsi, rcx
-.Lcut_α_3129_405:       cmp              rsi, r12;                            jae   .Lcut_α_3129_409
+.Lcut_α_3129_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3129_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3129_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_3129_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_3129_406
+                        mov              rsi, rdx
+.Lcut_α_3129_406:       cmp              rsi, r12;                            jae   .Lcut_α_3129_407
                         mov              rdi, rsi
 .Lcut_α_3129_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_3129_403
@@ -73370,6 +74324,13 @@ n3028_cut_α:            mov              qword ptr [rbp + 72], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_3129_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3129_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3129_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_3129_409:       lea              rsp, [rbp + -96];                    jmp   $sort4_kp$2F2_γ
                         .size            n3028_cut_bx, .-n3028_cut_bx
                         .type            n3029_unify_value_bx, @function
@@ -73736,7 +74697,16 @@ n3034_cut_α:            mov              qword ptr [rbp + 72], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_3141_405
                         mov              rsi, rcx
-.Lcut_α_3141_405:       cmp              rsi, r12;                            jae   .Lcut_α_3141_409
+.Lcut_α_3141_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3141_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3141_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_3141_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_3141_406
+                        mov              rsi, rdx
+.Lcut_α_3141_406:       cmp              rsi, r12;                            jae   .Lcut_α_3141_407
                         mov              rdi, rsi
 .Lcut_α_3141_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_3141_403
@@ -73767,6 +74737,13 @@ n3034_cut_α:            mov              qword ptr [rbp + 72], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_3141_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3141_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3141_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_3141_409:       lea              rsp, [rbp + -48];                    jmp   n3035_var_ref_α
                         .size            n3034_cut_bx, .-n3034_cut_bx
                         .type            n3035_var_ref_bx, @function
@@ -75515,7 +76492,16 @@ n3164_cut_α:            mov              qword ptr [rbp + 232], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_3386_405
                         mov              rsi, rcx
-.Lcut_α_3386_405:       cmp              rsi, r12;                            jae   .Lcut_α_3386_409
+.Lcut_α_3386_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3386_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3386_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_3386_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_3386_406
+                        mov              rsi, rdx
+.Lcut_α_3386_406:       cmp              rsi, r12;                            jae   .Lcut_α_3386_407
                         mov              rdi, rsi
 .Lcut_α_3386_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_3386_403
@@ -75546,6 +76532,13 @@ n3164_cut_α:            mov              qword ptr [rbp + 232], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_3386_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3386_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3386_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_3386_409:       lea              rsp, [rbp + -80];                    jmp   $mod_qb$2F3_γ
                         .size            n3164_cut_bx, .-n3164_cut_bx
                         .type            n3165_unify_struct_bx, @function
@@ -76090,7 +77083,16 @@ n3173_cut_α:            mov              qword ptr [rbp + 232], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_3404_405
                         mov              rsi, rcx
-.Lcut_α_3404_405:       cmp              rsi, r12;                            jae   .Lcut_α_3404_409
+.Lcut_α_3404_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3404_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3404_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_3404_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_3404_406
+                        mov              rsi, rdx
+.Lcut_α_3404_406:       cmp              rsi, r12;                            jae   .Lcut_α_3404_407
                         mov              rdi, rsi
 .Lcut_α_3404_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_3404_403
@@ -76121,6 +77123,13 @@ n3173_cut_α:            mov              qword ptr [rbp + 232], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_3404_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3404_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3404_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_3404_409:       lea              rsp, [rbp + -64];                    jmp   n3174_var_ref_α
                         .size            n3173_cut_bx, .-n3173_cut_bx
                         .type            n3174_var_ref_bx, @function
@@ -77268,7 +78277,16 @@ n3190_cut_α:            mov              qword ptr [rbp + 232], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_3438_405
                         mov              rsi, rcx
-.Lcut_α_3438_405:       cmp              rsi, r12;                            jae   .Lcut_α_3438_409
+.Lcut_α_3438_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3438_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3438_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_3438_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_3438_406
+                        mov              rsi, rdx
+.Lcut_α_3438_406:       cmp              rsi, r12;                            jae   .Lcut_α_3438_407
                         mov              rdi, rsi
 .Lcut_α_3438_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_3438_403
@@ -77299,6 +78317,13 @@ n3190_cut_α:            mov              qword ptr [rbp + 232], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_3438_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3438_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3438_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_3438_409:       lea              rsp, [rbp + -64];                    jmp   n3191_var_ref_α
                         .size            n3190_cut_bx, .-n3190_cut_bx
                         .type            n3191_var_ref_bx, @function
@@ -78446,7 +79471,16 @@ n3207_cut_α:            mov              qword ptr [rbp + 232], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_3472_405
                         mov              rsi, rcx
-.Lcut_α_3472_405:       cmp              rsi, r12;                            jae   .Lcut_α_3472_409
+.Lcut_α_3472_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3472_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3472_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_3472_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_3472_406
+                        mov              rsi, rdx
+.Lcut_α_3472_406:       cmp              rsi, r12;                            jae   .Lcut_α_3472_407
                         mov              rdi, rsi
 .Lcut_α_3472_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_3472_403
@@ -78477,6 +79511,13 @@ n3207_cut_α:            mov              qword ptr [rbp + 232], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_3472_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3472_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3472_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_3472_409:       lea              rsp, [rbp + -64];                    jmp   n3208_var_ref_α
                         .size            n3207_cut_bx, .-n3207_cut_bx
                         .type            n3208_var_ref_bx, @function
@@ -79624,7 +80665,16 @@ n3224_cut_α:            mov              qword ptr [rbp + 232], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_3506_405
                         mov              rsi, rcx
-.Lcut_α_3506_405:       cmp              rsi, r12;                            jae   .Lcut_α_3506_409
+.Lcut_α_3506_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3506_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3506_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_3506_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_3506_406
+                        mov              rsi, rdx
+.Lcut_α_3506_406:       cmp              rsi, r12;                            jae   .Lcut_α_3506_407
                         mov              rdi, rsi
 .Lcut_α_3506_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_3506_403
@@ -79655,6 +80705,13 @@ n3224_cut_α:            mov              qword ptr [rbp + 232], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_3506_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3506_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3506_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_3506_409:       lea              rsp, [rbp + -64];                    jmp   n3225_var_ref_α
                         .size            n3224_cut_bx, .-n3224_cut_bx
                         .type            n3225_var_ref_bx, @function
@@ -80708,7 +81765,16 @@ n3239_cut_α:            mov              qword ptr [rbp + 232], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_3536_405
                         mov              rsi, rcx
-.Lcut_α_3536_405:       cmp              rsi, r12;                            jae   .Lcut_α_3536_409
+.Lcut_α_3536_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3536_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3536_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_3536_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_3536_406
+                        mov              rsi, rdx
+.Lcut_α_3536_406:       cmp              rsi, r12;                            jae   .Lcut_α_3536_407
                         mov              rdi, rsi
 .Lcut_α_3536_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_3536_403
@@ -80739,6 +81805,13 @@ n3239_cut_α:            mov              qword ptr [rbp + 232], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_3536_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3536_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3536_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_3536_409:       lea              rsp, [rbp + -64];                    jmp   n3240_var_ref_α
                         .size            n3239_cut_bx, .-n3239_cut_bx
                         .type            n3240_var_ref_bx, @function
@@ -82162,7 +83235,16 @@ n3254_cut_α:            mov              qword ptr [rbp + 232], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_3566_405
                         mov              rsi, rcx
-.Lcut_α_3566_405:       cmp              rsi, r12;                            jae   .Lcut_α_3566_409
+.Lcut_α_3566_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3566_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3566_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_3566_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_3566_406
+                        mov              rsi, rdx
+.Lcut_α_3566_406:       cmp              rsi, r12;                            jae   .Lcut_α_3566_407
                         mov              rdi, rsi
 .Lcut_α_3566_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_3566_403
@@ -82193,6 +83275,13 @@ n3254_cut_α:            mov              qword ptr [rbp + 232], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_3566_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3566_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3566_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_3566_409:       lea              rsp, [rbp + -112];                   jmp   $mod_qb$2F3_γ
                         .size            n3254_cut_bx, .-n3254_cut_bx
                         .type            n3255_unify_struct_bx, @function
@@ -83632,7 +84721,16 @@ n3287_unmark_α:         mov              r13, qword ptr [rbp + -704]          #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_3620_405
                         mov              rsi, rcx
-.Lunmark_α_3620_405:    cmp              rsi, r12;                            jae   .Lunmark_α_3620_409
+.Lunmark_α_3620_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_3620_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_3620_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_3620_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_3620_406
+                        mov              rsi, rdx
+.Lunmark_α_3620_406:    cmp              rsi, r12;                            jae   .Lunmark_α_3620_407
                         mov              rdi, rsi
 .Lunmark_α_3620_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_3620_403
@@ -83663,6 +84761,13 @@ n3287_unmark_α:         mov              r13, qword ptr [rbp + -704]          #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_3620_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_3620_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_3620_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_3620_409:    mov              rsp, qword ptr [rbp + -712]
                         add              rsp, 48;                             jmp   n3288_unmark_α
                         .size            n3287_unmark_bx, .-n3287_unmark_bx
@@ -83811,7 +84916,16 @@ n3294_cut_α:            mov              qword ptr [rbp + 232], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_3634_405
                         mov              rsi, rcx
-.Lcut_α_3634_405:       cmp              rsi, r12;                            jae   .Lcut_α_3634_409
+.Lcut_α_3634_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3634_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3634_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_3634_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_3634_406
+                        mov              rsi, rdx
+.Lcut_α_3634_406:       cmp              rsi, r12;                            jae   .Lcut_α_3634_407
                         mov              rdi, rsi
 .Lcut_α_3634_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_3634_403
@@ -83842,6 +84956,13 @@ n3294_cut_α:            mov              qword ptr [rbp + 232], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_3634_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3634_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3634_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_3634_409:       lea              rsp, [rbp + -704];                   jmp   n3295_var_ref_α
                         .size            n3294_cut_bx, .-n3294_cut_bx
                         .type            n3295_var_ref_bx, @function
@@ -85866,7 +86987,16 @@ n3331_cut_α:            mov              qword ptr [rbp + 232], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_3692_405
                         mov              rsi, rcx
-.Lcut_α_3692_405:       cmp              rsi, r12;                            jae   .Lcut_α_3692_409
+.Lcut_α_3692_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3692_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3692_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_3692_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_3692_406
+                        mov              rsi, rdx
+.Lcut_α_3692_406:       cmp              rsi, r12;                            jae   .Lcut_α_3692_407
                         mov              rdi, rsi
 .Lcut_α_3692_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_3692_403
@@ -85897,6 +87027,13 @@ n3331_cut_α:            mov              qword ptr [rbp + 232], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_3692_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3692_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3692_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_3692_409:       lea              rsp, [rbp + -48];                    jmp   n3332_var_ref_α
                         .size            n3331_cut_bx, .-n3331_cut_bx
                         .type            n3332_var_ref_bx, @function
@@ -86667,7 +87804,16 @@ n3343_cut_α:            mov              qword ptr [rbp + 232], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_3716_405
                         mov              rsi, rcx
-.Lcut_α_3716_405:       cmp              rsi, r12;                            jae   .Lcut_α_3716_409
+.Lcut_α_3716_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3716_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3716_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_3716_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_3716_406
+                        mov              rsi, rdx
+.Lcut_α_3716_406:       cmp              rsi, r12;                            jae   .Lcut_α_3716_407
                         mov              rdi, rsi
 .Lcut_α_3716_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_3716_403
@@ -86698,6 +87844,13 @@ n3343_cut_α:            mov              qword ptr [rbp + 232], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_3716_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3716_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3716_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_3716_409:       lea              rsp, [rbp + -112];                   jmp   n3344_var_ref_α
                         .size            n3343_cut_bx, .-n3343_cut_bx
                         .type            n3344_var_ref_bx, @function
@@ -91911,7 +93064,16 @@ n3811_cut_α:            mov              qword ptr [rbp + 72], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_3827_405
                         mov              rsi, rcx
-.Lcut_α_3827_405:       cmp              rsi, r12;                            jae   .Lcut_α_3827_409
+.Lcut_α_3827_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3827_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3827_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_3827_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_3827_406
+                        mov              rsi, rdx
+.Lcut_α_3827_406:       cmp              rsi, r12;                            jae   .Lcut_α_3827_407
                         mov              rdi, rsi
 .Lcut_α_3827_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_3827_403
@@ -91942,6 +93104,13 @@ n3811_cut_α:            mov              qword ptr [rbp + 72], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_3827_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3827_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3827_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_3827_409:       lea              rsp, [rbp + -32];                    jmp   $sort4_more$2F3_γ
                         .size            n3811_cut_bx, .-n3811_cut_bx
                         .type            n3812_var_ref_bx, @function
@@ -92988,7 +94157,16 @@ n3845_cut_α:            mov              qword ptr [rbp + 88], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_3875_405
                         mov              rsi, rcx
-.Lcut_α_3875_405:       cmp              rsi, r12;                            jae   .Lcut_α_3875_409
+.Lcut_α_3875_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3875_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3875_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_3875_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_3875_406
+                        mov              rsi, rdx
+.Lcut_α_3875_406:       cmp              rsi, r12;                            jae   .Lcut_α_3875_407
                         mov              rdi, rsi
 .Lcut_α_3875_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_3875_403
@@ -93019,6 +94197,13 @@ n3845_cut_α:            mov              qword ptr [rbp + 88], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_3875_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3875_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3875_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_3875_409:       lea              rsp, [rbp + -80];                    jmp   n3846_lit_integer_α
                         .size            n3845_cut_bx, .-n3845_cut_bx
                         .type            n3846_lit_integer_bx, @function
@@ -93276,7 +94461,16 @@ n3854_cut_α:            mov              qword ptr [rbp + 88], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_3887_405
                         mov              rsi, rcx
-.Lcut_α_3887_405:       cmp              rsi, r12;                            jae   .Lcut_α_3887_409
+.Lcut_α_3887_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3887_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3887_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_3887_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_3887_406
+                        mov              rsi, rdx
+.Lcut_α_3887_406:       cmp              rsi, r12;                            jae   .Lcut_α_3887_407
                         mov              rdi, rsi
 .Lcut_α_3887_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_3887_403
@@ -93307,6 +94501,13 @@ n3854_cut_α:            mov              qword ptr [rbp + 88], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_3887_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_3887_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_3887_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_3887_409:       lea              rsp, [rbp + -112];                   jmp   n3855_lit_integer_α
                         .size            n3854_cut_bx, .-n3854_cut_bx
                         .type            n3855_lit_integer_bx, @function
@@ -99116,7 +100317,16 @@ n4038_cut_α:            mov              qword ptr [rbp + 184], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_4081_405
                         mov              rsi, rcx
-.Lcut_α_4081_405:       cmp              rsi, r12;                            jae   .Lcut_α_4081_409
+.Lcut_α_4081_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_4081_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_4081_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_4081_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_4081_406
+                        mov              rsi, rdx
+.Lcut_α_4081_406:       cmp              rsi, r12;                            jae   .Lcut_α_4081_407
                         mov              rdi, rsi
 .Lcut_α_4081_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_4081_403
@@ -99147,6 +100357,13 @@ n4038_cut_α:            mov              qword ptr [rbp + 184], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_4081_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_4081_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_4081_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_4081_409:       lea              rsp, [rbp + -80];                    jmp   n4039_unify_const_α
                         .size            n4038_cut_bx, .-n4038_cut_bx
                         .type            n4039_unify_const_bx, @function
@@ -99619,7 +100836,16 @@ n4048_cut_α:            mov              qword ptr [rbp + 184], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_4100_405
                         mov              rsi, rcx
-.Lcut_α_4100_405:       cmp              rsi, r12;                            jae   .Lcut_α_4100_409
+.Lcut_α_4100_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_4100_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_4100_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_4100_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_4100_406
+                        mov              rsi, rdx
+.Lcut_α_4100_406:       cmp              rsi, r12;                            jae   .Lcut_α_4100_407
                         mov              rdi, rsi
 .Lcut_α_4100_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_4100_403
@@ -99650,6 +100876,13 @@ n4048_cut_α:            mov              qword ptr [rbp + 184], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_4100_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_4100_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_4100_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_4100_409:       lea              rsp, [rbp + -80];                    jmp   n4049_var_ref_α
                         .size            n4048_cut_bx, .-n4048_cut_bx
                         .type            n4049_var_ref_bx, @function
@@ -99898,7 +101131,16 @@ n4055_unmark_α:         mov              r13, qword ptr [rbp + 112]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_4114_405
                         mov              rsi, rcx
-.Lunmark_α_4114_405:    cmp              rsi, r12;                            jae   .Lunmark_α_4114_409
+.Lunmark_α_4114_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_4114_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_4114_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_4114_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_4114_406
+                        mov              rsi, rdx
+.Lunmark_α_4114_406:    cmp              rsi, r12;                            jae   .Lunmark_α_4114_407
                         mov              rdi, rsi
 .Lunmark_α_4114_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_4114_403
@@ -99929,6 +101171,13 @@ n4055_unmark_α:         mov              r13, qword ptr [rbp + 112]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_4114_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_4114_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_4114_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_4114_409:    mov              rsp, qword ptr [rbp + 104];          jmp   n4056_lit_atom_α
                         .size            n4055_unmark_bx, .-n4055_unmark_bx
                         .type            n4056_lit_atom_bx, @function
@@ -101603,7 +102852,16 @@ n4147_cut_α:            mov              qword ptr [rbp + 104], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_4254_405
                         mov              rsi, rcx
-.Lcut_α_4254_405:       cmp              rsi, r12;                            jae   .Lcut_α_4254_409
+.Lcut_α_4254_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_4254_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_4254_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_4254_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_4254_406
+                        mov              rsi, rdx
+.Lcut_α_4254_406:       cmp              rsi, r12;                            jae   .Lcut_α_4254_407
                         mov              rdi, rsi
 .Lcut_α_4254_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_4254_403
@@ -101634,6 +102892,13 @@ n4147_cut_α:            mov              qword ptr [rbp + 104], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_4254_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_4254_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_4254_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_4254_409:       lea              rsp, [rbp + -80];                    jmp   n4148_lit_integer_α
                         .size            n4147_cut_bx, .-n4147_cut_bx
                         .type            n4148_lit_integer_bx, @function
@@ -102334,7 +103599,16 @@ n4162_unmark_α:         mov              r13, qword ptr [rbp + -32]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_4274_405
                         mov              rsi, rcx
-.Lunmark_α_4274_405:    cmp              rsi, r12;                            jae   .Lunmark_α_4274_409
+.Lunmark_α_4274_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_4274_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_4274_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_4274_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_4274_406
+                        mov              rsi, rdx
+.Lunmark_α_4274_406:    cmp              rsi, r12;                            jae   .Lunmark_α_4274_407
                         mov              rdi, rsi
 .Lunmark_α_4274_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_4274_403
@@ -102365,6 +103639,13 @@ n4162_unmark_α:         mov              r13, qword ptr [rbp + -32]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_4274_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_4274_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_4274_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_4274_409:    mov              rsp, qword ptr [rbp + -40]
                         add              rsp, 48;                             jmp   n4163_unmark_α
                         .size            n4162_unmark_bx, .-n4162_unmark_bx
@@ -102507,7 +103788,16 @@ n4169_cut_α:            mov              qword ptr [rbp + 104], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_4288_405
                         mov              rsi, rcx
-.Lcut_α_4288_405:       cmp              rsi, r12;                            jae   .Lcut_α_4288_409
+.Lcut_α_4288_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_4288_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_4288_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_4288_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_4288_406
+                        mov              rsi, rdx
+.Lcut_α_4288_406:       cmp              rsi, r12;                            jae   .Lcut_α_4288_407
                         mov              rdi, rsi
 .Lcut_α_4288_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_4288_403
@@ -102538,6 +103828,13 @@ n4169_cut_α:            mov              qword ptr [rbp + 104], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_4288_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_4288_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_4288_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_4288_409:       lea              rsp, [rbp + -32];                    jmp   n4170_lit_integer_α
                         .size            n4169_cut_bx, .-n4169_cut_bx
                         .type            n4170_lit_integer_bx, @function
@@ -103452,7 +104749,16 @@ n4188_cut_α:            mov              qword ptr [rbp + 104], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_4314_405
                         mov              rsi, rcx
-.Lcut_α_4314_405:       cmp              rsi, r12;                            jae   .Lcut_α_4314_409
+.Lcut_α_4314_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_4314_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_4314_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_4314_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_4314_406
+                        mov              rsi, rdx
+.Lcut_α_4314_406:       cmp              rsi, r12;                            jae   .Lcut_α_4314_407
                         mov              rdi, rsi
 .Lcut_α_4314_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_4314_403
@@ -103483,6 +104789,13 @@ n4188_cut_α:            mov              qword ptr [rbp + 104], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_4314_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_4314_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_4314_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_4314_409:       lea              rsp, [rbp + -80];                    jmp   n4189_lit_integer_α
                         .size            n4188_cut_bx, .-n4188_cut_bx
                         .type            n4189_lit_integer_bx, @function
@@ -104211,7 +105524,16 @@ n4203_cut_α:            mov              qword ptr [rbp + 104], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_4334_405
                         mov              rsi, rcx
-.Lcut_α_4334_405:       cmp              rsi, r12;                            jae   .Lcut_α_4334_409
+.Lcut_α_4334_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_4334_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_4334_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_4334_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_4334_406
+                        mov              rsi, rdx
+.Lcut_α_4334_406:       cmp              rsi, r12;                            jae   .Lcut_α_4334_407
                         mov              rdi, rsi
 .Lcut_α_4334_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_4334_403
@@ -104242,6 +105564,13 @@ n4203_cut_α:            mov              qword ptr [rbp + 104], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_4334_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_4334_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_4334_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_4334_409:       lea              rsp, [rbp + -96];                    jmp   n4204_var_ref_α
                         .size            n4203_cut_bx, .-n4203_cut_bx
                         .type            n4204_var_ref_bx, @function
@@ -105025,7 +106354,16 @@ n4216_unmark_α:         mov              r13, qword ptr [rbp + -32]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_4358_405
                         mov              rsi, rcx
-.Lunmark_α_4358_405:    cmp              rsi, r12;                            jae   .Lunmark_α_4358_409
+.Lunmark_α_4358_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_4358_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_4358_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_4358_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_4358_406
+                        mov              rsi, rdx
+.Lunmark_α_4358_406:    cmp              rsi, r12;                            jae   .Lunmark_α_4358_407
                         mov              rdi, rsi
 .Lunmark_α_4358_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_4358_403
@@ -105056,6 +106394,13 @@ n4216_unmark_α:         mov              r13, qword ptr [rbp + -32]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_4358_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_4358_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_4358_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_4358_409:    mov              rsp, qword ptr [rbp + -40]
                         add              rsp, 48;                             jmp   n4217_unmark_α
                         .size            n4216_unmark_bx, .-n4216_unmark_bx
@@ -105198,7 +106543,16 @@ n4223_cut_α:            mov              qword ptr [rbp + 104], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_4372_405
                         mov              rsi, rcx
-.Lcut_α_4372_405:       cmp              rsi, r12;                            jae   .Lcut_α_4372_409
+.Lcut_α_4372_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_4372_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_4372_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_4372_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_4372_406
+                        mov              rsi, rdx
+.Lcut_α_4372_406:       cmp              rsi, r12;                            jae   .Lcut_α_4372_407
                         mov              rdi, rsi
 .Lcut_α_4372_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_4372_403
@@ -105229,6 +106583,13 @@ n4223_cut_α:            mov              qword ptr [rbp + 104], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_4372_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_4372_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_4372_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_4372_409:       lea              rsp, [rbp + -32];                    jmp   n4224_lit_integer_α
                         .size            n4223_cut_bx, .-n4223_cut_bx
                         .type            n4224_lit_integer_bx, @function
@@ -107813,7 +109174,16 @@ n4431_cut_α:            mov              qword ptr [rbp + 104], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_4461_405
                         mov              rsi, rcx
-.Lcut_α_4461_405:       cmp              rsi, r12;                            jae   .Lcut_α_4461_409
+.Lcut_α_4461_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_4461_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_4461_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_4461_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_4461_406
+                        mov              rsi, rdx
+.Lcut_α_4461_406:       cmp              rsi, r12;                            jae   .Lcut_α_4461_407
                         mov              rdi, rsi
 .Lcut_α_4461_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_4461_403
@@ -107844,6 +109214,13 @@ n4431_cut_α:            mov              qword ptr [rbp + 104], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_4461_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_4461_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_4461_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_4461_409:       lea              rsp, [rbp + -32];                    jmp   n4432_bound_α
                         .size            n4431_cut_bx, .-n4431_cut_bx
                         .type            n4432_bound_bx, @function
@@ -107988,7 +109365,16 @@ n4435_unmark_α:         mov              r13, qword ptr [rbp + -64]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_4469_405
                         mov              rsi, rcx
-.Lunmark_α_4469_405:    cmp              rsi, r12;                            jae   .Lunmark_α_4469_409
+.Lunmark_α_4469_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_4469_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_4469_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_4469_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_4469_406
+                        mov              rsi, rdx
+.Lunmark_α_4469_406:    cmp              rsi, r12;                            jae   .Lunmark_α_4469_407
                         mov              rdi, rsi
 .Lunmark_α_4469_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_4469_403
@@ -108019,6 +109405,13 @@ n4435_unmark_α:         mov              r13, qword ptr [rbp + -64]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_4469_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_4469_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_4469_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_4469_409:    mov              rsp, qword ptr [rbp + -72]
                         add              rsp, 48;                             jmp   n4436_lit_integer_α
                         .size            n4435_unmark_bx, .-n4435_unmark_bx
@@ -109956,7 +111349,16 @@ n4510_unmark_α:         mov              r13, qword ptr [rbp + 176]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_4604_405
                         mov              rsi, rcx
-.Lunmark_α_4604_405:    cmp              rsi, r12;                            jae   .Lunmark_α_4604_409
+.Lunmark_α_4604_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_4604_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_4604_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_4604_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_4604_406
+                        mov              rsi, rdx
+.Lunmark_α_4604_406:    cmp              rsi, r12;                            jae   .Lunmark_α_4604_407
                         mov              rdi, rsi
 .Lunmark_α_4604_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_4604_403
@@ -109987,6 +111389,13 @@ n4510_unmark_α:         mov              r13, qword ptr [rbp + 176]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_4604_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_4604_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_4604_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_4604_409:    mov              rsp, qword ptr [rbp + 168];          jmp   n4511_var_ref_α
                         .size            n4510_unmark_bx, .-n4510_unmark_bx
                         .type            n4511_var_ref_bx, @function
@@ -110293,7 +111702,16 @@ n4520_unmark_α:         mov              r13, qword ptr [rbp + 272]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_4622_405
                         mov              rsi, rcx
-.Lunmark_α_4622_405:    cmp              rsi, r12;                            jae   .Lunmark_α_4622_409
+.Lunmark_α_4622_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_4622_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_4622_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_4622_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_4622_406
+                        mov              rsi, rdx
+.Lunmark_α_4622_406:    cmp              rsi, r12;                            jae   .Lunmark_α_4622_407
                         mov              rdi, rsi
 .Lunmark_α_4622_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_4622_403
@@ -110324,6 +111742,13 @@ n4520_unmark_α:         mov              r13, qword ptr [rbp + 272]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_4622_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_4622_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_4622_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_4622_409:    mov              rsp, qword ptr [rbp + 264];          jmp   n4521_var_ref_α
                         .size            n4520_unmark_bx, .-n4520_unmark_bx
                         .type            n4521_var_ref_bx, @function
@@ -110687,7 +112112,16 @@ n4532_unmark_α:         mov              r13, qword ptr [rbp + 368]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_4645_405
                         mov              rsi, rcx
-.Lunmark_α_4645_405:    cmp              rsi, r12;                            jae   .Lunmark_α_4645_409
+.Lunmark_α_4645_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_4645_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_4645_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_4645_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_4645_406
+                        mov              rsi, rdx
+.Lunmark_α_4645_406:    cmp              rsi, r12;                            jae   .Lunmark_α_4645_407
                         mov              rdi, rsi
 .Lunmark_α_4645_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_4645_403
@@ -110718,6 +112152,13 @@ n4532_unmark_α:         mov              r13, qword ptr [rbp + 368]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_4645_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_4645_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_4645_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_4645_409:    mov              rsp, qword ptr [rbp + 360];          jmp   n4533_var_ref_α
                         .size            n4532_unmark_bx, .-n4532_unmark_bx
                         .type            n4533_var_ref_bx, @function
@@ -111543,7 +112984,16 @@ n4551_unmark_α:         mov              r13, qword ptr [rbp + 464]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_4678_405
                         mov              rsi, rcx
-.Lunmark_α_4678_405:    cmp              rsi, r12;                            jae   .Lunmark_α_4678_409
+.Lunmark_α_4678_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_4678_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_4678_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_4678_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_4678_406
+                        mov              rsi, rdx
+.Lunmark_α_4678_406:    cmp              rsi, r12;                            jae   .Lunmark_α_4678_407
                         mov              rdi, rsi
 .Lunmark_α_4678_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_4678_403
@@ -111574,6 +113024,13 @@ n4551_unmark_α:         mov              r13, qword ptr [rbp + 464]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_4678_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_4678_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_4678_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_4678_409:    mov              rsp, qword ptr [rbp + 456];          jmp   n4552_var_ref_α
                         .size            n4551_unmark_bx, .-n4551_unmark_bx
                         .type            n4552_var_ref_bx, @function
@@ -113593,7 +115050,16 @@ n4744_unmark_α:         mov              r13, qword ptr [rbp + -32]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_4785_405
                         mov              rsi, rcx
-.Lunmark_α_4785_405:    cmp              rsi, r12;                            jae   .Lunmark_α_4785_409
+.Lunmark_α_4785_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_4785_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_4785_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_4785_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_4785_406
+                        mov              rsi, rdx
+.Lunmark_α_4785_406:    cmp              rsi, r12;                            jae   .Lunmark_α_4785_407
                         mov              rdi, rsi
 .Lunmark_α_4785_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_4785_403
@@ -113624,6 +115090,13 @@ n4744_unmark_α:         mov              r13, qword ptr [rbp + -32]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_4785_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_4785_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_4785_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_4785_409:    mov              rsp, qword ptr [rbp + -40]
                         add              rsp, 48;                             jmp   n4745_gate_arm_α
                         .size            n4744_unmark_bx, .-n4744_unmark_bx
@@ -114344,7 +115817,16 @@ n4763_unmark_α:         mov              r13, qword ptr [rbp + -336]          #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_4813_405
                         mov              rsi, rcx
-.Lunmark_α_4813_405:    cmp              rsi, r12;                            jae   .Lunmark_α_4813_409
+.Lunmark_α_4813_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_4813_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_4813_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_4813_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_4813_406
+                        mov              rsi, rdx
+.Lunmark_α_4813_406:    cmp              rsi, r12;                            jae   .Lunmark_α_4813_407
                         mov              rdi, rsi
 .Lunmark_α_4813_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_4813_403
@@ -114375,6 +115857,13 @@ n4763_unmark_α:         mov              r13, qword ptr [rbp + -336]          #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_4813_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_4813_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_4813_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_4813_409:    mov              rsp, qword ptr [rbp + -344]
                         add              rsp, 48;                             jmp   n4764_gate_arm_α
                         .size            n4763_unmark_bx, .-n4763_unmark_bx
@@ -116711,7 +118200,16 @@ n4938_unmark_α:         mov              r13, qword ptr [rbp + 96]            #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_4955_405
                         mov              rsi, rcx
-.Lunmark_α_4955_405:    cmp              rsi, r12;                            jae   .Lunmark_α_4955_409
+.Lunmark_α_4955_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_4955_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_4955_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_4955_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_4955_406
+                        mov              rsi, rdx
+.Lunmark_α_4955_406:    cmp              rsi, r12;                            jae   .Lunmark_α_4955_407
                         mov              rdi, rsi
 .Lunmark_α_4955_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_4955_403
@@ -116742,6 +118240,13 @@ n4938_unmark_α:         mov              r13, qword ptr [rbp + 96]            #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_4955_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_4955_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_4955_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_4955_409:    mov              rsp, qword ptr [rbp + 88];           jmp   n4939_unify_const_α
                         .size            n4938_unmark_bx, .-n4938_unmark_bx
                         .type            n4939_unify_const_bx, @function
@@ -118436,7 +119941,16 @@ n4999_unmark_α:         mov              r13, qword ptr [rbp + -736]          #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_5082_405
                         mov              rsi, rcx
-.Lunmark_α_5082_405:    cmp              rsi, r12;                            jae   .Lunmark_α_5082_409
+.Lunmark_α_5082_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_5082_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_5082_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_5082_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_5082_406
+                        mov              rsi, rdx
+.Lunmark_α_5082_406:    cmp              rsi, r12;                            jae   .Lunmark_α_5082_407
                         mov              rdi, rsi
 .Lunmark_α_5082_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_5082_403
@@ -118467,6 +119981,13 @@ n4999_unmark_α:         mov              r13, qword ptr [rbp + -736]          #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_5082_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_5082_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_5082_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_5082_409:    mov              rsp, qword ptr [rbp + -744]
                         add              rsp, 48;                             jmp   n5000_unmark_α
                         .size            n4999_unmark_bx, .-n4999_unmark_bx
@@ -118615,7 +120136,16 @@ n5006_cut_α:            mov              qword ptr [rbp + 120], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_5096_405
                         mov              rsi, rcx
-.Lcut_α_5096_405:       cmp              rsi, r12;                            jae   .Lcut_α_5096_409
+.Lcut_α_5096_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_5096_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_5096_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_5096_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_5096_406
+                        mov              rsi, rdx
+.Lcut_α_5096_406:       cmp              rsi, r12;                            jae   .Lcut_α_5096_407
                         mov              rdi, rsi
 .Lcut_α_5096_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_5096_403
@@ -118646,6 +120176,13 @@ n5006_cut_α:            mov              qword ptr [rbp + 120], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_5096_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_5096_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_5096_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_5096_409:       lea              rsp, [rbp + -736];                   jmp   n5007_var_ref_α
                         .size            n5006_cut_bx, .-n5006_cut_bx
                         .type            n5007_var_ref_bx, @function
@@ -121828,7 +123365,16 @@ n5218_cut_α:            mov              qword ptr [rbp + 1048], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_5577_405
                         mov              rsi, rcx
-.Lcut_α_5577_405:       cmp              rsi, r12;                            jae   .Lcut_α_5577_409
+.Lcut_α_5577_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_5577_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_5577_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_5577_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_5577_406
+                        mov              rsi, rdx
+.Lcut_α_5577_406:       cmp              rsi, r12;                            jae   .Lcut_α_5577_407
                         mov              rdi, rsi
 .Lcut_α_5577_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_5577_403
@@ -121859,6 +123405,13 @@ n5218_cut_α:            mov              qword ptr [rbp + 1048], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_5577_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_5577_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_5577_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_5577_409:       lea              rsp, [rbp + -80];                    jmp   n5219_bound_α
                         .size            n5218_cut_bx, .-n5218_cut_bx
                         .type            n5219_bound_bx, @function
@@ -122249,7 +123802,16 @@ n5228_unmark_α:         mov              r13, qword ptr [rbp + 496]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_5594_405
                         mov              rsi, rcx
-.Lunmark_α_5594_405:    cmp              rsi, r12;                            jae   .Lunmark_α_5594_409
+.Lunmark_α_5594_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_5594_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_5594_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_5594_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_5594_406
+                        mov              rsi, rdx
+.Lunmark_α_5594_406:    cmp              rsi, r12;                            jae   .Lunmark_α_5594_407
                         mov              rdi, rsi
 .Lunmark_α_5594_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_5594_403
@@ -122280,6 +123842,13 @@ n5228_unmark_α:         mov              r13, qword ptr [rbp + 496]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_5594_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_5594_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_5594_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_5594_409:    mov              rsp, qword ptr [rbp + 488];          jmp   n5229_var_ref_α
                         .size            n5228_unmark_bx, .-n5228_unmark_bx
                         .type            n5229_var_ref_bx, @function
@@ -122797,7 +124366,16 @@ n5243_unmark_α:         mov              r13, qword ptr [rbp + 592]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_5621_405
                         mov              rsi, rcx
-.Lunmark_α_5621_405:    cmp              rsi, r12;                            jae   .Lunmark_α_5621_409
+.Lunmark_α_5621_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_5621_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_5621_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_5621_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_5621_406
+                        mov              rsi, rdx
+.Lunmark_α_5621_406:    cmp              rsi, r12;                            jae   .Lunmark_α_5621_407
                         mov              rdi, rsi
 .Lunmark_α_5621_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_5621_403
@@ -122828,6 +124406,13 @@ n5243_unmark_α:         mov              r13, qword ptr [rbp + 592]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_5621_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_5621_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_5621_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_5621_409:    mov              rsp, qword ptr [rbp + 584];          jmp   n5244_lit_integer_α
                         .size            n5243_unmark_bx, .-n5243_unmark_bx
                         .type            n5244_lit_integer_bx, @function
@@ -123251,7 +124836,16 @@ n5254_unmark_α:         mov              r13, qword ptr [rbp + 688]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_5639_405
                         mov              rsi, rcx
-.Lunmark_α_5639_405:    cmp              rsi, r12;                            jae   .Lunmark_α_5639_409
+.Lunmark_α_5639_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_5639_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_5639_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_5639_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_5639_406
+                        mov              rsi, rdx
+.Lunmark_α_5639_406:    cmp              rsi, r12;                            jae   .Lunmark_α_5639_407
                         mov              rdi, rsi
 .Lunmark_α_5639_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_5639_403
@@ -123282,6 +124876,13 @@ n5254_unmark_α:         mov              r13, qword ptr [rbp + 688]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_5639_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_5639_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_5639_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_5639_409:    mov              rsp, qword ptr [rbp + 680];          jmp   n5255_lit_integer_α
                         .size            n5254_unmark_bx, .-n5254_unmark_bx
                         .type            n5255_lit_integer_bx, @function
@@ -123543,7 +125144,16 @@ n5265_unmark_α:         mov              r13, qword ptr [rbp + 784]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_5658_405
                         mov              rsi, rcx
-.Lunmark_α_5658_405:    cmp              rsi, r12;                            jae   .Lunmark_α_5658_409
+.Lunmark_α_5658_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_5658_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_5658_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_5658_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_5658_406
+                        mov              rsi, rdx
+.Lunmark_α_5658_406:    cmp              rsi, r12;                            jae   .Lunmark_α_5658_407
                         mov              rdi, rsi
 .Lunmark_α_5658_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_5658_403
@@ -123574,6 +125184,13 @@ n5265_unmark_α:         mov              r13, qword ptr [rbp + 784]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_5658_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_5658_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_5658_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_5658_409:    mov              rsp, qword ptr [rbp + 776];          jmp   n5266_lit_integer_α
                         .size            n5265_unmark_bx, .-n5265_unmark_bx
                         .type            n5266_lit_integer_bx, @function
@@ -125054,7 +126671,16 @@ n5313_unmark_α:         mov              r13, qword ptr [rbp + 880]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_5741_405
                         mov              rsi, rcx
-.Lunmark_α_5741_405:    cmp              rsi, r12;                            jae   .Lunmark_α_5741_409
+.Lunmark_α_5741_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_5741_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_5741_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_5741_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_5741_406
+                        mov              rsi, rdx
+.Lunmark_α_5741_406:    cmp              rsi, r12;                            jae   .Lunmark_α_5741_407
                         mov              rdi, rsi
 .Lunmark_α_5741_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_5741_403
@@ -125085,6 +126711,13 @@ n5313_unmark_α:         mov              r13, qword ptr [rbp + 880]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_5741_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_5741_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_5741_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_5741_409:    mov              rsp, qword ptr [rbp + 872];          jmp   n5314_lit_integer_α
                         .size            n5313_unmark_bx, .-n5313_unmark_bx
                         .type            n5314_lit_integer_bx, @function
@@ -125351,7 +126984,16 @@ n5324_unmark_α:         mov              r13, qword ptr [rbp + 976]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_5760_405
                         mov              rsi, rcx
-.Lunmark_α_5760_405:    cmp              rsi, r12;                            jae   .Lunmark_α_5760_409
+.Lunmark_α_5760_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_5760_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_5760_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_5760_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_5760_406
+                        mov              rsi, rdx
+.Lunmark_α_5760_406:    cmp              rsi, r12;                            jae   .Lunmark_α_5760_407
                         mov              rdi, rsi
 .Lunmark_α_5760_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_5760_403
@@ -125382,6 +127024,13 @@ n5324_unmark_α:         mov              r13, qword ptr [rbp + 976]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_5760_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_5760_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_5760_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_5760_409:    mov              rsp, qword ptr [rbp + 968];          jmp   n5325_lit_integer_α
                         .size            n5324_unmark_bx, .-n5324_unmark_bx
                         .type            n5325_lit_integer_bx, @function
@@ -126362,7 +128011,16 @@ n5359_unmark_α:         mov              r13, qword ptr [rbp + -32]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_5825_405
                         mov              rsi, rcx
-.Lunmark_α_5825_405:    cmp              rsi, r12;                            jae   .Lunmark_α_5825_409
+.Lunmark_α_5825_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_5825_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_5825_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_5825_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_5825_406
+                        mov              rsi, rdx
+.Lunmark_α_5825_406:    cmp              rsi, r12;                            jae   .Lunmark_α_5825_407
                         mov              rdi, rsi
 .Lunmark_α_5825_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_5825_403
@@ -126393,6 +128051,13 @@ n5359_unmark_α:         mov              r13, qword ptr [rbp + -32]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_5825_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_5825_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_5825_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_5825_409:    mov              rsp, qword ptr [rbp + -40]
                         add              rsp, 48;                             jmp   n5360_unmark_α
                         .size            n5359_unmark_bx, .-n5359_unmark_bx
@@ -126535,7 +128200,16 @@ n5366_cut_α:            mov              qword ptr [rbp + 1048], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_5839_405
                         mov              rsi, rcx
-.Lcut_α_5839_405:       cmp              rsi, r12;                            jae   .Lcut_α_5839_409
+.Lcut_α_5839_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_5839_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_5839_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_5839_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_5839_406
+                        mov              rsi, rdx
+.Lcut_α_5839_406:       cmp              rsi, r12;                            jae   .Lcut_α_5839_407
                         mov              rdi, rsi
 .Lcut_α_5839_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_5839_403
@@ -126566,6 +128240,13 @@ n5366_cut_α:            mov              qword ptr [rbp + 1048], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_5839_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_5839_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_5839_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_5839_409:       lea              rsp, [rbp + -32];                    jmp   n5367_lit_integer_α
                         .size            n5366_cut_bx, .-n5366_cut_bx
                         .type            n5367_lit_integer_bx, @function
@@ -127516,7 +129197,16 @@ n5387_unmark_α:         mov              r13, qword ptr [rbp + -80]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_5868_405
                         mov              rsi, rcx
-.Lunmark_α_5868_405:    cmp              rsi, r12;                            jae   .Lunmark_α_5868_409
+.Lunmark_α_5868_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_5868_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_5868_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_5868_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_5868_406
+                        mov              rsi, rdx
+.Lunmark_α_5868_406:    cmp              rsi, r12;                            jae   .Lunmark_α_5868_407
                         mov              rdi, rsi
 .Lunmark_α_5868_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_5868_403
@@ -127547,6 +129237,13 @@ n5387_unmark_α:         mov              r13, qword ptr [rbp + -80]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_5868_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_5868_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_5868_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_5868_409:    mov              rsp, qword ptr [rbp + -88]
                         add              rsp, 48;                             jmp   n5388_unmark_α
                         .size            n5387_unmark_bx, .-n5387_unmark_bx
@@ -127695,7 +129392,16 @@ n5394_cut_α:            mov              qword ptr [rbp + 1048], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_5882_405
                         mov              rsi, rcx
-.Lcut_α_5882_405:       cmp              rsi, r12;                            jae   .Lcut_α_5882_409
+.Lcut_α_5882_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_5882_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_5882_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_5882_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_5882_406
+                        mov              rsi, rdx
+.Lcut_α_5882_406:       cmp              rsi, r12;                            jae   .Lcut_α_5882_407
                         mov              rdi, rsi
 .Lcut_α_5882_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_5882_403
@@ -127726,6 +129432,13 @@ n5394_cut_α:            mov              qword ptr [rbp + 1048], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_5882_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_5882_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_5882_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_5882_409:       lea              rsp, [rbp + -80];                    jmp   n5395_lit_integer_α
                         .size            n5394_cut_bx, .-n5394_cut_bx
                         .type            n5395_lit_integer_bx, @function
@@ -128628,7 +130341,16 @@ n5412_cut_α:            mov              qword ptr [rbp + 1048], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_5906_405
                         mov              rsi, rcx
-.Lcut_α_5906_405:       cmp              rsi, r12;                            jae   .Lcut_α_5906_409
+.Lcut_α_5906_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_5906_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_5906_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_5906_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_5906_406
+                        mov              rsi, rdx
+.Lcut_α_5906_406:       cmp              rsi, r12;                            jae   .Lcut_α_5906_407
                         mov              rdi, rsi
 .Lcut_α_5906_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_5906_403
@@ -128659,6 +130381,13 @@ n5412_cut_α:            mov              qword ptr [rbp + 1048], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_5906_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_5906_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_5906_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_5906_409:       lea              rsp, [rbp + -32];                    jmp   n5413_bound_α
                         .size            n5412_cut_bx, .-n5412_cut_bx
                         .type            n5413_bound_bx, @function
@@ -129059,7 +130788,16 @@ n5422_unmark_α:         mov              r13, qword ptr [rbp + 496]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_5923_405
                         mov              rsi, rcx
-.Lunmark_α_5923_405:    cmp              rsi, r12;                            jae   .Lunmark_α_5923_409
+.Lunmark_α_5923_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_5923_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_5923_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_5923_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_5923_406
+                        mov              rsi, rdx
+.Lunmark_α_5923_406:    cmp              rsi, r12;                            jae   .Lunmark_α_5923_407
                         mov              rdi, rsi
 .Lunmark_α_5923_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_5923_403
@@ -129090,6 +130828,13 @@ n5422_unmark_α:         mov              r13, qword ptr [rbp + 496]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_5923_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_5923_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_5923_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_5923_409:    mov              rsp, qword ptr [rbp + 488];          jmp   n5423_var_ref_α
                         .size            n5422_unmark_bx, .-n5422_unmark_bx
                         .type            n5423_var_ref_bx, @function
@@ -129859,7 +131604,16 @@ n5437_unmark_α:         mov              r13, qword ptr [rbp + 592]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_5950_405
                         mov              rsi, rcx
-.Lunmark_α_5950_405:    cmp              rsi, r12;                            jae   .Lunmark_α_5950_409
+.Lunmark_α_5950_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_5950_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_5950_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_5950_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_5950_406
+                        mov              rsi, rdx
+.Lunmark_α_5950_406:    cmp              rsi, r12;                            jae   .Lunmark_α_5950_407
                         mov              rdi, rsi
 .Lunmark_α_5950_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_5950_403
@@ -129890,6 +131644,13 @@ n5437_unmark_α:         mov              r13, qword ptr [rbp + 592]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_5950_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_5950_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_5950_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_5950_409:    mov              rsp, qword ptr [rbp + 584];          jmp   n5438_lit_integer_α
                         .size            n5437_unmark_bx, .-n5437_unmark_bx
                         .type            n5438_lit_integer_bx, @function
@@ -130324,7 +132085,16 @@ n5448_unmark_α:         mov              r13, qword ptr [rbp + 688]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_5968_405
                         mov              rsi, rcx
-.Lunmark_α_5968_405:    cmp              rsi, r12;                            jae   .Lunmark_α_5968_409
+.Lunmark_α_5968_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_5968_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_5968_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_5968_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_5968_406
+                        mov              rsi, rdx
+.Lunmark_α_5968_406:    cmp              rsi, r12;                            jae   .Lunmark_α_5968_407
                         mov              rdi, rsi
 .Lunmark_α_5968_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_5968_403
@@ -130355,6 +132125,13 @@ n5448_unmark_α:         mov              r13, qword ptr [rbp + 688]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_5968_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_5968_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_5968_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_5968_409:    mov              rsp, qword ptr [rbp + 680];          jmp   n5449_lit_integer_α
                         .size            n5448_unmark_bx, .-n5448_unmark_bx
                         .type            n5449_lit_integer_bx, @function
@@ -130621,7 +132398,16 @@ n5459_unmark_α:         mov              r13, qword ptr [rbp + 784]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_5987_405
                         mov              rsi, rcx
-.Lunmark_α_5987_405:    cmp              rsi, r12;                            jae   .Lunmark_α_5987_409
+.Lunmark_α_5987_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_5987_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_5987_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_5987_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_5987_406
+                        mov              rsi, rdx
+.Lunmark_α_5987_406:    cmp              rsi, r12;                            jae   .Lunmark_α_5987_407
                         mov              rdi, rsi
 .Lunmark_α_5987_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_5987_403
@@ -130652,6 +132438,13 @@ n5459_unmark_α:         mov              r13, qword ptr [rbp + 784]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_5987_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_5987_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_5987_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_5987_409:    mov              rsp, qword ptr [rbp + 776];          jmp   n5460_lit_integer_α
                         .size            n5459_unmark_bx, .-n5459_unmark_bx
                         .type            n5460_lit_integer_bx, @function
@@ -132169,7 +133962,16 @@ n5507_unmark_α:         mov              r13, qword ptr [rbp + 880]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_6070_405
                         mov              rsi, rcx
-.Lunmark_α_6070_405:    cmp              rsi, r12;                            jae   .Lunmark_α_6070_409
+.Lunmark_α_6070_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_6070_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_6070_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_6070_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_6070_406
+                        mov              rsi, rdx
+.Lunmark_α_6070_406:    cmp              rsi, r12;                            jae   .Lunmark_α_6070_407
                         mov              rdi, rsi
 .Lunmark_α_6070_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_6070_403
@@ -132200,6 +134002,13 @@ n5507_unmark_α:         mov              r13, qword ptr [rbp + 880]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_6070_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_6070_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_6070_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_6070_409:    mov              rsp, qword ptr [rbp + 872];          jmp   n5508_lit_integer_α
                         .size            n5507_unmark_bx, .-n5507_unmark_bx
                         .type            n5508_lit_integer_bx, @function
@@ -132466,7 +134275,16 @@ n5518_unmark_α:         mov              r13, qword ptr [rbp + 976]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_6089_405
                         mov              rsi, rcx
-.Lunmark_α_6089_405:    cmp              rsi, r12;                            jae   .Lunmark_α_6089_409
+.Lunmark_α_6089_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_6089_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_6089_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_6089_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_6089_406
+                        mov              rsi, rdx
+.Lunmark_α_6089_406:    cmp              rsi, r12;                            jae   .Lunmark_α_6089_407
                         mov              rdi, rsi
 .Lunmark_α_6089_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_6089_403
@@ -132497,6 +134315,13 @@ n5518_unmark_α:         mov              r13, qword ptr [rbp + 976]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_6089_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_6089_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_6089_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_6089_409:    mov              rsp, qword ptr [rbp + 968];          jmp   n5519_lit_integer_α
                         .size            n5518_unmark_bx, .-n5518_unmark_bx
                         .type            n5519_lit_integer_bx, @function
@@ -136050,7 +137875,16 @@ n6181_cut_α:            mov              qword ptr [rbp + 104], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_6216_405
                         mov              rsi, rcx
-.Lcut_α_6216_405:       cmp              rsi, r12;                            jae   .Lcut_α_6216_409
+.Lcut_α_6216_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_6216_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_6216_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_6216_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_6216_406
+                        mov              rsi, rdx
+.Lcut_α_6216_406:       cmp              rsi, r12;                            jae   .Lcut_α_6216_407
                         mov              rdi, rsi
 .Lcut_α_6216_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_6216_403
@@ -136081,6 +137915,13 @@ n6181_cut_α:            mov              qword ptr [rbp + 104], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_6216_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_6216_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_6216_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_6216_409:       lea              rsp, [rbp + -80];                    jmp   n6182_lit_integer_α
                         .size            n6181_cut_bx, .-n6181_cut_bx
                         .type            n6182_lit_integer_bx, @function
@@ -136330,7 +138171,16 @@ n6188_unmark_α:         mov              r13, qword ptr [rbp + -32]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_6227_405
                         mov              rsi, rcx
-.Lunmark_α_6227_405:    cmp              rsi, r12;                            jae   .Lunmark_α_6227_409
+.Lunmark_α_6227_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_6227_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_6227_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_6227_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_6227_406
+                        mov              rsi, rdx
+.Lunmark_α_6227_406:    cmp              rsi, r12;                            jae   .Lunmark_α_6227_407
                         mov              rdi, rsi
 .Lunmark_α_6227_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_6227_403
@@ -136361,6 +138211,13 @@ n6188_unmark_α:         mov              r13, qword ptr [rbp + -32]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_6227_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_6227_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_6227_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_6227_409:    mov              rsp, qword ptr [rbp + -40]
                         add              rsp, 48;                             jmp   n6189_unmark_α
                         .size            n6188_unmark_bx, .-n6188_unmark_bx
@@ -136503,7 +138360,16 @@ n6195_cut_α:            mov              qword ptr [rbp + 104], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_6241_405
                         mov              rsi, rcx
-.Lcut_α_6241_405:       cmp              rsi, r12;                            jae   .Lcut_α_6241_409
+.Lcut_α_6241_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_6241_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_6241_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_6241_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_6241_406
+                        mov              rsi, rdx
+.Lcut_α_6241_406:       cmp              rsi, r12;                            jae   .Lcut_α_6241_407
                         mov              rdi, rsi
 .Lcut_α_6241_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_6241_403
@@ -136534,6 +138400,13 @@ n6195_cut_α:            mov              qword ptr [rbp + 104], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_6241_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_6241_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_6241_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_6241_409:       lea              rsp, [rbp + -32];                    jmp   n6196_lit_integer_α
                         .size            n6195_cut_bx, .-n6195_cut_bx
                         .type            n6196_lit_integer_bx, @function
@@ -137570,7 +139443,16 @@ n6259_cut_α:            mov              qword ptr [rbp + 296], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_6290_405
                         mov              rsi, rcx
-.Lcut_α_6290_405:       cmp              rsi, r12;                            jae   .Lcut_α_6290_409
+.Lcut_α_6290_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_6290_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_6290_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_6290_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_6290_406
+                        mov              rsi, rdx
+.Lcut_α_6290_406:       cmp              rsi, r12;                            jae   .Lcut_α_6290_407
                         mov              rdi, rsi
 .Lcut_α_6290_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_6290_403
@@ -137601,6 +139483,13 @@ n6259_cut_α:            mov              qword ptr [rbp + 296], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_6290_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_6290_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_6290_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_6290_409:       lea              rsp, [rbp + -112];                   jmp   n6260_bound_α
                         .size            n6259_cut_bx, .-n6259_cut_bx
                         .type            n6260_bound_bx, @function
@@ -137818,7 +139707,16 @@ n6264_unmark_α:         lea              rax, [rbp + 208]
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_6300_405
                         mov              rsi, rcx
-.Lunmark_α_6300_405:    cmp              rsi, r12;                            jae   .Lunmark_α_6300_409
+.Lunmark_α_6300_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_6300_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_6300_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_6300_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_6300_406
+                        mov              rsi, rdx
+.Lunmark_α_6300_406:    cmp              rsi, r12;                            jae   .Lunmark_α_6300_407
                         mov              rdi, rsi
 .Lunmark_α_6300_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_6300_403
@@ -137849,6 +139747,13 @@ n6264_unmark_α:         lea              rax, [rbp + 208]
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_6300_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_6300_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_6300_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_6300_409:
 .Lunmark_α_6300_1:                                                            jmp   n6265_gate_arm_α
                         .size            n6264_unmark_bx, .-n6264_unmark_bx
@@ -138045,7 +139950,16 @@ n6273_unmark_α:         mov              r13, qword ptr [rbp + 128]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_6317_405
                         mov              rsi, rcx
-.Lunmark_α_6317_405:    cmp              rsi, r12;                            jae   .Lunmark_α_6317_409
+.Lunmark_α_6317_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_6317_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_6317_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_6317_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_6317_406
+                        mov              rsi, rdx
+.Lunmark_α_6317_406:    cmp              rsi, r12;                            jae   .Lunmark_α_6317_407
                         mov              rdi, rsi
 .Lunmark_α_6317_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_6317_403
@@ -138076,6 +139990,13 @@ n6273_unmark_α:         mov              r13, qword ptr [rbp + 128]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_6317_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_6317_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_6317_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_6317_409:    mov              rsp, qword ptr [rbp + 120];          jmp   n6274_gate_arm_α
                         .size            n6273_unmark_bx, .-n6273_unmark_bx
                         .type            n6274_gate_arm_bx, @function
@@ -140248,7 +142169,16 @@ n6379_cut_α:            mov              qword ptr [rbp + 72], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_6396_405
                         mov              rsi, rcx
-.Lcut_α_6396_405:       cmp              rsi, r12;                            jae   .Lcut_α_6396_409
+.Lcut_α_6396_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_6396_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_6396_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_6396_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_6396_406
+                        mov              rsi, rdx
+.Lcut_α_6396_406:       cmp              rsi, r12;                            jae   .Lcut_α_6396_407
                         mov              rdi, rsi
 .Lcut_α_6396_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_6396_403
@@ -140279,6 +142209,13 @@ n6379_cut_α:            mov              qword ptr [rbp + 72], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_6396_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_6396_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_6396_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_6396_409:       lea              rsp, [rbp + -32];                    jmp   $xsb_f4_tag$2F3_γ
                         .size            n6379_cut_bx, .-n6379_cut_bx
                         .type            n6380_lit_atom_bx, @function
@@ -141550,7 +143487,16 @@ n6419_unmark_α:         mov              r13, qword ptr [rbp + 160]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_6460_405
                         mov              rsi, rcx
-.Lunmark_α_6460_405:    cmp              rsi, r12;                            jae   .Lunmark_α_6460_409
+.Lunmark_α_6460_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_6460_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_6460_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_6460_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_6460_406
+                        mov              rsi, rdx
+.Lunmark_α_6460_406:    cmp              rsi, r12;                            jae   .Lunmark_α_6460_407
                         mov              rdi, rsi
 .Lunmark_α_6460_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_6460_403
@@ -141581,6 +143527,13 @@ n6419_unmark_α:         mov              r13, qword ptr [rbp + 160]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_6460_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_6460_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_6460_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_6460_409:    mov              rsp, qword ptr [rbp + 152];          jmp   n6420_var_ref_α
                         .size            n6419_unmark_bx, .-n6419_unmark_bx
                         .type            n6420_var_ref_bx, @function
@@ -143384,7 +145337,16 @@ n6509_unmark_α:         mov              r13, qword ptr [rbp + -208]          #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_6595_405
                         mov              rsi, rcx
-.Lunmark_α_6595_405:    cmp              rsi, r12;                            jae   .Lunmark_α_6595_409
+.Lunmark_α_6595_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_6595_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_6595_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_6595_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_6595_406
+                        mov              rsi, rdx
+.Lunmark_α_6595_406:    cmp              rsi, r12;                            jae   .Lunmark_α_6595_407
                         mov              rdi, rsi
 .Lunmark_α_6595_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_6595_403
@@ -143415,6 +145377,13 @@ n6509_unmark_α:         mov              r13, qword ptr [rbp + -208]          #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_6595_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_6595_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_6595_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_6595_409:    mov              rsp, qword ptr [rbp + -216]
                         add              rsp, 48;                             jmp   n6510_unmark_α
                         .size            n6509_unmark_bx, .-n6509_unmark_bx
@@ -143629,7 +145598,16 @@ n6519_cut_α:            mov              qword ptr [rbp + 264], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_6612_405
                         mov              rsi, rcx
-.Lcut_α_6612_405:       cmp              rsi, r12;                            jae   .Lcut_α_6612_409
+.Lcut_α_6612_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_6612_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_6612_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_6612_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_6612_406
+                        mov              rsi, rdx
+.Lcut_α_6612_406:       cmp              rsi, r12;                            jae   .Lcut_α_6612_407
                         mov              rdi, rsi
 .Lcut_α_6612_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_6612_403
@@ -143660,6 +145638,13 @@ n6519_cut_α:            mov              qword ptr [rbp + 264], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_6612_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_6612_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_6612_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_6612_409:       lea              rsp, [rbp + -288];                   jmp   n6520_var_ref_α
                         .size            n6519_cut_bx, .-n6519_cut_bx
                         .type            n6520_var_ref_bx, @function
@@ -144163,7 +146148,16 @@ n6533_unmark_α:         lea              rax, [rbp + 144]
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_6637_405
                         mov              rsi, rcx
-.Lunmark_α_6637_405:    cmp              rsi, r12;                            jae   .Lunmark_α_6637_409
+.Lunmark_α_6637_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_6637_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_6637_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_6637_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_6637_406
+                        mov              rsi, rdx
+.Lunmark_α_6637_406:    cmp              rsi, r12;                            jae   .Lunmark_α_6637_407
                         mov              rdi, rsi
 .Lunmark_α_6637_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_6637_403
@@ -144194,6 +146188,13 @@ n6533_unmark_α:         lea              rax, [rbp + 144]
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_6637_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_6637_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_6637_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_6637_409:
 .Lunmark_α_6637_1:                                                            jmp   n6534_gate_arm_α
                         .size            n6533_unmark_bx, .-n6533_unmark_bx
@@ -146647,7 +148648,16 @@ n6692_unmark_α:         mov              r13, qword ptr [rbp + 96]            #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_6709_405
                         mov              rsi, rcx
-.Lunmark_α_6709_405:    cmp              rsi, r12;                            jae   .Lunmark_α_6709_409
+.Lunmark_α_6709_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_6709_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_6709_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_6709_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_6709_406
+                        mov              rsi, rdx
+.Lunmark_α_6709_406:    cmp              rsi, r12;                            jae   .Lunmark_α_6709_407
                         mov              rdi, rsi
 .Lunmark_α_6709_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_6709_403
@@ -146678,6 +148688,13 @@ n6692_unmark_α:         mov              r13, qword ptr [rbp + 96]            #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_6709_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_6709_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_6709_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_6709_409:    mov              rsp, qword ptr [rbp + 88];           jmp   n6693_gate_arm_α
                         .size            n6692_unmark_bx, .-n6692_unmark_bx
                         .type            n6693_gate_arm_bx, @function
@@ -147391,7 +149408,16 @@ n6729_cut_α:            mov              qword ptr [rbp + 136], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_6760_405
                         mov              rsi, rcx
-.Lcut_α_6760_405:       cmp              rsi, r12;                            jae   .Lcut_α_6760_409
+.Lcut_α_6760_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_6760_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_6760_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_6760_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_6760_406
+                        mov              rsi, rdx
+.Lcut_α_6760_406:       cmp              rsi, r12;                            jae   .Lcut_α_6760_407
                         mov              rdi, rsi
 .Lcut_α_6760_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_6760_403
@@ -147422,6 +149448,13 @@ n6729_cut_α:            mov              qword ptr [rbp + 136], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_6760_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_6760_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_6760_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_6760_409:       lea              rsp, [rbp + -32];                    jmp   n6730_var_ref_α
                         .size            n6729_cut_bx, .-n6729_cut_bx
                         .type            n6730_var_ref_bx, @function
@@ -148445,7 +150478,16 @@ n6742_cut_α:            mov              qword ptr [rbp + 136], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_6786_405
                         mov              rsi, rcx
-.Lcut_α_6786_405:       cmp              rsi, r12;                            jae   .Lcut_α_6786_409
+.Lcut_α_6786_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_6786_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_6786_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_6786_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_6786_406
+                        mov              rsi, rdx
+.Lcut_α_6786_406:       cmp              rsi, r12;                            jae   .Lcut_α_6786_407
                         mov              rdi, rsi
 .Lcut_α_6786_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_6786_403
@@ -148476,6 +150518,13 @@ n6742_cut_α:            mov              qword ptr [rbp + 136], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_6786_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_6786_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_6786_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_6786_409:       lea              rsp, [rbp + -64];                    jmp   n6743_var_ref_α
                         .size            n6742_cut_bx, .-n6742_cut_bx
                         .type            n6743_var_ref_bx, @function
@@ -150469,7 +152518,16 @@ n6827_cut_α:            mov              qword ptr [rbp + 200], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_6888_405
                         mov              rsi, rcx
-.Lcut_α_6888_405:       cmp              rsi, r12;                            jae   .Lcut_α_6888_409
+.Lcut_α_6888_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_6888_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_6888_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_6888_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_6888_406
+                        mov              rsi, rdx
+.Lcut_α_6888_406:       cmp              rsi, r12;                            jae   .Lcut_α_6888_407
                         mov              rdi, rsi
 .Lcut_α_6888_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_6888_403
@@ -150500,6 +152558,13 @@ n6827_cut_α:            mov              qword ptr [rbp + 200], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_6888_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_6888_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_6888_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_6888_409:       lea              rsp, [rbp + -80];                    jmp   n6828_lit_integer_α
                         .size            n6827_cut_bx, .-n6827_cut_bx
                         .type            n6828_lit_integer_bx, @function
@@ -150749,7 +152814,16 @@ n6834_unmark_α:         mov              r13, qword ptr [rbp + -32]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_6899_405
                         mov              rsi, rcx
-.Lunmark_α_6899_405:    cmp              rsi, r12;                            jae   .Lunmark_α_6899_409
+.Lunmark_α_6899_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_6899_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_6899_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_6899_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_6899_406
+                        mov              rsi, rdx
+.Lunmark_α_6899_406:    cmp              rsi, r12;                            jae   .Lunmark_α_6899_407
                         mov              rdi, rsi
 .Lunmark_α_6899_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_6899_403
@@ -150780,6 +152854,13 @@ n6834_unmark_α:         mov              r13, qword ptr [rbp + -32]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_6899_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_6899_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_6899_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_6899_409:    mov              rsp, qword ptr [rbp + -40]
                         add              rsp, 48;                             jmp   n6835_unmark_α
                         .size            n6834_unmark_bx, .-n6834_unmark_bx
@@ -150922,7 +153003,16 @@ n6841_cut_α:            mov              qword ptr [rbp + 200], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_6913_405
                         mov              rsi, rcx
-.Lcut_α_6913_405:       cmp              rsi, r12;                            jae   .Lcut_α_6913_409
+.Lcut_α_6913_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_6913_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_6913_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_6913_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_6913_406
+                        mov              rsi, rdx
+.Lcut_α_6913_406:       cmp              rsi, r12;                            jae   .Lcut_α_6913_407
                         mov              rdi, rsi
 .Lcut_α_6913_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_6913_403
@@ -150953,6 +153043,13 @@ n6841_cut_α:            mov              qword ptr [rbp + 200], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_6913_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_6913_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_6913_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_6913_409:       lea              rsp, [rbp + -32];                    jmp   n6842_lit_integer_α
                         .size            n6841_cut_bx, .-n6841_cut_bx
                         .type            n6842_lit_integer_bx, @function
@@ -151753,7 +153850,16 @@ n6860_unmark_α:         mov              r13, qword ptr [rbp + 128]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_6941_405
                         mov              rsi, rcx
-.Lunmark_α_6941_405:    cmp              rsi, r12;                            jae   .Lunmark_α_6941_409
+.Lunmark_α_6941_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_6941_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_6941_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_6941_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_6941_406
+                        mov              rsi, rdx
+.Lunmark_α_6941_406:    cmp              rsi, r12;                            jae   .Lunmark_α_6941_407
                         mov              rdi, rsi
 .Lunmark_α_6941_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_6941_403
@@ -151784,6 +153890,13 @@ n6860_unmark_α:         mov              r13, qword ptr [rbp + 128]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_6941_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_6941_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_6941_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_6941_409:    mov              rsp, qword ptr [rbp + 120];          jmp   n6861_unmark_α
                         .size            n6860_unmark_bx, .-n6860_unmark_bx
                         .type            n6861_unmark_bx, @function
@@ -151936,7 +154049,16 @@ n6867_cut_α:            mov              qword ptr [rbp + 200], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_6955_405
                         mov              rsi, rcx
-.Lcut_α_6955_405:       cmp              rsi, r12;                            jae   .Lcut_α_6955_409
+.Lcut_α_6955_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_6955_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_6955_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_6955_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_6955_406
+                        mov              rsi, rdx
+.Lcut_α_6955_406:       cmp              rsi, r12;                            jae   .Lcut_α_6955_407
                         mov              rdi, rsi
 .Lcut_α_6955_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_6955_403
@@ -151967,6 +154089,13 @@ n6867_cut_α:            mov              qword ptr [rbp + 200], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_6955_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_6955_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_6955_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_6955_409:       lea              rsp, [rbp + -32];                    jmp   n6868_lit_integer_α
                         .size            n6867_cut_bx, .-n6867_cut_bx
                         .type            n6868_lit_integer_bx, @function
@@ -153327,7 +155456,16 @@ n6978_unmark_α:         mov              r13, qword ptr [rbp + -224]          #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_7046_405
                         mov              rsi, rcx
-.Lunmark_α_7046_405:    cmp              rsi, r12;                            jae   .Lunmark_α_7046_409
+.Lunmark_α_7046_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_7046_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_7046_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_7046_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_7046_406
+                        mov              rsi, rdx
+.Lunmark_α_7046_406:    cmp              rsi, r12;                            jae   .Lunmark_α_7046_407
                         mov              rdi, rsi
 .Lunmark_α_7046_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_7046_403
@@ -153358,6 +155496,13 @@ n6978_unmark_α:         mov              r13, qword ptr [rbp + -224]          #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_7046_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_7046_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_7046_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_7046_409:    mov              rsp, qword ptr [rbp + -232]
                         add              rsp, 48;                             jmp   n6979_lit_integer_α
                         .size            n6978_unmark_bx, .-n6978_unmark_bx
@@ -153986,7 +156131,16 @@ n6994_unmark_α:         mov              r13, qword ptr [rbp + -224]          #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_7070_405
                         mov              rsi, rcx
-.Lunmark_α_7070_405:    cmp              rsi, r12;                            jae   .Lunmark_α_7070_409
+.Lunmark_α_7070_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_7070_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_7070_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_7070_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_7070_406
+                        mov              rsi, rdx
+.Lunmark_α_7070_406:    cmp              rsi, r12;                            jae   .Lunmark_α_7070_407
                         mov              rdi, rsi
 .Lunmark_α_7070_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_7070_403
@@ -154017,6 +156171,13 @@ n6994_unmark_α:         mov              r13, qword ptr [rbp + -224]          #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_7070_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_7070_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_7070_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_7070_409:    mov              rsp, qword ptr [rbp + -232]
                         add              rsp, 48;                             jmp   n6995_lit_integer_α
                         .size            n6994_unmark_bx, .-n6994_unmark_bx
@@ -160113,7 +162274,16 @@ n7289_cut_α:            mov              qword ptr [rbp + 88], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_7321_405
                         mov              rsi, rcx
-.Lcut_α_7321_405:       cmp              rsi, r12;                            jae   .Lcut_α_7321_409
+.Lcut_α_7321_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_7321_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_7321_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_7321_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_7321_406
+                        mov              rsi, rdx
+.Lcut_α_7321_406:       cmp              rsi, r12;                            jae   .Lcut_α_7321_407
                         mov              rdi, rsi
 .Lcut_α_7321_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_7321_403
@@ -160144,6 +162314,13 @@ n7289_cut_α:            mov              qword ptr [rbp + 88], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_7321_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_7321_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_7321_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_7321_409:       lea              rsp, [rbp + -112];                   jmp   n7290_var_ref_α
                         .size            n7289_cut_bx, .-n7289_cut_bx
                         .type            n7290_var_ref_bx, @function
@@ -160943,7 +163120,16 @@ n7299_cut_α:            mov              qword ptr [rbp + 88], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_7341_405
                         mov              rsi, rcx
-.Lcut_α_7341_405:       cmp              rsi, r12;                            jae   .Lcut_α_7341_409
+.Lcut_α_7341_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_7341_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_7341_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_7341_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_7341_406
+                        mov              rsi, rdx
+.Lcut_α_7341_406:       cmp              rsi, r12;                            jae   .Lcut_α_7341_407
                         mov              rdi, rsi
 .Lcut_α_7341_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_7341_403
@@ -160974,6 +163160,13 @@ n7299_cut_α:            mov              qword ptr [rbp + 88], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_7341_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_7341_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_7341_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_7341_409:       lea              rsp, [rbp + -80];                    jmp   n7300_var_ref_α
                         .size            n7299_cut_bx, .-n7299_cut_bx
                         .type            n7300_var_ref_bx, @function
@@ -162903,7 +165096,16 @@ n7378_cut_α:            mov              qword ptr [rbp + 104], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_7403_405
                         mov              rsi, rcx
-.Lcut_α_7403_405:       cmp              rsi, r12;                            jae   .Lcut_α_7403_409
+.Lcut_α_7403_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_7403_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_7403_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_7403_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_7403_406
+                        mov              rsi, rdx
+.Lcut_α_7403_406:       cmp              rsi, r12;                            jae   .Lcut_α_7403_407
                         mov              rdi, rsi
 .Lcut_α_7403_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_7403_403
@@ -162934,6 +165136,13 @@ n7378_cut_α:            mov              qword ptr [rbp + 104], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_7403_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_7403_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_7403_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_7403_409:       lea              rsp, [rbp + -256];                   jmp   n7379_var_α
                         .size            n7378_cut_bx, .-n7378_cut_bx
                         .type            n7379_var_bx, @function
@@ -164081,7 +166290,16 @@ n7420_cut_α:            mov              qword ptr [rbp + 104], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_7440_405
                         mov              rsi, rcx
-.Lcut_α_7440_405:       cmp              rsi, r12;                            jae   .Lcut_α_7440_409
+.Lcut_α_7440_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_7440_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_7440_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_7440_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_7440_406
+                        mov              rsi, rdx
+.Lcut_α_7440_406:       cmp              rsi, r12;                            jae   .Lcut_α_7440_407
                         mov              rdi, rsi
 .Lcut_α_7440_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_7440_403
@@ -164112,6 +166330,13 @@ n7420_cut_α:            mov              qword ptr [rbp + 104], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_7440_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_7440_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_7440_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_7440_409:       lea              rsp, [rbp + -32];                    jmp   $yall_ext$2F3_γ
                         .size            n7420_cut_bx, .-n7420_cut_bx
                         .type            n7421_var_ref_bx, @function
@@ -164895,7 +167120,16 @@ n7464_cut_α:            mov              qword ptr [rbp + 120], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_7508_405
                         mov              rsi, rcx
-.Lcut_α_7508_405:       cmp              rsi, r12;                            jae   .Lcut_α_7508_409
+.Lcut_α_7508_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_7508_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_7508_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_7508_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_7508_406
+                        mov              rsi, rdx
+.Lcut_α_7508_406:       cmp              rsi, r12;                            jae   .Lcut_α_7508_407
                         mov              rdi, rsi
 .Lcut_α_7508_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_7508_403
@@ -164926,6 +167160,13 @@ n7464_cut_α:            mov              qword ptr [rbp + 120], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_7508_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_7508_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_7508_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_7508_409:       lea              rsp, [rbp + -80];                    jmp   n7465_var_ref_α
                         .size            n7464_cut_bx, .-n7464_cut_bx
                         .type            n7465_var_ref_bx, @function
@@ -165494,7 +167735,16 @@ n7476_cut_α:            mov              qword ptr [rbp + 120], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_7528_405
                         mov              rsi, rcx
-.Lcut_α_7528_405:       cmp              rsi, r12;                            jae   .Lcut_α_7528_409
+.Lcut_α_7528_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_7528_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_7528_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_7528_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_7528_406
+                        mov              rsi, rdx
+.Lcut_α_7528_406:       cmp              rsi, r12;                            jae   .Lcut_α_7528_407
                         mov              rdi, rsi
 .Lcut_α_7528_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_7528_403
@@ -165525,6 +167775,13 @@ n7476_cut_α:            mov              qword ptr [rbp + 120], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_7528_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_7528_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_7528_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_7528_409:       lea              rsp, [rbp + -48];                    jmp   n7477_var_ref_α
                         .size            n7476_cut_bx, .-n7476_cut_bx
                         .type            n7477_var_ref_bx, @function
@@ -166692,7 +168949,16 @@ n7492_cut_α:            mov              qword ptr [rbp + 120], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_7560_405
                         mov              rsi, rcx
-.Lcut_α_7560_405:       cmp              rsi, r12;                            jae   .Lcut_α_7560_409
+.Lcut_α_7560_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_7560_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_7560_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_7560_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_7560_406
+                        mov              rsi, rdx
+.Lcut_α_7560_406:       cmp              rsi, r12;                            jae   .Lcut_α_7560_407
                         mov              rdi, rsi
 .Lcut_α_7560_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_7560_403
@@ -166723,6 +168989,13 @@ n7492_cut_α:            mov              qword ptr [rbp + 120], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_7560_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_7560_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_7560_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_7560_409:       lea              rsp, [rbp + -64];                    jmp   n7493_var_ref_α
                         .size            n7492_cut_bx, .-n7492_cut_bx
                         .type            n7493_var_ref_bx, @function
@@ -170059,7 +172332,16 @@ n7632_unmark_α:         mov              r13, qword ptr [rbp + 96]            #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_7653_405
                         mov              rsi, rcx
-.Lunmark_α_7653_405:    cmp              rsi, r12;                            jae   .Lunmark_α_7653_409
+.Lunmark_α_7653_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_7653_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_7653_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_7653_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_7653_406
+                        mov              rsi, rdx
+.Lunmark_α_7653_406:    cmp              rsi, r12;                            jae   .Lunmark_α_7653_407
                         mov              rdi, rsi
 .Lunmark_α_7653_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_7653_403
@@ -170090,6 +172372,13 @@ n7632_unmark_α:         mov              r13, qword ptr [rbp + 96]            #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_7653_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_7653_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_7653_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_7653_409:    mov              rsp, qword ptr [rbp + 88];           jmp   n7633_var_α
                         .size            n7632_unmark_bx, .-n7632_unmark_bx
                         .type            n7633_var_bx, @function
@@ -173149,7 +175438,16 @@ n7724_unmark_α:         mov              r13, qword ptr [rbp + 112]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_7761_405
                         mov              rsi, rcx
-.Lunmark_α_7761_405:    cmp              rsi, r12;                            jae   .Lunmark_α_7761_409
+.Lunmark_α_7761_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_7761_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_7761_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_7761_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_7761_406
+                        mov              rsi, rdx
+.Lunmark_α_7761_406:    cmp              rsi, r12;                            jae   .Lunmark_α_7761_407
                         mov              rdi, rsi
 .Lunmark_α_7761_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_7761_403
@@ -173180,6 +175478,13 @@ n7724_unmark_α:         mov              r13, qword ptr [rbp + 112]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_7761_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_7761_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_7761_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_7761_409:    mov              rsp, qword ptr [rbp + 104];          jmp   n7725_var_ref_α
                         .size            n7724_unmark_bx, .-n7724_unmark_bx
                         .type            n7725_var_ref_bx, @function
@@ -175191,7 +177496,16 @@ n7798_cut_α:            mov              qword ptr [rbp + 104], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_7931_405
                         mov              rsi, rcx
-.Lcut_α_7931_405:       cmp              rsi, r12;                            jae   .Lcut_α_7931_409
+.Lcut_α_7931_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_7931_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_7931_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_7931_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_7931_406
+                        mov              rsi, rdx
+.Lcut_α_7931_406:       cmp              rsi, r12;                            jae   .Lcut_α_7931_407
                         mov              rdi, rsi
 .Lcut_α_7931_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_7931_403
@@ -175222,6 +177536,13 @@ n7798_cut_α:            mov              qword ptr [rbp + 104], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_7931_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_7931_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_7931_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_7931_409:       lea              rsp, [rbp + -80];                    jmp   n7799_lit_integer_α
                         .size            n7798_cut_bx, .-n7798_cut_bx
                         .type            n7799_lit_integer_bx, @function
@@ -175922,7 +178243,16 @@ n7813_unmark_α:         mov              r13, qword ptr [rbp + -32]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_7951_405
                         mov              rsi, rcx
-.Lunmark_α_7951_405:    cmp              rsi, r12;                            jae   .Lunmark_α_7951_409
+.Lunmark_α_7951_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_7951_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_7951_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_7951_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_7951_406
+                        mov              rsi, rdx
+.Lunmark_α_7951_406:    cmp              rsi, r12;                            jae   .Lunmark_α_7951_407
                         mov              rdi, rsi
 .Lunmark_α_7951_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_7951_403
@@ -175953,6 +178283,13 @@ n7813_unmark_α:         mov              r13, qword ptr [rbp + -32]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_7951_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_7951_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_7951_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_7951_409:    mov              rsp, qword ptr [rbp + -40]
                         add              rsp, 48;                             jmp   n7814_unmark_α
                         .size            n7813_unmark_bx, .-n7813_unmark_bx
@@ -176095,7 +178432,16 @@ n7820_cut_α:            mov              qword ptr [rbp + 104], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_7965_405
                         mov              rsi, rcx
-.Lcut_α_7965_405:       cmp              rsi, r12;                            jae   .Lcut_α_7965_409
+.Lcut_α_7965_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_7965_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_7965_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_7965_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_7965_406
+                        mov              rsi, rdx
+.Lcut_α_7965_406:       cmp              rsi, r12;                            jae   .Lcut_α_7965_407
                         mov              rdi, rsi
 .Lcut_α_7965_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_7965_403
@@ -176126,6 +178472,13 @@ n7820_cut_α:            mov              qword ptr [rbp + 104], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_7965_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_7965_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_7965_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_7965_409:       lea              rsp, [rbp + -32];                    jmp   n7821_lit_integer_α
                         .size            n7820_cut_bx, .-n7820_cut_bx
                         .type            n7821_lit_integer_bx, @function
@@ -177040,7 +179393,16 @@ n7839_cut_α:            mov              qword ptr [rbp + 104], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_7991_405
                         mov              rsi, rcx
-.Lcut_α_7991_405:       cmp              rsi, r12;                            jae   .Lcut_α_7991_409
+.Lcut_α_7991_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_7991_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_7991_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_7991_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_7991_406
+                        mov              rsi, rdx
+.Lcut_α_7991_406:       cmp              rsi, r12;                            jae   .Lcut_α_7991_407
                         mov              rdi, rsi
 .Lcut_α_7991_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_7991_403
@@ -177071,6 +179433,13 @@ n7839_cut_α:            mov              qword ptr [rbp + 104], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_7991_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_7991_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_7991_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_7991_409:       lea              rsp, [rbp + -80];                    jmp   n7840_lit_integer_α
                         .size            n7839_cut_bx, .-n7839_cut_bx
                         .type            n7840_lit_integer_bx, @function
@@ -177771,7 +180140,16 @@ n7854_unmark_α:         mov              r13, qword ptr [rbp + -32]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_8011_405
                         mov              rsi, rcx
-.Lunmark_α_8011_405:    cmp              rsi, r12;                            jae   .Lunmark_α_8011_409
+.Lunmark_α_8011_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_8011_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_8011_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_8011_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_8011_406
+                        mov              rsi, rdx
+.Lunmark_α_8011_406:    cmp              rsi, r12;                            jae   .Lunmark_α_8011_407
                         mov              rdi, rsi
 .Lunmark_α_8011_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_8011_403
@@ -177802,6 +180180,13 @@ n7854_unmark_α:         mov              r13, qword ptr [rbp + -32]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_8011_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_8011_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_8011_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_8011_409:    mov              rsp, qword ptr [rbp + -40]
                         add              rsp, 48;                             jmp   n7855_unmark_α
                         .size            n7854_unmark_bx, .-n7854_unmark_bx
@@ -178236,7 +180621,16 @@ n7867_cut_α:            mov              qword ptr [rbp + 104], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_8035_405
                         mov              rsi, rcx
-.Lcut_α_8035_405:       cmp              rsi, r12;                            jae   .Lcut_α_8035_409
+.Lcut_α_8035_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_8035_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_8035_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_8035_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_8035_406
+                        mov              rsi, rdx
+.Lcut_α_8035_406:       cmp              rsi, r12;                            jae   .Lcut_α_8035_407
                         mov              rdi, rsi
 .Lcut_α_8035_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_8035_403
@@ -178267,6 +180661,13 @@ n7867_cut_α:            mov              qword ptr [rbp + 104], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_8035_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_8035_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_8035_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_8035_409:       lea              rsp, [rbp + -192];                   jmp   n7868_lit_integer_α
                         .size            n7867_cut_bx, .-n7867_cut_bx
                         .type            n7868_lit_integer_bx, @function
@@ -179137,7 +181538,16 @@ n7885_unmark_α:         mov              r13, qword ptr [rbp + -32]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_8059_405
                         mov              rsi, rcx
-.Lunmark_α_8059_405:    cmp              rsi, r12;                            jae   .Lunmark_α_8059_409
+.Lunmark_α_8059_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_8059_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_8059_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_8059_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_8059_406
+                        mov              rsi, rdx
+.Lunmark_α_8059_406:    cmp              rsi, r12;                            jae   .Lunmark_α_8059_407
                         mov              rdi, rsi
 .Lunmark_α_8059_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_8059_403
@@ -179168,6 +181578,13 @@ n7885_unmark_α:         mov              r13, qword ptr [rbp + -32]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_8059_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_8059_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_8059_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_8059_409:    mov              rsp, qword ptr [rbp + -40]
                         add              rsp, 48;                             jmp   n7886_unmark_α
                         .size            n7885_unmark_bx, .-n7885_unmark_bx
@@ -179310,7 +181727,16 @@ n7892_cut_α:            mov              qword ptr [rbp + 104], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_8073_405
                         mov              rsi, rcx
-.Lcut_α_8073_405:       cmp              rsi, r12;                            jae   .Lcut_α_8073_409
+.Lcut_α_8073_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_8073_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_8073_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_8073_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_8073_406
+                        mov              rsi, rdx
+.Lcut_α_8073_406:       cmp              rsi, r12;                            jae   .Lcut_α_8073_407
                         mov              rdi, rsi
 .Lcut_α_8073_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_8073_403
@@ -179341,6 +181767,13 @@ n7892_cut_α:            mov              qword ptr [rbp + 104], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_8073_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_8073_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_8073_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_8073_409:       lea              rsp, [rbp + -32];                    jmp   n7893_lit_integer_α
                         .size            n7892_cut_bx, .-n7892_cut_bx
                         .type            n7893_lit_integer_bx, @function
@@ -180322,7 +182755,16 @@ n7913_unmark_α:         mov              r13, qword ptr [rbp + -112]          #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_8103_405
                         mov              rsi, rcx
-.Lunmark_α_8103_405:    cmp              rsi, r12;                            jae   .Lunmark_α_8103_409
+.Lunmark_α_8103_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_8103_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_8103_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_8103_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_8103_406
+                        mov              rsi, rdx
+.Lunmark_α_8103_406:    cmp              rsi, r12;                            jae   .Lunmark_α_8103_407
                         mov              rdi, rsi
 .Lunmark_α_8103_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_8103_403
@@ -180353,6 +182795,13 @@ n7913_unmark_α:         mov              r13, qword ptr [rbp + -112]          #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_8103_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_8103_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_8103_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_8103_409:    mov              rsp, qword ptr [rbp + -120]
                         add              rsp, 48;                             jmp   n7914_var_α
                         .size            n7913_unmark_bx, .-n7913_unmark_bx
@@ -181385,7 +183834,16 @@ n8125_unmark_α:         mov              r13, qword ptr [rbp + 96]            #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_8141_405
                         mov              rsi, rcx
-.Lunmark_α_8141_405:    cmp              rsi, r12;                            jae   .Lunmark_α_8141_409
+.Lunmark_α_8141_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_8141_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_8141_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_8141_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_8141_406
+                        mov              rsi, rdx
+.Lunmark_α_8141_406:    cmp              rsi, r12;                            jae   .Lunmark_α_8141_407
                         mov              rdi, rsi
 .Lunmark_α_8141_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_8141_403
@@ -181416,6 +183874,13 @@ n8125_unmark_α:         mov              r13, qword ptr [rbp + 96]            #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_8141_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_8141_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_8141_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_8141_409:    mov              rsp, qword ptr [rbp + 88];           jmp   n8126_gate_arm_α
                         .size            n8125_unmark_bx, .-n8125_unmark_bx
                         .type            n8126_gate_arm_bx, @function
@@ -188012,7 +190477,16 @@ n8366_cut_α:            mov              qword ptr [rbp + 376], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_8548_405
                         mov              rsi, rcx
-.Lcut_α_8548_405:       cmp              rsi, r12;                            jae   .Lcut_α_8548_409
+.Lcut_α_8548_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_8548_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_8548_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_8548_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_8548_406
+                        mov              rsi, rdx
+.Lcut_α_8548_406:       cmp              rsi, r12;                            jae   .Lcut_α_8548_407
                         mov              rdi, rsi
 .Lcut_α_8548_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_8548_403
@@ -188043,6 +190517,13 @@ n8366_cut_α:            mov              qword ptr [rbp + 376], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_8548_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_8548_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_8548_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_8548_409:       lea              rsp, [rbp + -80];                    jmp   n8367_lit_integer_α
                         .size            n8366_cut_bx, .-n8366_cut_bx
                         .type            n8367_lit_integer_bx, @function
@@ -188419,7 +190900,16 @@ n8374_cut_α:            mov              qword ptr [rbp + 376], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_8561_405
                         mov              rsi, rcx
-.Lcut_α_8561_405:       cmp              rsi, r12;                            jae   .Lcut_α_8561_409
+.Lcut_α_8561_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_8561_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_8561_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_8561_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_8561_406
+                        mov              rsi, rdx
+.Lcut_α_8561_406:       cmp              rsi, r12;                            jae   .Lcut_α_8561_407
                         mov              rdi, rsi
 .Lcut_α_8561_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_8561_403
@@ -188450,6 +190940,13 @@ n8374_cut_α:            mov              qword ptr [rbp + 376], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_8561_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_8561_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_8561_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_8561_409:       lea              rsp, [rbp + -48];                    jmp   n8375_bound_α
                         .size            n8374_cut_bx, .-n8374_cut_bx
                         .type            n8375_bound_bx, @function
@@ -188594,7 +191091,16 @@ n8378_unmark_α:         mov              r13, qword ptr [rbp + -80]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_8569_405
                         mov              rsi, rcx
-.Lunmark_α_8569_405:    cmp              rsi, r12;                            jae   .Lunmark_α_8569_409
+.Lunmark_α_8569_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_8569_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_8569_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_8569_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_8569_406
+                        mov              rsi, rdx
+.Lunmark_α_8569_406:    cmp              rsi, r12;                            jae   .Lunmark_α_8569_407
                         mov              rdi, rsi
 .Lunmark_α_8569_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_8569_403
@@ -188625,6 +191131,13 @@ n8378_unmark_α:         mov              r13, qword ptr [rbp + -80]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_8569_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_8569_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_8569_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_8569_409:    mov              rsp, qword ptr [rbp + -88]
                         add              rsp, 48;                             jmp   n8379_unify_const_α
                         .size            n8378_unmark_bx, .-n8378_unmark_bx
@@ -189283,7 +191796,16 @@ n8394_cut_α:            mov              qword ptr [rbp + 376], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_8598_405
                         mov              rsi, rcx
-.Lcut_α_8598_405:       cmp              rsi, r12;                            jae   .Lcut_α_8598_409
+.Lcut_α_8598_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_8598_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_8598_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_8598_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_8598_406
+                        mov              rsi, rdx
+.Lcut_α_8598_406:       cmp              rsi, r12;                            jae   .Lcut_α_8598_407
                         mov              rdi, rsi
 .Lcut_α_8598_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_8598_403
@@ -189314,6 +191836,13 @@ n8394_cut_α:            mov              qword ptr [rbp + 376], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_8598_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_8598_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_8598_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_8598_409:       lea              rsp, [rbp + -48];                    jmp   n8395_bound_α
                         .size            n8394_cut_bx, .-n8394_cut_bx
                         .type            n8395_bound_bx, @function
@@ -189425,7 +191954,16 @@ n8398_unmark_α:         mov              r13, qword ptr [rbp + -80]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_8605_405
                         mov              rsi, rcx
-.Lunmark_α_8605_405:    cmp              rsi, r12;                            jae   .Lunmark_α_8605_409
+.Lunmark_α_8605_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_8605_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_8605_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_8605_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_8605_406
+                        mov              rsi, rdx
+.Lunmark_α_8605_406:    cmp              rsi, r12;                            jae   .Lunmark_α_8605_407
                         mov              rdi, rsi
 .Lunmark_α_8605_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_8605_403
@@ -189456,6 +191994,13 @@ n8398_unmark_α:         mov              r13, qword ptr [rbp + -80]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_8605_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_8605_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_8605_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_8605_409:    mov              rsp, qword ptr [rbp + -88]
                         add              rsp, 48;                             jmp   n8399_unify_const_α
                         .size            n8398_unmark_bx, .-n8398_unmark_bx
@@ -190161,7 +192706,16 @@ n8415_cut_α:            mov              qword ptr [rbp + 376], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_8636_405
                         mov              rsi, rcx
-.Lcut_α_8636_405:       cmp              rsi, r12;                            jae   .Lcut_α_8636_409
+.Lcut_α_8636_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_8636_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_8636_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_8636_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_8636_406
+                        mov              rsi, rdx
+.Lcut_α_8636_406:       cmp              rsi, r12;                            jae   .Lcut_α_8636_407
                         mov              rdi, rsi
 .Lcut_α_8636_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_8636_403
@@ -190192,6 +192746,13 @@ n8415_cut_α:            mov              qword ptr [rbp + 376], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_8636_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_8636_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_8636_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_8636_409:       lea              rsp, [rbp + -48];                    jmp   n8416_bound_α
                         .size            n8415_cut_bx, .-n8415_cut_bx
                         .type            n8416_bound_bx, @function
@@ -190422,7 +192983,16 @@ n8422_unmark_α:         mov              r13, qword ptr [rbp + 208]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_8650_405
                         mov              rsi, rcx
-.Lunmark_α_8650_405:    cmp              rsi, r12;                            jae   .Lunmark_α_8650_409
+.Lunmark_α_8650_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_8650_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_8650_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_8650_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_8650_406
+                        mov              rsi, rdx
+.Lunmark_α_8650_406:    cmp              rsi, r12;                            jae   .Lunmark_α_8650_407
                         mov              rdi, rsi
 .Lunmark_α_8650_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_8650_403
@@ -190453,6 +193023,13 @@ n8422_unmark_α:         mov              r13, qword ptr [rbp + 208]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_8650_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_8650_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_8650_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_8650_409:    mov              rsp, qword ptr [rbp + 200];          jmp   n8423_unify_const_α
                         .size            n8422_unmark_bx, .-n8422_unmark_bx
                         .type            n8423_unify_const_bx, @function
@@ -191186,7 +193763,16 @@ n8440_cut_α:            mov              qword ptr [rbp + 376], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_8683_405
                         mov              rsi, rcx
-.Lcut_α_8683_405:       cmp              rsi, r12;                            jae   .Lcut_α_8683_409
+.Lcut_α_8683_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_8683_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_8683_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_8683_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_8683_406
+                        mov              rsi, rdx
+.Lcut_α_8683_406:       cmp              rsi, r12;                            jae   .Lcut_α_8683_407
                         mov              rdi, rsi
 .Lcut_α_8683_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_8683_403
@@ -191217,6 +193803,13 @@ n8440_cut_α:            mov              qword ptr [rbp + 376], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_8683_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_8683_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_8683_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_8683_409:       lea              rsp, [rbp + -48];                    jmp   n8441_var_ref_α
                         .size            n8440_cut_bx, .-n8440_cut_bx
                         .type            n8441_var_ref_bx, @function
@@ -191620,7 +194213,16 @@ n8451_unmark_α:         mov              r13, qword ptr [rsp + 96]            #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_8704_405
                         mov              rsi, rcx
-.Lunmark_α_8704_405:    cmp              rsi, r12;                            jae   .Lunmark_α_8704_409
+.Lunmark_α_8704_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_8704_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_8704_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_8704_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_8704_406
+                        mov              rsi, rdx
+.Lunmark_α_8704_406:    cmp              rsi, r12;                            jae   .Lunmark_α_8704_407
                         mov              rdi, rsi
 .Lunmark_α_8704_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_8704_403
@@ -191651,6 +194253,13 @@ n8451_unmark_α:         mov              r13, qword ptr [rsp + 96]            #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_8704_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_8704_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_8704_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_8704_409:    mov              rsp, qword ptr [rsp + 88]
                         add              rsp, 48;                             jmp   n8452_var_ref_α
                         .size            n8451_unmark_bx, .-n8451_unmark_bx
@@ -191959,7 +194568,16 @@ n8461_unmark_α:         mov              r13, qword ptr [rsp + 96]            #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_8722_405
                         mov              rsi, rcx
-.Lunmark_α_8722_405:    cmp              rsi, r12;                            jae   .Lunmark_α_8722_409
+.Lunmark_α_8722_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_8722_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_8722_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_8722_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_8722_406
+                        mov              rsi, rdx
+.Lunmark_α_8722_406:    cmp              rsi, r12;                            jae   .Lunmark_α_8722_407
                         mov              rdi, rsi
 .Lunmark_α_8722_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_8722_403
@@ -191990,6 +194608,13 @@ n8461_unmark_α:         mov              r13, qword ptr [rsp + 96]            #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_8722_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_8722_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_8722_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_8722_409:    mov              rsp, qword ptr [rsp + 88]
                         add              rsp, 48;                             jmp   n8462_var_ref_α
                         .size            n8461_unmark_bx, .-n8461_unmark_bx
@@ -192740,7 +195365,16 @@ n8484_cut_α:            mov              qword ptr [rbp + 376], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_8764_405
                         mov              rsi, rcx
-.Lcut_α_8764_405:       cmp              rsi, r12;                            jae   .Lcut_α_8764_409
+.Lcut_α_8764_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_8764_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_8764_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_8764_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_8764_406
+                        mov              rsi, rdx
+.Lcut_α_8764_406:       cmp              rsi, r12;                            jae   .Lcut_α_8764_407
                         mov              rdi, rsi
 .Lcut_α_8764_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_8764_403
@@ -192771,6 +195405,13 @@ n8484_cut_α:            mov              qword ptr [rbp + 376], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_8764_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_8764_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_8764_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_8764_409:       lea              rsp, [rbp + -48];                    jmp   n8485_var_ref_α
                         .size            n8484_cut_bx, .-n8484_cut_bx
                         .type            n8485_var_ref_bx, @function
@@ -193174,7 +195815,16 @@ n8495_unmark_α:         mov              r13, qword ptr [rbp + 208]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_8785_405
                         mov              rsi, rcx
-.Lunmark_α_8785_405:    cmp              rsi, r12;                            jae   .Lunmark_α_8785_409
+.Lunmark_α_8785_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_8785_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_8785_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_8785_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_8785_406
+                        mov              rsi, rdx
+.Lunmark_α_8785_406:    cmp              rsi, r12;                            jae   .Lunmark_α_8785_407
                         mov              rdi, rsi
 .Lunmark_α_8785_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_8785_403
@@ -193205,6 +195855,13 @@ n8495_unmark_α:         mov              r13, qword ptr [rbp + 208]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_8785_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_8785_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_8785_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_8785_409:    mov              rsp, qword ptr [rbp + 200];          jmp   n8496_unify_const_α
                         .size            n8495_unmark_bx, .-n8495_unmark_bx
                         .type            n8496_unify_const_bx, @function
@@ -193513,7 +196170,16 @@ n8503_unmark_α:         mov              r13, qword ptr [rbp + 304]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_8800_405
                         mov              rsi, rcx
-.Lunmark_α_8800_405:    cmp              rsi, r12;                            jae   .Lunmark_α_8800_409
+.Lunmark_α_8800_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_8800_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_8800_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_8800_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_8800_406
+                        mov              rsi, rdx
+.Lunmark_α_8800_406:    cmp              rsi, r12;                            jae   .Lunmark_α_8800_407
                         mov              rdi, rsi
 .Lunmark_α_8800_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_8800_403
@@ -193544,6 +196210,13 @@ n8503_unmark_α:         mov              r13, qword ptr [rbp + 304]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_8800_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_8800_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_8800_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_8800_409:    mov              rsp, qword ptr [rbp + 296];          jmp   n8504_unify_const_α
                         .size            n8503_unmark_bx, .-n8503_unmark_bx
                         .type            n8504_unify_const_bx, @function
@@ -202964,7 +205637,16 @@ n9067_unmark_α:         mov              r13, qword ptr [rbp + 144]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_9106_405
                         mov              rsi, rcx
-.Lunmark_α_9106_405:    cmp              rsi, r12;                            jae   .Lunmark_α_9106_409
+.Lunmark_α_9106_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_9106_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_9106_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_9106_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_9106_406
+                        mov              rsi, rdx
+.Lunmark_α_9106_406:    cmp              rsi, r12;                            jae   .Lunmark_α_9106_407
                         mov              rdi, rsi
 .Lunmark_α_9106_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_9106_403
@@ -202995,6 +205677,13 @@ n9067_unmark_α:         mov              r13, qword ptr [rbp + 144]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_9106_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_9106_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_9106_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_9106_409:    mov              rsp, qword ptr [rbp + 136];          jmp   n9068_var_ref_α
                         .size            n9067_unmark_bx, .-n9067_unmark_bx
                         .type            n9068_var_ref_bx, @function
@@ -204324,7 +207013,16 @@ n9144_unmark_α:         mov              r13, qword ptr [rbp + 112]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_9171_405
                         mov              rsi, rcx
-.Lunmark_α_9171_405:    cmp              rsi, r12;                            jae   .Lunmark_α_9171_409
+.Lunmark_α_9171_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_9171_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_9171_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_9171_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_9171_406
+                        mov              rsi, rdx
+.Lunmark_α_9171_406:    cmp              rsi, r12;                            jae   .Lunmark_α_9171_407
                         mov              rdi, rsi
 .Lunmark_α_9171_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_9171_403
@@ -204355,6 +207053,13 @@ n9144_unmark_α:         mov              r13, qword ptr [rbp + 112]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_9171_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_9171_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_9171_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_9171_409:    mov              rsp, qword ptr [rbp + 104];          jmp   n9145_var_ref_α
                         .size            n9144_unmark_bx, .-n9144_unmark_bx
                         .type            n9145_var_ref_bx, @function
@@ -209074,7 +211779,16 @@ n9285_cut_α:            mov              qword ptr [rbp + 200], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_9327_405
                         mov              rsi, rcx
-.Lcut_α_9327_405:       cmp              rsi, r12;                            jae   .Lcut_α_9327_409
+.Lcut_α_9327_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_9327_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_9327_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_9327_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_9327_406
+                        mov              rsi, rdx
+.Lcut_α_9327_406:       cmp              rsi, r12;                            jae   .Lcut_α_9327_407
                         mov              rdi, rsi
 .Lcut_α_9327_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_9327_403
@@ -209105,6 +211819,13 @@ n9285_cut_α:            mov              qword ptr [rbp + 200], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_9327_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_9327_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_9327_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_9327_409:       lea              rsp, [rbp + -144];                   jmp   n9286_bound_α
                         .size            n9285_cut_bx, .-n9285_cut_bx
                         .type            n9286_bound_bx, @function
@@ -209300,7 +212021,16 @@ n9290_unmark_α:         mov              r13, qword ptr [rbp + 128]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_9336_405
                         mov              rsi, rcx
-.Lunmark_α_9336_405:    cmp              rsi, r12;                            jae   .Lunmark_α_9336_409
+.Lunmark_α_9336_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_9336_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_9336_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_9336_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_9336_406
+                        mov              rsi, rdx
+.Lunmark_α_9336_406:    cmp              rsi, r12;                            jae   .Lunmark_α_9336_407
                         mov              rdi, rsi
 .Lunmark_α_9336_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_9336_403
@@ -209331,6 +212061,13 @@ n9290_unmark_α:         mov              r13, qword ptr [rbp + 128]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_9336_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_9336_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_9336_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_9336_409:    mov              rsp, qword ptr [rbp + 120];          jmp   n9291_var_α
                         .size            n9290_unmark_bx, .-n9290_unmark_bx
                         .type            n9291_var_bx, @function
@@ -215240,7 +217977,16 @@ n9499_cut_α:            mov              qword ptr [rbp + 1096], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_9864_405
                         mov              rsi, rcx
-.Lcut_α_9864_405:       cmp              rsi, r12;                            jae   .Lcut_α_9864_409
+.Lcut_α_9864_405:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_9864_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_9864_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_9864_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_9864_406
+                        mov              rsi, rdx
+.Lcut_α_9864_406:       cmp              rsi, r12;                            jae   .Lcut_α_9864_407
                         mov              rdi, rsi
 .Lcut_α_9864_400:       mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_9864_403
@@ -215271,6 +218017,13 @@ n9499_cut_α:            mov              qword ptr [rbp + 1096], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_9864_407:       mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_9864_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_9864_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_9864_409:       lea              rsp, [rbp + -80];                    jmp   n9500_disjunction_α
                         .size            n9499_cut_bx, .-n9499_cut_bx
                         .type            n9500_disjunction_bx, @function
@@ -215783,7 +218536,16 @@ n9511_unmark_α:         mov              r13, qword ptr [rbp + 912]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_9884_405
                         mov              rsi, rcx
-.Lunmark_α_9884_405:    cmp              rsi, r12;                            jae   .Lunmark_α_9884_409
+.Lunmark_α_9884_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_9884_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_9884_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_9884_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_9884_406
+                        mov              rsi, rdx
+.Lunmark_α_9884_406:    cmp              rsi, r12;                            jae   .Lunmark_α_9884_407
                         mov              rdi, rsi
 .Lunmark_α_9884_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_9884_403
@@ -215814,6 +218576,13 @@ n9511_unmark_α:         mov              r13, qword ptr [rbp + 912]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_9884_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_9884_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_9884_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_9884_409:    mov              rsp, qword ptr [rbp + 904];          jmp   n9512_lit_integer_α
                         .size            n9511_unmark_bx, .-n9511_unmark_bx
                         .type            n9512_lit_integer_bx, @function
@@ -216080,7 +218849,16 @@ n9522_unmark_α:         mov              r13, qword ptr [rbp + 1008]          #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_9903_405
                         mov              rsi, rcx
-.Lunmark_α_9903_405:    cmp              rsi, r12;                            jae   .Lunmark_α_9903_409
+.Lunmark_α_9903_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_9903_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_9903_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_9903_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_9903_406
+                        mov              rsi, rdx
+.Lunmark_α_9903_406:    cmp              rsi, r12;                            jae   .Lunmark_α_9903_407
                         mov              rdi, rsi
 .Lunmark_α_9903_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_9903_403
@@ -216111,6 +218889,13 @@ n9522_unmark_α:         mov              r13, qword ptr [rbp + 1008]          #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_9903_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_9903_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_9903_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_9903_409:    mov              rsp, qword ptr [rbp + 1000];         jmp   n9523_lit_integer_α
                         .size            n9522_unmark_bx, .-n9522_unmark_bx
                         .type            n9523_lit_integer_bx, @function
@@ -217707,7 +220492,16 @@ n9570_unmark_α:         mov              r13, qword ptr [rbp + 720]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_9985_405
                         mov              rsi, rcx
-.Lunmark_α_9985_405:    cmp              rsi, r12;                            jae   .Lunmark_α_9985_409
+.Lunmark_α_9985_405:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_9985_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_9985_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_9985_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_9985_406
+                        mov              rsi, rdx
+.Lunmark_α_9985_406:    cmp              rsi, r12;                            jae   .Lunmark_α_9985_407
                         mov              rdi, rsi
 .Lunmark_α_9985_400:    mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_9985_403
@@ -217738,6 +220532,13 @@ n9570_unmark_α:         mov              r13, qword ptr [rbp + 720]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_9985_407:    mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_9985_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_9985_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_9985_409:    mov              rsp, qword ptr [rbp + 712];          jmp   n9571_lit_integer_α
                         .size            n9570_unmark_bx, .-n9570_unmark_bx
                         .type            n9571_lit_integer_bx, @function
@@ -218004,7 +220805,16 @@ n9581_unmark_α:         mov              r13, qword ptr [rbp + 816]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_10004_405
                         mov              rsi, rcx
-.Lunmark_α_10004_405:   cmp              rsi, r12;                            jae   .Lunmark_α_10004_409
+.Lunmark_α_10004_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_10004_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_10004_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_10004_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_10004_406
+                        mov              rsi, rdx
+.Lunmark_α_10004_406:   cmp              rsi, r12;                            jae   .Lunmark_α_10004_407
                         mov              rdi, rsi
 .Lunmark_α_10004_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_10004_403
@@ -218035,6 +220845,13 @@ n9581_unmark_α:         mov              r13, qword ptr [rbp + 816]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_10004_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_10004_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_10004_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_10004_409:   mov              rsp, qword ptr [rbp + 808];          jmp   n9582_lit_integer_α
                         .size            n9581_unmark_bx, .-n9581_unmark_bx
                         .type            n9582_lit_integer_bx, @function
@@ -218713,7 +221530,16 @@ n9606_unmark_α:         mov              r13, qword ptr [rbp + 624]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_10049_405
                         mov              rsi, rcx
-.Lunmark_α_10049_405:   cmp              rsi, r12;                            jae   .Lunmark_α_10049_409
+.Lunmark_α_10049_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_10049_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_10049_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_10049_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_10049_406
+                        mov              rsi, rdx
+.Lunmark_α_10049_406:   cmp              rsi, r12;                            jae   .Lunmark_α_10049_407
                         mov              rdi, rsi
 .Lunmark_α_10049_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_10049_403
@@ -218744,6 +221570,13 @@ n9606_unmark_α:         mov              r13, qword ptr [rbp + 624]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_10049_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_10049_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_10049_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_10049_409:   mov              rsp, qword ptr [rbp + 616];          jmp   n9607_unmark_α
                         .size            n9606_unmark_bx, .-n9606_unmark_bx
                         .type            n9607_unmark_bx, @function
@@ -219709,7 +222542,16 @@ n9633_unmark_α:         mov              r13, qword ptr [rbp + 416]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_10094_405
                         mov              rsi, rcx
-.Lunmark_α_10094_405:   cmp              rsi, r12;                            jae   .Lunmark_α_10094_409
+.Lunmark_α_10094_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_10094_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_10094_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_10094_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_10094_406
+                        mov              rsi, rdx
+.Lunmark_α_10094_406:   cmp              rsi, r12;                            jae   .Lunmark_α_10094_407
                         mov              rdi, rsi
 .Lunmark_α_10094_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_10094_403
@@ -219740,6 +222582,13 @@ n9633_unmark_α:         mov              r13, qword ptr [rbp + 416]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_10094_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_10094_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_10094_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_10094_409:   mov              rsp, qword ptr [rbp + 408];          jmp   n9634_lit_integer_α
                         .size            n9633_unmark_bx, .-n9633_unmark_bx
                         .type            n9634_lit_integer_bx, @function
@@ -220008,7 +222857,16 @@ n9644_unmark_α:         mov              r13, qword ptr [rbp + 512]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_10113_405
                         mov              rsi, rcx
-.Lunmark_α_10113_405:   cmp              rsi, r12;                            jae   .Lunmark_α_10113_409
+.Lunmark_α_10113_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_10113_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_10113_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_10113_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_10113_406
+                        mov              rsi, rdx
+.Lunmark_α_10113_406:   cmp              rsi, r12;                            jae   .Lunmark_α_10113_407
                         mov              rdi, rsi
 .Lunmark_α_10113_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_10113_403
@@ -220039,6 +222897,13 @@ n9644_unmark_α:         mov              r13, qword ptr [rbp + 512]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_10113_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_10113_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_10113_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_10113_409:   mov              rsp, qword ptr [rbp + 504];          jmp   n9645_lit_integer_α
                         .size            n9644_unmark_bx, .-n9644_unmark_bx
                         .type            n9645_lit_integer_bx, @function
@@ -221137,7 +224002,16 @@ n9679_unmark_α:         mov              r13, qword ptr [rbp + 416]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_10174_405
                         mov              rsi, rcx
-.Lunmark_α_10174_405:   cmp              rsi, r12;                            jae   .Lunmark_α_10174_409
+.Lunmark_α_10174_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_10174_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_10174_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_10174_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_10174_406
+                        mov              rsi, rdx
+.Lunmark_α_10174_406:   cmp              rsi, r12;                            jae   .Lunmark_α_10174_407
                         mov              rdi, rsi
 .Lunmark_α_10174_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_10174_403
@@ -221168,6 +224042,13 @@ n9679_unmark_α:         mov              r13, qword ptr [rbp + 416]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_10174_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_10174_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_10174_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_10174_409:   mov              rsp, qword ptr [rbp + 408];          jmp   n9680_lit_integer_α
                         .size            n9679_unmark_bx, .-n9679_unmark_bx
                         .type            n9680_lit_integer_bx, @function
@@ -221436,7 +224317,16 @@ n9690_unmark_α:         mov              r13, qword ptr [rbp + 512]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_10193_405
                         mov              rsi, rcx
-.Lunmark_α_10193_405:   cmp              rsi, r12;                            jae   .Lunmark_α_10193_409
+.Lunmark_α_10193_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_10193_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_10193_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_10193_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_10193_406
+                        mov              rsi, rdx
+.Lunmark_α_10193_406:   cmp              rsi, r12;                            jae   .Lunmark_α_10193_407
                         mov              rdi, rsi
 .Lunmark_α_10193_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_10193_403
@@ -221467,6 +224357,13 @@ n9690_unmark_α:         mov              r13, qword ptr [rbp + 512]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_10193_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_10193_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_10193_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_10193_409:   mov              rsp, qword ptr [rbp + 504];          jmp   n9691_lit_integer_α
                         .size            n9690_unmark_bx, .-n9690_unmark_bx
                         .type            n9691_lit_integer_bx, @function
@@ -223033,7 +225930,16 @@ n9737_unmark_α:         mov              r13, qword ptr [rbp + 720]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_10273_405
                         mov              rsi, rcx
-.Lunmark_α_10273_405:   cmp              rsi, r12;                            jae   .Lunmark_α_10273_409
+.Lunmark_α_10273_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_10273_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_10273_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_10273_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_10273_406
+                        mov              rsi, rdx
+.Lunmark_α_10273_406:   cmp              rsi, r12;                            jae   .Lunmark_α_10273_407
                         mov              rdi, rsi
 .Lunmark_α_10273_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_10273_403
@@ -223064,6 +225970,13 @@ n9737_unmark_α:         mov              r13, qword ptr [rbp + 720]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_10273_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_10273_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_10273_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_10273_409:   mov              rsp, qword ptr [rbp + 712];          jmp   n9738_lit_integer_α
                         .size            n9737_unmark_bx, .-n9737_unmark_bx
                         .type            n9738_lit_integer_bx, @function
@@ -223332,7 +226245,16 @@ n9748_unmark_α:         mov              r13, qword ptr [rbp + 816]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_10292_405
                         mov              rsi, rcx
-.Lunmark_α_10292_405:   cmp              rsi, r12;                            jae   .Lunmark_α_10292_409
+.Lunmark_α_10292_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_10292_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_10292_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_10292_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_10292_406
+                        mov              rsi, rdx
+.Lunmark_α_10292_406:   cmp              rsi, r12;                            jae   .Lunmark_α_10292_407
                         mov              rdi, rsi
 .Lunmark_α_10292_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_10292_403
@@ -223363,6 +226285,13 @@ n9748_unmark_α:         mov              r13, qword ptr [rbp + 816]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_10292_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_10292_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_10292_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_10292_409:   mov              rsp, qword ptr [rbp + 808];          jmp   n9749_lit_integer_α
                         .size            n9748_unmark_bx, .-n9748_unmark_bx
                         .type            n9749_lit_integer_bx, @function
@@ -224591,7 +227520,16 @@ n9786_unmark_α:         mov              r13, qword ptr [rsp + 544]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_10357_405
                         mov              rsi, rcx
-.Lunmark_α_10357_405:   cmp              rsi, r12;                            jae   .Lunmark_α_10357_409
+.Lunmark_α_10357_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_10357_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_10357_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_10357_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_10357_406
+                        mov              rsi, rdx
+.Lunmark_α_10357_406:   cmp              rsi, r12;                            jae   .Lunmark_α_10357_407
                         mov              rdi, rsi
 .Lunmark_α_10357_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_10357_403
@@ -224622,6 +227560,13 @@ n9786_unmark_α:         mov              r13, qword ptr [rsp + 544]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_10357_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_10357_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_10357_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_10357_409:   mov              rsp, qword ptr [rsp + 536]
                         add              rsp, 48;                             jmp   n9787_unmark_α
                         .size            n9786_unmark_bx, .-n9786_unmark_bx
@@ -225611,7 +228556,16 @@ n9814_unmark_α:         mov              r13, qword ptr [rbp + 512]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_10404_405
                         mov              rsi, rcx
-.Lunmark_α_10404_405:   cmp              rsi, r12;                            jae   .Lunmark_α_10404_409
+.Lunmark_α_10404_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_10404_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_10404_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_10404_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_10404_406
+                        mov              rsi, rdx
+.Lunmark_α_10404_406:   cmp              rsi, r12;                            jae   .Lunmark_α_10404_407
                         mov              rdi, rsi
 .Lunmark_α_10404_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_10404_403
@@ -225642,6 +228596,13 @@ n9814_unmark_α:         mov              r13, qword ptr [rbp + 512]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_10404_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_10404_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_10404_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_10404_409:   mov              rsp, qword ptr [rbp + 504];          jmp   n9815_lit_integer_α
                         .size            n9814_unmark_bx, .-n9814_unmark_bx
                         .type            n9815_lit_integer_bx, @function
@@ -225910,7 +228871,16 @@ n9825_unmark_α:         mov              r13, qword ptr [rbp + 624]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_10423_405
                         mov              rsi, rcx
-.Lunmark_α_10423_405:   cmp              rsi, r12;                            jae   .Lunmark_α_10423_409
+.Lunmark_α_10423_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_10423_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_10423_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_10423_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_10423_406
+                        mov              rsi, rdx
+.Lunmark_α_10423_406:   cmp              rsi, r12;                            jae   .Lunmark_α_10423_407
                         mov              rdi, rsi
 .Lunmark_α_10423_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_10423_403
@@ -225941,6 +228911,13 @@ n9825_unmark_α:         mov              r13, qword ptr [rbp + 624]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_10423_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_10423_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_10423_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_10423_409:   mov              rsp, qword ptr [rbp + 616];          jmp   n9826_lit_integer_α
                         .size            n9825_unmark_bx, .-n9825_unmark_bx
                         .type            n9826_lit_integer_bx, @function
@@ -226619,7 +229596,16 @@ n9850_unmark_α:         mov              r13, qword ptr [rbp + 416]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_10468_405
                         mov              rsi, rcx
-.Lunmark_α_10468_405:   cmp              rsi, r12;                            jae   .Lunmark_α_10468_409
+.Lunmark_α_10468_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_10468_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_10468_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_10468_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_10468_406
+                        mov              rsi, rdx
+.Lunmark_α_10468_406:   cmp              rsi, r12;                            jae   .Lunmark_α_10468_407
                         mov              rdi, rsi
 .Lunmark_α_10468_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_10468_403
@@ -226650,6 +229636,13 @@ n9850_unmark_α:         mov              r13, qword ptr [rbp + 416]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_10468_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_10468_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_10468_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_10468_409:   mov              rsp, qword ptr [rbp + 408];          jmp   n9851_unmark_α
                         .size            n9850_unmark_bx, .-n9850_unmark_bx
                         .type            n9851_unmark_bx, @function
@@ -231860,7 +234853,16 @@ n10584_cut_α:           mov              qword ptr [rbp + 136], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_10739_405
                         mov              rsi, rcx
-.Lcut_α_10739_405:      cmp              rsi, r12;                            jae   .Lcut_α_10739_409
+.Lcut_α_10739_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_10739_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_10739_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_10739_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_10739_406
+                        mov              rsi, rdx
+.Lcut_α_10739_406:      cmp              rsi, r12;                            jae   .Lcut_α_10739_407
                         mov              rdi, rsi
 .Lcut_α_10739_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_10739_403
@@ -231891,6 +234893,13 @@ n10584_cut_α:           mov              qword ptr [rbp + 136], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_10739_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_10739_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_10739_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_10739_409:      lea              rsp, [rbp + -64];                    jmp   n10585_var_ref_α
                         .size            n10584_cut_bx, .-n10584_cut_bx
                         .type            n10585_var_ref_bx, @function
@@ -233015,7 +236024,16 @@ n10601_cut_α:           mov              qword ptr [rbp + 136], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_10773_405
                         mov              rsi, rcx
-.Lcut_α_10773_405:      cmp              rsi, r12;                            jae   .Lcut_α_10773_409
+.Lcut_α_10773_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_10773_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_10773_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_10773_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_10773_406
+                        mov              rsi, rdx
+.Lcut_α_10773_406:      cmp              rsi, r12;                            jae   .Lcut_α_10773_407
                         mov              rdi, rsi
 .Lcut_α_10773_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_10773_403
@@ -233046,6 +236064,13 @@ n10601_cut_α:           mov              qword ptr [rbp + 136], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_10773_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_10773_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_10773_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_10773_409:      lea              rsp, [rbp + -64];                    jmp   n10602_var_ref_α
                         .size            n10601_cut_bx, .-n10601_cut_bx
                         .type            n10602_var_ref_bx, @function
@@ -234832,7 +237857,16 @@ n10622_cut_α:           mov              qword ptr [rbp + 136], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_10815_405
                         mov              rsi, rcx
-.Lcut_α_10815_405:      cmp              rsi, r12;                            jae   .Lcut_α_10815_409
+.Lcut_α_10815_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_10815_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_10815_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_10815_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_10815_406
+                        mov              rsi, rdx
+.Lcut_α_10815_406:      cmp              rsi, r12;                            jae   .Lcut_α_10815_407
                         mov              rdi, rsi
 .Lcut_α_10815_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_10815_403
@@ -234863,6 +237897,13 @@ n10622_cut_α:           mov              qword ptr [rbp + 136], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_10815_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_10815_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_10815_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_10815_409:      lea              rsp, [rbp + -96];                    jmp   n10623_var_ref_α
                         .size            n10622_cut_bx, .-n10622_cut_bx
                         .type            n10623_var_ref_bx, @function
@@ -237222,7 +240263,16 @@ n10647_cut_α:           mov              qword ptr [rbp + 136], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_10865_405
                         mov              rsi, rcx
-.Lcut_α_10865_405:      cmp              rsi, r12;                            jae   .Lcut_α_10865_409
+.Lcut_α_10865_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_10865_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_10865_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_10865_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_10865_406
+                        mov              rsi, rdx
+.Lcut_α_10865_406:      cmp              rsi, r12;                            jae   .Lcut_α_10865_407
                         mov              rdi, rsi
 .Lcut_α_10865_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_10865_403
@@ -237253,6 +240303,13 @@ n10647_cut_α:           mov              qword ptr [rbp + 136], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_10865_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_10865_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_10865_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_10865_409:      lea              rsp, [rbp + -128];                   jmp   n10648_var_ref_α
                         .size            n10647_cut_bx, .-n10647_cut_bx
                         .type            n10648_var_ref_bx, @function
@@ -239039,7 +242096,16 @@ n10668_cut_α:           mov              qword ptr [rbp + 136], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_10907_405
                         mov              rsi, rcx
-.Lcut_α_10907_405:      cmp              rsi, r12;                            jae   .Lcut_α_10907_409
+.Lcut_α_10907_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_10907_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_10907_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_10907_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_10907_406
+                        mov              rsi, rdx
+.Lcut_α_10907_406:      cmp              rsi, r12;                            jae   .Lcut_α_10907_407
                         mov              rdi, rsi
 .Lcut_α_10907_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_10907_403
@@ -239070,6 +242136,13 @@ n10668_cut_α:           mov              qword ptr [rbp + 136], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_10907_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_10907_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_10907_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_10907_409:      lea              rsp, [rbp + -96];                    jmp   n10669_var_ref_α
                         .size            n10668_cut_bx, .-n10668_cut_bx
                         .type            n10669_var_ref_bx, @function
@@ -240268,7 +243341,16 @@ n10686_cut_α:           mov              qword ptr [rbp + 136], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_10941_405
                         mov              rsi, rcx
-.Lcut_α_10941_405:      cmp              rsi, r12;                            jae   .Lcut_α_10941_409
+.Lcut_α_10941_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_10941_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_10941_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_10941_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_10941_406
+                        mov              rsi, rdx
+.Lcut_α_10941_406:      cmp              rsi, r12;                            jae   .Lcut_α_10941_407
                         mov              rdi, rsi
 .Lcut_α_10941_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_10941_403
@@ -240299,6 +243381,13 @@ n10686_cut_α:           mov              qword ptr [rbp + 136], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_10941_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_10941_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_10941_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_10941_409:      lea              rsp, [rbp + -64];                    jmp   n10687_var_ref_α
                         .size            n10686_cut_bx, .-n10686_cut_bx
                         .type            n10687_var_ref_bx, @function
@@ -241538,7 +244627,16 @@ n10699_cut_α:           mov              qword ptr [rbp + 136], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_10967_405
                         mov              rsi, rcx
-.Lcut_α_10967_405:      cmp              rsi, r12;                            jae   .Lcut_α_10967_409
+.Lcut_α_10967_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_10967_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_10967_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_10967_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_10967_406
+                        mov              rsi, rdx
+.Lcut_α_10967_406:      cmp              rsi, r12;                            jae   .Lcut_α_10967_407
                         mov              rdi, rsi
 .Lcut_α_10967_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_10967_403
@@ -241569,6 +244667,13 @@ n10699_cut_α:           mov              qword ptr [rbp + 136], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_10967_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_10967_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_10967_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_10967_409:      lea              rsp, [rbp + -80];                    jmp   n10700_var_ref_α
                         .size            n10699_cut_bx, .-n10699_cut_bx
                         .type            n10700_var_ref_bx, @function
@@ -242673,7 +245778,16 @@ n10711_cut_α:           mov              qword ptr [rbp + 136], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_10991_405
                         mov              rsi, rcx
-.Lcut_α_10991_405:      cmp              rsi, r12;                            jae   .Lcut_α_10991_409
+.Lcut_α_10991_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_10991_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_10991_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_10991_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_10991_406
+                        mov              rsi, rdx
+.Lcut_α_10991_406:      cmp              rsi, r12;                            jae   .Lcut_α_10991_407
                         mov              rdi, rsi
 .Lcut_α_10991_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_10991_403
@@ -242704,6 +245818,13 @@ n10711_cut_α:           mov              qword ptr [rbp + 136], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_10991_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_10991_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_10991_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_10991_409:      lea              rsp, [rbp + -64];                    jmp   n10712_var_ref_α
                         .size            n10711_cut_bx, .-n10711_cut_bx
                         .type            n10712_var_ref_bx, @function
@@ -243539,7 +246660,16 @@ n10720_cut_α:           mov              qword ptr [rbp + 136], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_11009_405
                         mov              rsi, rcx
-.Lcut_α_11009_405:      cmp              rsi, r12;                            jae   .Lcut_α_11009_409
+.Lcut_α_11009_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_11009_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_11009_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_11009_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_11009_406
+                        mov              rsi, rdx
+.Lcut_α_11009_406:      cmp              rsi, r12;                            jae   .Lcut_α_11009_407
                         mov              rdi, rsi
 .Lcut_α_11009_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_11009_403
@@ -243570,6 +246700,13 @@ n10720_cut_α:           mov              qword ptr [rbp + 136], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_11009_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_11009_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_11009_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_11009_409:      lea              rsp, [rbp + -32];                    jmp   d$2F3_γ
                         .size            n10720_cut_bx, .-n10720_cut_bx
                         .type            n10721_unify_const_bx, @function
@@ -247363,7 +250500,16 @@ n11074_unmark_α:        mov              r13, qword ptr [rbp + 160]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_11125_405
                         mov              rsi, rcx
-.Lunmark_α_11125_405:   cmp              rsi, r12;                            jae   .Lunmark_α_11125_409
+.Lunmark_α_11125_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_11125_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_11125_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_11125_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_11125_406
+                        mov              rsi, rdx
+.Lunmark_α_11125_406:   cmp              rsi, r12;                            jae   .Lunmark_α_11125_407
                         mov              rdi, rsi
 .Lunmark_α_11125_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_11125_403
@@ -247394,6 +250540,13 @@ n11074_unmark_α:        mov              r13, qword ptr [rbp + 160]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_11125_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_11125_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_11125_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_11125_409:   mov              rsp, qword ptr [rbp + 152];          jmp   n11075_var_ref_α
                         .size            n11074_unmark_bx, .-n11074_unmark_bx
                         .type            n11075_var_ref_bx, @function
@@ -249567,7 +252720,16 @@ n11194_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_11306_405
                         mov              rsi, rcx
-.Lcut_α_11306_405:      cmp              rsi, r12;                            jae   .Lcut_α_11306_409
+.Lcut_α_11306_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_11306_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_11306_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_11306_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_11306_406
+                        mov              rsi, rdx
+.Lcut_α_11306_406:      cmp              rsi, r12;                            jae   .Lcut_α_11306_407
                         mov              rdi, rsi
 .Lcut_α_11306_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_11306_403
@@ -249598,6 +252760,13 @@ n11194_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_11306_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_11306_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_11306_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_11306_409:      lea              rsp, [rbp + -80];                    jmp   n11195_lit_integer_α
                         .size            n11194_cut_bx, .-n11194_cut_bx
                         .type            n11195_lit_integer_bx, @function
@@ -250017,7 +253186,16 @@ n11204_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_11322_405
                         mov              rsi, rcx
-.Lcut_α_11322_405:      cmp              rsi, r12;                            jae   .Lcut_α_11322_409
+.Lcut_α_11322_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_11322_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_11322_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_11322_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_11322_406
+                        mov              rsi, rdx
+.Lcut_α_11322_406:      cmp              rsi, r12;                            jae   .Lcut_α_11322_407
                         mov              rdi, rsi
 .Lcut_α_11322_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_11322_403
@@ -250048,6 +253226,13 @@ n11204_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_11322_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_11322_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_11322_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_11322_409:      lea              rsp, [rbp + -80];                    jmp   n11205_lit_integer_α
                         .size            n11204_cut_bx, .-n11204_cut_bx
                         .type            n11205_lit_integer_bx, @function
@@ -250423,7 +253608,16 @@ n11213_unmark_α:        mov              r13, qword ptr [rbp + -32]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_11336_405
                         mov              rsi, rcx
-.Lunmark_α_11336_405:   cmp              rsi, r12;                            jae   .Lunmark_α_11336_409
+.Lunmark_α_11336_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_11336_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_11336_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_11336_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_11336_406
+                        mov              rsi, rdx
+.Lunmark_α_11336_406:   cmp              rsi, r12;                            jae   .Lunmark_α_11336_407
                         mov              rdi, rsi
 .Lunmark_α_11336_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_11336_403
@@ -250454,6 +253648,13 @@ n11213_unmark_α:        mov              r13, qword ptr [rbp + -32]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_11336_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_11336_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_11336_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_11336_409:   mov              rsp, qword ptr [rbp + -40]
                         add              rsp, 48;                             jmp   n11214_unmark_α
                         .size            n11213_unmark_bx, .-n11213_unmark_bx
@@ -250596,7 +253797,16 @@ n11220_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_11350_405
                         mov              rsi, rcx
-.Lcut_α_11350_405:      cmp              rsi, r12;                            jae   .Lcut_α_11350_409
+.Lcut_α_11350_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_11350_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_11350_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_11350_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_11350_406
+                        mov              rsi, rdx
+.Lcut_α_11350_406:      cmp              rsi, r12;                            jae   .Lcut_α_11350_407
                         mov              rdi, rsi
 .Lcut_α_11350_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_11350_403
@@ -250627,6 +253837,13 @@ n11220_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_11350_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_11350_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_11350_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_11350_409:      lea              rsp, [rbp + -32];                    jmp   n11221_lit_integer_α
                         .size            n11220_cut_bx, .-n11220_cut_bx
                         .type            n11221_lit_integer_bx, @function
@@ -251217,7 +254434,16 @@ n11233_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_11370_405
                         mov              rsi, rcx
-.Lcut_α_11370_405:      cmp              rsi, r12;                            jae   .Lcut_α_11370_409
+.Lcut_α_11370_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_11370_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_11370_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_11370_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_11370_406
+                        mov              rsi, rdx
+.Lcut_α_11370_406:      cmp              rsi, r12;                            jae   .Lcut_α_11370_407
                         mov              rdi, rsi
 .Lcut_α_11370_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_11370_403
@@ -251248,6 +254474,13 @@ n11233_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_11370_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_11370_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_11370_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_11370_409:      lea              rsp, [rbp + -80];                    jmp   n11234_lit_integer_α
                         .size            n11233_cut_bx, .-n11233_cut_bx
                         .type            n11234_lit_integer_bx, @function
@@ -251838,7 +255071,16 @@ n11246_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_11390_405
                         mov              rsi, rcx
-.Lcut_α_11390_405:      cmp              rsi, r12;                            jae   .Lcut_α_11390_409
+.Lcut_α_11390_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_11390_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_11390_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_11390_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_11390_406
+                        mov              rsi, rdx
+.Lcut_α_11390_406:      cmp              rsi, r12;                            jae   .Lcut_α_11390_407
                         mov              rdi, rsi
 .Lcut_α_11390_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_11390_403
@@ -251869,6 +255111,13 @@ n11246_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_11390_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_11390_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_11390_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_11390_409:      lea              rsp, [rbp + -80];                    jmp   n11247_var_ref_α
                         .size            n11246_cut_bx, .-n11246_cut_bx
                         .type            n11247_var_ref_bx, @function
@@ -252530,7 +255779,16 @@ n11254_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_11406_405
                         mov              rsi, rcx
-.Lcut_α_11406_405:      cmp              rsi, r12;                            jae   .Lcut_α_11406_409
+.Lcut_α_11406_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_11406_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_11406_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_11406_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_11406_406
+                        mov              rsi, rdx
+.Lcut_α_11406_406:      cmp              rsi, r12;                            jae   .Lcut_α_11406_407
                         mov              rdi, rsi
 .Lcut_α_11406_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_11406_403
@@ -252561,6 +255819,13 @@ n11254_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_11406_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_11406_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_11406_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_11406_409:      lea              rsp, [rbp + -32];                    jmp   n11255_var_ref_α
                         .size            n11254_cut_bx, .-n11254_cut_bx
                         .type            n11255_var_ref_bx, @function
@@ -253401,7 +256666,16 @@ n11265_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_11428_405
                         mov              rsi, rcx
-.Lcut_α_11428_405:      cmp              rsi, r12;                            jae   .Lcut_α_11428_409
+.Lcut_α_11428_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_11428_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_11428_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_11428_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_11428_406
+                        mov              rsi, rdx
+.Lcut_α_11428_406:      cmp              rsi, r12;                            jae   .Lcut_α_11428_407
                         mov              rdi, rsi
 .Lcut_α_11428_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_11428_403
@@ -253432,6 +256706,13 @@ n11265_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_11428_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_11428_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_11428_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_11428_409:      lea              rsp, [rbp + -32];                    jmp   n11266_var_ref_α
                         .size            n11265_cut_bx, .-n11265_cut_bx
                         .type            n11266_var_ref_bx, @function
@@ -253795,7 +257076,16 @@ n11274_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_11445_405
                         mov              rsi, rcx
-.Lcut_α_11445_405:      cmp              rsi, r12;                            jae   .Lcut_α_11445_409
+.Lcut_α_11445_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_11445_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_11445_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_11445_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_11445_406
+                        mov              rsi, rdx
+.Lcut_α_11445_406:      cmp              rsi, r12;                            jae   .Lcut_α_11445_407
                         mov              rdi, rsi
 .Lcut_α_11445_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_11445_403
@@ -253826,6 +257116,13 @@ n11274_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_11445_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_11445_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_11445_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_11445_409:      lea              rsp, [rbp + -32];                    jmp   n11275_var_ref_α
                         .size            n11274_cut_bx, .-n11274_cut_bx
                         .type            n11275_var_ref_bx, @function
@@ -254580,7 +257877,16 @@ n11283_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_11463_405
                         mov              rsi, rcx
-.Lcut_α_11463_405:      cmp              rsi, r12;                            jae   .Lcut_α_11463_409
+.Lcut_α_11463_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_11463_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_11463_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_11463_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_11463_406
+                        mov              rsi, rdx
+.Lcut_α_11463_406:      cmp              rsi, r12;                            jae   .Lcut_α_11463_407
                         mov              rdi, rsi
 .Lcut_α_11463_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_11463_403
@@ -254611,6 +257917,13 @@ n11283_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_11463_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_11463_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_11463_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_11463_409:      lea              rsp, [rbp + -32];                    jmp   n11284_var_ref_α
                         .size            n11283_cut_bx, .-n11283_cut_bx
                         .type            n11284_var_ref_bx, @function
@@ -254854,7 +258167,16 @@ n11289_unmark_α:        mov              r13, qword ptr [rbp + -112]          #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_11475_405
                         mov              rsi, rcx
-.Lunmark_α_11475_405:   cmp              rsi, r12;                            jae   .Lunmark_α_11475_409
+.Lunmark_α_11475_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_11475_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_11475_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_11475_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_11475_406
+                        mov              rsi, rdx
+.Lunmark_α_11475_406:   cmp              rsi, r12;                            jae   .Lunmark_α_11475_407
                         mov              rdi, rsi
 .Lunmark_α_11475_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_11475_403
@@ -254885,6 +258207,13 @@ n11289_unmark_α:        mov              r13, qword ptr [rbp + -112]          #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_11475_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_11475_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_11475_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_11475_409:   mov              rsp, qword ptr [rbp + -120]
                         add              rsp, 48;                             jmp   n11290_unmark_α
                         .size            n11289_unmark_bx, .-n11289_unmark_bx
@@ -256090,7 +259419,16 @@ n11494_cut_α:           mov              qword ptr [rbp + 136], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_11521_405
                         mov              rsi, rcx
-.Lcut_α_11521_405:      cmp              rsi, r12;                            jae   .Lcut_α_11521_409
+.Lcut_α_11521_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_11521_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_11521_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_11521_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_11521_406
+                        mov              rsi, rdx
+.Lcut_α_11521_406:      cmp              rsi, r12;                            jae   .Lcut_α_11521_407
                         mov              rdi, rsi
 .Lcut_α_11521_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_11521_403
@@ -256121,6 +259459,13 @@ n11494_cut_α:           mov              qword ptr [rbp + 136], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_11521_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_11521_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_11521_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_11521_409:      lea              rsp, [rbp + -48];                    jmp   n11495_var_ref_α
                         .size            n11494_cut_bx, .-n11494_cut_bx
                         .type            n11495_var_ref_bx, @function
@@ -259424,7 +262769,16 @@ n11597_unmark_α:        mov              r13, qword ptr [rbp + 224]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_11715_405
                         mov              rsi, rcx
-.Lunmark_α_11715_405:   cmp              rsi, r12;                            jae   .Lunmark_α_11715_409
+.Lunmark_α_11715_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_11715_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_11715_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_11715_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_11715_406
+                        mov              rsi, rdx
+.Lunmark_α_11715_406:   cmp              rsi, r12;                            jae   .Lunmark_α_11715_407
                         mov              rdi, rsi
 .Lunmark_α_11715_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_11715_403
@@ -259455,6 +262809,13 @@ n11597_unmark_α:        mov              r13, qword ptr [rbp + 224]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_11715_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_11715_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_11715_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_11715_409:   mov              rsp, qword ptr [rbp + 216];          jmp   n11598_lit_integer_α
                         .size            n11597_unmark_bx, .-n11597_unmark_bx
                         .type            n11598_lit_integer_bx, @function
@@ -259723,7 +263084,16 @@ n11608_unmark_α:        mov              r13, qword ptr [rbp + 320]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_11734_405
                         mov              rsi, rcx
-.Lunmark_α_11734_405:   cmp              rsi, r12;                            jae   .Lunmark_α_11734_409
+.Lunmark_α_11734_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_11734_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_11734_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_11734_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_11734_406
+                        mov              rsi, rdx
+.Lunmark_α_11734_406:   cmp              rsi, r12;                            jae   .Lunmark_α_11734_407
                         mov              rdi, rsi
 .Lunmark_α_11734_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_11734_403
@@ -259754,6 +263124,13 @@ n11608_unmark_α:        mov              r13, qword ptr [rbp + 320]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_11734_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_11734_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_11734_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_11734_409:   mov              rsp, qword ptr [rbp + 312];          jmp   n11609_lit_integer_α
                         .size            n11608_unmark_bx, .-n11608_unmark_bx
                         .type            n11609_lit_integer_bx, @function
@@ -261688,7 +265065,16 @@ n11800_cut_α:           mov              qword ptr [rbp + 72], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_11818_405
                         mov              rsi, rcx
-.Lcut_α_11818_405:      cmp              rsi, r12;                            jae   .Lcut_α_11818_409
+.Lcut_α_11818_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_11818_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_11818_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_11818_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_11818_406
+                        mov              rsi, rdx
+.Lcut_α_11818_406:      cmp              rsi, r12;                            jae   .Lcut_α_11818_407
                         mov              rdi, rsi
 .Lcut_α_11818_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_11818_403
@@ -261719,6 +265105,13 @@ n11800_cut_α:           mov              qword ptr [rbp + 72], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_11818_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_11818_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_11818_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_11818_409:      lea              rsp, [rbp + -80];                    jmp   $f4_atom$2F1_γ
                         .size            n11800_cut_bx, .-n11800_cut_bx
                         .type            n11801_lit_integer_bx, @function
@@ -262637,7 +266030,16 @@ n11833_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_11871_405
                         mov              rsi, rcx
-.Lcut_α_11871_405:      cmp              rsi, r12;                            jae   .Lcut_α_11871_409
+.Lcut_α_11871_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_11871_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_11871_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_11871_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_11871_406
+                        mov              rsi, rdx
+.Lcut_α_11871_406:      cmp              rsi, r12;                            jae   .Lcut_α_11871_407
                         mov              rdi, rsi
 .Lcut_α_11871_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_11871_403
@@ -262668,6 +266070,13 @@ n11833_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_11871_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_11871_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_11871_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_11871_409:      lea              rsp, [rbp + -32];                    jmp   n11834_var_ref_α
                         .size            n11833_cut_bx, .-n11833_cut_bx
                         .type            n11834_var_ref_bx, @function
@@ -263119,7 +266528,16 @@ n11842_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_11888_405
                         mov              rsi, rcx
-.Lcut_α_11888_405:      cmp              rsi, r12;                            jae   .Lcut_α_11888_409
+.Lcut_α_11888_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_11888_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_11888_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_11888_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_11888_406
+                        mov              rsi, rdx
+.Lcut_α_11888_406:      cmp              rsi, r12;                            jae   .Lcut_α_11888_407
                         mov              rdi, rsi
 .Lcut_α_11888_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_11888_403
@@ -263150,6 +266568,13 @@ n11842_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_11888_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_11888_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_11888_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_11888_409:      lea              rsp, [rbp + -32];                    jmp   n11843_var_ref_α
                         .size            n11842_cut_bx, .-n11842_cut_bx
                         .type            n11843_var_ref_bx, @function
@@ -265585,7 +269010,16 @@ n11951_cut_α:           mov              qword ptr [rbp + 120], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_11977_405
                         mov              rsi, rcx
-.Lcut_α_11977_405:      cmp              rsi, r12;                            jae   .Lcut_α_11977_409
+.Lcut_α_11977_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_11977_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_11977_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_11977_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_11977_406
+                        mov              rsi, rdx
+.Lcut_α_11977_406:      cmp              rsi, r12;                            jae   .Lcut_α_11977_407
                         mov              rdi, rsi
 .Lcut_α_11977_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_11977_403
@@ -265616,6 +269050,13 @@ n11951_cut_α:           mov              qword ptr [rbp + 120], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_11977_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_11977_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_11977_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_11977_409:      lea              rsp, [rbp + -80];                    jmp   $retract_head$2F2_γ
                         .size            n11951_cut_bx, .-n11951_cut_bx
                         .type            n11952_unify_struct_bx, @function
@@ -265934,7 +269375,16 @@ n11957_cut_α:           mov              qword ptr [rbp + 120], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_11989_405
                         mov              rsi, rcx
-.Lcut_α_11989_405:      cmp              rsi, r12;                            jae   .Lcut_α_11989_409
+.Lcut_α_11989_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_11989_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_11989_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_11989_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_11989_406
+                        mov              rsi, rdx
+.Lcut_α_11989_406:      cmp              rsi, r12;                            jae   .Lcut_α_11989_407
                         mov              rdi, rsi
 .Lcut_α_11989_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_11989_403
@@ -265965,6 +269415,13 @@ n11957_cut_α:           mov              qword ptr [rbp + 120], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_11989_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_11989_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_11989_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_11989_409:      lea              rsp, [rbp + -48];                    jmp   n11958_var_ref_α
                         .size            n11957_cut_bx, .-n11957_cut_bx
                         .type            n11958_var_ref_bx, @function
@@ -267430,7 +270887,16 @@ n12017_cut_α:           mov              qword ptr [rbp + 88], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_12046_405
                         mov              rsi, rcx
-.Lcut_α_12046_405:      cmp              rsi, r12;                            jae   .Lcut_α_12046_409
+.Lcut_α_12046_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_12046_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_12046_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_12046_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_12046_406
+                        mov              rsi, rdx
+.Lcut_α_12046_406:      cmp              rsi, r12;                            jae   .Lcut_α_12046_407
                         mov              rdi, rsi
 .Lcut_α_12046_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_12046_403
@@ -267461,6 +270927,13 @@ n12017_cut_α:           mov              qword ptr [rbp + 88], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_12046_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_12046_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_12046_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_12046_409:      lea              rsp, [rbp + -272];                   jmp   n12018_var_ref_α
                         .size            n12017_cut_bx, .-n12017_cut_bx
                         .type            n12018_var_ref_bx, @function
@@ -268478,7 +271951,16 @@ n12067_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_12090_405
                         mov              rsi, rcx
-.Lcut_α_12090_405:      cmp              rsi, r12;                            jae   .Lcut_α_12090_409
+.Lcut_α_12090_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_12090_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_12090_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_12090_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_12090_406
+                        mov              rsi, rdx
+.Lcut_α_12090_406:      cmp              rsi, r12;                            jae   .Lcut_α_12090_407
                         mov              rdi, rsi
 .Lcut_α_12090_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_12090_403
@@ -268509,6 +271991,13 @@ n12067_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_12090_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_12090_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_12090_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_12090_409:      lea              rsp, [rbp + -80];                    jmp   n12068_lit_integer_α
                         .size            n12067_cut_bx, .-n12067_cut_bx
                         .type            n12068_lit_integer_bx, @function
@@ -270420,7 +273909,16 @@ n12123_unmark_α:        mov              r13, qword ptr [rbp + 160]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_12164_405
                         mov              rsi, rcx
-.Lunmark_α_12164_405:   cmp              rsi, r12;                            jae   .Lunmark_α_12164_409
+.Lunmark_α_12164_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_12164_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_12164_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_12164_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_12164_406
+                        mov              rsi, rdx
+.Lunmark_α_12164_406:   cmp              rsi, r12;                            jae   .Lunmark_α_12164_407
                         mov              rdi, rsi
 .Lunmark_α_12164_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_12164_403
@@ -270451,6 +273949,13 @@ n12123_unmark_α:        mov              r13, qword ptr [rbp + 160]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_12164_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_12164_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_12164_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_12164_409:   mov              rsp, qword ptr [rbp + 152];          jmp   n12124_var_ref_α
                         .size            n12123_unmark_bx, .-n12123_unmark_bx
                         .type            n12124_var_ref_bx, @function
@@ -272290,7 +275795,16 @@ n12213_unmark_α:        mov              r13, qword ptr [rbp + 336]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_12375_405
                         mov              rsi, rcx
-.Lunmark_α_12375_405:   cmp              rsi, r12;                            jae   .Lunmark_α_12375_409
+.Lunmark_α_12375_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_12375_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_12375_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_12375_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_12375_406
+                        mov              rsi, rdx
+.Lunmark_α_12375_406:   cmp              rsi, r12;                            jae   .Lunmark_α_12375_407
                         mov              rdi, rsi
 .Lunmark_α_12375_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_12375_403
@@ -272321,6 +275835,13 @@ n12213_unmark_α:        mov              r13, qword ptr [rbp + 336]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_12375_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_12375_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_12375_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_12375_409:   mov              rsp, qword ptr [rbp + 328];          jmp   n12214_bound_α
                         .size            n12213_unmark_bx, .-n12213_unmark_bx
                         .type            n12214_bound_bx, @function
@@ -272560,7 +276081,16 @@ n12220_unmark_α:        mov              r13, qword ptr [rbp + 528]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_12388_405
                         mov              rsi, rcx
-.Lunmark_α_12388_405:   cmp              rsi, r12;                            jae   .Lunmark_α_12388_409
+.Lunmark_α_12388_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_12388_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_12388_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_12388_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_12388_406
+                        mov              rsi, rdx
+.Lunmark_α_12388_406:   cmp              rsi, r12;                            jae   .Lunmark_α_12388_407
                         mov              rdi, rsi
 .Lunmark_α_12388_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_12388_403
@@ -272591,6 +276121,13 @@ n12220_unmark_α:        mov              r13, qword ptr [rbp + 528]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_12388_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_12388_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_12388_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_12388_409:   mov              rsp, qword ptr [rbp + 520];          jmp   n12221_lit_integer_α
                         .size            n12220_unmark_bx, .-n12220_unmark_bx
                         .type            n12221_lit_integer_bx, @function
@@ -272859,7 +276396,16 @@ n12231_unmark_α:        mov              r13, qword ptr [rbp + 624]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_12407_405
                         mov              rsi, rcx
-.Lunmark_α_12407_405:   cmp              rsi, r12;                            jae   .Lunmark_α_12407_409
+.Lunmark_α_12407_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_12407_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_12407_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_12407_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_12407_406
+                        mov              rsi, rdx
+.Lunmark_α_12407_406:   cmp              rsi, r12;                            jae   .Lunmark_α_12407_407
                         mov              rdi, rsi
 .Lunmark_α_12407_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_12407_403
@@ -272890,6 +276436,13 @@ n12231_unmark_α:        mov              r13, qword ptr [rbp + 624]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_12407_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_12407_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_12407_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_12407_409:   mov              rsp, qword ptr [rbp + 616];          jmp   n12232_lit_integer_α
                         .size            n12231_unmark_bx, .-n12231_unmark_bx
                         .type            n12232_lit_integer_bx, @function
@@ -273568,7 +277121,16 @@ n12256_unmark_α:        mov              r13, qword ptr [rbp + 432]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_12452_405
                         mov              rsi, rcx
-.Lunmark_α_12452_405:   cmp              rsi, r12;                            jae   .Lunmark_α_12452_409
+.Lunmark_α_12452_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_12452_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_12452_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_12452_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_12452_406
+                        mov              rsi, rdx
+.Lunmark_α_12452_406:   cmp              rsi, r12;                            jae   .Lunmark_α_12452_407
                         mov              rdi, rsi
 .Lunmark_α_12452_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_12452_403
@@ -273599,6 +277161,13 @@ n12256_unmark_α:        mov              r13, qword ptr [rbp + 432]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_12452_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_12452_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_12452_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_12452_409:   mov              rsp, qword ptr [rbp + 424];          jmp   n12257_gate_arm_α
                         .size            n12256_unmark_bx, .-n12256_unmark_bx
                         .type            n12257_gate_arm_bx, @function
@@ -273720,7 +277289,16 @@ n12264_unmark_α:        lea              rax, [rbp + 224]
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_12468_405
                         mov              rsi, rcx
-.Lunmark_α_12468_405:   cmp              rsi, r12;                            jae   .Lunmark_α_12468_409
+.Lunmark_α_12468_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_12468_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_12468_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_12468_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_12468_406
+                        mov              rsi, rdx
+.Lunmark_α_12468_406:   cmp              rsi, r12;                            jae   .Lunmark_α_12468_407
                         mov              rdi, rsi
 .Lunmark_α_12468_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_12468_403
@@ -273751,6 +277329,13 @@ n12264_unmark_α:        lea              rax, [rbp + 224]
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_12468_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_12468_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_12468_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_12468_409:
 .Lunmark_α_12468_1:                                                           jmp   n12265_gate_arm_α
                         .size            n12264_unmark_bx, .-n12264_unmark_bx
@@ -274690,7 +278275,16 @@ n12287_unmark_α:        mov              r13, qword ptr [rbp + 976]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_12509_405
                         mov              rsi, rcx
-.Lunmark_α_12509_405:   cmp              rsi, r12;                            jae   .Lunmark_α_12509_409
+.Lunmark_α_12509_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_12509_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_12509_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_12509_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_12509_406
+                        mov              rsi, rdx
+.Lunmark_α_12509_406:   cmp              rsi, r12;                            jae   .Lunmark_α_12509_407
                         mov              rdi, rsi
 .Lunmark_α_12509_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_12509_403
@@ -274721,6 +278315,13 @@ n12287_unmark_α:        mov              r13, qword ptr [rbp + 976]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_12509_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_12509_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_12509_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_12509_409:   mov              rsp, qword ptr [rbp + 968];          jmp   n12288_unmark_α
                         .size            n12287_unmark_bx, .-n12287_unmark_bx
                         .type            n12288_unmark_bx, @function
@@ -275434,7 +279035,16 @@ n12306_cut_α:           mov              qword ptr [rbp + 1048], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_12540_405
                         mov              rsi, rcx
-.Lcut_α_12540_405:      cmp              rsi, r12;                            jae   .Lcut_α_12540_409
+.Lcut_α_12540_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_12540_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_12540_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_12540_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_12540_406
+                        mov              rsi, rdx
+.Lcut_α_12540_406:      cmp              rsi, r12;                            jae   .Lcut_α_12540_407
                         mov              rdi, rsi
 .Lcut_α_12540_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_12540_403
@@ -275465,6 +279075,13 @@ n12306_cut_α:           mov              qword ptr [rbp + 1048], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_12540_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_12540_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_12540_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_12540_409:      lea              rsp, [rbp + -288];                   jmp   $wot_stream_sink$2F1_γ
                         .size            n12306_cut_bx, .-n12306_cut_bx
                         .type            n12307_unmark_bx, @function
@@ -275689,7 +279306,16 @@ n12313_unmark_α:        mov              r13, qword ptr [rbp + 720]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_12553_405
                         mov              rsi, rcx
-.Lunmark_α_12553_405:   cmp              rsi, r12;                            jae   .Lunmark_α_12553_409
+.Lunmark_α_12553_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_12553_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_12553_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_12553_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_12553_406
+                        mov              rsi, rdx
+.Lunmark_α_12553_406:   cmp              rsi, r12;                            jae   .Lunmark_α_12553_407
                         mov              rdi, rsi
 .Lunmark_α_12553_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_12553_403
@@ -275720,6 +279346,13 @@ n12313_unmark_α:        mov              r13, qword ptr [rbp + 720]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_12553_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_12553_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_12553_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_12553_409:   mov              rsp, qword ptr [rbp + 712];          jmp   n12314_lit_integer_α
                         .size            n12313_unmark_bx, .-n12313_unmark_bx
                         .type            n12314_lit_integer_bx, @function
@@ -275988,7 +279621,16 @@ n12324_unmark_α:        mov              r13, qword ptr [rbp + 816]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_12572_405
                         mov              rsi, rcx
-.Lunmark_α_12572_405:   cmp              rsi, r12;                            jae   .Lunmark_α_12572_409
+.Lunmark_α_12572_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_12572_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_12572_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_12572_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_12572_406
+                        mov              rsi, rdx
+.Lunmark_α_12572_406:   cmp              rsi, r12;                            jae   .Lunmark_α_12572_407
                         mov              rdi, rsi
 .Lunmark_α_12572_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_12572_403
@@ -276019,6 +279661,13 @@ n12324_unmark_α:        mov              r13, qword ptr [rbp + 816]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_12572_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_12572_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_12572_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_12572_409:   mov              rsp, qword ptr [rbp + 808];          jmp   n12325_lit_integer_α
                         .size            n12324_unmark_bx, .-n12324_unmark_bx
                         .type            n12325_lit_integer_bx, @function
@@ -277806,7 +281455,16 @@ n12629_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_12700_405
                         mov              rsi, rcx
-.Lcut_α_12700_405:      cmp              rsi, r12;                            jae   .Lcut_α_12700_409
+.Lcut_α_12700_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_12700_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_12700_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_12700_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_12700_406
+                        mov              rsi, rdx
+.Lcut_α_12700_406:      cmp              rsi, r12;                            jae   .Lcut_α_12700_407
                         mov              rdi, rsi
 .Lcut_α_12700_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_12700_403
@@ -277837,6 +281495,13 @@ n12629_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_12700_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_12700_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_12700_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_12700_409:      lea              rsp, [rbp + -80];                    jmp   n12630_unify_const_α
                         .size            n12629_cut_bx, .-n12629_cut_bx
                         .type            n12630_unify_const_bx, @function
@@ -278482,7 +282147,16 @@ n12643_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_12724_405
                         mov              rsi, rcx
-.Lcut_α_12724_405:      cmp              rsi, r12;                            jae   .Lcut_α_12724_409
+.Lcut_α_12724_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_12724_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_12724_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_12724_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_12724_406
+                        mov              rsi, rdx
+.Lcut_α_12724_406:      cmp              rsi, r12;                            jae   .Lcut_α_12724_407
                         mov              rdi, rsi
 .Lcut_α_12724_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_12724_403
@@ -278513,6 +282187,13 @@ n12643_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_12724_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_12724_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_12724_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_12724_409:      lea              rsp, [rbp + -240];                   jmp   n12644_unify_const_α
                         .size            n12643_cut_bx, .-n12643_cut_bx
                         .type            n12644_unify_const_bx, @function
@@ -279706,7 +283387,16 @@ n12671_unmark_α:        mov              r13, qword ptr [rbp + -768]          #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_12768_405
                         mov              rsi, rcx
-.Lunmark_α_12768_405:   cmp              rsi, r12;                            jae   .Lunmark_α_12768_409
+.Lunmark_α_12768_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_12768_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_12768_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_12768_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_12768_406
+                        mov              rsi, rdx
+.Lunmark_α_12768_406:   cmp              rsi, r12;                            jae   .Lunmark_α_12768_407
                         mov              rdi, rsi
 .Lunmark_α_12768_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_12768_403
@@ -279737,6 +283427,13 @@ n12671_unmark_α:        mov              r13, qword ptr [rbp + -768]          #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_12768_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_12768_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_12768_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_12768_409:   mov              rsp, qword ptr [rbp + -776]
                         add              rsp, 48;                             jmp   n12672_unify_const_α
                         .size            n12671_unmark_bx, .-n12671_unmark_bx
@@ -282542,7 +286239,16 @@ n12847_unmark_α:        mov              r13, qword ptr [rbp + 144]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_12877_405
                         mov              rsi, rcx
-.Lunmark_α_12877_405:   cmp              rsi, r12;                            jae   .Lunmark_α_12877_409
+.Lunmark_α_12877_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_12877_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_12877_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_12877_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_12877_406
+                        mov              rsi, rdx
+.Lunmark_α_12877_406:   cmp              rsi, r12;                            jae   .Lunmark_α_12877_407
                         mov              rdi, rsi
 .Lunmark_α_12877_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_12877_403
@@ -282573,6 +286279,13 @@ n12847_unmark_α:        mov              r13, qword ptr [rbp + 144]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_12877_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_12877_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_12877_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_12877_409:   mov              rsp, qword ptr [rbp + 136];          jmp   n12848_var_ref_α
                         .size            n12847_unmark_bx, .-n12847_unmark_bx
                         .type            n12848_var_ref_bx, @function
@@ -284676,7 +288389,16 @@ n12914_unmark_α:        mov              r13, qword ptr [rbp + 160]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_12966_405
                         mov              rsi, rcx
-.Lunmark_α_12966_405:   cmp              rsi, r12;                            jae   .Lunmark_α_12966_409
+.Lunmark_α_12966_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_12966_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_12966_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_12966_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_12966_406
+                        mov              rsi, rdx
+.Lunmark_α_12966_406:   cmp              rsi, r12;                            jae   .Lunmark_α_12966_407
                         mov              rdi, rsi
 .Lunmark_α_12966_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_12966_403
@@ -284707,6 +288429,13 @@ n12914_unmark_α:        mov              r13, qword ptr [rbp + 160]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_12966_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_12966_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_12966_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_12966_409:   mov              rsp, qword ptr [rbp + 152];          jmp   n12915_var_ref_α
                         .size            n12914_unmark_bx, .-n12914_unmark_bx
                         .type            n12915_var_ref_bx, @function
@@ -286578,7 +290307,16 @@ n13013_cut_α:           mov              qword ptr [rbp + 72], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_13035_405
                         mov              rsi, rcx
-.Lcut_α_13035_405:      cmp              rsi, r12;                            jae   .Lcut_α_13035_409
+.Lcut_α_13035_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_13035_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_13035_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_13035_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_13035_406
+                        mov              rsi, rdx
+.Lcut_α_13035_406:      cmp              rsi, r12;                            jae   .Lcut_α_13035_407
                         mov              rdi, rsi
 .Lcut_α_13035_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_13035_403
@@ -286609,6 +290347,13 @@ n13013_cut_α:           mov              qword ptr [rbp + 72], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_13035_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_13035_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_13035_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_13035_409:      lea              rsp, [rbp + -32];                    jmp   n13014_var_ref_α
                         .size            n13013_cut_bx, .-n13013_cut_bx
                         .type            n13014_var_ref_bx, @function
@@ -288045,7 +291790,16 @@ n13070_unmark_α:        mov              r13, qword ptr [rbp + -32]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_13089_405
                         mov              rsi, rcx
-.Lunmark_α_13089_405:   cmp              rsi, r12;                            jae   .Lunmark_α_13089_409
+.Lunmark_α_13089_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_13089_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_13089_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_13089_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_13089_406
+                        mov              rsi, rdx
+.Lunmark_α_13089_406:   cmp              rsi, r12;                            jae   .Lunmark_α_13089_407
                         mov              rdi, rsi
 .Lunmark_α_13089_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_13089_403
@@ -288076,6 +291830,13 @@ n13070_unmark_α:        mov              r13, qword ptr [rbp + -32]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_13089_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_13089_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_13089_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_13089_409:   mov              rsp, qword ptr [rbp + -40]
                         add              rsp, 48;                             jmp   n13071_unmark_α
                         .size            n13070_unmark_bx, .-n13070_unmark_bx
@@ -288672,7 +292433,16 @@ n13103_cut_α:           mov              qword ptr [rbp + 120], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_13131_405
                         mov              rsi, rcx
-.Lcut_α_13131_405:      cmp              rsi, r12;                            jae   .Lcut_α_13131_409
+.Lcut_α_13131_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_13131_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_13131_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_13131_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_13131_406
+                        mov              rsi, rdx
+.Lcut_α_13131_406:      cmp              rsi, r12;                            jae   .Lcut_α_13131_407
                         mov              rdi, rsi
 .Lcut_α_13131_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_13131_403
@@ -288703,6 +292473,13 @@ n13103_cut_α:           mov              qword ptr [rbp + 120], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_13131_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_13131_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_13131_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_13131_409:      lea              rsp, [rbp + -48];                    jmp   n13104_var_ref_α
                         .size            n13103_cut_bx, .-n13103_cut_bx
                         .type            n13104_var_ref_bx, @function
@@ -290964,7 +294741,16 @@ n13171_unmark_α:        mov              r13, qword ptr [rbp + 96]            #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_13200_405
                         mov              rsi, rcx
-.Lunmark_α_13200_405:   cmp              rsi, r12;                            jae   .Lunmark_α_13200_409
+.Lunmark_α_13200_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_13200_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_13200_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_13200_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_13200_406
+                        mov              rsi, rdx
+.Lunmark_α_13200_406:   cmp              rsi, r12;                            jae   .Lunmark_α_13200_407
                         mov              rdi, rsi
 .Lunmark_α_13200_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_13200_403
@@ -290995,6 +294781,13 @@ n13171_unmark_α:        mov              r13, qword ptr [rbp + 96]            #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_13200_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_13200_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_13200_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_13200_409:   mov              rsp, qword ptr [rbp + 88];           jmp   n13172_var_ref_α
                         .size            n13171_unmark_bx, .-n13171_unmark_bx
                         .type            n13172_var_ref_bx, @function
@@ -292975,7 +296768,16 @@ n13238_unmark_α:        mov              r13, qword ptr [rbp + 128]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_13262_405
                         mov              rsi, rcx
-.Lunmark_α_13262_405:   cmp              rsi, r12;                            jae   .Lunmark_α_13262_409
+.Lunmark_α_13262_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_13262_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_13262_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_13262_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_13262_406
+                        mov              rsi, rdx
+.Lunmark_α_13262_406:   cmp              rsi, r12;                            jae   .Lunmark_α_13262_407
                         mov              rdi, rsi
 .Lunmark_α_13262_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_13262_403
@@ -293006,6 +296808,13 @@ n13238_unmark_α:        mov              r13, qword ptr [rbp + 128]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_13262_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_13262_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_13262_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_13262_409:   mov              rsp, qword ptr [rbp + 120];          jmp   n13239_gate_arm_α
                         .size            n13238_unmark_bx, .-n13238_unmark_bx
                         .type            n13239_gate_arm_bx, @function
@@ -293860,7 +297669,16 @@ n13283_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_13337_405
                         mov              rsi, rcx
-.Lcut_α_13337_405:      cmp              rsi, r12;                            jae   .Lcut_α_13337_409
+.Lcut_α_13337_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_13337_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_13337_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_13337_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_13337_406
+                        mov              rsi, rdx
+.Lcut_α_13337_406:      cmp              rsi, r12;                            jae   .Lcut_α_13337_407
                         mov              rdi, rsi
 .Lcut_α_13337_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_13337_403
@@ -293891,6 +297709,13 @@ n13283_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_13337_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_13337_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_13337_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_13337_409:      lea              rsp, [rbp + -80];                    jmp   n13284_lit_atom_α
                         .size            n13283_cut_bx, .-n13283_cut_bx
                         .type            n13284_lit_atom_bx, @function
@@ -294267,7 +298092,16 @@ n13296_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_13359_405
                         mov              rsi, rcx
-.Lcut_α_13359_405:      cmp              rsi, r12;                            jae   .Lcut_α_13359_409
+.Lcut_α_13359_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_13359_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_13359_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_13359_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_13359_406
+                        mov              rsi, rdx
+.Lcut_α_13359_406:      cmp              rsi, r12;                            jae   .Lcut_α_13359_407
                         mov              rdi, rsi
 .Lcut_α_13359_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_13359_403
@@ -294298,6 +298132,13 @@ n13296_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_13359_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_13359_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_13359_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_13359_409:      lea              rsp, [rbp + -80];                    jmp   n13297_bound_α
                         .size            n13296_cut_bx, .-n13296_cut_bx
                         .type            n13297_bound_bx, @function
@@ -294494,7 +298335,16 @@ n13301_unmark_α:        mov              r13, qword ptr [rbp + -112]          #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_13368_405
                         mov              rsi, rcx
-.Lunmark_α_13368_405:   cmp              rsi, r12;                            jae   .Lunmark_α_13368_409
+.Lunmark_α_13368_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_13368_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_13368_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_13368_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_13368_406
+                        mov              rsi, rdx
+.Lunmark_α_13368_406:   cmp              rsi, r12;                            jae   .Lunmark_α_13368_407
                         mov              rdi, rsi
 .Lunmark_α_13368_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_13368_403
@@ -294525,6 +298375,13 @@ n13301_unmark_α:        mov              r13, qword ptr [rbp + -112]          #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_13368_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_13368_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_13368_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_13368_409:   mov              rsp, qword ptr [rbp + -120]
                         add              rsp, 48;                             jmp   n13302_lit_atom_α
                         .size            n13301_unmark_bx, .-n13301_unmark_bx
@@ -325352,7 +329209,16 @@ n14069_cut_α:           mov              qword ptr [rbp + 88], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_14093_405
                         mov              rsi, rcx
-.Lcut_α_14093_405:      cmp              rsi, r12;                            jae   .Lcut_α_14093_409
+.Lcut_α_14093_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_14093_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_14093_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_14093_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_14093_406
+                        mov              rsi, rdx
+.Lcut_α_14093_406:      cmp              rsi, r12;                            jae   .Lcut_α_14093_407
                         mov              rdi, rsi
 .Lcut_α_14093_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_14093_403
@@ -325383,6 +329249,13 @@ n14069_cut_α:           mov              qword ptr [rbp + 88], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_14093_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_14093_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_14093_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_14093_409:      lea              rsp, [rbp + -32];                    jmp   n14070_var_α
                         .size            n14069_cut_bx, .-n14069_cut_bx
                         .type            n14070_var_bx, @function
@@ -325793,7 +329666,16 @@ n14076_cut_α:           mov              qword ptr [rbp + 88], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_14107_405
                         mov              rsi, rcx
-.Lcut_α_14107_405:      cmp              rsi, r12;                            jae   .Lcut_α_14107_409
+.Lcut_α_14107_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_14107_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_14107_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_14107_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_14107_406
+                        mov              rsi, rdx
+.Lcut_α_14107_406:      cmp              rsi, r12;                            jae   .Lcut_α_14107_407
                         mov              rdi, rsi
 .Lcut_α_14107_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_14107_403
@@ -325824,6 +329706,13 @@ n14076_cut_α:           mov              qword ptr [rbp + 88], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_14107_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_14107_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_14107_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_14107_409:      lea              rsp, [rbp + -48];                    jmp   n14077_var_ref_α
                         .size            n14076_cut_bx, .-n14076_cut_bx
                         .type            n14077_var_ref_bx, @function
@@ -327415,7 +331304,16 @@ n14130_cut_α:           mov              qword ptr [rbp + 120], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_14154_405
                         mov              rsi, rcx
-.Lcut_α_14154_405:      cmp              rsi, r12;                            jae   .Lcut_α_14154_409
+.Lcut_α_14154_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_14154_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_14154_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_14154_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_14154_406
+                        mov              rsi, rdx
+.Lcut_α_14154_406:      cmp              rsi, r12;                            jae   .Lcut_α_14154_407
                         mov              rdi, rsi
 .Lcut_α_14154_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_14154_403
@@ -327446,6 +331344,13 @@ n14130_cut_α:           mov              qword ptr [rbp + 120], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_14154_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_14154_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_14154_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_14154_409:      lea              rsp, [rbp + -48];                    jmp   n14131_var_ref_α
                         .size            n14130_cut_bx, .-n14130_cut_bx
                         .type            n14131_var_ref_bx, @function
@@ -332810,7 +336715,16 @@ n14286_cut_α:           mov              qword ptr [rbp + 680], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_14390_405
                         mov              rsi, rcx
-.Lcut_α_14390_405:      cmp              rsi, r12;                            jae   .Lcut_α_14390_409
+.Lcut_α_14390_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_14390_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_14390_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_14390_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_14390_406
+                        mov              rsi, rdx
+.Lcut_α_14390_406:      cmp              rsi, r12;                            jae   .Lcut_α_14390_407
                         mov              rdi, rsi
 .Lcut_α_14390_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_14390_403
@@ -332841,6 +336755,13 @@ n14286_cut_α:           mov              qword ptr [rbp + 680], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_14390_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_14390_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_14390_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_14390_409:      lea              rsp, [rbp + -80];                    jmp   n14287_unify_const_α
                         .size            n14286_cut_bx, .-n14286_cut_bx
                         .type            n14287_unify_const_bx, @function
@@ -333139,7 +337060,16 @@ n14292_unmark_α:        mov              r13, qword ptr [rbp + 608]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_14401_405
                         mov              rsi, rcx
-.Lunmark_α_14401_405:   cmp              rsi, r12;                            jae   .Lunmark_α_14401_409
+.Lunmark_α_14401_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_14401_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_14401_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_14401_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_14401_406
+                        mov              rsi, rdx
+.Lunmark_α_14401_406:   cmp              rsi, r12;                            jae   .Lunmark_α_14401_407
                         mov              rdi, rsi
 .Lunmark_α_14401_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_14401_403
@@ -333170,6 +337100,13 @@ n14292_unmark_α:        mov              r13, qword ptr [rbp + 608]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_14401_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_14401_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_14401_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_14401_409:   mov              rsp, qword ptr [rbp + 600];          jmp   n14293_gate_arm_α
                         .size            n14292_unmark_bx, .-n14292_unmark_bx
                         .type            n14293_gate_arm_bx, @function
@@ -333624,7 +337561,16 @@ n14308_unmark_α:        mov              r13, qword ptr [rbp + 176]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_14430_405
                         mov              rsi, rcx
-.Lunmark_α_14430_405:   cmp              rsi, r12;                            jae   .Lunmark_α_14430_409
+.Lunmark_α_14430_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_14430_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_14430_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_14430_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_14430_406
+                        mov              rsi, rdx
+.Lunmark_α_14430_406:   cmp              rsi, r12;                            jae   .Lunmark_α_14430_407
                         mov              rdi, rsi
 .Lunmark_α_14430_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_14430_403
@@ -333655,6 +337601,13 @@ n14308_unmark_α:        mov              r13, qword ptr [rbp + 176]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_14430_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_14430_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_14430_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_14430_409:   mov              rsp, qword ptr [rbp + 168];          jmp   n14309_unify_const_α
                         .size            n14308_unmark_bx, .-n14308_unmark_bx
                         .type            n14309_unify_const_bx, @function
@@ -334130,7 +338083,16 @@ n14319_unmark_α:        mov              r13, qword ptr [rbp + 272]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_14450_405
                         mov              rsi, rcx
-.Lunmark_α_14450_405:   cmp              rsi, r12;                            jae   .Lunmark_α_14450_409
+.Lunmark_α_14450_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_14450_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_14450_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_14450_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_14450_406
+                        mov              rsi, rdx
+.Lunmark_α_14450_406:   cmp              rsi, r12;                            jae   .Lunmark_α_14450_407
                         mov              rdi, rsi
 .Lunmark_α_14450_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_14450_403
@@ -334161,6 +338123,13 @@ n14319_unmark_α:        mov              r13, qword ptr [rbp + 272]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_14450_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_14450_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_14450_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_14450_409:   mov              rsp, qword ptr [rbp + 264];          jmp   n14320_lit_integer_α
                         .size            n14319_unmark_bx, .-n14319_unmark_bx
                         .type            n14320_lit_integer_bx, @function
@@ -335279,7 +339248,16 @@ n14345_unmark_α:        lea              rax, [rbp + 448]
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_14490_405
                         mov              rsi, rcx
-.Lunmark_α_14490_405:   cmp              rsi, r12;                            jae   .Lunmark_α_14490_409
+.Lunmark_α_14490_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_14490_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_14490_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_14490_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_14490_406
+                        mov              rsi, rdx
+.Lunmark_α_14490_406:   cmp              rsi, r12;                            jae   .Lunmark_α_14490_407
                         mov              rdi, rsi
 .Lunmark_α_14490_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_14490_403
@@ -335310,6 +339288,13 @@ n14345_unmark_α:        lea              rax, [rbp + 448]
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_14490_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_14490_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_14490_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_14490_409:
 .Lunmark_α_14490_1:                                                           jmp   n14346_gate_arm_α
                         .size            n14345_unmark_bx, .-n14345_unmark_bx
@@ -335661,7 +339646,16 @@ n14359_unmark_α:        mov              r13, qword ptr [rbp + 368]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_14515_405
                         mov              rsi, rcx
-.Lunmark_α_14515_405:   cmp              rsi, r12;                            jae   .Lunmark_α_14515_409
+.Lunmark_α_14515_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_14515_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_14515_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_14515_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_14515_406
+                        mov              rsi, rdx
+.Lunmark_α_14515_406:   cmp              rsi, r12;                            jae   .Lunmark_α_14515_407
                         mov              rdi, rsi
 .Lunmark_α_14515_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_14515_403
@@ -335692,6 +339686,13 @@ n14359_unmark_α:        mov              r13, qword ptr [rbp + 368]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_14515_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_14515_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_14515_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_14515_409:   mov              rsp, qword ptr [rbp + 360];          jmp   n14360_var_ref_α
                         .size            n14359_unmark_bx, .-n14359_unmark_bx
                         .type            n14360_var_ref_bx, @function
@@ -337417,7 +341418,16 @@ n14584_cut_α:           mov              qword ptr [rbp + 88], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_14609_405
                         mov              rsi, rcx
-.Lcut_α_14609_405:      cmp              rsi, r12;                            jae   .Lcut_α_14609_409
+.Lcut_α_14609_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_14609_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_14609_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_14609_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_14609_406
+                        mov              rsi, rdx
+.Lcut_α_14609_406:      cmp              rsi, r12;                            jae   .Lcut_α_14609_407
                         mov              rdi, rsi
 .Lcut_α_14609_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_14609_403
@@ -337448,6 +341458,13 @@ n14584_cut_α:           mov              qword ptr [rbp + 88], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_14609_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_14609_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_14609_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_14609_409:      lea              rsp, [rbp + -112];                   jmp   n14585_var_ref_α
                         .size            n14584_cut_bx, .-n14584_cut_bx
                         .type            n14585_var_ref_bx, @function
@@ -339130,7 +343147,16 @@ n14640_cut_α:           mov              qword ptr [rbp + 648], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_14772_405
                         mov              rsi, rcx
-.Lcut_α_14772_405:      cmp              rsi, r12;                            jae   .Lcut_α_14772_409
+.Lcut_α_14772_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_14772_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_14772_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_14772_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_14772_406
+                        mov              rsi, rdx
+.Lcut_α_14772_406:      cmp              rsi, r12;                            jae   .Lcut_α_14772_407
                         mov              rdi, rsi
 .Lcut_α_14772_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_14772_403
@@ -339161,6 +343187,13 @@ n14640_cut_α:           mov              qword ptr [rbp + 648], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_14772_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_14772_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_14772_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_14772_409:      lea              rsp, [rbp + -96];                    jmp   n14641_var_ref_α
                         .size            n14640_cut_bx, .-n14640_cut_bx
                         .type            n14641_var_ref_bx, @function
@@ -339651,7 +343684,16 @@ n14647_unmark_α:        mov              r13, qword ptr [rbp + 192]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_14786_405
                         mov              rsi, rcx
-.Lunmark_α_14786_405:   cmp              rsi, r12;                            jae   .Lunmark_α_14786_409
+.Lunmark_α_14786_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_14786_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_14786_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_14786_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_14786_406
+                        mov              rsi, rdx
+.Lunmark_α_14786_406:   cmp              rsi, r12;                            jae   .Lunmark_α_14786_407
                         mov              rdi, rsi
 .Lunmark_α_14786_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_14786_403
@@ -339682,6 +343724,13 @@ n14647_unmark_α:        mov              r13, qword ptr [rbp + 192]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_14786_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_14786_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_14786_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_14786_409:   mov              rsp, qword ptr [rbp + 184];          jmp   n14648_var_ref_α
                         .size            n14647_unmark_bx, .-n14647_unmark_bx
                         .type            n14648_var_ref_bx, @function
@@ -340314,7 +344363,16 @@ n14664_unmark_α:        mov              r13, qword ptr [rbp + 288]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_14813_405
                         mov              rsi, rcx
-.Lunmark_α_14813_405:   cmp              rsi, r12;                            jae   .Lunmark_α_14813_409
+.Lunmark_α_14813_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_14813_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_14813_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_14813_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_14813_406
+                        mov              rsi, rdx
+.Lunmark_α_14813_406:   cmp              rsi, r12;                            jae   .Lunmark_α_14813_407
                         mov              rdi, rsi
 .Lunmark_α_14813_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_14813_403
@@ -340345,6 +344403,13 @@ n14664_unmark_α:        mov              r13, qword ptr [rbp + 288]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_14813_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_14813_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_14813_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_14813_409:   mov              rsp, qword ptr [rbp + 280];          jmp   n14665_lit_integer_α
                         .size            n14664_unmark_bx, .-n14664_unmark_bx
                         .type            n14665_lit_integer_bx, @function
@@ -340613,7 +344678,16 @@ n14675_unmark_α:        mov              r13, qword ptr [rbp + 384]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_14832_405
                         mov              rsi, rcx
-.Lunmark_α_14832_405:   cmp              rsi, r12;                            jae   .Lunmark_α_14832_409
+.Lunmark_α_14832_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_14832_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_14832_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_14832_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_14832_406
+                        mov              rsi, rdx
+.Lunmark_α_14832_406:   cmp              rsi, r12;                            jae   .Lunmark_α_14832_407
                         mov              rdi, rsi
 .Lunmark_α_14832_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_14832_403
@@ -340644,6 +344718,13 @@ n14675_unmark_α:        mov              r13, qword ptr [rbp + 384]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_14832_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_14832_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_14832_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_14832_409:   mov              rsp, qword ptr [rbp + 376];          jmp   n14676_lit_integer_α
                         .size            n14675_unmark_bx, .-n14675_unmark_bx
                         .type            n14676_lit_integer_bx, @function
@@ -341766,7 +345847,16 @@ n14712_unmark_α:        mov              r13, qword ptr [rbp + 480]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_14897_405
                         mov              rsi, rcx
-.Lunmark_α_14897_405:   cmp              rsi, r12;                            jae   .Lunmark_α_14897_409
+.Lunmark_α_14897_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_14897_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_14897_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_14897_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_14897_406
+                        mov              rsi, rdx
+.Lunmark_α_14897_406:   cmp              rsi, r12;                            jae   .Lunmark_α_14897_407
                         mov              rdi, rsi
 .Lunmark_α_14897_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_14897_403
@@ -341797,6 +345887,13 @@ n14712_unmark_α:        mov              r13, qword ptr [rbp + 480]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_14897_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_14897_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_14897_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_14897_409:   mov              rsp, qword ptr [rbp + 472];          jmp   n14713_lit_integer_α
                         .size            n14712_unmark_bx, .-n14712_unmark_bx
                         .type            n14713_lit_integer_bx, @function
@@ -342065,7 +346162,16 @@ n14723_unmark_α:        mov              r13, qword ptr [rbp + 576]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_14916_405
                         mov              rsi, rcx
-.Lunmark_α_14916_405:   cmp              rsi, r12;                            jae   .Lunmark_α_14916_409
+.Lunmark_α_14916_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_14916_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_14916_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_14916_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_14916_406
+                        mov              rsi, rdx
+.Lunmark_α_14916_406:   cmp              rsi, r12;                            jae   .Lunmark_α_14916_407
                         mov              rdi, rsi
 .Lunmark_α_14916_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_14916_403
@@ -342096,6 +346202,13 @@ n14723_unmark_α:        mov              r13, qword ptr [rbp + 576]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_14916_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_14916_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_14916_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_14916_409:   mov              rsp, qword ptr [rbp + 568];          jmp   n14724_lit_integer_α
                         .size            n14723_unmark_bx, .-n14723_unmark_bx
                         .type            n14724_lit_integer_bx, @function
@@ -344074,7 +348187,16 @@ n14980_cut_α:           mov              qword ptr [rbp + 72], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_14995_405
                         mov              rsi, rcx
-.Lcut_α_14995_405:      cmp              rsi, r12;                            jae   .Lcut_α_14995_409
+.Lcut_α_14995_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_14995_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_14995_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_14995_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_14995_406
+                        mov              rsi, rdx
+.Lcut_α_14995_406:      cmp              rsi, r12;                            jae   .Lcut_α_14995_407
                         mov              rdi, rsi
 .Lcut_α_14995_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_14995_403
@@ -344105,6 +348227,13 @@ n14980_cut_α:           mov              qword ptr [rbp + 72], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_14995_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_14995_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_14995_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_14995_409:      lea              rsp, [rbp + -64];                    jmp   $when_or_list$2F2_γ
                         .size            n14980_cut_bx, .-n14980_cut_bx
                         .type            n14981_unify_struct_bx, @function
@@ -344923,7 +349052,16 @@ n15007_unmark_α:        mov              r13, qword ptr [rbp + 128]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_15028_405
                         mov              rsi, rcx
-.Lunmark_α_15028_405:   cmp              rsi, r12;                            jae   .Lunmark_α_15028_409
+.Lunmark_α_15028_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_15028_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_15028_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_15028_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_15028_406
+                        mov              rsi, rdx
+.Lunmark_α_15028_406:   cmp              rsi, r12;                            jae   .Lunmark_α_15028_407
                         mov              rdi, rsi
 .Lunmark_α_15028_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_15028_403
@@ -344954,6 +349092,13 @@ n15007_unmark_α:        mov              r13, qword ptr [rbp + 128]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_15028_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_15028_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_15028_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_15028_409:   mov              rsp, qword ptr [rbp + 120];          jmp   n15008_var_ref_α
                         .size            n15007_unmark_bx, .-n15007_unmark_bx
                         .type            n15008_var_ref_bx, @function
@@ -346517,7 +350662,16 @@ n15084_cut_α:           mov              qword ptr [rbp + 136], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_15140_405
                         mov              rsi, rcx
-.Lcut_α_15140_405:      cmp              rsi, r12;                            jae   .Lcut_α_15140_409
+.Lcut_α_15140_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_15140_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_15140_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_15140_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_15140_406
+                        mov              rsi, rdx
+.Lcut_α_15140_406:      cmp              rsi, r12;                            jae   .Lcut_α_15140_407
                         mov              rdi, rsi
 .Lcut_α_15140_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_15140_403
@@ -346548,6 +350702,13 @@ n15084_cut_α:           mov              qword ptr [rbp + 136], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_15140_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_15140_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_15140_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_15140_409:      lea              rsp, [rbp + -80];                    jmp   $fc$2F3_ω
                         .size            n15084_cut_bx, .-n15084_cut_bx
                         .type            n15085_unify_const_bx, @function
@@ -346958,7 +351119,16 @@ n15092_cut_α:           mov              qword ptr [rbp + 136], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_15155_405
                         mov              rsi, rcx
-.Lcut_α_15155_405:      cmp              rsi, r12;                            jae   .Lcut_α_15155_409
+.Lcut_α_15155_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_15155_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_15155_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_15155_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_15155_406
+                        mov              rsi, rdx
+.Lcut_α_15155_406:      cmp              rsi, r12;                            jae   .Lcut_α_15155_407
                         mov              rdi, rsi
 .Lcut_α_15155_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_15155_403
@@ -346989,6 +351159,13 @@ n15092_cut_α:           mov              qword ptr [rbp + 136], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_15155_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_15155_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_15155_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_15155_409:      lea              rsp, [rbp + -112];                   jmp   $fc$2F3_γ
                         .size            n15092_cut_bx, .-n15092_cut_bx
                         .type            n15093_unify_struct_bx, @function
@@ -347421,7 +351598,16 @@ n15102_cut_α:           mov              qword ptr [rbp + 136], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_15175_405
                         mov              rsi, rcx
-.Lcut_α_15175_405:      cmp              rsi, r12;                            jae   .Lcut_α_15175_409
+.Lcut_α_15175_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_15175_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_15175_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_15175_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_15175_406
+                        mov              rsi, rdx
+.Lcut_α_15175_406:      cmp              rsi, r12;                            jae   .Lcut_α_15175_407
                         mov              rdi, rsi
 .Lcut_α_15175_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_15175_403
@@ -347452,6 +351638,13 @@ n15102_cut_α:           mov              qword ptr [rbp + 136], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_15175_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_15175_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_15175_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_15175_409:      lea              rsp, [rbp + -96];                    jmp   n15103_var_ref_α
                         .size            n15102_cut_bx, .-n15102_cut_bx
                         .type            n15103_var_ref_bx, @function
@@ -348218,7 +352411,16 @@ n15121_cut_α:           mov              qword ptr [rbp + 136], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_15209_405
                         mov              rsi, rcx
-.Lcut_α_15209_405:      cmp              rsi, r12;                            jae   .Lcut_α_15209_409
+.Lcut_α_15209_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_15209_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_15209_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_15209_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_15209_406
+                        mov              rsi, rdx
+.Lcut_α_15209_406:      cmp              rsi, r12;                            jae   .Lcut_α_15209_407
                         mov              rdi, rsi
 .Lcut_α_15209_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_15209_403
@@ -348249,6 +352451,13 @@ n15121_cut_α:           mov              qword ptr [rbp + 136], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_15209_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_15209_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_15209_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_15209_409:      lea              rsp, [rbp + -96];                    jmp   n15122_var_ref_α
                         .size            n15121_cut_bx, .-n15121_cut_bx
                         .type            n15122_var_ref_bx, @function
@@ -349604,7 +353813,16 @@ n15239_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_15286_405
                         mov              rsi, rcx
-.Lcut_α_15286_405:      cmp              rsi, r12;                            jae   .Lcut_α_15286_409
+.Lcut_α_15286_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_15286_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_15286_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_15286_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_15286_406
+                        mov              rsi, rdx
+.Lcut_α_15286_406:      cmp              rsi, r12;                            jae   .Lcut_α_15286_407
                         mov              rdi, rsi
 .Lcut_α_15286_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_15286_403
@@ -349635,6 +353853,13 @@ n15239_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_15286_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_15286_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_15286_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_15286_409:      lea              rsp, [rbp + -320];                   jmp   n15240_var_α
                         .size            n15239_cut_bx, .-n15239_cut_bx
                         .type            n15240_var_bx, @function
@@ -349859,7 +354084,16 @@ n15244_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_15296_405
                         mov              rsi, rcx
-.Lcut_α_15296_405:      cmp              rsi, r12;                            jae   .Lcut_α_15296_409
+.Lcut_α_15296_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_15296_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_15296_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_15296_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_15296_406
+                        mov              rsi, rdx
+.Lcut_α_15296_406:      cmp              rsi, r12;                            jae   .Lcut_α_15296_407
                         mov              rdi, rsi
 .Lcut_α_15296_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_15296_403
@@ -349890,6 +354124,13 @@ n15244_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_15296_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_15296_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_15296_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_15296_409:      lea              rsp, [rbp + -320];                   jmp   n15245_var_α
                         .size            n15244_cut_bx, .-n15244_cut_bx
                         .type            n15245_var_bx, @function
@@ -350361,7 +354602,16 @@ n15255_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_15315_405
                         mov              rsi, rcx
-.Lcut_α_15315_405:      cmp              rsi, r12;                            jae   .Lcut_α_15315_409
+.Lcut_α_15315_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_15315_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_15315_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_15315_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_15315_406
+                        mov              rsi, rdx
+.Lcut_α_15315_406:      cmp              rsi, r12;                            jae   .Lcut_α_15315_407
                         mov              rdi, rsi
 .Lcut_α_15315_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_15315_403
@@ -350392,6 +354642,13 @@ n15255_cut_α:           mov              qword ptr [rbp + 104], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_15315_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_15315_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_15315_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_15315_409:      lea              rsp, [rbp + -208];                   jmp   n15256_var_α
                         .size            n15255_cut_bx, .-n15255_cut_bx
                         .type            n15256_var_bx, @function
@@ -351575,7 +355832,16 @@ n15336_cut_α:           mov              qword ptr [rbp + 264], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_15430_405
                         mov              rsi, rcx
-.Lcut_α_15430_405:      cmp              rsi, r12;                            jae   .Lcut_α_15430_409
+.Lcut_α_15430_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_15430_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_15430_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_15430_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_15430_406
+                        mov              rsi, rdx
+.Lcut_α_15430_406:      cmp              rsi, r12;                            jae   .Lcut_α_15430_407
                         mov              rdi, rsi
 .Lcut_α_15430_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_15430_403
@@ -351606,6 +355872,13 @@ n15336_cut_α:           mov              qword ptr [rbp + 264], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_15430_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_15430_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_15430_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_15430_409:      lea              rsp, [rbp + -208];                   jmp   n15337_var_α
                         .size            n15336_cut_bx, .-n15336_cut_bx
                         .type            n15337_var_bx, @function
@@ -352082,7 +356355,16 @@ n15347_cut_α:           mov              qword ptr [rbp + 264], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_15449_405
                         mov              rsi, rcx
-.Lcut_α_15449_405:      cmp              rsi, r12;                            jae   .Lcut_α_15449_409
+.Lcut_α_15449_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_15449_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_15449_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_15449_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_15449_406
+                        mov              rsi, rdx
+.Lcut_α_15449_406:      cmp              rsi, r12;                            jae   .Lcut_α_15449_407
                         mov              rdi, rsi
 .Lcut_α_15449_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_15449_403
@@ -352113,6 +356395,13 @@ n15347_cut_α:           mov              qword ptr [rbp + 264], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_15449_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_15449_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_15449_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_15449_409:      lea              rsp, [rbp + -208];                   jmp   n15348_bound_α
                         .size            n15347_cut_bx, .-n15347_cut_bx
                         .type            n15348_bound_bx, @function
@@ -352369,7 +356658,16 @@ n15353_unmark_α:        mov              r13, qword ptr [rbp + 128]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_15461_405
                         mov              rsi, rcx
-.Lunmark_α_15461_405:   cmp              rsi, r12;                            jae   .Lunmark_α_15461_409
+.Lunmark_α_15461_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_15461_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_15461_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_15461_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_15461_406
+                        mov              rsi, rdx
+.Lunmark_α_15461_406:   cmp              rsi, r12;                            jae   .Lunmark_α_15461_407
                         mov              rdi, rsi
 .Lunmark_α_15461_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_15461_403
@@ -352400,6 +356698,13 @@ n15353_unmark_α:        mov              r13, qword ptr [rbp + 128]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_15461_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_15461_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_15461_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_15461_409:   mov              rsp, qword ptr [rbp + 120];          jmp   n15354_var_α
                         .size            n15353_unmark_bx, .-n15353_unmark_bx
                         .type            n15354_var_bx, @function
@@ -353078,7 +357383,16 @@ n15371_cut_α:           mov              qword ptr [rbp + 264], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_15494_405
                         mov              rsi, rcx
-.Lcut_α_15494_405:      cmp              rsi, r12;                            jae   .Lcut_α_15494_409
+.Lcut_α_15494_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_15494_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_15494_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_15494_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_15494_406
+                        mov              rsi, rdx
+.Lcut_α_15494_406:      cmp              rsi, r12;                            jae   .Lcut_α_15494_407
                         mov              rdi, rsi
 .Lcut_α_15494_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_15494_403
@@ -353109,6 +357423,13 @@ n15371_cut_α:           mov              qword ptr [rbp + 264], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_15494_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_15494_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_15494_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_15494_409:      lea              rsp, [rbp + -208];                   jmp   n15372_bound_α
                         .size            n15371_cut_bx, .-n15371_cut_bx
                         .type            n15372_bound_bx, @function
@@ -353980,7 +358301,16 @@ n15395_cut_α:           mov              qword ptr [rbp + 264], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_15542_405
                         mov              rsi, rcx
-.Lcut_α_15542_405:      cmp              rsi, r12;                            jae   .Lcut_α_15542_409
+.Lcut_α_15542_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_15542_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_15542_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_15542_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_15542_406
+                        mov              rsi, rdx
+.Lcut_α_15542_406:      cmp              rsi, r12;                            jae   .Lcut_α_15542_407
                         mov              rdi, rsi
 .Lcut_α_15542_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_15542_403
@@ -354011,6 +358341,13 @@ n15395_cut_α:           mov              qword ptr [rbp + 264], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_15542_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_15542_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_15542_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_15542_409:      lea              rsp, [rbp + -80];                    jmp   n15396_var_α
                         .size            n15395_cut_bx, .-n15395_cut_bx
                         .type            n15396_var_bx, @function
@@ -354490,7 +358827,16 @@ n15406_cut_α:           mov              qword ptr [rbp + 264], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_15564_405
                         mov              rsi, rcx
-.Lcut_α_15564_405:      cmp              rsi, r12;                            jae   .Lcut_α_15564_409
+.Lcut_α_15564_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_15564_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_15564_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_15564_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_15564_406
+                        mov              rsi, rdx
+.Lcut_α_15564_406:      cmp              rsi, r12;                            jae   .Lcut_α_15564_407
                         mov              rdi, rsi
 .Lcut_α_15564_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_15564_403
@@ -354521,6 +358867,13 @@ n15406_cut_α:           mov              qword ptr [rbp + 264], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_15564_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_15564_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_15564_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_15564_409:      lea              rsp, [rbp + -80];                    jmp   n15407_var_α
                         .size            n15406_cut_bx, .-n15406_cut_bx
                         .type            n15407_var_bx, @function
@@ -354745,7 +359098,16 @@ n15411_cut_α:           mov              qword ptr [rbp + 264], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_15574_405
                         mov              rsi, rcx
-.Lcut_α_15574_405:      cmp              rsi, r12;                            jae   .Lcut_α_15574_409
+.Lcut_α_15574_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_15574_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_15574_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_15574_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_15574_406
+                        mov              rsi, rdx
+.Lcut_α_15574_406:      cmp              rsi, r12;                            jae   .Lcut_α_15574_407
                         mov              rdi, rsi
 .Lcut_α_15574_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_15574_403
@@ -354776,6 +359138,13 @@ n15411_cut_α:           mov              qword ptr [rbp + 264], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_15574_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_15574_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_15574_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_15574_409:      lea              rsp, [rbp + -80];                    jmp   n15412_var_α
                         .size            n15411_cut_bx, .-n15411_cut_bx
                         .type            n15412_var_bx, @function
@@ -356036,7 +360405,16 @@ n15591_cut_α:           mov              qword ptr [rbp + 88], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_15615_405
                         mov              rsi, rcx
-.Lcut_α_15615_405:      cmp              rsi, r12;                            jae   .Lcut_α_15615_409
+.Lcut_α_15615_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_15615_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_15615_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_15615_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_15615_406
+                        mov              rsi, rdx
+.Lcut_α_15615_406:      cmp              rsi, r12;                            jae   .Lcut_α_15615_407
                         mov              rdi, rsi
 .Lcut_α_15615_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_15615_403
@@ -356067,6 +360445,13 @@ n15591_cut_α:           mov              qword ptr [rbp + 88], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_15615_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_15615_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_15615_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_15615_409:      lea              rsp, [rbp + -208];                   jmp   n15592_var_α
                         .size            n15591_cut_bx, .-n15591_cut_bx
                         .type            n15592_var_bx, @function
@@ -356424,7 +360809,16 @@ n15598_cut_α:           mov              qword ptr [rbp + 88], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_15629_405
                         mov              rsi, rcx
-.Lcut_α_15629_405:      cmp              rsi, r12;                            jae   .Lcut_α_15629_409
+.Lcut_α_15629_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_15629_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_15629_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_15629_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_15629_406
+                        mov              rsi, rdx
+.Lcut_α_15629_406:      cmp              rsi, r12;                            jae   .Lcut_α_15629_407
                         mov              rdi, rsi
 .Lcut_α_15629_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_15629_403
@@ -356455,6 +360849,13 @@ n15598_cut_α:           mov              qword ptr [rbp + 88], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_15629_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_15629_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_15629_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_15629_409:      lea              rsp, [rbp + -48];                    jmp   n15599_var_α
                         .size            n15598_cut_bx, .-n15598_cut_bx
                         .type            n15599_var_bx, @function
@@ -357229,7 +361630,16 @@ n15642_cut_α:           mov              qword ptr [rbp + 88], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_15663_405
                         mov              rsi, rcx
-.Lcut_α_15663_405:      cmp              rsi, r12;                            jae   .Lcut_α_15663_409
+.Lcut_α_15663_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_15663_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_15663_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_15663_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_15663_406
+                        mov              rsi, rdx
+.Lcut_α_15663_406:      cmp              rsi, r12;                            jae   .Lcut_α_15663_407
                         mov              rdi, rsi
 .Lcut_α_15663_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_15663_403
@@ -357260,6 +361670,13 @@ n15642_cut_α:           mov              qword ptr [rbp + 88], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_15663_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_15663_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_15663_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_15663_409:      lea              rsp, [rbp + -208];                   jmp   n15643_var_α
                         .size            n15642_cut_bx, .-n15642_cut_bx
                         .type            n15643_var_bx, @function
@@ -367594,7 +372011,16 @@ n15978_unmark_α:        mov              r13, qword ptr [rbp + 96]            #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_16004_405
                         mov              rsi, rcx
-.Lunmark_α_16004_405:   cmp              rsi, r12;                            jae   .Lunmark_α_16004_409
+.Lunmark_α_16004_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_16004_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_16004_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_16004_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_16004_406
+                        mov              rsi, rdx
+.Lunmark_α_16004_406:   cmp              rsi, r12;                            jae   .Lunmark_α_16004_407
                         mov              rdi, rsi
 .Lunmark_α_16004_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_16004_403
@@ -367625,6 +372051,13 @@ n15978_unmark_α:        mov              r13, qword ptr [rbp + 96]            #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_16004_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_16004_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_16004_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_16004_409:   mov              rsp, qword ptr [rbp + 88];           jmp   n15979_var_ref_α
                         .size            n15978_unmark_bx, .-n15978_unmark_bx
                         .type            n15979_var_ref_bx, @function
@@ -371761,7 +376194,16 @@ n16149_unmark_α:        mov              r13, qword ptr [rbp + 96]            #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_16176_405
                         mov              rsi, rcx
-.Lunmark_α_16176_405:   cmp              rsi, r12;                            jae   .Lunmark_α_16176_409
+.Lunmark_α_16176_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_16176_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_16176_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_16176_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_16176_406
+                        mov              rsi, rdx
+.Lunmark_α_16176_406:   cmp              rsi, r12;                            jae   .Lunmark_α_16176_407
                         mov              rdi, rsi
 .Lunmark_α_16176_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_16176_403
@@ -371792,6 +376234,13 @@ n16149_unmark_α:        mov              r13, qword ptr [rbp + 96]            #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_16176_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_16176_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_16176_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_16176_409:   mov              rsp, qword ptr [rbp + 88];           jmp   n16150_var_ref_α
                         .size            n16149_unmark_bx, .-n16149_unmark_bx
                         .type            n16150_var_ref_bx, @function
@@ -380113,7 +384562,16 @@ n16468_unmark_α:        mov              r13, qword ptr [rbp + 96]            #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_16490_405
                         mov              rsi, rcx
-.Lunmark_α_16490_405:   cmp              rsi, r12;                            jae   .Lunmark_α_16490_409
+.Lunmark_α_16490_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_16490_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_16490_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_16490_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_16490_406
+                        mov              rsi, rdx
+.Lunmark_α_16490_406:   cmp              rsi, r12;                            jae   .Lunmark_α_16490_407
                         mov              rdi, rsi
 .Lunmark_α_16490_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_16490_403
@@ -380144,6 +384602,13 @@ n16468_unmark_α:        mov              r13, qword ptr [rbp + 96]            #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_16490_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_16490_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_16490_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_16490_409:   mov              rsp, qword ptr [rbp + 88];           jmp   n16469_lit_integer_α
                         .size            n16468_unmark_bx, .-n16468_unmark_bx
                         .type            n16469_lit_integer_bx, @function
@@ -404025,7 +408490,16 @@ n17281_cut_α:           mov              qword ptr [rbp + 72], 0
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lcut_α_17287_405
                         mov              rsi, rcx
-.Lcut_α_17287_405:      cmp              rsi, r12;                            jae   .Lcut_α_17287_409
+.Lcut_α_17287_405:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_17287_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_17287_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lcut_α_17287_406
+                        cmp              rdx, r12;                            ja    .Lcut_α_17287_406
+                        mov              rsi, rdx
+.Lcut_α_17287_406:      cmp              rsi, r12;                            jae   .Lcut_α_17287_407
                         mov              rdi, rsi
 .Lcut_α_17287_400:      mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lcut_α_17287_403
@@ -404056,6 +408530,13 @@ n17281_cut_α:           mov              qword ptr [rbp + 72], 0
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lcut_α_17287_407:      mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lcut_α_17287_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lcut_α_17287_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lcut_α_17287_409:      lea              rsp, [rbp + -32];                    jmp   $21$2F0_γ
                         .size            n17281_cut_bx, .-n17281_cut_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -410209,7 +414690,16 @@ n17458_unmark_α:        lea              rax, [rbp + 192]
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_17488_405
                         mov              rsi, rcx
-.Lunmark_α_17488_405:   cmp              rsi, r12;                            jae   .Lunmark_α_17488_409
+.Lunmark_α_17488_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_17488_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_17488_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_17488_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_17488_406
+                        mov              rsi, rdx
+.Lunmark_α_17488_406:   cmp              rsi, r12;                            jae   .Lunmark_α_17488_407
                         mov              rdi, rsi
 .Lunmark_α_17488_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_17488_403
@@ -410240,6 +414730,13 @@ n17458_unmark_α:        lea              rax, [rbp + 192]
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_17488_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_17488_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_17488_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_17488_409:
 .Lunmark_α_17488_1:                                                           jmp   n17459_gate_arm_α
                         .size            n17458_unmark_bx, .-n17458_unmark_bx
@@ -410679,7 +415176,16 @@ n17474_unmark_α:        mov              r13, qword ptr [rbp + 112]           #
                         mov              rcx, qword ptr [rax + 64]
                         cmp              rsi, rcx;                            jae   .Lunmark_α_17513_405
                         mov              rsi, rcx
-.Lunmark_α_17513_405:   cmp              rsi, r12;                            jae   .Lunmark_α_17513_409
+.Lunmark_α_17513_405:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_17513_406
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_17513_406
+                        mov              rdx, qword ptr [rcx + -8]
+                        cmp              rdx, rsi;                            jbe   .Lunmark_α_17513_406
+                        cmp              rdx, r12;                            ja    .Lunmark_α_17513_406
+                        mov              rsi, rdx
+.Lunmark_α_17513_406:   cmp              rsi, r12;                            jae   .Lunmark_α_17513_407
                         mov              rdi, rsi
 .Lunmark_α_17513_400:   mov              rax, qword ptr [rsi + 0]
                         test             rax, rax;                            je    .Lunmark_α_17513_403
@@ -410710,6 +415216,13 @@ n17474_unmark_α:        mov              r13, qword ptr [rbp + 112]           #
                         mov              rax, r12
                         and              rax, -536870912
                         mov              qword ptr [rax + 0], r12
+.Lunmark_α_17513_407:   mov              rcx, qword ptr [r13 + 0]
+                        mov              rdx, rcx
+                        and              rdx, 536870911
+                        cmp              rdx, 192;                            jb    .Lunmark_α_17513_409
+                        cmp              qword ptr [rcx + -32], 0;            jne   .Lunmark_α_17513_409
+                        mov              qword ptr [rcx + -16], 3
+                        mov              qword ptr [rcx + -8], r12
 .Lunmark_α_17513_409:   mov              rsp, qword ptr [rbp + 104];          jmp   n17475_gate_arm_α
                         .size            n17474_unmark_bx, .-n17474_unmark_bx
                         .type            n17475_gate_arm_bx, @function
