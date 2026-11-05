@@ -1,0 +1,14 @@
+my $e = 5;
+say ("$e" ~~ Str);
+say ("$e" ~~ /5/).Bool;
+say "$e".WHAT;
+try die "boom";
+say "$!".WHAT;
+say ("$!" ~~ /boom/).Bool;
+my @a = 1, 2;
+say "@a[]".WHAT;
+my %h = a => 1;
+say "%h<a>".WHAT;
+say "{1 + 1}".WHAT;
+my $u;
+say "$e$e".WHAT;

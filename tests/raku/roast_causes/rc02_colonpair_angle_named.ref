@@ -1,0 +1,10 @@
+False
+5
+4
+X::Eval::NoSuchLang
+No compiler available for language 'Foo'
+{:x("y")}
+[1]
+{:x("y")}
+[2]
+"P"

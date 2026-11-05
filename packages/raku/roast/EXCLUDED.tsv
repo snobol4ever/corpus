@@ -1,6 +1,7 @@
 # EXCLUDED.tsv -- the Roast files with NO ORACLE ANSWER, out of the denominator (CEO-1696), read by raku_roast_scoreboard.sh through
 # lib_inventory.sh inventory_excluded_names: rakudo-local 2026.05 raku -c refuses the unfudged file. Taken from hq_raku's parse-only census
 # corpus tests/raku/config/ROAST-PARSE-CLASSES.tsv (CEO-1713, corpus cf4e15779), class NO_ORACLE_ANSWER; name<TAB>class<TAB>evidence.
+# class S17_CLOSED_BY_LON (CTO-514 ruling 1, 2026-11-05): every S17 concurrency file leaves the denominator until Lon opens S17 (skill raku section 7); the class returns whole when he does.
 6.c/S02-names/pseudo-6c	NO_ORACLE_ANSWER	rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/6.c/S02-names/pseudo-6c.t "::=" not yet implemented. Sor
 S02-literals/format	NO_ORACLE_ANSWER	rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: ===SORRY!=== Unrecognized adverb: :o at /home/resources/roast-master/S02-literals/format.t:8 
 S02-literals/pod	NO_ORACLE_ANSWER	rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S02-literals/pod.t Pod variable $=DATA not yet implement
@@ -64,3 +65,102 @@ S32-list/grep-k	NO_ORACLE_ANSWER	rakudo-local 2026.05 raku -c refuses the unfudg
 S32-list/map	NO_ORACLE_ANSWER	rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S32-list/map.t You can't adverb :{ $_ * 2 } at /home/res
 t/fudge	NO_ORACLE_ANSWER	rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/t/fudge.t Could not find warnings in:     /home/satirica
 t/fudgeandrun	NO_ORACLE_ANSWER	rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/t/fudgeandrun.t Could not find warnings in:     /home/sa
+S17-channel/basic	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-channel
+S17-channel/stress	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-channel
+S17-channel/subscription-drain-in-react	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-channel
+S17-lowlevel/atomic-ops	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-lowlevel
+S17-lowlevel/atomic	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-lowlevel
+S17-lowlevel/cas-int	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-lowlevel
+S17-lowlevel/cas-loop-int	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-lowlevel
+S17-lowlevel/cas-loop	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-lowlevel
+S17-lowlevel/cas	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-lowlevel
+S17-lowlevel/lock	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-lowlevel
+S17-lowlevel/semaphore	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-lowlevel
+S17-lowlevel/thread-start-join-stress	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-lowlevel
+S17-lowlevel/thread	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-lowlevel
+S17-procasync/basic	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-procasync
+S17-procasync/bind-handles	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-procasync
+S17-procasync/encoding	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-procasync
+S17-procasync/kill	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-procasync
+S17-procasync/many-processes-no-close-stdin	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-procasync
+S17-procasync/no-runaway-file-limit	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-procasync
+S17-procasync/nonexistent	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-procasync
+S17-procasync/print	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-procasync
+S17-procasync/stress	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-procasync
+S17-procasync/windows-arg-quoting	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-procasync
+S17-promise/allof	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-promise
+S17-promise/anyof	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-promise
+S17-promise/at	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-promise
+S17-promise/basic	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-promise
+S17-promise/in	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-promise
+S17-promise/lock-async-stress	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-promise
+S17-promise/lock-async-stress2	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-promise
+S17-promise/lock-async	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-promise
+S17-promise/nonblocking-await	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-promise
+S17-promise/single-assignment	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-promise
+S17-promise/start	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-promise
+S17-promise/stress	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-promise
+S17-promise/then	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-promise
+S17-scheduler/at	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-scheduler
+S17-scheduler/basic	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-scheduler
+S17-scheduler/every	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-scheduler
+S17-scheduler/in	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-scheduler
+S17-scheduler/times	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-scheduler
+S17-supply/Channel	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/Promise	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/Seq	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/act	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/basic	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/batch	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/categorize	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/classify	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/collate	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/comb	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/construction-recursion	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/decode	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/delayed	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/do	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/elems	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/encode	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/first	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/flat	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/from-list	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/grab	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/grep	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/head	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/interval	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/lines	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/list	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/map	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/max	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/merge	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/migrate	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/min	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/minmax	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/on-demand	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/produce	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/reduce	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/repeated	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/return-in-tap	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/reverse	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/rotate	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/rotor	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/schedule-on	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/skip	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/snip	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/sort	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/split	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/squish	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/stable	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/start	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/supplier-preserving	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/syntax-nonblocking-await	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/syntax	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/tail	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/throttle	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/unique	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/wait	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/watch-path	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/words	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/zip-latest	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/zip	S17_CLOSED_BY_LON	S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
