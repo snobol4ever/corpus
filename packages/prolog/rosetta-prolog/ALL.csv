@@ -511,5 +511,5 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,ru
 510,truncatable-primes-2,rosetta-prolog__truncatable-primes-2,rosetta-prolog,45,0,0,131072,4096,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 511,universal-turing-machine-1,rosetta-prolog__universal-turing-machine-1,rosetta-prolog,34,0,0,131072,4096,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 512,variables-1,rosetta-prolog__variables-1,rosetta-prolog,5,0,0,131072,4096,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-513,topswops,rosetta-prolog__topswops,rosetta-prolog,26,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,1,0,1,0,1,1,0,0,0
+513,topswops,rosetta-prolog__topswops,rosetta-prolog,26,0,0,524288,65536,,,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,1,0,1,0,1,1,0,0,0
 514,arithmetic-rational,rosetta-prolog__arithmetic-rational,rosetta-prolog,26,0,0,131072,4096,,,0,0,1,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0
