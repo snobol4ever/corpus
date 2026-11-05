@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1379 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=51 clusters=49 chunks=14 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,28
+# shape: entries=1380 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=51 clusters=49 chunks=14 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,29
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:01	family:ladder	
@@ -227,7 +227,7 @@ simple_program_4	chunk:10	feat:string_concat	string_concat
 simple_program_42	chunk:10	feat:string_concat	string_concat
 simple_program_51	chunk:13	feat:sprintf	sprintf
 simple_program_52	chunk:13	feat:sprintf	sprintf
-simple_program_53	chunk:13	feat:sprintf	sprintf
+simple_program_53	chunk:14	feat:sprintf	sprintf
 simple_program_54	chunk:14	feat:sprintf	sprintf
 simple_program_55	chunk:14	feat:sprintf	sprintf
 simple_program_63	chunk:09	feat:regex	regex
@@ -889,6 +889,7 @@ ladder__rung08_for_a_labelled_while_in_parentheses_leaves_on_last	chunk:11	feat:
 ladder__rung08_for_redo_in_a_while_restarts_the_body_without_testing_the_condition	chunk:11	feat:while	if while
 ladder__rung09_regex_a_unicode_general_category_assertion_matches_by_short_or_long_name	chunk:10	feat:smartmatch	regex say smartmatch string_concat
 ladder__rung10_smartmatch_the_right_side_is_evaluated_with_the_topic_set_to_the_left_and_restored_after	chunk:10	feat:smartmatch	smartmatch string_concat
+ladder__rung12_exceptions_a_unit_scoped_sub_in_an_eval_throws_x_unitscope_invalid	chunk:12	feat:try	smartmatch string_concat sub try
 ladder__rung13_classes_a_method_invocant_named_other_than_self_binds_the_object_and_keeps_the_parameters	chunk:12	feat:method	method string_concat
 ladder__rung13_classes_a_method_invocant_named_self_keeps_the_parameters	chunk:12	feat:method	method string_concat
 ladder__rung13_classes_a_parameter_subsignature_reads_an_objects_accessors	chunk:04	feat:has	has sub
@@ -1329,7 +1330,7 @@ scrip_test_rk_subs	core	core	if multi return say string_concat sub sub_with_retu
 method_sub_for_replace_1	chunk:07	feat:for_with_say	for for_with_say method say sigil_array sub
 ladder__rung02_arithmetic_power_in_every_right_hand_side_position	chunk:12	feat:while	return sigil_array sigil_hash sub sub_with_return while
 sub_junction_smartmatch_1	core	core	if junction range_op regex say smartmatch string_concat sub
-ladder__rung12_exceptions_fail_returns_a_failure_that_is_undefined_handled_by_its_methods_and_thrown_when_sunk_and_shift_and_pop_of_an_empty_array_return_one	chunk:12	feat:try	say sigil_array smartmatch string_concat sub try
+ladder__rung12_exceptions_fail_returns_a_failure_that_is_undefined_handled_by_its_methods_and_thrown_when_sunk_and_shift_and_pop_of_an_empty_array_return_one	chunk:13	feat:try	say sigil_array smartmatch string_concat sub try
 ladder__rung01_variables_a_package_variable_is_declared_with_our_and_read_by_its_qualified_name	core	core	method our sigil_array sigil_hash sub
 multi_sub_smartmatch_replace_1	core	core	if multi range_op regex say smartmatch string_concat sub
 ladder__rung04_arrays_binding_an_array_to_an_element_aliases_it_and_pop_shift_a_zen_slice_and_an_element_store_value_agree_with_rakudo	chunk:07	feat:for_with_say	for for_with_say if range_op sigil_array sub
