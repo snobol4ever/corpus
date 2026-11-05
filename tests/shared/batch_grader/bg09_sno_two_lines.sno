@@ -1,0 +1,3 @@
+	OUTPUT = 'batch rows run in order'
+	OUTPUT = 'second line'
+END

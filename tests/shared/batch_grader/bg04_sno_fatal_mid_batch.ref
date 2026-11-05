@@ -1,0 +1,19 @@
+before
+
+
+
+bg04_sno_fatal_mid_batch.sno(3) : ERROR 014 -- division caused integer overflow
+
+
+
+
+
+in file              bg04_sno_fatal_mid_batch.sno
+in line              3
+in statement         3
+stmts executed       3
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11472
+memory left (bytes)  1037096
+

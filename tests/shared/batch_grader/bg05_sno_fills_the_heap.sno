@@ -1,0 +1,7 @@
+	S = DUPL('a', 4000000)
+	T = TABLE(100000)
+	I = 0
+fill	T[I] = S
+	I = LT(I, 50) I + 1	:S(fill)
+	OUTPUT = 'filled ' SIZE(S) ' ' I
+END

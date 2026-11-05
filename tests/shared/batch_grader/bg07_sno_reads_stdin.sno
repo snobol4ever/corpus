@@ -1,0 +1,3 @@
+	L = INPUT
+	OUTPUT = 'read <' L '>'
+END
