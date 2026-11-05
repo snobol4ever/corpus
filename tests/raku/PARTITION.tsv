@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1387 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=51 clusters=49 chunks=14 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,36
+# shape: entries=1388 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=51 clusters=49 chunks=14 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,37
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:01	family:ladder	
@@ -423,6 +423,7 @@ ladder__rung04_arrays_the_kv_adverb_answers_the_index_and_the_element	chunk:06	f
 ladder__rung04_arrays_the_p_adverb_on_a_slice_answers_index_pairs	chunk:06	feat:sigil_array	sigil_array
 ladder__rung05_hashes_a_brace_with_a_pair_first_and_plain_elements_after_is_a_hash	chunk:02	family:ladder	
 ladder__rung05_hashes_a_percent_sigil_before_a_scalar_is_the_hash_it_holds	chunk:02	family:ladder	
+ladder__rung05_hashes_antipairs_returns_a_seq_of_swapped_pairs_without_flattening	chunk:08	feat:sigil_hash	sigil_hash
 ladder__rung05_hashes_invert_returns_a_seq_of_value_key_pairs	chunk:08	feat:sigil_hash	sigil_hash
 ladder__rung05_hashes_missing_key	chunk:08	feat:sigil_hash	sigil_hash
 ladder__rung05_hashes_the_kv_adverb_answers_the_key_and_the_value	chunk:08	feat:sigil_hash	sigil_hash
@@ -480,7 +481,7 @@ say_43	chunk:09	feat:regex	regex say
 say_44	chunk:09	feat:regex	regex say
 say_45	chunk:09	feat:regex	regex say
 say_46	chunk:09	feat:regex	regex say
-say_47	chunk:09	feat:regex	regex say
+say_47	chunk:10	feat:regex	regex say
 say_48	chunk:10	feat:regex	regex say
 say_49	chunk:10	feat:regex	regex say
 say_50	chunk:10	feat:regex	regex say
@@ -605,7 +606,7 @@ token_1	chunk:13	feat:token	regex token
 ladder__rung024_kw_inf_inf_parse	chunk:02	family:ladder	
 sub_say_4	chunk:07	feat:sub	say sub
 ladder__rung025_kw_nan_nan_distinct_values	chunk:10	feat:smartmatch	smartmatch string_concat
-token_regex_1	chunk:13	feat:token	regex token
+token_regex_1	chunk:14	feat:token	regex token
 ladder__rung09_regex_the_subst_method_takes_x_with_a_count_a_range_or_a_star_and_nth	chunk:10	feat:regex	range_op regex
 ladder__rung02_arithmetic_rat_literals_division_stringification_and_methods	chunk:10	feat:string_concat	say string_concat
 array_40	chunk:06	feat:sigil_array	sigil_array
@@ -652,7 +653,7 @@ test_seq_op	chunk:12	feat:range_op	range_op sigil_array
 array_37	chunk:10	feat:string_concat	sigil_array string_concat
 array_45	chunk:09	feat:if	if sigil_array
 array_say_9	chunk:06	feat:sigil_array	say sigil_array
-class_method_2	chunk:10	feat:return	method return
+class_method_2	chunk:11	feat:return	method return
 hash_15	chunk:08	feat:sigil_hash	sigil_hash
 join_array_1	chunk:08	feat:join	join sigil_array
 join_array_10	chunk:08	feat:join	join sigil_array
@@ -667,7 +668,7 @@ join_array_7	chunk:08	feat:join	join sigil_array
 join_array_8	chunk:08	feat:join	join sigil_array
 join_array_9	chunk:08	feat:join	join sigil_array
 join_hash_1	chunk:08	feat:join	join sigil_hash
-join_hash_2	chunk:08	feat:join	join sigil_hash
+join_hash_2	chunk:09	feat:join	join sigil_hash
 join_hash_3	chunk:09	feat:join	join sigil_hash
 ladder__rung01_variables_a_declarator_bind_takes_the_whole_comma_list	chunk:06	feat:sigil_array	sigil_array
 ladder__rung027_quote_q_a_adverb	chunk:06	feat:sigil_array	sigil_array
@@ -768,7 +769,7 @@ test_lines_file	chunk:06	feat:sigil_array	say sigil_array
 test_stmt_ctrl_loop_three	chunk:13	feat:loop	loop
 test_stmt_pfx_do	chunk:04	feat:say	say
 while_4	chunk:11	feat:while	while
-while_replace_1	chunk:11	feat:while	while
+while_replace_1	chunk:12	feat:while	while
 array_50	chunk:06	feat:sigil_array	sigil_array
 array_replace_2	chunk:06	feat:sigil_array	sigil_array
 array_say_replace_2	chunk:06	feat:sigil_array	say sigil_array
@@ -1215,7 +1216,7 @@ ladder__rung07_subs_an_is_rw_parameter_writes_back_to_a_scalar_or_an_element_arg
 sub_say_replace_2	chunk:09	feat:if	if say string_concat sub
 ladder__rung01_variables_compound_assignment_and_element_increment	chunk:09	feat:join	join sigil_array sigil_hash string_concat
 sub_while_say_replace_1	chunk:12	feat:while	if say sub while
-ladder__rung12_exceptions_try_yields_a_code_value_call_and_a_sub_whose_last_statement_is_a_try_returns_it	chunk:12	feat:try	method sub try
+ladder__rung12_exceptions_try_yields_a_code_value_call_and_a_sub_whose_last_statement_is_a_try_returns_it	chunk:13	feat:try	method sub try
 ladder__rung13_classes_nqp_create_and_bindattr	chunk:05	feat:has	has method string_concat
 ladder__rung04_arrays_hash_of_a_list_flattens_it_and_an_odd_number_of_elements_throws_x_hash_store_oddnumber	chunk:13	feat:try	say sigil_array sigil_hash try
 ladder__rung05_hashes_a_colon_pair_used_as_a_value_is_a_pair_in_a_hash_a_list_and_a_scalar	chunk:08	feat:sigil_hash	say sigil_array sigil_hash sub
