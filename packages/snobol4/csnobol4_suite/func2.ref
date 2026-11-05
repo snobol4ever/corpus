@@ -1,0 +1,26 @@
+
+
+
+func2.sno(7) : ERROR 022 -- undefined function called
+func2.sno(7) : ERROR 022 -- undefined function called
+
+
+
+
+
+
+
+in file              func2.sno
+in file              func2.sno
+in line              7
+in line              7
+in statement         6
+in statement         6
+stmts executed       3
+stmts executed       3
+execution time msec  0
+execution time msec  0
+REGENERATIONS        0
+REGENERATIONS        0
+memory used (bytes)  11640
+memory left (bytes)  1036928

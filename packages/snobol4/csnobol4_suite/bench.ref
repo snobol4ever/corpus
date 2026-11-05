@@ -1,0 +1,26 @@
+
+
+
+bench.sno(33) : ERROR 160 -- inappropriate file specification for output
+bench.sno(33) : ERROR 160 -- inappropriate file specification for output
+
+
+
+
+
+
+
+in file              bench.sno
+in file              bench.sno
+in line              33
+in line              33
+in statement         15
+in statement         15
+stmts executed       7
+stmts executed       7
+execution time msec  0
+execution time msec  0
+REGENERATIONS        0
+REGENERATIONS        0
+memory used (bytes)  144912
+memory left (bytes)  903656

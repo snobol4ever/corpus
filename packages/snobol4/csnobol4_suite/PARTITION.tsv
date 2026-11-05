@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=86 features=37 ubiquitous=1(package) distinctive=36 core=20 clusters=37 chunks=1 sizes=66
+# shape: entries=90 features=38 ubiquitous=1(package) distinctive=37 core=20 clusters=39 chunks=1 sizes=70
 entry	part	cluster	shells
 100func	chunk:01	feat:DEFINE	DEFINE
 8bit	core	core	BREAK DEFINE LEN POS TAB cond_assign keyword_ref
@@ -87,4 +87,8 @@ ord	chunk:01	feat:DEFINE	DEFINE keyword_ref
 space	chunk:01	feat:CONVERT	CONVERT
 space2	chunk:01	feat:CONVERT	CONVERT
 rewind1	chunk:01	family:rewind	
-tab	core	core	ARRAY CONVERT REPLACE SPAN TABLE cond_assign keyword_ref
+tab	chunk:01	feat:REPLACE	ARRAY CONVERT REPLACE SPAN TABLE cond_assign keyword_ref
+base	chunk:01	family:base	
+func2	chunk:01	feat:DEFINE	DEFINE
+bench	core	core	ANY ARRAY BAL BREAK CODE CONVERT DEFINE DUPL POS REPLACE RPOS SPAN TAB TABLE TRIM alternation capture_plus_defer cond_assign deferred_eval goto_fail goto_success imm_assign indirect_ref keyword_ref
+hide	chunk:01	feat:keyword_ref	keyword_ref
