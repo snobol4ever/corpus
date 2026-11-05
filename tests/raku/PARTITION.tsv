@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1363 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=14 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,11
+# shape: entries=1364 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=14 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,12
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:01	family:ladder	
@@ -548,7 +548,7 @@ simple_assign_58	chunk:03	family:smoke
 simple_assign_78	chunk:03	family:smoke	
 simple_assign_97	chunk:03	family:smoke	
 simple_program_25	chunk:03	family:smoke	
-test_interp_multi_var	chunk:13	family:test_raku_interp_multi_var	
+test_interp_multi_var	chunk:14	family:test_raku_interp_multi_var	
 test_print_expr	chunk:14	family:test_raku_print_expr	
 array_32	chunk:06	feat:sigil_array	sigil_array
 array_replace_3	chunk:06	feat:sigil_array	sigil_array
@@ -1031,6 +1031,7 @@ ladder__rung10_given_when_a_code_topic_smartmatched_against_a_number_is_false	ch
 ladder__rung10_smartmatch_an_array_against_a_hash_is_true_when_any_element_is_a_key	chunk:11	feat:smartmatch	say sigil_hash smartmatch string_concat
 ladder__rung10_smartmatch_two_distinct_objects_do_not_match_each_other_but_an_object_matches_itself	chunk:11	feat:smartmatch	smartmatch string_concat
 ladder__rung13_classes_a_method_invocant_with_a_type_is_checked_against_the_object	chunk:12	feat:try	method say try
+ladder__rung13_classes_a_method_slurpy_array_takes_every_positional_argument	chunk:12	feat:method	method sigil_array string_concat
 ladder__rung13_classes_a_parenthesised_has_declares_each_attribute	chunk:05	feat:has	has method
 ladder__rung15_blocks_next_is_an_assignment_rhs	chunk:07	feat:for_with_say	for for_with_say range_op
 ladder__rung15_blocks_return_is_an_assignment_rhs	chunk:11	feat:sub_with_return	return sub sub_with_return
@@ -1148,7 +1149,7 @@ ladder__rung08_for_a_label_is_a_term_in_its_scope	chunk:07	feat:for_with_say	for
 ladder__rung08_for_a_label_names_a_for_loop_with_several_loop_variables	chunk:07	feat:for_with_say	for for_with_say if sigil_array
 ladder__rung08_for_redo_with_a_label_restarts_the_labelled_for_body	chunk:07	feat:for_with_say	for for_with_say if range_op
 class_array_say_replace_2	chunk:05	feat:has	has say sigil_array
-class_method_grep_replace_1	chunk:12	feat:grep	grep method return
+class_method_grep_replace_1	chunk:13	feat:grep	grep method return
 class_method_map_replace_1	chunk:12	feat:map	map method return
 class_method_range_replace_6	chunk:12	feat:range_op	method range_op say
 class_method_replace_18	chunk:05	feat:has	has if method
