@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1378 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=51 clusters=49 chunks=14 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,27
+# shape: entries=1379 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=51 clusters=49 chunks=14 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,28
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:01	family:ladder	
@@ -228,7 +228,7 @@ simple_program_42	chunk:10	feat:string_concat	string_concat
 simple_program_51	chunk:13	feat:sprintf	sprintf
 simple_program_52	chunk:13	feat:sprintf	sprintf
 simple_program_53	chunk:13	feat:sprintf	sprintf
-simple_program_54	chunk:13	feat:sprintf	sprintf
+simple_program_54	chunk:14	feat:sprintf	sprintf
 simple_program_55	chunk:14	feat:sprintf	sprintf
 simple_program_63	chunk:09	feat:regex	regex
 simple_program_64	chunk:09	feat:regex	regex
@@ -260,7 +260,7 @@ ladder__rung07_subs_a_sigilless_plus_parameter_is_a_term_in_the_body	chunk:07	fe
 ladder__rung07_subs_implicit_return_bare_literal_tail	chunk:07	feat:sub	sub
 ladder__rung10_given_empty_is_undefined_so_orelse_and_the_dor_operator_skip_it_and_andthen_yields_it	chunk:04	feat:say	say
 ladder__rung15_blocks_a_builtin_routine_reference_is_passed_to_a_code_parameter	chunk:07	feat:sub	sub
-ladder__rung16_bool_relops_a_chained_numeric_relop_counts_a_list_returning_method_call	chunk:12	feat:grep	grep
+ladder__rung16_bool_relops_a_chained_numeric_relop_counts_a_list_returning_method_call	chunk:13	feat:grep	grep
 ladder__rung16_bool_relops_a_list_returning_method_call_is_counted_in_a_numeric_relop	chunk:13	feat:grep	grep
 say_90	chunk:04	feat:say	say
 simple_assign_46	chunk:03	family:smoke	
@@ -930,7 +930,7 @@ test_if_basic	chunk:09	feat:if	if say
 test_if_cmp_eq	chunk:09	feat:if	if say
 test_if_else	chunk:09	feat:if	if say
 test_while_basic	chunk:11	feat:while	say while
-while_1	chunk:11	feat:while	if while
+while_1	chunk:12	feat:while	if while
 while_2	chunk:12	feat:while	if while
 while_3	chunk:12	feat:while	if while
 class_method_replace_10	chunk:12	feat:method	method
@@ -1038,6 +1038,7 @@ ladder__rung09_a_quantified_captures_list_responds_to_builtin_list_methods	chunk
 ladder__rung09_a_quantified_named_bracket_group_stays_a_single_match	chunk:10	feat:smartmatch	regex smartmatch string_concat
 ladder__rung09_named_bracket_group_binds_to_the_whole_group	chunk:10	feat:smartmatch	regex smartmatch string_concat
 ladder__rung09_quantified_named_capture_pluralizes_to_a_list	chunk:10	feat:smartmatch	regex smartmatch string_concat
+ladder__rung09_regex_a_class_match_never_starts_inside_a_multibyte_character	chunk:10	feat:smartmatch	range_op regex say smartmatch string_concat
 ladder__rung10_given_when_a_code_topic_smartmatched_against_a_number_is_false	chunk:10	feat:smartmatch	smartmatch string_concat sub
 ladder__rung10_smartmatch_an_array_against_a_hash_is_true_when_any_element_is_a_key	chunk:10	feat:smartmatch	say sigil_hash smartmatch string_concat
 ladder__rung10_smartmatch_two_distinct_objects_do_not_match_each_other_but_an_object_matches_itself	chunk:10	feat:smartmatch	smartmatch string_concat
@@ -1075,7 +1076,7 @@ class_method_replace_13	chunk:10	feat:return	method return
 class_method_replace_15	chunk:05	feat:has	has method
 class_method_replace_17	chunk:10	feat:return	method return
 class_method_replace_2	chunk:10	feat:return	method return
-class_method_replace_20	chunk:10	feat:return	method return
+class_method_replace_20	chunk:11	feat:return	method return
 class_method_replace_3	chunk:12	feat:method	if method
 class_method_replace_4	chunk:12	feat:method	if method
 class_method_replace_5	chunk:11	feat:return	method return
