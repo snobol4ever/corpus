@@ -2,31 +2,23 @@
 # Format: name<TAB>rc   ·   blank lines and # comments ignored   ·   rc=0 is the default and is REFUSED here.
 # See tests/prolog/ALL.wantrc for the convention this file follows.
 #
-# simple_output_25 (origin ladder__rung07_refuse_field_of_nonrecord): calling a DATA()-generated field
-# accessor (x(...)) on a value that is not a `point` record is a runtime "Error 5: Undefined function or
-# operation" (SNOBOL4-shared runtime dispatch) -- SCRIP prints "before" to stdout (confirmed the accessor
-# call itself, not the preceding statement, is what fails) then the diagnostic to STDERR only, and both m3
-# and m4 exit rc=1 with stdout byte-identical (7 bytes, "before\n"). This is the rung07 REFUSE witness; see
-# task LEDGER for rung06's zero-byte-output trap this design deliberately avoids.
-simple_output_25	1
+# The expected rc is the ORACLE's (Lon 2026-11-05: the expected result is the oracle's exit code, stdout and stderr), measured with sbl -bf through
+# util_oracle.sh on the scrip --transpile text of each entry on SCRIP 5217bd1e8, 2026-11-05. The earlier rc 1 lines were declared from SCRIP's old
+# one-voice exit 1, never from the oracle.
 #
-# alt_replace_3 (origin ladder__rung09_refuse_alt_as_number): `1 | 2 | 3` outside a scan/pattern context
-# is a genuine SNOBOL4 PATTERN value (TT_ALT lowers to the native pattern-alternation operator, not an
-# Icon-style generator -- confirmed empirically: `x := 1|2|3; OUTPUT := x` prints "PATTERN", the datatype
-# name), so comparing it numerically (`= 2`) is a type error: "Error 101: eq first argument is not
-# numeric" on stderr, rc=1 both modes (m4: the COMPILE step exits 0 as expected -- this is a RUNTIME
-# error -- the emitted BINARY exits rc=1 when run, confirmed). stdout unaffected at "before\n".
-alt_replace_3	1
+# simple_output_25 (origin ladder__rung07_refuse_field_of_nonrecord) declares nothing: calling a DATA()-generated field accessor (x(...)) on a value
+# that is not a `point` record is a runtime error, SCRIP prints "before" to stdout and the diagnostic to STDERR only, and the oracle exits 0.
+# alt_replace_3 (origin ladder__rung09_refuse_alt_as_number) declares nothing: `1 | 2 | 3` outside a scan/pattern context is a genuine SNOBOL4
+# PATTERN value (TT_ALT lowers to the native pattern-alternation operator), so comparing it numerically (`= 2`) is "Error 101: eq first argument is
+# not numeric"; stdout "before\n", and the oracle exits 0 (a fatal at the default &CODE exits 0, after &CODE = 7 it exits 7).
 #
-# len_capture_1 (origin ladder__rung10_refuse_len_wrong_type): LEN() takes an integer length, not a
-# string -- LEN("abc") is "Error 120: len argument is not integer or expression" on stderr, rc=1 both
-# modes (m4: compile succeeds, the emitted binary exits 1 when run). stdout unaffected at "before\n".
-len_capture_1	1
+# len_capture_1 (origin ladder__rung10_refuse_len_wrong_type): LEN() takes an integer length, not a string -- LEN("abc") is "Error 120: len argument
+# is not integer or expression"; stdout "before\n". The ORACLE exits 231, and 231 even with &CODE = 7, so it is not &CODE. SCRIP exits 0 until the
+# runtime's error exit carries the oracle's code (row rebus-rebrungs-four-programs-exit-0-where-spitbol-exits-1-...), so this entry reads RED honestly.
+len_capture_1	231
 #
-# len_1 (origin ladder__rung11_refuse_bad_pattern_arg): same LEN()-wrong-type runtime error as
-# len_capture_1 above, this time inside a replace-form scan (`s ? LEN("abc") <- "X"`) on a plain
-# variable subject -- Error 120, rc=1 both modes, stdout "before\n". Deliberately NOT the
-# "replacement subject must be a plain variable" FATAL (a lowering-time abort on a literal subject,
-# e.g. `"hello" ? "l" <- "L"`): that case produces truly zero stdout bytes and hits the same
-# unrepresentable-in-the-ladder trap as rung06's parse-error refuse attempt (see task LEDGER).
-len_1	1
+# len_1 (origin ladder__rung11_refuse_bad_pattern_arg): same LEN()-wrong-type runtime error as len_capture_1 above, this time inside a replace-form
+# scan (`s ? LEN("abc") <- "X"`) on a plain variable subject -- Error 120, stdout "before\n", the oracle exits 231, SCRIP 0 until the gap closes.
+# Deliberately NOT the "replacement subject must be a plain variable" FATAL (a lowering-time abort on a literal subject, e.g. `"hello" ? "l" <- "L"`):
+# that case produces truly zero stdout bytes and hits the same unrepresentable-in-the-ladder trap as rung06's parse-error refuse attempt (see task LEDGER).
+len_1	231
