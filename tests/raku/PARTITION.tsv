@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1348 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=13 sizes=100,100,100,100,100,100,100,100,100,100,100,100,96
+# shape: entries=1349 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=13 sizes=100,100,100,100,100,100,100,100,100,100,100,100,97
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:01	family:ladder	
@@ -658,7 +658,7 @@ ladder__rung027_quote_q_a_adverb	chunk:06	feat:sigil_array	sigil_array
 ladder__rung027_quote_q_plain_raw	chunk:08	feat:sigil_hash	sigil_array sigil_hash
 ladder__rung027_quote_q_s_adverb	chunk:09	feat:regex	regex
 ladder__rung027_quote_q_s_adverb_backslash	chunk:09	feat:regex	regex
-ladder__rung028_quote_qq_array_range	chunk:11	feat:range_op	range_op sigil_array
+ladder__rung028_quote_qq_array_range	chunk:12	feat:range_op	range_op sigil_array
 ladder__rung04_arrays_slice	chunk:12	feat:range_op	range_op sigil_array
 ladder__rung06_control_a_while_bodys_own_my_variable_is_not_the_enclosing_variable	chunk:11	feat:while	while
 ladder__rung06_control_an_if_statement_in_parentheses_gives_its_value	chunk:09	feat:if	if
@@ -844,7 +844,7 @@ ladder__rung01_variables_an_array_in_a_list_declaration_takes_the_rest_of_the_li
 ladder__rung08_for_loop	chunk:06	feat:for_with_say	for for_with_say range_op
 ladder__rung08_for_loop_nested_for	chunk:06	feat:for_with_say	for for_with_say range_op
 loop_replace_3	chunk:12	feat:loop	if loop
-loop_replace_4	chunk:12	feat:loop	if loop
+loop_replace_4	chunk:13	feat:loop	if loop
 split_array_say_1	core	core	say sigil_array split
 class_method_3	chunk:13	feat:unless	method unless
 class_method_say_5	chunk:10	feat:return	method return say
@@ -862,11 +862,12 @@ join_range_array_8	chunk:08	feat:join	join range_op sigil_array
 join_range_array_9	chunk:08	feat:join	join range_op sigil_array
 ladder__rung029_quote_qw_no_interpolation	chunk:08	feat:sigil_hash	sigil_array sigil_hash
 ladder__rung02_arith_prefix_plus_counts_a_scalar_or_hash_element_that_holds_an_array_or_hash	chunk:08	feat:sigil_hash	sigil_array sigil_hash
-ladder__rung04_arrays_a_hole_in_an_array_is_the_empty_string_in_str_join_and_interpolation_but_any_in_gist	chunk:08	feat:join	join sigil_array string_concat
+ladder__rung04_arrays_a_hole_in_an_array_is_the_empty_string_in_str_join_and_interpolation_but_any_in_gist	chunk:09	feat:join	join sigil_array string_concat
 ladder__rung04_arrays_the_numeric_methods_of_an_array_a_list_and_a_hash_answer_the_element_count	chunk:08	feat:sigil_hash	sigil_array sigil_hash
 ladder__rung05_hashes_a_hash_assignment_as_the_last_statement_of_a_block_is_kept	chunk:08	feat:sigil_hash	if sigil_hash sub
 ladder__rung06_control_elsif_chain	core	core	elsif if
 ladder__rung07_subs	chunk:11	feat:sub_with_return	return sub sub_with_return
+ladder__rung07_subs_a_slurpy_array_before_a_slurpy_hash_takes_every_positional	chunk:08	feat:sigil_hash	sigil_array sigil_hash sub
 ladder__rung08_for_a_labelled_while_in_parentheses_leaves_on_last	chunk:11	feat:while	if while
 ladder__rung08_for_redo_in_a_while_restarts_the_body_without_testing_the_condition	chunk:11	feat:while	if while
 ladder__rung10_smartmatch_the_right_side_is_evaluated_with_the_topic_set_to_the_left_and_restored_after	chunk:10	feat:smartmatch	smartmatch string_concat
@@ -1040,7 +1041,7 @@ say_replace_3	chunk:09	feat:regex	if regex say
 say_replace_4	chunk:09	feat:regex	if regex say
 say_replace_5	chunk:09	feat:regex	if regex say
 say_replace_6	chunk:09	feat:regex	if regex say
-say_replace_7	chunk:09	feat:regex	if regex say
+say_replace_7	chunk:10	feat:regex	if regex say
 say_replace_8	chunk:10	feat:regex	if regex say
 say_replace_9	chunk:10	feat:regex	if regex say
 sub_11	chunk:11	feat:sub_with_return	return sub sub_with_return
@@ -1128,7 +1129,7 @@ class_method_say_replace_56	chunk:05	feat:has	has method say
 class_say_replace_11	chunk:05	feat:has	has say string_concat
 for_array_say_3	chunk:07	feat:for_with_say	for for_with_say say sigil_array
 for_array_say_5	chunk:07	feat:for_with_say	for for_with_say say sigil_array
-ladder__rung04_arrays_a_negative_index_returns_a_failure_that_stays_a_failure_when_indexed_again	chunk:10	feat:smartmatch	range_op sigil_array smartmatch string_concat
+ladder__rung04_arrays_a_negative_index_returns_a_failure_that_stays_a_failure_when_indexed_again	chunk:11	feat:smartmatch	range_op sigil_array smartmatch string_concat
 ladder__rung05_hashes_a_range_written_as_a_pair_value_stays_a_range	chunk:11	feat:smartmatch	range_op say smartmatch string_concat
 ladder__rung07_subs_a_subs_loop_variable_is_not_the_file_variable_another_sub_reads	chunk:07	feat:for_with_say	for for_with_say range_op sub
 ladder__rung08_for_a_label_is_a_term_in_its_scope	chunk:07	feat:for_with_say	for for_with_say range_op sub
