@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1343 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=13 sizes=100,100,100,100,100,100,100,100,100,100,100,100,91
+# shape: entries=1344 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=13 sizes=100,100,100,100,100,100,100,100,100,100,100,100,92
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:01	family:ladder	
@@ -172,7 +172,7 @@ ladder__rung02_arithmetic_a_rational_compares_and_calculates_with_a_numeric_stri
 hash_14	chunk:08	feat:sigil_hash	sigil_hash
 hash_3	chunk:08	feat:sigil_hash	sigil_hash
 ladder__rung028_quote_qq_guard_literal_sigils	chunk:05	feat:sigil_array	sigil_array
-ladder__rung03_strings_multi_concat	chunk:09	feat:string_concat	string_concat
+ladder__rung03_strings_multi_concat	chunk:10	feat:string_concat	string_concat
 ladder__rung03_strings_the_raku_method_escapes_a_newline_and_the_sigil_characters	chunk:02	family:ladder	
 ladder__rung09_string_methods_split_method	chunk:13	feat:split	split
 ladder__rung13_classes_the_compile_time_variable_module_names_the_enclosing_module	chunk:07	feat:sub	sub
@@ -687,7 +687,7 @@ multi_2	chunk:11	feat:multi	multi return
 range_array_1	chunk:11	feat:range_op	range_op sigil_array
 range_array_11	chunk:11	feat:range_op	range_op sigil_array
 range_array_12	chunk:11	feat:range_op	range_op sigil_array
-range_array_2	chunk:11	feat:range_op	range_op sigil_array
+range_array_2	chunk:12	feat:range_op	range_op sigil_array
 range_array_3	chunk:12	feat:range_op	range_op sigil_array
 range_array_4	chunk:12	feat:range_op	range_op sigil_array
 range_array_5	chunk:12	feat:range_op	range_op sigil_array
@@ -860,6 +860,7 @@ join_range_array_7	chunk:08	feat:join	join range_op sigil_array
 join_range_array_8	chunk:08	feat:join	join range_op sigil_array
 join_range_array_9	chunk:08	feat:join	join range_op sigil_array
 ladder__rung029_quote_qw_no_interpolation	chunk:08	feat:sigil_hash	sigil_array sigil_hash
+ladder__rung04_arrays_a_hole_in_an_array_is_the_empty_string_in_str_join_and_interpolation_but_any_in_gist	chunk:08	feat:join	join sigil_array string_concat
 ladder__rung04_arrays_the_numeric_methods_of_an_array_a_list_and_a_hash_answer_the_element_count	chunk:08	feat:sigil_hash	sigil_array sigil_hash
 ladder__rung06_control_elsif_chain	core	core	elsif if
 ladder__rung07_subs	chunk:11	feat:sub_with_return	return sub sub_with_return
@@ -998,7 +999,7 @@ junction_say_5	chunk:13	feat:junction	if junction say
 ladder__rung06_control_a_ternary_branch_that_is_a_block_ending_in_return_leaves_the_sub	chunk:11	feat:sub_with_return	return sub sub_with_return
 ladder__rung06_control_an_eager_prefix_on_a_gather_runs_it_to_the_end	chunk:06	feat:for_with_say	for for_with_say range_op
 ladder__rung07_subs_a_nested_sub_shadows_a_top_level_sub_of_the_same_name_inside_its_enclosing_sub	chunk:11	feat:sub_with_return	return string_concat sub sub_with_return
-ladder__rung07_subs_an_array_parameter_with_a_subsignature_unpacks_its_elements	chunk:08	feat:join	join sigil_array string_concat sub
+ladder__rung07_subs_an_array_parameter_with_a_subsignature_unpacks_its_elements	chunk:09	feat:join	join sigil_array string_concat sub
 ladder__rung07_subs_named_params	chunk:11	feat:sub_with_return	return string_concat sub sub_with_return
 ladder__rung07_subs_two_subs_may_each_declare_a_nested_sub_of_the_same_name	chunk:11	feat:sub_with_return	return string_concat sub sub_with_return
 ladder__rung08_for_a_for_statement_in_parentheses_runs	chunk:06	feat:for_with_say	for for_with_say range_op
@@ -1241,7 +1242,7 @@ ladder__rung15_blocks_map_grep_first_named_sub_and_n_arity_blocks	core	core	grep
 ladder__rung13_classes_inheritance	chunk:10	feat:return	method range_op return string_concat
 ladder__rung16_bool_bool_pick_and_bool_roll_are_a_coin	chunk:10	feat:smartmatch	for for_with_say sigil_hash smartmatch string_concat
 sub_for_range_replace_2	chunk:07	feat:for_with_say	for for_with_say range_op say sub
-ladder__rung09_regex_a_smartmatch_against_a_code_value_held_in_a_hash_element_or_a_variable_calls_it	chunk:10	feat:smartmatch	say sigil_array sigil_hash smartmatch string_concat
+ladder__rung09_regex_a_smartmatch_against_a_code_value_held_in_a_hash_element_or_a_variable_calls_it	chunk:11	feat:smartmatch	say sigil_array sigil_hash smartmatch string_concat
 scrip_test_rk_unique_sum	chunk:07	feat:for_with_say	for for_with_say say sigil_array sub
 ladder__rung13_classes_a_typed_declaration_with_dot_assign_calls_the_type_and_a_colon_variable_pair_is_a_named_pair	chunk:08	feat:sigil_hash	has method sigil_hash sub
 sub_for_array_1	chunk:07	feat:for_with_say	for for_with_say say sigil_array sub
@@ -1284,7 +1285,7 @@ ladder__rung15_blocks_a_closure_in_a_sub_reads_an_enum_value_and_a_constant_that
 ladder__rung19_block_methcall_sort_by_a_one_arg_key_block_past_64_elements	core	core	map range_op say sigil_array sort sub
 sub_for_while_replace_1	chunk:12	feat:loop	for for_with_say loop say sub while
 ladder__rung07_subs_an_infix_multi_on_objects_is_entered_from_the_relop_boxes_in_value_and_condition_context	core	core	feed_op has if multi sub
-sub_for_loop_replace_1	chunk:12	feat:loop	for for_with_say loop say sigil_array sub
+sub_for_loop_replace_1	chunk:13	feat:loop	for for_with_say loop say sigil_array sub
 sub_for_range_replace_1	chunk:07	feat:for_with_say	for for_with_say range_op say sigil_array sub
 class_method_say_replace_15	chunk:05	feat:has	has method return say string_concat
 scrip_test_rk_seq_consumers_arr	chunk:09	feat:join	for for_with_say join say sigil_array sub
