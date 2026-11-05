@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (ceo CEO-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1339 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=13 sizes=100,100,100,100,100,100,100,100,100,100,100,100,87
+# shape: entries=1340 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=13 sizes=100,100,100,100,100,100,100,100,100,100,100,100,88
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:01	family:ladder	
@@ -567,7 +567,7 @@ ladder__rung023_kw_nil_nil_hash_element_reset	chunk:08	feat:sigil_hash	sigil_has
 ladder__rung04_arrays_push_pop	chunk:06	feat:sigil_array	sigil_array
 ladder__rung10_given_when_multiple_when	chunk:13	feat:when	given when
 ladder__rung11_junctions	chunk:12	feat:junction	if junction
-ladder__rung11_junctions_all	chunk:12	feat:junction	if junction
+ladder__rung11_junctions_all	chunk:13	feat:junction	if junction
 ladder__rung11_junctions_none	chunk:13	feat:junction	if junction
 ladder__rung11_junctions_one	chunk:13	feat:junction	if junction
 simple_assign_108	chunk:03	family:smoke	
@@ -690,7 +690,7 @@ range_array_2	chunk:11	feat:range_op	range_op sigil_array
 range_array_3	chunk:11	feat:range_op	range_op sigil_array
 range_array_4	chunk:11	feat:range_op	range_op sigil_array
 range_array_5	chunk:11	feat:range_op	range_op sigil_array
-range_array_6	chunk:11	feat:range_op	range_op sigil_array
+range_array_6	chunk:12	feat:range_op	range_op sigil_array
 range_array_7	chunk:12	feat:range_op	range_op sigil_array
 range_array_8	chunk:12	feat:range_op	range_op sigil_array
 range_array_9	chunk:12	feat:range_op	range_op sigil_array
@@ -1010,6 +1010,7 @@ ladder__rung09_a_quantified_captures_list_responds_to_builtin_list_methods	chunk
 ladder__rung09_a_quantified_named_bracket_group_stays_a_single_match	chunk:10	feat:smartmatch	regex smartmatch string_concat
 ladder__rung09_named_bracket_group_binds_to_the_whole_group	chunk:10	feat:smartmatch	regex smartmatch string_concat
 ladder__rung09_quantified_named_capture_pluralizes_to_a_list	chunk:10	feat:smartmatch	regex smartmatch string_concat
+ladder__rung10_smartmatch_an_array_against_a_hash_is_true_when_any_element_is_a_key	chunk:10	feat:smartmatch	say sigil_hash smartmatch string_concat
 ladder__rung13_classes_a_method_invocant_with_a_type_is_checked_against_the_object	chunk:12	feat:try	method say try
 ladder__rung13_classes_a_parenthesised_has_declares_each_attribute	chunk:05	feat:has	has method
 ladder__rung15_blocks_next_is_an_assignment_rhs	chunk:06	feat:for_with_say	for for_with_say range_op
@@ -1303,7 +1304,7 @@ ladder__rung09_regex_match_methods_agree_with_rakudo	core	core	join map regex re
 benchmark_rc-perfect-shuffle	chunk:12	feat:loop	if loop range_op return sigil_array sub sub_with_return
 ladder__rung12_exceptions_a_call_that_resolves_to_no_routine_raises_a_catchable_exception_inside_try_and_eval	core	core	for for_with_say regex smartmatch string_concat sub try
 scrip_test_rk_array_literal	chunk:09	feat:join	for for_with_say join range_op say sigil_array sub
-sub_smartmatch_say_replace_1	chunk:10	feat:smartmatch	if range_op regex say smartmatch string_concat sub
+sub_smartmatch_say_replace_1	chunk:11	feat:smartmatch	if range_op regex say smartmatch string_concat sub
 ladder__rung04_arrays_pop_and_shift_inside_an_expression_still_remove_the_element	chunk:07	feat:for_with_say	for for_with_say range_op say sigil_array string_concat sub
 ladder__rung09_regex_quote_adverbs_and_interpolation_agree_with_rakudo	chunk:11	feat:smartmatch	if join regex say sigil_array smartmatch string_concat
 sub_smartmatch_say_replace_2	chunk:11	feat:smartmatch	if range_op regex say smartmatch string_concat sub
