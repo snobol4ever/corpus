@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1353 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=14 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,1
+# shape: entries=1354 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=14 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,2
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:01	family:ladder	
@@ -70,11 +70,11 @@ simple_program_69	chunk:02	family:smoke
 simple_program_7	chunk:02	family:smoke	
 simple_program_70	chunk:02	family:smoke	
 simple_program_72	chunk:02	family:smoke	
-simple_program_75	chunk:02	family:smoke	
+simple_program_75	chunk:03	family:smoke	
 simple_program_8	chunk:03	family:smoke	
 test_print_str	chunk:13	family:test_raku_print_str	
 test_say_int	chunk:13	family:test_raku_say_int	
-test_say_str	chunk:13	family:test_raku_say_str	
+test_say_str	chunk:14	family:test_raku_say_str	
 test_use_revision	chunk:14	family:test_raku_use_revision	
 ladder__rung00_hello_print_no_newline	chunk:01	family:ladder	
 ladder__rung025_kw_nan_nan_sign	chunk:01	family:ladder	
@@ -196,7 +196,7 @@ say_72	chunk:03	feat:say	say
 say_73	chunk:03	feat:say	say
 say_74	chunk:03	feat:say	say
 say_75	chunk:03	feat:say	say
-say_76	chunk:03	feat:say	say
+say_76	chunk:04	feat:say	say
 say_77	chunk:04	feat:say	say
 say_78	chunk:04	feat:say	say
 say_80	chunk:04	feat:say	say
@@ -369,7 +369,7 @@ array_28	chunk:05	feat:sigil_array	sigil_array
 array_29	chunk:05	feat:sigil_array	sigil_array
 array_34	chunk:05	feat:sigil_array	sigil_array
 array_35	chunk:05	feat:sigil_array	sigil_array
-array_36	chunk:05	feat:sigil_array	sigil_array
+array_36	chunk:06	feat:sigil_array	sigil_array
 array_38	chunk:06	feat:sigil_array	sigil_array
 array_41	chunk:06	feat:sigil_array	sigil_array
 array_42	chunk:06	feat:sigil_array	sigil_array
@@ -379,7 +379,7 @@ array_46	chunk:06	feat:sigil_array	sigil_array
 array_47	chunk:06	feat:sigil_array	sigil_array
 array_48	chunk:06	feat:sigil_array	sigil_array
 array_49	chunk:06	feat:sigil_array	sigil_array
-class_method_1	chunk:11	feat:method	method
+class_method_1	chunk:12	feat:method	method
 class_say_1	chunk:04	feat:say	say
 class_say_2	chunk:04	feat:say	say
 hash_13	chunk:08	feat:sigil_hash	sigil_hash
@@ -525,6 +525,7 @@ ladder__rung026_lit_radix_fraction_identity	chunk:10	feat:smartmatch	smartmatch 
 ladder__rung027_quote_q_plain_symmetric	chunk:06	feat:sigil_array	sigil_array
 ladder__rung05_hashes	chunk:08	feat:sigil_hash	sigil_hash
 ladder__rung05_hashes_keys_values	chunk:08	feat:sigil_hash	sigil_hash
+ladder__rung07_subs_a_bare_make_temp_dir_is_a_call_without_arguments	chunk:02	family:ladder	
 ladder__rung09_string_methods	chunk:02	family:ladder	
 ladder__rung10_given_when_basic_match	chunk:13	feat:when	given when
 ladder__rung14_roles_the_compile_time_variable_role_names_the_enclosing_role	chunk:12	feat:method	method
@@ -669,7 +670,7 @@ ladder__rung07_subs_a_subs_own_my_variable_is_not_the_file_variable_another_sub_
 ladder__rung08_for_a_loop_header_declares_two_variables	chunk:12	feat:loop	loop
 ladder__rung08_for_a_pointy_block_parameter_with_a_subsignature_unpacks_each_pair	chunk:06	feat:for_with_say	for for_with_say
 ladder__rung08_for_a_while_statement_in_parentheses_runs	chunk:11	feat:while	while
-ladder__rung08_for_last_from_an_inner_loop_leaves_a_labelled_loop_in_parentheses	chunk:12	feat:loop	loop
+ladder__rung08_for_last_from_an_inner_loop_leaves_a_labelled_loop_in_parentheses	chunk:13	feat:loop	loop
 ladder__rung08_for_last_from_an_inner_while_leaves_a_labelled_while_in_parentheses	chunk:11	feat:while	while
 ladder__rung09_regex_a_bare_regex_in_a_condition_matches_the_topic	chunk:13	feat:unless	if unless
 ladder__rung10_smartmatch_a_bag_matches_only_an_equal_bag	chunk:10	feat:smartmatch	say smartmatch string_concat
@@ -743,7 +744,7 @@ sub_array_6	chunk:07	feat:sub	sigil_array sub
 sub_array_8	chunk:07	feat:sub	sigil_array sub
 sub_hash_7	chunk:08	feat:sigil_hash	sigil_hash sub
 sub_say_10	chunk:07	feat:sub	say sub
-sub_say_11	chunk:07	feat:sub	say sub
+sub_say_11	chunk:08	feat:sub	say sub
 sub_say_9	chunk:08	feat:sub	say sub
 test_lines_file	chunk:06	feat:sigil_array	say sigil_array
 test_stmt_ctrl_loop_three	chunk:13	feat:loop	loop
@@ -860,7 +861,7 @@ join_range_array_5	chunk:08	feat:join	join range_op sigil_array
 join_range_array_6	chunk:08	feat:join	join range_op sigil_array
 join_range_array_7	chunk:08	feat:join	join range_op sigil_array
 join_range_array_8	chunk:08	feat:join	join range_op sigil_array
-join_range_array_9	chunk:08	feat:join	join range_op sigil_array
+join_range_array_9	chunk:09	feat:join	join range_op sigil_array
 ladder__rung029_quote_qw_no_interpolation	chunk:08	feat:sigil_hash	sigil_array sigil_hash
 ladder__rung02_arith_prefix_plus_counts_a_scalar_or_hash_element_that_holds_an_array_or_hash	chunk:08	feat:sigil_hash	sigil_array sigil_hash
 ladder__rung04_arrays_a_hole_in_an_array_is_the_empty_string_in_str_join_and_interpolation_but_any_in_gist	chunk:09	feat:join	join sigil_array string_concat
@@ -994,7 +995,7 @@ class_say_replace_28	chunk:04	feat:has	has say
 class_say_replace_3	chunk:04	feat:has	has say
 class_say_replace_4	chunk:04	feat:has	has say
 class_say_replace_5	chunk:04	feat:has	has say
-class_say_replace_6	chunk:04	feat:has	has say
+class_say_replace_6	chunk:05	feat:has	has say
 class_say_replace_7	chunk:05	feat:has	has say
 class_say_replace_8	chunk:05	feat:has	has say
 class_say_replace_9	chunk:05	feat:has	has say
@@ -1025,7 +1026,7 @@ ladder__rung13_classes_a_method_invocant_with_a_type_is_checked_against_the_obje
 ladder__rung13_classes_a_parenthesised_has_declares_each_attribute	chunk:05	feat:has	has method
 ladder__rung15_blocks_next_is_an_assignment_rhs	chunk:06	feat:for_with_say	for for_with_say range_op
 ladder__rung15_blocks_return_is_an_assignment_rhs	chunk:11	feat:sub_with_return	return sub sub_with_return
-ladder__rung19_block_a_for_over_a_parenthesised_map_of_a_sort	chunk:06	feat:for_with_say	for for_with_say sigil_array
+ladder__rung19_block_a_for_over_a_parenthesised_map_of_a_sort	chunk:07	feat:for_with_say	for for_with_say sigil_array
 ladder__rung19_block_a_sub_called_in_a_for_reads_its_own_topic	chunk:07	feat:for_with_say	for for_with_say range_op sub
 ladder__rung19_block_the_grep_listop_takes_a_regex_as_its_matcher	chunk:12	feat:grep	grep join say sigil_array
 method_say_replace_1	chunk:10	feat:return	method return say
@@ -1042,7 +1043,7 @@ say_replace_17	chunk:09	feat:regex	if regex say
 say_replace_3	chunk:09	feat:regex	if regex say
 say_replace_4	chunk:09	feat:regex	if regex say
 say_replace_5	chunk:09	feat:regex	if regex say
-say_replace_6	chunk:09	feat:regex	if regex say
+say_replace_6	chunk:10	feat:regex	if regex say
 say_replace_7	chunk:10	feat:regex	if regex say
 say_replace_8	chunk:10	feat:regex	if regex say
 say_replace_9	chunk:10	feat:regex	if regex say
@@ -1105,7 +1106,7 @@ ladder__rung14_roles_composition	chunk:10	feat:return	method return
 ladder__rung02_arithmetic_a_division_by_zero_builds_a_zero_denominator_rat_as_rakudo_does	chunk:12	feat:try	say string_concat try
 ladder__rung13_classes_private_attribute	chunk:05	feat:has	has method
 ladder__rung04_arrays_an_array_literal_of_one_iterable_argument_spreads_it_the_single_argument_rule	chunk:12	feat:map	map sigil_array sub
-ladder__rung09_string_methods_raku_regex_classes_and_captures	chunk:10	feat:smartmatch	if range_op regex smartmatch string_concat
+ladder__rung09_string_methods_raku_regex_classes_and_captures	chunk:11	feat:smartmatch	if range_op regex smartmatch string_concat
 sub_say_replace_1	chunk:09	feat:if	if say sub
 ladder__rung04_arrays_a_non_literal_left_of_xx_is_a_thunk_evaluated_once_per_repetition	chunk:08	feat:sub	say sigil_array sub
 ladder__rung19_block_methcall_sort_by_a_two_arg_comparator_block_past_64_elements	chunk:13	feat:sort	range_op say sigil_array sort
