@@ -24,6 +24,7 @@ main:
                         mov              rsi, rax
                         lea              rdi, [rip + __gva_names]
                         mov              edx, 741
+                        mov              ecx, 741
                         call             gva_register@PLT
                         lea              rdi, [rip + __alpha_cellp_tab]
                         call             rt_ab_cell_bind_table@PLT
@@ -1522,12 +1523,12 @@ main_ω:
                         .quad            32
                         .quad            .Lgcsite_main_18-.Lgccode_main_0
                         .quad            65537
-                        .quad            0
-                        .quad            0
+                        .quad            25769804480
+                        .quad            8
                         .quad            .Lgcsite_main_17-.Lgccode_main_0
                         .quad            65537
-                        .quad            0
-                        .quad            0
+                        .quad            25769804480
+                        .quad            16
                         .quad            .Lgcsite_main_19-.Lgccode_main_0
                         .quad            65537
                         .quad            34359739080
@@ -1537,7 +1538,7 @@ main_ω:
                         .quad            34359739080
                         .quad            16
                         .quad            2787498
-                        .quad            128
+                        .quad            170
                         .popsection
 module_init:
                         sub              rsp, 8
