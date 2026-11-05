@@ -13115,29 +13115,29 @@ $include "posix.icn"
 procedure main()
 
    # set the umask, so that expected output can be predictable.
-   umask("rw-r--r--") | write("set umask fails")
-   f := open("foo", "w") | write("can't open/write foo")
-   write(f)
-   close(f)
+   umask("rw-r--r--") | write("set umask fails");
+   f := open("foo", "w") | write("can't open/write foo");
+   write(f);
+   close(f);
 
    # check that permissions are as expected before chmod.
-   f := open("ls -l foo", "p") | write("can't open pipe")
-   s := read(f) | write("can't read pipe")
-   close(f)
-   write("-rw-r--r--" ~== s[1:11])
+   f := open("ls -l foo", "p") | write("can't open pipe");
+   s := read(f) | write("can't read pipe");
+   close(f);
+   write("-rw-r--r--" ~== s[1:11]);
 
    # +x will not override umask, so it is a non-portable no-op unless
    # some pretty special circumstances were to be created first. Feel free
    # to revert to a "+x" mode test if you write a portable, useful one.
 
    # check that permissions are as expected after chmod.
-   chmod("foo", "a+x") | write("Couldn't chmod: ", sys_errstr(&errno))
-   f := open("ls -l foo", "p") | write("can't open pipe")
-   s := read(f) | write("can't read pipe")
-   close(f)
-   write(s[1:11])
+   chmod("foo", "a+x") | write("Couldn't chmod: ", sys_errstr(&errno));
+   f := open("ls -l foo", "p") | write("can't open pipe");
+   s := read(f) | write("can't read pipe");
+   close(f);
+   write(s[1:11]);
 
-   system("rm foo")
+   system("rm foo");
 end
 #----------------------------------------------------------------- 103 posix/dir
 
@@ -13147,16 +13147,16 @@ procedure main()
 
    # For this test, unset restrictions imposed by umask so that mkdir results
    # will be consistent.
-   umask(0)
-   mkdir("./tmp", 8r0755) | stop("Couldn't make ./tmp: ", sys_errstr(&errno))
+   umask(0);
+   mkdir("./tmp", 8r0755) | stop("Couldn't make ./tmp: ", sys_errstr(&errno));
 
-   f := stat("tmp") | stop("Couldn't stat after mkdir: ", sys_errstr(&errno))
+   f := stat("tmp") | stop("Couldn't stat after mkdir: ", sys_errstr(&errno));
 
-   write(format(f, "tmp"))
+   write(format(f, "tmp"));
 
-   rmdir("tmp") | stop("Couldn't remove ./tmp: ", sys_errstr(&errno))
+   rmdir("tmp") | stop("Couldn't remove ./tmp: ", sys_errstr(&errno));
 
-   f := stat("tmp") | write("Couldn't stat: ", sys_errstr(&errno))
+   f := stat("tmp") | write("Couldn't stat: ", sys_errstr(&errno));
 
 end
 
@@ -13169,12 +13169,12 @@ procedure format(p, name)
          " " || p.mode || " " ||
          right(p.nlink, 3) || " "  ||
          " " || right("*", 8) || # was p.size
-         " " || name
+         " " || name;
 
    if p.mode[1] == "l" then
-      s ||:= " -> " || readlink(name)
+      s ||:= " -> " || readlink(name);
 
-   return s
+   return s;
 end
 
 #---------------------------------------------------------------- 104 posix/exec
@@ -13188,10 +13188,10 @@ $ifdef _MS_WINDOWS_NT
    exec(getenv("ComSpec") | "C:\\Windows\\System32\\cmd.exe",
         "cmd.exe", "/c", "echo hello, world!")
 $else
-   exec("/bin/echo", "echo", "hello,", "world!")
+   exec("/bin/echo", "echo", "hello,", "world!");
 $endif
 
-   write("error (", &errno, "): ", &errortext)
+   write("error (", &errno, "): ", &errortext);
 end
 
 #--------------------------------------------------------------- 105 posix/fcntl
@@ -13206,34 +13206,34 @@ $include "posix.icn"
 procedure main()
 
    # "F","d" sets O_NONBLOCK; with no stdin data, read should fail (e.g. EAGAIN).
-   fcntl(&input, "F", "d") | stop("fcntl failed: ", sys_errstr(&errno))
+   fcntl(&input, "F", "d") | stop("fcntl failed: ", sys_errstr(&errno));
    line := read() |
       write("Read failed: ",
             # musl / some macOS tty paths leave &errno at 0 on this failure; match EAGAIN text.
             if &errno = 0 then "Resource temporarily unavailable"
-            else sys_errstr(&errno))
+            else sys_errstr(&errno));
 end
 #---------------------------------------------------------------- 106 posix/fdup
 
 $include "posix.icn"
 
 procedure main()
-   L := pipe() | stop("Couldn't get pipe: ", sys_errstr(&errno))
+   L := pipe() | stop("Couldn't get pipe: ", sys_errstr(&errno));
 
    if fork() = 0 then {
       # parent
-      close(L[1])
-      write(L[2], "Hello,")
-      write(L[2], "   world!")
-      close(L[2])
+      close(L[1]);
+      write(L[2], "Hello,");
+      write(L[2], "   world!");
+      close(L[2]);
       delay(100)
    } else {
-      close(L[2])
-      fdup(L[1], &input)
+      close(L[2]);
+      fdup(L[1], &input);
       while line := read() do
-         write(line)
+         write(line);
       write("Everything's ok.")
-   }
+   };
 end
 #------------------------------------------------------------ 107 posix/filepair
 $include "posix.icn"
@@ -13242,18 +13242,18 @@ global count
 
 procedure main()
 
-   L1 := filepair() | stop("Couldn't get filepair: ", sys_errstr(&errno))
+   L1 := filepair() | stop("Couldn't get filepair: ", sys_errstr(&errno));
 
-   count := 20
+   count := 20;
 
-   pid := fork() | stop("Couldn't fork")
+   pid := fork() | stop("Couldn't fork");
    if pid = 0 then {
-      close(L1[1])
+      close(L1[1]);
       child(L1[2])
    } else {
-      close(L1[2])
+      close(L1[2]);
       parent(L1[1])
-   }
+   };
 end
 
 
@@ -13263,28 +13263,28 @@ end
 #
 procedure parent(in)
    # turn non-blocking mode on.
-   fcntl(in, "F", "d")
+   fcntl(in, "F", "d");
 
-   i := 0
-   str := ""
-   tries := 0
+   i := 0;
+   str := "";
+   tries := 0;
    while i < count do {
 #       write("parent ", i)
-      tries +:= 1
+      tries +:= 1;
       if s := read(in) then {
-         j := (s ? integer(tab(many(&digits)))) | -1
+         j := (s ? integer(tab(many(&digits)))) | -1;
          if j ~= i then {
-            write("failed - expected ", i, " got ", j, " from ", image(s))
+            write("failed - expected ", i, " got ", j, " from ", image(s));
             break
-         }
+         };
          i +:= 1
       }
       else {
-         delay(1)
+         delay(1);
          if tries > 10 then stop("too many tries for i ", i)
          }
-   }
-   write("parent ending")
+   };
+   write("parent ending");
 end
 
 #
@@ -13292,15 +13292,15 @@ end
 # with an integer: 0 xxx, 1 xxx, 2 xxxx etc.
 #
 procedure child(out)
-   i := 0
+   i := 0;
    every 1 to count do {
 #      write("child ", i)
-      s := i || " " || repl("x", ?200)
+      s := i || " " || repl("x", ?200);
 
-      write(out, s) | stop("child failed to write")
+      write(out, s) | stop("child failed to write");
 
       i +:= 1
-   }
+   };
 
 end
 #---------------------------------------------------------------- 108 posix/fork
@@ -13312,9 +13312,9 @@ procedure main()
    if fork() = 0 then
       write("child")
    else {
-      delay(1000)
+      delay(1000);
       write("parent")
-   }
+   };
 end
 
 #--------------------------------------------------------------- 109 posix/getpw
@@ -13330,18 +13330,18 @@ $ifdef _MS_WINDOWS_NT
    getpw(uname) | stop ("Couldn't get pw for ", image(uname), ".")
    write("getpw: ok")
 $else
-   r:= getpw("root") | stop ("Couldn't get pw for \"root\".")
-   pwdump(r)
+   r:= getpw("root") | stop ("Couldn't get pw for \"root\".");
+   pwdump(r);
 $endif
    
 end
 
 procedure pwdump(r)
-   write(r.name, " ", r.uid, " ", r.gid)
+   write(r.name, " ", r.uid, " ", r.gid);
 end
 
 procedure grdump(g)
-   write(g.name, " ", g.gid, " ", g.members)
+   write(g.name, " ", g.gid, " ", g.members);
 end
 
 #------------------------------------------------------------- 110 posix/getserv
@@ -13352,17 +13352,17 @@ $include "posix.icn"
 procedure main()
 
    # Second arg fixes order when both tcp and udp exist (e.g. Fedora lists tcp first).
-   s := getserv("ntp", "udp") | stop("Couldn't get service \"ntp\" udp")
-   sdump(s)
-   port := s.port
-   s := getserv(integer(port), "udp") | stop("Couldn't get service for port ", port)
-   sdump(s)
+   s := getserv("ntp", "udp") | stop("Couldn't get service \"ntp\" udp");
+   sdump(s);
+   port := s.port;
+   s := getserv(integer(port), "udp") | stop("Couldn't get service for port ", port);
+   sdump(s);
 
 end
 
 procedure sdump(s)
    # Do not print s.aliases: entries differ by OS image (e.g. [] vs [ntp] on Alpine).
-   write(left(s.name, 10) || left(s.port || "/" || s.proto, 10))
+   write(left(s.name, 10) || left(s.port || "/" || s.proto, 10));
 end
 #-------------------------------------------------------- 111 posix/gettimeofday
 
@@ -13370,9 +13370,9 @@ $include "posix.icn"
  
  
 procedure main() 
-   t := gettimeofday() | stop("failed")
-   write(image(t))
-   write(type(t.sec), " ", type(t.usec))
+   t := gettimeofday() | stop("failed");
+   write(image(t));
+   write(type(t.sec), " ", type(t.usec));
 end 
  
  
@@ -13381,18 +13381,18 @@ end
 $include "posix.icn"
 
 procedure main()
-   trap("SIGHUP", handler)
+   trap("SIGHUP", handler);
 
    if fork() == 0 then {
-      kill(getppid(), "SIGHUP")
+      kill(getppid(), "SIGHUP");
       exit(0)
-   }
+   };
    
-   delay(10000)
+   delay(10000);
 end
 
 procedure handler(s)
-   write("Got ", s)
+   write("Got ", s);
 end
 #------------------------------------------------------------------ 113 posix/ls
 
@@ -13401,14 +13401,14 @@ link printf
 
 procedure main()
 
-   chdir("test-dir")
-   symlink("a", "d")
+   chdir("test-dir");
+   symlink("a", "d");
 
-   f := open(".") | stop(sys_errstr(&errno), image("test-dir"))
-   L := list()
+   f := open(".") | stop(sys_errstr(&errno), image("test-dir"));
+   L := list();
    while line := read(f) do
-      push(L, line)
-   every write(format(stat(n := !sort(L)), n))
+      push(L, line);
+   every write(format(stat(n := !sort(L)), n));
 end
 
 procedure format(p, name)
@@ -13420,20 +13420,20 @@ procedure format(p, name)
                   return sprintf("%s (file) permissions %s", name, p.mode)
                else
                   return sprintf("%s (file) permissions %s size %8s", name, p.mode, p.size)
-            }
+            };
        "d": { # Directory: special case ".."
                if name == ".."
                then return ".. (directory)"
                else return sprintf("%s (directory) permissions %s", name, p.mode)
-            }
+            };
        "l": { # Symbolic link:
                  return sprintf("%s (symbolic link) -> %s", name, p.symlink)
-            }
+            };
        default:
            {
                return sprintf("%s Unexpected file type (%s)", name, p.mode[1])
            }
-   }
+   };
 
 end
 
@@ -13665,27 +13665,27 @@ end
 $include "posix.icn"
 
 procedure main()
-   L := pipe() | stop("Couldn't get pipe: ", sys_errstr(&errno))
+   L := pipe() | stop("Couldn't get pipe: ", sys_errstr(&errno));
 
    if fork() = 0 then {
       # child: writer end of pipe
-      close(L[1])
-      delay(10000)
-      write(L[2], "Hello,")
+      close(L[1]);
+      delay(10000);
+      write(L[2], "Hello,");
       write(L[2], "   world!")
    } else {
       # parent: reader
-      close(L[2])
+      close(L[2]);
       while 1 do {
          while *(L := select(L[1], 1000)) = 0 do
-            delay(10)
-         (&errno = 0) | stop("Select failed: ", sys_errstr(&errno))
+            delay(10);
+         (&errno = 0) | stop("Select failed: ", sys_errstr(&errno));
 
-         (line := reads(L[1])) | break
+         (line := reads(L[1])) | break;
          write(line)
-      }
+      };
       write("Everything's ok.")
-   }
+   };
 end
 #------------------------------------------------------------- 116 posix/pty_uni
 #
@@ -14178,84 +14178,84 @@ end
 $include "posix.icn"
 
 procedure is_alpine()
-   local f, line
-   f := open("/etc/os-release") | fail
+   local f, line;
+   f := open("/etc/os-release") | fail;
    while line := read(f) do {
       if line == "ID=alpine" | line == "ID=\"alpine\"" then {
-         close(f)
+         close(f);
          return
          }
-      }
-   close(f)
+      };
+   close(f);
 end
 
 # Feed sorted directory names into a pipe (avoids `ls` so tests/posix/ls.exe cannot shadow it).
 procedure pipe_sorted_dir(wpipe, path)
-   local d, line, names
-   d := open(path) | stop("open ", path, ": ", &errortext)
-   names := []
+   local d, line, names;
+   d := open(path) | stop("open ", path, ": ", &errortext);
+   names := [];
    while line := read(d) do
-      if not (line == "." | line == "..") then push(names, line)
-   close(d)
-   every line := !sort(names) do writes(wpipe, line || "\n")
+      if not (line == "." | line == "..") then push(names, line);
+   close(d);
+   every line := !sort(names) do writes(wpipe, line || "\n");
 end
 
 # Poll wait(pid,"n") until the child exits or ms elapses (blocking wait can hang on some hosts).
 procedure wait_child_timeout(pid, ms)
-   local st, left, step
-   step := 50
-   left := ms
+   local st, left, step;
+   step := 50;
+   left := ms;
    while left > 0 do {
       if st := wait(pid, "n") then {
          if st == "???" then {
-            delay(step)
+            delay(step);
             left -:= step
          } else return st
       } else {
-         delay(step)
+         delay(step);
          left -:= step
       }
-   }
+   };
 end
 
 procedure main()
 
    # Dedicated dir name: ls.icn uses `rm -rf test-dir`, which races with `make -j` if we used that.
-   system("rm -rf spawn-test-dir") | write(&errout, "rm spawn-test-dir: ", &errortext)
-   mkdir("spawn-test-dir") | stop("mkdir spawn-test-dir: ", &errortext)
+   system("rm -rf spawn-test-dir") | write(&errout, "rm spawn-test-dir: ", &errortext);
+   mkdir("spawn-test-dir") | stop("mkdir spawn-test-dir: ", &errortext);
    every c := !"abcd" do
-      close(open("spawn-test-dir/" || c, "w") | stop("create spawn-test-dir/", c, ": ", &errortext))
+      close(open("spawn-test-dir/" || c, "w") | stop("create spawn-test-dir/", c, ": ", &errortext));
 
-   L := pipe()
+   L := pipe();
 
-   write(image(L[1]))
-   write(image(L[2]))
+   write(image(L[1]));
+   write(image(L[2]));
 
    if is_alpine() | (&features == "MS Windows NT") then {
       # Alpine: BusyBox cat buffering; Windows: no `cat` on PATH for native builds.
-      pipe_sorted_dir(L[2], "spawn-test-dir")
-      close(L[2])
-      i := 0
+      pipe_sorted_dir(L[2], "spawn-test-dir");
+      close(L[2]);
+      i := 0;
       while line := read(L[1]) do {
-         i +:= 1
+         i +:= 1;
          write(right(i, 6), "\t", line)
-         }
+         };
       close(L[1])
       }
    else {
       catpid := system(["cat", "-u", "-n"], L[1], , , "nowait") |
-         stop("spawn cat: ", &errortext)
-      close(L[1])
+         stop("spawn cat: ", &errortext);
+      close(L[1]);
 
-      system("ls spawn-test-dir", , L[2])
-      close(L[2])
+      system("ls spawn-test-dir", , L[2]);
+      close(L[2]);
 
       wait_child_timeout(catpid, 10000) | delay(1000)
-      }
+      };
 
-   write("everything written to pipe.")
+   write("everything written to pipe.");
 
-   system("rm -rf spawn-test-dir")
+   system("rm -rf spawn-test-dir");
 end
 #----------------------------------------------------------------- 124 posix/ssh
 # Native SSH client support (open() mode "h" / "hc" / "hs", libssh-backed).
@@ -14525,33 +14525,33 @@ end
 $include "posix.icn"
 
 procedure main()
-   port:="127.0.0.1:1072"
+   port:="127.0.0.1:1072";
    if fork() = 0 then {
-      f := open(port, "nua")
+      f := open(port, "nua");
 
       if r := receive(f) then {
           # Process the request in r.msg - in the case of the time
           # service, we don't care what is actually in the message
          send(r.addr, "hello, world!")
-      }
+      };
       exit(0)
-   }
+   };
 
-   f := &null
+   f := &null;
    every !10 do {
-      delay(100)
+      delay(100);
       if f := open(port, "nu") then break
-   }
+   };
    if /f then
-      stop("Open failed: ", &errortext | "Unknown")
+      stop("Open failed: ", &errortext | "Unknown");
 
-   write(f, "")
+   write(f, "");
    if *select(f, 5000) = 0 then
-      stop("Connection timed out: ", &errortext | "Unknown")
+      stop("Connection timed out: ", &errortext | "Unknown");
 
-   r := receive(f) | stop("Receive failed: ", &errortext | "Unknown")
+   r := receive(f) | stop("Receive failed: ", &errortext | "Unknown");
 
-   write("Received ", r.msg)
+   write("Received ", r.msg);
 
 end
 #--------------------------------------------------------------- 129 posix/umask
@@ -14570,42 +14570,42 @@ $include "posix.icn"
 link io
 
 procedure main()
-   sock := tempname("unicon-uxsocket-", "")
+   sock := tempname("unicon-uxsocket-", "");
 
    if fork() ~= 0 then {
       # parent
-      client := &null
+      client := &null;
       every !10 do {
-         delay(100)
+         delay(100);
          if client := open(sock, "n") then break
-      }
+      };
       if /client then
-         stop("Client couldn't connect " || sock || ":\n",  &errortext | "Unknown")
+         stop("Client couldn't connect " || sock || ":\n",  &errortext | "Unknown");
 
-      write(client, "hello, world!")
-      write(read(client))
+      write(client, "hello, world!");
+      write(read(client));
 
-      delay(500)
-      close(client)
+      delay(500);
+      close(client);
       exit(0)
-   }
+   };
 
    # child
    if server := open(sock, "na") then {
       if fork() = 0 then {
-         handle(server)
-         close(server)
+         handle(server);
+         close(server);
          exit(0)
-      }
-      close(server)
+      };
+      close(server);
       system("rm -f " || sock)
-   }
-   (&errno = 0) | stop("Server couldn't accept " || sock || ":\n", &errortext | "Unknown")
+   };
+   (&errno = 0) | stop("Server couldn't accept " || sock || ":\n", &errortext | "Unknown");
 end
    
 procedure handle(f)
    while line := read(f) do
-      write(f, reverse(line))
+      write(f, reverse(line));
 end
 #---------------------------------------------------------------- 131 posix/wait
 
@@ -14615,55 +14615,55 @@ procedure main()
 
    # Child exits with code 3; parent reaps and prints wait status string.
    if (child1 := fork()) = 0 then {
-      delay(1000)
+      delay(1000);
       exit(3)
-   }
+   };
 
-   st := wait(child1) | write(&errout, "Wait 1 failed: ", sys_errstr(&errno))
-   write(trim(st))
+   st := wait(child1) | write(&errout, "Wait 1 failed: ", sys_errstr(&errno));
+   write(trim(st));
 
    # Child would exit(5) after a long delay; SIGTERM stops it first (see kill comment).
    if (child2 := fork()) = 0 then {
-      delay(10000)
+      delay(10000);
       exit(5)
-   }
+   };
 
    # If SIGQUIT is ignored, the child can run exit(5) after delay; expect
    # terminated:SIGTERM in stand/wait.std instead of terminated:SIGQUIT.
-   kill(child2, "SIGTERM")
-   st := wait() | write(&errout, "Wait 2 failed: ", sys_errstr(&errno))
+   kill(child2, "SIGTERM");
+   st := wait() | write(&errout, "Wait 2 failed: ", sys_errstr(&errno));
    # some of these will end in :core and some won't
-   if st[-5:0] == ":core" then st[-5:0] := ""
-   write(trim(st))
+   if st[-5:0] == ":core" then st[-5:0] := "";
+   write(trim(st));
 
    # Stopped with SIGSTOP, waited with WUNTRACED ("u"), then CONT + TERM to finish.
    if (child3 := fork()) = 0 then {
-      delay(10000)
+      delay(10000);
       exit(0)
-   }
+   };
 
-   kill(child3, "SIGSTOP")
+   kill(child3, "SIGSTOP");
    st := wait(child3, "u") |
-      write(&errout, "Wait 3 failed: ", sys_errstr(&errno))
-   write(trim(st))
+      write(&errout, "Wait 3 failed: ", sys_errstr(&errno));
+   write(trim(st));
    
    
-   kill(child3, "SIGCONT")
-   kill(child3, "SIGTERM")
+   kill(child3, "SIGCONT");
+   kill(child3, "SIGTERM");
 
 
-   delay(1000)
-   system("rm -f core")
+   delay(1000);
+   system("rm -f core");
 end
 
 # Drop optional ":core" suffix so golden output matches hosts that differ on cores.
 procedure trim(st)
    st ? {
-      pid := (integer(tab(many(&digits))) | &null)
-      writes(type(pid), " ")
-      move(1)
+      pid := (integer(tab(many(&digits))) | &null);
+      writes(type(pid), " ");
+      move(1);
       write(tab(0))
-   }
+   };
 end
 #------------------------------------------------------------ 132 samples/btrees
 #

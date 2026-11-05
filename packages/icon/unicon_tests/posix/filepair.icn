@@ -4,18 +4,18 @@ global count
 
 procedure main()
 
-   L1 := filepair() | stop("Couldn't get filepair: ", sys_errstr(&errno))
+   L1 := filepair() | stop("Couldn't get filepair: ", sys_errstr(&errno));
 
-   count := 20
+   count := 20;
 
-   pid := fork() | stop("Couldn't fork")
+   pid := fork() | stop("Couldn't fork");
    if pid = 0 then {
-      close(L1[1])
+      close(L1[1]);
       child(L1[2])
    } else {
-      close(L1[2])
+      close(L1[2]);
       parent(L1[1])
-   }
+   };
 end
 
 
@@ -25,28 +25,28 @@ end
 #
 procedure parent(in)
    # turn non-blocking mode on.
-   fcntl(in, "F", "d")
+   fcntl(in, "F", "d");
 
-   i := 0
-   str := ""
-   tries := 0
+   i := 0;
+   str := "";
+   tries := 0;
    while i < count do {
 #       write("parent ", i)
-      tries +:= 1
+      tries +:= 1;
       if s := read(in) then {
-         j := (s ? integer(tab(many(&digits)))) | -1
+         j := (s ? integer(tab(many(&digits)))) | -1;
          if j ~= i then {
-            write("failed - expected ", i, " got ", j, " from ", image(s))
+            write("failed - expected ", i, " got ", j, " from ", image(s));
             break
-         }
+         };
          i +:= 1
       }
       else {
-         delay(1)
+         delay(1);
          if tries > 10 then stop("too many tries for i ", i)
          }
-   }
-   write("parent ending")
+   };
+   write("parent ending");
 end
 
 #
@@ -54,14 +54,14 @@ end
 # with an integer: 0 xxx, 1 xxx, 2 xxxx etc.
 #
 procedure child(out)
-   i := 0
+   i := 0;
    every 1 to count do {
 #      write("child ", i)
-      s := i || " " || repl("x", ?200)
+      s := i || " " || repl("x", ?200);
 
-      write(out, s) | stop("child failed to write")
+      write(out, s) | stop("child failed to write");
 
       i +:= 1
-   }
+   };
 
 end

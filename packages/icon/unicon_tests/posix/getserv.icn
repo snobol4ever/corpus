@@ -5,15 +5,15 @@ $include "posix.icn"
 procedure main()
 
    # Second arg fixes order when both tcp and udp exist (e.g. Fedora lists tcp first).
-   s := getserv("ntp", "udp") | stop("Couldn't get service \"ntp\" udp")
-   sdump(s)
-   port := s.port
-   s := getserv(integer(port), "udp") | stop("Couldn't get service for port ", port)
-   sdump(s)
+   s := getserv("ntp", "udp") | stop("Couldn't get service \"ntp\" udp");
+   sdump(s);
+   port := s.port;
+   s := getserv(integer(port), "udp") | stop("Couldn't get service for port ", port);
+   sdump(s);
 
 end
 
 procedure sdump(s)
    # Do not print s.aliases: entries differ by OS image (e.g. [] vs [ntp] on Alpine).
-   write(left(s.name, 10) || left(s.port || "/" || s.proto, 10))
+   write(left(s.name, 10) || left(s.port || "/" || s.proto, 10));
 end

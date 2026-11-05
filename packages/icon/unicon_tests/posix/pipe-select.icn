@@ -3,25 +3,25 @@
 $include "posix.icn"
 
 procedure main()
-   L := pipe() | stop("Couldn't get pipe: ", sys_errstr(&errno))
+   L := pipe() | stop("Couldn't get pipe: ", sys_errstr(&errno));
 
    if fork() = 0 then {
       # child: writer end of pipe
-      close(L[1])
-      delay(10000)
-      write(L[2], "Hello,")
+      close(L[1]);
+      delay(10000);
+      write(L[2], "Hello,");
       write(L[2], "   world!")
    } else {
       # parent: reader
-      close(L[2])
+      close(L[2]);
       while 1 do {
          while *(L := select(L[1], 1000)) = 0 do
-            delay(10)
-         (&errno = 0) | stop("Select failed: ", sys_errstr(&errno))
+            delay(10);
+         (&errno = 0) | stop("Select failed: ", sys_errstr(&errno));
 
-         (line := reads(L[1])) | break
+         (line := reads(L[1])) | break;
          write(line)
-      }
+      };
       write("Everything's ok.")
-   }
+   };
 end

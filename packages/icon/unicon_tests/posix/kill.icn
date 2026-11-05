@@ -2,16 +2,16 @@
 $include "posix.icn"
 
 procedure main()
-   trap("SIGHUP", handler)
+   trap("SIGHUP", handler);
 
    if fork() == 0 then {
-      kill(getppid(), "SIGHUP")
+      kill(getppid(), "SIGHUP");
       exit(0)
-   }
+   };
    
-   delay(10000)
+   delay(10000);
 end
 
 procedure handler(s)
-   write("Got ", s)
+   write("Got ", s);
 end

@@ -9,10 +9,10 @@ $include "posix.icn"
 procedure main()
 
    # "F","d" sets O_NONBLOCK; with no stdin data, read should fail (e.g. EAGAIN).
-   fcntl(&input, "F", "d") | stop("fcntl failed: ", sys_errstr(&errno))
+   fcntl(&input, "F", "d") | stop("fcntl failed: ", sys_errstr(&errno));
    line := read() |
       write("Read failed: ",
             # musl / some macOS tty paths leave &errno at 0 on this failure; match EAGAIN text.
             if &errno = 0 then "Resource temporarily unavailable"
-            else sys_errstr(&errno))
+            else sys_errstr(&errno));
 end

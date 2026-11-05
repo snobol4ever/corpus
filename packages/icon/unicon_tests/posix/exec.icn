@@ -8,9 +8,9 @@ $ifdef _MS_WINDOWS_NT
    exec(getenv("ComSpec") | "C:\\Windows\\System32\\cmd.exe",
         "cmd.exe", "/c", "echo hello, world!")
 $else
-   exec("/bin/echo", "echo", "hello,", "world!")
+   exec("/bin/echo", "echo", "hello,", "world!");
 $endif
 
-   write("error (", &errno, "): ", &errortext)
+   write("error (", &errno, "): ", &errortext);
 end
 

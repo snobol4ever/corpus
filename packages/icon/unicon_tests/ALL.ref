@@ -10931,7 +10931,7 @@ Got SIGHUP
 .. (directory)
 d (symbolic link) -> a
 ls (file) permissions -rwxrwxr-x size    27753
-ls.icn (file) permissions -rw-rw-r-- size     1175
+ls.icn (file) permissions -rw-rw-r-- size     1185
 #--------------------------------------------------------------- 114 posix/mcast
 bogus attribute: bad socket attribute
 numeric boolean: bad socket attribute
