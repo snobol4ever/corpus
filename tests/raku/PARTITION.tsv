@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1354 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=14 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,2
+# shape: entries=1355 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=14 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,3
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:01	family:ladder	
@@ -73,7 +73,7 @@ simple_program_72	chunk:02	family:smoke
 simple_program_75	chunk:03	family:smoke	
 simple_program_8	chunk:03	family:smoke	
 test_print_str	chunk:13	family:test_raku_print_str	
-test_say_int	chunk:13	family:test_raku_say_int	
+test_say_int	chunk:14	family:test_raku_say_int	
 test_say_str	chunk:14	family:test_raku_say_str	
 test_use_revision	chunk:14	family:test_raku_use_revision	
 ladder__rung00_hello_print_no_newline	chunk:01	family:ladder	
@@ -1002,6 +1002,7 @@ class_say_replace_9	chunk:05	feat:has	has say
 for_range_10	chunk:06	feat:for_with_say	for for_with_say range_op
 for_range_say_5	chunk:06	feat:for_with_say	for for_with_say range_op say
 junction_say_5	chunk:13	feat:junction	if junction say
+ladder__rung06_control_a_placeholder_block_with_a_statement_modifier_gets_the_condition_value	chunk:13	feat:given	given if unless
 ladder__rung06_control_a_ternary_branch_that_is_a_block_ending_in_return_leaves_the_sub	chunk:11	feat:sub_with_return	return sub sub_with_return
 ladder__rung06_control_an_eager_prefix_on_a_gather_runs_it_to_the_end	chunk:06	feat:for_with_say	for for_with_say range_op
 ladder__rung07_subs_a_nested_sub_shadows_a_top_level_sub_of_the_same_name_inside_its_enclosing_sub	chunk:11	feat:sub_with_return	return string_concat sub sub_with_return
