@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1352 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=13 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100
+# shape: entries=1353 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=14 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,1
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:01	family:ladder	
@@ -75,7 +75,7 @@ simple_program_8	chunk:03	family:smoke
 test_print_str	chunk:13	family:test_raku_print_str	
 test_say_int	chunk:13	family:test_raku_say_int	
 test_say_str	chunk:13	family:test_raku_say_str	
-test_use_revision	chunk:13	family:test_raku_use_revision	
+test_use_revision	chunk:14	family:test_raku_use_revision	
 ladder__rung00_hello_print_no_newline	chunk:01	family:ladder	
 ladder__rung025_kw_nan_nan_sign	chunk:01	family:ladder	
 ladder__rung026_lit_radix_call_big	chunk:01	family:ladder	
@@ -816,7 +816,7 @@ ladder__rung024_kw_inf_num_scalar_raku	chunk:04	feat:say	say
 ladder__rung03_strings_an_escaped_sigil_in_a_double_quoted_string_is_a_literal_dollar_or_at	chunk:06	feat:sigil_array	sigil_array
 scrip_test_rk_join	chunk:08	feat:join	join say sub
 ladder__rung09_string_methods_sub_forms_and_chomp_crlf	chunk:10	feat:string_concat	string_concat
-ladder__rung07_subs_a_module_declared_in_a_bare_block_registers_its_subs_for_the_qualified_call	core	core	our string_concat sub
+ladder__rung07_subs_a_module_declared_in_a_bare_block_registers_its_subs_for_the_qualified_call	chunk:13	feat:our	our string_concat sub
 ladder__rung13_classes_eval_of_a_class_name_or_its_literal_is_the_class_type_object	chunk:02	family:ladder	
 say_19	chunk:04	feat:say	say
 ladder__rung02_arithmetic_rat_counts_and_tolerances_in_the_test_module_plan_skip_is_approx	chunk:12	feat:range_op	range_op sigil_array
@@ -1275,6 +1275,7 @@ class_method_say_replace_44	chunk:05	feat:has	has method return say string_conca
 class_method_say_replace_46	chunk:05	feat:has	has method return say string_concat
 class_method_say_replace_53	chunk:05	feat:has	has method return say string_concat
 class_method_say_replace_54	chunk:05	feat:has	has method return say string_concat
+ladder__rung01_variables_temp_restores_the_old_value_at_scope_exit	core	core	for for_with_say our range_op sigil_array sub
 ladder__rung07_subs_a_sub_reading_its_topic_keeps_the_default_of_its_typed_parameter	chunk:11	feat:sub_with_return	for for_with_say if range_op return sub sub_with_return
 class_method_for_replace_2	chunk:05	feat:has	for for_with_say has method range_op
 class_method_for_replace_3	chunk:05	feat:has	for for_with_say has method range_op
