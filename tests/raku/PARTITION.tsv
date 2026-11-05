@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1345 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=13 sizes=100,100,100,100,100,100,100,100,100,100,100,100,93
+# shape: entries=1346 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=13 sizes=100,100,100,100,100,100,100,100,100,100,100,100,94
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:01	family:ladder	
@@ -685,7 +685,7 @@ ladder__rung18_two_arg_block_sort_string	chunk:13	feat:sort	sigil_array sort
 ladder__rung19_block_methcall_sort_by_key	chunk:13	feat:sort	sigil_array sort
 multi_2	chunk:11	feat:multi	multi return
 range_array_1	chunk:11	feat:range_op	range_op sigil_array
-range_array_11	chunk:11	feat:range_op	range_op sigil_array
+range_array_11	chunk:12	feat:range_op	range_op sigil_array
 range_array_12	chunk:12	feat:range_op	range_op sigil_array
 range_array_2	chunk:12	feat:range_op	range_op sigil_array
 range_array_3	chunk:12	feat:range_op	range_op sigil_array
@@ -1008,7 +1008,7 @@ ladder__rung08_for_a_for_statement_modifier_restores_the_outer_topic_when_it_end
 ladder__rung08_for_loop_for_over_array	chunk:06	feat:for_with_say	for for_with_say sigil_array
 ladder__rung08_for_loop_for_with_index	chunk:06	feat:for_with_say	for for_with_say sigil_array
 ladder__rung08_for_redo_with_a_label_from_an_inner_loop_restarts_the_outer_loop	chunk:11	feat:while	if string_concat while
-ladder__rung08_for_redo_with_a_label_restarts_a_c_style_loop_body	chunk:12	feat:loop	if loop string_concat
+ladder__rung08_for_redo_with_a_label_restarts_a_c_style_loop_body	chunk:13	feat:loop	if loop string_concat
 ladder__rung08_for_redo_with_a_label_restarts_a_repeat_body	chunk:11	feat:while	if string_concat while
 ladder__rung09_a_quantified_captures_list_responds_to_builtin_list_methods	chunk:10	feat:smartmatch	regex smartmatch string_concat
 ladder__rung09_a_quantified_named_bracket_group_stays_a_single_match	chunk:10	feat:smartmatch	regex smartmatch string_concat
@@ -1126,6 +1126,7 @@ class_method_say_replace_56	chunk:05	feat:has	has method say
 class_say_replace_11	chunk:05	feat:has	has say string_concat
 for_array_say_3	chunk:07	feat:for_with_say	for for_with_say say sigil_array
 for_array_say_5	chunk:07	feat:for_with_say	for for_with_say say sigil_array
+ladder__rung04_arrays_a_negative_index_returns_a_failure_that_stays_a_failure_when_indexed_again	chunk:10	feat:smartmatch	range_op sigil_array smartmatch string_concat
 ladder__rung05_hashes_a_range_written_as_a_pair_value_stays_a_range	chunk:10	feat:smartmatch	range_op say smartmatch string_concat
 ladder__rung07_subs_a_subs_loop_variable_is_not_the_file_variable_another_sub_reads	chunk:07	feat:for_with_say	for for_with_say range_op sub
 ladder__rung08_for_a_label_is_a_term_in_its_scope	chunk:07	feat:for_with_say	for for_with_say range_op sub
@@ -1184,7 +1185,7 @@ ladder__rung13_classes_a_forward_declared_class_stub_gives_way_to_the_full_class
 sub_junction_say_replace_1	chunk:13	feat:junction	if junction say sub
 ladder__rung03_strings_the_method_assign_form_inside_an_expression_stores_and_yields_the_new_value	chunk:10	feat:string_concat	say sigil_array string_concat sub
 ladder__rung04_arrays_push_unshift_append_prepend_splice_shift_and_pop_on_a_number_die_and_push_of_an_array_literal_lives	chunk:12	feat:try	for for_with_say sigil_array try
-ladder__rung01_variables_a_coercion_type_on_a_variable_or_a_parameter_converts_the_value_it_is_given	chunk:10	feat:smartmatch	regex smartmatch string_concat sub
+ladder__rung01_variables_a_coercion_type_on_a_variable_or_a_parameter_converts_the_value_it_is_given	chunk:11	feat:smartmatch	regex smartmatch string_concat sub
 when_while_replace_1	chunk:13	feat:when	if unless when while
 ladder__rung02_arithmetic_power_assigned_and_compound_assigned	chunk:11	feat:sub_with_return	return sigil_array sub sub_with_return
 sub_for_say_replace_1	chunk:07	feat:for_with_say	for for_with_say say sub
