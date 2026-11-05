@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1368 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=14 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,16
+# shape: entries=1369 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=14 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,17
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:01	family:ladder	
@@ -686,6 +686,7 @@ ladder__rung10_smartmatch_a_set_matches_only_an_equal_set	chunk:10	feat:smartmat
 ladder__rung10_smartmatch_the_topic_is_coerced_to_the_matchers_family	chunk:10	feat:smartmatch	say smartmatch string_concat
 ladder__rung13_classes_a_method_whose_invocant_is_named_dollar_underscore_reads_it_as_the_topic	chunk:12	feat:method	method
 ladder__rung13_classes_a_method_with_a_definite_type_invocant_keeps_the_parameters	chunk:12	feat:method	method
+ladder__rung13_classes_named_arguments_of_a_method_call_bind_by_name	chunk:12	feat:method	method
 ladder__rung15_blocks_anon_sub	chunk:07	feat:sub	sub
 ladder__rung15_blocks_anon_sub_with_arg	chunk:07	feat:sub	sub
 ladder__rung15_blocks_fail_is_an_assignment_rhs	chunk:07	feat:sub	sub
@@ -888,7 +889,7 @@ ladder__rung13_classes_a_parameter_subsignature_reads_an_objects_accessors	chunk
 ladder__rung15_blocks_an_anonymous_method_reads_self	chunk:12	feat:method	method string_concat
 ladder__rung15_blocks_grep	chunk:12	feat:grep	grep sigil_array
 ladder__rung15_blocks_map	chunk:12	feat:map	map sigil_array
-ladder__rung19_block_a_grep_block_that_is_a_bare_regex_matches_each_element	chunk:12	feat:grep	grep join sigil_array
+ladder__rung19_block_a_grep_block_that_is_a_bare_regex_matches_each_element	chunk:13	feat:grep	grep join sigil_array
 ladder__rung19_block_the_grep_method_takes_a_regex_as_its_matcher	chunk:13	feat:grep	grep join sigil_array
 loop_2	chunk:13	feat:loop	if loop
 loop_3	chunk:13	feat:loop	if loop
@@ -1124,7 +1125,7 @@ sub_say_replace_1	chunk:09	feat:if	if say sub
 ladder__rung04_arrays_a_non_literal_left_of_xx_is_a_thunk_evaluated_once_per_repetition	chunk:08	feat:sub	say sigil_array sub
 ladder__rung19_block_methcall_sort_by_a_two_arg_comparator_block_past_64_elements	chunk:13	feat:sort	range_op say sigil_array sort
 sub_say_5	chunk:10	feat:string_concat	say string_concat sub
-benchmark_spinner	chunk:13	feat:for	for sigil_array sub
+benchmark_spinner	chunk:14	feat:for	for sigil_array sub
 ladder__rung15_blocks_a_my_declaration_without_a_value_keeps_what_a_begin_check_init_or_enter_phaser_stored	chunk:08	feat:sigil_hash	sigil_array sigil_hash string_concat
 ladder__rung07_subs_a_literal_passed_to_an_is_rw_parameter_throws_x_parameter_rw	chunk:12	feat:try	sigil_array sub try
 ladder__rung02_arithmetic_rat_smartmatch_truthiness_function_forms_and_type_checks	chunk:11	feat:smartmatch	say smartmatch string_concat
