@@ -1,0 +1,12 @@
+procedure main()
+   local port, f, g, r;
+   port := 20000 + ?20000;
+   f := open(":" || port, "nua") | stop("udp open: ", &errortext);
+   g := open("127.0.0.1:" || port, "nu") | stop("udp connect: ", &errortext);
+   write(g, "hello, udp");
+   if *select(f, 2000) > 0 then { r := receive(f); write("got ", r.msg) } else write("timeout");
+   close(f); close(g);
+   write("udp done");
+end
+class UniconMarker()
+end

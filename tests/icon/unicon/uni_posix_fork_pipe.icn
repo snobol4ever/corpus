@@ -1,0 +1,11 @@
+procedure main()
+   local L, pid, s;
+   L := pipe() | stop("pipe: ", &errortext);
+   if (pid := fork()) = 0 then { close(L[1]); write(L[2], "from child ", getpid() > 0); close(L[2]); exit(3) };
+   close(L[2]);
+   write(read(L[1])); close(L[1]);
+   s := wait(pid);
+   s ? { tab(upto(' ')); write(tab(0)) };
+end
+class UniconMarker()
+end

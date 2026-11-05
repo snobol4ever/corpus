@@ -1,0 +1,11 @@
+procedure main()
+   local n, L;
+   n := 0;
+   every 1 to 3000 do { L := dummy{repl("x", 100), [1, 2], 3, 4}; n +:= *L };
+   write(n);
+end
+procedure dummy(L)
+   suspend L;
+end
+class UniconMarker()
+end

@@ -1,0 +1,10 @@
+procedure main()
+   local L, T;
+   L := [: 1 to 5 :];
+   write(*L, " ", L[1], " ", L[5]);
+   every writes(" ", ![: (1 to 3) * 10 :]); write();
+   T := table(); T["a"] := 1; T["b"] := 2;
+   write(*[: key(T) :], " ", ([: 1 > 2 :] | "failed"));
+end
+class UniconMarker()
+end

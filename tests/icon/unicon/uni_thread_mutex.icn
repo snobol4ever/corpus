@@ -1,0 +1,16 @@
+global que, mtx, total
+procedure main()
+   local p, c, i;
+   if not (&features == "concurrent threads") then stop("no threads");
+   que := []; mtx := mutex(); total := 0; i := 0;
+   write(type(mtx) == "integer" | "not integer");
+   p := thread produce(1); c := thread produce(2);
+   while i < 200 do critical mtx: if *que > 0 then { total +:= pop(que); i +:= 1 };
+   wait(p); wait(c);
+   write(i, " ", total);
+   write(lock(mtx) = mtx, " ", unlock(mtx) = mtx, " ", image(trylock(mtx) = mtx), " ", unlock(mtx) = mtx);
+end
+procedure produce(start)
+   local k;
+   every k := start to 200 by 2 do critical mtx: put(que, k);
+end

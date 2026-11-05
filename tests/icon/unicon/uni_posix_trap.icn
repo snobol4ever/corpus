@@ -1,0 +1,18 @@
+global seen
+procedure main()
+   seen := 0;
+   trap("SIGUSR1", handler);
+   kill(getpid(), "SIGUSR1");
+   delay(100);
+   write("after delay, seen=", seen);
+   if fork() = 0 then { kill(getppid(), "SIGUSR1"); exit(0) };
+   delay(500);
+   wait();
+   write("after child, seen=", seen);
+end
+procedure handler(s)
+   seen +:= 1;
+   write("Got ", s);
+end
+class UniconMarker()
+end

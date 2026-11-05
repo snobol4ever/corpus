@@ -1,0 +1,11 @@
+procedure main()
+   local s, move5, move4;
+   move5 := create |(move(5) \ 1);
+   move4 := create |(move(4) \ 1);
+   s := "Now is the time for all good men";
+   s ? while write(move5()) do move4();
+   write("===");
+   s ? write(1(move5(), move4()), " &pos=", &pos);
+end
+class UniconMarker()
+end

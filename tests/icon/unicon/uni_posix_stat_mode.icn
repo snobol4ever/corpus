@@ -1,0 +1,12 @@
+procedure main()
+   local f, p;
+   f := open("/tmp/uni_posix_stat_mode.txt", "w") | stop("open");
+   write(f, "12345"); close(f);
+   chmod("/tmp/uni_posix_stat_mode.txt", "rw-r--r--");
+   p := stat("/tmp/uni_posix_stat_mode.txt") | stop("stat: ", &errortext);
+   write(p.mode, " ", p.size, " ", type(p), " ", image(stat("/nonexistent")) | "no file");
+   remove("/tmp/uni_posix_stat_mode.txt");
+   write(image(stat("/tmp/uni_posix_stat_mode.txt")) | "removed");
+end
+class UniconMarker()
+end
