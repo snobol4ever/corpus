@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1380 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=51 clusters=49 chunks=14 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,29
+# shape: entries=1381 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=51 clusters=49 chunks=14 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,30
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:01	family:ladder	
@@ -226,7 +226,7 @@ simple_program_35	core	core	print
 simple_program_4	chunk:10	feat:string_concat	string_concat
 simple_program_42	chunk:10	feat:string_concat	string_concat
 simple_program_51	chunk:13	feat:sprintf	sprintf
-simple_program_52	chunk:13	feat:sprintf	sprintf
+simple_program_52	chunk:14	feat:sprintf	sprintf
 simple_program_53	chunk:14	feat:sprintf	sprintf
 simple_program_54	chunk:14	feat:sprintf	sprintf
 simple_program_55	chunk:14	feat:sprintf	sprintf
@@ -1094,6 +1094,7 @@ junction_say_1	chunk:13	feat:junction	if junction say
 junction_say_2	chunk:13	feat:junction	if junction say
 junction_say_3	chunk:13	feat:junction	if junction say
 junction_say_4	chunk:13	feat:junction	if junction say
+ladder__rung06_control_a_given_statement_modifier_inside_parentheses_topicalizes_its_expression	chunk:13	feat:given	given say sigil_array
 multi_sub_array_2	chunk:11	feat:multi	multi sigil_array string_concat sub
 multi_sub_say_1	chunk:11	feat:multi	multi say string_concat sub
 multi_sub_say_5	chunk:11	feat:multi	multi say string_concat sub
