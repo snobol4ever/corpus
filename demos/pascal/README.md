@@ -14,6 +14,7 @@ input `<name>.ref`, and its declared heap and stack (`<name>.heap`, `<name>.stac
 | `p4/int` | Pascal-P4's P-code interpreter running the P4 COMPILER as P-code, compiling a sample program | `corpus/packages/pascal/p4/int.pas` (the vendored, patched P4 kit, `PATCHES.md`) | `int.in`, a 27-line program (sieve, Fibonacci, gcd); `prd` the compiler's P-code |
 | `p5/pcom` | Pascal-P5's compiler compiling a sample program | P5's `source/pcom.pas` after P5's own preprocessing step | `prd`, P5's sample `qsort.pas` |
 | `p5/pint` | Pascal-P5's P-code interpreter running the PAT | P5's `source/pint.pas` after P5's own preprocessing step | `prd` the PAT's P-code; `pint.in` the PAT's `iso7185pat.inp` |
+| `tex` | Knuth's TeX, INITEX, loading plain.tex and hyphen.tex and typesetting two documents into a three-page DVI | `source/tex.web` unchanged, tangled with `source/tex.ch` (the port) and finished by `source/gen.py`; plain.tex, hyphen.tex, story.tex and the Computer Modern metric files embedded, unchanged, from TeX Live 2023 | `tex.in`, one line: `\input plain \input story \input sample \end` |
 
 THE REF IS THE ORACLE'S OUTPUT, cut by the ceo on 2026-10-09 (CEO-1589) with no command-line argument:
 
@@ -81,3 +82,9 @@ stops with `error 204: memory overflow` in both modes; at 262144 KB both modes r
 alone 100 MB, where the fpc build peaks at 25 MB for the whole session and 8.7 MB for the prelude). The factor is SCRIP's record: a
 variant record holds a slot for every field of every arm (twenty here), where fpc overlays the arms. Run time on 2026-10-10 at load 10:
 43 to 49 s per mode, the fpc build 0.56 s.
+
+## The TeX demo (Lon 2026-10-10, CEO-1609; hq_pascal 2026-11-04)
+
+`tex/` is Knuth's `tex.web` as an ISO 7185 program: a change file and a generator, no hand edit of the program. The whole account (what the port
+embeds, what it drops, how the DVI is dumped and cross-checked against the system `tex`, the declared arena measured) is in `tex/README.md`.
+The ref is the output of the `fpc -Miso` build of the same `tex.pas` on `tex.in`, cut twice, byte-identical.

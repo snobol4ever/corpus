@@ -1,0 +1,23 @@
+\headline={\hfil\sl A Small Sample\hfil}
+\footline={\hfil\folio\hfil}
+\centerline{\bf Typesetting a Little Plain TeX}
+\medskip
+\noindent Plain \TeX\ sets paragraphs by breaking a long line of boxes and glue
+into lines of equal width, choosing the breaks that make the whole paragraph
+look best. It does the same for pages\footnote{$^1$}{A footnote is set at the
+bottom of the page, under a short rule.} and for mathematics, where
+$$\int_0^1 {dx\over 1+x^2}={\pi\over4}\qquad\hbox{and}\qquad
+\sum_{k=1}^{n}k={n(n+1)\over2}.$$
+\medskip
+\halign{\hfil#\hfil\quad&\hfil#\hfil\quad&\hfil#\hfil\cr
+\bf n&\bf $n^2$&\bf $2^n$\cr
+\noalign{\smallskip}
+1&1&2\cr 2&4&4\cr 3&9&8\cr 4&16&16\cr 5&25&32\cr}
+\bigskip
+\noindent Hyphenation is by Liang's algorithm: a paragraph of ordinary running
+text such as this one, with words like typesetting, computer, hyphenation and
+mathematical, lets the line breaker split them when that gives a better paragraph.
+\vfill\eject
+\noindent The second page holds only this line, followed by a rule.
+\vskip 1in \hrule
+\vfill\eject
