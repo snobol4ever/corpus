@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1351 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=13 sizes=100,100,100,100,100,100,100,100,100,100,100,100,99
+# shape: entries=1352 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=52 clusters=49 chunks=13 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:01	family:ladder	
@@ -287,7 +287,7 @@ ladder__rung024_kw_inf_inf_rounding	chunk:04	feat:say	say
 ladder__rung025_kw_nan_nan_conversions	chunk:04	feat:say	say
 ladder__rung14_roles_does_ok_asks_the_does_method	chunk:02	family:ladder	
 ladder__rung025_kw_nan_nan_is_nan	chunk:04	feat:say	say
-ladder__rung03_strings_trans_takes_several_pairs_tr_style_strings_with_ranges_and_the_c_d_s_adverbs	chunk:11	feat:range_op	range_op
+ladder__rung03_strings_trans_takes_several_pairs_tr_style_strings_with_ranges_and_the_c_d_s_adverbs	chunk:12	feat:range_op	range_op
 ladder__rung02_arithmetic_rat_exact_with_big_numerators_and_the_64_bit_denominator_limit	chunk:04	feat:say	say
 array_30	chunk:05	feat:sigil_array	sigil_array
 array_31	chunk:05	feat:sigil_array	sigil_array
@@ -379,7 +379,7 @@ array_46	chunk:06	feat:sigil_array	sigil_array
 array_47	chunk:06	feat:sigil_array	sigil_array
 array_48	chunk:06	feat:sigil_array	sigil_array
 array_49	chunk:06	feat:sigil_array	sigil_array
-class_method_1	chunk:12	feat:method	method
+class_method_1	chunk:11	feat:method	method
 class_say_1	chunk:04	feat:say	say
 class_say_2	chunk:04	feat:say	say
 hash_13	chunk:08	feat:sigil_hash	sigil_hash
@@ -432,6 +432,7 @@ ladder__rung08_for_last_from_an_inner_until_leaves_a_labelled_until_in_parenthes
 ladder__rung09_regex_a_pair_on_the_right_of_a_smartmatch_calls_the_method_it_names_on_the_left_operand	chunk:10	feat:smartmatch	smartmatch string_concat
 ladder__rung09_string_methods_trim_methods_on_an_io_path	chunk:02	family:ladder	
 ladder__rung13_classes_a_method_with_a_type_capture_invocant_binds_the_capture_to_the_class	chunk:12	feat:method	method
+ladder__rung13_classes_a_user_str_method_answers_on_the_type_object	chunk:12	feat:method	method
 ladder__rung13_classes_the_compile_time_variable_class_names_the_enclosing_class	chunk:12	feat:method	method
 ladder__rung15_blocks	chunk:02	family:ladder	
 ladder__rung15_blocks_a_builtin_routine_reference_is_a_closure	chunk:02	family:ladder	
@@ -745,7 +746,7 @@ sub_say_10	chunk:07	feat:sub	say sub
 sub_say_11	chunk:07	feat:sub	say sub
 sub_say_9	chunk:08	feat:sub	say sub
 test_lines_file	chunk:06	feat:sigil_array	say sigil_array
-test_stmt_ctrl_loop_three	chunk:12	feat:loop	loop
+test_stmt_ctrl_loop_three	chunk:13	feat:loop	loop
 test_stmt_pfx_do	chunk:04	feat:say	say
 while_4	chunk:11	feat:while	while
 while_replace_1	chunk:11	feat:while	while
