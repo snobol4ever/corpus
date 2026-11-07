@@ -1,0 +1,15 @@
+hello
+xviaother
+same_stream
+other_moved_to_file
+other_alias_gone
+intofile
+still_myout
+set_stream_alias(A,zz) => caught(error(instantiation_error,set_stream_alias/2))
+set_stream_alias(user_output,A) => caught(error(instantiation_error,set_stream_alias/2))
+set_stream_alias(user_output,3) => caught(error(type_error(atom,3),set_stream_alias/2))
+set_stream_alias(nostream,zz) => caught(error(existence_error(stream,nostream),set_stream_alias/2))
+set_stream_alias(3,zz) => caught(error(domain_error(stream_or_alias,3),set_stream_alias/2))
+set_stream_alias(user_output,foo) => [set_stream_alias(user_output,foo)]
+set_stream_alias(user_output,foo) => [set_stream_alias(user_output,foo)]
+set_stream_alias(foo,bar) => [set_stream_alias(foo,bar)]

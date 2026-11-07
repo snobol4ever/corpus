@@ -1,0 +1,14 @@
+A is inc(3) => [4 is inc(3)]
+A is dec(3) => [2 is dec(3)]
+A is inc(2.5) => [3.5 is inc(2.5)]
+A is dec(-7) => [-8 is dec(-7)]
+A is inc(dec(inc(10))) => [11 is inc(dec(inc(10)))]
+A is dec(0) => [-1 is dec(0)]
+A is inc(a) => caught(error(type_error(evaluable,a/0),(is)/2))
+A is inc(B) => caught(error(instantiation_error,(is)/2))
+A is dec(1,2) => caught(error(type_error(evaluable,dec/2),(is)/2))
+A is inc(2+3)*2 => [12 is inc(2+3)*2]
+inc(3)=:=4 => [inc(3)=:=4]
+dec(3)<3 => [dec(3)<3]
+[built_in,static,template(inc(number),number)]
+[built_in,static,template(dec(number),number)]

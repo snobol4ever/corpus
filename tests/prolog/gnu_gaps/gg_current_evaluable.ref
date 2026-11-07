@@ -1,0 +1,18 @@
+current_evaluable(foo) => caught(error(type_error(predicate_indicator,foo),current_evaluable/1))
+current_evaluable(foo/a) => caught(error(type_error(integer,a),current_evaluable/1))
+current_evaluable(1/2) => caught(error(type_error(atom,1),current_evaluable/1))
+current_evaluable(foo/ -1) => caught(error(domain_error(not_less_than_zero,-1),current_evaluable/1))
+current_evaluable(1) => caught(error(type_error(predicate_indicator,1),current_evaluable/1))
+current_evaluable(sin/1) => [current_evaluable(sin/1)]
+current_evaluable(sin/2) => []
+current_evaluable(foo/1) => []
+current_evaluable(sin/A) => [current_evaluable(sin/1)]
+current_evaluable(log/A) => [current_evaluable(log/1),current_evaluable(log/2)]
+current_evaluable((+)/A) => [current_evaluable((+)/1),current_evaluable((+)/2)]
+current_evaluable(gcd/2) => [current_evaluable(gcd/2)]
+current_evaluable(pi/0) => [current_evaluable(pi/0)]
+current_evaluable(pi/1) => []
+[e,epsilon,pi]
+[1]
+some
+[(**)/2,(//)/2,(/\)/2,(<<)/2,(>>)/2,(\)/1,(\/)/2,(^)/2,abs/1,atan2/2,ceiling/1,(div)/2,e/0,epsilon/0,exp/1,floor/1,lsb/1,max/2,min/2,(mod)/2,msb/1,popcount/1,(rem)/2,round/1,sign/1,sqrt/1,truncate/1,xor/2]
