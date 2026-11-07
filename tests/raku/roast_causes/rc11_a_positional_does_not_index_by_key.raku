@@ -1,0 +1,13 @@
+my $ref = [42];
+say (try { $ref<0>; "lived" }) // "died";
+say $!.message;
+my @a = 1, 2;
+say (try { @a{0}; "lived" }) // "died";
+say (try { (1, 2)<0>; "lived" }) // "died";
+say $!.message;
+my $rg = 1..3;
+say (try { $rg<a>; "lived" }) // "died";
+say $!.message;
+my %h = a => 1;
+say %h<a>;
+say $ref[0];
