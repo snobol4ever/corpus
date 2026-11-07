@@ -1,0 +1,8 @@
+$define ZERO() 0
+$define SUM(x,y) x+y
+procedure main()
+  write(ZERO( ));
+  write(SUM (10,20));
+end
+class UniconMarker()
+end
