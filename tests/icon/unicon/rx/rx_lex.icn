@@ -1,6 +1,0 @@
-procedure main()
-   local p;
-   p := <"a" | "b">;
-end
-class UniconMarker()
-end

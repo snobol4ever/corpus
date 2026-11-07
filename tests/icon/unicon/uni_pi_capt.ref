@@ -1,6 +1,0 @@
-(Any('a')) -> v
-(Any('a')) => v
-(Any('a') || Any('b')) -> v
-Len(2) || (Any('a')) -> v
-(Span(&digits)) -> v
-Arbno((Any('a')) -> v)

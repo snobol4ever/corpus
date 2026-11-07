@@ -1,7 +1,0 @@
-Any('a') || Any('d')
-Any('d') || Any('a')
-Arbno(Any('x'))
-(Any('a') .| Any('b'))
-Arbno(Any(&digits))
-15
-17
