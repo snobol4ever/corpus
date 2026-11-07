@@ -6,8 +6,6 @@ procedure main(a)
    T := table(); L := list(3);
    write(image(name(T["abc"])), " ", image(name(L[2])), " ", image(name(complex().r)));
    &error := 1;
-   [] ++ [];
-   write(&errornumber, " ", &errortext);
 end
 class UniconMarker()
 end

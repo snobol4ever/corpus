@@ -1,0 +1,11 @@
+procedure main()
+   &error := 1;
+   [] ++ [];
+   write(&errornumber, " ", &errortext);
+   &error := 1;
+   table() ** 3;
+   write(&errornumber, " ", &errortext);
+   write(*(table() ++ table()));
+end
+class UniconMarker()
+end
