@@ -2,8 +2,9 @@
 t(G) :- copy_term(G, C), catch(findall(C, C, L), E, true), ( var(E) -> R = L ; R = caught(E) ), \+ \+ ( numbervars(G-R, 0, _), writeq(G), write(' => '), writeq(R), nl ).
 main :-
     t(current_evaluable(foo)), t(current_evaluable(foo/a)), t(current_evaluable(1/2)), t(current_evaluable(foo/(-1))), t(current_evaluable(1)),
-    t(current_evaluable(sin/1)), t(current_evaluable(sin/2)), t(current_evaluable(foo/1)), t(current_evaluable(sin/_)), t(current_evaluable(log/_)),
-    t(current_evaluable((+)/_)), t(current_evaluable(gcd/2)), t(current_evaluable(pi/0)), t(current_evaluable(pi/1)),
+    t(current_evaluable(sin/1)), t(current_evaluable(sin/2)), t(current_evaluable(foo/1)), t(current_evaluable(sin/_)),
+    findall(AL, current_evaluable(log/AL), LL), msort(LL, SL), writeq(SL), nl, findall(AP, current_evaluable((+)/AP), LP), msort(LP, SP), writeq(SP), nl,
+    t(current_evaluable(gcd/2)), t(current_evaluable(pi/0)), t(current_evaluable(pi/1)),
     findall(F, current_evaluable(F/0), L0), msort(L0, S0), writeq(S0), nl,
     findall(A, current_evaluable(float_integer_part/A), L1), msort(L1, S1), writeq(S1), nl,
     ( current_evaluable(_) -> write(some) ; write(none) ), nl,
