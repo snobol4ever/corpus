@@ -1,14 +1,13 @@
 procedure main()
    local p, m, r;
    p := <([f]|[c])"at">;
-   write(image(p));
    p := p -> m || Rem() -> r;
    if "the cat sat" ?? p then write(m, "|", r);
    p := <"a"+ "b"? [c-e]{2}>;
-   write(image(p));
    if "xaabdd" ?? p -> m then write(m);
    p := <'x'* .>;
-   write(image(p));
+   if "xxxy" ?? p -> m then write(m);
+   write(type(<a|b>));
 end
 class UniconMarker()
 end

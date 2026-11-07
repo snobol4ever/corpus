@@ -1,0 +1,5 @@
+procedure main()
+   write(image(numeric("3k")), " ", image(numeric("1 k")) | "none", " ", image(numeric("2M")));
+end
+class UniconMarker()
+end

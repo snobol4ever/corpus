@@ -1,6 +1,5 @@
 procedure main()
    write(image(match("abc", "xabcabc", 2)) | "none");
-   every writes(" ", match("abc", "xabcabc", 1 to 5, 4 to 8)); write();
    write(image((7 ? =(1 to 10))) | "none");
    write(image("abc" ? =("ab")) | "none");
    write(image(upto('b', 5 ? tab(0))) | "none");

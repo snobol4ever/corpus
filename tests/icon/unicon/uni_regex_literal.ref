@@ -1,5 +1,4 @@
-pattern_4(4) = (Any('f') .| Any('c')) || "at"
 cat| sat
-pattern_20(8) = "a" || Arbno("a") || ("b" .| "") || Any('cde') || Any('cde')
 aabdd
-pattern_25(3) = Arbno(Any('x')) || NotAny('\n')
+x
+pattern

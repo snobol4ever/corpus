@@ -1,0 +1,7 @@
+procedure main()
+   every writes(" ", match("abc", "xabcabc", 1 to 5, 4 to 8)); write();
+   every writes(" ", match("abc", "xabcabc", 1 to 5)); write();
+   every writes(" ", match("abc", "xabcabc", 1 to 5, 8)); write();
+end
+class UniconMarker()
+end
