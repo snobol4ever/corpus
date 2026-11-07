@@ -1,0 +1,34 @@
+procedure nodes(p)
+   return image(p) ? (tab(find("(") + 1) & tab(upto(")")));
+end
+procedure main()
+   local v;
+   write(nodes(Any('a')));
+   write(nodes(Arb()));
+   write(nodes(Breakx(' ')));
+   write(nodes("a" || Any('b')));
+   write(nodes(Any('a') || "b" || Arbno("c")));
+   write(nodes(Any('a') .| Any('b')));
+   write(nodes(Any('a') .| Any('b') .| Any('c')));
+   write(nodes(Arbno(Any('x'))));
+   write(nodes(Arbno(Any('a') || Any('b'))));
+   write(nodes(Arbno(Any('a') .| Any('b'))));
+   write(nodes(Arbno(Arbno("a"))));
+   write(nodes(Arbno((Any('a') .| Any('b')) || Any('c'))));
+   write(nodes(Arbno(Any('a') || (Any('b') .| Any('c')))));
+   write(nodes(Arbno(Any('a') .| Any('b')) || Any('z')));
+   write(nodes(Arbno("a") .| Any('b')));
+   write(nodes(Any('a') -> v));
+   write(nodes(Len(2) || Any('a') -> v));
+   write(nodes(Arbno(Any('a') -> v)));
+   write(nodes(Arbno(Rem())));
+   write(nodes(Arbno(Tab(2))));
+   write(nodes(Arbno(Len(1))));
+   write(nodes(Arbno(Any('a') || Fence())));
+   write(nodes(Arbno(Any('a') || Arb())));
+   write(nodes(Arbno(Any('a') || Rem())));
+   write(nodes(Arbno("a" || Arbno("b"))));
+   write(nodes(Arbno(Fence())));
+end
+class UniconMarker()
+end

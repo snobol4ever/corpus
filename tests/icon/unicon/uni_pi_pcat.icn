@@ -1,0 +1,11 @@
+procedure main()
+   local m;
+   write(type(pattern_concat("a", "b")));
+   if "xab" ?? pattern_concat("a", "b") -> m then write(m);
+   if "xabc" ?? pattern_concat(Any('a'), "b") -> m then write(m);
+   if "xaybc" ?? pattern_concat(pattern_concat("a", Any('y')), "b") -> m then write(m);
+   write(type(pattern_concat(Arbno("a"), "b")));
+   write(type(pattern_concat("a", "b") .| "c"));
+end
+class UniconMarker()
+end

@@ -1,0 +1,38 @@
+procedure ser(p)
+   return image(p) ? (tab(find("_") + 1) & tab(upto("(")));
+end
+procedure main()
+   local v;
+   write(ser(Any('a')));
+   write(ser(Len(3)));
+   write(ser(Pos(0)));
+   write(ser(Pos(2)));
+   write(ser(Tab(4)));
+   write(ser(Span(&digits)));
+   write(ser(Break(' ')));
+   write(ser(Breakx(' ')));
+   write(ser(NotAny('\n')));
+   write(ser(Rem()));
+   write(ser(Arb()));
+   write(ser(Bal()));
+   write(ser(Fence()));
+   write(ser(Abort()));
+   write(ser(Fail()));
+   write(ser(Succeed()));
+   write(ser(Arbno("c")));
+   write(ser(Arbno(Any('x'))));
+   write(ser("a" || Any('b')));
+   write(ser(Any('b') || "a"));
+   write(ser(Any('a') || Any('b') || Any('c')));
+   write(ser(Any('a') .| Any('b')));
+   write(ser(Any('a') .| "b"));
+   write(ser("a" .| Any('b')));
+   write(ser((Any('a') .| Any('b')) || Any('c')));
+   write(ser(Any('a') .| Any('b') .| Any('c')));
+   write(ser(Any('a') -> v));
+   write(ser(Len(2) || Any('a') -> v));
+   write(ser(Arbno(Any('a') || Any('b'))));
+   write(ser(Any('a') || Arbno("b") || Any('c')));
+end
+class UniconMarker()
+end

@@ -1,0 +1,14 @@
+procedure txt(p)
+   return image(p) ? (tab(find(" = ") + 3) & tab(0));
+end
+procedure main()
+   local v;
+   write(txt(Any('a') -> v));
+   write(txt(Any('a') => v));
+   write(txt((Any('a') || Any('b')) -> v));
+   write(txt(Len(2) || Any('a') -> v));
+   write(txt(Span(&digits) -> v));
+   write(txt(Arbno(Any('a') -> v)));
+end
+class UniconMarker()
+end
