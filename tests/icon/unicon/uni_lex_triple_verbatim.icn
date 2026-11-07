@@ -1,0 +1,10 @@
+procedure main()
+  s := """a\"b
+$ifdef X
+kept
+$endif
+c""";
+  write(s);
+end
+class UniconMarker()
+end
