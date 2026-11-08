@@ -60,29 +60,6 @@ udb/prime: the oracle's translator refused it: prime.icn:3: # "global" Unable to
 udb/printme: EXCLUDED.tsv NO_ORACLE_ANSWER: CEO-1696: the oracle prints nothing (a udb helper program with no output of its own)
 udb/scopepkg: EXCLUDED.tsv NOT_A_UNIT_TEST: a package source the udb tests import: it has no main procedure (run-time error 117 in startup code)
 udb/scopes: the oracle's translator refused it: scopes.icn:3: # "global" Unable to import (1) package "scopepkg"
-uni_lib/args: the oracle's translator refused it: args.icn: "util__Args__state": inconsistent redeclaration
-uni_lib/blockread: the oracle's translator refused it: blockread.icn: "util__BlockRead__state": inconsistent redeclaration
-uni_lib/cltable: the oracle's translator refused it: cltable.icn: "util__ClTable__state": inconsistent redeclaration
-uni_lib/database: the oracle's translator refused it: database.icn: "database__Database__state": inconsistent redeclaration
-uni_lib/db_util: the oracle's translator refused it: db_util.icn: "database__DButils__state": inconsistent redeclaration
-uni_lib/decode: the oracle's translator refused it: decode.icn: "lang__Decode__state": inconsistent redeclaration
-uni_lib/encode: the oracle's translator refused it: encode.icn: "lang__Encode__state": inconsistent redeclaration
-uni_lib/langprocs: the oracle's translator refused it: langprocs.icn: "lang__get_class_name": inconsistent redeclaration
-uni_lib/mapbytes: the oracle's translator refused it: mapbytes.icn: "util__MapBytes__state": inconsistent redeclaration
-uni_lib/matrix_util: the oracle's translator refused it: matrix_util.icn: "util__m_copy": inconsistent redeclaration
-uni_lib/money: the oracle's translator refused it: money.icn: "util__Money__state": inconsistent redeclaration
-uni_lib/notification: the oracle's translator refused it: notification.icn: "util__Notification__state": inconsistent redeclaration
-uni_lib/notifier: the oracle's translator refused it: notifier.icn: "util__Notifier__state": inconsistent redeclaration
-uni_lib/pdb_util: the oracle's translator refused it: pdb_util.icn: "propertydb__PropertyUtil__state": inconsistent redeclaration
-uni_lib/propertydb: the oracle's translator refused it: propertydb.icn: "propertydb__PropertyDB__state": inconsistent redeclaration
-uni_lib/pushback: the oracle's translator refused it: pushback.icn: "util__PushBack__state": inconsistent redeclaration
-uni_lib/scan_util: the oracle's translator refused it: scan_util.icn: "util__FindFirst__state": inconsistent redeclaration
-uni_lib/setfields: the oracle's translator refused it: setfields.icn: "util__SetFields__state": inconsistent redeclaration
-uni_lib/str_replacer: the oracle's translator refused it: str_replacer.icn: "util__StringReplacer__state": inconsistent redeclaration
-uni_lib/str_util: the oracle's translator refused it: str_util.icn: "util__get_int": inconsistent redeclaration
-uni_lib/struct: the oracle's translator refused it: struct.icn: "database__Struct__state": inconsistent redeclaration
-uni_lib/time: the oracle's translator refused it: time.icn: "util__Time__state": inconsistent redeclaration
-uni_lib/union: the oracle's translator refused it: union.icn: "propertydb__Union__state": inconsistent redeclaration
 unicon/FxPtTest: the oracle's translator refused it: data/FxPtTests.icn:34: # "link" Unable to import (1) package "testing"
 unicon/FxPtTest_OVLD: the oracle's translator refused it: data/FxPtTests.icn:34: # "link" Unable to import (1) package "testing"
 unicon/list_test: the oracle's translator refused it: list_test.icn:15: # "link" Unable to import (1) package "testing"

@@ -11503,113 +11503,9 @@ Correct output!
 49
 64
 81
-#-------------------------------------------------- 152 uni_lib/basicclasscoding
-
-Run-time error 117 in startup code
-missing main procedure
-#------------------------------------------------------------- 153 uni_lib/class
-
-Run-time error 117 in startup code
-missing main procedure
-#------------------------------------------------------- 154 uni_lib/classcoding
-
-Run-time error 117 in startup code
-missing main procedure
-#------------------------------------------------------- 155 uni_lib/classobject
-
-Run-time error 117 in startup code
-missing main procedure
-#-------------------------------------------------------- 156 uni_lib/comparator
-
-Run-time error 117 in startup code
-missing main procedure
-#------------------------------------------------------- 157 uni_lib/connectable
-
-Run-time error 117 in startup code
-missing main procedure
-#------------------------------------------------------------- 158 uni_lib/error
-
-Run-time error 117 in startup code
-missing main procedure
-#---------------------------------------------------------- 159 uni_lib/fcn_util
-
-Run-time error 117 in startup code
-missing main procedure
-#------------------------------------------------------------ 160 uni_lib/format
-
-Run-time error 117 in startup code
-missing main procedure
-#---------------------------------------------------------- 161 uni_lib/listener
-
-Run-time error 117 in startup code
-missing main procedure
-#--------------------------------------------------------------- 162 uni_lib/md5
-
-Run-time error 117 in startup code
-missing main procedure
-#------------------------------------------------------------ 163 uni_lib/method
-
-Run-time error 117 in startup code
-missing main procedure
-#--------------------------------------------------------- 164 uni_lib/misc_util
-
-Run-time error 117 in startup code
-missing main procedure
-#------------------------------------------------------------ 165 uni_lib/object
-
-Run-time error 117 in startup code
-missing main procedure
-#---------------------------------------------------------- 166 uni_lib/predicat
-
-Run-time error 117 in startup code
-missing main procedure
-#----------------------------------------------------------- 167 uni_lib/process
-
-Run-time error 117 in startup code
-missing main procedure
-#---------------------------------------------------------- 168 uni_lib/property
-
-Run-time error 117 in startup code
-missing main procedure
-#------------------------------------------------------------- 169 uni_lib/qsort
-
-Run-time error 117 in startup code
-missing main procedure
-#---------------------------------------------------------- 170 uni_lib/runnable
-
-Run-time error 117 in startup code
-missing main procedure
-#----------------------------------------------------- 171 uni_lib/runtimeerrors
-
-Run-time error 117 in startup code
-missing main procedure
-#---------------------------------------------- 172 uni_lib/selectiveclasscoding
-
-Run-time error 117 in startup code
-missing main procedure
-#-------------------------------------------------------- 173 uni_lib/stringbuff
-
-Run-time error 117 in startup code
-missing main procedure
-#------------------------------------------------------------ 174 uni_lib/thread
-
-Run-time error 117 in startup code
-missing main procedure
-#---------------------------------------------------------- 175 uni_lib/timezone
-
-Run-time error 117 in startup code
-missing main procedure
-#---------------------------------------------------------- 176 uni_lib/unittest
-
-Run-time error 117 in startup code
-missing main procedure
-#--------------------------------------------------------- 177 uni_lib/utilities
-
-Run-time error 117 in startup code
-missing main procedure
-#----------------------------------------------------------- 178 unicon/clin_err
+#----------------------------------------------------------- 152 unicon/clin_err
 A value
-#------------------------------------------------------------- 179 unicon/macros
+#------------------------------------------------------------- 153 unicon/macros
 5
 12
 10
@@ -11625,12 +11521,12 @@ a,b|c(d)|e
 1
 0
 ASSERT_TRUE failed: too few args should fail
-#------------------------------------------------------------ 180 unicon/mintest
+#------------------------------------------------------------ 154 unicon/mintest
 min(3,1,4,9,-3,2)=-3
 max(3,1,4,9,-3,2)=9
-#--------------------------------------------------------------- 181 unicon/ovld
+#--------------------------------------------------------------- 155 unicon/ovld
 This program requires operator overloading.
-#----------------------------------------------------------------- 182 unicon/to
+#----------------------------------------------------------------- 156 unicon/to
 0.0
 0.125
 0.25
@@ -11646,7 +11542,7 @@ This program requires operator overloading.
 2.5
 3.0
 3.5
-#----------------------------------------------------- 183 unicon/triple_strings
+#----------------------------------------------------- 157 unicon/triple_strings
 line@single=4
  This is a multi-line string in Unicon
 line@multi_inline=8
