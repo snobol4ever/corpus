@@ -1,0 +1,28 @@
+record R(a, b, c)
+class A(x)
+   method m1();
+      return "m1";
+   end
+end
+class B : A(y)
+   method m3();
+      return "m3";
+   end
+end
+procedure main();
+   local b, r, m, p;
+   r := R(1, 2, 3);
+   every writes(" ", fieldnames(r)); write();
+   b := B(10, 20);
+   every writes(" ", fieldnames(b)); write();
+   m := oprec(b);
+   write(type(m));
+   every writes(" ", fieldnames(m)); write();
+   every p := !methods(b) do writes(" ", image(p)); write();
+   every p := !methods("A") do writes(" ", image(p)); write();
+   write(*methods(b), " ", *methods("A"));
+   write(m.m3(b));
+   &error := -1;
+   write(image(fieldnames(42)) | ("fieldnames(42) fails with error " || &errornumber));
+   write(image(methods(42)) | ("methods(42) fails with error " || &errornumber));
+end
