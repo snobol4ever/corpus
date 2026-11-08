@@ -1,0 +1,16 @@
+global f, g
+procedure f(x);
+    return x + 1;
+end
+procedure h();
+    return 7;
+end
+global h
+procedure main();
+    write(image(f));
+    write(image(g));
+    write(image(h));
+    write(f(1));
+    write(h());
+    write(type(f));
+end
