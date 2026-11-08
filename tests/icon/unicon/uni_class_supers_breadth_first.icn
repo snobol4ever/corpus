@@ -1,0 +1,26 @@
+class O()
+   method om()
+   end
+end
+class A : O ()
+   method am()
+   end
+end
+class C : O ()
+end
+class D : A : C ()
+   method dm()
+   end
+end
+class E : F : O ()
+end
+class F : E : O ()
+end
+class G : D : C ()
+end
+procedure main()
+   every writes(" ", fieldnames(oprec(D()))); write();
+   every writes(" ", fieldnames(oprec(E()))); write();
+   every writes(" ", fieldnames(oprec(G()))); write();
+   every writes(" ", fieldnames(oprec(A()))); write();
+end
