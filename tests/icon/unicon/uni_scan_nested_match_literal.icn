@@ -1,0 +1,15 @@
+procedure main();
+   every write((("aeiou" | "foobaz") ? upto('dracula')) ? =(1 to 10));
+   write("after nested: ", &pos, " ", image(&subject));
+   write(image(&subject := &pos));
+   write(image(&pos :=: &subject));
+   write(image(&pos), " ", image(&subject));
+   every write(("ab" ? (1 | 2)) ? ="2");
+   every write(("xy" | "zz") ? =("x" | "z"));
+   s := "xxxxxx";
+   every s ? write(=("a" | "x"));
+   every write(("aeiou" ? upto('aei')) ? =('1' | 2));
+   write("end: ", &pos, " ", image(&subject));
+end
+class UniconMarker()
+end
