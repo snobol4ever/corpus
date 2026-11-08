@@ -1,0 +1,4 @@
+a cset operand matches as Any: yes
+Any('a') || 'd' matches ad
+its image names Any('d')
+done
