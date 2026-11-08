@@ -17,14 +17,14 @@ import lang
 #</p>
 procedure main()
    # In-memory properties only; persistent Property() would need a DB/ODBC.
-   useSimpleProperties()
+   useSimpleProperties();
 
    # Set a few properties...
-   Property().setP("A", 5)
-   Property().setP("B", 6)
+   Property().setP("A", 5);
+   Property().setP("B", 6);
 
    # Now, get the values (this could be anywhere in the program,
    #  of course)...
    write("A is ", Property().getP("A"), "\n",
-         "B is ", Property().getP("B"))
+         "B is ", Property().getP("B"));
 end

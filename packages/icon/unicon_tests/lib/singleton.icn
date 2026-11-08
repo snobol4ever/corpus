@@ -35,7 +35,7 @@ class Singleton : Object ()
    # A method that can be invoked to prove that the class is available.
    # </p>
    method print()
-      write("\t\thi there!")
+      write("\t\thi there!");
    end
 
 # <p>
@@ -44,21 +44,21 @@ class Singleton : Object ()
 # <i>exactly</i> once.
 # </p>
 initially
-   write("in constructor")
+   write("in constructor");
    # replace the constructor with a self-factory co-expression
-   Singleton := create |self
+   Singleton := create |self;
 end
 
 procedure main()
-   write()
-   Singleton().print()
-   write()
-   write("Once more, with feeling...")
-   write()
-   Singleton().print()
-   write()
-   write("And again, after assignment...")
-   write()
-   s := Singleton()
-   s.print()
+   write();
+   Singleton().print();
+   write();
+   write("Once more, with feeling...");
+   write();
+   Singleton().print();
+   write();
+   write("And again, after assignment...");
+   write();
+   s := Singleton();
+   s.print();
 end

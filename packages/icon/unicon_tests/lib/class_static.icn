@@ -29,9 +29,9 @@ class A : Object()
    #  argument, sets the variable to &null.
    #</p>
    method var(nV, setNull)
-      static v
-      v := if /setNull then \nV else &null
-      return v
+      static v;
+      v := if /setNull then \nV else &null;
+      return v;
    end
 end
 
@@ -40,12 +40,12 @@ end
 # "static" variable is shared between them.
 # </p>
 procedure main(args)
-   a := A()
-   b := A()
-   a.var(5)
-   write("In instance b, var is ",b.var())
-   b.var(1)
-   write("In instance a, var is ",a.var())
-   b.var(,1)
-   write("In instance a, var is ",\(a.var())|" &null")
+   a := A();
+   b := A();
+   a.var(5);
+   write("In instance b, var is ",b.var());
+   b.var(1);
+   write("In instance a, var is ",a.var());
+   b.var(,1);
+   write("In instance a, var is ",\(a.var())|" &null");
 end

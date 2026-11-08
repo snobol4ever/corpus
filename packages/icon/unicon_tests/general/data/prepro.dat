@@ -1,6 +1,6 @@
 #  prepro.dat -- code fragment $included by prepro.icn
 
-write("prepro.dat here")
+write("prepro.dat here");
 
 $undef abc
 $define abc 321

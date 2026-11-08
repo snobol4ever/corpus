@@ -1,15 +1,15 @@
 
 procedure main(argv)
    if not (&features == "concurrent threads") then
-      stop("This program requires concurrent threads.")
+      stop("This program requires concurrent threads.");
          
-   thrd := []
+   thrd := [];
 
-   write("The test should crash with a run time error now.")
-   write("You should see only one runtime error message. Any repetition")
-   write("of the error message indicates a problem in the threads system.")
+   write("The test should crash with a run time error now.");
+   write("You should see only one runtime error message. Any repetition");
+   write("of the error message indicates a problem in the threads system.");
 
-   every !4  do put(thrd, thread (delay(?30+10), 1 + &null))
+   every !4  do put(thrd, thread (delay(?30+10), 1 + &null));
    
-   every wait(!thrd)
+   every wait(!thrd);
 end

@@ -5,23 +5,23 @@
 global L, m
 procedure main()
    if not (&features == "concurrent threads") then
-      stop("This program requires concurrent threads.")
-   n := 4
-   L := mutex( [ ] )
-   m := 100000
-   write ("firing threads please wait...")
-   threads := []
+      stop("This program requires concurrent threads.");
+   n := 4;
+   L := mutex( [ ] );
+   m := 100000;
+   write ("firing threads please wait...");
+   threads := [];
    every i := !n do
-       put(threads, thread work(i))
+       put(threads, thread work(i));
 
-   every wait(!threads)
+   every wait(!threads);
    write("We just did ", m*n, " calls to put() from ", n, " threads\n",
          "The list was protected by a mutex.\n",
-         "How many elements do we have?")
-   write(*L)
+         "How many elements do we have?");
+   write(*L);
 
 end
 
 procedure work(i)
-    every j := 1 to m do put(L, j^i)
+    every j := 1 to m do put(L, j^i);
 end

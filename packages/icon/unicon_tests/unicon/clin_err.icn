@@ -9,15 +9,15 @@
 class Aclass(avalue:"a value")
 
     method showValue()
-        write(avalue)
+        write(avalue);
     end
 
 initially()
-    avalue := "A value"
+    avalue := "A value";
 end
 
 procedure main()
-    a := Aclass()
-    a.showValue()
+    a := Aclass();
+    a.showValue();
 end
 
