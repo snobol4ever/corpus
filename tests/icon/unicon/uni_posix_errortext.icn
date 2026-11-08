@@ -1,0 +1,9 @@
+procedure main()
+   local f;
+   if f := open("127.0.0.1:1", "n") then write("oops: connected") else write("tcp refused: ", &errortext);
+   if f := open("no_such_dir_s4e_13f/sock", "n") then write("oops: unix connected") else write("unix missing: ", &errortext);
+   if f := open(":" || (20000 + ?20000), "nua") then close(f) else write("udp bind: ", &errortext);
+   write("errortext done");
+end
+class UniconMarker()
+end

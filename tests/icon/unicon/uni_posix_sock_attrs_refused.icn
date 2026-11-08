@@ -1,0 +1,25 @@
+procedure raw_line(label, proto)
+   local f;
+   if f := open("127.0.0.1", "nr", "proto=" || proto) then { close(f); write(label, ": plumbing-ok") }
+   else if find("not permitted", \&errortext) then write(label, ": plumbing-ok")
+   else write(label, ": ", image(&errortext));
+end
+procedure main()
+   local p, f;
+   p := ":" || (20000 + ?20000);
+   write("bogus name: ", if open(p, "nua", "bogus=yes") then "accepted" else &errortext);
+   write("numeric boolean: ", if open(p, "nua", "reuseaddr=1") then "accepted" else &errortext);
+   write("no equals: ", if open(p, "nua", "reuseaddr") then "accepted" else &errortext);
+   write("empty name: ", if open(p, "nua", "=yes") then "accepted" else &errortext);
+   write("bad hdrincl: ", if open(p, "nua", "hdrincl=maybe") then "accepted" else &errortext);
+   write("raw no proto: ", if open("127.0.0.1", "nr") then "accepted" else &errortext);
+   write("raw bad proto: ", if open("127.0.0.1", "nr", "proto=nope") then "accepted" else &errortext);
+   write("raw empty proto: ", if open("127.0.0.1", "nr", "proto=") then "accepted" else &errortext);
+   write("raw proto 300: ", if open("127.0.0.1", "nr", "proto=300") then "accepted" else &errortext);
+   if f := open(p, "nua", "reuseaddr=yes") then { close(f); write("good boolean: opened") } else write("good boolean: ", &errortext);
+   raw_line("raw icmp", "icmp");
+   raw_line("raw numeric", "89");
+   write("attrs done");
+end
+class UniconMarker()
+end
