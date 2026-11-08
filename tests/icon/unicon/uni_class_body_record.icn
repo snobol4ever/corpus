@@ -1,0 +1,11 @@
+class Tally(n)
+   record pair(a, b)
+   method make()
+      return pair(n, n + 1);
+   end
+end
+procedure main()
+   local p;
+   p := Tally(4).make();
+   write(p.a, " ", p.b);
+end

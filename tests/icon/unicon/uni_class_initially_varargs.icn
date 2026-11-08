@@ -1,0 +1,12 @@
+class Bag(items)
+   method count()
+      return *items;
+   end
+initially(a[])
+   items := a;
+end
+procedure main()
+   local b;
+   b := Bag(1, 2, 3);
+   write("count ", b.count());
+end
