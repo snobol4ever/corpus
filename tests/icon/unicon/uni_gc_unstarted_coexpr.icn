@@ -1,0 +1,12 @@
+procedure main()
+   local a, b;
+   a := create work(1);
+   b := create work(3000);
+   write(@b);
+   write(@a);
+end
+procedure work(n)
+   local i, L;
+   every i := 1 to n do { if i % 100 = 1 then L := []; put(L, table()); put(L, list(1000)) };
+   return n;
+end
