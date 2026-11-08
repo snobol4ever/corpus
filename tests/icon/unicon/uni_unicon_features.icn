@@ -1,0 +1,7 @@
+procedure main()
+   local f;
+   every f := "concurrent threads" | "pattern type" | "messaging" | "UNIX" | "co-expressions" do
+      write(f, ": ", if &features == f then "yes" else "no");
+end
+class UniconMarker()
+end
