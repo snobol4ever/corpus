@@ -1,13 +1,14 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=382 features=48 ubiquitous=4(program var writeln assign) distinctive=44 core=42 clusters=40 chunks=4 sizes=100,100,100,40
+# shape: entries=383 features=48 ubiquitous=4(program var writeln assign) distinctive=44 core=42 clusters=40 chunks=4 sizes=100,100,100,41
 entry	part	cluster	shells
+ladder__rung17_reset_of_the_standard_input_does_not_open_a_file	chunk:01	family:ladder	
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multi	chunk:01	family:ladder	
 ladder__rung00_hello_paramlist	chunk:01	family:ladder	
 ladder__rung02_arithmetic_mixed_type	chunk:01	family:ladder	
 ladder__rung02_arithmetic_real_div	chunk:01	family:ladder	
-program_writeln_12	chunk:03	family:crosscheck_misc	
+program_writeln_12	chunk:04	family:crosscheck_misc	
 program_writeln_9	chunk:04	family:crosscheck_misc	
 ladder__rung00_hello_width	chunk:01	family:ladder	
 ladder__rung09_strings_get_on_the_standard_input	chunk:01	family:ladder	
@@ -264,7 +265,7 @@ program_record_pointer_3	chunk:02	feat:new	new pointer pointer_with_new record t
 ladder__rung15_layout_ptr_to_nested_row_copy	chunk:03	feat:pointer	array pointer set_literal subrange type
 ladder__rung21_class_indexed_property_chain	core	core	const function nested_proc procedure read type
 program_record_pointer_7	chunk:02	feat:new	new pointer pointer_with_new record type
-ladder__rung14_row_string_elem_char	chunk:02	feat:chr	array chr set_literal subrange type
+ladder__rung14_row_string_elem_char	chunk:03	feat:chr	array chr set_literal subrange type
 ladder__rung15_layout_ptr_to_nested_element_pointer	chunk:03	feat:pointer	array pointer set_literal subrange type
 program_array_packed_5	chunk:02	feat:packed	array packed set_literal subrange type
 ladder__rung20_generic_class_two_instances	chunk:03	feat:const	array const function nested_proc procedure type
@@ -273,7 +274,7 @@ program_procedure_record_12	chunk:02	feat:new	new pointer pointer_with_new proce
 program_procedure_record_5	chunk:02	feat:new	new pointer pointer_with_new procedure record type
 ladder__rung12_fillbyte_bytes	chunk:01	feat:write	array for for_with_array set_literal subrange write
 ladder__rung12_fillchar_chars	chunk:01	feat:write	array for for_with_array set_literal subrange write
-ladder__rung12_fillchar_zero	chunk:01	feat:write	array for for_with_array set_literal subrange write
+ladder__rung12_fillchar_zero	chunk:02	feat:write	array for for_with_array set_literal subrange write
 ladder__rung12_fillword_words	chunk:02	feat:write	array for for_with_array set_literal subrange write
 program_record_array_4	chunk:02	feat:packed	array packed record set_literal subrange type
 program_record_pointer_5	chunk:02	feat:case	case new pointer pointer_with_new record type
