@@ -15074,8 +15074,8 @@ procedure main()
 end
 
 procedure A()
-   b := <<@
-   c := <<@
+   b := <<@;
+   c := <<@;
 
    # A channel to send to B, since there is only one channel with B
    # a name is not necessary
@@ -15113,8 +15113,8 @@ procedure A()
 end
 
 procedure B()
-   a := <<@
-   c := <<@
+   a := <<@;
+   c := <<@;
 
    chA := channel(a);
    chC := channel(c);
@@ -15127,8 +15127,8 @@ end
 
 procedure C()
 
-   a := <<@
-   b := <<@
+   a := <<@;
+   b := <<@;
 
    chA := channel("I like this channel name!");
    chB := channel(b);
@@ -16047,7 +16047,7 @@ procedure talloc(id)
     # get the current thread allocation,
     # i.e &allocated for the current thread
     # queue up the result to be picked by &main
-    keyword("tallocated") @>>
+    keyword("tallocated") @>>;
     collect();
 end
 
@@ -16102,10 +16102,10 @@ procedure main()
 end
 
 procedure A()
-   b := <<@
+   b := <<@;
 
    # wait for the token coming from main
-   t := <<@ 
+   t := <<@;
 
    # "sign it"
    t ||:= "A ==> ";
@@ -16114,7 +16114,7 @@ procedure A()
    t @> b;
 
    # wait to get the token from C
-   t := <<@
+   t := <<@;
 
    t ||:= "A ==> ";
 
@@ -16125,9 +16125,9 @@ procedure A()
 end
 
 procedure B()
-   c := <<@
+   c := <<@;
 
-   t := <<@
+   t := <<@;
 
    t ||:= "B ==> ";
    t @> c;
@@ -16135,9 +16135,9 @@ end
 
 procedure C()
 
-   a := <<@
+   a := <<@;
 
-   t := <<@
+   t := <<@;
 
    t ||:= "C ==> ";
    t @> a;   

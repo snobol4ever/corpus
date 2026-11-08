@@ -41,7 +41,7 @@ procedure talloc(id)
     # get the current thread allocation,
     # i.e &allocated for the current thread
     # queue up the result to be picked by &main
-    keyword("tallocated") @>>
+    keyword("tallocated") @>>;
     collect();
 end
 

@@ -64,8 +64,8 @@ procedure main()
 end
 
 procedure A()
-   b := <<@
-   c := <<@
+   b := <<@;
+   c := <<@;
 
    # A channel to send to B, since there is only one channel with B
    # a name is not necessary
@@ -103,8 +103,8 @@ procedure A()
 end
 
 procedure B()
-   a := <<@
-   c := <<@
+   a := <<@;
+   c := <<@;
 
    chA := channel(a);
    chC := channel(c);
@@ -117,8 +117,8 @@ end
 
 procedure C()
 
-   a := <<@
-   b := <<@
+   a := <<@;
+   b := <<@;
 
    chA := channel("I like this channel name!");
    chB := channel(b);

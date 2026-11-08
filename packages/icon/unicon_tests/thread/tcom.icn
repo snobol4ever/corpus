@@ -48,10 +48,10 @@ procedure main()
 end
 
 procedure A()
-   b := <<@
+   b := <<@;
 
    # wait for the token coming from main
-   t := <<@ 
+   t := <<@;
 
    # "sign it"
    t ||:= "A ==> ";
@@ -60,7 +60,7 @@ procedure A()
    t @> b;
 
    # wait to get the token from C
-   t := <<@
+   t := <<@;
 
    t ||:= "A ==> ";
 
@@ -71,9 +71,9 @@ procedure A()
 end
 
 procedure B()
-   c := <<@
+   c := <<@;
 
-   t := <<@
+   t := <<@;
 
    t ||:= "B ==> ";
    t @> c;
@@ -81,9 +81,9 @@ end
 
 procedure C()
 
-   a := <<@
+   a := <<@;
 
-   t := <<@
+   t := <<@;
 
    t ||:= "C ==> ";
    t @> a;   
