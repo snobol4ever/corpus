@@ -1,0 +1,9 @@
+procedure main()
+   local t, u;
+   t := table("key", "val");
+   write(*t, " ", t["key"], " ", image(t["none"]));
+   u := table(0, "a", 1, "b", 2);
+   write(*u, " ", u["a"], " ", u["b"], " ", u["zz"]);
+end
+class UniconMarker()
+end

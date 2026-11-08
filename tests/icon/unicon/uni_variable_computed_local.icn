@@ -1,0 +1,10 @@
+global g1
+procedure main()
+   local p1, p2;
+   p1 := "one"; p2 := "two"; g1 := "glob";
+   every i := 1 to 2 do write(image(variable("p" || i)));
+   write(image(variable("g" || 1)));
+   write(image(variable("p1")));
+end
+class UniconMarker()
+end
