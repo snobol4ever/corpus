@@ -1,0 +1,10 @@
+a: past a failed =Pos(5)
+b: past a failed conjunction after Len(2)
+rpos3 at 2 failed
+rpos3 at 4 succeeded
+len resumed its argument
+len resumed its argument
+len resumed its argument
+pattern
+neither
+end

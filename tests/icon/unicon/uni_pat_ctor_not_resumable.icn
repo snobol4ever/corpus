@@ -1,0 +1,19 @@
+procedure main();
+   local x;
+   "abcdef" ? (tab(2) & =Pos(5) & write("pos5 matched"));
+   write("a: past a failed =Pos(5)");
+   (x := Len(2)) & &fail;
+   write("b: past a failed conjunction after Len(2)");
+   "abcdef" ? {
+      tab(2);
+      if =Rpos(3) then write("rpos3 at 2 succeeded") else write("rpos3 at 2 failed");
+      tab(4);
+      if =Rpos(3) then write("rpos3 at 4 succeeded") else write("rpos3 at 4 failed")
+      };
+   every Len(1 to 3) & write("len resumed its argument");
+   every write(type(Pos(5)));
+   "abcdef" ? write(=(Pos(9) | Pos(3)) | "neither");
+   write("end");
+end
+class UniconMarker()
+end
