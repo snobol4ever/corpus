@@ -1,0 +1,15 @@
+cur -1 fail
+cur 0 procedure inner
+cur 1 procedure outer
+cur 2 procedure main
+cur 3 fail
+main -1 fail
+main 0 procedure inner
+main 1 procedure outer
+main 2 procedure main
+main 3 fail
+top -1 fail
+top 0 procedure main
+top 1 fail
+top 2 fail
+function write procedure main
