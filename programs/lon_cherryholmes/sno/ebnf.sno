@@ -109,5 +109,5 @@ main00         ebnfStr        =  Read(ebnfFile, .t8Map)                         
                ENDFILE(3)                                                           :(END)
 errorSyntax    OUTPUT         =  'Syntax Error: ' txOfs                             :(END)
 *---------------------------------------------------------------------------------------------------
-*-INCLUDE 'debug.sno'
+*-INCLUDE 'debug.inc'
 END

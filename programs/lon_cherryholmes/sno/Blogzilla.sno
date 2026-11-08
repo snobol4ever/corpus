@@ -2,14 +2,14 @@
 * Blogzilla.sno
 *-------------------------------------------------------------------------------------------------------
 START
--INCLUDE '../global.sno'
--INCLUDE '../assign.sno'
--INCLUDE '../ReadWrite.sno'
--INCLUDE '../export.sno'
--INCLUDE '../ini.sno'
--INCLUDE '../system.sno'
--INCLUDE '../URL.sno'
--INCLUDE '../HTML.sno'
+-INCLUDE 'global.inc'
+-INCLUDE 'assign.inc'
+-INCLUDE 'ReadWrite.inc'
+-INCLUDE 'export.inc'
+-INCLUDE 'ini.inc'
+-INCLUDE 'lsystem.inc'
+-INCLUDE 'URL.inc'
+-INCLUDE 'HTML.inc'
 *========== =========== === ======================================================= ====================
             $'  '       =   SPAN(' ' tab cr lf )
             $' '        =   FENCE($'  ' | epsilon)
@@ -303,5 +303,5 @@ BZPostCmt3  active      =   DIFFER(tBlog) +tBlog['active']                      
 BZGetCmts                                                                           :(END)
 BZEnd       curl_easy_cleanup(curl)                                                 :(END)
 error       curl_easy_error_info(curl, cc)                                          :(END)
-*-INCLUDE 'debug.sno'
+*-INCLUDE 'debug.inc'
 END

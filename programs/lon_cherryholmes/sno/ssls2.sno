@@ -64,5 +64,5 @@ report      sslsReport()                                                        
 xerr1       OUTPUT            =   '*** unexpected error table element: ' sslsResponse        :(END)
 xerr2       OUTPUT            =   '*** unexpected error in pattern match: ' sslsResponse     :(END)
 xeof        OUTPUT            =   '*** unexpected end of file'                               :(END)
-*-INCLUDE   'debug.sno'
+*-INCLUDE   'debug.inc'
 END

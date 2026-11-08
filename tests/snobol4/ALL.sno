@@ -1053,8 +1053,8 @@ END
  OUTPUT = T
 END
 *---------------------------------------------------------- 869 simple_output_93
--INCLUDE "gimpel_triage_class1_dup_label_shared.sno"
--INCLUDE "gimpel_triage_class1_dup_label_shared.sno"
+-INCLUDE "gimpel_triage_class1_dup_label_shared.inc"
+-INCLUDE "gimpel_triage_class1_dup_label_shared.inc"
         OUTPUT = X()
 END
 *---------------------------------------------------- 870 ladder__rung26_reverse
@@ -1214,7 +1214,7 @@ END
 *  WITNESS (s183): BLANKS('X = A') must remove blanks -> 'X=A'.  CURED --
 *  SCRIP now answers 'X=A', byte-identical to sbl -bf (hq_P 2026-09-05).
 *  Companions BLANKS.sno + DIFF.sno live in tests/snobol4/config/.
--INCLUDE "BLANKS.sno"
+-INCLUDE "BLANKS.inc"
         OUTPUT  =  BLANKS('X = A')
 END
 *--------------------------------------------------------- 895 simple_output_278
@@ -1340,7 +1340,7 @@ END
 *  Two-sided: this (-INCLUDE) arm SEGVs under SCRIP mode 3 and mode 4;
 *  the byte-identical inline arm (rtx_func_11_inline.sno) is correct.
 *  SPITBOL oracle runs BOTH arms correctly -- .ref is the oracle output.
--INCLUDE 'rtx_func_11_inc.sno'
+-INCLUDE 'rtx_func_11_inc.inc'
     OUTPUT = 'i=' i
     OUTPUT = 'B=' B
     OUTPUT = 'DONE'
@@ -1806,7 +1806,7 @@ END
 *  nothing and the line is absent entirely.
 *  OR.sno and BALREV.sno are copied in beside this file so the probe stands
 *  alone in its own directory (the BLANKS.sno + DIFF.sno precedent).
--INCLUDE "OR.sno"
+-INCLUDE "OR.inc"
         P  =  OR(',A')
         OUTPUT  =  'built'
 END
@@ -2114,7 +2114,7 @@ END
  OUTPUT = A[1] A[5]
 END
 *----------------------------------------------------------- 996 array_replace_2
--INCLUDE "gimpel_triage_class5_sig11_seq_module.sno"
+-INCLUDE "gimpel_triage_class5_sig11_seq_module.inc"
         A  =  ARRAY(2)
         A[1]  =  'a'
         SEQ(' OUTPUT = A[K] ', .K)
@@ -7644,7 +7644,7 @@ sawthird2 OUTPUT = 'abort-wrongly-reached-third'
 fin
 END
 *--------------------------------------------------- 1448 array_replace_branch_2
--INCLUDE "gimpel_triage_class8_sig6_perm_module.sno"
+-INCLUDE "gimpel_triage_class8_sig6_perm_module.inc"
         A  =  ARRAY(2)
         A[1]  =  'x'
         A[2]  =  'y'
@@ -7654,7 +7654,7 @@ LOOP    N  =  N + 1
         OUTPUT  =  N ' permutations'
 END
 *--------------------------------------------------- 1449 array_replace_branch_4
--INCLUDE "gimpel_triage_class8_sig6_perm_module.sno"
+-INCLUDE "gimpel_triage_class8_sig6_perm_module.inc"
         A  =  ARRAY(2)
         A[1]  =  'x'
         A[2]  =  'y'

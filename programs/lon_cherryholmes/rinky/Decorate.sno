@@ -114,5 +114,5 @@ E_2 OUTPUT      =   "Error: " filePath                  :(END)
 E_3 OUTPUT      =   "Error: " outPath                   :(END)
 E_4 OUTPUT      =   "Error: " SUBSTR(line, 1, 64)       :(END)
 *   ----------- --- ----------------------------------- ------------
-*-INCLUDE 'debug.sno'
+*-INCLUDE 'debug.inc'
 END

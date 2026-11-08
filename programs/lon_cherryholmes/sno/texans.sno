@@ -107,5 +107,5 @@ error       OUTPUT      =   'Error ' cc ': ' curl_easy_strerror(cc)
             OUTPUT      =   RPAD("CURLINFO_PROXYAUTH_AVAIL: ", 34)          curl_easy_getinfo(curl, CURLINFO_PROXYAUTH_AVAIL)
             OUTPUT      =   RPAD("CURLINFO_OS_ERRNO: ", 34)                 curl_easy_getinfo(curl, CURLINFO_OS_ERRNO)
                                                                                     :(END)
-*-INCLUDE 'debug.sno'
+*-INCLUDE 'debug.inc'
 END

@@ -10,7 +10,7 @@ START
 -INCLUDE 'opsyn.inc'
 -INCLUDE 'case.inc'
 -INCLUDE 'omega.inc'
--INCLUDE 'Trace.sno'
+-INCLUDE 'trace.inc'
 -INCLUDE 'RANDOM.inc'
 -INCLUDE 'HTTP.inc'
 -INCLUDE 'XDump.inc'
@@ -48,5 +48,5 @@ LErr1       TERMINAL    =   'HTTP GET Error ...'
 LErr2       TERMINAL    =   'Match error.'                                      :(LEnd)
 LEnd        curl_easy_cleanup(curl)                                             :(END)
 *========== =========== === =================================================== ====================
-*-INCLUDE 'debug.sno'
+*-INCLUDE 'debug.inc'
 END

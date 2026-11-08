@@ -295,5 +295,5 @@ xerr        &ALPHABET         ?     @xerrAsc SUBSTR(str, 1, 1)
 +                                   $' ' 'int' *id $'::' *id $'(' $')'
 +                                   $'{' *declVars *bracketed $'}'
 *---------- ----------------- ----- -------------------------------------------------------- -----------------------------
-*-INCLUDE 'debug.sno'
+*-INCLUDE 'debug.inc'
 END

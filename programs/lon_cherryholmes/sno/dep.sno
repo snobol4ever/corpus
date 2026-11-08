@@ -207,5 +207,5 @@ ioerr3      OUTPUT            =     'i/o error: ' dspNm                         
 ioerr4      OUTPUT            =     'i/o error: ' depNm                                      :(fini)
 ioerr5      OUTPUT            =     'i/o error: ' srcPathNm                                  :(main20)
 xerr        OUTPUT            =     'unexpected error.'                                      :(END)
-*-INCLUDE 'debug.sno'
+*-INCLUDE 'debug.inc'
 END

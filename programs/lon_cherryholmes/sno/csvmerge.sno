@@ -67,5 +67,5 @@ main30      ENDFILE(3)                                                          
 ioerr       OUTPUT            =     'i/o error'                                        :(END)
 xerr1       OUTPUT            =     'unexpected error: ' csvInfo                       :(END)
 xerr2       OUTPUT            =     'unexpected error: ' txtInfo                       :(END)
-*-INCLUDE   'debug.sno'
+*-INCLUDE   'debug.inc'
 END

@@ -557,5 +557,5 @@ E4      OUTPUT      =   "Error: find: " full                :(END)
 E9      TERMINAL    =   'Error: unknown tag: ' t(x)
         TERMINAL    =   &ERRTYPE ' ' &ERRTEXT               :(ABORT)
 *Yikes  TERMINAL    =   &ERRTYPE ' ' &ERRTEXT ' -- Yikes'   :(END)
-*-INCLUDE 'debug.sno'
+*-INCLUDE 'debug.inc'
 END

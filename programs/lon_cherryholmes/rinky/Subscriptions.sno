@@ -28,5 +28,5 @@ L10 json ? '"channelId":' $' ' '"' BREAK('"') . OUTPUT '"' = :F(END)
 +          $' ' '}' =
 
     :(L10)
-*x-INCLUDE 'debug.sno'
+*x-INCLUDE 'debug.inc'
 END

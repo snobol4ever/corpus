@@ -558,5 +558,5 @@ BomError2   OUTPUT            =     'Populate Image feature failed.'            
 BomError3   OUTPUT            =     'Check Image feature failed.'                            :(END)
 BomError4   OUTPUT            =     'Media Verification feature failed.'                     :(END)
 BomError5   OUTPUT            =     'Workfold command for sa baseline failed.'               :(END)
-*-INCLUDE 'debug.sno'
+*-INCLUDE 'debug.inc'
 END

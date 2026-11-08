@@ -5,7 +5,7 @@ START
 -INCLUDE 'case.inc'
 -INCLUDE 'lsystem.inc'
 -INCLUDE 'utility.inc'
--INCLUDE 'random.sno'
+-INCLUDE 'lrandom.inc'
 -INCLUDE 'datetime.inc'
 *---------- --------------- --- --------------------------------------------------- --------------------------------
 *           &MAXLNGTH       =   8388608
@@ -930,5 +930,5 @@ arg4        Utility()
             (EQ(doORScript, TRUE) ORScript())                                       :(END)
 usage       OUTPUT          =   'usage: blob [-b] [-c] [-m] [-o] [-r] [-s] [-t]'    :(END)
 *---------- --------------- --- --------------------------------------------------- --------------------------------
-*-INCLUDE 'debug.sno'
+*-INCLUDE 'debug.inc'
 END

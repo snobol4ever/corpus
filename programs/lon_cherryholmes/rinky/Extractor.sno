@@ -14,7 +14,7 @@ START       xAppl       =   'Extractor'
 -INCLUDE 'Qize.inc'
 -INCLUDE 'opsyn.inc'
 -INCLUDE 'omega.inc'
--INCLUDE 'Trace.sno'
+-INCLUDE 'trace.inc'
 -INCLUDE 'XDump.inc'
 -INCLUDE 'stack.inc'
 -INCLUDE 'counter.inc'
@@ -190,5 +190,5 @@ L120        FindClose(State)                                                    
 *---------- ----------- --- ---------------------------------------------------
 E010        TERMINAL    =   SQL_GetLastError()                                  :(END)
 *---------- ----------- --- ---------------------------------------------------
-*-INCLUDE 'debug.sno'
+*-INCLUDE 'debug.inc'
 END

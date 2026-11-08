@@ -19,7 +19,7 @@ START
 -INCLUDE 'stack.inc'
 -INCLUDE 'counter.inc'
 -INCLUDE 'semantic.inc'
--INCLUDE 'Trace.sno'
+-INCLUDE 'trace.inc'
 -INCLUDE 'omega.inc'
 -INCLUDE 'HTML.inc'
 *       ----------- --- ----------------------------------- ------------
@@ -238,5 +238,5 @@ L90     ENDFILE(3)
                                                             :(END)
 *       ----------- --- ----------------------------------- ------------
 E1      TERMINAL    =   "Error: " findCmd                   :(END)
-*-INCLUDE 'debug.sno'
+*-INCLUDE 'debug.inc'
 END

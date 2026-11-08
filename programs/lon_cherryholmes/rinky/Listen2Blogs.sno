@@ -352,5 +352,5 @@ BSEnd       IniWrite(xListener '.ini', xIT)
             (SQL_Disconnect(), OUTPUT = 'Disconnect: ' SQL_GetLastError())
             curl_easy_cleanup(curl)                                             :(END)
 *========== =========== === ===================================================
--INCLUDE 'debug.sno'
+-INCLUDE 'debug.inc'
 END

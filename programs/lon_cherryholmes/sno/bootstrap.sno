@@ -712,5 +712,5 @@ fini              refs(snobol)
                   SetLevel(0)
                   GenSetCont()
                   Gen('})' nl)
-*-INCLUDE 'debug.sno'
+*-INCLUDE 'debug.inc'
 END

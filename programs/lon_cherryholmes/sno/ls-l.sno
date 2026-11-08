@@ -146,5 +146,5 @@ main47      ENDFILE(3)                                                          
 +                                   ' ' lsDirPath '/' lsFilePath
 *---------- ----------------- ----- -------------------------------------------------------- -----------------------------
 usage       OUTPUT            =     'ls-l [-d] [-c] [-l] {directory}'                        :(END)
-*-INCLUDE   'debug.sno'
+*-INCLUDE   'debug.inc'
 END

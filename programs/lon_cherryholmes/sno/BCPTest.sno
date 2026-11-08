@@ -33,5 +33,5 @@ TEnd        SQL_Disconnect()                                                    
 TFail       OUTPUT      =   'SQL Failure.'
             OUTPUT      =   SQL_GetLastError()                                  :(END)
 BFail       OUTPUT      =   'BCP Failure.'                                      :(END)
--INCLUDE 'debug.sno'
+-INCLUDE 'debug.inc'
 END

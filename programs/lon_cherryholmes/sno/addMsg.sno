@@ -5,7 +5,7 @@ START
 -INCLUDE 'case.inc'
 -INCLUDE 'lsystem.inc'
 -INCLUDE 'utility.inc'
--INCLUDE 'random.sno'
+-INCLUDE 'lrandom.inc'
 -INCLUDE 'datetime.inc'
 *---------- --------------- --- --------------------------------------------------- --------------------------------
             cString         =   'L"' ARBNO(bSlash '"' | NOTANY('"')) '"'
@@ -55,5 +55,5 @@ fini10      i               =   i + 1
 fini20      i               =   i + 1
             OUTPUT          =   '#define ' aDict[i, 1] ' ' (i + 3000)               :S(fini20)F(END)
 *---------- --------------- --- --------------------------------------------------- --------------------------------
-*-INCLUDE 'debug.sno'
+*-INCLUDE 'debug.inc'
 END

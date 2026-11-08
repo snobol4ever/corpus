@@ -137,5 +137,5 @@ L98 DIFFER(phraseP)                                         :F(L95)
 *   ----------- --------------------------------------- ---------------
 E1  OUTPUT      =   "Error: " findCmd                       :(END)
 E2  OUTPUT      =   "Error: " filePath                      :(END)
-*-INCLUDE 'debug.sno'
+*-INCLUDE 'debug.inc'
 END

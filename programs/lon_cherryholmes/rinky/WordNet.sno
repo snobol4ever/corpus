@@ -448,5 +448,5 @@ ThesaurusEnd
 *           DictRead('index', 'adv')
             DictRead('cntlist', 'rev')
             Database()
-*-INCLUDE 'debug.sno'
+*-INCLUDE 'debug.inc'
 END

@@ -187,5 +187,5 @@ LE1         TERMINAL    =   'HTTP GET Error ... ' link
             curl_easy_error_info(curl, cc)                                      :(L10)
 LFini       curl_easy_cleanup(curl)                                             :(END)
 *========== =========== === =================================================== ====================
-*-INCLUDE 'debug.sno'
+*-INCLUDE 'debug.inc'
 END

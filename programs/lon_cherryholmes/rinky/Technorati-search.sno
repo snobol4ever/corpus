@@ -10,7 +10,7 @@ START
 -INCLUDE 'opsyn.inc'
 -INCLUDE 'case.inc'
 -INCLUDE 'omega.inc'
--INCLUDE 'Trace.sno'
+-INCLUDE 'trace.inc'
 -INCLUDE 'RANDOM.inc'
 -INCLUDE 'HTTP.inc'
 -INCLUDE 'XML.inc'
@@ -132,5 +132,5 @@ LErrExit    IDENT(&ERRTYPE, 320)                                                
             TERMINAL    =   'Cancelling, Max=' T8Pos(t8Max, t8Map)
             TERMINAL    =   SUBSTR(html, t8Max, 32)                             :(ABORT)
 *========== =========== === =================================================== ====================
-*-INCLUDE 'debug.sno'
+*-INCLUDE 'debug.inc'
 END

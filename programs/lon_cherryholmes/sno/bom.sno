@@ -420,5 +420,5 @@ fini        system('@-rm', bomPfx '*.bom')
             system('@-rm', bomPfx '*.txt')                                                   :(END)
 usage       OUTPUT            =     'usage: bom [-w] [-p] [-c] [-u | -r] -1 {<dir> | <bom>} -2 {<dir> | <bom>}'
             OUTPUT            =     '       bom -b <bom> {-d <dir> | -e <flt>}'              :(END)
-*-INCLUDE 'debug.sno'
+*-INCLUDE 'debug.inc'
 END

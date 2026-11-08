@@ -439,5 +439,5 @@ main1
 main2 cypher            =  Read(cypher_file, .t8Map) :F(Yikes)
       cypher            ?  POS(0) ARBNO(*oC_Cyphers) !$' ' RPOS(0) :S(END)
       OUTPUT            =  'FAIL'
-*-INCLUDE 'debug.sno'
+*-INCLUDE 'debug.inc'
 END

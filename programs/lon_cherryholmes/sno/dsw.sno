@@ -78,5 +78,5 @@ arg2        dsw_outfn         =     IDENT(dsw_outfn) dsw_infn '-dep'
             DswWrite(dsw_outfn, wsTbl)                                                       :(END)
 *---------- ----------------- ----- -------------------------------------------------------- -----------------------------
 ioerr       OUTPUT            =     "i/o error: " dsp_infn                                   :(END)
-*-INCLUDE   'debug.sno'
+*-INCLUDE   'debug.inc'
 END

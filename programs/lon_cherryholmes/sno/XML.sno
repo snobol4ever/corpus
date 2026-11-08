@@ -224,5 +224,5 @@ E1      OUTPUT      =   "Error: " findCmd                   :(END)
 E2      OUTPUT      =   "Error: " filePath                  :(END)
 E3      OUTPUT      =   "Error: " t(T[D]) " X " xT          :(END)
 E5      OUTPUT      =   "Error: " xmlLine                   :(END)
-*-INCLUDE 'debug.sno'
+*-INCLUDE 'debug.inc'
 END

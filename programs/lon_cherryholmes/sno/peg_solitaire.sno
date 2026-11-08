@@ -100,5 +100,5 @@ ErrExit     IDENT(&ERRTYPE, 320)                                                
             EXIT(3, 'cross' LPAD(m, 10, 0) '.exe')
             &ERRLIMIT         =     1
             SETEXIT(.ErrExit)                                                       :(SCONTINUE)
-*-INCLUDE 'debug.sno'
+*-INCLUDE 'debug.inc'
 END

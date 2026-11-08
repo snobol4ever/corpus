@@ -131,5 +131,5 @@ dsw5        ENDFILE(4)
 *---------------------------------------------------------------------------------------------------------------
 ioerr       OUTPUT         =   '*** i/o error'                                      :(END)
 xerr        OUTPUT         =   '*** unexpected error'                               :(END)
-*-INCLUDE 'debug.sno'
+*-INCLUDE 'debug.inc'
 END

@@ -66,5 +66,5 @@ SQLFail     OUTPUT      =   'SQL Failure: ' SQL_GetLastError()
             (SQL_FreeStmt(hstmt), OUTPUT = 'FreeStmt: ' SQL_GetLastError())
             (SQL_Disconnect(), OUTPUT = 'Disconnect: ' SQL_GetLastError())      :(END)
 *========== =========== === ===================================================
-*-INCLUDE 'debug.sno'
+*-INCLUDE 'debug.inc'
 END

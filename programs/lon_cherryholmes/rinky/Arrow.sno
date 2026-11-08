@@ -23,5 +23,5 @@ L19 node_id = -1
 L20 node_id = LT(node_id, n_nodes - 2) node_id + 1  :F(L29)
     OUTPUT  = '  ' EVAL(li_rel)                     :(L20)
 L29 OUTPUT  = '</ul>'                               :(END)
-*-INCLUDE 'debug.sno'
+*-INCLUDE 'debug.inc'
 END

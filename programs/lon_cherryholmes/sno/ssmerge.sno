@@ -170,5 +170,5 @@ main95      ss_get('maxm', mSrcSSNm,, '-gf -gtu -gwr -i-y')
 fini        ENDFILE(4)
             ENDFILE(3)                                                                 :(END)
 *---------- ----------------- ----- -------------------------------------------------- -----------------------------
-*-INCLUDE 'debug.sno'
+*-INCLUDE 'debug.inc'
 END

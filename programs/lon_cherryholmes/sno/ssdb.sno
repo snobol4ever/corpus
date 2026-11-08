@@ -372,5 +372,5 @@ mainVer1    SSdbVer(r)                                                          
 usage       OUTPUT            =     'usage: ssdb <river> { -u <date> | -v | -f | -l | -c <file> }' :(END)
 ioerr       OUTPUT            =     'i/o error: ' ssHstFile                                        :(END)
 cmderr      OUTPUT            =     'command error: ' ssCmd                                        :(END)
-*-INCLUDE 'debug.sno'
+*-INCLUDE 'debug.inc'
 END

@@ -383,5 +383,5 @@ YRErrExit   IDENT(&ERRTYPE, 320)                                                
             TERMINAL    =   'Cancelling ...'
             isCancelled =   TRUE                                                :(SCONTINUE)
 *--======== =========== === ===================================================
-*-INCLUDE 'debug.sno'
+*-INCLUDE 'debug.inc'
 END

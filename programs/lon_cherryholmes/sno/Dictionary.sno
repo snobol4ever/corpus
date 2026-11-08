@@ -10,7 +10,7 @@ START
 -INCLUDE 'opsyn.inc'
 -INCLUDE 'case.inc'
 -INCLUDE 'omega.inc'
--INCLUDE 'Trace.sno'
+-INCLUDE 'trace.inc'
 -INCLUDE 'RANDOM.inc'
 -INCLUDE 'HTTP.inc'
 -INCLUDE 'XDump.inc'
@@ -43,5 +43,5 @@ LE1         OUTPUT      =   'HTTP GET Error ...'
             curl_easy_error_info(curl, cc)
 LFini       curl_easy_cleanup(curl)                                             :(END)
 *========== =========== === =================================================== ====================
-*-INCLUDE 'debug.sno'
+*-INCLUDE 'debug.inc'
 END

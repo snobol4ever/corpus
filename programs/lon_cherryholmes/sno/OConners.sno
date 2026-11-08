@@ -189,5 +189,5 @@ L90     ENDFILE(3)
 *------ ----------- --- --------------------------------------- ---------------------
 Error1  OUTPUT      =   "Error: " findCmd                       :(END)
 Error2  OUTPUT      =   "Error: " filePath                      :(END)
-*-INCLUDE 'debug.sno'
+*-INCLUDE 'debug.inc'
 END

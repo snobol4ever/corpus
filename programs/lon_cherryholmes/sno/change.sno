@@ -100,5 +100,5 @@ xerr        OUTPUT   =  'The ReadIni command failed.'                           
 fini        ENDFILE(1)
             ini[section]['Dir0_NumberOfFilters']   =  filter_count
             IniWrite('bom.ini', ini)
--INCLUDE 'debug.sno'
+-INCLUDE 'debug.inc'
 END

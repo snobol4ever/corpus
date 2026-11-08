@@ -17,7 +17,7 @@ START
 -INCLUDE 'Gen.inc'
 -INCLUDE 'TDump.inc'
 -INCLUDE 'XDump.inc'
--INCLUDE 'Trace.sno'
+-INCLUDE 'trace.inc'
 -INCLUDE 'Cide.inc'
 -INCLUDE 'WordNet.inc'
 -INCLUDE 'english.inc'
@@ -207,5 +207,5 @@ L25 OUTPUT  =   i '.' j ':'
     TDump(Pop())                                :(L20)
 L27 OUTPUT  =   i '.' j ': ' DQize(s)           :(L20)
 E01 OUTPUT  =   'Failure!'
-*-INCLUDE 'debug.sno'
+*-INCLUDE 'debug.inc'
 END

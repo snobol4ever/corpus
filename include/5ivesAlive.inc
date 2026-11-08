@@ -12,7 +12,7 @@
 -INCLUDE 'Qize.inc'
 -INCLUDE 'opsyn.inc'
 -INCLUDE 'omega.inc'
--INCLUDE 'Trace.sno'
+-INCLUDE 'trace.inc'
 -INCLUDE 'RANDOM.inc'
 -INCLUDE 'HTTP.inc'
 -INCLUDE 'XDump.inc'

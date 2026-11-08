@@ -105,5 +105,5 @@ Usage   TERMINAL    =   "Usage : OConners-Generator -form <form-id> {-g | -l | -
         TERMINAL    =   "-json : specify JSON parameter file for HTML generation"
         TERMINAL    =   " -sno : specify SNOBOL4 parameter file for HTML generation"
                                                                         :(END)
-*-INCLUDE 'debug.sno'
+*-INCLUDE 'debug.inc'
 END
