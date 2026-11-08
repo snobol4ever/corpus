@@ -1,0 +1,9 @@
+link numbers
+procedure main()
+  write(digsum(12));
+  write(digsum(99));
+  write(digsum(1000));
+  write(spell(47));
+end
+class UniconMarker()
+end

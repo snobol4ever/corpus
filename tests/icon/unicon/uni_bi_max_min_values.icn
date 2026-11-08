@@ -1,0 +1,19 @@
+procedure keep()
+  local max;
+  max := 5;
+  return max;
+end
+procedure main()
+  local p;
+  write(image(max));
+  write(image(min));
+  p := max;
+  write(p(3, 9, 2));
+  write((min)(4, 1, 7));
+  write(image(p));
+  write(type(max));
+  write(keep());
+  write(max(1, 2));
+end
+class UniconMarker()
+end
