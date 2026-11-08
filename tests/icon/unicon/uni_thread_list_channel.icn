@@ -1,0 +1,25 @@
+class UniconMarker()
+end
+
+procedure worker(ci, co);
+   local m;
+   m := <<@ ci;
+   write("worker got ", m);
+   (m || "-back") @> co;
+   write("worker sent");
+end
+
+procedure main();
+   local ci, co, t, r, e;
+   ci := condvar([]);
+   co := condvar([]);
+   t := thread worker(ci, co);
+   "ping" @> ci;
+   r := <<@ co;
+   write("main got ", r);
+   e := condvar([]);
+   write(image(<@ e) | "empty");
+   "one" @> e;
+   write(*e, " ", image(<@ e) | "empty");
+   write(*e);
+end
