@@ -1,0 +1,12 @@
+procedure main()
+   p1 := Len(1);
+   p2 := Pos(22) => x;
+   p3 := Rem();
+   p4 := Len(1) -> y;
+   p5 := Rem();
+   p6 := Tab(2) => z;
+   p7 := Rem();
+   every write(image(p1 | p2 | p3 | p4 | p5 | p6 | p7));
+end
+class UniconMarker()
+end

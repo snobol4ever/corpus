@@ -1,0 +1,7 @@
+pattern_0(1) = Len(1)
+pattern_2(3) = (Pos(22)) => x
+pattern_3(1) = Rem()
+pattern_5(3) = (Len(1)) -> y
+pattern_6(1) = Rem()
+pattern_8(3) = (Tab(2)) => z
+pattern_9(1) = Rem()
