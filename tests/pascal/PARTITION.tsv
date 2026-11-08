@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=381 features=48 ubiquitous=4(program var writeln assign) distinctive=44 core=42 clusters=40 chunks=4 sizes=100,100,100,39
+# shape: entries=382 features=48 ubiquitous=4(program var writeln assign) distinctive=44 core=42 clusters=40 chunks=4 sizes=100,100,100,40
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multi	chunk:01	family:ladder	
@@ -8,7 +8,7 @@ ladder__rung00_hello_paramlist	chunk:01	family:ladder
 ladder__rung02_arithmetic_mixed_type	chunk:01	family:ladder	
 ladder__rung02_arithmetic_real_div	chunk:01	family:ladder	
 program_writeln_12	chunk:03	family:crosscheck_misc	
-program_writeln_9	chunk:03	family:crosscheck_misc	
+program_writeln_9	chunk:04	family:crosscheck_misc	
 ladder__rung00_hello_width	chunk:01	family:ladder	
 ladder__rung09_strings_get_on_the_standard_input	chunk:01	family:ladder	
 ladder__rung00_hello_blank	chunk:01	family:ladder	
@@ -281,6 +281,7 @@ ladder__rung13_ptr_index	chunk:02	feat:write	array for for_with_array set_litera
 ladder__rung14_row_param	chunk:03	feat:const	array const nested_proc procedure set_literal subrange type
 ladder__rung12_move_arrays	chunk:02	feat:write	array for for_with_array set_literal subrange write
 ladder__rung06_arrays_named_string_elem	chunk:01	feat:nested_proc	array nested_proc procedure set_literal subrange type
+ladder__rung24_static_array_with_an_all_negative_index_range	chunk:03	feat:const	array const for for_with_array set_literal write
 program_array_for_2	chunk:02	feat:write	array for for_with_array set_literal subrange write
 program_array_for_3	chunk:02	feat:write	array for for_with_array set_literal subrange write
 program_array_for_6	chunk:02	feat:write	array for for_with_array set_literal subrange write
