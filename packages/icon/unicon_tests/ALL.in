@@ -3,14 +3,14 @@
 a(b,c)
 1(2(3,4),5)
 a(2,8(a,c(d,e)))
-#-------------------------------------------------------------- 9 general/checkc
-#----------------------------------------------------------- 10 general/checkfpc
-#----------------------------------------------------------- 11 general/checkfpx
-#------------------------------------------------------------- 12 general/checkx
-#----------------------------------------------------------------- 13 general/ck
-#------------------------------------------------------------- 14 general/coexpr
-#------------------------------------------------------------ 15 general/collate
-#------------------------------------------------------------ 16 general/concord
+#-------------------------------------------------------------- 8 general/checkc
+#------------------------------------------------------------ 9 general/checkfpc
+#----------------------------------------------------------- 10 general/checkfpx
+#------------------------------------------------------------- 11 general/checkx
+#----------------------------------------------------------------- 12 general/ck
+#------------------------------------------------------------- 13 general/coexpr
+#------------------------------------------------------------ 14 general/collate
+#------------------------------------------------------------ 15 general/concord
 Order, Coleoptera, (Beetles). Many beetles are colored so as
 to resemble the surfaces which they habitually frequent, and they thus
 escape detection by their enemies. Other species, for instance, diamond-beetles, are ornamented
@@ -28,7 +28,7 @@ sexual characters. Blind beetles, which cannot, of course, behold each
 other's beauty, never, as I hear from Mr. Waterhouse, Jr., exhibit bright
 colors, though they often have polished coats; but the explanation of their
 obscurity may be that they generally inhabit caves and other obscure stations.
-#----------------------------------------------------------- 17 general/diffwrds
+#----------------------------------------------------------- 16 general/diffwrds
 procedure main()
    local limit, s, i
    limit := 100
@@ -41,7 +41,7 @@ procedure main()
    write("The primes are:")
    every write(right(!primes,*limit + 1))
 end
-#------------------------------------------------------------ 18 general/endetab
+#------------------------------------------------------------ 17 general/endetab
 ##  test data for entab/detab tester; see driver program's comments for details
 #
 #   Remember that the characters --> "!.$" <-- are metacharacters, and cannot
@@ -300,30 +300,30 @@ abc\b!.de\b!..fghij\b!...k
 !...!.!..\n!...!.!..\r!...!.!..\n\r!...!.!..\r\n!...!.!..
 !...\a!.\a!..\a!..
 !...\b\b\b\b!...\b\a\b\a!.!.!..\n\n\n  \t!.!..\n
-#------------------------------------------------------------- 19 general/errors
-#-------------------------------------------------------------- 20 general/evalx
-#--------------------------------------------------------------- 21 general/fncs
-#-------------------------------------------------------------- 22 general/fncs1
-#---------------------------------------------------------------- 23 general/gc1
-#---------------------------------------------------------------- 24 general/gc2
-#-------------------------------------------------------------- 25 general/gener
-#-------------------------------------------------------------- 27 general/kross
+#------------------------------------------------------------- 18 general/errors
+#-------------------------------------------------------------- 19 general/evalx
+#--------------------------------------------------------------- 20 general/fncs
+#-------------------------------------------------------------- 21 general/fncs1
+#---------------------------------------------------------------- 22 general/gc1
+#---------------------------------------------------------------- 23 general/gc2
+#-------------------------------------------------------------- 24 general/gener
+#-------------------------------------------------------------- 26 general/kross
 elephants:peanuts
 encroachment:roaches
 gaggle:geese
-#-------------------------------------------------------------- 28 general/large
-#------------------------------------------------------------ 29 general/meander
+#-------------------------------------------------------------- 27 general/large
+#------------------------------------------------------------ 28 general/meander
 abc:2
 1234:2
 ABC:4
-#------------------------------------------------------------- 31 general/mffsol
+#------------------------------------------------------------- 30 general/mffsol
 [ constructed by hand ]
 ABCD EFGH IJKL MNOP
 AEIM BFJN CGKO DHLP
 AHKN BGLM CFIP DEJO
 AFLO BEKP CHJM DGIN
 AGJP BHIO CELN DFKM
-#------------------------------------------------------------- 32 general/mindfa
+#------------------------------------------------------------- 31 general/mindfa
 abcdefgh
 01
 d
@@ -344,8 +344,8 @@ f
 g
 g
 d
-#------------------------------------------------------------ 33 general/numeric
-#------------------------------------------------------------- 34 general/others
+#------------------------------------------------------------ 32 general/numeric
+#------------------------------------------------------------- 33 general/others
 #
 #       W O R D   T A B U L A T I O N
 #
@@ -369,9 +369,9 @@ procedure wordcount(n)
    x := sort(t)
    every y := !x do write(left(y[1],n),y[2])
 end
-#--------------------------------------------------------------- 35 general/over
-#--------------------------------------------------------------- 37 general/pdco
-#------------------------------------------------------------- 38 general/prefix
+#--------------------------------------------------------------- 34 general/over
+#--------------------------------------------------------------- 36 general/pdco
+#------------------------------------------------------------- 37 general/prefix
 x
 (((x)))
 x+1
@@ -380,7 +380,7 @@ x-y-z
 ((x+1))
 2^2^n
 (x^n)/(z+1)
-#------------------------------------------------------------- 39 general/prepro
+#------------------------------------------------------------- 38 general/prepro
 #  prepro.dat -- code fragment $included by prepro.icn
 
 write("prepro.dat here")
@@ -388,8 +388,8 @@ write("prepro.dat here")
 $undef abc
 $define abc 321
 $define xyzzy 47
-#------------------------------------------------------------- 40 general/recent
-#------------------------------------------------------------- 41 general/recogn
+#------------------------------------------------------------- 39 general/recent
+#------------------------------------------------------------- 40 general/recogn
 ac
 acx
 c
@@ -398,7 +398,7 @@ aadcb
 abc
 cse
 f
-#-------------------------------------------------------------- 42 general/roman
+#-------------------------------------------------------------- 41 general/roman
 13
 4
 6
@@ -407,17 +407,17 @@ f
 39
 3999
 4000
-#--------------------------------------------------------------- 43 general/scan
-#------------------------------------------------------------- 46 general/string
-#------------------------------------------------------------- 47 general/struct
-#------------------------------------------------------------- 49 general/tracer
-#----------------------------------------------------------- 50 general/transmit
+#--------------------------------------------------------------- 42 general/scan
+#------------------------------------------------------------- 45 general/string
+#------------------------------------------------------------- 46 general/struct
+#------------------------------------------------------------- 48 general/tracer
+#----------------------------------------------------------- 49 general/transmit
 Version 7 of Icon corrects a number of problems
 with co-expressions that existed in previous
 versions. The most significant one is proper
 handling of co-expression return points.
-#---------------------------------------------------------------- 53 general/var
-#------------------------------------------------------------ 54 general/wordcnt
+#---------------------------------------------------------------- 52 general/var
+#------------------------------------------------------------ 53 general/wordcnt
 #
 #       W O R D   T A B U L A T I O N
 #
@@ -441,7 +441,7 @@ procedure wordcount(n)
    x := sort(t)
    every y := !x do write(left(y[1],n),y[2])
 end
-#-------------------------------------------------------------- 67 pattern/ABCss
+#-------------------------------------------------------------- 63 pattern/ABCss
 abc
 aabbcc
 aabbdcc
@@ -451,19 +451,19 @@ aabcc
 aabbc
 ac
 aaaabbbbcccc
-#----------------------------------------------------------- 68 pattern/assignss
+#----------------------------------------------------------- 64 pattern/assignss
 actinium      ac    89    227*    1899    debierne
-#-------------------------------------------------------------- 69 pattern/balss
+#-------------------------------------------------------------- 65 pattern/balss
 ((a+(b*c))+d)
 (a - (b * c) + e)
-#------------------------------------------------------------- 70 pattern/bigpss
+#------------------------------------------------------------- 66 pattern/bigpss
 ON jANUARY 1,1965 THE UNITED STATES MERCHANT FLEET HAD 29,632,000 VESSELS TOTALLING 2529  DEADWEIGHT TONS
 The first modern widget (mentioned in #283) was created in ComputerLand in the 20th century.
-#------------------------------------------------------------- 71 pattern/breaks
+#------------------------------------------------------------- 67 pattern/breaks
 integers
 carpenters
 entertainers
-#-------------------------------------------------------------- 72 pattern/expss
+#-------------------------------------------------------------- 68 pattern/expss
 x+y*(z+x)
 x-yz/(z*x)
 x+y+z
@@ -471,7 +471,7 @@ xy
 x*((y+z)-x
 x*(y*(y+z)-x)
 x*y*y+z-x
-#------------------------------------------------------------- 73 pattern/failss
+#------------------------------------------------------------- 69 pattern/failss
 alpha
 beta
 abba
@@ -483,7 +483,7 @@ albeit
 banana
 cabal
 ebbs
-#-------------------------------------------------------------- 74 pattern/fence
+#-------------------------------------------------------------- 70 pattern/fence
 beads
 berates
 bets
@@ -494,16 +494,16 @@ Fred
 frets
 gets
 who gets which loaf of bread
-#--------------------------------------------------------------- 75 pattern/fish
+#--------------------------------------------------------------- 71 pattern/fish
 One fish two fish red fish blue fish
 There are not enough fish in the sea
 Will a fish man fish for a tuna fish in a pond of fish
-#-------------------------------------------------------------- 76 pattern/lenss
+#-------------------------------------------------------------- 72 pattern/lenss
 2015 01 16
  2000 11 30
 20151017
 x20001120y
-#----------------------------------------------------------- 78 pattern/nspantst
+#----------------------------------------------------------- 74 pattern/nspantst
 abc
 aabbcc
 aabbdcc
@@ -513,89 +513,89 @@ aabcc
 aabbc
 ac
 aaaabbbbcccc
-#------------------------------------------------------------- 79 pattern/pairss
+#------------------------------------------------------------- 75 pattern/pairss
 cook
 common
 aaron
 chickadee
-#--------------------------------------------------------------- 80 pattern/pany
+#--------------------------------------------------------------- 76 pattern/pany
 vacuum
 brood
 elephants
-#--------------------------------------------------------------- 81 pattern/parb
+#--------------------------------------------------------------- 77 pattern/parb
 Pragmatic Programmer
 a Latin grammar
-#------------------------------------------------------------- 82 pattern/parbno
+#------------------------------------------------------------- 78 pattern/parbno
 (12,345,6)
 (12,,6)
 (,5,3,7,88)
 (88,5,3,7,)
-#-------------------------------------------------------------- 83 pattern/peval
+#-------------------------------------------------------------- 79 pattern/peval
 Pragmatic Programmer
 a Latin grammar
-#------------------------------------------------------------- 85 pattern/pimmed
+#------------------------------------------------------------- 81 pattern/pimmed
 3abcdefghijklmn
 11abcdefghijklmn
 13abcdefghijklmn
 our data 5abcdefghijklmnopqrstuvwxyz 33
-#--------------------------------------------------------------- 86 pattern/plen
+#--------------------------------------------------------------- 82 pattern/plen
 abcdea
 abcde
 jklmnopa
 r
-#--------------------------------------------------------------- 87 pattern/ppos
+#--------------------------------------------------------------- 83 pattern/ppos
 abcdef
 bacdef
 abcd
-#--------------------------------------------------------------- 88 pattern/prem
+#--------------------------------------------------------------- 84 pattern/prem
 abcdefghi
 cabcompany
 find the sequence def's subsequent
-#--------------------------------------------------------------- 89 pattern/ptab
+#--------------------------------------------------------------- 85 pattern/ptab
 This is the first line.
 abcdefgh
 123456789
 melodious
 abcdefghij
 A test of the "=" operator.
-#--------------------------------------------------------- 90 pattern/ralternate
+#--------------------------------------------------------- 86 pattern/ralternate
 Unicon is a goal directed evaluation language
 Icon was what it was built off of
 The translator, Icont, is an integral part of this system
 \ No newline at end of file
-#---------------------------------------------------------- 91 pattern/rasterisk
+#---------------------------------------------------------- 87 pattern/rasterisk
 abcd
 bbccdd
 aaaabbbbccccd
 abcabbbbcabccccd
 \ No newline at end of file
-#------------------------------------------------------------- 92 pattern/rbasic
+#------------------------------------------------------------- 88 pattern/rbasic
 the dog is fat
 the dog is now a cat. What?
 the dog is getting fatter
 \ No newline at end of file
-#------------------------------------------------------------- 93 pattern/rcurly
+#------------------------------------------------------------- 89 pattern/rcurly
 this sentence contains the word expressions
 multiple ll's will make this sentence match
 \ No newline at end of file
-#-------------------------------------------------------------- 94 pattern/rplus
+#-------------------------------------------------------------- 90 pattern/rplus
 aaaabbbbd
 bbbbaaaad
 aaaacbbbbd
 bbbbcaaaad
 \ No newline at end of file
-#---------------------------------------------------------- 95 pattern/rquestion
+#---------------------------------------------------------- 91 pattern/rquestion
 all or none
 none or all
 sally or yllas
 \ No newline at end of file
-#--------------------------------------------------------------- 96 pattern/rtab
+#--------------------------------------------------------------- 92 pattern/rtab
 output
 input
 \ No newline at end of file
-#-------------------------------------------------------------- 97 pattern/sawss
+#-------------------------------------------------------------- 93 pattern/sawss
 XXXXX
-#------------------------------------------------------------- 98 pattern/setcur
+#------------------------------------------------------------- 94 pattern/setcur
 the bed is red
 look at the beds
 the bead is red
@@ -604,21 +604,21 @@ red is a color
 the bards are ready
 what is read is good
 are they the beaded beds?
-#------------------------------------------------------- 99 pattern/unevalcharss
+#------------------------------------------------------- 95 pattern/unevalcharss
 abc
 aabbcc
 aaabbbccc
 \ No newline at end of file
-#------------------------------------------------------- 100 pattern/unevalintss
+#-------------------------------------------------------- 96 pattern/unevalintss
 abc
 aabbcc
 aaaabbbbcccc
 \ No newline at end of file
-#------------------------------------------------------------ 132 samples/btrees
+#------------------------------------------------------------ 126 samples/btrees
 a(b,c)
 1(2(3,4),5)
 a(2,8(a,c(d,e)))
-#---------------------------------------------------------- 133 samples/diffwrds
+#---------------------------------------------------------- 127 samples/diffwrds
 procedure main()
    local limit, s, i
    limit := 100
@@ -631,15 +631,15 @@ procedure main()
    write("The primes are:")
    every write(right(!primes,*limit + 1))
 end
-#------------------------------------------------------------- 134 samples/kross
+#------------------------------------------------------------- 128 samples/kross
 elephants:peanuts
 encroachment:roaches
 gaggle:geese
-#----------------------------------------------------------- 135 samples/meander
+#----------------------------------------------------------- 129 samples/meander
 abc:2
 1234:2
 ABC:4
-#------------------------------------------------------------ 136 samples/prefix
+#------------------------------------------------------------ 130 samples/prefix
 x
 (((x)))
 x+1
@@ -648,7 +648,7 @@ x-y-z
 ((x+1))
 2^2^n
 (x^n)/(z+1)
-#------------------------------------------------------------ 137 samples/recogn
+#------------------------------------------------------------ 131 samples/recogn
 ac
 acx
 c
@@ -657,7 +657,7 @@ aadcb
 abc
 cse
 f
-#------------------------------------------------------------- 138 samples/roman
+#------------------------------------------------------------- 132 samples/roman
 13
 4
 6
@@ -666,8 +666,8 @@ f
 39
 3999
 4000
-#------------------------------------------------------------- 139 samples/sieve
-#----------------------------------------------------------- 140 samples/wordcnt
+#------------------------------------------------------------- 133 samples/sieve
+#----------------------------------------------------------- 134 samples/wordcnt
 #
 #	W O R D   T A B U L A T I O N
 #

@@ -228,26 +228,7 @@ leaves
 a
 d
 e
-#-------------------------------------------------------------- 8 general/cfuncs
-procedure bitcount(500) = 6
-function bitcount(501) = 7
-function bitcount(502) = 7
-function bitcount(503) = 8
-function bitcount(504) = 6
-function bitcount(505) = 7
-function bitcount(506) = 7
-function bitcount(507) = 8
-function bitcount(508) = 7
-function bitcount(509) = 8
-function bitcount(510) = 8
-function bitcount(511) = 9
-function bitcount(512) = 1
-function bitcount(513) = 2
-procedure vword(314159) = 314159
-procedure lgconv(integer(~10^30)) = 1000000000000000000000000000000
-procedure unpack("abcd") = 1684234849
-procedure pack(1684234849) = abcd
-#-------------------------------------------------------------- 9 general/checkc
+#-------------------------------------------------------------- 8 general/checkc
 image(2) ----> "2"
 image('cab') ----> "'abc'"
 image(&lcase) ----> "&lcase"
@@ -377,7 +358,7 @@ failed
 0
 ""
 &ucase
-#----------------------------------------------------------- 10 general/checkfpc
+#------------------------------------------------------------ 9 general/checkfpc
 This test of floating-point arithmetic is likely to show
 differences from platform to platform because of differences
 in floating-point precision and details of the routines that
@@ -661,7 +642,7 @@ copy(1.0) ----> 1.0
 trim(3.14159,58) ----> "3.14159"
 Image(2e13) ----> "2.000000e+13"
 Image(0.0006) ----> "0.00059"
-#----------------------------------------------------------- 11 general/checkfpx
+#----------------------------------------------------------- 10 general/checkfpx
 This test of floating-point arithmetic is likely to show
 differences from platform to platform because of differences
 in floating-point precision and details of the routines that
@@ -945,7 +926,7 @@ copy(1.0) ----> 1.0
 trim(3.14159,58) ----> "3.14159"
 Image(2e13) ----> "2.000000e+13"
 Image(0.0006) ----> "0.00059"
-#------------------------------------------------------------- 12 general/checkx
+#------------------------------------------------------------- 11 general/checkx
 image(2) ----> "2"
 image('cab') ----> "'abc'"
 image(&lcase) ----> "&lcase"
@@ -1075,7 +1056,7 @@ failed
 0
 ""
 &ucase
-#----------------------------------------------------------------- 13 general/ck
+#----------------------------------------------------------------- 12 general/ck
 This test of floating-point arithmetic is likely to show
 differences from platform to platform because of differences
 in floating-point precision and details of the routines that
@@ -1220,7 +1201,7 @@ abs(-3.0) ----> 3.0
 36. ^ 9. ----> 1.015599e+14
 -36. ^ 9 ----> -.101559e+15
 -36. ^ -9 ----> -9.84640e-15
-#------------------------------------------------------------- 14 general/coexpr
+#------------------------------------------------------------- 13 general/coexpr
 co-expression_1(1)
 co-expression_1(1)
 co-expression_1(1)
@@ -1297,7 +1278,7 @@ in cx write 3
 return value 3
 in cx write 4
 return value 4
-#------------------------------------------------------------ 15 general/collate
+#------------------------------------------------------------ 14 general/collate
 "\xfd\x00\x01\x02\x03\x04\x05\x06\x07\b\t\n\v\f\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\e\x1c\x1d\x1e\x1f !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\d\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x8d\x8e\x8f\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9a\x9b\x9c\x9d\x9e\x9f\xa0\xa1\xa2\xa3\xa4\xa5\xa6\xa7\xa8\xa9\xaa\xab\xac\xad\xae\xaf\xb0\xb1\xb2\xb3\xb4\xb5\xb6\xb7\xb8\xb9\xba\xbb\xbc\xbd\xbe\xbf\xc0\xc1\xc2\xc3\xc4\xc5\xc6\xc7\xc8\xc9\xca\xcb\xcc\xcd\xce\xcf\xd0\xd1\xd2\xd3\xd4\xd5\xd6\xd7\xd8\xd9\xda\xdb\xdc\xdd\xde\xdf\xe0\xe1\xe2\xe3\xe4\xe5\xe6\xe7\xe8\xe9\xea\xeb\xec\xed\xee\xef\xf0\xf1\xf2\xf3\xf4\xf5\xf6\xf7\xf8\xf9\xfa\xfb\xfc\xff\xfe"
 "\xfd\x01\x00\x01\x02\x03\x04\x05\x06\x07\b\t\n\v\f\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\e\x1c\x1d\x1e\x1f !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\d\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x8d\x8e\x8f\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9a\x9b\x9c\x9d\x9e\x9f\xa0\xa1\xa2\xa3\xa4\xa5\xa6\xa7\xa8\xa9\xaa\xab\xac\xad\xae\xaf\xb0\xb1\xb2\xb3\xb4\xb5\xb6\xb7\xb8\xb9\xba\xbb\xbc\xbd\xbe\xbf\xc0\xc1\xc2\xc3\xc4\xc5\xc6\xc7\xc8\xc9\xca\xcb\xcc\xcd\xce\xcf\xd0\xd1\xd2\xd3\xd4\xd5\xd6\xd7\xd8\xd9\xda\xdb\xdc\xdd\xde\xdf\xe0\xe1\xe2\xe3\xe4\xe5\xe6\xe7\xe8\xe9\xea\xeb\xec\xed\xee\xef\xf0\xf1\xf2\xf3\xf4\xf5\xf6\xf7\xf8\xf9\xfa\xfb\xff\x01"
 "\x02\x01\xff\xfe\xfd\xfc\xfb\xfa\xf9\xf8\xf7\xf6\xf5\xf4\xf3\xf2\xf1\xf0\xef\xee\xed\xec\xeb\xea\xe9\xe8\xe7\xe6\xe5\xe4\xe3\xe2\xe1\xe0\xdf\xde\xdd\xdc\xdb\xda\xd9\xd8\xd7\xd6\xd5\xd4\xd3\xd2\xd1\xd0\xcf\xce\xcd\xcc\xcb\xca\xc9\xc8\xc7\xc6\xc5\xc4\xc3\xc2\xc1\xc0\xbf\xbe\xbd\xbc\xbb\xba\xb9\xb8\xb7\xb6\xb5\xb4\xb3\xb2\xb1\xb0\xaf\xae\xad\xac\xab\xaa\xa9\xa8\xa7\xa6\xa5\xa4\xa3\xa2\xa1\xa0\x9f\x9e\x9d\x9c\x9b\x9a\x99\x98\x97\x96\x95\x94\x93\x92\x91\x90\x8f\x8e\x8d\x8c\x8b\x8a\x89\x88\x87\x86\x85\x84\x83\x82\x81\x80\d~}|{zyxwvutsrqponmlkjihgfedcba`_^]\\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#\"! \x1f\x1e\x1d\x1c\e\x1a\x19\x18\x17\x16\x15\x14\x13\x12\x11\x10\x0f\x0e\r\f\v\n\t\b\x07\x06\x05\x04\x00\x01"
@@ -1422,7 +1403,7 @@ rogam
 rogma
 romag
 romga
-#------------------------------------------------------------ 16 general/concord
+#------------------------------------------------------------ 15 general/concord
      1  Order, Coleoptera, (Beetles). Many beetles are colored so as
      2  to resemble the surfaces which they habitually frequent, and they thus
      3  escape detection by their enemies. Other species, for instance, diamond-beetles, are ornamented
@@ -1551,7 +1532,7 @@ well             : 13
 which            : 2, 4, 13, 14
 with             : 4, 9
 worm             : 8
-#----------------------------------------------------------- 17 general/diffwrds
+#----------------------------------------------------------- 16 general/diffwrds
 The
 There
 are
@@ -1578,7 +1559,7 @@ sort
 the
 to
 write
-#------------------------------------------------------------ 18 general/endetab
+#------------------------------------------------------------ 17 general/endetab
 testing entab/detab(s)
 testing entab/detab(s,5)
 testing entab/detab(s,8,12)
@@ -1590,7 +1571,7 @@ testing entab/detab(s,3)
 testing entab/detab(s,3,4)
 testing entab/detab(s,5)
 testing entab/detab(s,5,7,10)
-#------------------------------------------------------------- 19 general/errors
+#------------------------------------------------------------- 18 general/errors
 
 error in line 5:
    &error = -2
@@ -2124,7 +2105,7 @@ error in line 178:
    &errortext = "negative first argument to real exponentiation"
 (-36. ^ -9.) | monitor(&line) ----> 178
  eginopst
-#-------------------------------------------------------------- 20 general/evalx
+#-------------------------------------------------------------- 19 general/evalx
  ----> &null
 2 === +2 ----> 2
 3 === *"abc" ----> 3
@@ -2429,7 +2410,7 @@ y := 2 ----> 2
 (x <- y) & &fail ----> none
 x ----> 1
 y ----> 2
-#--------------------------------------------------------------- 21 general/fncs
+#--------------------------------------------------------------- 20 general/fncs
  ----> &null
 copy(1) ----> 1
 copy("abc") ----> "abc"
@@ -2885,7 +2866,7 @@ every write(seq(-10)) \ 10 ----> none
 25
 28
 every write(seq(,3)) \ 10 ----> none
-#-------------------------------------------------------------- 22 general/fncs1
+#-------------------------------------------------------------- 21 general/fncs1
  ----> &null
 f := open("foo.baz","w") ----> file(foo.baz)
 write(f,"hello world") ----> "hello world"
@@ -3081,12 +3062,12 @@ close(f) ----> file(gc1.icn)
 5.75              1.398 1.089 0.861 -0.50 -0.59 2.397 314.1 1.749 1.592 
 6.0               1.405 1.107 0.960 -0.27 -0.29 2.449 403.4 1.791 1.630 
 6.25              1.412 1.123 0.999 -0.03 -0.03 2.5   518.0 1.832 1.668 
-#---------------------------------------------------------------- 23 general/gc1
+#---------------------------------------------------------------- 22 general/gc1
 filling ...
 collecting ...
 filling ...
 done
-#---------------------------------------------------------------- 24 general/gc2
+#---------------------------------------------------------------- 23 general/gc2
 1
 0
 0
@@ -3343,7 +3324,7 @@ done
 0
 0
 ----------
-#-------------------------------------------------------------- 25 general/gener
+#-------------------------------------------------------------- 24 general/gener
 test delete:    41,    3	[ok]
 test delete:    41,   11	[ok]
 test delete:    41,   23	[ok]
@@ -3381,7 +3362,7 @@ test insert:   233,  503,  3	[ok]
 test insert:   233,  503, 11	[ok]
 test insert:   233,  503, 23	[ok]
 [done]
-#--------------------------------------------------------------- 26 general/ilib
+#--------------------------------------------------------------- 25 general/ilib
 
 convert:
 exbase10        25715 
@@ -3629,7 +3610,7 @@ tblinvrt        22:two 101:one 333:three
 tbldflt         0 
 twt             22:two 101:one 333:three one:101 three:333 two:22
 vallist         22 101 333 
-#-------------------------------------------------------------- 27 general/kross
+#-------------------------------------------------------------- 26 general/kross
 
 
 p
@@ -3789,7 +3770,7 @@ gaggle
      e
      s
 gaggle
-#-------------------------------------------------------------- 28 general/large
+#-------------------------------------------------------------- 27 general/large
 111111111111111111111 + 111111111111111111111 = 222222222222222222222
 111111111111111111111 + -111111111111111111111 = 0
 111111111111111111111 + 4 = 111111111111111111115
@@ -4089,11 +4070,11 @@ large.icn    :   37  | foo failed
 large.icn    :   28  | foo(integer(~10^30))
 large.icn    :   37  | foo failed
 large.icn    :   30  main failed
-#------------------------------------------------------------ 29 general/meander
+#------------------------------------------------------------ 28 general/meander
 accbcabbaa
 14434241332312211
 AAACCCCBCCCACCBBCCBACCABCCAACBCBCACBBBCBBACBABCBAACACABBCABACAABCAAABBBBABBAABABAAAA
-#--------------------------------------------------------------- 30 general/mega
+#--------------------------------------------------------------- 29 general/mega
             strlength bits   hexlength
 okay:              63   6    0000_003F
 okay:             126   7    0000_007E
@@ -4111,7 +4092,7 @@ okay:         258,048  18    0003_F000
 okay:         516,096  19    0007_E000
 okay:       1,032,192  20    000F_C000
 PASS.
-#------------------------------------------------------------- 31 general/mffsol
+#------------------------------------------------------------- 30 general/mffsol
 1 metafile 1250 1000 0 0 0 init
 581 950 (A) text
 751 880 (B) text
@@ -4181,7 +4162,7 @@ PASS.
 125 249 line stroke 874 249 begin 58 587 line stroke
 255 255 255 color
 0 0 (16 players, 5 rounds, 20 matches) text
-#------------------------------------------------------------- 32 general/mindfa
+#------------------------------------------------------------- 31 general/mindfa
 Enter states (1 character names): Enter input alphabet: Enter Final states (subset of states): What is the start state? enter delta(a,0) = enter delta(a,1) = enter delta(b,0) = enter delta(b,1) = enter delta(c,0) = enter delta(c,1) = enter delta(d,0) = enter delta(d,1) = enter delta(e,0) = enter delta(e,1) = enter delta(f,0) = enter delta(f,1) = enter delta(g,0) = enter delta(g,1) = enter delta(h,0) = enter delta(h,1) = 
 
 
@@ -4582,7 +4563,7 @@ where:
 	d(bf,0) = ag	d(bf,1) = ce
 	d(ce,0) = d	d(ce,1) = bf
 	d(d,0) = d	d(d,1) = ag
-#------------------------------------------------------------ 33 general/numeric
+#------------------------------------------------------------ 32 general/numeric
 integer(2) ----> 2
 integer("2") ----> 2
 integer(" 2") ----> 2
@@ -4857,7 +4838,7 @@ numeric("-1e-1m") ---> none
 (2^53)K = 2^63 ---> 9223372036854775808
 (2^54)K = 2^64 ---> 18446744073709551616
 (2^55)K = 2^65 ---> 36893488147419103232
-#------------------------------------------------------------- 34 general/others
+#------------------------------------------------------------- 33 general/others
 1	one
 2	two
 3	three
@@ -5041,7 +5022,7 @@ write               1
 writes              1
 x                   3
 y                   4
-#--------------------------------------------------------------- 35 general/over
+#--------------------------------------------------------------- 34 general/over
 110000
 1073851824
 2147703648
@@ -5051,7 +5032,7 @@ y                   4
 -110000
 -1073851824
 -2147593648
-#----------------------------------------------------------- 36 general/overflow
+#----------------------------------------------------------- 35 general/overflow
 1e+307 + 1e+307 : 2e+307
 1e+308 + 1e+308 : error 204
 -1e+307 - 1e+307 : -2e+307
@@ -5077,7 +5058,7 @@ integer(~10^330) : error 204
 "7871883978392450441776032932198142826773917247925650393771140838214223884128296499128416827964471053134964117928180723663560422022571356495985144510376651485830986122006332787339645349806535651583075244781546090300677794329193692410419529368570862312467967884099247207" : 7.87188397839245e+267
 "974514343105327213540549556400011238463413822360299423722022789302645646291085114792014739642469630822035779602816696428098048114213495279535747463925885516539438995822665939368094506258818385935870731" : 9.745143431053272e+200
 "1322760431573403350112608253178824207934566090196071970622356764397561129083281678025029344054268802303009456383128267562271094427236276468778647530889266198302968984523277739019998316830592952068980951069714507619161169133220349204192516309682924914681097931849521215712796611383204357826093882579522721916433553649496616910891771" : error 204
-#--------------------------------------------------------------- 37 general/pdco
+#--------------------------------------------------------------- 36 general/pdco
 {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 {}
 {1, 3, 5, 7, 9, 10, 8, 6, 4, 2}
@@ -5163,7 +5144,7 @@ a7
 b8
 c9
 d10
-#------------------------------------------------------------- 38 general/prefix
+#------------------------------------------------------------- 37 general/prefix
 x
 x
 +(x,1)
@@ -5172,7 +5153,7 @@ x
 +(x,1)
 ^(2,^(2,n))
 /(^(x,n),+(z,1))
-#------------------------------------------------------------- 39 general/prepro
+#------------------------------------------------------------- 38 general/prepro
 abc,def,ghi,xx,yy: 123 456 987 1 2
 123
 prepro.dat here
@@ -5181,7 +5162,7 @@ abc,def,ghi,xx,yy: 321 456 987 1 2
 found feature: ASCII
 no feature:    EBCDIC
 done
-#------------------------------------------------------------- 40 general/recent
+#------------------------------------------------------------- 39 general/recent
 
 sort(L):
   integer  3
@@ -5624,7 +5605,7 @@ x[1, 1, "one"] --> 1
 x[1, 2, 2, 2] --> 3
 x[1, 2] := ["abcd", "defg"] --> list_57(2)
 x[1, 2, 2, 2] --> "e"
-#------------------------------------------------------------- 41 general/recogn
+#------------------------------------------------------------- 40 general/recogn
 accepted
 rejected
 accepted
@@ -5633,7 +5614,7 @@ rejected
 rejected
 rejected
 rejected
-#-------------------------------------------------------------- 42 general/roman
+#-------------------------------------------------------------- 41 general/roman
 XIII
 IV
 VI
@@ -5642,7 +5623,7 @@ cannot convert
 XXXIX
 MMMCMXCIX
 cannot convert
-#--------------------------------------------------------------- 43 general/scan
+#--------------------------------------------------------------- 42 general/scan
  ----> &null
 2
 2
@@ -5776,7 +5757,7 @@ c
 b
 a
 "abcdef" ? (tab(0) & (while write(move(-1)))) ----> none
-#-------------------------------------------------------------- 44 general/sieve
+#-------------------------------------------------------------- 43 general/sieve
 There are 25 primes in the first 100 integers.
 The primes are:
    2
@@ -5804,7 +5785,7 @@ The primes are:
   83
   89
   97
-#--------------------------------------------------------------- 45 general/sort
+#--------------------------------------------------------------- 44 general/sort
 -0.5 1 2 2.5 4 
 
 min!p:max!p : -0.5 : 4
@@ -5839,7 +5820,7 @@ Tests of sortf
   1.5 :     1
     2 :   2.5
  -1.5 :     3
-#------------------------------------------------------------- 46 general/string
+#------------------------------------------------------------- 45 general/string
  ----> &null
 s := "abcd" ----> "abcd"
 s := "x" ----> "x"
@@ -6055,7 +6036,7 @@ bal('+','[','[',"[[2*x[+3[+[5*y[") ----> none
 bal('+','([','])',"([2*x)+3]+(5*y]") ----> 10
 bal(,,,"()+()") ----> 1
 bal(&cset,,,"()+()") ----> 1
-#------------------------------------------------------------- 47 general/struct
+#------------------------------------------------------------- 46 general/struct
  ----> &null
 list(0) ----> list_1(0)
 list(0,1) ----> list_2(0)
@@ -6415,7 +6396,7 @@ procedure main
 &null
 every write(image(!r)) ----> none
  a: -2035912587 847198497 
-#------------------------------------------------------------ 48 general/tprintf
+#------------------------------------------------------------ 47 general/tprintf
      -2147483648 -2147483648.000  -2.147e+9 -2147483648  20000000000  80000000
      -2147483647 -2147483647.000  -2.147e+9 -2147483647  20000000001  80000001
      -1073741824 -1073741824.000  -1.074e+9 -1073741824  30000000000  c0000000
@@ -6881,7 +6862,7 @@ every write(image(!r)) ----> none
         -1.5e+30 -1500000000000000206593222632275.968 -1.500e+30 -1500000000000000170564425613312 5504236424617131200000000000000000 ed113d14c79650000000000000
         -2.5e+30 -2499999999999999863938077467607.040 -2.500e+30 -2499999999999999908974073741312 4034410167756477340000000000000000 e0721077f74fdc000000000000
 -1.555555555555556e+30 -1555555555555555502920401107812.352 -1.556e+30 -1555555555555555617762191605760 5427335232224364210000000000000000 ec5dba9a4a3d11000000000000
-#------------------------------------------------------------- 49 general/tracer
+#------------------------------------------------------------- 48 general/tracer
 tracer.icn   :    7  | tracer(1)
 tracer.icn   :   20  | tracer suspended 1
 tracer.icn   :    7  | tracer resumed
@@ -6967,7 +6948,7 @@ global identifiers:
 tracer.icn
 1
 tracer.icn   :   13  main failed
-#----------------------------------------------------------- 50 general/transmit
+#----------------------------------------------------------- 49 general/transmit
 transmit.icn :   11  | main; co-expression_1 : &null @ co-expression_4
 transmit.icn :   10  | output()
 transmit.icn :   27  | | output; co-expression_4 : &null @ co-expression_2
@@ -7072,7 +7053,7 @@ transmit.icn :   20  | | word failed
 transmit.icn :    8  | | main; co-expression_2 failed to co-expression_4
 transmit.icn :   28  | | output; co-expression_4 : &null @ co-expression_1
 transmit.icn :   12  | main failed
-#--------------------------------------------------------------- 51 general/utf8
+#--------------------------------------------------------------- 50 general/utf8
 Initialise UTF8 and UTF8Set class objects
 --------------------------------------------------:------------------------------
   Unicon Code                                     :    Result
@@ -9418,9 +9399,9 @@ uset3.Size()                                      : 2
 
 'abcdefg' -- (&cset -- 'fghijk')                 : fg
 --------------------------------------------------:------------------------------
-#---------------------------------------------------------- 52 general/utf8_ovld
+#---------------------------------------------------------- 51 general/utf8_ovld
 This program requires operator overloading.
-#---------------------------------------------------------------- 53 general/var
+#---------------------------------------------------------------- 52 general/var
 "main"
 "T"
 "L"
@@ -9441,7 +9422,7 @@ This program requires operator overloading.
 "list_3[200]"
 "list_3[191]"
 "record complex_1.r"
-#------------------------------------------------------------ 54 general/wordcnt
+#------------------------------------------------------------ 53 general/wordcnt
 A                   2
 B                   1
 D                   1
@@ -9495,7 +9476,7 @@ write               1
 writes              1
 x                   3
 y                   4
-#----------------------------------------------------------- 55 general/xcommand
+#----------------------------------------------------------- 54 general/xcommand
 L1 := list(18)
    L1[1] := "while"
    L1[2] := "-n8"
@@ -9516,7 +9497,7 @@ L1 := list(18)
    L1[17] := "--"
    L1[18] := "f3"
 Can't open data/f1.xop
-#----------------------------------------------------------------- 56 ipl/tgener
+#----------------------------------------------------------------- 55 ipl/tgener
 000
 001
 002
@@ -9547,11 +9528,11 @@ Can't open data/f1.xop
 (**
 (*)
 ()(
-#----------------------------------------------------------- 57 lib/class_static
+#----------------------------------------------------------- 56 lib/class_static
 In instance b, var is 5
 In instance a, var is 1
 In instance a, var is  &null
-#-------------------------------------------------------------- 58 lib/jsontests
+#-------------------------------------------------------------- 57 lib/jsontests
 Unicon table encoding test: SUCCESS
 Unicon set encoding test: SUCCESS
 Unicon cset encoding test: SUCCESS
@@ -9567,7 +9548,7 @@ schema test invalid:SUCCESS
 schema test invalid:SUCCESS
 schema test invalid:SUCCESS
 schema test invalid:SUCCESS
-#------------------------------------------------------------ 59 lib/objecttests
+#------------------------------------------------------------ 58 lib/objecttests
 Check to see if d is an instance of Object.
 
 	d is an instance of Object
@@ -9628,10 +9609,10 @@ h fields: four five six one two three
 h.one -> 1
 h.one -> One
 Attempt to set non-existent field: ok - field doesn't exist
-#---------------------------------------------------------- 60 lib/property_demo
+#---------------------------------------------------------- 59 lib/property_demo
 A is 5
 B is 6
-#-------------------------------------------------------------- 61 lib/singleton
+#-------------------------------------------------------------- 60 lib/singleton
 
 in constructor
 		hi there!
@@ -9643,7 +9624,7 @@ Once more, with feeling...
 And again, after assignment...
 
 		hi there!
-#--------------------------------------------------------------- 62 lib/unittest
+#--------------------------------------------------------------- 61 lib/unittest
 TestTestSuite_testInitialState
 
 TestTestSuite_testAddTest
@@ -9728,10 +9709,7 @@ ran 2 tests
 === TEST SUMMARY ===
 passed: 20, failed: 0
 ran 20 tests
-#------------------------------------------------------------------- 63 mt/level
-loading level_tp
-couldn't load(level_tp)
-#---------------------------------------------------------------- 64 mt/level_tp
+#---------------------------------------------------------------- 62 mt/level_tp
 in main: (1)
 Target program &level returned 1 (CORRECT!)
 
@@ -9758,28 +9736,7 @@ Target program &level returned 2 (CORRECT!)
 
 	in co_foo: (4)
 	COEXP: Target program &level returned 4 (CORRECT!)
-#-------------------------------------------------------------------- 65 mt/load
-compiling a.icn
-loading a
-loaded co-expression_1(0)
-running a
-hello, world
-returned to parent, goodbye.
-#----------------------------------------------------------------- 66 mt/loaderr
-compiling a.icn
-loading a
-loaded co-expression_1(0)
-running a
-hello, world
-
-Run-time error 102
-File a.icn; Line 3
-numeric expected
-offending value: "hello, world"
-Traceback:
-   main()
-   {"hello, world" + 5} from line 3 in a.icn
-#-------------------------------------------------------------- 67 pattern/ABCss
+#-------------------------------------------------------------- 63 pattern/ABCss
 abc accepted
 aabbcc accepted
 aabbdcc rejected
@@ -9789,9 +9746,9 @@ aabcc rejected
 aabbc rejected
 ac rejected
 aaaabbbbcccc accepted
-#----------------------------------------------------------- 68 pattern/assignss
+#----------------------------------------------------------- 64 pattern/assignss
 actinium:ac:89:227*:1899:debierne
-#-------------------------------------------------------------- 69 pattern/balss
+#-------------------------------------------------------------- 65 pattern/balss
 Green Book, p. 60 ("BAL does not match"):
 ((a+(b*c))+d)
 (a+(b*c))
@@ -9827,14 +9784,14 @@ Matching beyond first character:
 a
 (bc)
 d
-#------------------------------------------------------------- 70 pattern/bigpss
+#------------------------------------------------------------- 66 pattern/bigpss
 String: ON jANUARY 1,1965 THE UNITED STATES MERCHANT FLEET HAD 29,632,000 VESSELS TOTALLING 2529  DEADWEIGHT TONS
 Largest number is: 29,632,000
 Largest word is: DEADWEIGHT
 String: The first modern widget (mentioned in #283) was created in ComputerLand in the 20th century.
 Largest number is: 283
 Largest word is: ComputerLand
-#------------------------------------------------------------- 71 pattern/breaks
+#------------------------------------------------------------- 67 pattern/breaks
 integers:
 Matched int
 Matched g <- wanted 2nd e
@@ -9847,7 +9804,7 @@ entertainers:
 Matched 
 Matched nt <- wanted 2nd e
 Matched ent
-#-------------------------------------------------------------- 72 pattern/expss
+#-------------------------------------------------------------- 68 pattern/expss
 x+y*(z+x) is an expression
 x-yz/(z*x) is not an expression
 x+y+z is an expression
@@ -9855,29 +9812,29 @@ xy is not an expression
 x*((y+z)-x is not an expression
 x*(y*(y+z)-x) is an expression
 x*y*y+z-x is an expression
-#------------------------------------------------------------- 73 pattern/failss
+#------------------------------------------------------------- 69 pattern/failss
 Acceptable words are:
 
  beta
  abba
  albeit
  banana
-#-------------------------------------------------------------- 74 pattern/fence
+#-------------------------------------------------------------- 70 pattern/fence
 bets
 fred
 frets
 gets
 gets
-#--------------------------------------------------------------- 75 pattern/fish
+#--------------------------------------------------------------- 71 pattern/fish
 Matched: 'blue' in One fish two fish red fish blue fish
 Matched: 'of' in Will a fish man fish for a tuna fish in a pond of fish
-#-------------------------------------------------------------- 76 pattern/lenss
+#-------------------------------------------------------------- 72 pattern/lenss
 mo = 01 day = 16 yr = 2015
 mo = 10 day = 17 yr = 2015
-#-------------------------------------------------------------- 77 pattern/nest4
+#-------------------------------------------------------------- 73 pattern/nest4
 done with pattern construction time, moving to pattern match time
 match failed
-#----------------------------------------------------------- 78 pattern/nspantst
+#----------------------------------------------------------- 74 pattern/nspantst
 abc accepted
 aabbcc accepted
 aabbdcc rejected
@@ -9887,12 +9844,12 @@ aabcc rejected
 aabbc rejected
 ac rejected
 aaaabbbbcccc accepted
-#------------------------------------------------------------- 79 pattern/pairss
+#------------------------------------------------------------- 75 pattern/pairss
 oo
 mm
 aa
 ee
-#--------------------------------------------------------------- 80 pattern/pany
+#--------------------------------------------------------------- 76 pattern/pany
 a
 uu
 ac
@@ -9901,12 +9858,12 @@ oo
 od
 e
 el
-#--------------------------------------------------------------- 81 pattern/parb
+#--------------------------------------------------------------- 77 pattern/parb
 gm
 ic Progra
  L
 in gra
-#------------------------------------------------------------- 82 pattern/parbno
+#------------------------------------------------------------- 78 pattern/parbno
 12
 345
 6
@@ -9919,12 +9876,12 @@ Match failed: (,5,3,7,88)
 3
 7
 Match failed: (88,5,3,7,)
-#-------------------------------------------------------------- 83 pattern/peval
+#-------------------------------------------------------------- 79 pattern/peval
 gm
 ic Progra
  L
 in gra
-#----------------------------------------------------------- 84 pattern/pimgtest
+#----------------------------------------------------------- 80 pattern/pimgtest
 object foo_1(3) vs list_1(3) vs table_1(1)
 1
 pattern_2(2) = "this is a string" || "this is also a string"
@@ -9987,12 +9944,12 @@ pattern_64(2) = Rpos(20) || "this string"
 pattern_67(2) = Rtab(20) || "this string"
 31
 pattern_76(8) = Rpos(`stringcall("one", "two")`) || Rpos(`f.stringcall("one", "two")`) || Breakx('aht') || Breakx('hist')
-#------------------------------------------------------------- 85 pattern/pimmed
+#------------------------------------------------------------- 81 pattern/pimmed
 abc
 abcdefghijk
 abcdefghijklm
 abcde
-#--------------------------------------------------------------- 86 pattern/plen
+#--------------------------------------------------------------- 82 pattern/plen
 abcdea:
 abc
 de
@@ -10002,7 +9959,7 @@ jklmnopa:
 jkl
 op
 r:
-#--------------------------------------------------------------- 87 pattern/ppos
+#--------------------------------------------------------------- 83 pattern/ppos
 -----
 Match succeeded for: abcdef
 def
@@ -10036,7 +9993,7 @@ Match Rpos 3 failed for: abcd
       Rpos 3 succeeded inside string scan
       Pos -3 succeeded inside string scan
       Rpos 3 succeeded inside string scan
-#--------------------------------------------------------------- 88 pattern/prem
+#--------------------------------------------------------------- 84 pattern/prem
 abcdefghi:
 abc
 ghi
@@ -10047,7 +10004,7 @@ bcompany
 find the sequence def's subsequent:
 's subsequent
 nd the sequence def's subsequent
-#--------------------------------------------------------------- 89 pattern/ptab
+#--------------------------------------------------------------- 85 pattern/ptab
 line: This is the first line.
 is is the first line.
 Th
@@ -10088,7 +10045,7 @@ A
 test of the "=" operator
 test
 y:  of the "=" operato
-#--------------------------------------------------------- 90 pattern/ralternate
+#--------------------------------------------------------- 86 pattern/ralternate
 Alternation
 pattern_2(3) = ("Unicon" .| "Icon")
 The string is: Unicon is a goal directed evaluation language
@@ -10177,7 +10134,7 @@ Multi Group Alternation with Concatenation minus Parens
 pattern_154(8) = ("Uni" || "con" .| ("Icon" || "t" .| "Ic" || "on"))
 The string is: The translator, Icont, is an integral part of this system
 The matched string is Icont the remainder is , is an integral part of this system
-#---------------------------------------------------------- 91 pattern/rasterisk
+#---------------------------------------------------------- 87 pattern/rasterisk
 Asterisk Concatenation with csets
 pattern_9(7) = Arbno(Any('a')) || Arbno(Any('b')) || Arbno(Any('c')) || Any('d')
 The string is: abcd
@@ -10272,7 +10229,7 @@ Nested Asterisks
 pattern_259(15) = Arbno(("abc" .| (Any('a') || Arbno(Any('b')) || Any('c') .| Any('a') || Any('b') || Arbno(Any('c'))))) || Any('d')
 The string is: abcabbbbcabccccd
 The matched string is "abcabbbbcabccccd" the remainder is ""
-#------------------------------------------------------------- 92 pattern/rbasic
+#------------------------------------------------------------- 88 pattern/rbasic
 Basic match
 "fat"
 The string is: the dog is fat
@@ -10343,7 +10300,7 @@ Basic string alternation/concatenation
 pattern_97(6) = (Any('f') .| Any('c')) || ("atter" .| "at")
 The string is: the dog is getting fatter
 The matched string is fatter the remainder is 
-#------------------------------------------------------------- 93 pattern/rcurly
+#------------------------------------------------------------- 89 pattern/rcurly
 Curly Brace Alternation with Strings
 pattern_6(5) = ("l" || "l" .| "s" || "s")
 The string is: this sentence contains the word expressions
@@ -10414,7 +10371,7 @@ Curly Braces Used on Semi-Complex Pattern with Parens
 pattern_131(6) = Any('w') || NotAny('\n') || "l" || Any('w') || NotAny('\n') || "l"
 The string is: multiple ll's will make this sentence match
 The regex failed to match
-#-------------------------------------------------------------- 94 pattern/rplus
+#-------------------------------------------------------------- 90 pattern/rplus
 Plus Operator Alternation with Strings
 pattern_10(8) = ("a" || Arbno("a") .| "b" || Arbno("b")) || Any('d')
 The string is: aaaabbbbd
@@ -10557,7 +10514,7 @@ Plus Operator Used With Curly Braces
 pattern_359(6) = Any('a') || Any('a') || Arbno(Any('a') || Any('a')) || Any('c')
 The string is: bbbbcaaaad
 The regex failed to match
-#---------------------------------------------------------- 95 pattern/rquestion
+#---------------------------------------------------------- 91 pattern/rquestion
 Question Mark Alternation with Strings
 pattern_6(7) = (("all" .| "") .| ("none" .| ""))
 The string is: all or none
@@ -10682,7 +10639,7 @@ Question Mark Used With Curly Braces
 pattern_226(5) = Any('a') || (Any('l') || Any('l') .| "")
 The string is: sally or yllas
 The matched string is all the remainder is y or yllas
-#--------------------------------------------------------------- 96 pattern/rtab
+#--------------------------------------------------------------- 92 pattern/rtab
 The match by Rtab is: output and remainder is: 
 The match by Rtab is: outpu and remainder is: t
 The match by Rtab is: outp and remainder is: ut
@@ -10696,7 +10653,7 @@ The match by Rtab is: inp and remainder is: ut
 The match by Rtab is: in and remainder is: put
 The match by Rtab is: i and remainder is: nput
 The match by Rtab is:  and remainder is: input
-#-------------------------------------------------------------- 97 pattern/sawss
+#-------------------------------------------------------------- 93 pattern/sawss
 X
 XX
 XXX
@@ -10717,7 +10674,7 @@ XX
 XXX
 XXXX
 XXXXX
-#------------------------------------------------------------- 98 pattern/setcur
+#------------------------------------------------------------- 94 pattern/setcur
 the bed is red
     ---
 look at the beds
@@ -10734,7 +10691,7 @@ what is read is good
         ----
 are they the beaded beds?
              ----
-#------------------------------------------------------- 99 pattern/unevalcharss
+#------------------------------------------------------- 95 pattern/unevalcharss
 a
 a
 a
@@ -10820,7 +10777,7 @@ ccc
 ccc
 ccc
 ccc
-#------------------------------------------------------- 100 pattern/unevalintss
+#-------------------------------------------------------- 96 pattern/unevalintss
 a
 a
 a
@@ -10896,43 +10853,37 @@ aa
 aa
 aa
 aa
-#--------------------------------------------------------------- 101 posix/chdir
+#---------------------------------------------------------------- 97 posix/chdir
 foo
-#--------------------------------------------------------------- 102 posix/chmod
+#---------------------------------------------------------------- 98 posix/chmod
 -rwxr-xr-x
-#----------------------------------------------------------------- 103 posix/dir
+#------------------------------------------------------------------ 99 posix/dir
    * drwxr-xr-x   2         * tmp
 Couldn't stat: No such file or directory
-#---------------------------------------------------------------- 104 posix/exec
+#---------------------------------------------------------------- 100 posix/exec
 hello, world!
-#--------------------------------------------------------------- 105 posix/fcntl
+#--------------------------------------------------------------- 101 posix/fcntl
 Read failed: Resource temporarily unavailable
-#---------------------------------------------------------------- 106 posix/fdup
+#---------------------------------------------------------------- 102 posix/fdup
 Hello,
    world!
 Everything's ok.
-#------------------------------------------------------------ 107 posix/filepair
+#------------------------------------------------------------ 103 posix/filepair
 parent ending
-#---------------------------------------------------------------- 108 posix/fork
+#---------------------------------------------------------------- 104 posix/fork
 child
 parent
-#--------------------------------------------------------------- 109 posix/getpw
+#--------------------------------------------------------------- 105 posix/getpw
 root 0 0
-#------------------------------------------------------------- 110 posix/getserv
+#------------------------------------------------------------- 106 posix/getserv
 ntp       123/udp   
 ntp       123/udp   
-#-------------------------------------------------------- 111 posix/gettimeofday
+#-------------------------------------------------------- 107 posix/gettimeofday
 record posix_timeval_1(2)
 integer integer
-#---------------------------------------------------------------- 112 posix/kill
+#---------------------------------------------------------------- 108 posix/kill
 Got SIGHUP
-#------------------------------------------------------------------ 113 posix/ls
-. (directory) permissions drwx------
-.. (directory)
-d (symbolic link) -> a
-ls (file) permissions -rwxrwxr-x size    27753
-ls.icn (file) permissions -rw-rw-r-- size     1185
-#--------------------------------------------------------------- 114 posix/mcast
+#--------------------------------------------------------------- 109 posix/mcast
 bogus attribute: bad socket attribute
 numeric boolean: bad socket attribute
 Received hello-multicast
@@ -10948,30 +10899,9 @@ ipv6-ssm-source: ok
 ipv6-ssm-join: ok
 cache-attr open: independent
 Received hello-alias
-#--------------------------------------------------------- 115 posix/pipe-select
+#--------------------------------------------------------- 110 posix/pipe-select
 Everything's ok.
-#------------------------------------------------------------- 116 posix/pty_uni
-pty gives me: "hello, world"
-...done
-
-testing interactive read/write with at least a line-at-a-time program
-using Unicon Debugger
-
-udb
-   A program must be pre-loaded
-   Type "help" for assistance
-(udb)where
-
-   The program is not being run.
-   Try "run", or Type "help" for assistance
-(udb)quit
-received "quit", quitting
-
-   Thank you for using UDB.
-   Goodbye
-
-closing link to udb...done
-#------------------------------------------------------------ 117 posix/raw_sock
+#------------------------------------------------------------ 111 posix/raw_sock
 missing-proto: bad socket attribute
 bad-proto: bad socket attribute
 empty-proto: bad socket attribute
@@ -10983,7 +10913,7 @@ bad-hdrincl: bad socket attribute
 read-mode-r: ok
 raw-peek:ok
 raw-key:ok
-#-------------------------------------------------------------- 118 posix/rusage
+#-------------------------------------------------------------- 112 posix/rusage
 after a brief computation:
 getrusage: ok
 inblock: integer ok
@@ -10995,27 +10925,27 @@ nvcsw: integer ok
 oublock: integer ok
 stime: posix_timeval ok
 utime: posix_timeval ok
-#----------------------------------------------------------- 119 posix/select-io
+#----------------------------------------------------------- 113 posix/select-io
 input-select: ok
 cannot create local/select-io.dat
-#-------------------------------------------------------------- 120 posix/select
+#-------------------------------------------------------------- 114 posix/select
 Should be 0: 0
 fin1 ok
 "x"
 fin2 ok
 "x"
-#-------------------------------------------------------------- 121 posix/setenv
+#-------------------------------------------------------------- 115 posix/setenv
 foo="bar"
 foo="rab"
 bar="foo"
 foo=rab bar=foo
-#------------------------------------------------------------ 122 posix/sockpeek
+#------------------------------------------------------------ 116 posix/sockpeek
 ttl=5
 groups:ok
 key:ok
 image=file(:5106)
 closed image=file(:5106)
-#--------------------------------------------------------------- 123 posix/spawn
+#--------------------------------------------------------------- 117 posix/spawn
 file(pipe)
 file(pipe)
      1	a
@@ -11023,7 +10953,7 @@ file(pipe)
      3	c
      4	d
 everything written to pipe.
-#----------------------------------------------------------------- 124 posix/ssh
+#----------------------------------------------------------------- 118 posix/ssh
 feature _SSH: no
 bad-attribute open fails: yes
 bad-channel open fails: yes
@@ -11033,12 +10963,12 @@ cmd-without-c open fails: no
 connect-refused open fails: no
 live round-trip: skipped (set UNICON_SSH_TESTHOST)
 ssh test done
-#-------------------------------------------------------------- 125 posix/system
+#-------------------------------------------------------------- 119 posix/system
 sh: 1: icont: not found
 ...done
-#----------------------------------------------------------------- 126 posix/tcp
+#----------------------------------------------------------------- 120 posix/tcp
 ret: !dlrow ,wolleh
-#------------------------------------------------------------- 127 posix/timeout
+#------------------------------------------------------------- 121 posix/timeout
 25ms failed...
 50ms failed...
 75ms failed...
@@ -11056,18 +10986,18 @@ ret: !dlrow ,wolleh
 375ms failed...
 400ms failed...
 connection timeout > 1.5s
-#----------------------------------------------------------------- 128 posix/udp
+#----------------------------------------------------------------- 122 posix/udp
 Received hello, world!
-#--------------------------------------------------------------- 129 posix/umask
+#--------------------------------------------------------------- 123 posix/umask
 setting the mask to rwxr-xr-x.
 "rwxr-xr-x"; OK
-#------------------------------------------------------------ 130 posix/uxsocket
+#------------------------------------------------------------ 124 posix/uxsocket
 !dlrow ,olleh
-#---------------------------------------------------------------- 131 posix/wait
+#---------------------------------------------------------------- 125 posix/wait
 integer exited:3
 integer terminated:SIGTERM
 integer stopped:SIGSTOP
-#------------------------------------------------------------ 132 samples/btrees
+#------------------------------------------------------------ 126 samples/btrees
 tree walk
 b
 c
@@ -11098,7 +11028,7 @@ leaves
 a
 d
 e
-#---------------------------------------------------------- 133 samples/diffwrds
+#---------------------------------------------------------- 127 samples/diffwrds
 The
 There
 are
@@ -11125,7 +11055,7 @@ sort
 the
 to
 write
-#------------------------------------------------------------- 134 samples/kross
+#------------------------------------------------------------- 128 samples/kross
 
 
 p
@@ -11285,11 +11215,11 @@ gaggle
      e
      s
 gaggle
-#----------------------------------------------------------- 135 samples/meander
+#----------------------------------------------------------- 129 samples/meander
 accbcabbaa
 14434241332312211
 AAACCCCBCCCACCBBCCBACCABCCAACBCBCACBBBCBBACBABCBAACACABBCABACAABCAAABBBBABBAABABAAAA
-#------------------------------------------------------------ 136 samples/prefix
+#------------------------------------------------------------ 130 samples/prefix
 x
 x
 +(x,1)
@@ -11298,7 +11228,7 @@ x
 +(x,1)
 ^(2,^(2,n))
 /(^(x,n),+(z,1))
-#------------------------------------------------------------ 137 samples/recogn
+#------------------------------------------------------------ 131 samples/recogn
 accepted
 rejected
 accepted
@@ -11307,7 +11237,7 @@ rejected
 rejected
 rejected
 rejected
-#------------------------------------------------------------- 138 samples/roman
+#------------------------------------------------------------- 132 samples/roman
 XIII
 IV
 VI
@@ -11316,7 +11246,7 @@ cannot convert
 XXXIX
 MMMCMXCIX
 cannot convert
-#------------------------------------------------------------- 139 samples/sieve
+#------------------------------------------------------------- 133 samples/sieve
 There are 25 primes in the first 100 integers.
 The primes are:
    2
@@ -11344,7 +11274,7 @@ The primes are:
   83
   89
   97
-#----------------------------------------------------------- 140 samples/wordcnt
+#----------------------------------------------------------- 134 samples/wordcnt
 A                   2
 B                   1
 D                   1
@@ -11398,9 +11328,9 @@ write               1
 writes              1
 x                   3
 y                   4
-#---------------------------------------------------------- 141 samples/xcommand
+#---------------------------------------------------------- 135 samples/xcommand
 Can't open f1.xop
-#------------------------------------------------------------- 142 special/1to10
+#------------------------------------------------------------- 136 special/1to10
 1
 2
 3
@@ -11411,15 +11341,15 @@ Can't open f1.xop
 8
 9
 10
-#------------------------------------------------------------- 143 special/audio
+#------------------------------------------------------------- 137 special/audio
 This program requires Audio.
-#------------------------------------------------------------ 144 thread/channel
+#------------------------------------------------------------ 138 thread/channel
 testing private channels...
 I got: Main ==> A ==> B ==> C ==> A ==> Main!
 Correct output!
-#------------------------------------------------------------ 145 thread/critter
+#------------------------------------------------------------ 139 thread/critter
 No errors
-#-------------------------------------------------------------- 146 thread/error
+#-------------------------------------------------------------- 140 thread/error
 The test should crash with a run time error now.
 You should see only one runtime error message. Any repetition
 of the error message indicates a problem in the threads system.
@@ -11431,16 +11361,16 @@ offending value: &null
 Traceback:
    main(list_1 = [])
    {1 + &null} from line 12 in error.icn
-#----------------------------------------------------------------- 147 thread/gc
+#----------------------------------------------------------------- 141 thread/gc
 running 4 thread(s) please wait... 
 sum=1000000
 garbage collection =OK
-#----------------------------------------------------------- 148 thread/hellothr
+#----------------------------------------------------------- 142 thread/hellothr
 Create two threads..
 Hello world! I'm thread 1 I will finish now.
 Hello world! I'm thread 2 I will finish now.
 The process ended successfully, exiting now..
-#----------------------------------------------------------- 149 thread/mutexfun
+#----------------------------------------------------------- 143 thread/mutexfun
 Testing mutex functions..
  calling mutex()...
 mutex() returned a value of type integer This is OK
@@ -11452,36 +11382,36 @@ lock(x) returned x
 unlock(x) returned x
 
 Done! exiting peacefully...
-#-------------------------------------------------------------- 150 thread/queue
+#-------------------------------------------------------------- 144 thread/queue
 Running two producers and one consumer...
 
 Total=1000
-#------------------------------------------------------------ 151 thread/rantest
+#------------------------------------------------------------ 145 thread/rantest
 24 46 33 23 11 62 51 99 31 46 
 76 98 33 9 95 28 72 61 43 33 
 27 50 34 95 79 93 93 24 55 19 
 79 2 34 81 63 59 15 86 68 6 
-#---------------------------------------------------------- 152 thread/sharelist
+#---------------------------------------------------------- 146 thread/sharelist
 firing threads please wait...
 We just did 400000 calls to put() from 4 threads
 The list was protected by a mutex.
 How many elements do we have?
 400000
-#------------------------------------------------------------- 153 thread/stress
+#------------------------------------------------------------- 147 thread/stress
 Busy work threads... 
 Interference threads...
 sum=100000000
-#---------------------------------------------------------------- 154 thread/sum
+#---------------------------------------------------------------- 148 thread/sum
 4 thread(s) will sum 10000000 ones.
 The work will be divided equally between them. Please wait... 
 sum=10000000
-#------------------------------------------------------------- 155 thread/talloc
+#------------------------------------------------------------- 149 thread/talloc
 talloc test: if everything goes well nothing else will be printed
-#--------------------------------------------------------------- 156 thread/tcom
+#--------------------------------------------------------------- 150 thread/tcom
 testing thread communications, inbox/outbox messaging...
 I got: Main ==> A ==> B ==> C ==> A ==> Main!
 Correct output!
-#--------------------------------------------------------------- 157 udb/watchme
+#--------------------------------------------------------------- 151 udb/watchme
 727
 1
 1
@@ -11573,9 +11503,113 @@ Correct output!
 49
 64
 81
-#----------------------------------------------------------- 158 unicon/clin_err
+#-------------------------------------------------- 152 uni_lib/basicclasscoding
+
+Run-time error 117 in startup code
+missing main procedure
+#------------------------------------------------------------- 153 uni_lib/class
+
+Run-time error 117 in startup code
+missing main procedure
+#------------------------------------------------------- 154 uni_lib/classcoding
+
+Run-time error 117 in startup code
+missing main procedure
+#------------------------------------------------------- 155 uni_lib/classobject
+
+Run-time error 117 in startup code
+missing main procedure
+#-------------------------------------------------------- 156 uni_lib/comparator
+
+Run-time error 117 in startup code
+missing main procedure
+#------------------------------------------------------- 157 uni_lib/connectable
+
+Run-time error 117 in startup code
+missing main procedure
+#------------------------------------------------------------- 158 uni_lib/error
+
+Run-time error 117 in startup code
+missing main procedure
+#---------------------------------------------------------- 159 uni_lib/fcn_util
+
+Run-time error 117 in startup code
+missing main procedure
+#------------------------------------------------------------ 160 uni_lib/format
+
+Run-time error 117 in startup code
+missing main procedure
+#---------------------------------------------------------- 161 uni_lib/listener
+
+Run-time error 117 in startup code
+missing main procedure
+#--------------------------------------------------------------- 162 uni_lib/md5
+
+Run-time error 117 in startup code
+missing main procedure
+#------------------------------------------------------------ 163 uni_lib/method
+
+Run-time error 117 in startup code
+missing main procedure
+#--------------------------------------------------------- 164 uni_lib/misc_util
+
+Run-time error 117 in startup code
+missing main procedure
+#------------------------------------------------------------ 165 uni_lib/object
+
+Run-time error 117 in startup code
+missing main procedure
+#---------------------------------------------------------- 166 uni_lib/predicat
+
+Run-time error 117 in startup code
+missing main procedure
+#----------------------------------------------------------- 167 uni_lib/process
+
+Run-time error 117 in startup code
+missing main procedure
+#---------------------------------------------------------- 168 uni_lib/property
+
+Run-time error 117 in startup code
+missing main procedure
+#------------------------------------------------------------- 169 uni_lib/qsort
+
+Run-time error 117 in startup code
+missing main procedure
+#---------------------------------------------------------- 170 uni_lib/runnable
+
+Run-time error 117 in startup code
+missing main procedure
+#----------------------------------------------------- 171 uni_lib/runtimeerrors
+
+Run-time error 117 in startup code
+missing main procedure
+#---------------------------------------------- 172 uni_lib/selectiveclasscoding
+
+Run-time error 117 in startup code
+missing main procedure
+#-------------------------------------------------------- 173 uni_lib/stringbuff
+
+Run-time error 117 in startup code
+missing main procedure
+#------------------------------------------------------------ 174 uni_lib/thread
+
+Run-time error 117 in startup code
+missing main procedure
+#---------------------------------------------------------- 175 uni_lib/timezone
+
+Run-time error 117 in startup code
+missing main procedure
+#---------------------------------------------------------- 176 uni_lib/unittest
+
+Run-time error 117 in startup code
+missing main procedure
+#--------------------------------------------------------- 177 uni_lib/utilities
+
+Run-time error 117 in startup code
+missing main procedure
+#----------------------------------------------------------- 178 unicon/clin_err
 A value
-#------------------------------------------------------------- 159 unicon/macros
+#------------------------------------------------------------- 179 unicon/macros
 5
 12
 10
@@ -11591,12 +11625,12 @@ a,b|c(d)|e
 1
 0
 ASSERT_TRUE failed: too few args should fail
-#------------------------------------------------------------ 160 unicon/mintest
+#------------------------------------------------------------ 180 unicon/mintest
 min(3,1,4,9,-3,2)=-3
 max(3,1,4,9,-3,2)=9
-#--------------------------------------------------------------- 161 unicon/ovld
+#--------------------------------------------------------------- 181 unicon/ovld
 This program requires operator overloading.
-#----------------------------------------------------------------- 162 unicon/to
+#----------------------------------------------------------------- 182 unicon/to
 0.0
 0.125
 0.25
@@ -11612,7 +11646,7 @@ This program requires operator overloading.
 2.5
 3.0
 3.5
-#----------------------------------------------------- 163 unicon/triple_strings
+#----------------------------------------------------- 183 unicon/triple_strings
 line@single=4
  This is a multi-line string in Unicon
 line@multi_inline=8
