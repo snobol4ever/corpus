@@ -61,7 +61,7 @@
 -INCLUDE 'Qize.inc'
 -INCLUDE 'XDump.inc'
 -INCLUDE 'ReadWrite.inc'
--INCLUDE 'system.inc'
+-INCLUDE 'lsystem.inc'
 *------------ --------------------------------------------------------------------- -----------------
               DEFINE('mkdir(dirnm,options)lsResponse')
               mkdirs         =   TABLE()                                            :(mkdir_end)

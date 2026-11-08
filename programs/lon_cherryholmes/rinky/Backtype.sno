@@ -7,7 +7,7 @@ START
 -INCLUDE 'ReadWrite.inc'
 -INCLUDE 'export.inc'
 -INCLUDE 'ini.inc'
--INCLUDE 'system.inc'
+-INCLUDE 'lsystem.inc'
 -INCLUDE 'URL.inc'
 -INCLUDE 'HTML.inc'
 -INCLUDE 'trace.inc'

@@ -1,49 +1,23 @@
-*-------------------------------------------------------------------------------------------------------
--INCLUDE 'datetime.inc'
--INCLUDE 'dq.inc'
-*------------ --------------------------------------------------------------------- --------------------
-              DEFINE('system(verb,args,errName,outFile)'
-+                'cmd,cmdLine,errFile,errInfo,line,noCat,noDate,noEcho,silent,stdout,syserr,sysout'
-+             )                                                                     :(system_end)
-system        verb           POS(0) '@' . silent =                                  :S(system)
-              verb           POS(0) '-' . noEcho =                                  :S(system)
-              verb           POS(0) '#' . noDate =                                  :S(system)
-              verb           POS(0) '!' . noCat  =                                  :S(system)
-              cmd            =   DIFFER(exe) exe[verb]
-              cmd            =   IDENT(cmd) verb
-              cmd            =   dq(cmd)
-              auditLog       =   Datetime() ' % ' verb ' ' args
-              OUTPUT         =   IDENT(silent) auditLog
-              IDENT(testing)                                                        :F(RETURN)
-              errFile        =   'stderr-' REPLACE(Datetime(), '/: ', '---') '.txt'
-              cmdLine        =   IDENT(timing) 'C:/mksnt/sh -c ' "'" cmd ' ' args ' 2> ' errFile "'"
-              cmdLine        =   DIFFER(timing) 'C:/mksnt/sh -c ' '"time ' cmd ' ' args ' 2> ' errFile '"'
-              INPUT(.sysout, 9, '!!' cmdLine)                                       :F(FRETURN)
-              DIFFER(outFile)                                                       :F(system20)
-              OUTPUT(.stdout, 10, outFile)                                          :S(system20)
-              auditLog       =   Datetime() '*** system(): Error: "' outFile '" failed to open. -- ' cmd ' ' args
-              TERMINAL       =   auditLog
-              outFile        =
-system20      line           =   sysout                                             :F(system30)
-              auditLog       =   Datetime() '   ' line
-              OUTPUT         =   IDENT(noEcho) DIFFER(noDate) line
-              OUTPUT         =   IDENT(noEcho) IDENT(noDate) auditLog
-              system         =   IDENT(noCat) system line nl
-              stdout         =   line                                               :(system20)
-system30      (DIFFER(outFile) ENDFILE(10))
-              ENDFILE(9)
-              errInfo        =
-              INPUT(.syserr, 11, errFile)                                           :S(system40)
-              auditLog       =   Datetime() '*** system(): Error: Unable to open "' errFile '". -- ' cmd ' ' args
-              TERMINAL       =   auditLog                                           :(system60)
-system40      line           =   syserr                                             :F(system50)
-              auditLog       =   Datetime() ' + ' line
-              OUTPUT         =   IDENT(noEcho) DIFFER(noDate) line
-              OUTPUT         =   IDENT(noEcho) IDENT(noDate) auditLog
-              errInfo        =   errInfo line nl                                    :S(system40)
-system50      ENDFILE(11)
-              HOST(1, 'rm -f "' errFile '"')                                        :F(error)
-system60      DIFFER(errName)                                                       :F(RETURN)
-              IsType(errName, 'name,string')                                        :F(error)
-              $errName       =   errInfo                                            :(RETURN)
-system_end
+* SYSTEM.inc - SYSTEM() will return which of the various SNOBOL4
+*	       processors it is running under.
+*
+	DEFINE('SYSTEM()K')			:(SYSTEM_END)
+SYSTEM	IDENT(DATATYPE(.X), 'STRING')		:F(SYSTEM_2)
+	K  =  SIZE(&ALPHABET)
+	SYSTEM  =  EQ(K,512) 'HONEYWELL MAINBOL'  :S(RETURN)
+	SYSTEM  =  EQ(K,256)  'IBM MAINBOL'	:S(SYSTEM_1)
+	SYSTEM  =  EQ(K,128)  'PDP-10 MAINBOL'	:S(RETURN)
+	SYSTEM  =  'CDC MAINBOL'
+	&ALPHABET  '()'				:S(SYSTEM_1)
+	SYSTEM  =  'UNIVAC MAINBOL'		:(RETURN)
+SYSTEM_1	OPSYN('OLD_SHARP','#',2)
+	OPSYN('#','+',2)
+	T  =  1  5 # 5
+	OPSYN('#','OLD_SHARP',2)
+	EQ(T,110)				:S(RETURN)
+	SYSTEM  =  SYSTEM ' WITH BLOCKS'	:(RETURN)
+SYSTEM_2
+	SYSTEM = DIFFER(SUBSTR('ABC',2,1),'B')  'FASBOL' :S(RETURN)
+	SYSTEM = EQ(SIZE(&ALPHABET),128) 'SITBOL'  :S(RETURN)
+	SYSTEM  =  'SPITBOL'			:(RETURN)
+SYSTEM_END

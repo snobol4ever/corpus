@@ -9,7 +9,7 @@ START
 -INCLUDE 'is.inc'
 -INCLUDE 'match.inc'
 -INCLUDE 'ss.inc'
--INCLUDE 'system.inc'
+-INCLUDE 'lsystem.inc'
 -INCLUDE 'utility.inc'
 *---------- ------------------- --- ------------------------------------------- --------------------------------
             INTEGER_LITERAL     =   *DECIMAL_LITERAL FENCE(ANY('Ll') | '')
