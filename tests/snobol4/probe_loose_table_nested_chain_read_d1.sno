@@ -23,4 +23,4 @@ zreset  slot = 0
 zcont   ZI = LT(ZI, ZKN) ZI + 1                           :S(ZBL)
         ZBODY = total                                     :(RETURN)
 ZBODY_END
--INCLUDE '../../benchmarks/snobol4/harness.inc'
+-INCLUDE 'harness.inc'

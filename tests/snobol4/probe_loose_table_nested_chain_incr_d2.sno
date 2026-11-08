@@ -22,4 +22,4 @@ zreset  slot = 0
 zcont   ZI = LT(ZI, ZKN) ZI + 1                           :S(ZBL)
         ZBODY = level1[0][0]                              :(RETURN)
 ZBODY_END
--INCLUDE '../../benchmarks/snobol4/harness.inc'
+-INCLUDE 'harness.inc'

@@ -41,4 +41,4 @@ ZBL     mem     =
         ZBODY   =   ZTOK                                :(RETURN)
 ZBAD    ZBODY   =   'MATCH-FAILED'                      :(RETURN)
 ZBODY_END
--INCLUDE '../../benchmarks/snobol4/harness.inc'
+-INCLUDE 'harness.inc'

@@ -32,4 +32,4 @@ ZBL     ZSRC    ?   claws                               :F(ZBAD)
         ZBODY   =   SIZE(ZSRC)                          :(RETURN)
 ZBAD    ZBODY   =   'MATCH-FAILED'                      :(RETURN)
 ZBODY_END
--INCLUDE '../../benchmarks/snobol4/harness.inc'
+-INCLUDE 'harness.inc'
