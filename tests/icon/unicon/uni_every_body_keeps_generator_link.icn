@@ -1,0 +1,27 @@
+procedure g()
+   suspend 1 to 5;
+end
+procedure prime()
+   local i, k;
+   suspend 2 | ((i := seq(3, 2)) & (not(i = (k := (3 to sqrt(i) by 2)) * (i / k))) & i);
+end
+procedure main()
+   local p, n, facts;
+   every p := g() do { writes(p, " "); p + 1 };
+   write();
+   every p := g() do { writes(p, " "); if p > 3 then break };
+   write();
+   n := 360;
+   facts := [];
+   every p := prime() do {
+      if p > n then break;
+      if n % p = 0 then {
+         put(facts, p);
+         while n % p = 0 do n /:= p
+         }
+      };
+   every writes(!facts, " ");
+   write();
+end
+class UniconMarker()
+end
