@@ -1,0 +1,18 @@
+global m
+procedure t1()
+   critical m: return 2;
+end
+procedure t2()
+   critical m: { write(1); return 3 };
+end
+procedure t3()
+   critical m: fail;
+end
+procedure main()
+   m := mutex();
+   write(t1());
+   write(t2());
+   write(t3() | "failed");
+end
+class UniconMarker()
+end
