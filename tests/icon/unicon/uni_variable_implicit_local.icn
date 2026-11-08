@@ -1,0 +1,7 @@
+procedure main()
+   p1 := "one"; p2 := "two";
+   every i := 1 to 2 do write(image(variable("p" || i)));
+   write(image(variable("p1")));
+end
+class UniconMarker()
+end
