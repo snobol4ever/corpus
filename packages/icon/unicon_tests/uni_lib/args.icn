@@ -1,0 +1,142 @@
+#<p>
+# Singleton class that provides convenient access to program options
+#  and arguments.
+#</p>
+#<p>
+# <b>Author:</b> Steve Wampler (<i>sbw@tapestry.tucson.az.us</i>)
+#</p>
+#<p>
+# This file is in the <i>public domain</i>.
+#</p>
+
+import lang
+
+package util
+
+#<p>
+# The <tt>Args</tt> class accepts a list of strings corresponding
+#   to the program parameter list, separates <i>options</i> (parameters
+#   starting with 1 or more hyphens ["-"]) from <i>arguments</i> (parameters)
+#   that don't start with a hyphen) and provides convenient and efficient
+#   separate handling of those options and arguments.
+#   Options may have values as in <tt>--cmd=write</tt>.
+#   If an option is duplicated, the values (if any) are kept in order.
+#   Arguments are also kept in order.
+#</p>
+#<p>
+# The class may also be given a set of valid option names (without the leading
+#   hyphens.  If given such a set, then any options that are not in the set are
+#   flagged to standard error and program execution is halted.  The class can
+#   also be given a procedure to call prior to program termination when bad
+#   options are found.  Usually, this is used to display a help message.
+#</p>
+class Args : Object (optionMap, argList, badOptions)
+
+
+    #<p>
+    #  Produce the value of an option.
+    #   <[param option name of option]>
+    #   <[param defValue default value to use if option exists, but
+    #           has no value.  Defaults to <tt>&null</tt>]>
+    #   <[returns first value given to option]>
+    #   <[fails if this option doesn't exist]>
+    #</p>
+    method getOpt(option, defValue)
+        value := \optionMap[option] | fail;
+        return value[1] | defValue;
+    end
+
+    #<p>
+    #  Produce the value of an option.
+    #   <[param option name of option]>
+    #   <[param defValue default value to use if option does not exist
+    #           Defaults to <tt>&null</tt>]>
+    #   <[returns first value given to option]>
+    #</p>
+    method getOptDef(option, defValue)
+        return (\(optionMap[option]))[1] | defValue;
+    end
+
+    #<p>
+    #  Produce the value[s] of an option.
+    #   <[param option name of option]>
+    #   <[param defValue default value to use if option does not exist
+    #           Defaults to <tt>&null</tt>]>
+    #   <[returns all values given to option as a list]>
+    #</p>
+    method getOptDefs(option, defValue)
+        return \(optionMap[option]) | [defValue];
+    end
+
+    #<p>
+    #  Generate the names of all options.
+    #   <[generates the names of all the options in alphabetic order]>
+    #</p>
+    method genOptNames()
+        suspend (!::sort(optionMap,1))[1];
+    end
+
+    #<p>
+    #  Generate the value[s] of an option.
+    #   <[param option name of option]>
+    #   <[param defValue default value to use if option does not exist
+    #           Defaults to <tt>&null</tt>]>
+    #   <[generates all values given to option]>
+    #</p>
+    method genOptDefs(option, defValue)
+        local ol := optionMap[option];
+        if \ol then suspend !ol
+        else return defValue;
+    end
+
+    #<p>
+    #  Produce the list of arguments (with options stripped out).
+    #  <[returns list of arguments]>
+    #</p>
+    method getArgs()
+        return argList;
+    end
+
+    #<p>
+    #  Generate the arguments (with options stripped out).
+    #  <[generates arguments]>
+    #</p>
+    method genArgs()
+        suspend !argList;
+    end
+
+    #<p>
+    #   Accept a list of arguments and process for efficient handling
+    #</p>
+    initially (params,       # List of parametes
+               validOptions, # Option set of valid option names
+               helpMesg      # Optional help message procedure to be
+                             #   called if any invalid options are found
+              )
+         optionMap := ::table();
+         argList := [];
+         badOptions := [];
+         every param := !params do {
+             if doneWithOpts := ("--" == param) then next;
+             param ? {
+                   if /doneWithOpts & ::tab(::many('-')) then {
+                      oName := ::tab(::upto('=')|0);
+                      if /validOptions | member(validOptions, oName) then {
+                          oValue := (="=", ::tab(0)) | &null;
+                          /optionMap[oName] := [];
+                          ::put(optionMap[oName], \oValue)
+                          }
+                      else {
+                          put(badOptions, oName)
+                          }
+                      }
+                   else ::put(argList, param)
+                   }
+             };
+        if *badOptions > 0 then {
+            every write(&errout, "Invalid option: '",!badOptions,"'");
+            \helpMesg();
+            stop()
+            };
+        Args := create |self;
+end
