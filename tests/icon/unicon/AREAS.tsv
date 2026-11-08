@@ -7,8 +7,8 @@ posix/udp	officer_03	sockets
 posix/tcp	officer_03	sockets
 posix/uxsocket	officer_03	sockets
 posix/raw_sock	officer_03	sockets
-posix/mcast	officer_08	the D13 attribute chain
-posix/sockpeek	officer_08	the D13 attribute chain
+posix/mcast	officer_03	the D13 attribute chain; was officer_08 until COO-493 (4:8:16), the section is handed to a senior to cut
+posix/sockpeek	officer_03	the D13 attribute chain; was officer_08 until COO-493 (4:8:16), the section is handed to a senior to cut
 posix/ls	officer_03	an exclusion: passed to the exclusions row holder
 posix/pty_uni	officer_03	an exclusion
 posix/ssh	officer_03	an exclusion
@@ -17,16 +17,16 @@ posix/	officer_03	the rest of the system interface
 mt/	officer_03	an exclusion
 general/cfuncs	officer_03	an exclusion
 pattern/	officer_02	patterns
-lib/	officer_04	the converter and import chain U3 to U8
-udb/	officer_04	the converter and import chain
-general/prepro	officer_04	the converter chain
-general/utf8_ovld	officer_04	the converter chain
-general/utf8	officer_04	the converter chain
-general/numeric	officer_04	the converter chain
-ipl/	officer_07	whole programs
-samples/	officer_07	whole programs
-special/	officer_07	whole programs
-general/	officer_07	every other general entry
-coexpr/	officer_07	co-expressions
+lib/	officer_02	the converter and import chain U3 to U8; was officer_04 until COO-493 (4:8:16), the section is handed to a senior to cut
+udb/	officer_02	the converter and import chain; was officer_04 until COO-493 (4:8:16), the section is handed to a senior to cut
+general/prepro	officer_02	the converter chain; was officer_04 until COO-493 (4:8:16), the section is handed to a senior to cut
+general/utf8_ovld	officer_02	the converter chain; was officer_04 until COO-493 (4:8:16), the section is handed to a senior to cut
+general/utf8	officer_02	the converter chain; was officer_04 until COO-493 (4:8:16), the section is handed to a senior to cut
+general/numeric	officer_02	the converter chain; was officer_04 until COO-493 (4:8:16), the section is handed to a senior to cut
+ipl/	officer_02	whole programs; was officer_07 until COO-493 (4:8:16), the section is handed to a senior to cut
+samples/	officer_02	whole programs; was officer_07 until COO-493 (4:8:16), the section is handed to a senior to cut
+special/	officer_02	whole programs; was officer_07 until COO-493 (4:8:16), the section is handed to a senior to cut
+general/	officer_02	every other general entry; was officer_07 until COO-493 (4:8:16), the section is handed to a senior to cut
+coexpr/	officer_02	co-expressions; was officer_07 until COO-493 (4:8:16), the section is handed to a senior to cut
 unicon/	officer_01	the design owner
 *	officer_01	unmatched: officer_01 re-routes it and amends this table
