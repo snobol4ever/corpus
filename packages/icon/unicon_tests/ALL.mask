@@ -1,0 +1,3 @@
+# ALL.mask -- R-409 line masks for this container (entry<TAB>L<n>-or-python-regex<TAB>reason); the rows of an entry
+# whose program ships a <stem>.mask are written from it by util_build_package_suite.py under the entry's name.
+thread/gc	^garbage collection =(OK|[0-9]+)$	ampersand-collections is implementation-defined (Icon book, appendix): gc.icn prints OK only inside the oracle collector window 190..210
