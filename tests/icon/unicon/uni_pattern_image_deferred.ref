@@ -1,0 +1,2 @@
+pattern_2(2) = "this is a string" || `stringcall("one", "two")`
+pattern_4(1) = Any(`stringcall("one")`)
