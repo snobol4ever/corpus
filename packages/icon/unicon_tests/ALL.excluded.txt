@@ -56,10 +56,7 @@ special/monitor: EXCLUDED.tsv NO_ORACLE_ANSWER: CEO-1696 and ARCH-UNICON R5 (7):
 special/save: EXCLUDED.tsv NO_ORACLE_ANSWER: CEO-1696 and ARCH-UNICON R5 (7): save() writes a core image of the VM; the oracle ends in run-time error 121 here
 thread/threadh: EXCLUDED.tsv NOT_A_UNIT_TEST: CTO-544 U4: the $include sibling of thread/channel and thread/tcom, vendored verbatim from /home/resources/unicon/uni/lib/threadh.icn so SCRIP finds it beside them (the oracle reads it from its own library path); a header of $define lines, not a program
 udb/foo: EXCLUDED.tsv NOT_A_UNIT_TEST: a package source the udb tests import: it has no main procedure (run-time error 117 in startup code)
-udb/prime: the oracle's translator refused it: prime.icn:3: # "global" Unable to import (1) package "foo"
 udb/printme: EXCLUDED.tsv NO_ORACLE_ANSWER: CEO-1696: the oracle prints nothing (a udb helper program with no output of its own)
 udb/scopepkg: EXCLUDED.tsv NOT_A_UNIT_TEST: a package source the udb tests import: it has no main procedure (run-time error 117 in startup code)
-udb/scopes: the oracle's translator refused it: scopes.icn:3: # "global" Unable to import (1) package "scopepkg"
 unicon/FxPtTest: the oracle's translator refused it: data/FxPtTests.icn:34: # "link" Unable to import (1) package "testing"
 unicon/FxPtTest_OVLD: the oracle's translator refused it: data/FxPtTests.icn:34: # "link" Unable to import (1) package "testing"
-unicon/list_test: the oracle's translator refused it: list_test.icn:15: # "link" Unable to import (1) package "testing"

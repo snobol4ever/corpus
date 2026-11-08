@@ -11580,3 +11580,65 @@ $endif
 # this looks like a comment, but is string content
 
 compile failed for DEL probe
+#----------------------------------------------------------------- 158 udb/prime
+I don't do anything!
+"hello world"
+f: procedure foo__f
+Foo: procedure foo__Foo
+foo: &null
+blah: &null
+"yogurt"
+"gogurt"
+"yurt"
+1 1
+2 2
+3 3
+5 5
+7 7
+11 11
+13 13
+17 17
+19 19
+23 23
+#---------------------------------------------------------------- 159 udb/scopes
+1
+Test::f1(): a: 2
+Test::f1(): b: 4
+Test::f1(): c: 8
+main(): a: 2
+main(): b: 4
+main(): c: 8
+1
+scopepkg::Test::f1(): a: 20
+scopepkg::Test::f1(): b: 40
+scopepkg::Test::f1(): c: 80
+main(): a: 20
+main(): b: 40
+main(): c: 80
+f1(): a: 17
+f1(): b: 8
+f1(): c: 25
+scopepkg::f1(): a: 17
+scopepkg::f1(): b: 8
+scopepkg::f1(): c: 25
+#---------------------------------------------------------- 160 unicon/list_test
+--------------------------------------------------
+          Alloc: Start
+          Alloc: Passed = 4 Failed = 0
+--------------------------------------------------
+--------------------------------------------------
+          Empty List: Start
+          Empty List: Passed = 19 Failed = 0
+--------------------------------------------------
+--------------------------------------------------
+          Array: Start
+          Array: Passed = 44 Failed = 0
+--------------------------------------------------
+--------------------------------------------------
+          Set to List: Start
+          Set to List: Passed = 15 Failed = 0
+--------------------------------------------------
+--------------------------------------------------
+          Recursive list: Start
+          Recursive list: Passed = 10 Failed = 0
+--------------------------------------------------
