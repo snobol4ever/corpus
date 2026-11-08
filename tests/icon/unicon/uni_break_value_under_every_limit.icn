@@ -1,0 +1,5 @@
+procedure main();
+    local r, i;
+    r := every i := 1 to 2 do (break (i * 10 | 5))\1;
+    write(image(r));
+end

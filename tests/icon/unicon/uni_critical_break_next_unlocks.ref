@@ -1,0 +1,12 @@
+  i=1 o=1 r=&null a=0 b=0
+  i=1 o=2 r=&null a=0 b=0
+p done i=1 a=0 b=0
+p done i=2 a=0 b=0
+p done i=3 a=0 b=0
+  i=4 o=1 r=7 a=0 b=0
+  i=4 o=2 r=7 a=0 b=0
+p done i=4 a=0 b=0
+  i=5 o=1 r=&null a=0 b=0
+  i=5 o=2 r=&null a=0 b=0
+p done i=5 a=0 b=0
+r=10 a=0

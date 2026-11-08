@@ -1,0 +1,38 @@
+global M
+procedure lock(m);
+   return 0 + (M[m] +:= 1);
+end
+procedure unlock(m);
+   return 0 + (M[m] -:= 1);
+end
+procedure p(i);
+   local o, j, k, r;
+   every o := 1 to 2 do {
+      r := every j := 1 to 3 do {
+         critical "a": {
+            if j = 1 then next;
+            if i = 1 then break;
+            if i = 2 then break next;
+            if i = 3 then break break;
+            if i = 4 then break 7;
+            every k := 1 to 2 do {
+               if k = 1 then next;
+               break
+            }
+         }
+      };
+      write("  i=", i, " o=", o, " r=", image(r), " a=", M["a"], " b=", M["b"])
+   };
+   write("p done i=", i, " a=", M["a"], " b=", M["b"]);
+end
+procedure main();
+   local i, r;
+   M := table(0);
+   every i := 1 to 5 do p(i);
+   r := every i := 1 to 2 do {
+      critical "a": {
+         break i * 10
+      }
+   };
+   write("r=", r, " a=", M["a"]);
+end
