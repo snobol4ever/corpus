@@ -1,0 +1,10 @@
+procedure main()
+  write("""escaped triple: \"\"\" inside""");
+  write("""a\"b""");
+  write("""two \"\" stay""");
+  s := """first
+\"\"\" second""";
+  write(s);
+end
+class UniconMarker()
+end
