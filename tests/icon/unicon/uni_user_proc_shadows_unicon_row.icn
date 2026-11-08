@@ -1,0 +1,25 @@
+procedure main();
+   write(image(diff('abc', 'b')));
+   write(image(inter(set([1, 2]), set([2]))));
+   write(image(union("x", "y")));
+   write(image(sort([3, 1, 2])));
+   write(image(member(table(), 1)));
+   write(image(diff ! ['ab', 'b']));
+end
+procedure diff(a, b);
+   return "user diff " || image(a) || " " || image(b);
+end
+procedure inter(a, b);
+   return "user inter " || *a || " " || *b;
+end
+procedure union(a, b);
+   return "user union " || a || b;
+end
+procedure sort(l);
+   return "user sort " || *l;
+end
+procedure member(t, k);
+   return "user member " || k;
+end
+class UniconMarker()
+end
