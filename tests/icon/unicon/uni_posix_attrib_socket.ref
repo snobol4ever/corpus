@@ -1,0 +1,6 @@
+ttl returns 3
+join returns "127.0.0.1"
+loop returns "yes"
+got hello-attrib
+leave returns "127.0.0.1"
+attrib done

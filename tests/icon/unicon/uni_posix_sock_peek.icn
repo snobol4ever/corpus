@@ -1,0 +1,20 @@
+procedure main()
+   local f, k, t, port;
+   port := 20000 + ?20000;
+   f := open(":" || port, "nua4") | stop("open: ", &errortext);
+   write("fresh ttl=", image(f["ttl"]), " iface=", image(f["iface"]), " broadcast=", image(f["broadcast"]));
+   Attrib(f, "ttl=5", "iface=127.0.0.1", "mcastloop=no") | stop("Attrib failed");
+   write("ttl=", image(f["ttl"]));
+   write("iface=", image(f["iface"]));
+   write("mcastloop=", image(f["mcastloop"]));
+   write("hdrincl=", image(f["hdrincl"]));
+   every k := key(f) do writes(k, " ");
+   write();
+   t := f["*"];
+   write(type(t), " ", *t, " ", image(t["ttl"]), " ", image(t["iface"]));
+   write("image=", image(f) ? (tab(find(":")) || ":port)"));
+   close(f);
+   write("peek done");
+end
+class UniconMarker()
+end

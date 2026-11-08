@@ -1,0 +1,21 @@
+procedure recv1(label, f, s, msg)
+   writes(s, msg);
+   if *select(f, 3000) > 0 then write(label, ": got ", receive(f).msg) else write(label, ": timeout");
+   close(s);
+   close(f);
+   return;
+end
+procedure main()
+   local base;
+   base := 20000 + ?20000;
+   recv1("group bind", open("239.42.42.62:" || base, "nua", "iface=127.0.0.1") | stop("group bind: ", &errortext),
+      open("239.42.42.62:" || base, "nu", "iface=127.0.0.1") | stop("sender 1: ", &errortext), "hello-implicit");
+   recv1("source at", open("127.0.0.1@239.42.42.63:" || (base + 1), "nua", "iface=127.0.0.1") | stop("source at: ", &errortext),
+      open("239.42.42.63:" || (base + 1), "nu", "iface=127.0.0.1") | stop("sender 2: ", &errortext), "hello-ssm-at");
+   recv1("source attr", open("239.42.42.65:" || (base + 2), "nua", "iface=127.0.0.1", "source=127.0.0.1") | stop("source attr: ", &errortext),
+      open("239.42.42.65:" || (base + 2), "nu", "iface=127.0.0.1") | stop("sender 3: ", &errortext), "hello-ssm-source");
+   write("source without group: ", if open(":" || (base + 3), "nua", "source=127.0.0.1") then "accepted" else &errortext);
+   write("implicit done");
+end
+class UniconMarker()
+end

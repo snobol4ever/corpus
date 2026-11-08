@@ -1,0 +1,5 @@
+group bind: got hello-implicit
+source at: got hello-ssm-at
+source attr: got hello-ssm-source
+source without group: bad socket attribute
+implicit done

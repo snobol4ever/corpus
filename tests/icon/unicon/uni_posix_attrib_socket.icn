@@ -1,0 +1,18 @@
+procedure main()
+   local f, s, group, port;
+   group := "239.42.42.64";
+   port := 20000 + ?20000;
+   f := open(":" || port, "nua4") | stop("open: ", &errortext);
+   write("ttl returns ", image(Attrib(f, "ttl=3")));
+   write("join returns ", image(Attrib(f, "iface=127.0.0.1", "join=" || group)));
+   write("loop returns ", image(Attrib(f, "mcastloop=yes")));
+   s := open(group || ":" || port, "nu", "iface=127.0.0.1") | stop("sender: ", &errortext);
+   writes(s, "hello-attrib");
+   if *select(f, 3000) > 0 then write("got ", receive(f).msg) else write("timeout");
+   write("leave returns ", image(Attrib(f, "iface=127.0.0.1", "leave=" || group)));
+   close(s);
+   close(f);
+   write("attrib done");
+end
+class UniconMarker()
+end
