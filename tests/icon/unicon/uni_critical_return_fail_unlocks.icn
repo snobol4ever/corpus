@@ -1,0 +1,29 @@
+global M
+procedure lock(m);
+   return 0 + (M[m] +:= 1);
+end
+procedure unlock(m);
+   return 0 + (M[m] -:= 1);
+end
+procedure f(x);
+   if x = 1 then fail;
+   critical "a": {
+      if x = 2 then fail;
+      if x = 3 then return;
+      if x = 4 then return 7;
+      critical "b": {
+         if x = 5 then fail;
+         if x = 6 then return;
+         if x = 7 then return 8
+      }
+   };
+   return 9;
+end
+procedure main();
+   local n, r;
+   M := table(0);
+   every n := 1 to 8 do {
+      r := f(n);
+      write(n, " ", image(r), " a=", M["a"], " b=", M["b"])
+   };
+end
