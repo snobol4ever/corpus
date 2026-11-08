@@ -1,0 +1,5 @@
+copy: 9 2 3 | orig: 1 2 3 | distinct: yes
+set: 6 7 5 
+set10: 6 1 7 2 8 3 9 4 10 5 size 10
+empty: 0 list
+fill: "x" "x" "x" | n: 2

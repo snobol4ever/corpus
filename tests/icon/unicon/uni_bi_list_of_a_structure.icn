@@ -1,0 +1,24 @@
+procedure join(x)
+   local s;
+   s := "";
+   every s ||:= image(!x) || " ";
+   return s;
+end
+procedure main()
+   local L, M, S, E;
+   L := [1, 2, 3];
+   M := list(L);
+   M[1] := 9;
+   write("copy: ", join(M), "| orig: ", join(L), "| distinct: ", if M === L then "no" else "yes");
+   S := set([5]);
+   insert(S, 7);
+   insert(S, 6);
+   write("set: ", join(list(S)));
+   S := set([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+   write("set10: ", join(list(S)), "size ", *list(S));
+   E := list(set());
+   write("empty: ", *E, " ", type(E));
+   write("fill: ", join(list(3, "x")), "| n: ", *list(2));
+end
+class UniconMarker()
+end
