@@ -12472,42 +12472,42 @@ end
 
 procedure main()
     while s := read() do {
-        write("Alternation")
-        regx := <"Unicon" | "Icon">
-        write(image(regx))
-        match_string(s, regx)
+        write("Alternation");
+        regx := <"Unicon" | "Icon">;
+        write(image(regx));
+        match_string(s, regx);
 
-        write("Group Alternation")
-        regx := <("Unicon" | "Icon")>
-        write(image(regx))
-        match_string(s, regx)
+        write("Group Alternation");
+        regx := <("Unicon" | "Icon")>;
+        write(image(regx));
+        match_string(s, regx);
 
-        write("Multi Group Alternation")
-        regx := <("Unicon" | "Icont" | "Icon")>
-        write(image(regx))
-        match_string(s, regx)
+        write("Multi Group Alternation");
+        regx := <("Unicon" | "Icont" | "Icon")>;
+        write(image(regx));
+        match_string(s, regx);
 
-        write("Multi Group Alternation with Concatenation")
-        regx := <(("Uni" "con") | ("Icon" "t") | ("I" "con"))>
-        write(image(regx))
-        match_string(s, regx)
+        write("Multi Group Alternation with Concatenation");
+        regx := <(("Uni" "con") | ("Icon" "t") | ("I" "con"))>;
+        write(image(regx));
+        match_string(s, regx);
 
-        write("Multi Group Alternation with Concatenation minus Parens")
-        regx := <("Uni" "con" | "Icon" "t" | "Ic" "on")>
-        write(image(regx))
+        write("Multi Group Alternation with Concatenation minus Parens");
+        regx := <("Uni" "con" | "Icon" "t" | "Ic" "on")>;
+        write(image(regx));
         match_string(s, regx)
-    }
+    };
 end
 
 procedure match_string(s, r)
-    r := r -> out || Rem() -> remain
-    write("The string is: ", s)
+    r := r -> out || Rem() -> remain;
+    write("The string is: ", s);
     if s ?? r then {
         write("The matched string is ", out, " the remainder is ", remain)
         }
     else
-        write("The regex failed to match")
-    write("\n")
+        write("The regex failed to match");
+    write("\n");
 end
 #---------------------------------------------------------- 91 pattern/rasterisk
 ## rasterisk.icn
@@ -12565,37 +12565,37 @@ end
 procedure main()
     while input := read() do {
 
-        write("Basic match")
-        regx := <'f'> || "at"
-        write(image(regx))
-        match_string(input, regx)
+        write("Basic match");
+        regx := <'f'> || "at";
+        write(image(regx));
+        match_string(input, regx);
 
-        write("Basic character alternation/concatenation")
-        regx := <([f]|[c])"at">
-        write(image(regx))
-        match_string(input, regx)
+        write("Basic character alternation/concatenation");
+        regx := <([f]|[c])"at">;
+        write(image(regx));
+        match_string(input, regx);
 
-        write("Basic character alternation/concatenation minus Parens")
-        regx := <[f]|[c]"at">
-        write(image(regx))
-        match_string(input, regx)
+        write("Basic character alternation/concatenation minus Parens");
+        regx := <[f]|[c]"at">;
+        write(image(regx));
+        match_string(input, regx);
 
-        regx := <(([f]|[c]) ("atter"|"at"))>
-        write("Basic string alternation/concatenation")
-        write(image(regx))
+        regx := <(([f]|[c]) ("atter"|"at"))>;
+        write("Basic string alternation/concatenation");
+        write(image(regx));
         match_string(input, regx)
-    }
+    };
 end
 
 procedure match_string(s, r)
-    r := r -> out || Rem() -> remain
-    write("The string is: ", s)
+    r := r -> out || Rem() -> remain;
+    write("The string is: ", s);
     if s ?? r then {
         write("The matched string is ", out, " the remainder is ", remain)
         }
     else
-        write("The regex failed to match")
-    write("\n")
+        write("The regex failed to match");
+    write("\n");
 end
 #------------------------------------------------------------- 93 pattern/rcurly
 ## rcurly.icn
@@ -12608,50 +12608,50 @@ end
 
 procedure main()
     while s := read() do {
-        write("Curly Brace Alternation with Strings")
-        regx := <"l"{2} | "s"{2}>
-        write(image(regx))
+        write("Curly Brace Alternation with Strings");
+        regx := <"l"{2} | "s"{2}>;
+        write(image(regx));
+        match_string(s, regx);
+
+
+        write("Curly Braces with Csets");
+        regx := <[l]{2} | [s]{2}>;
+        write(image(regx));
+        match_string(s, regx);
+
+        write(" Curly Brace Alternation with Parenthesis");
+        regx := <([l]){2} | ([s]{2})>;
+        write(image(regx));
+        match_string(s, regx);
+
+        write("Curly Brace Concatenation");
+        regx := <[i] [l]{2}>;
+        write(image(regx));
+        match_string(s, regx);
+
+        write("Curly Braces Used on Semi-Complex Pattern");
+        regx := <[w]."l"{2}>;
+        write(image(regx));
+        match_string(s, regx);
+
+        write("Curly Braces Used on Semi-Complex Pattern with Parens");
+        regx := <([w]."l"){2}>;
+        write(image(regx));
         match_string(s, regx)
 
-
-        write("Curly Braces with Csets")
-        regx := <[l]{2} | [s]{2}>
-        write(image(regx))
-        match_string(s, regx)
-
-        write(" Curly Brace Alternation with Parenthesis")
-        regx := <([l]){2} | ([s]{2})>
-        write(image(regx))
-        match_string(s, regx)
-
-        write("Curly Brace Concatenation")
-        regx := <[i] [l]{2}>
-        write(image(regx))
-        match_string(s, regx)
-
-        write("Curly Braces Used on Semi-Complex Pattern")
-        regx := <[w]."l"{2}>
-        write(image(regx))
-        match_string(s, regx)
-
-        write("Curly Braces Used on Semi-Complex Pattern with Parens")
-        regx := <([w]."l"){2}>
-        write(image(regx))
-        match_string(s, regx)
-
-    }
+    };
 
 end
 
 procedure match_string(s, r)
-    r := r -> out || Rem() -> remain
-    write("The string is: ", s)
+    r := r -> out || Rem() -> remain;
+    write("The string is: ", s);
     if s ?? r then {
         write("The matched string is ", out, " the remainder is ", remain)
         }
     else
-        write("The regex failed to match")
-    write("\n")
+        write("The regex failed to match");
+    write("\n");
 end
 #-------------------------------------------------------------- 94 pattern/rplus
 ## rplus.icn
@@ -12720,53 +12720,53 @@ end
 
 procedure main()
     while s := read() do {
-        write("Question Mark Alternation with Strings")
-        regx := <"all"? | "none"?>
-        write(image(regx))
-        match_string(s, regx)
+        write("Question Mark Alternation with Strings");
+        regx := <"all"? | "none"?>;
+        write(image(regx));
+        match_string(s, regx);
 
-        write("Question Mark Alternation with Csets")
-        regx := <[a]? | [b]?>
-        write(image(regx))
-        match_string(s, regx)
+        write("Question Mark Alternation with Csets");
+        regx := <[a]? | [b]?>;
+        write(image(regx));
+        match_string(s, regx);
 
-        write("Question Mark Alternation with Parenthesis")
-        regx := <("all")? | ("none")?>
-        write(image(regx))
-        match_string(s, regx)
+        write("Question Mark Alternation with Parenthesis");
+        regx := <("all")? | ("none")?>;
+        write(image(regx));
+        match_string(s, regx);
 
-        write("Question Mark Concatenation")
-        regx := <"a"? "ll"?>
-        write(image(regx))
-        match_string(s, regx)
+        write("Question Mark Concatenation");
+        regx := <"a"? "ll"?>;
+        write(image(regx));
+        match_string(s, regx);
 
-        write("Question Mark Used on Semi-Complex Pattern")
-        regx := <[s]."lly"?>
-        write(image(regx))
-        match_string(s, regx)
+        write("Question Mark Used on Semi-Complex Pattern");
+        regx := <[s]."lly"?>;
+        write(image(regx));
+        match_string(s, regx);
 
-        write("Question Mark Used on Semi-Complex Pattern with Parens")
-        regx := <([s]."lly")?>
-        write(image(regx))
-        match_string(s, regx)
+        write("Question Mark Used on Semi-Complex Pattern with Parens");
+        regx := <([s]."lly")?>;
+        write(image(regx));
+        match_string(s, regx);
 
-        write("Question Mark Used With Curly Braces")
-        regx := <'a' ('l'{2}?)>
-        write(image(regx))
+        write("Question Mark Used With Curly Braces");
+        regx := <'a' ('l'{2}?)>;
+        write(image(regx));
         match_string(s, regx)
-    }
+    };
 
 end
 
 procedure match_string(s, r)
-    r := r -> out || Rem() -> remain
-    write("The string is: ", s)
+    r := r -> out || Rem() -> remain;
+    write("The string is: ", s);
     if s ?? r then {
         write("The matched string is ", out, " the remainder is ", remain)
         }
     else
-        write("The regex failed to match")
-    write("\n")
+        write("The regex failed to match");
+    write("\n");
 end
 #--------------------------------------------------------------- 96 pattern/rtab
 ### Paden Rumsey

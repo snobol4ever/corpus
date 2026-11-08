@@ -7,40 +7,40 @@
 
 procedure main()
     while s := read() do {
-        write("Alternation")
-        regx := <"Unicon" | "Icon">
-        write(image(regx))
-        match_string(s, regx)
+        write("Alternation");
+        regx := <"Unicon" | "Icon">;
+        write(image(regx));
+        match_string(s, regx);
 
-        write("Group Alternation")
-        regx := <("Unicon" | "Icon")>
-        write(image(regx))
-        match_string(s, regx)
+        write("Group Alternation");
+        regx := <("Unicon" | "Icon")>;
+        write(image(regx));
+        match_string(s, regx);
 
-        write("Multi Group Alternation")
-        regx := <("Unicon" | "Icont" | "Icon")>
-        write(image(regx))
-        match_string(s, regx)
+        write("Multi Group Alternation");
+        regx := <("Unicon" | "Icont" | "Icon")>;
+        write(image(regx));
+        match_string(s, regx);
 
-        write("Multi Group Alternation with Concatenation")
-        regx := <(("Uni" "con") | ("Icon" "t") | ("I" "con"))>
-        write(image(regx))
-        match_string(s, regx)
+        write("Multi Group Alternation with Concatenation");
+        regx := <(("Uni" "con") | ("Icon" "t") | ("I" "con"))>;
+        write(image(regx));
+        match_string(s, regx);
 
-        write("Multi Group Alternation with Concatenation minus Parens")
-        regx := <("Uni" "con" | "Icon" "t" | "Ic" "on")>
-        write(image(regx))
+        write("Multi Group Alternation with Concatenation minus Parens");
+        regx := <("Uni" "con" | "Icon" "t" | "Ic" "on")>;
+        write(image(regx));
         match_string(s, regx)
-    }
+    };
 end
 
 procedure match_string(s, r)
-    r := r -> out || Rem() -> remain
-    write("The string is: ", s)
+    r := r -> out || Rem() -> remain;
+    write("The string is: ", s);
     if s ?? r then {
         write("The matched string is ", out, " the remainder is ", remain)
         }
     else
-        write("The regex failed to match")
-    write("\n")
+        write("The regex failed to match");
+    write("\n");
 end
