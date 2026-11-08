@@ -1,0 +1,12 @@
+procedure main();
+   local c, st, t;
+   if (c := fork()) = 0 then exit(3);
+   st := wait(c);
+   write(type(st), " ", st[find(" ", st) + 1:0]);
+   if (c := fork()) = 0 then exit(0);
+   st := wait(c);
+   write(st[find(" ", st) + 1:0]);
+   t := thread write("in thread");
+   wait(t);
+   write("thread waited");
+end
