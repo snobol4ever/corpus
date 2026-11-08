@@ -1,3 +1,4 @@
+{$mode fpc}
 type PC = ^Cardinal;
 var p: PC; b: array[0..7] of Cardinal; i: integer;
 procedure PA(const a: array of Cardinal);
