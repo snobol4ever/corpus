@@ -501,17 +501,17 @@ $else
 # the procedure large() above.
 #
 procedure large(i)		#: detect large integers
-   static m,e
-   initial { m := mutex(); e := -1 }
+   static m,e;
+   initial { m := mutex(); e := -1 };
 
    if type(i) == "integer" then {
-      lock(m); &error :=: e
+      lock(m); &error :=: e;
       if seq(i) then {
          &error :=: e; unlock(m); fail
       } else { # seq() failed, so i must be a large integer
          &error :=: e; unlock(m); return i		# Success
       }
-   }
+   };
 end
 
 $endif							# _CONCURRENT
