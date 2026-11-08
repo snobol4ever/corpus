@@ -53,3 +53,4 @@ special/monitor.icn	NO_ORACLE_ANSWER	CEO-1696 and ARCH-UNICON R5 (7): program mo
 special/save.icn	NO_ORACLE_ANSWER	CEO-1696 and ARCH-UNICON R5 (7): save() writes a core image of the VM; the oracle ends in run-time error 121 here
 udb/foo.icn	NOT_A_UNIT_TEST	a package source the udb tests import: it has no main procedure (run-time error 117 in startup code)
 udb/scopepkg.icn	NOT_A_UNIT_TEST	a package source the udb tests import: it has no main procedure (run-time error 117 in startup code)
+thread/threadh.icn	NOT_A_UNIT_TEST	CTO-544 U4: the $include sibling of thread/channel and thread/tcom, vendored verbatim from /home/resources/unicon/uni/lib/threadh.icn so SCRIP finds it beside them (the oracle reads it from its own library path); a header of $define lines, not a program
