@@ -15662,21 +15662,21 @@ end
 #
 procedure main()
    if not (&features == "concurrent threads") then
-      stop("This program requires concurrent threads.")
+      stop("This program requires concurrent threads.");
 
-   write("Create two threads..")
-   a := thread print(1)
-   b := thread print(2)
+   write("Create two threads..");
+   a := thread print(1);
+   b := thread print(2);
 
    # wait for the two threads
-   write(<<@a)
-   write(<<@b)
+   write(<<@a);
+   write(<<@b);
    
-   write("The process ended successfully, exiting now..")
+   write("The process ended successfully, exiting now..");
 end
 
 procedure print(id)
-   ("Hello world! I'm thread " || id || " I will finish now.") @>>
+   ("Hello world! I'm thread " || id || " I will finish now.") @>>;
 end
 #----------------------------------------------------------- 149 thread/mutexfun
 #
@@ -15768,39 +15768,39 @@ global thrd
 
 procedure main(argv)
    if not (&features == "concurrent threads") then
-      stop("This program requires concurrent threads.")
+      stop("This program requires concurrent threads.");
 
-   thrd:=[]
+   thrd:=[];
 
    if *argv>0 then
       n:=integer(argv[1]) | stop ("arg must be integer")
     else
-       n:=4
+       n:=4;
    
-   every i:= !n do put(thrd, thread talloc())
-    every write( <<@!thrd )
+   every i:= !n do put(thrd, thread talloc());
+    every write( <<@!thrd );
 end
 
 procedure talloc()
-   static mtx
+   static mtx;
    initial{
       mtx := mutex()
-      }
+      };
 
-   seed := serial()
-   str := ""
+   seed := serial();
+   str := "";
    every i := !10 do{
       critical mtx:{
-         &random := seed
-         x:= ?100
+         &random := seed;
+         x:= ?100;
          seed := &random
-         }
+         };
          
       str ||:=  x || " "
-      }
+      };
 
    # queue the result in the outbox for &main to pickup
-   "Thread " ||  serial()-1 || " rand " || str @>> 
+   "Thread " ||  serial()-1 || " rand " || str @>>; 
 end
     
 #---------------------------------------------------------- 152 thread/sharelist
@@ -16072,31 +16072,31 @@ import threads
 
 procedure main()
    if not (&features == "concurrent threads") then
-      stop("This program requires concurrent threads.")
+      stop("This program requires concurrent threads.");
 
-   write("testing thread communications, inbox/outbox messaging...")
+   write("testing thread communications, inbox/outbox messaging...");
   
-   a := thread A()
-   b := thread B()
-   c := thread C()
+   a := thread A();
+   b := thread B();
+   c := thread C();
 
    # send references of threads to other threads which need them
 
-    b @> a
-    c @> b
-    a @> c
+    b @> a;
+    c @> b;
+    a @> c;
 
-    "Main ==> " @> a   
-    t := <<@ a
+    "Main ==> " @> a;   
+    t := <<@ a;
 
 
-    t ||:= "Main!"
-    write("I got: ", t)
+    t ||:= "Main!";
+    write("I got: ", t);
 
     if t =="Main ==> A ==> B ==> C ==> A ==> Main!" then 
        write("Correct output!")
     else
-       write("Wrong: Unexpected output!")
+       write("Wrong: Unexpected output!");
    
    #wait(a | b | c)   # no need for this. Threads have finished what they need to do already!
 end
@@ -16108,19 +16108,19 @@ procedure A()
    t := <<@ 
 
    # "sign it"
-   t ||:= "A ==> "
+   t ||:= "A ==> ";
 
    # ship to b
-   t @> b
+   t @> b;
 
    # wait to get the token from C
    t := <<@
 
-   t ||:= "A ==> "
+   t ||:= "A ==> ";
 
 
    #  The ring is complete. Ship the token to be picked by main
-   t @>
+   t @>;
 
 end
 
@@ -16129,8 +16129,8 @@ procedure B()
 
    t := <<@
 
-   t ||:= "B ==> "
-   t @> c
+   t ||:= "B ==> ";
+   t @> c;
 end
 
 procedure C()
@@ -16139,8 +16139,8 @@ procedure C()
 
    t := <<@
 
-   t ||:= "C ==> "
-   t @> a   
+   t ||:= "C ==> ";
+   t @> a;   
 
 end
 

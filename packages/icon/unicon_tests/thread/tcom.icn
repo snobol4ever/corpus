@@ -18,31 +18,31 @@ import threads
 
 procedure main()
    if not (&features == "concurrent threads") then
-      stop("This program requires concurrent threads.")
+      stop("This program requires concurrent threads.");
 
-   write("testing thread communications, inbox/outbox messaging...")
+   write("testing thread communications, inbox/outbox messaging...");
   
-   a := thread A()
-   b := thread B()
-   c := thread C()
+   a := thread A();
+   b := thread B();
+   c := thread C();
 
    # send references of threads to other threads which need them
 
-    b @> a
-    c @> b
-    a @> c
+    b @> a;
+    c @> b;
+    a @> c;
 
-    "Main ==> " @> a   
-    t := <<@ a
+    "Main ==> " @> a;   
+    t := <<@ a;
 
 
-    t ||:= "Main!"
-    write("I got: ", t)
+    t ||:= "Main!";
+    write("I got: ", t);
 
     if t =="Main ==> A ==> B ==> C ==> A ==> Main!" then 
        write("Correct output!")
     else
-       write("Wrong: Unexpected output!")
+       write("Wrong: Unexpected output!");
    
    #wait(a | b | c)   # no need for this. Threads have finished what they need to do already!
 end
@@ -54,19 +54,19 @@ procedure A()
    t := <<@ 
 
    # "sign it"
-   t ||:= "A ==> "
+   t ||:= "A ==> ";
 
    # ship to b
-   t @> b
+   t @> b;
 
    # wait to get the token from C
    t := <<@
 
-   t ||:= "A ==> "
+   t ||:= "A ==> ";
 
 
    #  The ring is complete. Ship the token to be picked by main
-   t @>
+   t @>;
 
 end
 
@@ -75,8 +75,8 @@ procedure B()
 
    t := <<@
 
-   t ||:= "B ==> "
-   t @> c
+   t ||:= "B ==> ";
+   t @> c;
 end
 
 procedure C()
@@ -85,8 +85,8 @@ procedure C()
 
    t := <<@
 
-   t ||:= "C ==> "
-   t @> a   
+   t ||:= "C ==> ";
+   t @> a;   
 
 end
 
