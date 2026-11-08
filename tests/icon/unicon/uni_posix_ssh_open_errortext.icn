@@ -1,0 +1,12 @@
+procedure main()
+   local f;
+   f := open("senior_no_such_host@127.0.0.1", "h", "bogus=1");
+   write("bad-attribute: ", if /f & *&errortext > 0 then "yes" else "no");
+   f := open("senior_no_such_host@127.0.0.1", "h", "channel=maybe");
+   write("bad-channel: ", if /f & *&errortext > 0 then "yes" else "no");
+   f := open("senior_no_such_host@127.0.0.1", "h", "verifyPeer=maybe");
+   write("bad-verifyPeer: ", if /f & *&errortext > 0 then "yes" else "no");
+   write("text: ", &errortext);
+end
+class UniconMarker()
+end
