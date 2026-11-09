@@ -1,0 +1,1 @@
+units	plunit	the deleted test_prolog_swi_suite.sh graded every file that declares begin_tests against the swipl verdicts beside it, one run per file through corpus/tests/prolog/plunit.pl (CIO-15 (c), cio 2026-11-09; measured by the cio: the shim, the file and the run_tests wrapper as ONE file prints the three-file run output)
