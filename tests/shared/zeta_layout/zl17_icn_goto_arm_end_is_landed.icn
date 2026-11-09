@@ -1,0 +1,4 @@
+procedure main();
+   local i;
+   every write((2 | ((i := seq(3, 2)) & i)) \ 4);
+end
