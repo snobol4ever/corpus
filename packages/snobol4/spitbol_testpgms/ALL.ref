@@ -78,12 +78,12 @@ dump of keyword values
 &ERRLIMIT = 975
 &ERRTEXT = 'undefined operator referenced'
 &ERRTYPE = 29
-&FILE = 'test1.spt'
+&FILE = 'test1.sno'
 &FNCLEVEL = 0
 &FTRACE = 0
 &FULLSCAN = 1
 &INPUT = 1
-&LASTFILE = 'test1.spt'
+&LASTFILE = 'test1.sno'
 &LASTLINE = 385
 &LASTNO = 267
 &LINE = 399
@@ -141,7 +141,7 @@ AMA<2,1,2,1> = 2121
 
 
 macro spitbol version 4.0f
-x86-64  Mon Nov  9 03:20:42 2026
+x86-64  Mon Nov  9 11:40:12 2026
 
 
 
@@ -150,7 +150,7 @@ SPITBOL TEST PROGRAM #2 -- DIAGNOSTICS PHASE TWO                                
 
 259     .                                                          ERROR()
 
-test2.spt(238) : ERROR 214 -- bad label or misplaced continuation line
+test2.sno(238) : ERROR 214 -- bad label or misplaced continuation line
 *----------------------------------------------------------------------- 3 test3
           TABLE OF FACTORIALS FOR 1 THROUGH 45
 
@@ -1703,12 +1703,12 @@ dump of keyword values
 &ERRLIMIT = 0
 &ERRTEXT = ''
 &ERRTYPE = 0
-&FILE = 'test6.spt'
+&FILE = 'test6.sno'
 &FNCLEVEL = 0
 &FTRACE = 0
 &FULLSCAN = 1
 &INPUT = 1
-&LASTFILE = 'test6.spt'
+&LASTFILE = 'test6.sno'
 &LASTLINE = 98
 &LASTNO = 47
 &LINE = 99
