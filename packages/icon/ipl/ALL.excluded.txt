@@ -1,773 +1,657 @@
-gincl/keysyms: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gincl/maccolor: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gincl/vdefns: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gincl/xcolors: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gincl/xnames: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/attribs: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/autopost: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/barchart: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/bevel: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/bitplane: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/button: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/cardbits: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/cells: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/clip: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/clipping: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/clrnames: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/clrutils: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/color: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/colorway: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/colrlist: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/colrmodl: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/colrspec: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/cwutils: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/decay: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/dialog: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/dialogs: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/distance: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/drag: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/drawcard: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/drawcolr: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/drawlab: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/dsetup: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/enqueue: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/event: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/evmux: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/evplay: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/evrecord: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/fetchpat: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/fstars: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/fstartbl: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/gdisable: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/getcolrs: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/gifsize: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/glabels: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/glib: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/gpxlib: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/gpxop: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/graphics: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/grecords: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/gtrace: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/ifg: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/imagedim: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/imageseq: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/imgcolor: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/imrutils: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/imscanon: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/imscolor: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/imsutils: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/imutils: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/imxform: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/interact: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/isdplot: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/isdxplot: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/joinpair: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/jolygs: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/linddefs: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/linddraw: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/lindrec: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/lindterp: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/lsystem: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/mapnav: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/mirror: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/modlines: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/navitrix: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/optwindw: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/orbits: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/overlay: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/palettes: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/pattread: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/patutils: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/patxform: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/pixelmap: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/popular: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/psrecord: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/putpixel: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/randarea: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/randfigs: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/rawimage: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/repeats: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/rgbcomp: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/rgbrec: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/rpolys: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/rstars: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/rstartbl: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/select: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/slider: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/spirals: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/spokes: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/strpchrt: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/subturtl: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/symrand: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/tieedit: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/tieutils: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/tile: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/tiler: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/turtle: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/twists: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/vbuttons: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/vcoupler: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/vdialog: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/vfilter: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/vframe: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/vgrid: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/vidgets: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/viface: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/vlist: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/vmenu: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/vpane: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/vquery: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/vradio: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/vscroll: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/vsetup: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/vslider: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/vstd: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/vstyle: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/vtext: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/wattrib: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/weavegif: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/wifisd: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/win: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/window: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/winsnap: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/wipe: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/wopen: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/xbfont: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/xcolor: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/xcompat: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/xform: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/xformimg: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/xgtrace: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/xio: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/xplane: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/xputpixl: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/xqueue: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprocs/xutils: oracle produced EMPTY output -- refusing to mint a vacuous ref
+gincl/keysyms: no keysyms.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gincl/maccolor: no maccolor.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gincl/vdefns: no vdefns.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gincl/xcolors: no xcolors.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gincl/xnames: no xnames.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprocs/attribs: no attribs.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprocs/autopost.icn: a library graded through its driver autopost_driver, which is the entry gprocs/autopost_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/barchart.icn: a library graded through its driver barchart_driver, which is the entry gprocs/barchart_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/bevel: no bevel.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprocs/bitplane: no bitplane.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprocs/button.icn: a library graded through its driver button_driver, which is the entry gprocs/button_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/cardbits.icn: a library graded through its driver cardbits_driver, which is the entry gprocs/cardbits_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/cells.icn: a library graded through its driver cells_driver, which is the entry gprocs/cells_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/clip: no clip.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprocs/clipping.icn: a library graded through its driver clipping_driver, which is the entry gprocs/clipping_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/clrnames.icn: a library graded through its driver clrnames_driver, which is the entry gprocs/clrnames_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/clrutils.icn: a library graded through its driver clrutils_driver, which is the entry gprocs/clrutils_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/color.icn: a library graded through its driver color_driver, which is the entry gprocs/color_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/colorway.icn: a library graded through its driver colorway_driver, which is the entry gprocs/colorway_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/colrlist.icn: a library graded through its driver colrlist_driver, which is the entry gprocs/colrlist_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/colrmodl.icn: a library graded through its driver colrmodl_driver, which is the entry gprocs/colrmodl_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/colrspec: no colrspec.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprocs/cwutils.icn: a library graded through its driver cwutils_driver, which is the entry gprocs/cwutils_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/decay.icn: a library graded through its driver decay_driver, which is the entry gprocs/decay_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/dialog.icn: a library graded through its driver dialog_driver, which is the entry gprocs/dialog_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/dialogs.icn: a library graded through its driver dialogs_driver, which is the entry gprocs/dialogs_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/distance.icn: a library graded through its driver distance_driver, which is the entry gprocs/distance_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/drag: no drag.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprocs/drawcard: no drawcard.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprocs/drawcolr: no drawcolr.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprocs/drawlab: no drawlab.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprocs/dsetup.icn: a library graded through its driver dsetup_driver, which is the entry gprocs/dsetup_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/enqueue.icn: a library graded through its driver enqueue_driver, which is the entry gprocs/enqueue_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/event: no event.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprocs/evmux.icn: a library graded through its driver evmux_driver, which is the entry gprocs/evmux_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/evplay.icn: a library graded through its driver evplay_driver, which is the entry gprocs/evplay_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/evrecord.icn: a library graded through its driver evrecord_driver, which is the entry gprocs/evrecord_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/fetchpat.icn: a library graded through its driver fetchpat_driver, which is the entry gprocs/fetchpat_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/fstars.icn: a library graded through its driver fstars_driver, which is the entry gprocs/fstars_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/fstartbl.icn: a library graded through its driver fstartbl_driver, which is the entry gprocs/fstartbl_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/gdisable.icn: a library graded through its driver gdisable_driver, which is the entry gprocs/gdisable_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/getcolrs: no getcolrs.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprocs/gifsize.icn: a library graded through its driver gifsize_driver, which is the entry gprocs/gifsize_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/glabels.icn: a library graded through its driver glabels_driver, which is the entry gprocs/glabels_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/glib.icn: a library graded through its driver glib_driver, which is the entry gprocs/glib_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/gpxlib.icn: a library graded through its driver gpxlib_driver, which is the entry gprocs/gpxlib_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/gpxop.icn: a library graded through its driver gpxop_driver, which is the entry gprocs/gpxop_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/graphics.icn: a library graded through its driver graphics_driver, which is the entry gprocs/graphics_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/grecords.icn: a library graded through its driver grecords_driver, which is the entry gprocs/grecords_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/gtrace.icn: a library graded through its driver gtrace_driver, which is the entry gprocs/gtrace_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/ifg.icn: a library graded through its driver ifg_driver, which is the entry gprocs/ifg_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/imagedim.icn: a library graded through its driver imagedim_driver, which is the entry gprocs/imagedim_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/imageseq.icn: a library graded through its driver imageseq_driver, which is the entry gprocs/imageseq_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/imgcolor: no imgcolor.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprocs/imrutils.icn: a library graded through its driver imrutils_driver, which is the entry gprocs/imrutils_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/imscanon.icn: a library graded through its driver imscanon_driver, which is the entry gprocs/imscanon_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/imscolor.icn: a library graded through its driver imscolor_driver, which is the entry gprocs/imscolor_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/imsutils.icn: a library graded through its driver imsutils_driver, which is the entry gprocs/imsutils_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/imutils.icn: a library graded through its driver imutils_driver, which is the entry gprocs/imutils_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/imxform.icn: a library graded through its driver imxform_driver, which is the entry gprocs/imxform_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/interact: no interact.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprocs/isdplot.icn: a library graded through its driver isdplot_driver, which is the entry gprocs/isdplot_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/isdxplot.icn: a library graded through its driver isdxplot_driver, which is the entry gprocs/isdxplot_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/joinpair.icn: a library graded through its driver joinpair_driver, which is the entry gprocs/joinpair_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/jolygs.icn: a library graded through its driver jolygs_driver, which is the entry gprocs/jolygs_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/linddefs.icn: a library graded through its driver linddefs_driver, which is the entry gprocs/linddefs_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/linddraw: no linddraw.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprocs/lindrec.icn: a library graded through its driver lindrec_driver, which is the entry gprocs/lindrec_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/lindterp: no lindterp.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprocs/lsystem.icn: a library graded through its driver lsystem_driver, which is the entry gprocs/lsystem_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/mapnav.icn: a library graded through its driver mapnav_driver, which is the entry gprocs/mapnav_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/mirror: no mirror.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprocs/modlines.icn: a library graded through its driver modlines_driver, which is the entry gprocs/modlines_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/navitrix.icn: a library graded through its driver navitrix_driver, which is the entry gprocs/navitrix_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/optwindw.icn: a library graded through its driver optwindw_driver, which is the entry gprocs/optwindw_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/orbits.icn: a library graded through its driver orbits_driver, which is the entry gprocs/orbits_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/overlay: no overlay.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprocs/palettes.icn: a library graded through its driver palettes_driver, which is the entry gprocs/palettes_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/pattread.icn: a library graded through its driver pattread_driver, which is the entry gprocs/pattread_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/patutils.icn: a library graded through its driver patutils_driver, which is the entry gprocs/patutils_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/patxform.icn: a library graded through its driver patxform_driver, which is the entry gprocs/patxform_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/pixelmap: no pixelmap.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprocs/popular: no popular.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprocs/psrecord.icn: a library graded through its driver psrecord_driver, which is the entry gprocs/psrecord_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/putpixel.icn: a library graded through its driver putpixel_driver, which is the entry gprocs/putpixel_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/randarea.icn: a library graded through its driver randarea_driver, which is the entry gprocs/randarea_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/randfigs.icn: a library graded through its driver randfigs_driver, which is the entry gprocs/randfigs_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/rawimage: no rawimage.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprocs/repeats: no repeats.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprocs/rgbcomp: no rgbcomp.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprocs/rgbrec: no rgbrec.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprocs/rpolys.icn: a library graded through its driver rpolys_driver, which is the entry gprocs/rpolys_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/rstars.icn: a library graded through its driver rstars_driver, which is the entry gprocs/rstars_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/rstartbl.icn: a library graded through its driver rstartbl_driver, which is the entry gprocs/rstartbl_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/select: no select.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprocs/slider.icn: a library graded through its driver slider_driver, which is the entry gprocs/slider_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/spirals.icn: a library graded through its driver spirals_driver, which is the entry gprocs/spirals_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/spokes.icn: a library graded through its driver spokes_driver, which is the entry gprocs/spokes_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/strpchrt.icn: a library graded through its driver strpchrt_driver, which is the entry gprocs/strpchrt_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/subturtl.icn: a library graded through its driver subturtl_driver, which is the entry gprocs/subturtl_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/symrand.icn: a library graded through its driver symrand_driver, which is the entry gprocs/symrand_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/tieedit.icn: a library graded through its driver tieedit_driver, which is the entry gprocs/tieedit_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/tieutils.icn: a library graded through its driver tieutils_driver, which is the entry gprocs/tieutils_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/tile: no tile.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprocs/tiler: no tiler.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprocs/turtle.icn: a library graded through its driver turtle_driver, which is the entry gprocs/turtle_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/twists.icn: a library graded through its driver twists_driver, which is the entry gprocs/twists_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/vbuttons.icn: a library graded through its driver vbuttons_driver, which is the entry gprocs/vbuttons_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/vcoupler.icn: a library graded through its driver vcoupler_driver, which is the entry gprocs/vcoupler_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/vdialog.icn: a library graded through its driver vdialog_driver, which is the entry gprocs/vdialog_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/vfilter.icn: a library graded through its driver vfilter_driver, which is the entry gprocs/vfilter_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/vframe.icn: a library graded through its driver vframe_driver, which is the entry gprocs/vframe_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/vgrid.icn: a library graded through its driver vgrid_driver, which is the entry gprocs/vgrid_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/vidgets.icn: a library graded through its driver vidgets_driver, which is the entry gprocs/vidgets_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/viface.icn: a library graded through its driver viface_driver, which is the entry gprocs/viface_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/vlist.icn: a library graded through its driver vlist_driver, which is the entry gprocs/vlist_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/vmenu.icn: a library graded through its driver vmenu_driver, which is the entry gprocs/vmenu_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/vpane.icn: a library graded through its driver vpane_driver, which is the entry gprocs/vpane_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/vquery.icn: a library graded through its driver vquery_driver, which is the entry gprocs/vquery_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/vradio.icn: a library graded through its driver vradio_driver, which is the entry gprocs/vradio_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/vscroll.icn: a library graded through its driver vscroll_driver, which is the entry gprocs/vscroll_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/vsetup.icn: a library graded through its driver vsetup_driver, which is the entry gprocs/vsetup_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/vslider.icn: a library graded through its driver vslider_driver, which is the entry gprocs/vslider_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/vstd.icn: a library graded through its driver vstd_driver, which is the entry gprocs/vstd_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/vstyle.icn: a library graded through its driver vstyle_driver, which is the entry gprocs/vstyle_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/vtext.icn: a library graded through its driver vtext_driver, which is the entry gprocs/vtext_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/wattrib: no wattrib.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprocs/weavegif: no weavegif.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprocs/wifisd.icn: a library graded through its driver wifisd_driver, which is the entry gprocs/wifisd_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/win.icn: a library graded through its driver win_driver, which is the entry gprocs/win_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/window.icn: a library graded through its driver window_driver, which is the entry gprocs/window_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/winsnap: no winsnap.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprocs/wipe: no wipe.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprocs/wopen.icn: a library graded through its driver wopen_driver, which is the entry gprocs/wopen_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/xbfont.icn: a library graded through its driver xbfont_driver, which is the entry gprocs/xbfont_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/xcolor.icn: a library graded through its driver xcolor_driver, which is the entry gprocs/xcolor_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/xcompat.icn: a library graded through its driver xcompat_driver, which is the entry gprocs/xcompat_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/xform.icn: a library graded through its driver xform_driver, which is the entry gprocs/xform_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/xformimg: no xformimg.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprocs/xgtrace.icn: a library graded through its driver xgtrace_driver, which is the entry gprocs/xgtrace_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/xio.icn: a library graded through its driver xio_driver, which is the entry gprocs/xio_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/xplane: no xplane.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprocs/xputpixl.icn: a library graded through its driver xputpixl_driver, which is the entry gprocs/xputpixl_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/xqueue.icn: a library graded through its driver xqueue_driver, which is the entry gprocs/xqueue_driver (CONTRACT.tsv units=ref-beside, R-1269)
+gprocs/xutils: no xutils.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
 gprogs/autotile: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/binpack: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/bitdemo: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/blp2grid: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/blp2rows: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/bme: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/bpack: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/breakout: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/browser: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/ca21: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/calib: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/cameleon: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/chernoff: oracle produced EMPTY output -- refusing to mint a vacuous ref
+gprogs/binpack: no binpack.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/bitdemo: no bitdemo.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/blp2grid: no blp2grid.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/bme: no bme.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/bpack: no bpack.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/breakout: no breakout.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/browser: no browser.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/ca21: no ca21.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/calib: no calib.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/cameleon: no cameleon.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/chernoff: no chernoff.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
 gprogs/clrs2pdb: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/coloralc: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/colormap: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/colorup: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/colorwif: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/colrbook: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/colrname: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/colrpick: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/concen: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/cquilts: oracle timed out -- non-terminating or too slow for the grading timeout
-gprogs/cw: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/dd2draft: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/dd2res: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/dd2unit: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/dd2wif: the container builder has no argv mechanism -- graded standalone by test_icon_ipl_suite.sh with its .argv (nofile.blp) and declared exit status (.rc); its ALL.csv row is a settings row (CEO-1261)
-gprogs/ddextend: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/design1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/design2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/design3: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/dlgvu: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/drawup: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/drip: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/etch: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/facebend: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/fetti: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/fev: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/fileimag: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/findrpt: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/findtile: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/flake: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/floats: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/flohisto: oracle produced EMPTY output -- refusing to mint a vacuous ref
+gprogs/coloralc: no coloralc.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/colormap: no colormap.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/colorup: no colorup.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/colorwif: no colorwif.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/colrbook: no colrbook.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/colrname: no colrname.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/colrpick: no colrpick.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/concen: no concen.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/cw: no cw.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/dd2wif: oracle produced EMPTY output -- refusing to mint a vacuous ref
+gprogs/design1: no design1.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/design2: no design2.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/design3: no design3.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/dlgvu: no dlgvu.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/drip: no drip.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/etch: no etch.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/facebend: no facebend.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/fetti: no fetti.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/fev: no fev.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/fileimag: no fileimag.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/findrpt: no findrpt.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/findtile: no findtile.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/flake: no flake.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/flohisto: no flohisto.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
 gprogs/fmap2pdb: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/fontpick: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/fractclr: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/fractlin: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/fstarlab: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/gallery: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/gamma: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/gif2blp: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/gif2isd: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/gif2rows: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/gif2wif: oracle produced EMPTY output -- refusing to mint a vacuous ref
+gprogs/fontpick: no fontpick.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/fractlin: no fractlin.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/fstarlab: no fstarlab.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/gallery: no gallery.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/gamma: no gamma.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/gif2blp: no gif2blp.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/gif2isd: no gif2isd.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/gif2rows: no gif2rows.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/gif2wif: no gif2wif.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
 gprogs/gifs2pdb: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/giftoims: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/giftopat: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/gpxtest: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/gridedit: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/gxplor: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/hb: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/histo: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/hsvpick: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/hvc: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/img: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/img2grid: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/imgcolrs: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/imgpaper: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/imgtolst: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/imlreduc: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/imltogif: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/ims2pat: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/imstogif: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/ipicker: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/isd2disd: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/isd2gif: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/isd2grid: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/isd2ill: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/isd2wif: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/isd2xgrid: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/iview: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/julia1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/kaleid: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/kaleido: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/keypunch: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/koch: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/linden: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/lorenz: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/lsys: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/mandala: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/mandel1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/mandel2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/mandel3: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/mercator: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/mirroror: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/moire: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/mover: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/offtiler: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/orbit: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/othello: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/painterc: the container builder has no argv mechanism -- graded standalone by test_icon_ipl_suite.sh with its .argv (nofile.txt); its ALL.csv row is a settings row (CEO-1261)
-gprogs/palcheck: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/palette: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/pat2gif: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/patfetch: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/penelope: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/pextract: oracle produced EMPTY output -- refusing to mint a vacuous ref
+gprogs/giftoims: no giftoims.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/giftopat: no giftopat.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/gpxtest: no gpxtest.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/gridedit: no gridedit.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/gxplor: no gxplor.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/hb: no hb.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/histo: no histo.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/hsvpick: no hsvpick.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/hvc: no hvc.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/img: no img.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/img2grid: no img2grid.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/imgcolrs: no imgcolrs.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/imgpaper: no imgpaper.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/imgtolst: no imgtolst.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/imltogif: no imltogif.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/ims2pat: no ims2pat.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/imstogif: no imstogif.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/ipicker: no ipicker.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/isd2disd: no isd2disd.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/isd2gif: no isd2gif.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/isd2grid: no isd2grid.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/isd2ill: no isd2ill.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/isd2wif: no isd2wif.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/isd2xgrid: no isd2xgrid.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/iview: no iview.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/julia1: no julia1.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/kaleid: no kaleid.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/kaleido: no kaleido.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/keypunch: no keypunch.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/koch: no koch.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/linden: no linden.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/lorenz: no lorenz.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/lsys: no lsys.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/mandala: no mandala.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/mandel1: no mandel1.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/mandel2: no mandel2.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/mandel3: no mandel3.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/mercator: no mercator.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/mirroror: no mirroror.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/moire: no moire.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/mover: no mover.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/offtiler: no offtiler.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/orbit: no orbit.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/othello: no othello.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/painterc: oracle produced EMPTY output -- refusing to mint a vacuous ref
+gprogs/palcheck: no palcheck.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/palette: no palette.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/pat2gif: no pat2gif.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/patfetch: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
+gprogs/penelope: no penelope.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/pextract: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
 gprogs/pgmtoims: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/picktile: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/plat: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/plotter: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/pme: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/poller: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/procater: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/profile: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/profiler: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/prompt: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/randweav: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/randweb: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/recticle: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/rectile: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/rects: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/repeater: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/rings: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/rolypoly: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/rows2blp: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/rows2isd: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/rstarlab: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/scroll: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/scroller: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/seamcut: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/selectle: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/sensdemo: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/showcolr: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/showtile: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/sier: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/sier1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/sier2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/snapper: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/spectra: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/spider: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/spiral: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/spiro: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/splat: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/spokes: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/striper: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/subdemo: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/sym4mm: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/symdraw: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/sympmm: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/testpatt: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/textures: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/tgdemo: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/tilescan: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/travels: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/trkvu: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/tron: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/trycolor: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/tryfont: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/uix: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/unitgenr: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/viewpane: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/vqueens: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/wevents: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/wheel: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/wif2isd: oracle produced EMPTY output -- refusing to mint a vacuous ref
+gprogs/picktile: no picktile.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/plat: no plat.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/plotter: no plotter.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/pme: no pme.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/poller: no poller.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/procater: no procater.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/profile: no profile.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/profiler: no profiler.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/prompt: no prompt.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/randweav: no randweav.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/randweb: no randweb.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/recticle: no recticle.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/rectile: no rectile.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/rects: no rects.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/repeater: no repeater.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/rings: no rings.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/rolypoly: no rolypoly.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/rstarlab: no rstarlab.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/scroll: no scroll.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/scroller: no scroller.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/seamcut: no seamcut.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/selectle: no selectle.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/sensdemo: no sensdemo.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/showcolr: no showcolr.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/showtile: no showtile.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/sier: no sier.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/sier1: no sier1.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/sier2: no sier2.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/snapper: no snapper.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/spectra: no spectra.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/spider: no spider.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/spiral: no spiral.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/spiro: no spiro.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/splat: no splat.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/spokes: no spokes.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/striper: no striper.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/subdemo: no subdemo.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/sym4mm: no sym4mm.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/symdraw: no symdraw.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/sympmm: no sympmm.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/tess: no tess.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/testpatt: no testpatt.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/textures: no textures.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/tgdemo: no tgdemo.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/tilescan: no tilescan.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/travels: no travels.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/trkvu: no trkvu.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/tron: no tron.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/trycolor: no trycolor.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/tryfont: no tryfont.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/viewpane: no viewpane.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/vqueens: no vqueens.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/wevents: no wevents.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/wheel: no wheel.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
 gprogs/wifs2pdb: oracle produced EMPTY output -- refusing to mint a vacuous ref
 gprogs/xbm2pat: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/xformpat: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/xgamma: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/xpmtoims: oracle produced EMPTY output -- refusing to mint a vacuous ref
-gprogs/zoomtile: oracle produced EMPTY output -- refusing to mint a vacuous ref
-incl/invkdefs: oracle produced EMPTY output -- refusing to mint a vacuous ref
-incl/lshade: oracle produced EMPTY output -- refusing to mint a vacuous ref
-incl/opdefs: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/abkform: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/adjuncts: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/adlutils: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/allof: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/allpat: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/ansi: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/apply: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/argparse: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/array: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/asciinam: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/base64: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/basename: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/binary: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/bincvt: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/binop: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/bitint: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/bitstr: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/bitstrm: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/bkutil: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/bold: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/boolops: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/bufread: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/calendar: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/calendat: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/calls: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/capture: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/cartog: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/caseless: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/codeobj: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/colmize: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/complete: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/complex: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/conffile: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/converge: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/convert: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/core: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/created: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/currency: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/curves: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/datefns: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/datetime: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/ddfread: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/dif: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/digitcnt: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/dijkstra: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/divide: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/ebcdic: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/echo: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/empgsup: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/emptygen: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/equiv: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/escape: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/escapesq: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/eval: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/evallist: a library, not a program -- graded standalone by test_icon_ipl_suite.sh through procs/evallist_driver.icn and its .ref; its ALL.csv row is a settings row (CEO-1261)
-procs/everycat: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/expander: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/exprfile: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/factors: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/fastfncs: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/feval: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/filedim: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/filenseq: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/filesize: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/findre: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/ftype: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/fullimag: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/gauss: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/gdl: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/gdl2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/gedcom: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/gen: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/gener: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/genrfncs: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/geodat: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/getchlib: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/getkeys: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/getmail: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/getpaths: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/gettext: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/gobject: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/graphpak: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/hetero: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/hexcvt: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/hostname: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/html: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/ibench: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/ichartp: the container carries no .dat stdin -- graded standalone by test_icon_ipl_suite.sh with its .dat as stdin; its ALL.csv row is a settings row (CEO-1261)
-procs/identgen: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/identity: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/ifncs: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/iftrace: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/image: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/inbits: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/indices: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/inserts: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/intstr: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/io: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/iolib: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/iscreen: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/iterfncs: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/itlib: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/itlibdos: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/itokens: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/itrcline: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/ivalue: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/jumpque: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/kmap: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/labeler: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/lastc: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/lastname: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/lcseval: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/levensht: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/lindgen: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/lindstrp: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/list2tab: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/lists: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/longstr: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/lrgapprx: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/lstfncs: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/lterps: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/lu: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/makelsys: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/mapbit: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/mapstr: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/matchlib: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/math: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/matrix: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/matrix2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/memlog: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/memrfncs: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/mixsort: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/models: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/morse: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/mset: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/namepfx: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/nestlist: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/ngrams: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/noncase: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/openchk: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/opnames: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/opsyms: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/options: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/outbits: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/packunpk: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/parscond: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/partit: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/pascal: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/pascltri: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/patch: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/patterns: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/patword: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/pbkform: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/pdco: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/periodic: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/permutat: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/phoname: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/plural: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/polynom: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/polyseq: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/polystuf: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/popen: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/pqueue: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/printcol: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/printf: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/prockind: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/procname: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/progary: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/pscript: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/ptutils: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/random: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/rational: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/readcpt: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/readtbl: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/reassign: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/rec2tab: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/recog: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/records: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/recrfncs: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/recurmap: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/reduce: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/regexp: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/repetit: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/revadd: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/rewrap: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/rng: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/scan: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/scanmodl: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/scanset: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/segment: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/senten1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/sentence: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/seqfncs: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/seqimage: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/seqops: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/serial: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/sername: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/sets: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/showtbl: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/shquote: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/signed: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/sort: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/sortt: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/soundex: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/soundex1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/speedo: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/spin: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/statemap: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/step: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/str2toks: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/strings: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/strip: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/stripcom: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/stripunb: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/tab2list: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/tab2rec: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/tables: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/tclass: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/title: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/titleset: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/tokgen: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/trees: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/tuple: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/typecode: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/unsigned: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/usage: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/varsub: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/verncnt: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/version: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/vhttp: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/vrml: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/vrml1lib: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/vrml2lib: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/wdiag: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/weavgenr: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/weaving: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/weavutil: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/weighted: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/wildcard: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/word: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/wrap: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/writecpt: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/xcode: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/xcodes: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/xforms: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/ximage: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/xrotate: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/zipread: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/adlcheck: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/adlfiltr: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/adlfirst: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/adllist: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/adlsort: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/applyfnc: oracle produced EMPTY output -- refusing to mint a vacuous ref
+gprogs/xformpat: no xformpat.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/xgamma: no xgamma.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/xpmtoims: no xpmtoims.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+gprogs/zoomtile: no zoomtile.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+incl/invkdefs: no invkdefs.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+incl/lshade: no lshade.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+incl/opdefs: no opdefs.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+procs/abkform.icn: a library graded through its driver abkform_driver, which is the entry procs/abkform_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/adjuncts.icn: a library graded through its driver adjuncts_driver, which is the entry procs/adjuncts_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/adlutils.icn: a library graded through its driver adlutils_driver, which is the entry procs/adlutils_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/allof.icn: a library graded through its driver allof_driver, which is the entry procs/allof_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/allpat.icn: a library graded through its driver allpat_driver, which is the entry procs/allpat_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/ansi: no ansi.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+procs/apply.icn: a library graded through its driver apply_driver, which is the entry procs/apply_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/argparse.icn: a library graded through its driver argparse_driver, which is the entry procs/argparse_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/array.icn: a library graded through its driver array_driver, which is the entry procs/array_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/asciinam.icn: a library graded through its driver asciinam_driver, which is the entry procs/asciinam_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/base64.icn: a library graded through its driver base64_driver, which is the entry procs/base64_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/basename.icn: a library graded through its driver basename_driver, which is the entry procs/basename_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/binary.icn: a library graded through its driver binary_driver, which is the entry procs/binary_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/bincvt.icn: a library graded through its driver bincvt_driver, which is the entry procs/bincvt_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/binop.icn: a library graded through its driver binop_driver, which is the entry procs/binop_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/bitint.icn: a library graded through its driver bitint_driver, which is the entry procs/bitint_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/bitstr.icn: a library graded through its driver bitstr_driver, which is the entry procs/bitstr_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/bitstrm.icn: a library graded through its driver bitstrm_driver, which is the entry procs/bitstrm_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/bkutil.icn: a library graded through its driver bkutil_driver, which is the entry procs/bkutil_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/bold.icn: a library graded through its driver bold_driver, which is the entry procs/bold_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/boolops.icn: a library graded through its driver boolops_driver, which is the entry procs/boolops_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/bufread.icn: a library graded through its driver bufread_driver, which is the entry procs/bufread_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/calendar.icn: a library graded through its driver calendar_driver, which is the entry procs/calendar_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/calendat.icn: a library graded through its driver calendat_driver, which is the entry procs/calendat_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/calls.icn: a library graded through its driver calls_driver, which is the entry procs/calls_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/capture.icn: a library graded through its driver capture_driver, which is the entry procs/capture_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/cartog.icn: a library graded through its driver cartog_driver, which is the entry procs/cartog_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/caseless.icn: a library graded through its driver caseless_driver, which is the entry procs/caseless_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/codeobj.icn: a library graded through its driver codeobj_driver, which is the entry procs/codeobj_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/colmize.icn: a library graded through its driver colmize_driver, which is the entry procs/colmize_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/complete.icn: a library graded through its driver complete_driver, which is the entry procs/complete_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/complex.icn: a library graded through its driver complex_driver, which is the entry procs/complex_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/conffile.icn: a library graded through its driver conffile_driver, which is the entry procs/conffile_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/converge.icn: a library graded through its driver converge_driver, which is the entry procs/converge_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/convert.icn: a library graded through its driver convert_driver, which is the entry procs/convert_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/core.icn: a library graded through its driver core_driver, which is the entry procs/core_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/created.icn: a library graded through its driver created_driver, which is the entry procs/created_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/currency.icn: a library graded through its driver currency_driver, which is the entry procs/currency_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/curves.icn: a library graded through its driver curves_driver, which is the entry procs/curves_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/datefns.icn: a library graded through its driver datefns_driver, which is the entry procs/datefns_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/datetime.icn: a library graded through its driver datetime_driver, which is the entry procs/datetime_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/ddfread.icn: a library graded through its driver ddfread_driver, which is the entry procs/ddfread_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/dif.icn: a library graded through its driver dif_driver, which is the entry procs/dif_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/digitcnt.icn: a library graded through its driver digitcnt_driver, which is the entry procs/digitcnt_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/dijkstra.icn: a library graded through its driver dijkstra_driver, which is the entry procs/dijkstra_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/divide.icn: a library graded through its driver divide_driver, which is the entry procs/divide_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/ebcdic.icn: a library graded through its driver ebcdic_driver, which is the entry procs/ebcdic_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/echo.icn: a library graded through its driver echo_driver, which is the entry procs/echo_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/empgsup.icn: a library graded through its driver empgsup_driver, which is the entry procs/empgsup_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/emptygen.icn: a library graded through its driver emptygen_driver, which is the entry procs/emptygen_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/equiv.icn: a library graded through its driver equiv_driver, which is the entry procs/equiv_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/escape.icn: a library graded through its driver escape_driver, which is the entry procs/escape_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/escapesq.icn: a library graded through its driver escapesq_driver, which is the entry procs/escapesq_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/eval.icn: a library graded through its driver eval_driver, which is the entry procs/eval_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/evallist.icn: a library graded through its driver evallist_driver, which is the entry procs/evallist_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/eventgen.icn: a library graded through its driver eventgen_driver, which is the entry procs/eventgen_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/everycat.icn: a library graded through its driver everycat_driver, which is the entry procs/everycat_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/expander.icn: a library graded through its driver expander_driver, which is the entry procs/expander_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/exprfile.icn: a library graded through its driver exprfile_driver, which is the entry procs/exprfile_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/factors.icn: a library graded through its driver factors_driver, which is the entry procs/factors_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/fastfncs.icn: a library graded through its driver fastfncs_driver, which is the entry procs/fastfncs_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/feval.icn: a library graded through its driver feval_driver, which is the entry procs/feval_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/filedim.icn: a library graded through its driver filedim_driver, which is the entry procs/filedim_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/filenseq.icn: a library graded through its driver filenseq_driver, which is the entry procs/filenseq_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/filesize.icn: a library graded through its driver filesize_driver, which is the entry procs/filesize_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/findre.icn: a library graded through its driver findre_driver, which is the entry procs/findre_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/ftype.icn: a library graded through its driver ftype_driver, which is the entry procs/ftype_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/fullimag.icn: a library graded through its driver fullimag_driver, which is the entry procs/fullimag_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/gauss.icn: a library graded through its driver gauss_driver, which is the entry procs/gauss_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/gdl.icn: a library graded through its driver gdl_driver, which is the entry procs/gdl_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/gdl2.icn: a library graded through its driver gdl2_driver, which is the entry procs/gdl2_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/gedcom.icn: a library graded through its driver gedcom_driver, which is the entry procs/gedcom_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/gen.icn: a library graded through its driver gen_driver, which is the entry procs/gen_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/gener.icn: a library graded through its driver gener_driver, which is the entry procs/gener_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/genrfncs.icn: a library graded through its driver genrfncs_driver, which is the entry procs/genrfncs_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/geodat.icn: a library graded through its driver geodat_driver, which is the entry procs/geodat_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/getchlib: no getchlib.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+procs/getkeys.icn: a library graded through its driver getkeys_driver, which is the entry procs/getkeys_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/getmail.icn: a library graded through its driver getmail_driver, which is the entry procs/getmail_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/getpaths.icn: a library graded through its driver getpaths_driver, which is the entry procs/getpaths_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/gettext.icn: a library graded through its driver gettext_driver, which is the entry procs/gettext_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/gobject.icn: a library graded through its driver gobject_driver, which is the entry procs/gobject_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/graphpak.icn: a library graded through its driver graphpak_driver, which is the entry procs/graphpak_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/hetero.icn: a library graded through its driver hetero_driver, which is the entry procs/hetero_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/hexcvt.icn: a library graded through its driver hexcvt_driver, which is the entry procs/hexcvt_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/hostname.icn: a library graded through its driver hostname_driver, which is the entry procs/hostname_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/html.icn: a library graded through its driver html_driver, which is the entry procs/html_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/ibench.icn: a library graded through its driver ibench_driver, which is the entry procs/ibench_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/identgen.icn: a library graded through its driver identgen_driver, which is the entry procs/identgen_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/identity.icn: a library graded through its driver identity_driver, which is the entry procs/identity_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/ifncs.icn: a library graded through its driver ifncs_driver, which is the entry procs/ifncs_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/iftrace.icn: a library graded through its driver iftrace_driver, which is the entry procs/iftrace_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/image.icn: a library graded through its driver image_driver, which is the entry procs/image_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/inbits.icn: a library graded through its driver inbits_driver, which is the entry procs/inbits_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/indices.icn: a library graded through its driver indices_driver, which is the entry procs/indices_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/inserts.icn: a library graded through its driver inserts_driver, which is the entry procs/inserts_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/intstr.icn: a library graded through its driver intstr_driver, which is the entry procs/intstr_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/io.icn: a library graded through its driver io_driver, which is the entry procs/io_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/iolib.icn: a library graded through its driver iolib_driver, which is the entry procs/iolib_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/iscreen.icn: a library graded through its driver iscreen_driver, which is the entry procs/iscreen_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/iterfncs.icn: a library graded through its driver iterfncs_driver, which is the entry procs/iterfncs_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/itlib.icn: a library graded through its driver itlib_driver, which is the entry procs/itlib_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/itlibdos.icn: a library graded through its driver itlibdos_driver, which is the entry procs/itlibdos_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/itokens.icn: a library graded through its driver itokens_driver, which is the entry procs/itokens_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/itrcline.icn: a library graded through its driver itrcline_driver, which is the entry procs/itrcline_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/ivalue.icn: a library graded through its driver ivalue_driver, which is the entry procs/ivalue_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/jumpque.icn: a library graded through its driver jumpque_driver, which is the entry procs/jumpque_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/kmap.icn: a library graded through its driver kmap_driver, which is the entry procs/kmap_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/labeler.icn: a library graded through its driver labeler_driver, which is the entry procs/labeler_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/lastc.icn: a library graded through its driver lastc_driver, which is the entry procs/lastc_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/lastname.icn: a library graded through its driver lastname_driver, which is the entry procs/lastname_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/lcseval.icn: a library graded through its driver lcseval_driver, which is the entry procs/lcseval_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/levensht.icn: a library graded through its driver levensht_driver, which is the entry procs/levensht_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/lindgen.icn: a library graded through its driver lindgen_driver, which is the entry procs/lindgen_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/lindstrp.icn: a library graded through its driver lindstrp_driver, which is the entry procs/lindstrp_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/list2tab.icn: a library graded through its driver list2tab_driver, which is the entry procs/list2tab_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/lists.icn: a library graded through its driver lists_driver, which is the entry procs/lists_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/longstr.icn: a library graded through its driver longstr_driver, which is the entry procs/longstr_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/lrgapprx.icn: a library graded through its driver lrgapprx_driver, which is the entry procs/lrgapprx_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/lstfncs.icn: a library graded through its driver lstfncs_driver, which is the entry procs/lstfncs_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/lterps.icn: a library graded through its driver lterps_driver, which is the entry procs/lterps_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/lu.icn: a library graded through its driver lu_driver, which is the entry procs/lu_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/makelsys.icn: a library graded through its driver makelsys_driver, which is the entry procs/makelsys_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/mapbit.icn: a library graded through its driver mapbit_driver, which is the entry procs/mapbit_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/mapstr.icn: a library graded through its driver mapstr_driver, which is the entry procs/mapstr_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/matchlib.icn: a library graded through its driver matchlib_driver, which is the entry procs/matchlib_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/math.icn: a library graded through its driver math_driver, which is the entry procs/math_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/matrix.icn: a library graded through its driver matrix_driver, which is the entry procs/matrix_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/matrix2.icn: a library graded through its driver matrix2_driver, which is the entry procs/matrix2_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/memlog.icn: a library graded through its driver memlog_driver, which is the entry procs/memlog_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/memrfncs.icn: a library graded through its driver memrfncs_driver, which is the entry procs/memrfncs_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/mixsort.icn: a library graded through its driver mixsort_driver, which is the entry procs/mixsort_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/models.icn: a library graded through its driver models_driver, which is the entry procs/models_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/morse.icn: a library graded through its driver morse_driver, which is the entry procs/morse_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/mset.icn: a library graded through its driver mset_driver, which is the entry procs/mset_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/namepfx.icn: a library graded through its driver namepfx_driver, which is the entry procs/namepfx_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/nestlist.icn: a library graded through its driver nestlist_driver, which is the entry procs/nestlist_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/ngrams.icn: a library graded through its driver ngrams_driver, which is the entry procs/ngrams_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/noncase.icn: a library graded through its driver noncase_driver, which is the entry procs/noncase_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/numbers.icn: a library graded through its driver numbers_driver, which is the entry procs/numbers_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/openchk.icn: a library graded through its driver openchk_driver, which is the entry procs/openchk_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/opnames.icn: a library graded through its driver opnames_driver, which is the entry procs/opnames_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/opsyms.icn: a library graded through its driver opsyms_driver, which is the entry procs/opsyms_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/options.icn: a library graded through its driver options_driver, which is the entry procs/options_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/outbits.icn: a library graded through its driver outbits_driver, which is the entry procs/outbits_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/packunpk.icn: a library graded through its driver packunpk_driver, which is the entry procs/packunpk_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/parscond.icn: a library graded through its driver parscond_driver, which is the entry procs/parscond_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/partit.icn: a library graded through its driver partit_driver, which is the entry procs/partit_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/pascal.icn: a library graded through its driver pascal_driver, which is the entry procs/pascal_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/pascltri.icn: a library graded through its driver pascltri_driver, which is the entry procs/pascltri_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/patch.icn: a library graded through its driver patch_driver, which is the entry procs/patch_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/patterns.icn: a library graded through its driver patterns_driver, which is the entry procs/patterns_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/patword.icn: a library graded through its driver patword_driver, which is the entry procs/patword_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/pbkform.icn: a library graded through its driver pbkform_driver, which is the entry procs/pbkform_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/pdco.icn: a library graded through its driver pdco_driver, which is the entry procs/pdco_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/periodic.icn: a library graded through its driver periodic_driver, which is the entry procs/periodic_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/permutat.icn: a library graded through its driver permutat_driver, which is the entry procs/permutat_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/phoname.icn: a library graded through its driver phoname_driver, which is the entry procs/phoname_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/plural.icn: a library graded through its driver plural_driver, which is the entry procs/plural_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/polynom.icn: a library graded through its driver polynom_driver, which is the entry procs/polynom_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/polyseq.icn: a library graded through its driver polyseq_driver, which is the entry procs/polyseq_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/polystuf.icn: a library graded through its driver polystuf_driver, which is the entry procs/polystuf_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/popen.icn: a library graded through its driver popen_driver, which is the entry procs/popen_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/pqueue.icn: a library graded through its driver pqueue_driver, which is the entry procs/pqueue_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/printcol.icn: a library graded through its driver printcol_driver, which is the entry procs/printcol_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/printf.icn: a library graded through its driver printf_driver, which is the entry procs/printf_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/prockind.icn: a library graded through its driver prockind_driver, which is the entry procs/prockind_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/procname.icn: a library graded through its driver procname_driver, which is the entry procs/procname_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/progary.icn: a library graded through its driver progary_driver, which is the entry procs/progary_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/pscript.icn: a library graded through its driver pscript_driver, which is the entry procs/pscript_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/ptutils.icn: a library graded through its driver ptutils_driver, which is the entry procs/ptutils_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/random.icn: a library graded through its driver random_driver, which is the entry procs/random_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/rational.icn: a library graded through its driver rational_driver, which is the entry procs/rational_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/readcpt.icn: a library graded through its driver readcpt_driver, which is the entry procs/readcpt_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/readtbl.icn: a library graded through its driver readtbl_driver, which is the entry procs/readtbl_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/reassign.icn: a library graded through its driver reassign_driver, which is the entry procs/reassign_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/rec2tab.icn: a library graded through its driver rec2tab_driver, which is the entry procs/rec2tab_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/recog.icn: a library graded through its driver recog_driver, which is the entry procs/recog_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/records.icn: a library graded through its driver records_driver, which is the entry procs/records_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/recrfncs.icn: a library graded through its driver recrfncs_driver, which is the entry procs/recrfncs_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/recurmap.icn: a library graded through its driver recurmap_driver, which is the entry procs/recurmap_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/reduce.icn: a library graded through its driver reduce_driver, which is the entry procs/reduce_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/regexp.icn: a library graded through its driver regexp_driver, which is the entry procs/regexp_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/repetit.icn: a library graded through its driver repetit_driver, which is the entry procs/repetit_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/revadd.icn: a library graded through its driver revadd_driver, which is the entry procs/revadd_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/rewrap.icn: a library graded through its driver rewrap_driver, which is the entry procs/rewrap_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/rng.icn: a library graded through its driver rng_driver, which is the entry procs/rng_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/sandgen.icn: a library graded through its driver sandgen_driver, which is the entry procs/sandgen_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/scan.icn: a library graded through its driver scan_driver, which is the entry procs/scan_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/scanmodl.icn: a library graded through its driver scanmodl_driver, which is the entry procs/scanmodl_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/scanset.icn: a library graded through its driver scanset_driver, which is the entry procs/scanset_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/segment.icn: a library graded through its driver segment_driver, which is the entry procs/segment_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/senten1.icn: a library graded through its driver senten1_driver, which is the entry procs/senten1_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/sentence.icn: a library graded through its driver sentence_driver, which is the entry procs/sentence_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/seqfncs.icn: a library graded through its driver seqfncs_driver, which is the entry procs/seqfncs_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/seqimage.icn: a library graded through its driver seqimage_driver, which is the entry procs/seqimage_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/seqops.icn: a library graded through its driver seqops_driver, which is the entry procs/seqops_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/serial.icn: a library graded through its driver serial_driver, which is the entry procs/serial_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/sername.icn: a library graded through its driver sername_driver, which is the entry procs/sername_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/sets.icn: a library graded through its driver sets_driver, which is the entry procs/sets_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/showtbl.icn: a library graded through its driver showtbl_driver, which is the entry procs/showtbl_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/shquote.icn: a library graded through its driver shquote_driver, which is the entry procs/shquote_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/signed.icn: a library graded through its driver signed_driver, which is the entry procs/signed_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/sort.icn: a library graded through its driver sort_driver, which is the entry procs/sort_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/sortt.icn: a library graded through its driver sortt_driver, which is the entry procs/sortt_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/soundex.icn: a library graded through its driver soundex_driver, which is the entry procs/soundex_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/soundex1.icn: a library graded through its driver soundex1_driver, which is the entry procs/soundex1_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/speedo.icn: a library graded through its driver speedo_driver, which is the entry procs/speedo_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/spin.icn: a library graded through its driver spin_driver, which is the entry procs/spin_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/statemap.icn: a library graded through its driver statemap_driver, which is the entry procs/statemap_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/step.icn: a library graded through its driver step_driver, which is the entry procs/step_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/str2toks.icn: a library graded through its driver str2toks_driver, which is the entry procs/str2toks_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/strings.icn: a library graded through its driver strings_driver, which is the entry procs/strings_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/strip.icn: a library graded through its driver strip_driver, which is the entry procs/strip_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/stripcom.icn: a library graded through its driver stripcom_driver, which is the entry procs/stripcom_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/stripunb.icn: a library graded through its driver stripunb_driver, which is the entry procs/stripunb_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/tab2list.icn: a library graded through its driver tab2list_driver, which is the entry procs/tab2list_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/tab2rec.icn: a library graded through its driver tab2rec_driver, which is the entry procs/tab2rec_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/tables.icn: a library graded through its driver tables_driver, which is the entry procs/tables_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/tclass.icn: a library graded through its driver tclass_driver, which is the entry procs/tclass_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/title.icn: a library graded through its driver title_driver, which is the entry procs/title_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/titleset.icn: a library graded through its driver titleset_driver, which is the entry procs/titleset_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/tokgen.icn: a library graded through its driver tokgen_driver, which is the entry procs/tokgen_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/trees.icn: a library graded through its driver trees_driver, which is the entry procs/trees_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/tuple.icn: a library graded through its driver tuple_driver, which is the entry procs/tuple_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/typecode.icn: a library graded through its driver typecode_driver, which is the entry procs/typecode_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/unsigned.icn: a library graded through its driver unsigned_driver, which is the entry procs/unsigned_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/usage.icn: a library graded through its driver usage_driver, which is the entry procs/usage_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/varsub.icn: a library graded through its driver varsub_driver, which is the entry procs/varsub_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/verncnt.icn: a library graded through its driver verncnt_driver, which is the entry procs/verncnt_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/version.icn: a library graded through its driver version_driver, which is the entry procs/version_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/vhttp: no vhttp.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+procs/vrml.icn: a library graded through its driver vrml_driver, which is the entry procs/vrml_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/vrml1lib.icn: a library graded through its driver vrml1lib_driver, which is the entry procs/vrml1lib_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/vrml2lib.icn: a library graded through its driver vrml2lib_driver, which is the entry procs/vrml2lib_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/wdiag.icn: a library graded through its driver wdiag_driver, which is the entry procs/wdiag_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/weavgenr.icn: a library graded through its driver weavgenr_driver, which is the entry procs/weavgenr_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/weaving.icn: a library graded through its driver weaving_driver, which is the entry procs/weaving_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/weavutil.icn: a library graded through its driver weavutil_driver, which is the entry procs/weavutil_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/weighted.icn: a library graded through its driver weighted_driver, which is the entry procs/weighted_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/wildcard.icn: a library graded through its driver wildcard_driver, which is the entry procs/wildcard_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/word.icn: a library graded through its driver word_driver, which is the entry procs/word_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/wrap.icn: a library graded through its driver wrap_driver, which is the entry procs/wrap_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/writecpt.icn: a library graded through its driver writecpt_driver, which is the entry procs/writecpt_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/xcode.icn: a library graded through its driver xcode_driver, which is the entry procs/xcode_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/xcodes.icn: a library graded through its driver xcodes_driver, which is the entry procs/xcodes_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/xforms.icn: a library graded through its driver xforms_driver, which is the entry procs/xforms_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/ximage.icn: a library graded through its driver ximage_driver, which is the entry procs/ximage_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/xrotate.icn: a library graded through its driver xrotate_driver, which is the entry procs/xrotate_driver (CONTRACT.tsv units=ref-beside, R-1269)
+procs/zipread.icn: a library graded through its driver zipread_driver, which is the entry procs/zipread_driver (CONTRACT.tsv units=ref-beside, R-1269)
+progs/applyfnc: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
+progs/banner: no banner.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
 progs/bfd: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/bj: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/blnk2tab: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/c2icn: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/calc: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/bj: no bj.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+progs/calc: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
 progs/catlines: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/chars: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/chkhtml: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/choose: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/chop: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/choose: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
+progs/chop: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
 progs/colm: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/comfiles: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/compare: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/comply83: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/concord: the container carries no .dat stdin -- graded standalone by test_icon_ipl_suite.sh with its .dat as stdin; its ALL.csv row is a settings row (CEO-1261)
 progs/conman: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/countlst: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/cross: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/csgen: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/cstrings: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/datmerge: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/daystil: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/ddfdump: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/delam: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/delamc: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/dellines: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/delta: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/ddfdump: stdin ddfdump.dat is not valid UTF-8 (binary or 8-bit data) -- the container's stdin cell is text, so it would not be byte-identical to the file the ref was cut from (the same rule as a non-UTF-8 source)
+progs/delam: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
+progs/delamc: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
+progs/dellines: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
 progs/diffn: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/diffsort: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/diffsum: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/diffu: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/diffword: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/digcol: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/digcol: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
 progs/diskpack: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/duplfile: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/duplproc: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/envelope: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/evaluate: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/extweave: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/evaluate: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
 progs/farb2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/filecnvt: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/fileprnt: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/filerepl: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/filesect: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/filtskel: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/filerepl: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
+progs/filesect: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
 progs/findstr: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/findtext: oracle timed out -- non-terminating or too slow for the grading timeout
-progs/fixhqx: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/findtext: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/fixhqx: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
 progs/fixpath: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/fnctab: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/fnctmpl: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/format: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/former: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/fset: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/geddump: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/geddump: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
 progs/gediff: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/gener: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/genfile: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/getcol: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/getlines: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/grpsort: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/hcal4unx: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/headicon: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/hebeng: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/hotedit: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/htget: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/htprep: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/huffstuf: the container builder has no argv mechanism -- graded standalone by test_icon_ipl_suite.sh with its .argv (-o fixture.txt) and its .fixtures directory; its ALL.csv row is a settings row (CEO-1261)
-progs/ibar: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/icalc: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/icalls: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/icn2c: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/icvt: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/idxtext: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/ifilter: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/getlines: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
+progs/hcal4unx: no hcal4unx.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+progs/hebcalen: the oracle's output passed the harness's bound (S4E_OUTPUT_CAP_MB, 268435456 bytes) and the run was killed -- no answer
+progs/hebeng: no hebeng.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+progs/hotedit: out_files names hidden file(s) .mosaic-hotlist-default .mosaic-hotlist-backup -- the staging rule admits a bare name with no leading '.' (validate_out_files_cell), so the run cannot own them; excluded rather than refused (the whole build would stop)
+progs/htget: no htget.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+progs/huffstuf: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/icvt: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
+progs/ifilter: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
 progs/igrep: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/iheader: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/ihelp: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/iidecode: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/iiencode: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/ilump: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/imagetyp: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/indxcomp: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/ineeds: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/inter: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/interpe: declared empty output (.empty) -- the container refuses a vacuous ref, so it is graded standalone by test_icon_ipl_suite.sh against its empty .ref; its ALL.csv row is a settings row (CEO-1261)
-progs/ipatch: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/iplkwic: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/iplweb: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/ipower: oracle timed out -- non-terminating or too slow for the grading timeout
-progs/ipp: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/interpe: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/iprint: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/iprofile: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/iprofl: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/ipsort: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/ipsplit: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/irsort: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/iseq: oracle timed out -- non-terminating or too slow for the grading timeout
+progs/iprofile: no iprofile.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
 progs/isize: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/istrip: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/itab: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/itags: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/itrcfltr: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/iundecl: declared empty output (.empty) -- the container refuses a vacuous ref, so it is graded standalone by test_icon_ipl_suite.sh against its empty .ref; its ALL.csv row is a settings row (CEO-1261)
-progs/iversion: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/iwriter: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/knapsack: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/kross: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/kwic: the container carries no .dat stdin -- graded standalone by test_icon_ipl_suite.sh with its .dat as stdin; its ALL.csv row is a settings row (CEO-1261)
-progs/la: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/labels: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/iundecl: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/knapsack: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
+progs/krieg: no krieg.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
 progs/lam: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/latexidx: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/lcfile: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/lcn: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/limitf: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/lindsys: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/lcfile: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
 progs/lineseq: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/link2url: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/loadmap: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/lister: no lister.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+progs/listviz: no listviz.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
 progs/longest: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/lower: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/lsysmap: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/maccvt: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/mapcolrs: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/midisig: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/missile: oracle timed out -- non-terminating or too slow for the grading timeout
-progs/monkeys: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/mr: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/midisig: stdin midisig.dat is not valid UTF-8 (binary or 8-bit data) -- the container's stdin cell is text, so it would not be byte-identical to the file the ref was cut from (the same rule as a non-UTF-8 source)
+progs/missile: no missile.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
+progs/mr: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
 progs/mszip: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/mtf3: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/newicon: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/newsrc: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/nim: oracle timed out -- non-terminating or too slow for the grading timeout
-progs/nocr: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/noise: oracle timed out -- non-terminating or too slow for the grading timeout
-progs/normalize: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/oldicon: oracle timed out -- non-terminating or too slow for the grading timeout
+progs/newicon: oracle timed out -- non-terminating or too slow for the grading timeout
+progs/newsrc: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
+progs/noise: the oracle's output passed the harness's bound (S4E_OUTPUT_CAP_MB, 268435456 bytes) and the run was killed -- no answer
+progs/oldicon: no oldicon.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
 progs/pack: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/paginate: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/papply: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/parse: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/papply: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
 progs/patchu: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/pbkdump: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/pdecomp: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/polydemo: oracle timed out -- non-terminating or too slow for the grading timeout
+progs/post: no post.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
 progs/press: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/pretrim: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/procprep: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/procwrap: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/proto: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/psrsplit: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/pt: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/qei: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/ranstars: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/rcat: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/repeats: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/revfile: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/revsort: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/rsg: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/sample: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/scale: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/repeats: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
+progs/reply: no reply.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
 progs/setmerge: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/shortest: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/shuffile: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/shuffle: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/slice: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/snake: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/sortname: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/splitlit: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/spread: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/snake: no snake.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
 progs/streamer: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/strimlen: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/strpsgml: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/tabexten: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/tablc: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/tablw: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/tabulate: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/strpsgml: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
 progs/textcvt: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/trim: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/ttt: oracle timed out -- non-terminating or too slow for the grading timeout
-progs/turing: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/unclog: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/unique: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/unpack: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/upper: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/url2link: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/utrim: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/verse: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/verse: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
 progs/versum: oracle timed out -- non-terminating or too slow for the grading timeout
-progs/vrepl: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/weblinks: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/weblinks: no weblinks.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
 progs/when: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/yahtz: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/yescr: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/zipsort: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/yahtz: no yahtz.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)

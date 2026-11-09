@@ -1,0 +1,4 @@
+# CONTRACT.tsv -- this package's own run contract, read by SCRIP scripts/util_build_package_suite.py (key<TAB>value<TAB>evidence).
+units	ref-beside	the deleted runner test_icon_ipl_suite.sh (cc2783502^) graded every .ref beside its .icn; a library is graded through its NAME_driver.icn and its .ref, which runs with its own directory first on IPATH (R-1269)
+ipath	procs	the harness exports IPATH=procs for every run of this container (_pkg_ipath_for); measured 2026-11-09: icont resolves `link NAME` through NAME.u1, not NAME.icn, so this row does not by itself make a library's source linkable
+ipath	gprocs	the harness exports IPATH=gprocs for every run of this container (_pkg_ipath_for); measured 2026-11-09 with the same limit as the procs row: a gprocs library linked by name needs its compiled NAME.u1 (strace of gprogs/autotile: patutils.u1 ENOENT in gprocs)

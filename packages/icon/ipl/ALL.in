@@ -1,0 +1,1507 @@
+#----------------------------------------------------------- 108 gprogs/blp2rows
+8,#0103070f1f3f7fff
+#----------------------------------------------------------- 110 gprogs/dd2draft
+11001100
+01100110
+00110011
+10011001
+11001100
+01100110
+00110011
+10011001
+#------------------------------------------------------------- 111 gprogs/dd2res
+11001100
+01100110
+00110011
+10011001
+11001100
+01100110
+00110011
+10011001
+11110000
+00001111
+#------------------------------------------------------------ 112 gprogs/dd2unit
+8,#8822882288228822
+#----------------------------------------------------------- 113 gprogs/ddextend
+10110010
+01001101
+11100001
+00011110
+10101010
+01010101
+11001100
+00110011
+10000001
+01111110
+#------------------------------------------------------------- 114 gprogs/drawup
+8,#3366cc993366cc99
+#------------------------------------------------------------- 115 gprogs/floats
+1000010000
+0100001000
+0010000100
+0001000010
+0000100001
+1111000011
+0111100001
+1011110000
+0000111110
+0000011111
+#----------------------------------------------------------- 116 gprogs/fractclr
+  0   0   0
+255 255 255
+255   0   0
+  0 255   0
+  0   0 255
+128  64  32
+ 16   8   4
+#----------------------------------------------------------- 117 gprogs/imlreduc
+# bi-level image strings, one per line (width,#hex rows)
+8,#aa55aa55aa55aa55
+8,#55aa55aa55aa55aa
+4,#9696
+4,#6969
+8,#ff00ff00ff00ff00
+8,#f0f0f0f0f0f0f0f0 trailing comment is ignored
+
+8,#8040201008040201
+8,#0102040810204080
+4,#1248
+#----------------------------------------------------------- 118 gprogs/lindcomp
+name:plant04
+X->F[+X]F[-X]+X
+F->FF
+f->ff
+axiom:X
+angle:20.0
+gener:5
+length:4
+#----------------------------------------------------------- 119 gprogs/rows2blp
+11110000
+10011001
+00111100
+11000011
+#----------------------------------------------------------- 120 gprogs/rows2isd
+11001100
+01100110
+00110011
+10011001
+11001100
+01100110
+00110011
+10011001
+#---------------------------------------------------------------- 121 gprogs/uix
+# xib session file: a small dialog built with the X-Icon Interface Builder
+#
+# Icon user code would go above this line.
+# Session Code:
+# Sizer_Obj:
+# 0
+# 78
+# 400
+# 300
+# Button_Obj:
+# quit_cb
+# quit_btn
+# 0
+# 20
+# 328
+# 60
+# 20
+# Quit
+# 0
+# 0
+# 0
+# regular
+# 1
+# 0
+# 0
+# Check_Obj:
+# check_cb
+# verbose
+# 0
+# 20
+# 118
+# 15
+# 15
+# 0
+# 0
+# Text_Input_Obj:
+# name_cb
+# name_field
+# 0
+# 100
+# 98
+# 240
+# 20
+# 0
+# Name:
+# Griswold
+# 32
+# 0
+# 0
+# Scrollbar_Obj:
+# Slider_Obj:
+# scroll_cb
+# 1
+# vbar
+# 0
+# 370
+# 88
+# 16
+# 200
+# 0
+# 0
+# 100
+# 50
+# 1
+# 0
+# 0
+# 0
+# scroll_cb
+# 1
+# vbar
+# 0
+# 0
+# 100
+# 370
+# 88
+# 16
+# 200
+# 0
+# 0
+# 0
+# Slider_Obj:
+# speed_cb
+# 1
+# speed
+# 0
+# 20
+# 208
+# 200
+# 16
+# 0
+# 1
+# 10
+# 5
+# 0
+# 0
+# 0
+# 0
+# Line_Obj:
+# 
+# rule
+# 0
+# 0
+# 0
+# 10
+# 240
+# 390
+# 240
+# 0
+# 0
+# 0
+# 0
+# solid
+# 2
+# Rect_Obj:
+# 
+# frame
+# 0
+# 10
+# 258
+# 380
+# 110
+# 3
+# 0
+# 0
+# Message_Obj:
+# 
+# title
+# 0
+# 150
+# 88
+# 100
+# 20
+# Settings
+# 0
+# 0
+# 0
+# 0
+# Radio_Button_Obj:
+# mode_cb
+# mode
+# 0
+# 250
+# 118
+# 100
+# 60
+# 0
+# 0
+# 0
+# 3
+# fast
+# normal
+# careful
+# Menu_Obj:
+# menu_cb
+# file_menu
+# 0
+# 10
+# 82
+# 50
+# 20
+# File
+# 0
+# 0
+# pull
+# 0
+# 0
+# 3
+# Open
+# 0
+# 0
+# 0
+# Recent
+# 0
+# 0
+# 2
+# one.icn
+# 0
+# 0
+# 0
+# two.icn
+# 0
+# 0
+# 0
+# Quit
+# 0
+# 0
+# 0
+#----------------------------------------------------------- 122 gprogs/unitgenr
+8,#01552B552B552BFF
+4,#5A5A
+8,#020E070420E07040
+4,#4141
+2,#01
+1,#0
+10,#001002004008010020040080100200
+#------------------------------------------------------------ 124 gprogs/wif2isd
+[WIF]
+Version=1.1
+Date=April 20, 1997
+Developers=wif@mhsoft.com
+Source Program=hand
+[CONTENTS]
+COLOR PALETTE=true
+TEXT=true
+WEAVING=true
+WARP=true
+WEFT=true
+COLOR TABLE=true
+THREADING=true
+TIEUP=true
+TREADLING=true
+LIFTPLAN=true
+WARP COLORS=true
+WEFT COLORS=true
+[TEXT]
+Title=Small twill
+Author=fixture
+[WEAVING]
+Shafts=4
+Treadles=4
+Rising Shed=true
+[WARP]
+Threads=12
+Color=1
+Units=centimeters
+[WEFT]
+Threads=8
+Color=2
+[COLOR PALETTE]
+Entries=3
+Range=0,255
+[COLOR TABLE]
+1=255,255,255
+2=0,0,0
+3=200,30,30
+[THREADING]
+1=1
+2=2
+3=3
+4=4
+5=1
+6=2
+7=3
+8=4
+9=4
+10=3
+11=2
+12=1
+[TREADLING]
+1=1
+2=2
+3=3
+4=4
+5=4
+6=3
+7=2
+8=1
+[TIEUP]
+1=1,2
+2=2,3
+3=3,4
+4=4,1
+[LIFTPLAN]
+1=1,2
+2=2,3
+3=3,4
+4=4,1
+5=4,1
+6=3,4
+7=2,3
+8=1,2
+[WARP COLORS]
+5=3
+6=3
+[WEFT COLORS]
+4=3
+5=3
+#------------------------------------------------------------- 211 procs/ichartp
+the nurse travels
+he see a book
+the silly nurse travels on a book
+he travels and they travel
+the book travels that he see a book
+#-------------------------------------------------------- 301 procs/recog_driver
+()
+(())
+()()
+((()))
+
+)(
+(()
+a
+#------------------------------------------------------------ 373 progs/adlcheck
+#a
+Mr. John Q. Doe
+1 Main Street
+Springfield, IL 62701
+U.S.A.
+#b
+Dr. Jane Roe
+2 Elm Avenue
+Tucson, AZ 85721
+U.S.A.
+#c
+Alan Turing
+10 Downing Street
+London SW1A 2AA
+England
+#------------------------------------------------------------ 375 progs/adlfiltr
+Address list, preamble text before the first label is skipped
+#a
+John Doe
+123 Main St
+Tucson, AZ 85721
+* friend from school
+#b
+Jane Roe
+45 Elm Ave
+
+Boston, MA 02115
+#c
+Bob Smith
+1 Rue de Paris
+France
+#ac
+Alice Jones
+7 Oak Rd
+Austin, TX 78701
+* colleague
+* met 1989
+#d
+#
+Nobody
+9 Nowhere Ln
+Somewhere, CA 90001
+#------------------------------------------------------------ 376 progs/adlfirst
+#a
+Mr. John Q. Doe
+1 Main Street
+Springfield, IL 62701
+U.S.A.
+#b
+Dr. Jane Roe
+2 Elm Avenue
+Tucson, AZ 85721
+U.S.A.
+#c
+Alan Turing
+10 Downing Street
+London SW1A 2AA
+England
+#------------------------------------------------------------- 377 progs/adllist
+#a
+Mr. John Q. Doe
+1 Main Street
+Springfield, IL 62701
+U.S.A.
+#b
+Dr. Jane Roe
+2 Elm Avenue
+Tucson, AZ 85721
+U.S.A.
+#c
+Alan Turing
+10 Downing Street
+London SW1A 2AA
+England
+#------------------------------------------------------------- 378 progs/adlsort
+#a
+Mr. John Q. Doe
+1 Main Street
+Springfield, IL 62701
+U.S.A.
+#b
+Dr. Jane Roe
+2 Elm Avenue
+Tucson, AZ 85721
+U.S.A.
+#c
+Alan Turing
+10 Downing Street
+London SW1A 2AA
+England
+#-------------------------------------------------------------- 379 progs/animal
+n
+#--------------------------------------------------------------- 380 progs/based
+10 print "hello"
+30 goto 10
+20 let x = 1
+list
+renum 100 5
+list
+find goto
+find hello world
+list
+size
+!!
+del 105
+list
+save based_out.bas
+new
+size
+load based_out.bas
+list
+write based_num.bas
+merge based_num.bas
+list 10 20
+frobnicate
+ver
+date
+help
+quit
+#------------------------------------------------------------ 381 progs/blnk2tab
+alpha  beta
+gamma    delta
+one two
+#--------------------------------------------------------------- 382 progs/c2icn
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#--------------------------------------------------------------- 383 progs/chars
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox again
+#------------------------------------------------------------ 385 progs/comply83
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#------------------------------------------------------------- 386 progs/concord
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#------------------------------------------------------------ 387 progs/countlst
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#--------------------------------------------------------------- 388 progs/cross
+and
+eggplants
+elephants
+purple
+#--------------------------------------------------------------- 390 progs/csgen
+#   a(n)b(n)c(n)
+#   Salomaa, p. 11.
+#   Attributed to M. Soittola.
+#
+X->abc
+X->aYbc
+Yb->bY
+Yc->Zbcc
+bZ->Zb
+aZ->aaY
+aZ->aa
+X:10
+#--------------------------------------------------------------- 394 progs/delta
+1
+4
+9
+16
+25
+#------------------------------------------------------------ 395 progs/diffsort
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#------------------------------------------------------------- 396 progs/diffsum
+3c3
+< old line
+---
+> new line
+5a6
+> added
+8,9d7
+< gone
+< gone2
+#------------------------------------------------------------ 397 progs/diffword
+apple banana cherry
+banana date apple
+cherry elderberry fig
+#------------------------------------------------------------ 401 progs/extweave
+                                                                                                                                                                                                                                                                                                                                                                                                                [1-8]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           AABB                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            [8-1]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           BBAA                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            .KWROYL                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     1-4-1-4                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ABAB                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            4-1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             BA                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              FSWI Alpha Plaid zz Blue Twill zz Spare-Name & Co zz 
+\ No newline at end of file
+#------------------------------------------------------------ 405 progs/filexref
+SRC
+DOC   # documents
+BIN
+#------------------------------------------------------------ 406 progs/filtskel
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#-------------------------------------------------------------- 407 progs/fnctab
+Token counts for wordcnt.icn
+
+Unary operators:
+
+       4   *e
+       1   -e
+
+       5   total
+
+Binary operators:
+
+       6   e1 := e2
+       2   e1 || e2
+
+       8   total
+
+Variable references:
+
+      17   write
+      11   read
+       9   line
+       8   upto
+       6   tab
+       5   count
+      14   i
+       4   many
+       3   sort
+      13   name
+       2   trim
+       7   words
+       1   stop
+      12   map
+      10   args
+      15   find
+      16   integer
+     153
+
+Field references:
+
+      20   write
+       3   key
+#------------------------------------------------------------- 408 progs/fnctmpl
+rtt Ver 9.5
+$functions
+
+abs FNC {1,1} ...
+"abs(N) - produces the absolute value of N."
+
+any FNC {0,1} ...
+"any(c,s,i1,i2) - produces i1+1 if s[i1:i2][1] is in c and i2 > i1."
+
+seq FNC {1,*} ...
+"seq(i1,i2) - generates an endless sequence of integers starting at i1."
+
+write FNC {1,1} ...
+"write(x,...) - writes strings followed by a newline."
+
+upto FNC {0,1+} ...
+"upto(c,s,i1,i2) - generates the sequence of integer positions in s."
+
+internal FNC {1,1} ...
+not a quoted prototype, so this entry is skipped
+
+stop FNC {0,0} ...
+"stop(x,...) - terminates execution after writing its arguments."
+
+$endsect
+this line is never reached
+#-------------------------------------------------------------- 409 progs/format
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#-------------------------------------------------------------- 410 progs/former
+this is a rather long string of words that should be folded into fixed length lines by the former program
+#---------------------------------------------------------------- 412 progs/fuzz
+fuzz_words.txt
+apple
+3
+#--------------------------------------------------------------- 414 progs/gener
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#-------------------------------------------------------------- 416 progs/getcol
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#------------------------------------------------------------- 419 progs/grpsort
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#------------------------------------------------------------------ 421 progs/hr
+yes
+Lon
+
+5 on 2
+
+q
+q
+#-------------------------------------------------------------- 422 progs/htprep
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#---------------------------------------------------------------- 424 progs/ibar
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#--------------------------------------------------------------- 426 progs/icalc
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#-------------------------------------------------------------- 427 progs/icalls
+link options
+procedure main()
+   local a
+   a := reverse("abc")
+   write(a, map(a))
+   helper()
+end
+procedure helper()
+   return 1
+end
+procedure helper()
+   return 2
+end
+#--------------------------------------------------------------- 428 progs/icn2c
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#------------------------------------------------------------ 434 progs/iidecode
+begin 644 /dev/stdout
+M5&AE($EC;VX@4')O9W)A;2!,:6)R87)Y"BTM+2TM+2TM+2TM+2TM+2TM+2TM
+M+2TM+0II:61E8V]D92!I<R!A;B!)8V]N('!O<G0@;V8@=&AE($)31"!U=61E
+M8V]D92!U=&EL:71Y+@I4:&ES(&UE<W-A9V4@=V%S('5U96YC;V1E9"!F;W(@
+M82!F:7AT=7)E.R!D96-O9&EN9R!I=`IW<FET97,@=&AE<V4@;&EN97,@=&\@
+M=&AE(&9I;&4@;F%M960@;VX@=&AE(&)E9VEN(&QI;F4N"D)Y=&5S(&%B;W9E
+M(#$R-R!S=7)V:79E('1H92!T<FEP.B#IZ.`@86YD(&$@=&%B"6AE<F4N"E1H
+M92!Q=6EC:R!B<F]W;B!F;W@@:G5M<',@;W9E<B!T:&4@;&%Z>2!D;V<N(#`Q
+),C,T-38W.#D*
+`
+end
+#--------------------------------------------------------------- 436 progs/ilump
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#------------------------------------------------------------ 437 progs/imagetyp
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#------------------------------------------------------------ 438 progs/indxcomp
+=1
+warts
+moles
+scratches
+=2
+scratches
+dents
+bumps
+=3
+hickies
+#------------------------------------------------------------- 444 progs/iplkwic
+adlcheck: Program to check for bad address list data
+adlcount: Program to count address list entries
+colmize: Procedures to arrange data into columns
+fnctmpl: Program to produce function templates
+iplkwic: Program to produce keywords in context for IPL
+lcn: Program to convert file names to all lowercase
+options: Procedure to get command-line options
+press: Program to archive files
+repeats: Program to repeat stream
+wildcard: Procedures for UNIX-like wild-card pattern matching
+#----------------------------------------------------------------- 447 progs/ipp
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#-------------------------------------------------------------- 448 progs/iprofl
+   0      1 demo.icn 1
+   5     10 demo.icn 3
+  12    100 demo.icn 5
+   3    100 demo.icn 10
+   1      2 demo.icn 5
+   0      1 demo.icn 6
+   2      4 lib.icn 7
+   4      9 lib.icn 12
+#-------------------------------------------------------------- 449 progs/ipsort
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#------------------------------------------------------------- 450 progs/ipsplit
+# ipsplit reads an Icon program on standard input and writes one file per procedure
+global ips_counter
+record ips_pair(first, second)
+# alpha doubles its argument
+procedure ips_alpha(n)
+   return n * 2;
+end
+# beta adds one to its argument
+procedure ips_beta(n)
+   return n + 1;
+end
+#-------------------------------------------------------------- 452 progs/irsort
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#-------------------------------------------------------------- 456 progs/istrip
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#---------------------------------------------------------------- 457 progs/itab
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#--------------------------------------------------------------- 458 progs/itags
+procedure alpha(n)
+   return n + 1
+end
+procedure bravo()
+   return alpha(1)
+end
+#------------------------------------------------------------ 460 progs/itrcfltr
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#------------------------------------------------------------ 462 progs/iversion
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#------------------------------------------------------------- 463 progs/iwriter
+alpha beta gamma
+alpha beta gamma
+delta epsilon
+zeta eta theta
+delta epsilon
+iota kappa lambda
+#--------------------------------------------------------------- 464 progs/kross
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#---------------------------------------------------------------- 465 progs/kwic
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#------------------------------------------------------------------ 467 progs/la
+1000000
+123456789012345
+2
+999
+#-------------------------------------------------------------- 468 progs/labels
+#a
+John Doe
+1 Main St
+* a comment line, ignored
+#b
+Jane Roe
+2 Elm St
+Springfield
+#------------------------------------------------------------ 469 progs/latexidx
+\indexentry{alpha}{3}
+\indexentry{beta}{5}
+\indexentry{alpha}{9}
+#-------------------------------------------------------------- 472 progs/limitf
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#------------------------------------------------------------- 474 progs/lindsys
+name:koch
+axiom:F
+F->F+F--F+F
+gener:2
+end
+#------------------------------------------------------------ 475 progs/link2url
+<a href="http://example.com/x.html">Example</a>
+<A HREF="ftp://ftp.example.org/f">F</A>
+no link here
+#---------------------------------------------------------------- 476 progs/lisp
+(CAR (QUOTE (A B C)))
+#------------------------------------------------------------- 478 progs/literat
+l
+xq
+banana
+ q
+applxe
+q
+pear
+ e
+\ No newline at end of file
+#------------------------------------------------------------- 483 progs/lsysmap
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#-------------------------------------------------------------- 484 progs/maccvt
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#------------------------------------------------------------- 488 progs/monkeys
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#----------------------------------------------------------------- 490 progs/nim
+1
+7
+1
+1
+1
+y
+2
+q
+#----------------------------------------------------------- 492 progs/normalize
+1
+2
+3
+4
+10
+#------------------------------------------------------------ 493 progs/paginate
+line one
+line two
+line three
+line four
+line five
+#--------------------------------------------------------------- 496 progs/parse
+x := 1 + 2 * 3
+\ No newline at end of file
+#------------------------------------------------------------- 498 progs/pdecomp
+360
+97
+1024
+1234567
+#------------------------------------------------------------ 499 progs/polydemo
+q
+#------------------------------------------------------------- 500 progs/pretrim
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#------------------------------------------------------------ 501 progs/procwrap
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#------------------------------------------------------------------ 502 progs/pt
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#---------------------------------------------------------------- 503 progs/puzz
+icon snobol prolog
+pascal rebus snocone
+generator coexpression
+string scanning
+#----------------------------------------------------------------- 504 progs/qei
+1 + 2;
+"ab" || "cd";
+:quit
+#------------------------------------------------------------- 509 progs/revfile
+alpha beta gamma
+alpha beta gamma
+delta epsilon
+zeta eta theta
+delta epsilon
+iota kappa lambda
+#------------------------------------------------------------- 510 progs/revsort
+zebra
+apple
+Mango
+banana
+cherry
+#----------------------------------------------------------------- 512 progs/rsg
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#-------------------------------------------------------------- 514 progs/sample
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#--------------------------------------------------------------- 515 progs/scale
+1
+5
+-3
+12
+7
+#------------------------------------------------------------ 518 progs/shortest
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#------------------------------------------------------------ 519 progs/shuffile
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#------------------------------------------------------------- 520 progs/shuffle
+line 01 of the shuffle input
+line 02 of the shuffle input
+line 03 of the shuffle input
+line 04 of the shuffle input
+line 05 of the shuffle input
+line 06 of the shuffle input
+line 07 of the shuffle input
+line 08 of the shuffle input
+line 09 of the shuffle input
+line 10 of the shuffle input
+line 11 of the shuffle input
+line 12 of the shuffle input
+line 13 of the shuffle input
+line 14 of the shuffle input
+line 15 of the shuffle input
+line 16 of the shuffle input
+line 17 of the shuffle input
+line 18 of the shuffle input
+line 19 of the shuffle input
+line 20 of the shuffle input
+#--------------------------------------------------------------- 522 progs/slice
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#--------------------------------------------------------------- 523 progs/solit
+h
+
+r
+
+t
+m d1
+m d2
+m d3
+m d4
+m d5
+m d6
+m d7
+m da
+
+m 71
+m 72
+m 73
+m 74
+m 75
+m 76
+m 7a
+m 61
+m 62
+m 63
+m 64
+m 65
+m 67
+m 6a
+m 51
+m 52
+m 53
+m 54
+m 56
+m 57
+m 5a
+m 41
+m 42
+m 43
+m 45
+m 46
+m 47
+m 4a
+m 31
+m 32
+m 34
+m 35
+m 36
+m 37
+m 3a
+m 21
+m 23
+m 24
+m 25
+m 26
+m 27
+m 2a
+m 12
+m 13
+m 14
+m 15
+m 16
+m 17
+m 1a
+t
+t
+M D1
+m d2
+d
+
+3
+
+s
+p4
+m 7
+x
+?
+
+t
+t
+m 71
+m 62
+a
+#------------------------------------------------------------ 524 progs/sortname
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#------------------------------------------------------------ 525 progs/splitlit
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#-------------------------------------------------------------- 526 progs/spread
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#------------------------------------------------------------ 527 progs/strimlen
+"hello"
+123
+3.14
+"a\tb"
+"quoted \"x\""
+#------------------------------------------------------------ 528 progs/tabexten
+a.icn
+b.c
+c.icn
+README
+d.txt
+#--------------------------------------------------------------- 529 progs/tablc
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#--------------------------------------------------------------- 530 progs/tablw
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#------------------------------------------------------------ 531 progs/tabulate
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#---------------------------------------------------------------- 534 progs/trim
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#----------------------------------------------------------------- 535 progs/ttt
+z
+0
+1
+5
+7
+2
+n
+#-------------------------------------------------------------- 536 progs/turing
+1. 1r2 1l3
+2. 1l1 1r2
+3. 1l2 1h0
+#-------------------------------------------------------------- 537 progs/unclog
+
+RCS file: /cvsroot/proj/src/main.c,v
+Working file: src/main.c
+head: 1.3
+branch:
+locks: strict
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 3;	selected revisions: 3
+description:
+----------------------------
+revision 1.3
+date: 2007/08/10 14:22:31;  author: gmt;  state: Exp;  lines: +5 -2
+fix buffer overflow in option scanner
+----------------------------
+revision 1.2
+date: 2007/08/01 09:15:02;  author: gmt;  state: Exp;  lines: +10 -1
+add option parsing
+and a usage message
+----------------------------
+revision 1.1
+date: 2007/07/20 16:00:00;  author: ralph;  state: Exp;
+branches:  1.1.1;
+Initial revision
+=============================================================================
+
+RCS file: /cvsroot/proj/src/util.c,v
+Working file: src/util.c
+head: 1.2
+branch:
+locks: strict
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 2;	selected revisions: 2
+description:
+----------------------------
+revision 1.2
+date: 2007/08/01 09:15:07;  author: gmt;  state: Exp;  lines: +3 -0
+add option parsing
+and a usage message
+----------------------------
+revision 1.1
+date: 2007/07/21 10:30:45;  author: ralph;  state: Exp;
+*** empty log message ***
+=============================================================================
+
+RCS file: /cvsroot/proj/README,v
+Working file: README
+head: 1.1
+branch:
+locks: strict
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 1;	selected revisions: 1
+description:
+----------------------------
+revision 1.1
+date: 2007/07/21 10:30:50;  author: ralph;  state: Exp;
+*** empty log message ***
+=============================================================================
+#-------------------------------------------------------------- 538 progs/unique
+alpha beta gamma
+alpha beta gamma
+delta epsilon
+zeta eta theta
+delta epsilon
+iota kappa lambda
+#-------------------------------------------------------------- 539 progs/unpack
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#------------------------------------------------------------ 541 progs/url2link
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#--------------------------------------------------------------- 543 progs/vrepl
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#------------------------------------------------------------ 545 progs/wshfdemo
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       42
+10
+50
+N
+\ No newline at end of file
+#------------------------------------------------------------- 548 progs/zipsort
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five

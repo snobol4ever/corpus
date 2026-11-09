@@ -1,0 +1,29 @@
+gprogs/cquilts	cquilts	-i	5000	-t	5000	-p	q
+gprogs/drawup	drawup	-n	twill
+gprogs/wif2isd	wif2isd	-n	small twill
+progs/adlcheck	adlcheck	-a
+progs/adlfiltr	adlfiltr	-s	ab
+progs/comfiles	comfiles	apple.txt banana.txt cherry.txt date.txt fig.txt	banana.txt date.txt elder.txt fig.txt grape.txt
+progs/crypt	crypt	Icon	plain.txt	/dev/stdout
+progs/duplproc	duplproc	.
+progs/gcomp	gcomp	beta.icn
+progs/headicon	headicon	hdr_demo	Ada Lovelace
+progs/idxtext	idxtext	idxt_base.txt
+progs/iheader	iheader	sample.icn
+progs/ineeds	ineeds	mainmod
+progs/ipatch	ipatch	ipatch_target	/opt/icon/bin/iconx
+progs/iplkwic	iplkwic	-c	25	-h	12
+progs/iplweb	iplweb	-ipl	lib
+progs/ipower	ipower	-e	10
+progs/ipsplit	ipsplit	-g	ips_globals.icn
+progs/iseq	iseq	-e	10
+progs/itags	itags	-x	itags.in
+progs/lcn	lcn	LCN_Mixed.TXT
+progs/loadmap	loadmap	-t	-d	-b	-u	-a	-c	prog.o
+progs/nocr	nocr	nocr_dos.txt
+progs/parens	parens	-v	-b	4	-l	begin 	-r	end 
+progs/shar	shar	shar_note.txt
+progs/solit	solit	seed7
+progs/what	what	what_demo.txt
+progs/xtable	xtable	-a
+progs/yescr	yescr	yescr_unix.txt
