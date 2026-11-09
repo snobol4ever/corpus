@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=145 features=29 ubiquitous=1(package) distinctive=28 core=35 clusters=59 chunks=2 sizes=100,10
+# shape: entries=144 features=29 ubiquitous=1(package) distinctive=28 core=35 clusters=58 chunks=2 sizes=100,9
 entry	part	cluster	shells
 agt_driver	chunk:01	feat:goto_success	DEFINE goto_success
 ai_driver	chunk:01	feat:ARRAY	ARRAY
@@ -126,7 +126,7 @@ sqrt_driver	chunk:01	family:sqrt_driver
 ssort_driver	chunk:01	family:ssort_driver	
 stack_driver	chunk:01	family:stack_driver	
 statef_driver	chunk:01	family:statef_driver	
-stone_driver	chunk:02	family:stone_driver	
+stone_driver	chunk:01	family:stone_driver	
 stringou_driver	chunk:01	feat:alternation	ARRAY alternation
 substr_driver	chunk:01	feat:goto_success	goto_success
 swap_driver	chunk:02	family:swap_driver	
@@ -146,4 +146,3 @@ tsort_driver	core	core	ARRAY TABLE
 tuple_driver	chunk:01	feat:DEFINE	DEFINE
 uplo_driver	chunk:02	family:uplo_driver	
 visit_driver	core	core	DATATYPE DEFINE OPSYN
-dextern_driver	chunk:01	family:dextern_driver	

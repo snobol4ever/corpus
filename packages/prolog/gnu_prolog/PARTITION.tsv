@@ -1,9 +1,8 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=62 features=1 ubiquitous=1(package) distinctive=0 core=2 clusters=2 chunks=1 sizes=60
+# shape: entries=55 features=1 ubiquitous=1(package) distinctive=0 core=2 clusters=2 chunks=1 sizes=53
 entry	part	cluster	shells
-BipsPl/all_pl_bips	core	core	
-BipsPl/all_solut	chunk:01	dir:BipsPl	
+BipsPl/all_solut	core	core	
 BipsPl/arith_inl	chunk:01	dir:BipsPl	
 BipsPl/assert	chunk:01	dir:BipsPl	
 BipsPl/atom	chunk:01	dir:BipsPl	
@@ -49,18 +48,12 @@ BipsPl/utils	chunk:01	dir:BipsPl
 BipsPl/write	chunk:01	dir:BipsPl	
 Pl2Wam/all	core	core	
 Pl2Wam/ciaolib	chunk:01	dir:Pl2Wam	
-Pl2Wam/code_gen	chunk:01	dir:Pl2Wam	
 Pl2Wam/compat	chunk:01	dir:Pl2Wam	
 Pl2Wam/first_arg	chunk:01	dir:Pl2Wam	
 Pl2Wam/indexing	chunk:01	dir:Pl2Wam	
 Pl2Wam/inst_codif	chunk:01	dir:Pl2Wam	
-Pl2Wam/internal	chunk:01	dir:Pl2Wam	
-Pl2Wam/pl2wam	chunk:01	dir:Pl2Wam	
-Pl2Wam/read_file	chunk:01	dir:Pl2Wam	
 Pl2Wam/reg_alloc	chunk:01	dir:Pl2Wam	
 Pl2Wam/sicslib	chunk:01	dir:Pl2Wam	
 Pl2Wam/swilib	chunk:01	dir:Pl2Wam	
-Pl2Wam/syn_sugar	chunk:01	dir:Pl2Wam	
-Pl2Wam/wam_emit	chunk:01	dir:Pl2Wam	
 Pl2Wam/whole	chunk:01	dir:Pl2Wam	
 Pl2Wam/yaplib	chunk:01	dir:Pl2Wam	

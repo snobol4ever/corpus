@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=514 features=37 ubiquitous=4(package format unify directive) distinctive=33 core=41 clusters=87 chunks=5 sizes=100,100,100,100,73
+# shape: entries=484 features=37 ubiquitous=4(package format unify directive) distinctive=33 core=41 clusters=66 chunks=5 sizes=100,100,100,100,43
 entry	part	cluster	shells
 100-doors-1	chunk:02	feat:between	between forall
 100-doors-2	chunk:02	feat:between	between cut forall if_then_else list_cons
@@ -29,7 +29,7 @@ anti-primes	chunk:03	feat:succ	cut if_then_else list_cons nl succ write
 append-numbers-at-same-position-in-strings	chunk:01	feat:write	list_cons write
 arbitrary-precision-integers-included--1	chunk:05	family:arbitrary-precision-integers-included	
 arithmetic-evaluation	core	core	atom dcg if_then_else list_cons number succ
-arithmetic-integer-1	chunk:05	feat:univ	univ
+arithmetic-integer-1	chunk:04	feat:univ	univ
 arrays-1	core	core	arg functor if_then_else list_cons nl
 arrays-2	core	core	arg functor nl
 arrays-3	chunk:04	feat:nl	nl
@@ -47,7 +47,7 @@ balanced-ternary-2	core	core	cut dcg forall if_then_else list_cons nonvar op var
 bell-numbers	chunk:02	feat:cut	cut list_cons
 benfords-law	chunk:03	feat:succ	between cut findall if_then_else list_cons succ
 binary-digits	chunk:05	family:binary-digits	
-bitmap-write-a-ppm-file-1	chunk:04	family:bitmap-write-a-ppm-file	
+bitmap-write-a-ppm-file-1	chunk:05	family:bitmap-write-a-ppm-file	
 bitmap	chunk:02	feat:between	between if_then_else
 box-the-compass-2	chunk:01	feat:write	cut list_cons nl write
 brace-expansion-1	chunk:03	feat:dcg	cut dcg findall forall if_then_else list_cons
@@ -151,7 +151,7 @@ faulhabers-triangle	chunk:01	feat:write	cut forall list_cons nl write
 fibonacci-sequence-1	chunk:01	feat:findall	between cut findall
 fibonacci-sequence-10	chunk:03	feat:succ	between cut findall succ
 fibonacci-sequence-11	chunk:01	feat:findall	between cut findall if_then_else list_cons
-fibonacci-sequence-3	chunk:05	feat:asserta	asserta between cut findall
+fibonacci-sequence-3	chunk:04	feat:asserta	asserta between cut findall
 fibonacci-sequence-7	chunk:04	feat:list_cons	list_cons
 fibonacci-sequence-9	chunk:02	feat:cut	cut list_cons
 filter-1	chunk:01	feat:findall	findall
@@ -346,10 +346,10 @@ pythagorean-triples	chunk:03	feat:succ	between cut findall forall succ
 quaternion-2	chunk:05	family:quaternion	
 queue-definition	chunk:03	feat:negation	if_then_else list_cons negation
 queue-usage	core	core	copy_term if_then_else list_cons negation nl write
-quine-1	chunk:05	family:quine	
-quine-2	chunk:05	feat:asserta	asserta write
+quine-1	chunk:04	family:quine	
+quine-2	chunk:04	feat:asserta	asserta write
 quine-3	chunk:01	feat:write	list_cons write
-quine-4	chunk:05	family:quine	
+quine-4	chunk:04	family:quine	
 rainbow-1	chunk:01	feat:write	nl write
 rainbow-2	chunk:05	family:rainbow	
 range-consolidation	chunk:01	feat:write	cut forall if_then_else list_cons nl write
@@ -484,35 +484,5 @@ zebra-puzzle-4	chunk:04	feat:call	call findall list_cons nl write
 zebra-puzzle-5	chunk:05	family:zebra-puzzle	
 zero-to-the-zero-power	chunk:05	family:zero-to-the-zero-power	
 zig-zag-matrix	chunk:04	feat:nl	nl
-aks-test-for-primes-2	chunk:05	family:aks-test-for-primes	
-bitmap-bresenhams-line-algorithm	chunk:05	family:bitmap-bresenhams-line-algorithm	
-bitmap-write-a-ppm-file-2	chunk:05	family:bitmap-write-a-ppm-file	
-box-the-compass-1	chunk:05	family:box-the-compass	
-bulls-and-cows-player-1	chunk:05	family:bulls-and-cows-player	
-catamorphism-3	chunk:04	family:catamorphism	
-catamorphism-4	chunk:04	family:catamorphism	
-catamorphism-5	chunk:04	family:catamorphism	
-closest-pair-problem-1	chunk:05	family:closest-pair-problem	
-concurrent-computing	chunk:05	family:concurrent-computing	
-determine-if-a-string-is-numeric-1	chunk:05	family:determine-if-a-string-is-numeric	
-function-definition-1	chunk:04	family:function-definition	
-general-fizzbuzz-2	chunk:05	family:general-fizzbuzz	
-hailstone-sequence-1	chunk:05	family:hailstone-sequence	
-hailstone-sequence-5	chunk:05	family:hailstone-sequence	
-integer-comparison-1	chunk:05	family:integer-comparison	
-middle-three-digits-1	chunk:05	family:middle-three-digits	
-morse-code-1	chunk:05	family:morse-code	
-nonogram-solver-1	chunk:05	family:nonogram-solver	
-partition-an-integer-x-into-n-primes-2	chunk:05	family:partition-an-integer-x-into-n-primes	
-quaternion-1	chunk:05	family:quaternion	
-sexy-primes-2	chunk:05	family:sexy-primes	
-sieve-of-eratosthenes-2	chunk:05	family:sieve-of-eratosthenes	
-sieve-of-eratosthenes-6	chunk:05	family:sieve-of-eratosthenes	
-solve-a-hopido-puzzle-1	chunk:05	family:solve-a-hopido-puzzle	
-sort-disjoint-sublist-1	chunk:05	family:sort-disjoint-sublist	
-spelling-of-ordinal-numbers-2	chunk:05	family:spelling-of-ordinal-numbers	
-truncatable-primes-2	chunk:05	family:truncatable-primes	
-universal-turing-machine-1	chunk:05	family:universal-turing-machine	
-variables-1	chunk:05	family:variables	
 topswops	chunk:03	feat:succ	between if_then_else list_cons succ
 arithmetic-rational	chunk:04	feat:setof	between forall list_cons setof
