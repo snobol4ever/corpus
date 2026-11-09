@@ -1,165 +1,165 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=161 features=43 ubiquitous=23(package grader cwd findall setof forall assertz catch functor copy_term call nonvar format nl cut if_then_else negation unify univ list_cons directive findall_with_var_goal catch_with_throw) distinctive=20 core=17 clusters=32 chunks=2 sizes=100,44
+# shape: entries=161 features=43 ubiquitous=6(package grader cwd nl unify directive) distinctive=37 core=23 clusters=42 chunks=2 sizes=100,38
 entry	part	cluster	shells
-GC/test_agc_copyterm	chunk:01	feat:arg	arg between
-GC/test_ch_shift	chunk:01	feat:asserta	asserta
-GC/test_cleanup_shift	chunk:02	feat:succ	succ
+GC/test_agc_copyterm	chunk:01	feat:functor	arg between cut forall functor
+GC/test_ch_shift	chunk:01	feat:asserta	asserta cut
+GC/test_cleanup_shift	chunk:02	feat:succ	catch cut format if_then_else nonvar succ
 GC/test_gc_alt_clause	chunk:02	dir:GC	
-attvar/test_attvar	chunk:01	feat:between	between
-attvar/test_call_residue_vars	chunk:01	feat:arg	arg throw var
-attvar/test_dif	chunk:02	dir:attvar	
+attvar/test_attvar	chunk:02	feat:between	between list_cons
+attvar/test_call_residue_vars	core	core	arg copy_term cut findall findall_with_var_goal if_then_else list_cons nonvar throw var
+attvar/test_dif	chunk:01	feat:list_cons	list_cons negation
 compile/test_autoload	chunk:02	dir:compile	
-core/test_acyclic	chunk:01	feat:arg	arg between
-core/test_answer	chunk:01	dir:core	
-core/test_arith	core	core	assert atom between clause number succ
-core/test_bags	chunk:01	feat:between	between
-core/test_bips	chunk:01	feat:arg	arg between clause
-core/test_body_index	chunk:02	feat:clause	clause
-core/test_call	core	core	assert assert_then_retract atom between clause op retract succ throw
-core/test_code_type	chunk:01	feat:atom	atom between
-core/test_continuation	core	core	atom compare
-core/test_copy_term	chunk:01	feat:arg	arg
-core/test_coroutining	chunk:02	feat:write	write
-core/test_dcg	chunk:01	feat:dcg	between dcg throw var
-core/test_debug	chunk:01	dir:core	
-core/test_det_decl	chunk:02	feat:clause	clause
-core/test_dict	core	core	atom bagof between var
+core/test_acyclic	chunk:01	feat:functor	arg between cut findall functor if_then_else list_cons negation univ
+core/test_answer	chunk:01	feat:format	cut forall format if_then_else
+core/test_arith	core	core	assert atom between call catch clause cut findall forall format if_then_else negation number succ
+core/test_bags	chunk:02	feat:findall	between cut findall
+core/test_bips	core	core	arg between call catch clause copy_term cut findall forall if_then_else list_cons univ
+core/test_body_index	chunk:01	feat:clause	clause cut format negation
+core/test_call	core	core	assert assert_then_retract assertz atom between call catch catch_with_throw clause cut findall functor if_then_else negation op retract succ throw
+core/test_code_type	core	core	assertz atom between cut forall format functor if_then_else setof univ
+core/test_continuation	core	core	assertz atom call compare cut forall format if_then_else list_cons negation
+core/test_copy_term	chunk:01	feat:copy_term	arg copy_term if_then_else negation
+core/test_coroutining	chunk:01	feat:write	nonvar write
+core/test_dcg	core	core	between call cut dcg if_then_else list_cons negation setof throw var
+core/test_debug	chunk:02	feat:cut	cut
+core/test_det_decl	chunk:01	feat:clause	clause cut
+core/test_dict	core	core	atom bagof between call findall forall list_cons negation var
 core/test_env	chunk:01	dir:core	
-core/test_exception	chunk:01	feat:throw	throw
-core/test_expand	chunk:01	feat:dcg	clause dcg
-core/test_factorize	chunk:01	feat:throw	throw
-core/test_fastrw	chunk:01	dir:core	
-core/test_format	chunk:01	feat:atom	atom throw
-core/test_gc	core	core	arg assert assert_then_retract between clause retract succ throw
-core/test_hash	chunk:01	dir:core	
-core/test_inflimit	chunk:01	feat:between	between
-core/test_io	core	core	var write
+core/test_exception	chunk:01	feat:throw	negation throw
+core/test_expand	chunk:01	feat:dcg	clause dcg if_then_else negation
+core/test_factorize	chunk:01	feat:copy_term	copy_term cut if_then_else list_cons throw
+core/test_fastrw	chunk:02	feat:findall	findall forall
+core/test_format	chunk:01	feat:atom	atom format throw
+core/test_gc	core	core	arg assert assert_then_retract between catch catch_with_throw clause cut forall format if_then_else negation nonvar retract succ throw
+core/test_hash	chunk:02	feat:catch	catch
+core/test_inflimit	chunk:01	feat:format	between cut forall format if_then_else
+core/test_io	chunk:01	feat:write	catch var write
 core/test_lco	chunk:01	dir:core	
-core/test_limit	core	core	abolish assert_then_retract between retract
+core/test_limit	core	core	abolish assert_then_retract assertz between forall retract
 core/test_list	chunk:01	dir:core	
-core/test_locale	chunk:01	feat:atom	atom between
-core/test_meta_predicate	chunk:01	feat:var	assert var
+core/test_locale	chunk:01	feat:atom	atom between findall format negation
+core/test_meta_predicate	chunk:01	feat:functor	assert cut functor if_then_else var
 core/test_misc	chunk:01	feat:assert_then_retract	assert assert_then_retract between retract
-core/test_moved_ubody	chunk:02	feat:clause	clause
-core/test_occurs_check	chunk:01	dir:core	
-core/test_op	chunk:02	feat:op	op
-core/test_prolog_flag	chunk:01	feat:asserta	assert_then_retract asserta between retract throw var
-core/test_prolog_listen	chunk:01	feat:asserta	assert assert_then_retract asserta retract
-core/test_qcall	chunk:02	feat:op	op
+core/test_moved_ubody	chunk:01	feat:clause	clause list_cons
+core/test_occurs_check	chunk:02	feat:catch	catch negation
+core/test_op	chunk:01	feat:op	if_then_else op
+core/test_prolog_flag	chunk:01	feat:catch_with_throw	assert_then_retract asserta assertz between call catch catch_with_throw cut findall if_then_else list_cons negation retract throw var
+core/test_prolog_listen	chunk:01	feat:asserta	assert assert_then_retract asserta cut format if_then_else list_cons negation retract
+core/test_qcall	chunk:01	feat:op	call op
 core/test_qq	chunk:01	dir:core	
-core/test_random	chunk:02	feat:succ	between succ
-core/test_read	core	core	arg assert_then_retract asserta between op retract
-core/test_read_attvar	chunk:01	feat:arg	arg
-core/test_resource_error	chunk:02	feat:assert	assert between
-core/test_scan_options	chunk:01	dir:core	
-core/test_signals	chunk:02	feat:assert	assert
-core/test_skip_list	chunk:01	dir:core	
-core/test_sort	chunk:01	dir:core	
-core/test_string	chunk:01	dir:core	
-core/test_subsumes	chunk:01	feat:var	var
-core/test_syntax	chunk:02	feat:op	op
-core/test_term	chunk:01	feat:arg	arg between clause
-core/test_text	chunk:01	feat:between	between
+core/test_random	chunk:02	feat:succ	between cut forall list_cons succ
+core/test_read	chunk:01	feat:op	arg assert_then_retract asserta assertz between call cut findall list_cons negation op retract
+core/test_read_attvar	chunk:02	feat:arg	arg
+core/test_resource_error	chunk:01	feat:catch_with_throw	assert between catch catch_with_throw cut format list_cons
+core/test_scan_options	chunk:01	feat:list_cons	list_cons
+core/test_signals	chunk:01	feat:assert	assert
+core/test_skip_list	chunk:02	feat:nonvar	list_cons nonvar
+core/test_sort	chunk:01	feat:list_cons	list_cons
+core/test_string	chunk:02	feat:if_then_else	if_then_else
+core/test_subsumes	chunk:01	feat:copy_term	copy_term negation var
+core/test_syntax	chunk:01	feat:op	cut op
+core/test_term	chunk:01	feat:functor	arg between clause cut functor list_cons univ
+core/test_text	chunk:01	feat:format	between catch cut forall format if_then_else list_cons
 core/test_time	chunk:01	dir:core	
-core/test_undo	chunk:01	feat:throw	assert throw
+core/test_undo	chunk:01	feat:catch_with_throw	assert catch catch_with_throw negation throw
 core/test_unicode	chunk:01	dir:core	
-core/test_unify	chunk:01	feat:between	between
-core/test_varprops	chunk:01	dir:core	
-core/test_write	core	core	atom dcg op throw write write_canonical writeq
-db/test_abolish	chunk:02	feat:abolish	abolish asserta between
-db/test_cgc	chunk:01	feat:assert_then_retract	assert assert_then_retract between retract
-db/test_db	core	core	abolish assert assert_then_retract between clause retract succ
-db/test_dbref	chunk:02	feat:assert	assert
-db/test_jit	chunk:02	feat:clause	assert_then_retract between clause retract var
-db/test_module	chunk:02	feat:clause	assert clause
-debug/test_d_break	core	core	assert assert_then_retract asserta between clause retract var
-debug/test_interrupt	chunk:01	feat:throw	between throw
-engines/test_engines	chunk:01	feat:throw	between throw
-files/test_file_names	core	core	assert assert_then_retract asserta atom between dcg op retract throw var
-files/test_files	chunk:02	feat:write	between write
-files/test_glob	chunk:02	dir:files	
-files/test_pipe	chunk:01	feat:atom	atom between var
-library/test_aggregate	chunk:01	feat:between	between
-library/test_ansi_term	chunk:01	dir:library	
-library/test_apply	chunk:02	feat:succ	succ
-library/test_arithfunc	chunk:01	feat:throw	throw
-library/test_assoc	chunk:01	dir:library	
-library/test_csv	chunk:01	dir:library	
-library/test_date	chunk:01	feat:atom	assert atom var
-library/test_dcg_high_order	chunk:01	feat:dcg	dcg
-library/test_error	chunk:01	dir:library	
-library/test_evaluable_property	chunk:01	dir:library	
-library/test_hash_table	chunk:01	dir:library	
-library/test_intercept	chunk:01	feat:var	assert assert_then_retract between retract var
-library/test_lazy_lists	chunk:01	feat:arg	arg
+core/test_unify	chunk:01	feat:copy_term	between copy_term cut findall if_then_else list_cons
+core/test_varprops	chunk:01	feat:format	cut format negation
+core/test_write	core	core	atom dcg format if_then_else list_cons op throw write write_canonical writeq
+db/test_abolish	chunk:02	feat:abolish	abolish asserta between forall
+db/test_cgc	chunk:01	feat:assert_then_retract	assert assert_then_retract between catch cut if_then_else retract
+db/test_db	core	core	abolish assert assert_then_retract assertz between catch clause cut findall findall_with_var_goal forall functor if_then_else negation retract succ univ
+db/test_dbref	chunk:01	feat:assert	assert negation
+db/test_jit	chunk:01	feat:clause	assert_then_retract assertz between call clause cut findall forall if_then_else list_cons negation retract var
+db/test_module	chunk:01	feat:clause	assert clause if_then_else
+debug/test_d_break	core	core	assert assert_then_retract asserta assertz between call catch clause cut findall forall format if_then_else list_cons negation nonvar retract var
+debug/test_interrupt	chunk:01	feat:throw	between if_then_else throw
+engines/test_engines	chunk:01	feat:catch_with_throw	between catch catch_with_throw cut findall_with_var_goal forall format if_then_else list_cons negation throw
+files/test_file_names	core	core	assert assert_then_retract asserta atom between call catch catch_with_throw cut dcg findall forall format if_then_else list_cons op retract throw var
+files/test_files	core	core	assertz between call findall format if_then_else negation write
+files/test_glob	chunk:01	feat:format	catch format if_then_else
+files/test_pipe	chunk:02	feat:nonvar	atom between catch cut forall format if_then_else list_cons negation nonvar var
+library/test_aggregate	chunk:02	feat:between	between cut list_cons
+library/test_ansi_term	chunk:02	feat:cut	cut
+library/test_apply	chunk:02	feat:succ	call findall findall_with_var_goal succ
+library/test_arithfunc	chunk:01	feat:throw	cut throw
+library/test_assoc	chunk:01	feat:list_cons	cut if_then_else list_cons negation
+library/test_csv	chunk:02	feat:findall	findall
+library/test_date	chunk:01	feat:atom	assert atom catch forall format if_then_else negation var
+library/test_dcg_high_order	chunk:01	feat:dcg	dcg forall if_then_else
+library/test_error	chunk:01	feat:list_cons	list_cons
+library/test_evaluable_property	chunk:02	feat:forall	forall
+library/test_hash_table	chunk:01	feat:format	cut format if_then_else list_cons negation
+library/test_intercept	chunk:01	feat:var	assert assert_then_retract between cut findall forall retract var
+library/test_lazy_lists	chunk:02	feat:arg	arg cut forall if_then_else list_cons
 library/test_lists	chunk:01	dir:library	
 library/test_main	chunk:01	feat:atom	atom between
 library/test_option	chunk:01	dir:library	
-library/test_ordsets	chunk:01	dir:library	
-library/test_pio	chunk:01	feat:dcg	between dcg
-library/test_prolog_clause	chunk:02	feat:clause	atom clause
-library/test_prolog_colour	chunk:01	feat:asserta	asserta
-library/test_rbtrees	core	core	bagof
+library/test_ordsets	chunk:01	feat:list_cons	list_cons
+library/test_pio	chunk:01	feat:dcg	between cut dcg format if_then_else list_cons negation
+library/test_prolog_clause	chunk:01	feat:clause	atom clause
+library/test_prolog_colour	chunk:01	feat:asserta	asserta cut
+library/test_rbtrees	core	core	bagof cut findall format if_then_else negation
 library/test_record	chunk:01	dir:library	
 library/test_settings	chunk:01	dir:library	
-library/test_solution_sequences	chunk:01	feat:between	between
-library/test_source_info	chunk:01	feat:dcg	arg atom clause dcg
+library/test_solution_sequences	chunk:02	feat:between	between
+library/test_source_info	chunk:01	feat:dcg	arg atom clause cut dcg findall findall_with_var_goal if_then_else list_cons nonvar
 library/test_strings	chunk:01	dir:library	
-library/test_thread	chunk:01	feat:throw	between throw
-library/test_thread_pool	chunk:01	feat:assert_then_retract	assert assert_then_retract between retract
-library/test_tmp_module	chunk:01	feat:atom	atom between
+library/test_thread	chunk:01	feat:throw	between forall negation throw
+library/test_thread_pool	chunk:01	feat:setof	assert assert_then_retract between findall list_cons negation retract setof
+library/test_tmp_module	chunk:01	feat:atom	atom between call cut forall format negation
 library/test_ugraphs	chunk:01	dir:library	
-library/test_unit	chunk:01	feat:assert_then_retract	assert_then_retract retract
-library/test_utf8	chunk:01	feat:var	var
+library/test_unit	chunk:01	feat:assertz	assert_then_retract assertz retract
+library/test_utf8	chunk:01	feat:var	forall list_cons var
 library/test_varnumbers	chunk:01	feat:var	var
 library/test_versions	chunk:01	dir:library	
-library/test_when	chunk:01	dir:library	
-library/test_yall	chunk:01	dir:library	
-rational/test_ieee754	chunk:01	feat:dcg	dcg
-rational/test_rational	core	core	atom between number var write
-rational/test_real	chunk:02	dir:rational	
-save/test_qlf	chunk:02	dir:save	
-save/test_saved_states	chunk:01	feat:dcg	asserta atom dcg
-signals/test_bomb	chunk:01	feat:assert_then_retract	assert assert_then_retract between retract
-tabling/test_answer_subsumption	chunk:01	dir:tabling	
-tabling/test_incr_answer_subsumption	chunk:01	dir:tabling	
-tabling/test_monotonic	chunk:01	feat:asserta	assert assert_then_retract asserta between retract
-tabling/test_monotonic_lazy	chunk:01	feat:asserta	assert assert_then_retract asserta retract
-tabling/test_reeval	chunk:01	feat:asserta	assert assert_then_retract asserta retract
-tabling/test_shared_units	chunk:02	feat:assert	assert
-tabling/test_tabled_shortest_path	chunk:02	dir:tabling	
-tabling/test_tabling	chunk:01	feat:dcg	between dcg
-tabling/test_transact_incr	chunk:02	dir:tabling	
-tabling/test_transact_mono	chunk:01	feat:assert_then_retract	assert_then_retract retract
-tabling/test_transact_mono_lazy	chunk:01	feat:assert_then_retract	assert assert_then_retract retract
-tabling/test_trie	chunk:02	dir:tabling	
-tabling/test_trie_attvars	chunk:01	feat:var	var
+library/test_when	chunk:01	feat:copy_term	call copy_term
+library/test_yall	chunk:01	feat:setof	call if_then_else list_cons setof
+rational/test_ieee754	chunk:01	feat:dcg	call catch cut dcg if_then_else list_cons negation
+rational/test_rational	core	core	atom between catch forall functor list_cons negation nonvar number univ var write
+rational/test_real	chunk:02	feat:call	call catch list_cons
+save/test_qlf	chunk:02	feat:univ	call catch findall findall_with_var_goal if_then_else list_cons negation univ
+save/test_saved_states	chunk:01	feat:dcg	asserta atom catch cut dcg format if_then_else list_cons negation
+signals/test_bomb	core	core	assert assert_then_retract between call catch copy_term cut if_then_else retract univ
+tabling/test_answer_subsumption	chunk:02	feat:if_then_else	if_then_else
+tabling/test_incr_answer_subsumption	chunk:01	feat:findall_with_var_goal	assertz cut findall findall_with_var_goal forall negation
+tabling/test_monotonic	core	core	assert assert_then_retract asserta between cut findall findall_with_var_goal forall if_then_else list_cons negation retract setof
+tabling/test_monotonic_lazy	core	core	assert assert_then_retract asserta assertz call cut findall findall_with_var_goal forall format if_then_else negation retract
+tabling/test_reeval	chunk:01	feat:setof	assert assert_then_retract asserta findall findall_with_var_goal forall retract setof
+tabling/test_shared_units	chunk:01	feat:assert	assert findall
+tabling/test_tabled_shortest_path	chunk:01	feat:list_cons	list_cons
+tabling/test_tabling	chunk:01	feat:dcg	between catch cut dcg findall findall_with_var_goal if_then_else list_cons negation nonvar
+tabling/test_transact_incr	chunk:01	feat:findall_with_var_goal	assertz cut findall findall_with_var_goal forall negation
+tabling/test_transact_mono	chunk:01	feat:findall_with_var_goal	assert_then_retract assertz cut findall findall_with_var_goal forall negation retract
+tabling/test_transact_mono_lazy	chunk:01	feat:findall_with_var_goal	assert assert_then_retract assertz cut findall findall_with_var_goal forall if_then_else negation retract
+tabling/test_trie	chunk:01	feat:copy_term	catch copy_term findall forall negation nonvar setof
+tabling/test_trie_attvars	chunk:01	feat:var	call catch cut var
 tabling/test_wfs	chunk:02	dir:tabling	
-thread/queue_gc	chunk:01	feat:between	between
-thread/queue_select	chunk:01	feat:between	between
-thread/queue_timeout	chunk:02	dir:thread	
-thread/test_dynamic	chunk:01	feat:between	between
-thread/test_libthread	chunk:01	feat:between	between
-thread/test_rwlocks	chunk:02	dir:thread	
-thread/test_thread_exit	chunk:02	dir:thread	
-thread/test_threads	chunk:01	feat:throw	throw
-thread_wait/test_functor_cache	chunk:02	feat:assert	assert
-thread_wait/test_thread_signals	core	core	arg assert assert_then_retract between dcg number retract throw var
-thread_wait/test_thread_wait	chunk:01	feat:assert_then_retract	assert assert_then_retract retract
-transaction/test_transaction_deadlock	core	core	abolish assert assert_then_retract asserta retract
-transaction/test_transaction_tabling	chunk:01	feat:assert_then_retract	assert_then_retract retract
-transaction/test_transactions	core	core	assert assert_then_retract asserta op retract throw var
-unprotected/test_reload	chunk:01	feat:asserta	assert assert_then_retract asserta clause retract
-unprotected/test_sandbox	chunk:02	feat:assert	assert between
+thread/queue_gc	chunk:02	feat:call	between call cut findall forall format if_then_else negation
+thread/queue_select	chunk:01	feat:copy_term	between copy_term cut forall list_cons
+thread/queue_timeout	chunk:02	feat:negation	negation
+thread/test_dynamic	chunk:02	feat:assertz	assertz between forall negation
+thread/test_libthread	chunk:01	feat:setof	between findall if_then_else negation setof
+thread/test_rwlocks	chunk:02	feat:assertz	assertz catch findall format if_then_else negation
+thread/test_thread_exit	chunk:02	feat:cut	cut
+thread/test_threads	chunk:01	feat:catch_with_throw	catch catch_with_throw cut findall if_then_else throw
+thread_wait/test_functor_cache	chunk:01	feat:assert	assert
+thread_wait/test_thread_signals	core	core	arg assert assert_then_retract assertz between call catch catch_with_throw cut dcg findall forall format if_then_else list_cons negation number retract throw var
+thread_wait/test_thread_wait	chunk:01	feat:assert_then_retract	assert assert_then_retract call negation retract
+transaction/test_transaction_deadlock	core	core	abolish assert assert_then_retract asserta cut retract
+transaction/test_transaction_tabling	chunk:01	feat:setof	assert_then_retract assertz negation retract setof
+transaction/test_transactions	core	core	assert assert_then_retract asserta assertz call catch catch_with_throw cut findall if_then_else list_cons negation op retract throw var
+unprotected/test_reload	chunk:01	feat:asserta	assert assert_then_retract asserta call catch clause cut findall forall format if_then_else list_cons negation retract
+unprotected/test_sandbox	chunk:01	feat:setof	assert between forall setof
 xsb/ai_tests/xsb_test_ai	chunk:02	dir:xsb/ai_tests	
-xsb/attv_tests/xsb_test_attv	chunk:02	dir:xsb/attv_tests	
-xsb/basic_tests/xsb_test_basics	chunk:02	feat:write	write
+xsb/attv_tests/xsb_test_attv	chunk:01	feat:list_cons	list_cons
+xsb/basic_tests/xsb_test_basics	chunk:01	feat:write	write
 xsb/delay_tests/xsb_test_delay	chunk:02	dir:xsb/delay_tests	
-xsb/incremental_tests/xsb_test_incremental	chunk:02	dir:xsb/incremental_tests	
+xsb/incremental_tests/xsb_test_incremental	chunk:02	feat:if_then_else	if_then_else
 xsb/neg_tests/xsb_test_neg	chunk:02	dir:xsb/neg_tests	
 xsb/nonmt_tests/xsb_test_nonmt	chunk:02	dir:xsb/nonmt_tests	
-xsb/ptq/xsb_test_ptq	chunk:01	feat:var	var
+xsb/ptq/xsb_test_ptq	chunk:01	feat:var	call cut var
 xsb/sub_tests/xsb_test_sub	chunk:02	dir:xsb/sub_tests	
 xsb/table_tests/xsb_test_tables	chunk:02	dir:xsb/table_tests	
-xsb/wfs_tests/xsb_test_wfs	chunk:02	feat:write	write
+xsb/wfs_tests/xsb_test_wfs	chunk:01	feat:write	call cut if_then_else list_cons write
