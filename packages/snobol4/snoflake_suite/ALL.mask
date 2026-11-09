@@ -1,0 +1,3 @@
+# ALL.mask -- CEO-409 line masks for Flake, declared beside the data (FORMAT: entry<TAB>python-regex<TAB>reason). Read by corpus_suite_harness.py read_mask_sidecar()/masks_for().
+# coo 2026-11-09 09:0x CST on Lon's word ("Add test masking for expected test differences for Flake"): COLLECT() returns the free storage, an implementation-defined amount.
+collect-and-locals	^FREE SPACE BEFORE: [0-9]+$	COLLECT() returns free storage, implementation-defined: sbl -bf prints 129474, SCRIP 1029824 (MEASURED 2026-11-09, SCRIP a0c824ce6); the line must still print
