@@ -1,0 +1,22 @@
+global M
+procedure lock(m);
+   return 0 + (M[m] +:= 1);
+end
+procedure unlock(m);
+   return 0 + (M[m] -:= 1);
+end
+procedure g();
+   critical "a": {
+      suspend 1;
+      critical "b": {
+         suspend 2
+      }
+   };
+   write("g ends a=", M["a"], " b=", M["b"]);
+end
+procedure main();
+   local x;
+   M := table(0);
+   every x := g() do write("got ", x, " a=", M["a"], " b=", M["b"]);
+   write("end a=", M["a"], " b=", M["b"]);
+end
