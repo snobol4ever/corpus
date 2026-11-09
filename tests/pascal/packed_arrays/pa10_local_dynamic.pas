@@ -10,6 +10,6 @@ end;
 function q: longint;
 var b: array of byte; i: longint;
 begin
-  setlength(b, 10000000); for i := 0 to 9 do b[i * 1000000] := i + 250; q := b[9000000] + b[1000000];
+  setlength(b, 1000000); for i := 0 to 9 do b[i * 100000] := i + 250; q := b[900000] + b[100000];
 end;
-begin p(10000000); p(10000000); writeln(q); end.
+begin p(1000000); p(1000000); writeln(q); end.
