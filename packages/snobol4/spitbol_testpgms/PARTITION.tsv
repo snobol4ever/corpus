@@ -1,12 +1,12 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=8 features=1 ubiquitous=1(package) distinctive=0 core=1 clusters=1 chunks=1 sizes=7
+# shape: entries=8 features=39 ubiquitous=7(package DEFINE TRIM cond_assign goto_fail goto_success arith) distinctive=32 core=7 clusters=1 chunks=1 sizes=1
 entry	part	cluster	shells
-test1	core	core	
-test2	chunk:01	family:test	
-test3	chunk:01	family:test	
-test4	chunk:01	family:test	
-test5	chunk:01	family:test	
-test6	chunk:01	family:test	
-test7	chunk:01	family:test	
-test8	chunk:01	family:test	
+test1	core	core	ANY APPLY ARRAY BAL CONVERT DATATYPE DUPL EVAL OPSYN REPLACE SIZE TABLE alternation capture_plus_defer deferred_eval keyword_ref
+test2	core	core	ANY ARB BREAK LEN NOTANY POS REM RPOS RTAB SPAN TAB alternation capture_plus_defer deferred_eval imm_assign keyword_ref want_rc
+test3	core	core	ARRAY SIZE TABLE
+test4	core	core	ANY BREAK FENCE REM RPOS SPAN alternation capture_plus_defer deferred_eval fence_guarded_fail keyword_ref
+test5	chunk:01	feat:ARRAY	ARRAY indirect_ref
+test6	core	core	ARRAY BREAK LEN OPSYN indirect_ref keyword_ref
+test7	core	core	CODE LEN NOTANY POS RPOS TABLE indirect_ref
+test8	core	core	ARB BREAK LEN RPOS SIZE indirect_ref

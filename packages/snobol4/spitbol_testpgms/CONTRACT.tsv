@@ -1,0 +1,1 @@
+stdin	testpgms.in	PROVENANCE.md: the four SPITBOL diagnostic programs read one shared data file testpgms.in on stdin; only test6 has its own stem-named test6.in (officer_04 ruling c, 2026-11-09, measured: test4, test5 and test7 change on testpgms.in)
