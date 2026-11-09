@@ -1,40 +1,36 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=36 features=1 ubiquitous=1(package) distinctive=0 core=3 clusters=30 chunks=1 sizes=33
+# shape: entries=32 features=22 ubiquitous=1(package) distinctive=21 core=11 clusters=16 chunks=1 sizes=21
 entry	part	cluster	shells
-arcget	core	core	
-arcput	core	core	
-cfreq	core	core	
-def	chunk:01	family:def	
-float	chunk:01	family:float	
-gcbuster	chunk:01	family:gcbuster	
+arcput	core	core	TRIM alternation keyword_ref
+def	core	core	REPLACE TAB TRIM indirect_ref
+gcbuster	chunk:01	feat:keyword_ref	arith keyword_ref
 hello	chunk:01	family:hello	
 host	chunk:01	family:host	
-lower	chunk:01	family:lower	
-map-x64	chunk:01	family:map-x	
-math_atan	chunk:01	family:math_atan	
-math_chop	chunk:01	family:math_chop	
-math_cos	chunk:01	family:math_cos	
+lower	core	core	REPLACE TRIM keyword_ref
+map-x64	core	core	ANY ARRAY BREAK DEFINE LEN REM SIZE TABLE TRIM arith cond_assign keyword_ref
+math_atan	core	core	OPSYN
+math_chop	chunk:01	feat:OPSYN	OPSYN
+math_cos	chunk:01	feat:OPSYN	OPSYN
 math_diff	chunk:01	family:math_diff	
 math_div	chunk:01	family:math_div	
-math_exp	chunk:01	family:math_exp	
-math_limits1	chunk:01	family:math_limits	
-math_limits2	chunk:01	family:math_limits	
-math_limits3	chunk:01	family:math_limits	
-math_limits4	chunk:01	family:math_limits	
-math_ln	chunk:01	family:math_ln	
+math_exp	chunk:01	feat:OPSYN	OPSYN
+math_limits1	core	core	DEFINE EVAL LEN POS RPOS arith
+math_limits2	core	core	DEFINE EVAL LEN POS RPOS arith
+math_limits3	core	core	DEFINE EVAL LEN POS RPOS arith
+math_limits4	chunk:01	feat:POS	DEFINE EVAL LEN POS RPOS arith
+math_ln	chunk:01	feat:OPSYN	OPSYN
 math_minus	chunk:01	family:math_minus	
 math_plus	chunk:01	family:math_plus	
 math_pow	chunk:01	family:math_pow	
 math_prod	chunk:01	family:math_prod	
-math_read	chunk:01	family:math_read	
+math_read	core	core	EVAL OPSYN
 math_remdr	chunk:01	family:math_remdr	
-math_sin	chunk:01	family:math_sin	
-math_sqrt	chunk:01	family:math_sqrt	
+math_sin	chunk:01	feat:OPSYN	OPSYN
+math_sqrt	chunk:01	feat:OPSYN	OPSYN
 math_sum	chunk:01	family:math_sum	
-math_tan	chunk:01	family:math_tan	
-module	chunk:01	family:module	
+math_tan	core	core	OPSYN arith
 save	chunk:01	family:save	
-setexit	chunk:01	family:setexit	
+setexit	core	core	ABORT EVAL keyword_ref
 sv	chunk:01	family:sv	
-trim	chunk:01	family:trim	
+trim	chunk:01	feat:TRIM	TRIM
