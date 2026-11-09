@@ -1,0 +1,393 @@
+# ISO_EXPECTED_REFUSALS.tsv -- written by util_build_package_suite.py under units iso-rejection (CIO-16): entry<TAB>what the refusal must name
+iso7185prt0001	line 9
+iso7185prt0002	line 7
+iso7185prt0003	line 7
+iso7185prt0006	line 11
+iso7185prt0007	line 7 11
+iso7185prt0008	line 7 11
+iso7185prt0009	line 7 9 11
+iso7185prt0010	line 7 11
+iso7185prt0011	line 7 11
+iso7185prt0012	line 7
+iso7185prt0013	line 9
+iso7185prt0014	line 11
+iso7185prt0015	line 9
+iso7185prt0016	line 9
+iso7185prt0017	line 9
+iso7185prt0018	line 9
+iso7185prt0019	line 9
+iso7185prt0020	line 9
+iso7185prt0021	line 10
+iso7185prt0022	line 9
+iso7185prt0023	line 10 14
+iso7185prt0024	line 11
+iso7185prt0025	line 9
+iso7185prt0026	line 9
+iso7185prt0027	line 9
+iso7185prt0028	line 9
+iso7185prt0029	line 10
+iso7185prt0030	line 10 13
+iso7185prt0031	line 11
+iso7185prt0032	line 9
+iso7185prt0033	line 9
+iso7185prt0034	line 9
+iso7185prt0035	line 9
+iso7185prt0036	line 9
+iso7185prt0037	line 9
+iso7185prt0038	line 10
+iso7185prt0039	line 10 14
+iso7185prt0040	line 11
+iso7185prt0041	line 9 11
+iso7185prt0042	line 9
+iso7185prt0043	line 9
+iso7185prt0044	line 9
+iso7185prt0045	line 9 15
+iso7185prt0046	line 11
+iso7185prt0047	line 9 15
+iso7185prt0048	line 9 15
+iso7185prt0049	line 9
+iso7185prt0050	line 9 11
+iso7185prt0051	line 9 11
+iso7185prt0052	line 9
+iso7185prt0053	line 9
+iso7185prt0054	line 11 18
+iso7185prt0055	line 11 17
+iso7185prt0056	line 9 10
+iso7185prt0057	line 10
+iso7185prt0100	line 11
+iso7185prt0101	line 15
+iso7185prt0102	line 11
+iso7185prt0103	line 13 15
+iso7185prt0104	line 21
+iso7185prt0105	line 17 18
+iso7185prt0106	line 11 13 17 18
+iso7185prt0107	line 15
+iso7185prt0108	line 15 17
+iso7185prt0109	line 11 13
+iso7185prt0110	line 11 13
+iso7185prt0111	line 13
+iso7185prt0112	line 13 15
+iso7185prt0113	line 13 15
+iso7185prt0114	line 13
+iso7185prt0115	line 13 16 20 21
+iso7185prt0116	line 13 16 20 21
+iso7185prt0117	line 13
+iso7185prt0118	line 15
+iso7185prt0119	line 13 15
+iso7185prt0120	line 15
+iso7185prt0121	line 15
+iso7185prt0122	line 15
+iso7185prt0123	line 16
+iso7185prt0124	line 18
+iso7185prt0125	line 18 20
+iso7185prt0126	line 13 15
+iso7185prt0127	line 13
+iso7185prt0128	line 13
+iso7185prt0129	line 13 15
+iso7185prt0130	line 13 15
+iso7185prt0131	line 13
+iso7185prt0132	line 13 15
+iso7185prt0133	line 13 15
+iso7185prt0134	line 15
+iso7185prt0135	line 13
+iso7185prt0136	line 13
+iso7185prt0137	line 13
+iso7185prt0138	line 13
+iso7185prt0139	line 13
+iso7185prt0140	line 13
+iso7185prt0141	line 13
+iso7185prt0142	line 13
+iso7185prt0143	line 13
+iso7185prt0144	line 13
+iso7185prt0145	line 13 15
+iso7185prt0146	line 13 15
+iso7185prt0147	line 13
+iso7185prt0148	line 13
+iso7185prt0149	line 14
+iso7185prt0150	line 14
+iso7185prt0151	line 15
+iso7185prt0152	line 13
+iso7185prt0153	line 15
+iso7185prt0154	line 15
+iso7185prt0155	line 15
+iso7185prt0156	line 15
+iso7185prt0157	line 14
+iso7185prt0200	line 9
+iso7185prt0201	line 9
+iso7185prt0202	line 9
+iso7185prt0203	line 9
+iso7185prt0204	line 9
+iso7185prt0205	line 10 15
+iso7185prt0206	line 10 12
+iso7185prt0207	line 10
+iso7185prt0208	line 10 13
+iso7185prt0209	line 10
+iso7185prt0210	line 11
+iso7185prt0211	line 10 11 12 13
+iso7185prt0212	line 11 12 13
+iso7185prt0213	line 13
+iso7185prt0214	line 13 15
+iso7185prt0215	line 13
+iso7185prt0216	line 13
+iso7185prt0217	line 13
+iso7185prt0218	line 14 15
+iso7185prt0219	line 15 16 17 24
+iso7185prt0220	line 15 16
+iso7185prt0221	line 9
+iso7185prt0222	line 13 15
+iso7185prt0300	line 9 12 14
+iso7185prt0301	line 9
+iso7185prt0302	line 9
+iso7185prt0303	line 9 13 15 17
+iso7185prt0304	line 9
+iso7185prt0305	line 9 15
+iso7185prt0306	line 9
+iso7185prt0400	line 9 13 14 15
+iso7185prt0401	line 9 13
+iso7185prt0402	line 9
+iso7185prt0403	line 9
+iso7185prt0404	line 9
+iso7185prt0405	line 9
+iso7185prt0406	line 9
+iso7185prt0407	line 9
+iso7185prt0408	line 9
+iso7185prt0500	line 9
+iso7185prt0501	line 9
+iso7185prt0502	line 9 13
+iso7185prt0503	line 9
+iso7185prt0504	line 9
+iso7185prt0505	line 9
+iso7185prt0506	line 9
+iso7185prt0507	line 9
+iso7185prt0508	line 9
+iso7185prt0509	line 9
+iso7185prt0510	line 9
+iso7185prt0511	line 9
+iso7185prt0512	line 9 15
+iso7185prt0513	line 9
+iso7185prt0514	line 9
+iso7185prt0515	line 9
+iso7185prt0516	line 9
+iso7185prt0517	line 9
+iso7185prt0518	line 9
+iso7185prt0519	line 9
+iso7185prt0520	line 9
+iso7185prt0521	line 11
+iso7185prt0522	line 9 11
+iso7185prt0600	line 9
+iso7185prt0601	line 9 19
+iso7185prt0602	line 9 19
+iso7185prt0603	line 9 14 20
+iso7185prt0604	line 9
+iso7185prt0605	line 9
+iso7185prt0606	line 11 18
+iso7185prt0607	line 11
+iso7185prt0608	line 9 15 21
+iso7185prt0700	line 13 15
+iso7185prt0701	line 13
+iso7185prt0702	line 15
+iso7185prt0703	line 13
+iso7185prt0704	line 15
+iso7185prt0705	line 13
+iso7185prt0706	line 15
+iso7185prt0707	line 13
+iso7185prt0708	line 15
+iso7185prt0709	line 13
+iso7185prt0710	line 15
+iso7185prt0711	line 13
+iso7185prt0712	line 15
+iso7185prt0713	line 15
+iso7185prt0714	line 13
+iso7185prt0715	line 13
+iso7185prt0716	line 13
+iso7185prt0717	line 13
+iso7185prt0800	line 20 22
+iso7185prt0801	line 20
+iso7185prt0802	line 20 22
+iso7185prt0803	line 20
+iso7185prt0804	line 20
+iso7185prt0805	line 22
+iso7185prt0900	line 12
+iso7185prt0901	line 12
+iso7185prt0902	line 12
+iso7185prt0903	line 12
+iso7185prt0904	line 12
+iso7185prt0905	line 12
+iso7185prt0906	line 12
+iso7185prt0907	line 12
+iso7185prt0908	line 14
+iso7185prt1000	line 13
+iso7185prt1001	line 13
+iso7185prt1002	line 13
+iso7185prt1003	line 15
+iso7185prt1004	line 13 15
+iso7185prt1006	line 13 15
+iso7185prt1007	line 13 15
+iso7185prt1008	line 13 15
+iso7185prt1009	line 13 15
+iso7185prt1010	line 13 15
+iso7185prt1100	line 13
+iso7185prt1101	line 15
+iso7185prt1102	line 14
+iso7185prt1103	line 16
+iso7185prt1104	line 13
+iso7185prt1105	line 15
+iso7185prt1106	line 13
+iso7185prt1107	line 15
+iso7185prt1108	line 13
+iso7185prt1109	line 15
+iso7185prt1200	line 15
+iso7185prt1201	line 15
+iso7185prt1203	line 15
+iso7185prt1205	line 15
+iso7185prt1206	line 13
+iso7185prt1207	line 15
+iso7185prt1300	line 13
+iso7185prt1400	line 14
+iso7185prt1401	line 14 16
+iso7185prt1402	line 14
+iso7185prt1403	line 14
+iso7185prt1404	line 14
+iso7185prt1405	line 14 16
+iso7185prt1406	line 16
+iso7185prt1407	line 16
+iso7185prt1500	line 13
+iso7185prt1501	line 13 15
+iso7185prt1502	line 13
+iso7185prt1503	line 13
+iso7185prt1504	line 14
+iso7185prt1505	line 13 15
+iso7185prt1506	line 13 15
+iso7185prt1507	line 13 15
+iso7185prt1508	line 14
+iso7185prt1600	line 11 13
+iso7185prt1620	line 16
+iso7185prt1621	line 11
+iso7185prt1701	line 18
+iso7185prt1702A	clause 6.5.3.3
+iso7185prt1702b	clause 6.5.3.3
+iso7185prt1703	clause 6.5.4
+iso7185prt1704	clause 6.5.4
+iso7185prt1705	clause 6.5.4
+iso7185prt1706a	clause 6.5.5
+iso7185prt1706b	clause 6.5.5
+iso7185prt1707a	line 23
+iso7185prt1707b	line 17
+iso7185prt1708	clause 6.6.3.2
+iso7185prt1709	clause 6.6.5.2
+iso7185prt1710	clause 6.6.5.2
+iso7185prt1712	clause 6.6.5.2
+iso7185prt1713	clause 6.6.5.2
+iso7185prt1714	clause 6.6.5.2
+iso7185prt1715	clause 6.6.5.2
+iso7185prt1716	clause 6.6.5.2
+iso7185prt1717	line 20
+iso7185prt1718	line 20
+iso7185prt1719	clause 6.6.5.3
+iso7185prt1720	clause 6.6.5.3
+iso7185prt1721	clause 6.6.5.3
+iso7185prt1722	clause 6.6.5.3
+iso7185prt1723	clause 6.6.5.3
+iso7185prt1724	clause 6.6.5.3
+iso7185prt1726	line 21
+iso7185prt1727	clause 6.6.5.4
+iso7185prt1728	clause 6.6.5.4
+iso7185prt1729	line 20
+iso7185prt1730	clause 6.6.5.4
+iso7185prt1731	clause 6.6.5.4
+iso7185prt1732	clause 6.6.6.2
+iso7185prt1733	clause 6.6.5.2
+iso7185prt1734	clause 6.6.5.2
+iso7185prt1735	clause 6.6.5.3
+iso7185prt1736	clause 6.6.5.3
+iso7185prt1737	clause 6.6.5.3
+iso7185prt1738	clause 6.6.6.4
+iso7185prt1739	clause 6.6.6.4
+iso7185prt1740	clause 6.6.6.5
+iso7185prt1741	clause 6.6.6.5
+iso7185prt1744	clause 6.7.2.2
+iso7185prt1745	clause 6.7.2.2
+iso7185prt1746A	clause 6.7.2.2
+iso7185prt1746b	clause 6.7.2.2
+iso7185prt1748	line 18
+iso7185prt1749	line 19
+iso7185prt1750	clause 6.8.2.2
+iso7185prt1751	clause 6.8.3.5
+iso7185prt1752	line 18
+iso7185prt1753	line 18
+iso7185prt1754	clause 6.9.1
+iso7185prt1755	clause 6.9.1
+iso7185prt1756	clause 6.9.1
+iso7185prt1757	clause 6.9.1
+iso7185prt1759	line 13
+iso7185prt1760	line 12 16 20
+iso7185prt1761	line 17
+iso7185prt1762	line 15 16
+iso7185prt1763	line 15 16
+iso7185prt1764	line 15 16
+iso7185prt1765	line 17 18
+iso7185prt1767	line 10
+iso7185prt1801	line 20
+iso7185prt1802	line 28
+iso7185prt1803	line 24
+iso7185prt1804	line 21
+iso7185prt1805	line 26
+iso7185prt1806	line 34
+iso7185prt1807	line 29
+iso7185prt1808	line 17
+iso7185prt1809	line 15
+iso7185prt1810	line 20
+iso7185prt1820	line 30
+iso7185prt1821	line 12
+iso7185prt1822	line 12
+iso7185prt1823	line 23
+iso7185prt1824	line 17
+iso7185prt1825	line 20
+iso7185prt1826	line 11
+iso7185prt1827	line 18
+iso7185prt1829	line 24
+iso7185prt1830	line 22
+iso7185prt1831	line 22
+iso7185prt1832	line 20
+iso7185prt1833	line 28
+iso7185prt1835	line 22
+iso7185prt1836	line 21
+iso7185prt1837	line 13
+iso7185prt1838	line 11
+iso7185prt1841	line 11
+iso7185prt1842	line 21
+iso7185prt1843	line 28
+iso7185prt1844	line 28
+iso7185prt1845	line 20 24 30
+iso7185prt1846	line 11
+iso7185prt1848	line 28
+iso7185prt1849	line 37
+iso7185prt1853	line 12
+iso7185prt1854	line 17
+iso7185prt1855	line 21
+iso7185prt1856	line 15
+iso7185prt1857	line 17
+iso7185prt1858	line 15
+iso7185prt1859	line 15
+iso7185prt1861	line 39
+iso7185prt1862	line 34
+iso7185prt1863	line 36
+iso7185prt1881	line 11
+iso7185prt1882	line 11
+iso7185prt1900	line 13
+iso7185prt1901	line 17
+iso7185prt1902	line 24
+iso7185prt1903	line 23
+iso7185prt1904	line 19
+iso7185prt1905	line 21
+iso7185prt1906	line 19
+iso7185prt1907a	line 11
+iso7185prt1907b	line 11
+iso7185prt1908	line 18
+iso7185prt1911	line 12
+iso7185prt1912	line 12
+iso7185prt1913	line 11
+iso7185prt1914	line 13
+iso7185prt1915	line 16
+iso7185prt1916	line 16
+iso7185prt1917	line 16
