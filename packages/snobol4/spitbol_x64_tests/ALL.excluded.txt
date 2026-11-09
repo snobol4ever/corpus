@@ -1,0 +1,4 @@
+arcget: oracle produced EMPTY output -- refusing to mint a vacuous ref
+cfreq: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+float: multi-program file: 2 top-level END statements -- not a single valid program (SCRIP correctly refuses a duplicate 'END' label; the oracle instead silently continues past it, so neither engine's output is a meaningful single-program comparison)
+module: oracle produced EMPTY output -- refusing to mint a vacuous ref
