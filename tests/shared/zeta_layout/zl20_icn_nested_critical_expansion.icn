@@ -1,0 +1,19 @@
+procedure lock(m);
+   return write("lock ", m);
+end
+procedure unlock(m);
+   return write("unlock ", m);
+end
+procedure g();
+   local m1, r1, m2, r2;
+   m1 := "a" & lock(m1) & ((r1 := {
+         suspend (1(1, 1, unlock("a")) | (unlock("a") & &fail)) do lock("a");
+         m2 := "b" & lock(m2) & ((r2 := {
+               suspend (1(1, (1(1, 2, unlock("b")) | (unlock("b") & &fail)), unlock("a")) | (unlock("a") & &fail)) do { lock("a"); lock("b") }
+            } \ 1) | (unlock(m2) & &fail)) & unlock(m2) & r2
+      } \ 1) | (unlock(m1) & &fail)) & unlock(m1) & r1;
+   write("g ends");
+end
+procedure main();
+   every write(g());
+end
