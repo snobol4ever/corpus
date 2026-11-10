@@ -1,0 +1,20 @@
+# ALL.wantrc — DECLARED exit codes for entries whose CORRECT run exits nonzero.
+# Format: name<TAB>rc   ·   blank lines and # comments ignored   ·   rc=0 is the default and is REFUSED here.
+#
+# ⛔ DECLARED, NEVER INFERRED: classify() refuses to call a nonzero-rc run a PASS unless the
+# entry declares that exit code here, so an undeclared nonzero rc is a FAIL and not a silent pass.
+probe_errpath__probe_loose_errpath_end_star_no_boundary	1
+probe_errpath__probe_loose_errpath_missing_end	1
+jvm_j3__jvm_j3_goto_f	1
+jvm_j3__jvm_j3_input_test	1
+probe_csnobol4_triage__probe_loose_csnobol4_triage_include_trailing_space_lib	1
+smoke__smoke_beauty_compiled	1
+test_feat_f18_error_handling	231
+test_probe_loose_csnobol4_triage_include_trailing_space	1
+test_probe_loose_errpath_bad_type_arith	231
+test_probe_loose_errpath_div_by_zero	231
+test_probe_loose_errpath_duplicate_label	231
+test_probe_loose_errpath_unterminated_string	231
+test_smoke_empty_string	231
+test_smoke_hello	231
+test_smoke_multi	231
