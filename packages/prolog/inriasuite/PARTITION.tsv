@@ -1,12 +1,12 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=445 features=74 ubiquitous=4(package section conj var_goal) distinctive=70 core=117 clusters=49 chunks=4 sizes=100,100,100,28
+# shape: entries=440 features=74 ubiquitous=5(package compare section conj var_goal) distinctive=69 core=114 clusters=49 chunks=4 sizes=100,100,100,26
 entry	part	cluster	shells
 abolish#0	core	core	abolish err err_arg fdiv
 abolish#1	chunk:03	feat:abolish	abolish err err_arg fdiv
 abolish#2	core	core	abolish err err_arg fdiv neg_num
 abolish#3	core	core	abolish add current_prolog_flag err err_arg fdiv flag_max_arity is
-abolish#4	chunk:04	feat:abolish	abolish err err_arg fdiv
+abolish#4	chunk:03	feat:abolish	abolish err err_arg fdiv
 and#5	core	core	anon_var quoted_atom unify var
 and#6	core	core	anon_var quoted_atom unify var
 and#7	chunk:03	feat:call	anon_var call fail quoted_atom
@@ -57,7 +57,7 @@ arith_lt=#51	chunk:02	feat:float_lit	anon_var float_lit quoted_atom
 arith_lt=#52	chunk:03	feat:sub	anon_var mul quoted_atom sub
 arith_lt=#53	chunk:03	feat:err	anon_var err quoted_atom
 arith_lt=#54	chunk:03	feat:add	add anon_var err err_arg quoted_atom
-asserta#55	chunk:04	feat:asserta	asserta clause
+asserta#55	chunk:03	feat:asserta	asserta clause
 asserta#56	core	core	anon_var asserta err
 asserta#57	chunk:04	feat:asserta	asserta err err_arg
 asserta#58	core	core	asserta err err_arg neg_num
@@ -198,9 +198,6 @@ fail#192	chunk:04	feat:fail	fail
 fail#193	chunk:03	feat:err_arg	err err_arg
 fail#194	chunk:03	feat:flag_unknown	fail flag_unknown set_prolog_flag
 fail#195	chunk:03	feat:flag_unknown	flag_unknown set_prolog_flag
-file_manip#196	chunk:03	feat:err_arg	err err_arg
-file_manip#197	chunk:03	feat:err_arg	err err_arg
-file_manip#198	core	core	err err_arg get_char
 findall#199	chunk:03	feat:findall	disj findall unify
 findall#200	chunk:03	feat:findall	add findall unify
 findall#201	chunk:03	feat:findall	fail findall
@@ -251,8 +248,6 @@ functor-bis#245	chunk:02	feat:float_lit	err err_arg float_lit functor
 functor-bis#246	chunk:01	feat:functor	err err_arg functor
 functor-bis#247	core	core	add current_prolog_flag err err_arg flag_max_arity functor is
 functor-bis#248	chunk:04	feat:neg_num	err err_arg functor neg_num
-halt#249	core	core	halt
-halt#250	core	core	halt
 halt#251	core	core	err err_arg halt
 if-then#252	chunk:01	feat:true	anon_var quoted_atom true
 if-then#253	chunk:01	feat:true	anon_var fail quoted_atom true

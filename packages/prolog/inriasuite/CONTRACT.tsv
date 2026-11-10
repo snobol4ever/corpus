@@ -1,0 +1,3 @@
+# CONTRACT.tsv -- inriasuite's run contract, read by util_build_package_suite.py: key<TAB>value<TAB>evidence.
+units	generated	CIO-22 D: the suite is 445 [Goal, Expected] lines in 67 extensionless family files (README.md), not programs; each goal is one generated program whose ref is the suite's own Expected class, cut from no oracle run (junior_07's escalation of 2026-11-09: the oracle-cut build found 2 .pl files and absorbed neither)
+generator	util_inria_cases	the deleted runner test_prolog_inria_suite.sh (cc2783502^), its parser, errata, prelude and bindings check lifted verbatim into one program per goal that prints @I and its outcome class
