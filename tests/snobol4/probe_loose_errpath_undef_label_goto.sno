@@ -1,3 +1,0 @@
-*  probe: goto a label that is never defined anywhere in the program -- Appendix D 038
-        OUTPUT = 'before goto'                    :(nonexistent_target)
-END
