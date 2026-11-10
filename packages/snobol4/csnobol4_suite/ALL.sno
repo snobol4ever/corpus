@@ -2401,3 +2401,12 @@ copy2	OUTPUT = INPUT		:s(copy2)
 END
 hello
 world
+*----------------------------------------------------------------------- 71 hide
+* test of -HIDE (for sdb)
+-HIDE
+	OUTPUT = &STNO
+	OUTPUT = &STNO
+-LIST
+	OUTPUT = &STNO
+	OUTPUT = &STNO
+END
