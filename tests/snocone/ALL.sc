@@ -61,821 +61,815 @@ OUTPUT = "hello"   " "   "world";
 /*--------------------------------- 31 ladder__rung24_output_associated_write */
 OUTPUT = 'first write to the predefined OUTPUT association';
 OUTPUT = 'second write, same association, output accumulates by line';
-/*--------------------------------------------------- 32 ladder_prog__amp_seq */
-if ('ab' ? 'a' & 'b') { OUTPUT = 'wrong'; } else { OUTPUT = 'amp-tested'; }
-OUTPUT = 'done';
-/*------------------------------------------------- 33 ladder_prog__arith_add */
+/*------------------------------------------------- 32 ladder_prog__arith_add */
 OUTPUT = 2 + 3;
 OUTPUT = 10 - 4;
-/*-------------------------------------------------- 34 ladder_prog__cmp_fail */
+/*-------------------------------------------------- 33 ladder_prog__cmp_fail */
 OUTPUT = LT(5, 3) 'should-not-print';
 OUTPUT = 'after';
-/*---------------------------------------------- 35 ladder_prog__ctl_continue */
+/*---------------------------------------------- 34 ladder_prog__ctl_continue */
 i = 0;
 while (LT(i, 5)) { i = i + 1; if (EQ(i, 3)) { continue; } OUTPUT = i; }
-/*------------------------------------------------- 36 ladder_prog__ctl_while */
+/*------------------------------------------------- 35 ladder_prog__ctl_while */
 i = 1;
 while (LE(i, 5)) { OUTPUT = i; i = i + 1; }
-/*----------------------------------------------------- 37 ladder_prog__hello */
+/*----------------------------------------------------- 36 ladder_prog__hello */
 OUTPUT = 'hello world';
 OUTPUT = 3 + 4;
-/*--------------------------------------------------- 38 ladder_prog__lit_int */
+/*--------------------------------------------------- 37 ladder_prog__lit_int */
 OUTPUT = 42;
 OUTPUT = 0;
-/*------------------------------------------------- 39 ladder_prog__tilde_bin */
-if ('xyz' ? 'x' ~ 'q') { OUTPUT = 'wrong'; } else { OUTPUT = 'tilde-tested'; }
-OUTPUT = 'done';
-/*------------------------------------------------- 40 ladder_prog__unary_neg */
+/*------------------------------------------------- 38 ladder_prog__unary_neg */
 if (~LT(5, 3)) { OUTPUT = 'neg-ok'; }
 if (~LT(3, 5)) { OUTPUT = 'wrong'; } else { OUTPUT = 'neg-false-ok'; }
-/*----------------------------------------------------- 41 ladder_prog__vlist */
+/*----------------------------------------------------- 39 ladder_prog__vlist */
 OUTPUT = DIFFER('a', 'b') 'differ-ok';
 OUTPUT = ('x');
-/*------------------------------------------------------ 42 simple_output_104 */
+/*------------------------------------------------------ 40 simple_output_104 */
 i = 2; j = 3;
 OUTPUT = (LT(i, j) 'first', GT(i, j) 'second', 'third');
-/*------------------------------------------------------- 43 simple_output_11 */
+/*------------------------------------------------------- 41 simple_output_11 */
 // A01_hello.sc — minimal output test
 OUTPUT = 'hello world';
-/*------------------------------------------------------- 44 simple_output_12 */
+/*------------------------------------------------------- 42 simple_output_12 */
 // A01_integer.sc — output integer literal
 OUTPUT = 42;
-/*------------------------------------------------------ 45 simple_output_135 */
+/*------------------------------------------------------ 43 simple_output_135 */
 // hello.sc - Minimal output test.
 OUTPUT = 'hello world';
-/*------------------------------------------------------ 46 simple_output_137 */
+/*------------------------------------------------------ 44 simple_output_137 */
 // 001 - Output a string literal
 OUTPUT = 'hello world';
-/*------------------------------------------------------ 47 simple_output_138 */
+/*------------------------------------------------------ 45 simple_output_138 */
 // 002 - Output an integer literal
 OUTPUT = 42;
-/*------------------------------------------------------ 48 simple_output_139 */
+/*------------------------------------------------------ 46 simple_output_139 */
 // 003 - Output a real literal
 OUTPUT = 3.14;
-/*------------------------------------------------------- 49 simple_output_14 */
+/*------------------------------------------------------- 47 simple_output_14 */
 // A01_real.sc — output real literal
 OUTPUT = 3.14;
-/*------------------------------------------------------ 50 simple_output_143 */
+/*------------------------------------------------------ 48 simple_output_143 */
 // 008 - Double-quoted string literal
 OUTPUT = "hello world";
-/*------------------------------------------------------ 51 simple_output_154 */
+/*------------------------------------------------------ 49 simple_output_154 */
 x = 42;
 OUTPUT = x;
-/*------------------------------------------------------ 52 simple_output_157 */
+/*------------------------------------------------------ 50 simple_output_157 */
 OUTPUT = LT(5, 3) 'should-not-print';
 OUTPUT = 'after';
-/*------------------------------------------------------ 53 simple_output_165 */
+/*------------------------------------------------------ 51 simple_output_165 */
 greet: OUTPUT = 'first';
 OUTPUT = 'second';
-/*------------------------------------------------------ 54 simple_output_169 */
+/*------------------------------------------------------ 52 simple_output_169 */
 x = 2;
 if (GT(x, 3)) { OUTPUT = 'big'; } else { OUTPUT = 'small'; }
-/*------------------------------------------------------ 55 simple_output_170 */
+/*------------------------------------------------------ 53 simple_output_170 */
 x = 5;
 if (EQ(x, 1)) { OUTPUT = 'one'; } else if (EQ(x, 5)) { OUTPUT = 'five'; } else { OUTPUT = 'other'; }
-/*------------------------------------------------------ 56 simple_output_171 */
+/*------------------------------------------------------ 54 simple_output_171 */
 i = 1;
 while (LE(i, 5)) { OUTPUT = i; i = i + 1; }
-/*------------------------------------------------------ 57 simple_output_175 */
+/*------------------------------------------------------ 55 simple_output_175 */
 x = 42;
 OUTPUT = x;
-/*------------------------------------------------------ 58 simple_output_184 */
+/*------------------------------------------------------ 56 simple_output_184 */
 s = 'hello';
 OUTPUT = (s ? 'hel') 'X';
-/*------------------------------------------------------ 59 simple_output_190 */
+/*------------------------------------------------------ 57 simple_output_190 */
 OUTPUT = LT(5, 3) 'should-not-print';
 OUTPUT = 'after';
-/*------------------------------------------------------- 60 simple_output_20 */
+/*------------------------------------------------------- 58 simple_output_20 */
 // A03_add.sc — integer addition
 OUTPUT = 1 + 2;
-/*------------------------------------------------------ 61 simple_output_205 */
+/*------------------------------------------------------ 59 simple_output_205 */
 /* a block comment */
 OUTPUT = 'after-block-comment';
-/*------------------------------------------------------ 62 simple_output_206 */
+/*------------------------------------------------------ 60 simple_output_206 */
 // a line comment
 OUTPUT = 'after-line-comment';
-/*------------------------------------------------------- 63 simple_output_21 */
+/*------------------------------------------------------- 61 simple_output_21 */
 // A03_divide.sc — real division
 OUTPUT = 10 / 4;
-/*------------------------------------------------------- 64 simple_output_22 */
+/*------------------------------------------------------- 62 simple_output_22 */
 // A03_exponent.sc — exponentiation (^ operator in Snocone)
 OUTPUT = 2 ^ 8;
-/*------------------------------------------------------ 65 simple_output_229 */
+/*------------------------------------------------------ 63 simple_output_229 */
 i = 5; j = 3;
 OUTPUT = (LT(i, j) 'first', GT(i, j) 'second', 'third');
-/*------------------------------------------------------- 66 simple_output_23 */
+/*------------------------------------------------------- 64 simple_output_23 */
 // A03_multiply.sc — integer multiplication
 OUTPUT = 6 * 7;
-/*------------------------------------------------------ 67 simple_output_230 */
+/*------------------------------------------------------ 65 simple_output_230 */
 i = 3; j = 3;
 OUTPUT = (LT(i, j) 'first', GT(i, j) 'second', 'third');
-/*------------------------------------------------------- 68 simple_output_24 */
+/*------------------------------------------------------- 66 simple_output_24 */
 // A03_subtract.sc — integer subtraction
 OUTPUT = 10 - 3;
-/*------------------------------------------------------- 69 simple_output_26 */
+/*------------------------------------------------------- 67 simple_output_26 */
 // A04_concat_int.sc — concatenate integer and string
 OUTPUT = 42   ' items';
-/*------------------------------------------------------- 70 simple_output_27 */
+/*------------------------------------------------------- 68 simple_output_27 */
 // A04_concat_three.sc — concatenate three string literals
 OUTPUT = 'a'   'b'   'c';
-/*------------------------------------------------------- 71 simple_output_28 */
+/*------------------------------------------------------- 69 simple_output_28 */
 // A04_concat_two.sc — concatenate two string literals
 OUTPUT = 'hello'   ' world';
-/*------------------------------------------------------- 72 simple_output_32 */
+/*------------------------------------------------------- 70 simple_output_32 */
 // A06_substr.sc — SUBSTR extracts substring
 OUTPUT = SUBSTR('hello world', 7, 5);
-/*------------------------------------------------------- 73 simple_output_39 */
+/*------------------------------------------------------- 71 simple_output_39 */
 // A08_lpad.sc — LPAD pads string on left
 OUTPUT = LPAD('hi', 6);
-/*------------------------------------------------------- 74 simple_output_60 */
+/*------------------------------------------------------- 72 simple_output_60 */
 // hello.sc - Minimal output test.
 OUTPUT = 'hello world';
-/*------------------------------------------------------- 75 simple_output_62 */
+/*------------------------------------------------------- 73 simple_output_62 */
 // 001 - Output a string literal
 OUTPUT = 'hello world';
-/*------------------------------------------------------- 76 simple_output_63 */
+/*------------------------------------------------------- 74 simple_output_63 */
 // 002 - Output an integer literal
 OUTPUT = 42;
-/*------------------------------------------------------- 77 simple_output_64 */
+/*------------------------------------------------------- 75 simple_output_64 */
 // 003 - Output a real literal
 OUTPUT = 3.14;
-/*------------------------------------------------------- 78 simple_output_68 */
+/*------------------------------------------------------- 76 simple_output_68 */
 // 008 - Double-quoted string literal
 OUTPUT = "hello world";
-/*---------------------------------------------- 79 ladder_prog__arith_muldiv */
+/*---------------------------------------------- 77 ladder_prog__arith_muldiv */
 OUTPUT = 6 * 7;
 OUTPUT = 20 / 4;
 OUTPUT = 2 ^ 10;
-/*----------------------------------------------- 80 ladder_prog__arith_unary */
+/*----------------------------------------------- 78 ladder_prog__arith_unary */
 x = 5;
 OUTPUT = -x;
 OUTPUT = -3 + 4;
-/*------------------------------------------------- 81 ladder_prog__ctl_break */
+/*------------------------------------------------- 79 ladder_prog__ctl_break */
 i = 0;
 while (LT(i, 10)) { i = i + 1; if (EQ(i, 4)) { break; } OUTPUT = i; }
 OUTPUT = 'done';
-/*-------------------------------------------------- 82 ladder_prog__fn_basic */
+/*-------------------------------------------------- 80 ladder_prog__fn_basic */
 function add(a, b) { add = a + b; return; }
 OUTPUT = add(3, 4);
 OUTPUT = add(10, 20);
-/*------------------------------------------------ 83 ladder_prog__fn_freturn */
+/*------------------------------------------------ 81 ladder_prog__fn_freturn */
 function pos(n) { if (GT(n, 0)) { pos = n; return; } freturn; }
 if (pos(5)) { OUTPUT = 'pos5-ok'; }
 if (pos(-2)) { OUTPUT = 'wrong'; } else { OUTPUT = 'neg-freturn-ok'; }
-/*-------------------------------------------------- 84 ladder_prog__lit_real */
+/*-------------------------------------------------- 82 ladder_prog__lit_real */
 OUTPUT = 3.14;
 OUTPUT = 1.0e3;
 OUTPUT = 2.5E-2;
-/*------------------------------------------------ 85 ladder_prog__lit_string */
+/*------------------------------------------------ 83 ladder_prog__lit_string */
 OUTPUT = 'single';
 OUTPUT = "double";
 OUTPUT = 'with '  'concat';
-/*----------------------------------------------- 86 ladder_prog__pat_replace */
+/*----------------------------------------------- 84 ladder_prog__pat_replace */
 s = 'hello world';
 s ? 'world' = 'there';
 OUTPUT = s;
-/*------------------------------------------------------- 87 simple_output_10 */
+/*------------------------------------------------------- 85 simple_output_10 */
 // A01_empty_string.sc — output of empty string produces blank line
 OUTPUT = '';
 OUTPUT = 'done';
-/*------------------------------------------------------ 88 simple_output_127 */
+/*------------------------------------------------------ 86 simple_output_127 */
 // 009 - Assign string to variable, output it
 x = 'hello';
 OUTPUT = x;
-/*------------------------------------------------------ 89 simple_output_128 */
+/*------------------------------------------------------ 87 simple_output_128 */
 // 010 - Assign integer to variable, output it
 n = 42;
 OUTPUT = n;
-/*------------------------------------------------------ 90 simple_output_132 */
+/*------------------------------------------------------ 88 simple_output_132 */
 // 014 - Indirect assignment via dollar
 $'x' = 'hello';
 OUTPUT = x;
-/*------------------------------------------------------ 91 simple_output_133 */
+/*------------------------------------------------------ 89 simple_output_133 */
 // 016 - Direct assignment to OUTPUT special variable
 OUTPUT = 'alpha';
 OUTPUT = 'beta';
-/*------------------------------------------------------ 92 simple_output_134 */
+/*------------------------------------------------------ 90 simple_output_134 */
 // empty_string.sc - Output of null string produces blank line.
 OUTPUT = '';
 OUTPUT = 'done';
-/*------------------------------------------------------ 93 simple_output_140 */
+/*------------------------------------------------------ 91 simple_output_140 */
 // 004 - Output empty string produces blank line
 OUTPUT = '';
 OUTPUT = 'done';
-/*------------------------------------------------------ 94 simple_output_142 */
+/*------------------------------------------------------ 92 simple_output_142 */
 // 007 - Uninitialized variable outputs empty line
 OUTPUT = x;
 OUTPUT = 'done';
-/*------------------------------------------------------ 95 simple_output_156 */
+/*------------------------------------------------------ 93 simple_output_156 */
 a = 'foo';
 b = 'bar';
 OUTPUT = a b;
-/*------------------------------------------------------ 96 simple_output_159 */
+/*------------------------------------------------------ 94 simple_output_159 */
 OUTPUT = 42;
 OUTPUT = 'hello';
 OUTPUT = "world";
-/*------------------------------------------------------- 97 simple_output_16 */
+/*------------------------------------------------------- 95 simple_output_16 */
 // A02_assign_integer.sc — assign integer to variable, output it
 n = 42;
 OUTPUT = n;
-/*------------------------------------------------------ 98 simple_output_162 */
+/*------------------------------------------------------ 96 simple_output_162 */
 x = 5;
 OUTPUT = -x;
 OUTPUT = -x + 10;
-/*------------------------------------------------------ 99 simple_output_167 */
+/*------------------------------------------------------ 97 simple_output_167 */
 OUTPUT = 'before end';
 goto END;
 OUTPUT = 'never printed';
-/*----------------------------------------------------- 100 simple_output_168 */
+/*------------------------------------------------------ 98 simple_output_168 */
 x = 5;
 if (GT(x, 3)) { OUTPUT = 'big'; }
 OUTPUT = 'done';
-/*----------------------------------------------------- 101 simple_output_186 */
+/*------------------------------------------------------ 99 simple_output_186 */
 a = 'foo';
 b = 'bar';
 OUTPUT = a b;
-/*------------------------------------------------------ 102 simple_output_19 */
+/*------------------------------------------------------ 100 simple_output_19 */
 // A02_assign_string.sc — assign string to variable, output it
 x = 'hello';
 OUTPUT = x;
-/*------------------------------------------------------- 103 simple_output_2 */
+/*------------------------------------------------------- 101 simple_output_2 */
 OUTPUT = 'hello';
 OUTPUT = 'world';
 OUTPUT = 42;
-/*----------------------------------------------------- 104 simple_output_202 */
+/*----------------------------------------------------- 102 simple_output_202 */
 struct point { x, y }
 p = point(3, 4);
 OUTPUT = x(p);
-/*----------------------------------------------------- 105 simple_output_203 */
+/*----------------------------------------------------- 103 simple_output_203 */
 struct pt2 { a, b }
 q = pt2(7, 8);
 OUTPUT = b(q);
-/*----------------------------------------------------- 106 simple_output_213 */
+/*----------------------------------------------------- 104 simple_output_213 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: while+continue over LT(i,5) skipping EQ(i,3); twin is the idiomatic SPITBOL goto form with a BARE trailing FIN label before END (rung13's proven side-effect-free fallback -- a trailing OUTPUT='' would emit a spurious blank line the .sc program does not) */
 i = 0;
 while (LT(i, 5)) { i = i + 1; if (EQ(i, 3)) { continue; } OUTPUT = i; }
-/*----------------------------------------------------- 107 simple_output_221 */
+/*----------------------------------------------------- 105 simple_output_221 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: factorial of 5 by self-call, report.md:730 'Procedures are recursive.' The twin branches to a base-case label when the predicate succeeds and falls through to the recursive arm otherwise. NOTE: this prose names the transfer operators instead of spelling them, because a twin comment is absorbed INTO the graded block and IS scanned by the feature-flag deriver. */
 function fact(n) { if (LE(n, 1)) { fact = 1; return; } fact = n * fact(n - 1); return; }
 OUTPUT = fact(5);
-/*----------------------------------------------------- 108 simple_output_222 */
+/*----------------------------------------------------- 106 simple_output_222 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: report.md:697-699, 'If a procedure is called with too few arguments, extra null strings are supplied as necessary.' The brackets around each parameter are load-bearing: without them a missing argument and an empty one are indistinguishable in the output. */
 function f(x, y) { f = '[' x ']' '[' y ']'; return; }
 OUTPUT = f('one');
-/*----------------------------------------------------- 109 simple_output_223 */
+/*----------------------------------------------------- 107 simple_output_223 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: report.md:700-701, 'If called with too many arguments, the extras are quietly ignored.' Two extra arguments are passed and only the first is used; 'quietly' is graded as much as 'ignored', since a diagnostic on the extras would move rc or stderr and red this witness. */
 function f(x) { f = x; return; }
 OUTPUT = f('a', 'b', 'c');
-/*------------------------------------------------------ 110 simple_output_25 */
+/*------------------------------------------------------ 108 simple_output_25 */
 // A04_concat_assign.sc — concat on right side of assignment
 x = 'foo'   'bar';
 OUTPUT = x;
-/*------------------------------------------------------ 111 simple_output_29 */
+/*------------------------------------------------------ 109 simple_output_29 */
 // A04_concat_var.sc — concatenate variable with string literal
 x = 'hello';
 OUTPUT = x   ' world';
-/*------------------------------------------------------ 112 simple_output_52 */
+/*------------------------------------------------------ 110 simple_output_52 */
 // 009 - Assign string to variable, output it
 x = 'hello';
 OUTPUT = x;
-/*------------------------------------------------------ 113 simple_output_53 */
+/*------------------------------------------------------ 111 simple_output_53 */
 // 010 - Assign integer to variable, output it
 n = 42;
 OUTPUT = n;
-/*------------------------------------------------------ 114 simple_output_57 */
+/*------------------------------------------------------ 112 simple_output_57 */
 // 014 - Indirect assignment via dollar
 $'x' = 'hello';
 OUTPUT = x;
-/*------------------------------------------------------ 115 simple_output_58 */
+/*------------------------------------------------------ 113 simple_output_58 */
 // 016 - Direct assignment to OUTPUT special variable
 OUTPUT = 'alpha';
 OUTPUT = 'beta';
-/*------------------------------------------------------ 116 simple_output_59 */
+/*------------------------------------------------------ 114 simple_output_59 */
 // empty_string.sc - Output of null string produces blank line.
 OUTPUT = '';
 OUTPUT = 'done';
-/*------------------------------------------------------ 117 simple_output_65 */
+/*------------------------------------------------------ 115 simple_output_65 */
 // 004 - Output empty string produces blank line
 OUTPUT = '';
 OUTPUT = 'done';
-/*------------------------------------------------------ 118 simple_output_67 */
+/*------------------------------------------------------ 116 simple_output_67 */
 // 007 - Uninitialized variable outputs empty line
 OUTPUT = x;
 OUTPUT = 'done';
-/*------------------------------------------------------ 119 simple_output_91 */
+/*------------------------------------------------------ 117 simple_output_91 */
 N = 42;
 OUTPUT = "value="   N;
 OUTPUT = N   " things";
-/*------------------------------------------------- 120 ladder_prog__alt_eval */
+/*------------------------------------------------- 118 ladder_prog__alt_eval */
 i = 5; j = 3;
 OUTPUT = (LT(i, j) 'i-smaller', GT(i, j) 'i-bigger', 'equal');
 i = 2;
 OUTPUT = (LT(i, j) 'i-smaller', GT(i, j) 'i-bigger', 'equal');
-/*----------------------------------------------- 121 ladder_prog__arith_prec */
+/*----------------------------------------------- 119 ladder_prog__arith_prec */
 OUTPUT = 2 + 3 * 4;
 OUTPUT = (2 + 3) * 4;
 OUTPUT = 2 ^ 3 ^ 2;
 OUTPUT = 100 - 10 - 5;
-/*-------------------------------------------------- 122 ladder_prog__cmp_lex */
+/*-------------------------------------------------- 120 ladder_prog__cmp_lex */
 OUTPUT = LEQ('abc', 'abc') 'leq-ok';
 OUTPUT = LLT('abc', 'abd') 'llt-ok';
 OUTPUT = LGT('b', 'a') 'lgt-ok';
 OUTPUT = LNE('a', 'b') 'lne-ok';
-/*---------------------------------------------- 123 ladder_prog__ctl_dowhile */
+/*---------------------------------------------- 121 ladder_prog__ctl_dowhile */
 i = 1;
 do { OUTPUT = i; i = i + 1; } while (LE(i, 3));
 i = 10;
 do { OUTPUT = 'once'; } while (LT(i, 0));
-/*--------------------------------------------------- 124 ladder_prog__ctl_if */
+/*--------------------------------------------------- 122 ladder_prog__ctl_if */
 x = 5;
 if (GT(x, 3)) { OUTPUT = 'big'; }
 if (LT(x, 3)) { OUTPUT = 'no'; } else { OUTPUT = 'notsmall'; }
 if (EQ(x, 1)) { OUTPUT = 'one'; } else if (EQ(x, 5)) { OUTPUT = 'five'; } else { OUTPUT = 'other'; }
-/*----------------------------------------------- 125 ladder_prog__empty_stmt */
+/*----------------------------------------------- 123 ladder_prog__empty_stmt */
 OUTPUT = 'before';
 ;
 ;
 OUTPUT = 'after';
-/*--------------------------------------------- 126 ladder_prog__ident_differ */
+/*--------------------------------------------- 124 ladder_prog__ident_differ */
 OUTPUT = IDENT('x', 'x') 'ident-ok';
 OUTPUT = DIFFER('x', 'y') 'differ-ok';
 a = 'q'; b = 'q';
 OUTPUT = IDENT(a, b) 'vars-ident';
-/*--------------------------------------------- 127 ladder_prog__multi_assign */
+/*--------------------------------------------- 125 ladder_prog__multi_assign */
 a = b = c = 7;
 OUTPUT = a;
 OUTPUT = b;
 OUTPUT = c;
-/*------------------------------------------------ 128 ladder_prog__pat_basic */
+/*------------------------------------------------ 126 ladder_prog__pat_basic */
 s = 'hello world';
 if (s ? 'world') { OUTPUT = 'matched'; }
 if (s ? 'xyz')   { OUTPUT = 'wrong'; } else { OUTPUT = 'nomatch-ok'; }
 OUTPUT = 'after';
-/*----------------------------------------------------- 129 simple_output_100 */
+/*----------------------------------------------------- 127 simple_output_100 */
 // B07_minus_assign: x -= n subtracts n from x
 x = 20;
 x -= 7;
 OUTPUT = x;
-/*----------------------------------------------------- 130 simple_output_101 */
+/*----------------------------------------------------- 128 simple_output_101 */
 // B07_plus_assign: x += n adds n to x
 x = 10;
 x += 5;
 OUTPUT = x;
-/*----------------------------------------------------- 131 simple_output_102 */
+/*----------------------------------------------------- 129 simple_output_102 */
 // B07_slash_assign: x /= n divides x by n
 x = 100;
 x /= 4;
 OUTPUT = x;
-/*----------------------------------------------------- 132 simple_output_103 */
+/*----------------------------------------------------- 130 simple_output_103 */
 // B07_star_assign: x *= n multiplies x by n
 x = 6;
 x *= 7;
 OUTPUT = x;
-/*----------------------------------------------------- 133 simple_output_122 */
+/*----------------------------------------------------- 131 simple_output_122 */
 // B11_comment_line: // comments are stripped before tokenisation
 x = 42; // this is ignored
 // entire line comment
 OUTPUT = x; // trailing comment
-/*----------------------------------------------------- 134 simple_output_129 */
+/*----------------------------------------------------- 132 simple_output_129 */
 // 011 - Chain assignment x=a, y=x, output y
 x = 'alpha';
 y = x;
 OUTPUT = y;
-/*------------------------------------------------------ 135 simple_output_13 */
+/*------------------------------------------------------ 133 simple_output_13 */
 // A01_multi.sc — multiple sequential output statements
 OUTPUT = 'line one';
 OUTPUT = 'line two';
 OUTPUT = 'line three';
-/*----------------------------------------------------- 136 simple_output_131 */
+/*----------------------------------------------------- 134 simple_output_131 */
 // 013 - Overwrite variable, output second value
 x = 'first';
 x = 'second';
 OUTPUT = x;
-/*----------------------------------------------------- 137 simple_output_136 */
+/*----------------------------------------------------- 135 simple_output_136 */
 // multi.sc - Multiple sequential output statements.
 OUTPUT = 'line one';
 OUTPUT = 'line two';
 OUTPUT = 'line three';
-/*----------------------------------------------------- 138 simple_output_141 */
+/*----------------------------------------------------- 136 simple_output_141 */
 // 005 - Multiple output statements produce multiple lines
 OUTPUT = 'line one';
 OUTPUT = 'line two';
 OUTPUT = 'line three';
-/*------------------------------------------------------ 139 simple_output_15 */
+/*------------------------------------------------------ 137 simple_output_15 */
 // A02_assign_chain.sc — chain assignment x=a, y=x, output y
 x = 'alpha';
 y = x;
 OUTPUT = y;
-/*----------------------------------------------------- 140 simple_output_155 */
+/*----------------------------------------------------- 138 simple_output_155 */
 OUTPUT = 2 + 3;
 OUTPUT = 10 - 4;
 OUTPUT = 6 * 7;
 OUTPUT = 20 / 4;
-/*----------------------------------------------------- 141 simple_output_160 */
+/*----------------------------------------------------- 139 simple_output_160 */
 // leading line comment, produces no output
 OUTPUT = 'before'; // trailing comment
 /* a block comment */
 OUTPUT = 'after';
-/*----------------------------------------------------- 142 simple_output_161 */
+/*----------------------------------------------------- 140 simple_output_161 */
 x = 1;
 X = 2;
 OUTPUT = x;
 OUTPUT = X;
-/*----------------------------------------------------- 143 simple_output_172 */
+/*----------------------------------------------------- 141 simple_output_172 */
 i = 1;
 do { OUTPUT = i; i = i + 1; } while (LE(i, 3));
 i = 10;
 do { OUTPUT = 'once'; } while (LT(i, 0));
-/*------------------------------------------------------ 144 simple_output_18 */
+/*------------------------------------------------------ 142 simple_output_18 */
 // A02_assign_overwrite.sc — overwrite variable, output second value
 x = 'first';
 x = 'second';
 OUTPUT = x;
-/*----------------------------------------------------- 145 simple_output_204 */
+/*----------------------------------------------------- 143 simple_output_204 */
 struct pt3 { m, n }
 r = pt3(1, 2);
 m(r) = 99;
 OUTPUT = m(r);
-/*----------------------------------------------------- 146 simple_output_207 */
+/*----------------------------------------------------- 144 simple_output_207 */
 x = 1;
 X = 2;
 OUTPUT = x;
 OUTPUT = X;
-/*----------------------------------------------------- 147 simple_output_212 */
+/*----------------------------------------------------- 145 simple_output_212 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: while+break over LT(i,10) with EQ(i,4) exit; twin is the idiomatic SPITBOL goto form (FIN label shares its line with the real OUTPUT='done' statement, per rung12/13 D5 fallback) */
 i = 0;
 while (LT(i, 10)) { i = i + 1; if (EQ(i, 4)) { break; } OUTPUT = i; }
 OUTPUT = 'done';
-/*----------------------------------------------------- 148 simple_output_216 */
+/*----------------------------------------------------- 146 simple_output_216 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: a two-argument procedure whose result is delivered by assigning to the procedure's own name, called twice so the result cannot be a one-shot constant. The twin is the idiomatic SPITBOL declaration with a BARE trailing FIN label before END (rung13's proven side-effect-free fallback -- a trailing empty assignment would emit a blank line the .sc program does not). */
 function add(a, b) { add = a + b; return; }
 OUTPUT = add(3, 4);
 OUTPUT = add(10, 20);
-/*----------------------------------------------------- 149 simple_output_219 */
+/*----------------------------------------------------- 147 simple_output_219 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: a procedure returning a NAME, so the call itself is an assignment target and storing through it writes the named variable. The prior-art ladder/prog/fn_nreturn.sc put an indirection operator in FRONT of that call and was carried for months as known bug D7; SPITBOL itself raises ERROR 239 on that shape, so D7 was a faulty test and never a scrip defect -- the call is already a name, and indirecting a name again is the error. */
 function mkname() { mkname = .target; nreturn; }
 mkname() = 'stored';
 OUTPUT = target;
-/*----------------------------------------------------- 150 simple_output_225 */
+/*----------------------------------------------------- 148 simple_output_225 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: SPITBOL has no augmented assignment; the twin is the desugaring x = x - e. OPERAND ORDER is what this ref grades: 10 reduced by 3 is 7, where the reversed reading would give -7, so a lowering that swapped the operands could not pass this ref even though it would still look like subtraction. */
 x = 10;
 x -= 3;
 OUTPUT = x;
-/*----------------------------------------------------- 151 simple_output_226 */
+/*----------------------------------------------------- 149 simple_output_226 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: SPITBOL has no augmented assignment; the twin is the desugaring x = x * e. Multiplication is commutative so operand order cannot be graded here, and what the ref distinguishes is the OPERATOR itself: on this input the five augmented forms give 20, 12, 8, 5 and 100 respectively, no two alike, so 20 can only be produced by multiplication. */
 x = 10;
 x *= 2;
 OUTPUT = x;
-/*----------------------------------------------------- 152 simple_output_227 */
+/*----------------------------------------------------- 150 simple_output_227 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: SPITBOL has no augmented assignment; the twin is the desugaring x = x / e. Two properties in one ref. Operand order (10 divided by 4 is 2, where the reversed reading gives 0) and INTEGER TRUNCATION (2, not 2.5) -- division here is integer division, so a lowering that promoted to a real would print 2.5 and red. The inputs were chosen so the quotient is inexact; an exact one would have graded neither property. */
 x = 10;
 x /= 4;
 OUTPUT = x;
-/*----------------------------------------------------- 153 simple_output_228 */
+/*----------------------------------------------------- 151 simple_output_228 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: SPITBOL has no augmented assignment; the twin is the desugaring x = x ^ e. Operand order is the whole point: 3 raised to 2 is 9 where the reversed reading gives 8, and those are precisely the two answers a wrong lowering would choose between. That SPITBOL accepts the same caret spelling as this dialect was verified directly against the oracle rather than assumed. */
 x = 3;
 x ^= 2;
 OUTPUT = x;
-/*----------------------------------------------------- 154 simple_output_231 */
+/*----------------------------------------------------- 152 simple_output_231 */
 i = 3; j = 3;
 x = 'untouched';
 x = (LT(i, j) 'first', GT(i, j) 'second');
 OUTPUT = x;
-/*------------------------------------------------------ 155 simple_output_42 */
+/*------------------------------------------------------ 153 simple_output_42 */
 // A10_capture_delete.sc — replace match with empty (deletion)
 x = 'hello world';
 x ? ' world' = '';
 OUTPUT = x;
-/*------------------------------------------------------ 156 simple_output_43 */
+/*------------------------------------------------------ 154 simple_output_43 */
 // A10_capture_replace.sc — pattern replacement (subject pat = replacement)
 x = 'hello world';
 x ? 'world' = 'there';
 OUTPUT = x;
-/*------------------------------------------------------ 157 simple_output_54 */
+/*------------------------------------------------------ 155 simple_output_54 */
 // 011 - Chain assignment x=a, y=x, output y
 x = 'alpha';
 y = x;
 OUTPUT = y;
-/*------------------------------------------------------ 158 simple_output_56 */
+/*------------------------------------------------------ 156 simple_output_56 */
 // 013 - Overwrite variable, output second value
 x = 'first';
 x = 'second';
 OUTPUT = x;
-/*------------------------------------------------------ 159 simple_output_61 */
+/*------------------------------------------------------ 157 simple_output_61 */
 // multi.sc - Multiple sequential output statements.
 OUTPUT = 'line one';
 OUTPUT = 'line two';
 OUTPUT = 'line three';
-/*------------------------------------------------------ 160 simple_output_66 */
+/*------------------------------------------------------ 158 simple_output_66 */
 // 005 - Multiple output statements produce multiple lines
 OUTPUT = 'line one';
 OUTPUT = 'line two';
 OUTPUT = 'line three';
-/*------------------------------------------------------ 161 simple_output_81 */
+/*------------------------------------------------------ 159 simple_output_81 */
 // B03_for_basic.sc — basic for loop counts 1 to 3
 for (i = 1; LE(i, 3); i = i + 1) {
     OUTPUT = i;
 }
-/*------------------------------------------------------ 162 simple_output_87 */
+/*------------------------------------------------------ 160 simple_output_87 */
 FIRST = "Hello";
 LAST = "World";
 FULL = FIRST   ", "   LAST   "!";
 OUTPUT = FULL;
-/*------------------------------------------------------ 163 simple_output_89 */
+/*------------------------------------------------------ 161 simple_output_89 */
 A = "foo";
 B = "bar";
 C = "baz";
 OUTPUT = A   "-"   B   "-"   C;
-/*------------------------------------------------------ 164 simple_output_90 */
+/*------------------------------------------------------ 162 simple_output_90 */
 X = "hello";
 OUTPUT = ""   X;
 OUTPUT = X   "";
 OUTPUT = ""   "";
-/*------------------------------------------------------ 165 simple_output_98 */
+/*------------------------------------------------------ 163 simple_output_98 */
 // B07_caret_assign: x ^= n raises x to power n
 x = 3;
 x ^= 4;
 OUTPUT = x;
-/*------------------------------------------------- 166 ladder_prog__comments */
+/*------------------------------------------------- 164 ladder_prog__comments */
 // line comment
 OUTPUT = 'a';  // trailing
 /* block
    comment */
 OUTPUT = 'b';
-/*--------------------------------------------------- 167 ladder_prog__concat */
+/*--------------------------------------------------- 165 ladder_prog__concat */
 a = 'foo';
 b = 'bar';
 OUTPUT = a b;
 OUTPUT = 'x' 'y' 'z';
 OUTPUT = 1 2 3;
-/*--------------------------------------- 168 ladder_prog__ctl_switch_default */
+/*--------------------------------------- 166 ladder_prog__ctl_switch_default */
 x = 9;
 switch (x) {
   case 1: { OUTPUT = 'one'; }
   default: { OUTPUT = 'fell-through'; }
 }
-/*----------------------------------------------- 169 ladder_prog__goto_basic */
+/*----------------------------------------------- 167 ladder_prog__goto_basic */
 i = 0;
 top: OUTPUT = i;
 i = i + 1;
 if (LT(i, 3)) { goto top; }
 OUTPUT = 'done';
-/*-------------------------------------------- 170 ladder_prog__unary_interro */
+/*-------------------------------------------- 168 ladder_prog__unary_interro */
 n = 0;
 n = ?(LT(3, 5)) n + 1;
 OUTPUT = n;
 n = ?(LT(5, 3)) n + 1;
 OUTPUT = n;
-/*----------------------------------------------------- 171 simple_output_105 */
+/*----------------------------------------------------- 169 simple_output_105 */
 // B08_struct_basic: define struct, create instance, access fields
 struct point { x, y }
 p = point(3, 4);
 OUTPUT = x(p);
 OUTPUT = y(p);
-/*----------------------------------------------------- 172 simple_output_130 */
+/*----------------------------------------------------- 170 simple_output_130 */
 // 012 - Assign null (empty right side)
 x = 'something';
 x = '';
 OUTPUT = x;
 OUTPUT = 'done';
-/*----------------------------------------------------- 173 simple_output_163 */
+/*----------------------------------------------------- 171 simple_output_163 */
 count = 0;
 count = ?(LT(2, 9)) count + 1;
 OUTPUT = count;
 count = ?(LT(9, 2)) count + 1;
 OUTPUT = count;
-/*----------------------------------------------------- 174 simple_output_166 */
+/*----------------------------------------------------- 172 simple_output_166 */
 n = 3;
 loop: OUTPUT = n;
 n = n - 1;
 if (LT(0, n)) { goto loop; }
 OUTPUT = 'done';
-/*------------------------------------------------------ 175 simple_output_17 */
+/*------------------------------------------------------ 173 simple_output_17 */
 // A02_assign_null.sc — assign null, output blank line
 x = 'something';
 x =;
 OUTPUT = x;
 OUTPUT = 'done';
-/*----------------------------------------------------- 176 simple_output_183 */
+/*----------------------------------------------------- 174 simple_output_183 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: SPITBOL has no chained assignment, so the twin is three separate assignments producing identical output */
 a = b = c = 7;
 OUTPUT = a;
 OUTPUT = b;
 OUTPUT = c;
-/*----------------------------------------------------- 177 simple_output_185 */
+/*----------------------------------------------------- 175 simple_output_185 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: SNOBOL4 has no if-block, so the twin expresses the same branch with a goto label; the guarded assignment and the printed result are identical */
 s = 'hello';
 r = 'no';
 if (s ? 'ell') { r = 'yes'; }
 OUTPUT = r;
-/*------------------------------------------------------ 178 simple_output_30 */
+/*------------------------------------------------------ 176 simple_output_30 */
 // A05_data_define.sc — DATA type: define, create, access fields
 DATA('complex(real,imag)');
 x = complex(3, -2);
 OUTPUT = real(x);
 OUTPUT = imag(x);
-/*------------------------------------------------------ 179 simple_output_40 */
+/*------------------------------------------------------ 177 simple_output_40 */
 // A09_lexical.sc — Lexical string comparison builtins
 if (LGT('b', 'a')) { OUTPUT = 'b > a'; }
 if (LLT('a', 'b')) { OUTPUT = 'a < b'; }
 if (LEQ('cat', 'cat')) { OUTPUT = 'cat = cat'; }
 if (LNE('cat', 'dog')) { OUTPUT = 'cat != dog'; }
-/*------------------------------------------------------ 180 simple_output_41 */
+/*------------------------------------------------------ 178 simple_output_41 */
 // A10_capture_conditional.sc — match succeeds, output result
 x = 'hello';
 if (x ? 'hello') {
     OUTPUT = 'found';
 }
-/*------------------------------------------------------ 181 simple_output_45 */
+/*------------------------------------------------------ 179 simple_output_45 */
 // A13_define_entry_label.sc — procedure with explicit name (bumpit)
 function bumpit(v) {
     return v + 1;
 }
 OUTPUT = bumpit(41);
-/*------------------------------------------------------ 182 simple_output_55 */
+/*------------------------------------------------------ 180 simple_output_55 */
 // 012 - Assign null (empty right side)
 x = 'something';
 x = '';
 OUTPUT = x;
 OUTPUT = 'done';
-/*------------------------------------------------------- 183 simple_output_6 */
+/*------------------------------------------------------- 181 simple_output_6 */
 i = 1;
 while (LE(i, 5)) {
     OUTPUT = i;
     i = i + 1;
 }
-/*------------------------------------------------------ 184 simple_output_73 */
+/*------------------------------------------------------ 182 simple_output_73 */
 // B01_if_true.sc — if condition true: body executes
 x = 1;
 if (EQ(x, 1)) {
     OUTPUT = 'yes';
 }
-/*------------------------------------------------------ 185 simple_output_84 */
+/*------------------------------------------------------ 183 simple_output_84 */
 // B03_for_false.sc — for condition false on entry: body skipped
 for (i = 5; LE(i, 3); i = ADD(i, 1)) {
     OUTPUT = 'should not print';
 }
 OUTPUT = 'done';
-/*------------------------------------------------------ 186 simple_output_86 */
+/*------------------------------------------------------ 184 simple_output_86 */
 // B03_for_step_expr.sc — step expression contains a parenthesized sub-expression
 for (i = 1; LE(i, 3); i = (i + 1)) {
     OUTPUT = i;
 }
 OUTPUT = 'end';
-/*------------------------------------------------------ 187 simple_output_93 */
+/*------------------------------------------------------ 185 simple_output_93 */
 // B06_not_fail_succeeds: ~expr when expr fails → condition true
 x = "";
 if (~DIFFER(x, "")) {
     OUTPUT = "empty";
 }
-/*---------------------------------------------------- 188 ladder_prog__augop */
+/*---------------------------------------------------- 186 ladder_prog__augop */
 x = 10;
 x += 5;  OUTPUT = x;
 x -= 3;  OUTPUT = x;
 x *= 2;  OUTPUT = x;
 x /= 4;  OUTPUT = x;
 x ^= 2;  OUTPUT = x;
-/*------------------------------------------------ 189 ladder_prog__cmp_infix */
+/*------------------------------------------------ 187 ladder_prog__cmp_infix */
 if (LT(3, 5))   { OUTPUT = 'lt-ok'; }
 if (GT(5, 3))   { OUTPUT = 'gt-ok'; }
 if (EQ(4, 4))  { OUTPUT = 'eq-ok'; }
 if (NE(4, 5))  { OUTPUT = 'ne-ok'; }
 if (LE(4, 4))  { OUTPUT = 'le-ok'; }
 if (GE(4, 4))  { OUTPUT = 'ge-ok'; }
-/*-------------------------------------------------- 190 ladder_prog__cmp_num */
+/*-------------------------------------------------- 188 ladder_prog__cmp_num */
 OUTPUT = LT(3, 5) 'lt-ok';
 OUTPUT = GT(5, 3) 'gt-ok';
 OUTPUT = EQ(4, 4) 'eq-ok';
 OUTPUT = LE(4, 4) 'le-ok';
 OUTPUT = GE(4, 4) 'ge-ok';
 OUTPUT = NE(4, 5) 'ne-ok';
-/*------------------------------------------------- 191 ladder_prog__fn_local */
+/*------------------------------------------------- 189 ladder_prog__fn_local */
 function sumto(n, acc, i) {
   acc = 0; i = 1;
   while (LE(i, n)) { acc = acc + i; i = i + 1; }
   sumto = acc; return;
 }
 OUTPUT = sumto(10);
-/*--------------------------------------------- 192 ladder_prog__struct_basic */
+/*--------------------------------------------- 190 ladder_prog__struct_basic */
 struct point { x, y }
 p = point(3, 4);
 OUTPUT = x(p);
 OUTPUT = y(p);
 x(p) = 99;
 OUTPUT = x(p);
-/*----------------------------------------------------- 193 simple_output_121 */
+/*----------------------------------------------------- 191 simple_output_121 */
 /* B11_comment_block: block comments are stripped in pre-pass */
 x = /* inline block */ 99;
 /* multi
    line
    block */
 OUTPUT = x;
-/*----------------------------------------------------- 194 simple_output_158 */
+/*----------------------------------------------------- 192 simple_output_158 */
 struct point { x, y }
 p = point(3, 4);
 OUTPUT = x(p);
 OUTPUT = y(p);
 x(p) = 99;
 OUTPUT = x(p);
-/*----------------------------------------------------- 195 simple_output_164 */
+/*----------------------------------------------------- 193 simple_output_164 */
 x = 'before';
 x = ~LT(9, 2) 'changed';
 OUTPUT = x;
 y = 'before2';
 y = ~LT(2, 9) 'changed2';
 OUTPUT = y;
-/*----------------------------------------------------- 196 simple_output_217 */
+/*----------------------------------------------------- 194 simple_output_217 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: report.md:707-716's OWN worked example, which the paper states prints 5 and then 1. A nominated local is saved and nulled on entry and restored on return, so the callee g sees the local 5 while f is active and the restored global 1 afterwards -- dynamic scoping, graded by observing it from a SECOND procedure rather than from f itself. The twin nominates the same local after the closing parenthesis of the prototype, which is where SPITBOL has always taken them. */
 a = 1;
 function f() a { a = 5; g(); return; }
 function g() { OUTPUT = a; return; }
 f();
 g();
-/*----------------------------------------------------- 197 simple_output_218 */
+/*----------------------------------------------------- 195 simple_output_218 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: a procedure that succeeds for a positive argument and fails otherwise. The failing call must NOT overwrite x, which keeps 'untouched' -- that is the load-bearing part, proving the failure propagated out to the assignment rather than the call merely returning an empty result. The twin reaches the reserved fail-return label when its predicate fails. */
 function pick(n) { if (GT(n, 0)) { pick = 'pos'; return; } freturn; }
 OUTPUT = pick(5);
 x = 'untouched';
 x = pick(-1);
 OUTPUT = x;
-/*----------------------------------------------------- 198 simple_output_224 */
+/*----------------------------------------------------- 196 simple_output_224 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: SPITBOL has no augmented assignment, so the twin is the desugaring this dialect declares, x = x + e, and a disagreement would have been a real red rather than a ref to adjust. It is applied TWICE on purpose: one application proves only that something was added, while two prove the variable is UPDATED IN PLACE and accumulates (15 then 20) instead of being recomputed from its initial value each time. */
 x = 10;
 x += 5;
 OUTPUT = x;
 x += 5;
 OUTPUT = x;
-/*------------------------------------------------------- 199 simple_output_3 */
+/*------------------------------------------------------- 197 simple_output_3 */
 x = 'hello';
 y = 42;
 OUTPUT = x;
 OUTPUT = y;
 z = x;
 OUTPUT = z;
-/*------------------------------------------------------ 200 simple_output_33 */
+/*------------------------------------------------------ 198 simple_output_33 */
 // A07_differ.sc — DIFFER succeeds when strings differ
 if (DIFFER('abc', 'xyz')) {
     OUTPUT = 'different';
 } else {
     OUTPUT = 'same';
 }
-/*------------------------------------------------------ 201 simple_output_49 */
+/*------------------------------------------------------ 199 simple_output_49 */
 // A13_define_simple_return.sc — simple function: double a number
 function double(s) {
     return 2 * s;
 }
 OUTPUT = double(5);
 OUTPUT = double(21);
-/*------------------------------------------------------- 202 simple_output_5 */
+/*------------------------------------------------------- 200 simple_output_5 */
 x = 10;
 if (GT(x, 5)) OUTPUT = 'big'; else OUTPUT = 'small';
 if (LT(x, 5)) OUTPUT = 'small'; else OUTPUT = 'big';
 y = 3;
 if (EQ(y, 3)) OUTPUT = 'three';
 if (EQ(y, 4)) OUTPUT = 'four'; else OUTPUT = 'not four';
-/*------------------------------------------------------ 203 simple_output_50 */
+/*------------------------------------------------------ 201 simple_output_50 */
 // A13_define_two_args.sc — function with two arguments
 function add(a, b) {
     return a + b;
 }
 OUTPUT = add(3, 4);
 OUTPUT = add(10, 32);
-/*------------------------------------------------------ 204 simple_output_72 */
+/*------------------------------------------------------ 202 simple_output_72 */
 // B01_if_false.sc — if condition false: body skipped
 x = 2;
 if (EQ(x, 1)) {
     OUTPUT = 'yes';
 }
 OUTPUT = 'done';
-/*------------------------------------------------------ 205 simple_output_75 */
+/*------------------------------------------------------ 203 simple_output_75 */
 // B02_do_while.sc — do-while body executes at least once even if condition false
 i = 5;
 do {
     OUTPUT = 'ran';
     i = i + 1;
 } while (LE(i, 3));
-/*------------------------------------------------------ 206 simple_output_77 */
+/*------------------------------------------------------ 204 simple_output_77 */
 // B02_while_basic.sc — while loop runs expected number of times
 i = 1;
 while (LE(i, 3)) {
     OUTPUT = i;
     i = i + 1;
 }
-/*------------------------------------------------------ 207 simple_output_80 */
+/*------------------------------------------------------ 205 simple_output_80 */
 // B02_while_false.sc — while condition false on entry: body skipped
 i = 5;
 while (LE(i, 3)) {
     OUTPUT = 'should not print';
 }
 OUTPUT = 'done';
-/*------------------------------------------------------ 208 simple_output_99 */
+/*------------------------------------------------------ 206 simple_output_99 */
 // B07_compound_chain: multiple compound assigns in sequence
 x = 2;
 x += 3;
 x *= 4;
 x -= 2;
 OUTPUT = x;
-/*----------------------------------------------- 209 ladder_prog__ctl_switch */
+/*----------------------------------------------- 207 ladder_prog__ctl_switch */
 x = 2;
 switch (x) {
   case 1: { OUTPUT = 'one'; }
@@ -883,7 +877,7 @@ switch (x) {
   case 3: { OUTPUT = 'three'; }
   default: { OUTPUT = 'other'; }
 }
-/*------------------------------------------------- 210 ladder_prog__fn_recur */
+/*------------------------------------------------- 208 ladder_prog__fn_recur */
 function fact(n) {
   if (LE(n, 1)) { fact = 1; return; }
   fact = n * fact(n - 1);
@@ -891,7 +885,7 @@ function fact(n) {
 }
 OUTPUT = fact(5);
 OUTPUT = fact(0);
-/*------------------------------------------------ 211 ladder_prog__integ_fib */
+/*------------------------------------------------ 209 ladder_prog__integ_fib */
 function fib(n) {
   if (LT(n, 2)) { fib = n; return; }
   fib = fib(n - 1) + fib(n - 2);
@@ -899,7 +893,7 @@ function fib(n) {
 }
 i = 0;
 while (LE(i, 10)) { OUTPUT = fib(i); i = i + 1; }
-/*----------------------------------------------------- 212 simple_output_106 */
+/*----------------------------------------------------- 210 simple_output_106 */
 // B08_struct_field_set: assign to struct fields
 struct rect { width, height }
 r = rect(10, 5);
@@ -907,7 +901,7 @@ OUTPUT = width(r);
 width(r) = 20;
 OUTPUT = width(r);
 OUTPUT = height(r);
-/*----------------------------------------------------- 213 simple_output_126 */
+/*----------------------------------------------------- 211 simple_output_126 */
 // replacement conditional on a numeric comparison
 x = 10;
 s = "the answer";
@@ -915,7 +909,7 @@ if (EQ(x, 10)) {
     s ? "answer" = "question";
 }
 OUTPUT = s;
-/*------------------------------------------------------ 214 simple_output_31 */
+/*------------------------------------------------------ 212 simple_output_31 */
 // A05_data_field_set.sc — DATA type: set field after creation
 DATA('point(x,y)');
 p = point(10, 20);
@@ -923,7 +917,7 @@ OUTPUT = x(p);
 OUTPUT = y(p);
 x(p) = 99;
 OUTPUT = x(p);
-/*------------------------------------------------------ 215 simple_output_44 */
+/*------------------------------------------------------ 213 simple_output_44 */
 // A12_pat_literal.sc — literal pattern match
 x = 'hello world';
 if (x ? 'hello') {
@@ -931,7 +925,7 @@ if (x ? 'hello') {
 } else {
     OUTPUT = 'no match';
 }
-/*------------------------------------------------------- 216 simple_output_7 */
+/*------------------------------------------------------- 214 simple_output_7 */
 sum = 0;
 i = 1;
 while (LE(i, 10)) {
@@ -939,7 +933,7 @@ while (LE(i, 10)) {
     i = i + 1;
 }
 OUTPUT = sum;
-/*------------------------------------------------------ 217 simple_output_70 */
+/*------------------------------------------------------ 215 simple_output_70 */
 // B01_if_else_false.sc — if/else: false branch taken
 x = 'world';
 if (IDENT(x, 'hello')) {
@@ -947,7 +941,7 @@ if (IDENT(x, 'hello')) {
 } else {
     OUTPUT = 'no match';
 }
-/*------------------------------------------------------ 218 simple_output_71 */
+/*------------------------------------------------------ 216 simple_output_71 */
 // B01_if_else_true.sc — if/else: true branch taken
 x = 'hello';
 if (IDENT(x, 'hello')) {
@@ -955,7 +949,7 @@ if (IDENT(x, 'hello')) {
 } else {
     OUTPUT = 'no match';
 }
-/*------------------------------------------------------ 219 simple_output_83 */
+/*------------------------------------------------------ 217 simple_output_83 */
 // B03_for_continue.sc — continue skips rest of body; step still runs
 for (i = 1; LE(i, 5); i = i + 1) {
     if (EQ(i, 3)) {
@@ -963,7 +957,7 @@ for (i = 1; LE(i, 5); i = i + 1) {
     }
     OUTPUT = i;
 }
-/*------------------------------------------------------ 220 simple_output_94 */
+/*------------------------------------------------------ 218 simple_output_94 */
 // B06_not_query_combined: ~~x double negation — cancels out, takes true branch
 x = "hello";
 if (~~DIFFER(x, "")) {
@@ -971,7 +965,7 @@ if (~~DIFFER(x, "")) {
 } else {
     OUTPUT = "no value";
 }
-/*------------------------------------------------------ 221 simple_output_95 */
+/*------------------------------------------------------ 219 simple_output_95 */
 // B06_not_succeed_fails: ~expr when expr succeeds → condition false
 x = "hello";
 if (~DIFFER(x, "")) {
@@ -979,7 +973,7 @@ if (~DIFFER(x, "")) {
 } else {
     OUTPUT = "not empty";
 }
-/*------------------------------------------------------ 222 simple_output_96 */
+/*------------------------------------------------------ 220 simple_output_96 */
 // B06_query_empty: ?x fails when x is empty
 x = "";
 if (?x) {
@@ -987,7 +981,7 @@ if (?x) {
 } else {
     OUTPUT = "no value";
 }
-/*------------------------------------------------------ 223 simple_output_97 */
+/*------------------------------------------------------ 221 simple_output_97 */
 // B06_query_nonempty: ?x succeeds when x is non-empty (DIFFER from "")
 x = "hello";
 if (?x) {
@@ -995,7 +989,7 @@ if (?x) {
 } else {
     OUTPUT = "no value";
 }
-/*----------------------------------------------------- 224 simple_output_107 */
+/*----------------------------------------------------- 222 simple_output_107 */
 // B08_struct_proc: struct created inside procedure
 struct pair { first, second }
 function make_pair(a, b) {
@@ -1004,7 +998,7 @@ function make_pair(a, b) {
 p = make_pair("hello", "world");
 OUTPUT = first(p);
 OUTPUT = second(p);
-/*----------------------------------------------------- 225 simple_output_108 */
+/*----------------------------------------------------- 223 simple_output_108 */
 // B08_struct_two_types: two distinct struct types coexist
 struct point { x, y }
 struct interval { lo, hi }
@@ -1013,7 +1007,7 @@ iv = interval(1, 10);
 OUTPUT = x(p);
 OUTPUT = lo(iv);
 OUTPUT = hi(iv);
-/*----------------------------------------------------- 226 simple_output_123 */
+/*----------------------------------------------------- 224 simple_output_123 */
 // line comment at top
 /* block at top */
 a = 1; // trailing
@@ -1022,7 +1016,7 @@ b = /* mid-expr */ 2;
    spanning
    lines */
 OUTPUT = a + b; // should print 3
-/*----------------------------------------------------- 227 simple_output_215 */
+/*----------------------------------------------------- 225 simple_output_215 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: switch(x) with x=9 matching NO case, so the default arm runs; same IDENT-chain lowering and same ESAC no-fall-through encoding as the switch_case form. Trailing OUTPUT='after' proves resumption after the switch. */
 x = 9;
 switch (x) {
@@ -1031,7 +1025,7 @@ switch (x) {
   default: { OUTPUT = 'fell-through'; }
 }
 OUTPUT = 'after';
-/*----------------------------------------------------- 228 simple_output_220 */
+/*----------------------------------------------------- 226 simple_output_220 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: report.md:684-691's OWN flagship procedure example, gcd, written with the language's own `procedure` keyword. TWO DIALECT NOTES. (1) SCRIP's lexer once mapped only `function`, making `procedure` a hard parse error -- the Class A gap of FINDING-2026-09-03-seat12 -- and it is implemented now; this witness is what keeps it implemented. (2) Koenig's body spells the remainder operator, which this dialect REMOVED and reserves for operator synonyms, so the loop here is the subtractive gcd and needs no remainder at all. */
 procedure gcd(m, n) {
   while (NE(m, n)) { if (GT(m, n)) { m = m - n; } else { n = n - m; } }
@@ -1040,7 +1034,7 @@ procedure gcd(m, n) {
 }
 OUTPUT = gcd(9, 6);
 OUTPUT = gcd(12, 18);
-/*------------------------------------------------------- 229 simple_output_4 */
+/*------------------------------------------------------- 227 simple_output_4 */
 OUTPUT = 3 + 4;
 OUTPUT = 10 - 3;
 OUTPUT = 6 * 7;
@@ -1049,7 +1043,7 @@ OUTPUT = 2 ^ 8;
 x = 5;
 OUTPUT = x + x;
 OUTPUT = x * 3;
-/*------------------------------------------------------- 230 simple_output_8 */
+/*------------------------------------------------------- 228 simple_output_8 */
 function square(n) {
     return n * n;
 }
@@ -1058,7 +1052,7 @@ function cube(n) {
 }
 OUTPUT = square(7);
 OUTPUT = cube(3);
-/*------------------------------------------------------ 231 simple_output_82 */
+/*------------------------------------------------------ 229 simple_output_82 */
 // B03_for_break.sc — break exits for loop early
 for (i = 1; LE(i, 10); i = i + 1) {
     if (EQ(i, 4)) {
@@ -1067,7 +1061,7 @@ for (i = 1; LE(i, 10); i = i + 1) {
     OUTPUT = i;
 }
 OUTPUT = 'done';
-/*----------------------------------------------------- 232 simple_output_214 */
+/*----------------------------------------------------- 230 simple_output_214 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: switch(x) with x=2 matching the MIDDLE of three cases plus a default. The twin is the IDENT-chain lowering ARCH-LANGUAGES.md:657 names, with every case arm jumping to the ESAC label to encode the 'no fall-through; implicit break at end of each case' rule at ARCH-LANGUAGES.md:629. The trailing OUTPUT='after' is load-bearing: it proves control resumes AFTER the switch and did not fall into default. NOTE: this prose deliberately avoids spelling the success-goto operator, because a twin-equivalence comment is absorbed into the graded block and IS scanned by the feature-flag deriver. */
 x = 2;
 switch (x) {
@@ -1077,7 +1071,7 @@ switch (x) {
   default: { OUTPUT = 'other'; }
 }
 OUTPUT = 'after';
-/*------------------------------------------------------ 233 simple_output_48 */
+/*------------------------------------------------------ 231 simple_output_48 */
 // A13_define_recursive_fib.sc — recursive Fibonacci
 function fib(n) {
     if (LE(n, 1)) { return n; }
@@ -1087,7 +1081,7 @@ OUTPUT = fib(0);
 OUTPUT = fib(1);
 OUTPUT = fib(6);
 OUTPUT = fib(10);
-/*------------------------------------------------------ 234 simple_output_51 */
+/*------------------------------------------------------ 232 simple_output_51 */
 // A13_define_locals.sc — function with local variable
 function swap(a, b) tmp {
     tmp = a;
@@ -1097,7 +1091,7 @@ function swap(a, b) tmp {
     return;
 }
 swap('hello', 'world');
-/*------------------------------------------------------ 235 simple_output_85 */
+/*------------------------------------------------------ 233 simple_output_85 */
 // B03_for_nested_break.sc — break exits only innermost for loop
 for (i = 1; LE(i, 3); i = i + 1) {
     for (j = 1; LE(j, 3); j = j + 1) {
@@ -1107,7 +1101,7 @@ for (i = 1; LE(i, 3); i = i + 1) {
         OUTPUT = i   '-'   j;
     }
 }
-/*----------------------------------------------------- 236 simple_output_145 */
+/*----------------------------------------------------- 234 simple_output_145 */
 // fibonacci.sc — recursive Fibonacci (SC-13)
 procedure Fib(n) {
     if (LE(n, 1)) { Fib = n; return; }
@@ -1118,7 +1112,7 @@ OUTPUT = Fib(1);
 OUTPUT = Fib(2);
 OUTPUT = Fib(5);
 OUTPUT = Fib(10);
-/*------------------------------------------------------ 237 simple_output_37 */
+/*------------------------------------------------------ 235 simple_output_37 */
 // A07_lt_le_ge.sc — LT, LE, GE comparisons
 if (LT(3, 5)) {
     OUTPUT = '3 < 5';
@@ -1129,7 +1123,7 @@ if (LE(5, 5)) {
 if (GE(7, 5)) {
     OUTPUT = '7 >= 5';
 }
-/*------------------------------------------------------ 238 simple_output_78 */
+/*------------------------------------------------------ 236 simple_output_78 */
 // B02_while_break.sc — break exits while loop early
 i = 1;
 while (LE(i, 10)) {
@@ -1140,7 +1134,7 @@ while (LE(i, 10)) {
     i = i + 1;
 }
 OUTPUT = 'done';
-/*------------------------------------------------------ 239 simple_output_79 */
+/*------------------------------------------------------ 237 simple_output_79 */
 // B02_while_continue.sc — continue skips rest of body; loop continues
 i = 1;
 while (LE(i, 5)) {
@@ -1151,7 +1145,7 @@ while (LE(i, 5)) {
     OUTPUT = i;
     i = i + 1;
 }
-/*------------------------------------------------------- 240 simple_output_1 */
+/*------------------------------------------------------- 238 simple_output_1 */
 function count_down(n) {
     total = 0;
     i = n;
@@ -1163,7 +1157,7 @@ function count_down(n) {
 }
 OUTPUT = count_down(10);
 OUTPUT = count_down(5);
-/*------------------------------------------------------ 241 simple_output_34 */
+/*------------------------------------------------------ 239 simple_output_34 */
 // A07_gt.sc — GT numeric comparison
 if (GT(5, 3)) {
     OUTPUT = '5 > 3';
@@ -1175,7 +1169,7 @@ if (GT(3, 5)) {
 } else {
     OUTPUT = '3 not > 5';
 }
-/*------------------------------------------------------ 242 simple_output_35 */
+/*------------------------------------------------------ 240 simple_output_35 */
 // A07_ident.sc — IDENT succeeds when strings are equal
 if (IDENT('abc', 'abc')) {
     OUTPUT = 'equal';
@@ -1187,7 +1181,7 @@ if (IDENT('abc', 'xyz')) {
 } else {
     OUTPUT = 'not equal';
 }
-/*------------------------------------------------------ 243 simple_output_36 */
+/*------------------------------------------------------ 241 simple_output_36 */
 // A07_integer_test.sc — INTEGER succeeds on numeric string, fails on alpha
 if (INTEGER('42')) {
     OUTPUT = 'numeric';
@@ -1199,7 +1193,7 @@ if (INTEGER('abc')) {
 } else {
     OUTPUT = 'not numeric';
 }
-/*------------------------------------------------------ 244 simple_output_38 */
+/*------------------------------------------------------ 242 simple_output_38 */
 // A08_eq_ne.sc — EQ and NE numeric equality
 if (EQ(42, 42)) {
     OUTPUT = '42 = 42';
@@ -1211,7 +1205,7 @@ if (NE(42, 99)) {
 } else {
     OUTPUT = 'wrong';
 }
-/*------------------------------------------------------ 245 simple_output_47 */
+/*------------------------------------------------------ 243 simple_output_47 */
 // A13_define_loop_call.sc — function called in loop, concat results
 function bump(v) {
     return v + 1;
@@ -1223,7 +1217,7 @@ while (LT(j, 5)) {
     j = j + 1;
 }
 OUTPUT = s;
-/*------------------------------------------------------ 246 simple_output_74 */
+/*------------------------------------------------------ 244 simple_output_74 */
 // B01_nested_if.sc — nested if/else
 x = 2;
 if (EQ(x, 1)) {
@@ -1235,7 +1229,7 @@ if (EQ(x, 1)) {
         OUTPUT = 'other';
     }
 }
-/*----------------------------------------------------- 247 simple_output_149 */
+/*----------------------------------------------------- 245 simple_output_149 */
 // nested_while_in_function_multi_inner.sc -- regression witness, snocone-nested-while-in-function-segv.
 // Same shape as nested_while_in_function.sc but the inner while runs 3 iterations per outer pass
 // instead of 1, exercising the inner loop's own back-edge repeatedly before the outer-tail transition.
@@ -1248,7 +1242,7 @@ function S5(n, x, i, j, acc) {
     S5 = acc; return;
 }
 OUTPUT = S5(4);
-/*----------------------------------------------------- 248 simple_output_150 */
+/*----------------------------------------------------- 246 simple_output_150 */
 // nested_while_in_function_multistmt_tail.sc -- regression witness, snocone-nested-while-in-function-segv.
 // Two statements (not one) follow the inner while inside the outer body, checking that only the
 // first trailing statement needs its own fresh depth-planning head -- the second must chain from it.
@@ -1262,7 +1256,7 @@ function S5(n, x, i, j, y) {
     S5 = x + y; return;
 }
 OUTPUT = S5(3);
-/*------------------------------------------------------ 249 simple_output_76 */
+/*------------------------------------------------------ 247 simple_output_76 */
 // B02_nested_break.sc — break exits only innermost loop; outer continues
 i = 1;
 while (LE(i, 3)) {
@@ -1276,7 +1270,7 @@ while (LE(i, 3)) {
     }
     i = i + 1;
 }
-/*----------------------------------------------------- 250 simple_output_125 */
+/*----------------------------------------------------- 248 simple_output_125 */
 // use numeric comparison as pattern subject (EQ succeeds/fails as pattern)
 a = 5;
 b = 5;
@@ -1291,7 +1285,7 @@ if (EQ(a, c)) {
 } else {
     OUTPUT = "no match";
 }
-/*------------------------------------------------------ 251 simple_output_46 */
+/*------------------------------------------------------ 249 simple_output_46 */
 // A13_define_freturn.sc — function fails via freturn, caller handles :F
 function ispos(x) {
     if (GT(x, 0)) { return; } else { freturn; }
@@ -1306,7 +1300,7 @@ if (ispos(-3)) {
 } else {
     OUTPUT = 'not positive';
 }
-/*----------------------------------------------------- 252 simple_output_115 */
+/*----------------------------------------------------- 250 simple_output_115 */
 // B10_num_eq: EQ() succeeds when values are numerically equal
 // (was "==" sugar; removed 2026-08-24 pending Lon's ruling, see snocone-relop-parse-regression)
 a = 7;
@@ -1322,7 +1316,7 @@ if (EQ(a, b)) {
 } else {
     OUTPUT = "not equal";
 }
-/*----------------------------------------------------- 253 simple_output_117 */
+/*----------------------------------------------------- 251 simple_output_117 */
 // B10_num_gt: GT() succeeds when left > right
 // (was ">" sugar; removed 2026-08-24 pending Lon's ruling, see snocone-relop-parse-regression)
 a = 10;
@@ -1338,7 +1332,7 @@ if (GT(a, b)) {
 } else {
     OUTPUT = "not greater";
 }
-/*----------------------------------------------------- 254 simple_output_119 */
+/*----------------------------------------------------- 252 simple_output_119 */
 // B10_num_lt: LT() succeeds when left < right
 // (was "<" sugar; removed 2026-08-24 pending Lon's ruling, see snocone-relop-parse-regression)
 a = 2;
@@ -1354,7 +1348,7 @@ if (LT(a, b)) {
 } else {
     OUTPUT = "not less";
 }
-/*----------------------------------------------------- 255 simple_output_120 */
+/*----------------------------------------------------- 253 simple_output_120 */
 // B10_num_ne: NE() succeeds when values differ
 // (was "!=" sugar; removed 2026-08-24 pending Lon's ruling, see snocone-relop-parse-regression)
 a = 4;
@@ -1370,7 +1364,7 @@ if (NE(a, b)) {
 } else {
     OUTPUT = "equal";
 }
-/*----------------------------------------------------- 256 simple_output_109 */
+/*----------------------------------------------------- 254 simple_output_109 */
 // B09_str_eq: LEQ() succeeds when strings are lexicographically equal
 // (was ":==:" sugar; removed 2026-08-24 pending Lon's ruling, see snocone-relop-parse-regression)
 a = "apple";
@@ -1387,7 +1381,7 @@ if (LEQ(a, b)) {
 } else {
     OUTPUT = "not equal";
 }
-/*----------------------------------------------------- 257 simple_output_111 */
+/*----------------------------------------------------- 255 simple_output_111 */
 // B09_str_gt: LGT() succeeds when left > right lexicographically
 // (was ":>:" sugar; removed 2026-08-24 pending Lon's ruling, see snocone-relop-parse-regression)
 a = "zebra";
@@ -1404,7 +1398,7 @@ if (LGT(a, b)) {
 } else {
     OUTPUT = "not greater";
 }
-/*----------------------------------------------------- 258 simple_output_113 */
+/*----------------------------------------------------- 256 simple_output_113 */
 // B09_str_lt: LLT() succeeds when left < right lexicographically
 // (was ":<:" sugar; removed 2026-08-24 pending Lon's ruling, see snocone-relop-parse-regression)
 a = "apple";
@@ -1421,7 +1415,7 @@ if (LLT(a, b)) {
 } else {
     OUTPUT = "not less";
 }
-/*----------------------------------------------------- 259 simple_output_114 */
+/*----------------------------------------------------- 257 simple_output_114 */
 // B09_str_ne: LNE() succeeds when strings are not equal
 // (was ":!=:" sugar; removed 2026-08-24 pending Lon's ruling, see snocone-relop-parse-regression)
 a = "apple";
@@ -1438,7 +1432,7 @@ if (LNE(a, b)) {
 } else {
     OUTPUT = "same";
 }
-/*----------------------------------------------------- 260 simple_output_146 */
+/*----------------------------------------------------- 258 simple_output_146 */
 // nested_while_in_function.sc -- PROBE, minimal repro.
 // A `while` loop nested inside another `while` loop, both inside a Snocone
 // FUNCTION body, SIGSEGVs on the function's own return/gamma-exit path in
@@ -1455,7 +1449,7 @@ function S5(n, x, i, j) {
     S5 = x; return;
 }
 OUTPUT = S5(3);
-/*------------------------------------------------------- 261 simple_output_9 */
+/*------------------------------------------------------- 259 simple_output_9 */
 function max(a, b) {
     if (GE(a, b)) return a;
     return b;
@@ -1472,7 +1466,7 @@ OUTPUT = max(3, 7);
 OUTPUT = min(3, 7);
 OUTPUT = abs_val(0 - 5);
 OUTPUT = max(abs_val(0 - 3), abs_val(0 - 8));
-/*----------------------------------------------------- 262 simple_output_148 */
+/*----------------------------------------------------- 260 simple_output_148 */
 // nested_while_in_function_3deep.sc -- KNOWN-OPEN witness, three levels of while nesting in a function.
 // SIGSEGVs as of 2026-08-27 (task snocone-triple-nested-while-baseline-drift): the fix for the 2-level
 // case (snocone-nested-while-in-function-segv) does not generalize -- a freshly-planned "trailing
@@ -1491,7 +1485,7 @@ function S5(n, x, i, j, k, acc) {
     S5 = acc; return;
 }
 OUTPUT = S5(3);
-/*----------------------------------------------------- 263 simple_output_147 */
+/*----------------------------------------------------- 261 simple_output_147 */
 // nested_while_in_function_1deep_control.sc -- CONTROL sibling for the SEGV probe
 // in this same directory (nested_while_in_function.sc). Same function shape (S5(n,x,i,j),
 // same body statements: j=0; x=j; j=j+1; i=i+1), but the inner `while(LT(j,1)) {...}` wrapper
@@ -1512,7 +1506,7 @@ function S5(n, x, i, j) {
     S5 = x; return;
 }
 OUTPUT = S5(3);
-/*----------------------------------------------------- 264 simple_output_152 */
+/*----------------------------------------------------- 262 simple_output_152 */
 /* test_for.sc — for loop lowering test
  * Ref generated from equivalent SNOBOL4 under SPITBOL oracle.
  */
@@ -1533,7 +1527,7 @@ for (i = 0; LE(i, 8); i = i + 2) {
     s = s + i;
 }
 OUTPUT = s;
-/*----------------------------------------------------- 265 simple_output_116 */
+/*----------------------------------------------------- 263 simple_output_116 */
 // B10_num_ge: GE() succeeds when left >= right
 // (was ">=" sugar; removed 2026-08-24 pending Lon's ruling, see snocone-relop-parse-regression)
 a = 5;
@@ -1555,7 +1549,7 @@ if (GE(a, b)) {
 } else {
     OUTPUT = "not ge";
 }
-/*----------------------------------------------------- 266 simple_output_118 */
+/*----------------------------------------------------- 264 simple_output_118 */
 // B10_num_le: LE() succeeds when left <= right
 // (was "<=" sugar; removed 2026-08-24 pending Lon's ruling, see snocone-relop-parse-regression)
 a = 5;
@@ -1577,7 +1571,7 @@ if (LE(a, b)) {
 } else {
     OUTPUT = "not le";
 }
-/*----------------------------------------------------- 267 simple_output_110 */
+/*----------------------------------------------------- 265 simple_output_110 */
 // B09_str_ge: LGE() succeeds when left >= right lexicographically
 // (was ":>=:" sugar; removed 2026-08-24 pending Lon's ruling, see snocone-relop-parse-regression)
 a = "zebra";
@@ -1601,7 +1595,7 @@ if (LGE(a, b)) {
 } else {
     OUTPUT = "not ge";
 }
-/*----------------------------------------------------- 268 simple_output_112 */
+/*----------------------------------------------------- 266 simple_output_112 */
 // B09_str_le: LLE() succeeds when left <= right lexicographically
 // (was ":<=:" sugar; removed 2026-08-24 pending Lon's ruling, see snocone-relop-parse-regression)
 a = "apple";
@@ -1625,7 +1619,7 @@ if (LLE(a, b)) {
 } else {
     OUTPUT = "not le";
 }
-/*----------------------------------------------------- 269 simple_output_144 */
+/*----------------------------------------------------- 267 simple_output_144 */
 // literals.sc - String and numeric literal coercion.
 // Tests: null string, integer/real OUTPUT coercion, string concat,
 //        arithmetic precedence, single- and double-quoted literals.
@@ -1652,7 +1646,7 @@ OUTPUT = 1 + 2;
 OUTPUT = 1 + 2 * 3;
 OUTPUT = (1 + 2) * 3;
 OUTPUT = 1 + (2 * 3);
-/*------------------------------------------------------ 270 simple_output_69 */
+/*------------------------------------------------------ 268 simple_output_69 */
 // literals.sc - String and numeric literal coercion.
 // Tests: null string, integer/real OUTPUT coercion, string concat,
 //        arithmetic precedence, single- and double-quoted literals.
@@ -1679,7 +1673,7 @@ OUTPUT = 1 + 2;
 OUTPUT = 1 + 2 * 3;
 OUTPUT = (1 + 2) * 3;
 OUTPUT = 1 + (2 * 3);
-/*----------------------------------------------------- 271 simple_output_151 */
+/*----------------------------------------------------- 269 simple_output_151 */
 /* test_break_return.sc — break / return / freturn / nreturn test (SC-6)
  *
  * Each construct is exercised inside a while-loop body, working around a
@@ -1727,177 +1721,170 @@ while (EQ(m, 1)) {
     if (IDENT(r4, "")) { OUTPUT = "nreturn ok"; }
     m = m + 1;
 }
-/*---------------------------------------------------------------- 272 dupl_1 */
+/*---------------------------------------------------------------- 270 dupl_1 */
 OUTPUT = DUPL('ab', 3);
-/*------------------------------------------------------------- 273 replace_1 */
+/*------------------------------------------------------------- 271 replace_1 */
 OUTPUT = REPLACE('abc', 'b', 'X');
-/*---------------------------------------------------------------- 274 size_3 */
+/*---------------------------------------------------------------- 272 size_3 */
 OUTPUT = SIZE('hello');
-/*--------------------------------------------------------------- 275 array_6 */
+/*--------------------------------------------------------------- 273 array_6 */
 a = ARRAY(3, 'z');
 OUTPUT = a[2];
-/*-------------------------------------------------------- 276 dupl_replace_1 */
+/*-------------------------------------------------------- 274 dupl_replace_1 */
 // A06_dupl.sc — DUPL repeats string N times
 OUTPUT = DUPL('ab', 3);
-/*------------------------------------------- 277 ladder_prog__cursor_capture */
-'abcdef' ? LEN(3) @ p;
-OUTPUT = p;
-/*---------------------------------------------- 278 ladder_prog__lit_keyword */
+/*---------------------------------------------- 275 ladder_prog__lit_keyword */
 OUTPUT = &UCASE;
 OUTPUT = &LCASE;
-/*-------------------------------------------------- 279 ladder_prog__pat_alt */
+/*-------------------------------------------------- 276 ladder_prog__pat_alt */
 if ('cat'  ? ('dog' | 'cat' | 'bird')) { OUTPUT = 'alt-hit'; }
 if ('fish' ? ('dog' | 'cat'))          { OUTPUT = 'wrong'; } else { OUTPUT = 'alt-miss-ok'; }
-/*------------------------------------------------ 280 ladder_prog__pat_defer */
+/*------------------------------------------------ 277 ladder_prog__pat_defer */
 p = 'abc';
 if ('xabcy' ? *p) { OUTPUT = 'defer-ok'; }
-/*----------------------------------------------------- 281 replace_replace_1 */
+/*----------------------------------------------------- 278 replace_replace_1 */
 // A06_replace.sc — REPLACE translates characters
 OUTPUT = REPLACE('hello', 'aeiou', 'AEIOU');
-/*---------------------------------------------------------------- 282 size_2 */
+/*---------------------------------------------------------------- 279 size_2 */
 OUTPUT = SIZE('hello');
 OUTPUT = REVERSE('abc');
-/*-------------------------------------------------------- 283 size_replace_1 */
+/*-------------------------------------------------------- 280 size_replace_1 */
 // A06_size.sc — SIZE returns string length
 OUTPUT = SIZE('hello');
-/*--------------------------------------------------------------- 284 array_2 */
+/*--------------------------------------------------------------- 281 array_2 */
 a = ARRAY('3:5');
 a[4] = 'lb';
 OUTPUT = a[4];
-/*--------------------------------------------------------------- 285 array_3 */
+/*--------------------------------------------------------------- 282 array_3 */
 a = ARRAY(3);
 a[1] = 'x';
 OUTPUT = a[1];
-/*--------------------------------------------------------------- 286 array_4 */
+/*--------------------------------------------------------------- 283 array_4 */
 a = ARRAY(2);
 a[2] = 'v';
 OUTPUT = a[2];
-/*--------------------------------------------------------------- 287 array_5 */
+/*--------------------------------------------------------------- 284 array_5 */
 a = ARRAY(2);
 a[1] = 'r';
 OUTPUT = a[1];
-/*--------------------------------------------------------------- 288 array_7 */
+/*--------------------------------------------------------------- 285 array_7 */
 a = ARRAY('2,2');
 a[2,1] = 'm';
 OUTPUT = a[2,1];
-/*------------------------------------------------------------- 289 capture_1 */
+/*------------------------------------------------------------- 286 capture_1 */
 s = 'abXcdX';
 s ? BREAKX('X') . t 'Xc';
 OUTPUT = t;
-/*------------ 290 ladder__rung22_datatype_function_name_operator_yields_name */
+/*------------ 287 ladder__rung22_datatype_function_name_operator_yields_name */
 x = 'hi';
 OUTPUT = DATATYPE(.x);
 OUTPUT = DATATYPE(x);
-/*----------------------------------------------- 291 ladder_prog__fn_nreturn */
-function mkname() { mkname = .target; nreturn; }
-$mkname() = 'stored';
-OUTPUT = target;
-/*----------------------------------------------- 292 ladder_prog__nul_parens */
+/*----------------------------------------------- 288 ladder_prog__nul_parens */
 x = ();
 OUTPUT = 'x=[' x ']';
 OUTPUT = SIZE(x);
-/*----------------------------------------------------------------- 293 len_1 */
+/*----------------------------------------------------------------- 289 len_1 */
 s = 'hello';
 s ? LEN(2) @p;
 OUTPUT = p;
-/*--------------------------------------------------------------- 294 table_2 */
+/*--------------------------------------------------------------- 290 table_2 */
 t = TABLE();
 t['k'] = 'v';
 OUTPUT = t['k'];
-/*--------------------------------------------------------------- 295 table_3 */
+/*--------------------------------------------------------------- 291 table_3 */
 t = TABLE();
 t['a'] = 'A';
 OUTPUT = t['a'];
-/*--------------------------------------------------------------- 296 table_4 */
+/*--------------------------------------------------------------- 292 table_4 */
 t = TABLE();
 t['b'] = 'B';
 OUTPUT = t['b'];
-/*--------------------------------------------------------------- 297 table_5 */
+/*--------------------------------------------------------------- 293 table_5 */
 t = TABLE();
 t['key'] = 'nonint';
 OUTPUT = t['key'];
-/*------------------------------------------------------------ 298 datatype_1 */
+/*------------------------------------------------------------ 294 datatype_1 */
 x = '5';
 OUTPUT = DATATYPE(x);
 OUTPUT = DATATYPE(+x);
 OUTPUT = +x + 1;
-/*------------------------------------------------------------ 299 indirect_1 */
+/*------------------------------------------------------------ 295 indirect_1 */
 // 015 - Indirect assignment via variable holding name
 v = 'x';
 $v = 'world';
 OUTPUT = x;
-/*------------------------------------------------------------ 300 indirect_2 */
+/*------------------------------------------------------------ 296 indirect_2 */
 // 015 - Indirect assignment via variable holding name
 v = 'x';
 $v = 'world';
 OUTPUT = x;
-/*- 301 ladder__rung04_builtin_string_functions_size_of_a_control_character_string */
+/*- 297 ladder__rung04_builtin_string_functions_size_of_a_control_character_string */
 x = CHAR(1);
 OUTPUT = SIZE(x);
 OUTPUT = SIZE(x x);
 OUTPUT = SIZE('a' CHAR(1) 'b');
-/*------------------------------------------------ 302 ladder_prog__idx_multi */
+/*------------------------------------------------ 298 ladder_prog__idx_multi */
 a = ARRAY('1:2,1:2');
 a[1,1] = 'a'; a[1,2] = 'b'; a[2,1] = 'c'; a[2,2] = 'd';
 OUTPUT = a[1,1];
 OUTPUT = a[2,2];
-/*------------------------------------------------- 303 ladder_prog__indirect */
+/*------------------------------------------------- 299 ladder_prog__indirect */
 name = 'foo';
 $name = 'bar';
 OUTPUT = foo;
 OUTPUT = $name;
-/*---------------------------------------------- 304 ladder_prog__table_basic */
+/*---------------------------------------------- 300 ladder_prog__table_basic */
 t = TABLE();
 t['k1'] = 'v1'; t['k2'] = 'v2';
 OUTPUT = t['k1'];
 OUTPUT = t['k2'];
-/*----------------------------------------------- 305 ladder_prog__unary_name */
+/*----------------------------------------------- 301 ladder_prog__unary_name */
 target = 'original';
 n = .target;
 $n = 'changed';
 OUTPUT = target;
-/*--------------------------------------------------------------- 306 table_1 */
+/*--------------------------------------------------------------- 302 table_1 */
 t = TABLE();
 t['k1'] = 'v1'; t['k2'] = 'v2';
 OUTPUT = t['k1'];
 OUTPUT = t['k2'];
-/*--------------------------------------------------------------- 307 array_1 */
+/*--------------------------------------------------------------- 303 array_1 */
 a = ARRAY(3);
 a[1] = 'x'; a[2] = 'y'; a[3] = 'z';
 OUTPUT = a[1];
 OUTPUT = a[2];
 OUTPUT = a[3];
-/*---------------------------------------------------- 308 datatype_replace_1 */
+/*---------------------------------------------------- 304 datatype_replace_1 */
 // B08_struct_datatype: DATATYPE of struct instance
 struct color { r, g, b }
 c = color(255, 128, 0);
 OUTPUT = DATATYPE(c);
 OUTPUT = r(c);
-/*------------------------------------------------------- 309 fence_replace_1 */
+/*------------------------------------------------------- 305 fence_replace_1 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: SNOBOL4 has no if-block, so the twin expresses the same branch with a goto label; the guarded assignment and the printed result are identical */
 s = 'xxabc';
 r = 'no';
 if (s ? FENCE 'abc') { r = 'yes'; }
 OUTPUT = r;
-/*------------------------------------------------------------ 310 indirect_3 */
+/*------------------------------------------------------------ 306 indirect_3 */
 name = 'foo';
 foo = 'initial';
 OUTPUT = $name;
 $name = 'updated';
 OUTPUT = foo;
-/*---------------------------------------------- 311 ladder_prog__array_basic */
+/*---------------------------------------------- 307 ladder_prog__array_basic */
 a = ARRAY(3);
 a[1] = 'x'; a[2] = 'y'; a[3] = 'z';
 OUTPUT = a[1];
 OUTPUT = a[2];
 OUTPUT = a[3];
-/*---------------------------------------------------------------- 312 size_1 */
+/*---------------------------------------------------------------- 308 size_1 */
 a = 'hello';
 b = ' world';
 c = a b;
 OUTPUT = c;
 OUTPUT = SIZE(c);
-/*- 313 ladder__rung23_keyword_and_system_variables_stlimit_halts_a_loop_body */
+/*- 309 ladder__rung23_keyword_and_system_variables_stlimit_halts_a_loop_body */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: &STLIMIT must halt a runaway loop whose trips are INSIDE a structured body, which is the dangerous direction -- before CEO-727 this ran to completion and
    printed 'after' at rc=0 while the oracle's twin halts at ERROR 244. The declared rc=1 in ALL.wantrc is half the witness: stdout alone cannot tell a halt from a silent completion. */
 &STLIMIT = 20;
@@ -1905,7 +1892,7 @@ n = 0;
 OUTPUT = 'before';
 while (LT(n, 100000)) { n = n + 1; }
 OUTPUT = 'after';
-/*------------------------------------------------------ 314 simple_output_92 */
+/*------------------------------------------------------ 310 simple_output_92 */
 // B05_alt_both_fail: both alternatives fail, match fails
 S = "hello";
 if (S ? (("xyz" | "abc"))) {
@@ -1913,7 +1900,7 @@ if (S ? (("xyz" | "abc"))) {
 } else {
     OUTPUT = "no match";
 }
-/*------------------------------------------------------- 315 array_replace_1 */
+/*------------------------------------------------------- 311 array_replace_1 */
 // A05_array_create.sc — create array, set and get elements
 arr = ARRAY(5);
 arr[1] = 'first';
@@ -1922,7 +1909,7 @@ arr[5] = 'fifth';
 OUTPUT = arr[1];
 OUTPUT = arr[3];
 OUTPUT = arr[5];
-/*----------------------------------------------------- 316 capture_replace_5 */
+/*----------------------------------------------------- 312 capture_replace_5 */
 // string comparison guards a pattern operation
 s = "hello";
 t = "hello";
@@ -1931,7 +1918,7 @@ if (LEQ(s, t)) {
         OUTPUT = m;
     }
 }
-/*----------------------------------------------------- 317 keyword_replace_2 */
+/*----------------------------------------------------- 313 keyword_replace_2 */
 // A09_stno.sc — &STNO increments per statement
 x = 1;
 x = 2;
@@ -1940,7 +1927,7 @@ if (GT(&STNO, 1)) {
 } else {
     OUTPUT = 'wrong';
 }
-/*------------- 318 ladder__rung23_keyword_and_system_variables_anchor_toggle */
+/*------------- 314 ladder__rung23_keyword_and_system_variables_anchor_toggle */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: SNOBOL4 has no if-block; the twin expresses the same two guarded assignments with goto labels, and both print the same two lines */
 s = 'hello';
 &ANCHOR = 0;
@@ -1949,7 +1936,7 @@ OUTPUT = r;
 &ANCHOR = 1;
 r = 'no'; if (s ? 'ell') { r = 'yes'; }
 OUTPUT = r;
-/*------------- 319 ladder__rung23_keyword_and_system_variables_stcount_query */
+/*------------- 315 ladder__rung23_keyword_and_system_variables_stcount_query */
 a = &STCOUNT;
 x = 1;
 OUTPUT = &STCOUNT - a;
@@ -1958,7 +1945,7 @@ y = 1;
 z = 2;
 w = 3;
 OUTPUT = &STCOUNT - b;
-/*------------------------------------------------------- 320 table_replace_1 */
+/*------------------------------------------------------- 316 table_replace_1 */
 // A05_table.sc — create table, set and get keyed values
 t = TABLE();
 t['name'] = 'Alice';
@@ -1967,7 +1954,7 @@ t['lang'] = 'SNOBOL4';
 OUTPUT = t['name'];
 OUTPUT = t['age'];
 OUTPUT = t['lang'];
-/*------------------------------------------------------- 321 array_replace_2 */
+/*------------------------------------------------------- 317 array_replace_2 */
 // A05_array_loop.sc — fill array in while loop, read back
 arr = ARRAY(5);
 i = 1;
@@ -1980,7 +1967,7 @@ while (LE(i, 5)) {
     OUTPUT = arr[i];
     i = i + 1;
 }
-/*----------------------------------------------------- 322 keyword_replace_1 */
+/*----------------------------------------------------- 318 keyword_replace_1 */
 // A09_anchor.sc — &ANCHOR=1 forces match at position 0
 &ANCHOR = 1;
 x = 'hello world';
@@ -1994,7 +1981,7 @@ if (x ? 'world') {
 } else {
     OUTPUT = 'anchor prevented mid-string match';
 }
-/*---------------------------------------------------- 323 indirect_replace_1 */
+/*---------------------------------------------------- 319 indirect_replace_1 */
 // nreturn_after_indirect_assign.sc -- PROBE, minimal repro.
 // A function that sets its own return-slot to .dummy, then performs an
 // INDIRECT assignment ($name = expression), then nreturns -- the caller
@@ -2009,7 +1996,7 @@ function setter(name, expression) {
 }
 r = setter('d', 'val');
 OUTPUT = "[" r "]";
-/*-- 324 ladder__rung23_keyword_and_system_variables_stcount_counts_loop_body */
+/*-- 320 ladder__rung23_keyword_and_system_variables_stcount_counts_loop_body */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: the ref is cut from the oracle running the SPITBOL twin, a goto loop over the same two trip counts. The witness reads &STCOUNT around a 3-trip and an 8-trip
    loop of IDENTICAL top-level shape and compares the two deltas, so the per-iteration count is isolated from the top-level overhead and no magic statement number is pinned -- the Snocone report calls the
    count 'only approximate' because it counts SNOBOL4 statements, so the property to pin is that a loop body counts AT ALL, never an exact total. Before CEO-727 both deltas were equal and this printed the
@@ -2026,7 +2013,7 @@ if (GT((c - b) - (b - a), 0)) {
 } else {
     OUTPUT = 'loop body not counted';
 }
-/*-------------------------------------------------------- 325 size_replace_2 */
+/*-------------------------------------------------------- 321 size_replace_2 */
 // palindrome.sc — string reverse + palindrome check (SC-14)
 procedure Reverse(s, r, c, i) {
     r = ''; i = SIZE(s);
@@ -2044,7 +2031,7 @@ if (IsPalindrome('hello'))    { OUTPUT = 'FAIL: hello'; }    else { OUTPUT = 'PA
 if (IsPalindrome('abcba'))    { OUTPUT = 'PASS: abcba'; }    else { OUTPUT = 'FAIL: abcba'; }
 if (IsPalindrome('a'))        { OUTPUT = 'PASS: single'; }   else { OUTPUT = 'FAIL: single'; }
 if (IsPalindrome(''))         { OUTPUT = 'PASS: empty'; }    else { OUTPUT = 'FAIL: empty'; }
-/*------------------------------------------------------- 326 array_replace_3 */
+/*------------------------------------------------------- 322 array_replace_3 */
 // quicksort.sc — recursive quicksort (SC-16)
 // Note: Snocone arrays pass by reference (descriptor sharing), so in-place sort works.
 // Validated by checking sorted output directly.
@@ -2071,7 +2058,7 @@ a[5] = 9; a[6] = 2; a[7] = 7; a[8] = 4;
 QSort(a, 1, 8);
 i = 1;
 while (LE(i, 8)) { OUTPUT = a[i]; i = i + 1; }
-/*------------------------------------------------------- 327 defer_replace_1 */
+/*------------------------------------------------------- 323 defer_replace_1 */
 /* test_while.sc — while loop lowering test
  * Ref generated from equivalent SNOBOL4 under SPITBOL.
  */
@@ -2102,7 +2089,7 @@ while (LE(i, 3)) {
     }
     i = i + 1;
 }
-/*----------------------------------------------------- 328 keyword_replace_3 */
+/*----------------------------------------------------- 324 keyword_replace_3 */
 // driver.sc — test driver for counter.sc (Snocone)
 // Oracle: compare to beauty_counter_driver.ref
 
@@ -2145,173 +2132,173 @@ if (~PopCounter()) { OUTPUT = 'PASS: 4 empty pop fails'; } else { OUTPUT = 'FAIL
 
 // 5: TopCounter on empty stack fails
 if (~TopCounter()) { OUTPUT = 'PASS: 5 empty top fails'; } else { OUTPUT = 'FAIL: 5 empty top'; }
-/*------------------------------------------------------------ 329 trim_alt_1 */
+/*------------------------------------------------------------ 325 trim_alt_1 */
 OUTPUT = TRIM('hi   ') '|';
-/*------------------------------------------------ 330 ladder_prog__pat_fence */
+/*------------------------------------------------ 326 ladder_prog__pat_fence */
 if ('1AB+' ? ANY('AB') FENCE '+') { OUTPUT = 'wrong'; } else { OUTPUT = 'fence-blocks-ok'; }
 if ('A+B'  ? ANY('AB') FENCE '+') { OUTPUT = 'fence-pass-ok'; }
-/*----------------------------------------------- 331 ladder_prog__pat_strvar */
+/*----------------------------------------------- 327 ladder_prog__pat_strvar */
 kw = 'while';
 if ('while' ? POS(0) kw RPOS(0)) { OUTPUT = 'strvar-ok'; }
-/*-------------------------------------------------------- 332 size_keyword_1 */
+/*-------------------------------------------------------- 328 size_keyword_1 */
 // 006 - SIZE of &ALPHABET
 OUTPUT = SIZE(&ALPHABET);
-/*-------------------------------------------------------- 333 size_keyword_2 */
+/*-------------------------------------------------------- 329 size_keyword_2 */
 // 006 - SIZE of &ALPHABET
 OUTPUT = SIZE(&ALPHABET);
-/*--------------------------------------------------- 334 trim_size_replace_1 */
+/*--------------------------------------------------- 330 trim_size_replace_1 */
 // A06_trim.sc — TRIM removes trailing spaces
 OUTPUT = SIZE(TRIM('hello   '));
-/*--------------------------------------------------------- 335 any_capture_1 */
+/*--------------------------------------------------------- 331 any_capture_1 */
 s = 'xyz';
 s ? ANY('xy') . t;
 OUTPUT = t;
-/*--------------------------------------------------------- 336 arb_capture_1 */
+/*--------------------------------------------------------- 332 arb_capture_1 */
 s = 'abc';
 s ? ARB . t 'c';
 OUTPUT = t;
-/*------------------------------------------------------- 337 arbno_capture_1 */
+/*------------------------------------------------------- 333 arbno_capture_1 */
 s = 'ababX';
 s ? ARBNO('ab') . t 'X';
 OUTPUT = t;
-/*--------------------------------------------------------- 338 bal_capture_1 */
+/*--------------------------------------------------------- 334 bal_capture_1 */
 s = '(a+b)';
 s ? BAL . t;
 OUTPUT = t;
-/*------------------------------------------------------- 339 break_capture_1 */
+/*------------------------------------------------------- 335 break_capture_1 */
 s = 'ab=cd';
 s ? BREAK('=') . t;
 OUTPUT = t;
-/*--------------------------------------------------------- 340 capture_alt_1 */
+/*--------------------------------------------------------- 336 capture_alt_1 */
 s = 'cat';
 s ? ('dog' | 'cat') . t;
 OUTPUT = t;
-/*--------------------------------------------------------- 341 capture_alt_2 */
+/*--------------------------------------------------------- 337 capture_alt_2 */
 s = 'ab';
 s ? ('a' FAIL | 'ab') . t;
 OUTPUT = t;
-/*------------------------------------------------ 342 ladder_prog__pat_immed */
+/*------------------------------------------------ 338 ladder_prog__pat_immed */
 s = 'abcdef';
 s ? LEN(2) $ first;
 OUTPUT = first;
-/*--------------------------------------------------------- 343 len_capture_1 */
+/*--------------------------------------------------------- 339 len_capture_1 */
 s = 'hello';
 s ? LEN(3) . t;
 OUTPUT = t;
-/*--------------------------------------------------------- 344 len_capture_2 */
+/*--------------------------------------------------------- 340 len_capture_2 */
 s = 'abc';
 s ? LEN(2) . t;
 OUTPUT = t;
-/*----------------------------------------------------- 345 len_imm_capture_1 */
+/*----------------------------------------------------- 341 len_imm_capture_1 */
 s = 'abc';
 s ? LEN(1) $ t LEN(1);
 OUTPUT = t;
-/*------------------------------------------------------ 346 notany_capture_1 */
+/*------------------------------------------------------ 342 notany_capture_1 */
 s = 'xyz';
 s ? NOTANY('y') . t;
 OUTPUT = t;
-/*--------------------------------------------- 347 replace_keyword_replace_1 */
+/*--------------------------------------------- 343 replace_keyword_replace_1 */
 // A09_reverse_ucase.sc — REVERSE + case keywords
 OUTPUT = REVERSE('hello');
 OUTPUT = REPLACE('hello', &LCASE, &UCASE);
-/*-------------------------------------------------------- 348 rtab_capture_1 */
+/*-------------------------------------------------------- 344 rtab_capture_1 */
 s = 'hello';
 s ? RTAB(2) . t;
 OUTPUT = t;
-/*-------------------------------------------------------- 349 span_capture_1 */
+/*-------------------------------------------------------- 345 span_capture_1 */
 s = 'aaa123';
 s ? SPAN('a') . t;
 OUTPUT = t;
-/*--------------------------------------------------------- 350 tab_capture_1 */
+/*--------------------------------------------------------- 346 tab_capture_1 */
 s = 'hello';
 s ? TAB(3) . t;
 OUTPUT = t;
-/*----------------------------------------------------------- 351 abort_alt_1 */
+/*----------------------------------------------------------- 347 abort_alt_1 */
 s = 'abc';
 OUTPUT = 'before';
 s ? ('x' | ABORT) 'c';
 OUTPUT = 'after';
-/*--------------------------------------------------- 352 dupl_size_replace_1 */
+/*--------------------------------------------------- 348 dupl_size_replace_1 */
 // A09_dupl_size.sc — DUPL + SIZE combination
 x = DUPL('abc', 4);
 OUTPUT = SIZE(x);
 OUTPUT = x;
-/*----------- 353 ladder__rung23_keyword_and_system_variables_code_exit_value */
+/*----------- 349 ladder__rung23_keyword_and_system_variables_code_exit_value */
 &CODE = 9;
 OUTPUT = "first";
 &CODE = 4;
 OUTPUT = "second";
-/*-------------------------------------------- 354 ladder_prog__capture_chain */
+/*-------------------------------------------- 350 ladder_prog__capture_chain */
 'abcdef' ? LEN(2) . a LEN(2) . b LEN(2) . c;
 OUTPUT = a;
 OUTPUT = b;
 OUTPUT = c;
-/*------------------------------------------------- 355 ladder_prog__datatype */
+/*------------------------------------------------- 351 ladder_prog__datatype */
 OUTPUT = DATATYPE('hello');
 OUTPUT = DATATYPE(42);
 OUTPUT = DATATYPE(3.14);
 OUTPUT = CONVERT('42', 'INTEGER') + 1;
-/*------------------------------------------------ 356 size_keyword_replace_1 */
+/*------------------------------------------------ 352 size_keyword_replace_1 */
 // A08_alphabet.sc — &ALPHABET and &UCASE &LCASE keywords
 OUTPUT = SIZE(&ALPHABET);
 OUTPUT = SIZE(&UCASE);
 OUTPUT = SIZE(&LCASE);
-/*----------------------------------------------------- 357 capture_replace_1 */
+/*----------------------------------------------------- 353 capture_replace_1 */
 // B05_alt_assign: alternation result captured and assigned
 S = "testing";
 if (S ? (("xyz" | "test")) . RESULT) {
     OUTPUT = RESULT;
 }
-/*----------------------------------------------------- 358 capture_replace_2 */
+/*----------------------------------------------------- 354 capture_replace_2 */
 // B05_alt_chain: three-way alternation, third arm matches
 S = "world";
 if (S ? (("foo" | "bar" | "wor")) . M) {
     OUTPUT = M;
 }
-/*----------------------------------------------------- 359 capture_replace_3 */
+/*----------------------------------------------------- 355 capture_replace_3 */
 // B05_alt_left_wins: left alternative matches, right not tried
 S = "hello";
 if (S ? (("hel" | "xyz")) . M) {
     OUTPUT = M;
 }
-/*----------------------------------------------------- 360 capture_replace_4 */
+/*----------------------------------------------------- 356 capture_replace_4 */
 // B05_alt_right_fallback: left fails, right succeeds
 S = "hello";
 if (S ? (("xyz" | "ell")) . M) {
     OUTPUT = M;
 }
-/*--------------------------------------------------- 361 datatype_indirect_1 */
+/*--------------------------------------------------- 357 datatype_indirect_1 */
 target = 'original';
 p = .target;
 OUTPUT = DATATYPE(p);
 $p = 'changed';
 OUTPUT = target;
-/*------------------------------------------------- 362 len_capture_replace_1 */
+/*------------------------------------------------- 358 len_capture_replace_1 */
 // A11_capture_dot.sc — immediate capture with dot (.)
 x = 'hello world';
 if (x ? LEN(5) . v) {
     OUTPUT = v;
 }
-/*--------------------------------------------- 363 len_imm_capture_replace_1 */
+/*--------------------------------------------- 359 len_imm_capture_replace_1 */
 // A11_capture_dollar.sc — deferred capture with dollar ($)
 x = 'hello world';
 if (x ? LEN(5) $ v) {
     OUTPUT = v;
 }
-/*------------------------------------------------ 364 span_capture_replace_2 */
+/*------------------------------------------------ 360 span_capture_replace_2 */
 // pattern in if with capture
 s = "hello world";
 if (s ? SPAN("abcdefghijklmnopqrstuvwxyz") . word) {
     OUTPUT = word;
 }
-/*--------------------------------------------- 365 replace_keyword_replace_2 */
+/*--------------------------------------------- 361 replace_keyword_replace_2 */
 // A13_define_in_pattern.sc — function call used as value
 function upcase(s) {
     return REPLACE(s, &LCASE, &UCASE);
 }
 OUTPUT = upcase('hello');
 OUTPUT = upcase('world');
-/*------------------------------------------------- 366 any_capture_replace_1 */
+/*------------------------------------------------- 362 any_capture_replace_1 */
 // A12_pat_any.sc — ANY matches one character from set
 x = 'hello';
 if (x ? ANY('aeiou') . v) {
@@ -2319,7 +2306,7 @@ if (x ? ANY('aeiou') . v) {
 } else {
     OUTPUT = 'no vowel';
 }
-/*----------------------------------------------- 367 break_capture_replace_1 */
+/*----------------------------------------------- 363 break_capture_replace_1 */
 // A12_pat_break.sc — BREAK matches up to (not including) char in set
 x = 'hello world';
 if (x ? BREAK(' ') . v) {
@@ -2327,7 +2314,7 @@ if (x ? BREAK(' ') . v) {
 } else {
     OUTPUT = 'no space';
 }
-/*------------------------------------------------- 368 len_capture_replace_2 */
+/*------------------------------------------------- 364 len_capture_replace_2 */
 // A12_pat_len.sc — LEN matches exactly N characters
 x = 'abcdef';
 if (x ? LEN(3) . v) {
@@ -2335,7 +2322,7 @@ if (x ? LEN(3) . v) {
 } else {
     OUTPUT = 'fail';
 }
-/*---------------------------------------------- 369 notany_capture_replace_1 */
+/*---------------------------------------------- 365 notany_capture_replace_1 */
 // A12_pat_notany.sc — NOTANY matches one char NOT in set
 x = 'hello';
 if (x ? NOTANY('aeiou') . v) {
@@ -2343,7 +2330,7 @@ if (x ? NOTANY('aeiou') . v) {
 } else {
     OUTPUT = 'all vowels';
 }
-/*------------------------------------------------- 370 pos_capture_replace_1 */
+/*------------------------------------------------- 366 pos_capture_replace_1 */
 // A11_capture_loop.sc — capture inside loop (LOOP/DONE → while + break)
 x = 'aaa';
 n = 0;
@@ -2351,7 +2338,7 @@ while (x ? POS(n)   'a' . v) {
     OUTPUT = v;
     n = n + 1;
 }
-/*------------------------------------------------ 371 rtab_capture_replace_1 */
+/*------------------------------------------------ 367 rtab_capture_replace_1 */
 // A12_pat_rtab.sc — RTAB leaves N chars from right
 x = 'abcdef';
 if (x ? RTAB(2) . v) {
@@ -2359,7 +2346,7 @@ if (x ? RTAB(2) . v) {
 } else {
     OUTPUT = 'fail';
 }
-/*------------------------------------------------ 372 span_capture_replace_1 */
+/*------------------------------------------------ 368 span_capture_replace_1 */
 // A12_pat_span.sc — SPAN matches longest run of chars in set
 x = '12345abc';
 if (x ? SPAN('0123456789') . v) {
@@ -2367,7 +2354,7 @@ if (x ? SPAN('0123456789') . v) {
 } else {
     OUTPUT = 'no digits';
 }
-/*------------------------------------------------ 373 span_capture_replace_3 */
+/*------------------------------------------------ 369 span_capture_replace_3 */
 // capture a digit string and compare its numeric value
 s = "42 things";
 if (s ? SPAN("0123456789") . num) {
@@ -2375,7 +2362,7 @@ if (s ? SPAN("0123456789") . num) {
         OUTPUT = "forty-two";
     }
 }
-/*-------------------------------------------------- 374 table_size_replace_1 */
+/*-------------------------------------------------- 370 table_size_replace_1 */
 // wordcount.sc — word counting (SC-15)
 // Splits on spaces using SUBSTR, counts words into a TABLE
 
@@ -2402,7 +2389,7 @@ OUTPUT = 'cat=' wc['cat'];
 OUTPUT = 'sat=' wc['sat'];
 OUTPUT = 'on='  wc['on'];
 OUTPUT = 'mat=' wc['mat'];
-/*----------------------------------------------- 375 array_keyword_replace_1 */
+/*----------------------------------------------- 371 array_keyword_replace_1 */
 // driver.sc — test driver for tree.sc (Snocone)
 struct tree { t, v, n, c }
 
@@ -2444,7 +2431,7 @@ if (IDENT(t(leaf2),'Label')   IDENT(v(leaf2),'done')) {
 } else {
     OUTPUT = 'FAIL: 4 field update';
 }
-/*------------------------------------------------ 376 trim_keyword_replace_1 */
+/*------------------------------------------------ 372 trim_keyword_replace_1 */
 // A15_lib_math.sc — numeric utility functions: max, min, abs, sign, gcd, lcm
 // Snocone translation of crosscheck/library/test_math.sno + lib/math.sno
 &TRIM = 1;
@@ -2490,7 +2477,7 @@ OUTPUT = sign(-3);
 OUTPUT = gcd(12, 8);
 OUTPUT = gcd(100, 75);
 OUTPUT = lcm(4, 6);
-/*-------------------------------------------- 377 indirect_keyword_replace_1 */
+/*-------------------------------------------- 373 indirect_keyword_replace_1 */
 // driver.sc — test driver for stack.sc (Snocone)
 struct link { next, value }
 xTrace = 0;
@@ -2540,7 +2527,7 @@ InitStack();
 Push('a'); Push('b'); Push('c');
 Pop('v1'); Pop('v2'); Pop('v3');
 if (IDENT(v1,'c')   IDENT(v2,'b')   IDENT(v3,'a')) { OUTPUT = 'PASS: 7 nested pop order a/b/c'; } else { OUTPUT = 'FAIL: 7 pop order'; }
-/*----------------------------------------------- 378 table_keyword_replace_1 */
+/*----------------------------------------------- 374 table_keyword_replace_1 */
 // driver.sc — test driver for arith.sc
 
 function ISqrt(n, i) {
@@ -2604,7 +2591,7 @@ if (IDENT(primes[2],1)   IDENT(primes[3],1)   IDENT(primes[4],0)   IDENT(primes[
 } else { OUTPUT = 'FAIL: 16 Sieve'; }
 if (EQ(ISqrt(15), 3))         { OUTPUT = 'PASS: 17 ISqrt(15)=3'; }       else { OUTPUT = 'FAIL: 17'; }
 if (EQ(ISqrt(16), 4))         { OUTPUT = 'PASS: 18 ISqrt(16)=4'; }       else { OUTPUT = 'FAIL: 18'; }
-/*------------------------------------------------------- 379 scrip__sm_lower */
+/*------------------------------------------------------- 375 scrip__sm_lower */
 // sm_lower.sc — Snocone translation of lower.c / lower_ctx.c
 //
 // Phase 1 (SL-1..SL-9): LabelTable, emit_goto, lower_expr skeleton,
@@ -2795,48 +2782,48 @@ function run_smoke_test(r) {
 }
 
 run_smoke_test();
-/*------------------------------------------------ 380 ladder_prog__pat_abort */
+/*------------------------------------------------ 376 ladder_prog__pat_abort */
 if ('-1B-A-' ? (ANY('AB') | '1' ABORT)) { OUTPUT = 'wrong'; } else { OUTPUT = 'abort-ok'; }
 if ('-AB-1-' ? (ANY('AB') | '1' ABORT)) { OUTPUT = 'abort-nohit-ok'; }
-/*----------------------------------------------------- 381 len_rem_capture_1 */
+/*----------------------------------------------------- 377 len_rem_capture_1 */
 s = 'abcd';
 s ? LEN(2) REM . t;
 OUTPUT = t;
-/*----------------------------------------------------- 382 pos_len_capture_1 */
+/*----------------------------------------------------- 378 pos_len_capture_1 */
 s = 'hello';
 s ? POS(0) LEN(2) . t;
 OUTPUT = t;
-/*---------------------------------------------------- 383 rpos_len_capture_1 */
+/*---------------------------------------------------- 379 rpos_len_capture_1 */
 s = 'hello';
 s ? LEN(3) . t RPOS(2);
 OUTPUT = t;
-/*--------------------------------------------------- 384 break_rem_capture_1 */
+/*--------------------------------------------------- 380 break_rem_capture_1 */
 s = 'key=value';
 s ? BREAK('=') . k '=' REM . v;
 OUTPUT = k;
 OUTPUT = v;
-/*------------------------------------ 385 datatype_replace_keyword_replace_1 */
+/*------------------------------------ 381 datatype_replace_keyword_replace_1 */
 // A08_datatype.sc — DATATYPE returns type name of value
 OUTPUT = REPLACE(DATATYPE('hello'), &LCASE, &UCASE);
 OUTPUT = REPLACE(DATATYPE(42),      &LCASE, &UCASE);
 OUTPUT = REPLACE(DATATYPE(3.14),    &LCASE, &UCASE);
-/*------------ 386 ladder__rung23_keyword_and_system_variables_maxlngth_query */
+/*------------ 382 ladder__rung23_keyword_and_system_variables_maxlngth_query */
 OUTPUT = &MAXLNGTH;
 &MAXLNGTH = 5000;
 OUTPUT = &MAXLNGTH;
 OUTPUT = SIZE(DUPL('a', 4000));
-/*---------------------------------------------- 387 ladder_prog__pat_capture */
+/*---------------------------------------------- 383 ladder_prog__pat_capture */
 s = 'key=value';
 s ? BREAK('=') . k '=' REM . v;
 OUTPUT = k;
 OUTPUT = v;
-/*------------------------------------------------- 388 eval_datatype_defer_1 */
+/*------------------------------------------------- 384 eval_datatype_defer_1 */
 x = 1;
 d = *x;
 OUTPUT = DATATYPE(d);
 x = 99;
 OUTPUT = EVAL(d);
-/*------------------------------------------- 389 break_len_capture_replace_1 */
+/*------------------------------------------- 385 break_len_capture_replace_1 */
 // pattern match inside for loop body
 words = "cat dog fox";
 for (i = 1; LE(i, 3); i = i + 1) {
@@ -2844,7 +2831,7 @@ for (i = 1; LE(i, 3); i = i + 1) {
         OUTPUT = w;
     }
 }
-/*--------------------------------------------- 390 pos_len_capture_replace_1 */
+/*--------------------------------------------- 386 pos_len_capture_replace_1 */
 // A12_pat_pos.sc — POS anchors match at cursor position
 x = 'hello';
 if (x ? POS(0)   LEN(3) . v) {
@@ -2852,7 +2839,7 @@ if (x ? POS(0)   LEN(3) . v) {
 } else {
     OUTPUT = 'fail';
 }
-/*-------------------------------------------- 391 rpos_len_capture_replace_1 */
+/*-------------------------------------------- 387 rpos_len_capture_replace_1 */
 // A12_pat_rpos.sc — RPOS anchors match from right
 x = 'hello';
 if (x ? RPOS(2)   LEN(2) . v) {
@@ -2860,7 +2847,7 @@ if (x ? RPOS(2)   LEN(2) . v) {
 } else {
     OUTPUT = 'fail';
 }
-/*--------------------------------------------- 392 tab_len_capture_replace_1 */
+/*--------------------------------------------- 388 tab_len_capture_replace_1 */
 // A12_pat_tab.sc — TAB advances cursor to column position
 x = 'abcdef';
 if (x ? TAB(3)   LEN(2) . v) {
@@ -2868,7 +2855,7 @@ if (x ? TAB(3)   LEN(2) . v) {
 } else {
     OUTPUT = 'fail';
 }
-/*------------------------------------------- 393 trim_size_keyword_replace_1 */
+/*------------------------------------------- 389 trim_size_keyword_replace_1 */
 // A14_arith_loop_fileinfo.sc — count chars and lines from stdin
 // Snocone translation of crosscheck/arith/fileinfo.sno
 // Tests: while (INPUT), SIZE(), integer accumulation, EOF termination
@@ -2880,7 +2867,7 @@ while (line = INPUT) {
     lines = lines + 1;
 }
 OUTPUT = chars   ' characters, '   lines   ' lines read';
-/*-------------------------------------- 394 array_datatype_keyword_replace_1 */
+/*-------------------------------------- 390 array_datatype_keyword_replace_1 */
 // driver.sc — test driver for XDump.sc (Snocone)
 // XDump output goes to OUTPUT — capture and verify
 
@@ -2911,7 +2898,7 @@ XDump('hello', 'y');
 // 3: array
 arr = ARRAY('1:3');
 XDump(arr, 'a');
-/*---------------------------------------- 395 convert_size_keyword_replace_1 */
+/*---------------------------------------- 391 convert_size_keyword_replace_1 */
 // driver.sc — test driver for roman.sc
 function Roman(n, s, i, len, d, place, ones, fives, tens, result) {
     s = CONVERT(n, 'STRING'); len = SIZE(s); result = ''; i = 0;
@@ -2944,7 +2931,7 @@ if (IDENT(Roman(1776), 'MDCCLXXVI')) { OUTPUT = 'PASS: 7 Roman(1776)=MDCCLXXVI';
 if (IDENT(Roman(1999), 'MCMXCIX'))   { OUTPUT = 'PASS: 8 Roman(1999)=MCMXCIX'; } else { OUTPUT = 'FAIL: 8'; }
 if (IDENT(Roman(2024), 'MMXXIV'))    { OUTPUT = 'PASS: 9 Roman(2024)=MMXXIV'; }  else { OUTPUT = 'FAIL: 9'; }
 if (IDENT(Roman(3999), 'MMMCMXCIX')){ OUTPUT = 'PASS: 10 Roman(3999)=MMMCMXCIX'; } else { OUTPUT = 'FAIL: 10'; }
-/*---------------------------------------- 396 trim_replace_keyword_replace_1 */
+/*---------------------------------------- 392 trim_replace_keyword_replace_1 */
 // A15_lib_case.sc — case conversion: lwr, upr, cap, icase pattern
 // Snocone translation of crosscheck/library/test_case.sno + lib/case.sno
 &TRIM = 1;
@@ -2981,7 +2968,7 @@ if (icase('world', 'hello')) {
 } else {
     OUTPUT = 'no match ok';
 }
-/*-------------------------------------- 397 datatype_defer_keyword_replace_1 */
+/*-------------------------------------- 393 datatype_defer_keyword_replace_1 */
 // driver.sc — test driver for semantic.sc (Snocone)
 struct link_counter { next, value }
 xTrace = 0;
@@ -3025,7 +3012,7 @@ if (EQ(nTop(), 0)) { OUTPUT = 'PASS: 7 nested nPush; nTop=0'; } else { OUTPUT = 
 
 v = nTop();
 if (IDENT(DATATYPE(v), 'INTEGER')) { OUTPUT = 'PASS: 8 nTop INTEGER'; } else { OUTPUT = 'FAIL: 8 '   DATATYPE(v); }
-/*------------------------------------------ 398 table_size_keyword_replace_1 */
+/*------------------------------------------ 394 table_size_keyword_replace_1 */
 // driver.sc — test driver for strings.sc
 
 function Reverse(s, i, n, out) {
@@ -3093,7 +3080,7 @@ if (IDENT(t[1],'a')   IDENT(t[2],'b')   IDENT(t[3],'c')   EQ(t[0],3)) { OUTPUT =
 if (IDENT(Join(t, '-'), 'a-b-c'))        { OUTPUT = 'PASS: 14 Join'; }           else { OUTPUT = 'FAIL: 14 Join'; }
 t2 = Split('hello', ',');
 if (EQ(t2[0], 1)   IDENT(t2[1], 'hello')) { OUTPUT = 'PASS: 15 Split no-sep'; } else { OUTPUT = 'FAIL: 15 Split no-sep'; }
-/*-------------------------------------- 399 array_indirect_keyword_replace_1 */
+/*-------------------------------------- 395 array_indirect_keyword_replace_1 */
 // driver.sc — test driver for ShiftReduce.sc (Snocone)
 struct tree { t, v, n, c }
 struct link { next, value }
@@ -3168,28 +3155,28 @@ nd = Top();
 if (IDENT(n(nd),3)   IDENT(t(c(nd)[1]),'A')   IDENT(t(c(nd)[2]),'B')   IDENT(t(c(nd)[3]),'C')) {
     OUTPUT = 'PASS: 5 Reduce 3 children order';
 } else { OUTPUT = 'FAIL: 5'; }
-/*------------------------------------------------ 400 ladder_prog__pat_arbno */
+/*------------------------------------------------ 396 ladder_prog__pat_arbno */
 s = '(1,22,333)';
 if (s ? POS(0) '(' SPAN('0123456789') ARBNO(',' SPAN('0123456789')) ')' RPOS(0)) { OUTPUT = 'list-ok'; }
-/*- 401 ladder__rung23_keyword_and_system_variables_keyword_value_operator_ampersand */
+/*- 397 ladder__rung23_keyword_and_system_variables_keyword_value_operator_ampersand */
 OUTPUT = DATATYPE(&ANCHOR);
 OUTPUT = DATATYPE(&ALPHABET);
 OUTPUT = DATATYPE(&ABORT);
 OUTPUT = SIZE(&ALPHABET);
-/*----------------------------------------------- 402 break_len_rem_replace_1 */
+/*----------------------------------------------- 398 break_len_rem_replace_1 */
 // A11_capture_multiple.sc — multiple captures in one pattern
 x = 'John Smith';
 if (x ? BREAK(' ') . first   LEN(1)   REM . last) {
     OUTPUT = first   ' / '   last;
 }
-/*---------------------------------------------- 403 ladder_prog__builtin_str */
+/*---------------------------------------------- 399 ladder_prog__builtin_str */
 OUTPUT = SIZE('hello');
 OUTPUT = REPLACE('abc', 'abc', 'xyz');
 OUTPUT = REVERSE('abc');
 OUTPUT = TRIM('  pad  ');
 OUTPUT = SUBSTR('abcdef', 2, 3);
 OUTPUT = DUPL('ab', 3);
-/*------------------------------------------ 404 ladder_prog__integ_wordcount */
+/*------------------------------------------ 400 ladder_prog__integ_wordcount */
 s = 'the cat sat on the mat the end';
 n = 0;
 while (s ? BREAK(' ') . w (' ' | RPOS(0))) {
@@ -3197,7 +3184,7 @@ while (s ? BREAK(' ') . w (' ' | RPOS(0))) {
   n = n + 1;
 }
 OUTPUT = 'words=' n;
-/*------------ 405 ladder__rung22_datatype_function_uppercase_type_name_query */
+/*------------ 401 ladder__rung22_datatype_function_uppercase_type_name_query */
 t = TABLE();
 a = ARRAY('3');
 p = LEN(1);
@@ -3207,7 +3194,7 @@ OUTPUT = DATATYPE(3.14);
 OUTPUT = DATATYPE(p);
 OUTPUT = DATATYPE(t);
 OUTPUT = DATATYPE(a);
-/*---------------------------------------------- 406 trim_dupl_size_replace_1 */
+/*---------------------------------------------- 402 trim_dupl_size_replace_1 */
 // A14_arith_loop_triplet.sc — center input lines, blank line every third
 // Snocone translation of crosscheck/arith/triplet.sno
 // Tests: while (INPUT), DUPL(), REMDR(), SIZE(), &TRIM, arithmetic
@@ -3218,7 +3205,7 @@ while (s = INPUT) {
     n = REMDR(n + 1, 3);
     OUTPUT = EQ(n, 0);
 }
-/*----------------------------------------- 407 table_size_indirect_replace_1 */
+/*----------------------------------------- 403 table_size_indirect_replace_1 */
 // driver.sc — test driver for ReadWrite.sc (Snocone)
 nl = CHAR(10);
 
@@ -3271,7 +3258,7 @@ if (EQ(lm7[0], 1)) { OUTPUT = 'PASS: 7 LineMap single word no-nl'; } else { OUTP
 // 8: LineMap 2-line, second line offset
 LineMap('x'   nl   'y'   nl, 'lm8');
 if (EQ(lm8[SIZE('x') + 1], 2)) { OUTPUT = 'PASS: 8 LineMap 2-line second offset'; } else { OUTPUT = 'FAIL: 8 LineMap 2-line offset got '   lm8[SIZE('x') + 1]; }
-/*------------------------------------------- 408 break_pos_capture_replace_1 */
+/*------------------------------------------- 404 break_pos_capture_replace_1 */
 // driver.sc — test driver for Qize.sc (Snocone)
 // Tests SQize, DQize, SqlSQize subset of Qize.inc
 
@@ -3343,7 +3330,7 @@ else { OUTPUT = 'FAIL: 4 SqlSQize basic got=' SqlSQize('hello'); }
 // 5: SqlSQize doubles single quotes
 if (IDENT(SqlSQize("it's"), "it''s")) { OUTPUT = 'PASS: 5 SqlSQize doubles quote'; }
 else { OUTPUT = 'FAIL: 5 SqlSQize doubles quote got=' SqlSQize("it's"); }
-/*-------------------------------------- 409 eval_datatype_indirect_replace_1 */
+/*-------------------------------------- 405 eval_datatype_indirect_replace_1 */
 // driver.sc — test driver for assign.sc (Snocone)
 // Oracle: compare output to test/beauty/assign/driver.ref (SNOBOL4 golden)
 
@@ -3418,7 +3405,7 @@ if (IDENT(y, 'chain')) {
 } else {
     OUTPUT = 'FAIL: 7 chain assign';
 }
-/*------------------------------------------ 410 pos_table_datatype_replace_1 */
+/*------------------------------------------ 406 pos_table_datatype_replace_1 */
 &STLIMIT = 1000000;
 strOfs = 0; t8Max = 0; t8MaxLine = 0; t8MaxLast = 0; doDebug = 0; t8Map = '';
 
@@ -3503,17 +3490,17 @@ OUTPUT = 'PASS: 8 T8Trace doDebug=2 ?-expand output';
 doDebug = 2; t8Max = 10; t8MaxLine = 621; t8MaxLast = 5; strOfs = 0; t8Map = '';
 T8Trace(1, 'upd', 0);
 if (EQ(t8MaxLast, 10)) { OUTPUT = 'PASS: 9 t8MaxLast updated to t8Max'; } else { OUTPUT = 'FAIL: 9 t8MaxLast='   t8MaxLast; }
-/*--------------------------------------------- 411 ladder_prog__capture_feed */
+/*--------------------------------------------- 407 ladder_prog__capture_feed */
 '3abc' ? LEN(1) $ n LEN(*n) . rest;
 OUTPUT = rest;
-/*-------------------------------------------------- 412 ladder_prog__pat_pos */
+/*-------------------------------------------------- 408 ladder_prog__pat_pos */
 s = 'abcdef';
 if (s ? POS(0) 'abc')  { OUTPUT = 'pos0-ok'; }
 if (s ? 'def' RPOS(0)) { OUTPUT = 'rpos0-ok'; }
 if (s ? TAB(3))        { OUTPUT = 'tab3-ok'; }
 if (s ? RTAB(3))       { OUTPUT = 'rtab3-ok'; }
 if (s ? REM)           { OUTPUT = 'rem-ok'; }
-/*------------------------------------------------ 413 ladder_prog__pat_prims */
+/*------------------------------------------------ 409 ladder_prog__pat_prims */
 s = 'abc123xyz';
 if (s ? SPAN('abc'))    { OUTPUT = 'span-ok'; }
 if (s ? BREAK('123'))   { OUTPUT = 'break-ok'; }
@@ -3521,7 +3508,7 @@ if (s ? LEN(3))         { OUTPUT = 'len-ok'; }
 if (s ? ANY('xyz'))     { OUTPUT = 'any-ok'; }
 if (s ? NOTANY('123'))  { OUTPUT = 'notany-ok'; }
 if (s ? BREAKX('z'))    { OUTPUT = 'breakx-ok'; }
-/*------------------------------------------- 414 fence_len_capture_replace_1 */
+/*------------------------------------------- 410 fence_len_capture_replace_1 */
 // driver.sc — test driver for FENCE (Snocone)
 // FENCE is builtin — no include needed.
 &STLIMIT = 1000000;
@@ -3540,7 +3527,7 @@ if ('x' ? FENCE) {
 } else {
     OUTPUT = 'PASS: FENCE alone fails match';
 }
-/*------------------------------------------ 415 table_convert_size_replace_1 */
+/*------------------------------------------ 411 table_convert_size_replace_1 */
 // driver.sc — test driver for global.sc (Snocone)
 // Oracle: compare output to beauty_global_driver.ref (SNOBOL4 golden)
 
@@ -3607,7 +3594,7 @@ if (IDENT(UTF[CHAR(226)   CHAR(128)   CHAR(148)],'EM_DASH')) { OUTPUT = 'PASS: U
 // Indirect assign spot-checks
 if (IDENT(COPYRIGHT_SIGN, CHAR(194)   CHAR(169)))              { OUTPUT = 'PASS: UTF indirect COPYRIGHT_SIGN'; } else { OUTPUT = 'FAIL: UTF indirect COPYRIGHT_SIGN'; }
 if (IDENT(EM_DASH, CHAR(226)   CHAR(128)   CHAR(148)))        { OUTPUT = 'PASS: UTF indirect EM_DASH';        } else { OUTPUT = 'FAIL: UTF indirect EM_DASH';        }
-/*-------------------------------------- 416 user_function_span_any_replace_1 */
+/*-------------------------------------- 412 user_function_span_any_replace_1 */
 // driver.sc — test driver for match.sc (Snocone)
 // Oracle: compare to beauty_match_driver.ref
 
@@ -3638,71 +3625,7 @@ if (match(wList, tx)) { OUTPUT = 'PASS: 8 word list hit'; } else { OUTPUT = 'FAI
 
 // 9: word-list miss — 'GOTO' is not in wList
 if (notmatch(wList, 'GOTO')) { OUTPUT = 'PASS: 9 word list miss'; } else { OUTPUT = 'FAIL: 9 word list miss'; }
-/*---------------------------------------- 417 probe_loose__test_capture_call */
-// test_capture_call.sc — SC-26 / CL-1 isolation
-//
-// Probes the (PAT . var) . *fn(var) pattern from claws5.sc and the treebank
-// programs.  Both oracles (SPITBOL x64 -b, CSNOBOL4 -bf) invoke fn('foo')
-// at match time.  scrip does not — fn is not called at all.
-//
-// Tests build from the simplest indirect-call case to the full blocker.
-// Each test prints exactly one PASS/FAIL line for diff comparison.
-
-// 1. Plain indirect call, no capture chained.
-//    (epsilon . *hit()) — zero-width, call-on-entry.
-procedure hit() {
-    hit_seen = 1;
-    hit = .dummy;
-    nreturn;
-}
-hit_seen = 0;
-p1 = epsilon . *hit();
-if (('x' ? p1) hit_seen) { OUTPUT = 'PASS: 1 epsilon-star call'; } else { OUTPUT = 'FAIL: 1 hit_seen=' hit_seen; }
-
-// 2. Capture alone, no indirect call.
-//    (LEN(3) . w) should leave w = 'foo' after a successful match.
-w = '';
-p2 = LEN(3) . w;
-if (('foobar' ? p2) (EQ(w, 'foo'))) { OUTPUT = 'PASS: 2 plain capture'; } else { OUTPUT = 'FAIL: 2 w=<' w '>'; }
-
-// 3. THE BLOCKER: capture + indirect call chained.
-//    (LEN(3) . w) . *show(w)  — should call show('foo') with the captured w.
-procedure show(x) {
-    show_arg = x;
-    show = .dummy;
-    nreturn;
-}
-show_arg = '';
-w = '';
-p3 = (LEN(3) . w) . *show(w);
-if (('foobar' ? p3) (EQ(show_arg, 'foo'))) { OUTPUT = 'PASS: 3 capture-call'; } else { OUTPUT = 'FAIL: 3 show_arg=<' show_arg '> w=<' w '>'; }
-
-// 4. Same shape as claws5.sc uses: capture . *fn(captured_name)
-//    with alternation — (A . v1) . *f(v1) | (B . v2) . *g(v2)
-procedure saw_num(n) {
-    last_kind = 'num';
-    last_val = n;
-    saw_num = .dummy;
-    nreturn;
-}
-procedure saw_wrd(w) {
-    last_kind = 'wrd';
-    last_val = w;
-    saw_wrd = .dummy;
-    nreturn;
-}
-last_kind = '';
-last_val = '';
-p4 =
-    ( (SPAN('0123456789') . n) . *saw_num(n)
-    | (SPAN('abcdefghijklmnopqrstuvwxyz') . s) . *saw_wrd(s)
-    );
-if (('abc' ? p4) (EQ(last_kind, 'wrd')) (EQ(last_val, 'abc'))) { OUTPUT = 'PASS: 4a alt-wrd'; } else { OUTPUT = 'FAIL: 4a kind=' last_kind ' val=<' last_val '>'; }
-
-last_kind = '';
-last_val = '';
-if (('123' ? p4) (EQ(last_kind, 'num')) (EQ(last_val, 123))) { OUTPUT = 'PASS: 4b alt-num'; } else { OUTPUT = 'FAIL: 4b kind=' last_kind ' val=<' last_val '>'; }
-/*----------------------------------------------- 418 break_len_rem_replace_2 */
+/*----------------------------------------------- 413 break_len_rem_replace_2 */
 // A15_lib_stack.sc — general-purpose stack: push, pop, peek, depth
 // Snocone translation of crosscheck/library/test_stack.sno + lib/stack.sno
 &TRIM = 1;
@@ -3784,12 +3707,12 @@ if (subject ? BREAK(' ') . w1   LEN(1)   REM . w2) {
 } else {
     OUTPUT = 'fail: pattern match failed';
 }
-/*-------------------------------------------- 419 ladder_prog__pat_recursive */
+/*-------------------------------------------- 414 ladder_prog__pat_recursive */
 Item = SPAN('0123456789') | '(' *List ')';
 List = Item ARBNO(',' Item);
 if ('(1,(2,3),4)' ? POS(0) List RPOS(0)) { OUTPUT = 'recursive-ok'; }
 if ('(1,,2)' ? POS(0) List RPOS(0)) { OUTPUT = 'wrong'; } else { OUTPUT = 'reject-ok'; }
-/*---------------------------------------------- 420 arb_span_break_replace_2 */
+/*---------------------------------------------- 415 arb_span_break_replace_2 */
 // test_pattern.sc — SC-9 pattern match gate
 // Tests: subject ? pattern, ARB, SPAN, BREAK, ANY, LEN, alternation, capture
 // .ref generated from equivalent SNOBOL4 under SPITBOL oracle
@@ -3823,7 +3746,7 @@ if (x ? p) { OUTPUT = 'PASS: 8 alternation'; } else { OUTPUT = 'FAIL: 8'; }
 // 9. Conditional capture (.)
 x = 'hello world';
 if (x ? (SPAN('abcdefghijklmnopqrstuvwxyz') . word)) { OUTPUT = 'PASS: 9 capture word=' word; } else { OUTPUT = 'FAIL: 9'; }
-/*--------------------------------------- 421 eval_datatype_replace_replace_1 */
+/*--------------------------------------- 416 eval_datatype_replace_replace_1 */
 // driver.sc — test driver for omega.sc (Snocone)
 // Tests TV/TW/TX/TY/TZ pattern instrumentation routines
 
@@ -3890,7 +3813,7 @@ else { OUTPUT = 'FAIL: 1 TY thin returns null'; }
 p = TZ(1, 'mypat', 'hello');
 if (DIFFER(p)) { OUTPUT = 'PASS: 2 TZ thin returns non-null'; }
 else { OUTPUT = 'FAIL: 2 TZ thin returns null'; }
-/*------------------------------------------------- 422 any_pos_len_replace_1 */
+/*------------------------------------------------- 417 any_pos_len_replace_1 */
 // driver.sc — test driver for case.sc (Snocone)
 // Tests lwr, upr, cap, icase from corpus/programs/snocone/demo/beauty/case.sc
 
@@ -3977,7 +3900,7 @@ else { OUTPUT = 'FAIL: 11 icase matches upper'; }
 // 12: icase pattern matches mixed
 if ('Hi' ? (p)) { OUTPUT = 'PASS: 12 icase matches mixed'; }
 else { OUTPUT = 'FAIL: 12 icase matches mixed'; }
-/*------------------------------------------------ 423 span_any_pos_replace_1 */
+/*------------------------------------------------ 418 span_any_pos_replace_1 */
 // driver.sc — test driver for TDump.sc (Snocone)
 // Tests TLump (single-line) — TDump uses Gen which buffers, harder to verify
 
@@ -4055,7 +3978,7 @@ arr[1] = leaf1;
 node = tree('Add', '', 1, arr);
 if (IDENT(TLump(node, 100), '(Add 42)')) { OUTPUT = 'PASS: 6 TLump tree'; }
 else { OUTPUT = 'FAIL: 6 TLump tree got=' TLump(node, 100); }
-/*---------------------------------------------- 424 arb_span_break_replace_1 */
+/*---------------------------------------------- 419 arb_span_break_replace_1 */
 // pattern_suite.sc -- SC-17 exhaustive ARB/SPAN/BREAK/ANY/LEN tests
 // .ref generated from pattern_suite.sno under SPITBOL oracle
 
@@ -4168,7 +4091,7 @@ if (s ? (ANY('0123456789') . d LEN(2) . rest)) { OUTPUT = 'COMBO-3 d=' d ' rest=
 // COMBO-4: SPAN('a') then SPAN('b')
 s = 'aabbcc';
 if (s ? (SPAN('a') . aa SPAN('b') . bb)) { OUTPUT = 'COMBO-4 aa=' aa ' bb=' bb; }
-/*----------------------------------------------- 425 break_any_pos_replace_1 */
+/*----------------------------------------------- 420 break_any_pos_replace_1 */
 // A15_lib_string.sc — string utilities: pad_left, pad_right, ltrim, rtrim, trimws,
 //                      repeat, contains, startswith, endswith, index
 // Snocone translation of crosscheck/library/test_string.sno + lib/string.sno
@@ -4258,7 +4181,7 @@ if (startswith('foobar', 'bar')) {
 }
 OUTPUT = index('foobar', 'oba');
 OUTPUT = index('foobar', 'xyz');
-/*----------------------------------------------- 426 break_pos_len_replace_1 */
+/*----------------------------------------------- 421 break_pos_len_replace_1 */
 // driver.sc — test driver for Gen.sc (Snocone)
 // Tests IncLevel/DecLevel/SetLevel/GetLevel/Gen/GenTab/GenSetCont
 

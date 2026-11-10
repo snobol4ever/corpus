@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=426 features=34 ubiquitous=0() distinctive=34 core=41 clusters=53 chunks=4 sizes=100,100,100,85
+# shape: entries=421 features=34 ubiquitous=0() distinctive=34 core=40 clusters=53 chunks=4 sizes=100,100,100,81
 entry	part	cluster	shells
 ladder_prog__ctl_for	chunk:01	family:ladder_prog	
 simple_output_153	chunk:01	family:ladder	
@@ -33,14 +33,12 @@ simple_output_210	chunk:01	family:ladder
 simple_output_211	chunk:01	family:ladder	
 simple_output_88	chunk:04	family:crosscheck_rungB04	
 ladder__rung24_output_associated_write	chunk:01	family:ladder	
-ladder_prog__amp_seq	chunk:01	family:ladder_prog	
 ladder_prog__arith_add	chunk:01	family:ladder_prog	
 ladder_prog__cmp_fail	chunk:01	family:ladder_prog	
 ladder_prog__ctl_continue	chunk:01	family:ladder_prog	
 ladder_prog__ctl_while	chunk:01	family:ladder_prog	
 ladder_prog__hello	chunk:01	family:ladder_prog	
 ladder_prog__lit_int	chunk:01	family:ladder_prog	
-ladder_prog__tilde_bin	chunk:01	family:ladder_prog	
 ladder_prog__unary_neg	chunk:01	family:ladder_prog	
 ladder_prog__vlist	chunk:01	family:ladder_prog	
 simple_output_104	chunk:01	family:ladder	
@@ -121,8 +119,8 @@ simple_output_59	chunk:02	family:crosscheck_rungA16
 simple_output_65	chunk:02	family:crosscheck_rungA16	
 simple_output_67	chunk:02	family:crosscheck_rungA16	
 simple_output_91	chunk:04	family:crosscheck_rungB04	
-ladder_prog__alt_eval	chunk:02	family:ladder_prog	
-ladder_prog__arith_prec	chunk:02	family:ladder_prog	
+ladder_prog__alt_eval	chunk:01	family:ladder_prog	
+ladder_prog__arith_prec	chunk:01	family:ladder_prog	
 ladder_prog__cmp_lex	chunk:02	family:ladder_prog	
 ladder_prog__ctl_dowhile	chunk:02	family:ladder_prog	
 ladder_prog__ctl_if	chunk:02	family:ladder_prog	
@@ -205,7 +203,7 @@ simple_output_33	chunk:03	family:crosscheck_rungA07
 simple_output_49	chunk:03	family:crosscheck_rungA13	
 simple_output_5	chunk:02	family:corpus	
 simple_output_50	chunk:03	family:crosscheck_rungA13	
-simple_output_72	chunk:04	family:crosscheck_rungB01	
+simple_output_72	chunk:03	family:crosscheck_rungB01	
 simple_output_75	chunk:03	family:crosscheck_rungB02	
 simple_output_77	chunk:03	family:crosscheck_rungB02	
 simple_output_80	chunk:03	family:crosscheck_rungB02	
@@ -218,8 +216,8 @@ simple_output_126	chunk:04	family:crosscheck_rungB12
 simple_output_31	chunk:04	family:crosscheck_rungA05	
 simple_output_44	chunk:04	family:crosscheck_rungA12	
 simple_output_7	chunk:02	family:corpus	
-simple_output_70	chunk:04	family:crosscheck_rungB01	
-simple_output_71	chunk:04	family:crosscheck_rungB01	
+simple_output_70	chunk:03	family:crosscheck_rungB01	
+simple_output_71	chunk:03	family:crosscheck_rungB01	
 simple_output_83	chunk:03	family:crosscheck_rungB03	
 simple_output_94	chunk:04	family:crosscheck_rungB06	
 simple_output_95	chunk:04	family:crosscheck_rungB06	
@@ -247,7 +245,7 @@ simple_output_35	chunk:03	family:crosscheck_rungA07
 simple_output_36	chunk:03	family:crosscheck_rungA07	
 simple_output_38	chunk:04	family:crosscheck_rungA08	
 simple_output_47	chunk:03	family:crosscheck_rungA13	
-simple_output_74	chunk:04	family:crosscheck_rungB01	
+simple_output_74	chunk:03	family:crosscheck_rungB01	
 simple_output_149	chunk:04	family:probe_nested_while	
 simple_output_150	chunk:04	family:probe_nested_while	
 simple_output_76	chunk:03	family:crosscheck_rungB02	
@@ -278,9 +276,8 @@ replace_1	chunk:03	feat:REPLACE	REPLACE
 size_3	chunk:02	feat:SIZE	SIZE
 array_6	chunk:02	feat:ARRAY	ARRAY
 dupl_replace_1	chunk:04	feat:DUPL	DUPL
-ladder_prog__cursor_capture	chunk:03	feat:LEN	LEN
 ladder_prog__lit_keyword	chunk:03	feat:keyword_ref	keyword_ref
-ladder_prog__pat_alt	chunk:03	feat:alternation	alternation
+ladder_prog__pat_alt	chunk:02	feat:alternation	alternation
 ladder_prog__pat_defer	chunk:04	feat:deferred_eval	deferred_eval
 replace_replace_1	chunk:03	feat:REPLACE	REPLACE
 size_2	chunk:02	feat:SIZE	SIZE
@@ -292,7 +289,6 @@ array_5	chunk:02	feat:ARRAY	ARRAY
 array_7	chunk:02	feat:ARRAY	ARRAY
 capture_1	chunk:04	feat:cond_assign	cond_assign
 ladder__rung22_datatype_function_name_operator_yields_name	chunk:04	feat:DATATYPE	DATATYPE
-ladder_prog__fn_nreturn	chunk:02	feat:indirect_ref	indirect_ref
 ladder_prog__nul_parens	chunk:02	feat:SIZE	SIZE
 len_1	chunk:03	feat:LEN	LEN
 table_2	chunk:02	feat:TABLE	TABLE
@@ -315,7 +311,7 @@ indirect_3	chunk:03	feat:indirect_ref	indirect_ref
 ladder_prog__array_basic	chunk:02	feat:ARRAY	ARRAY
 size_1	chunk:02	feat:SIZE	SIZE
 ladder__rung23_keyword_and_system_variables_stlimit_halts_a_loop_body	chunk:03	feat:keyword_ref	keyword_ref
-simple_output_92	chunk:03	feat:alternation	alternation
+simple_output_92	chunk:02	feat:alternation	alternation
 array_replace_1	chunk:02	feat:ARRAY	ARRAY
 capture_replace_5	chunk:04	feat:cond_assign	cond_assign
 keyword_replace_2	chunk:03	feat:keyword_ref	keyword_ref
@@ -341,7 +337,7 @@ arb_capture_1	core	core	ARB cond_assign
 arbno_capture_1	core	core	ARBNO cond_assign
 bal_capture_1	core	core	BAL cond_assign
 break_capture_1	chunk:04	feat:BREAK	BREAK cond_assign
-capture_alt_1	chunk:03	feat:alternation	alternation cond_assign
+capture_alt_1	chunk:02	feat:alternation	alternation cond_assign
 capture_alt_2	chunk:03	feat:alternation	alternation cond_assign
 ladder_prog__pat_immed	core	core	LEN imm_assign
 len_capture_1	chunk:03	feat:LEN	LEN cond_assign
@@ -418,7 +414,6 @@ ladder_prog__pat_prims	core	core	ANY BREAK LEN NOTANY SPAN
 fence_len_capture_replace_1	core	core	FENCE LEN alternation cond_assign keyword_ref
 table_convert_size_replace_1	core	core	CONVERT SIZE TABLE indirect_ref keyword_ref
 user_function_span_any_replace_1	core	core	ANY DEFINE LEN RPOS SPAN keyword_ref
-probe_loose__test_capture_call	core	core	LEN SPAN alternation capture_plus_defer cond_assign deferred_eval
 break_len_rem_replace_2	core	core	BREAK LEN REM TRIM cond_assign keyword_ref
 ladder_prog__pat_recursive	core	core	ARBNO POS RPOS SPAN alternation arbno_with_alt deferred_eval
 arb_span_break_replace_2	core	core	ANY ARB BREAK LEN SPAN alternation cond_assign
