@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=2287 features=40 ubiquitous=0() distinctive=40 core=21 clusters=156 chunks=23 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,66
+# shape: entries=2286 features=40 ubiquitous=0() distinctive=40 core=21 clusters=156 chunks=23 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,65
 entry	part	cluster	shells
 simple_assign_1	chunk:21	family:probe_conformance	
 simple_output_10	chunk:21	family:probe_conformance	
@@ -813,7 +813,6 @@ arbno_pos_rpos_branch_64	chunk:16	feat:capture_plus_defer	ARBNO LEN POS RPOS alt
 fence_bal_rtab_branch_1	chunk:21	feat:RTAB	BAL FENCE POS RPOS RTAB alternation capture_plus_defer cond_assign deferred_eval goto_success imm_assign
 fence_break_rtab_branch_1	chunk:21	feat:RTAB	BREAK FENCE POS REM RPOS RTAB alternation capture_plus_defer cond_assign deferred_eval goto_success imm_assign
 arbno_fence_arb_branch_1	core	core	ARB ARBNO FENCE NOTANY RPOS SPAN TAB alternation arbno_with_alt capture_plus_defer cond_assign deferred_eval goto_success
-probe_csnobol4_triage__probe_loose_csnobol4_triage_include_trailing_space_lib	chunk:22	family:probe_csnobol4_triage	
 probe_errpath__probe_loose_errpath_missing_end	chunk:23	family:probe_errpath	
 simple_output_183	chunk:22	family:jvm_j3_remdr_test	
 simple_output_255	chunk:20	family:ladder	
@@ -913,7 +912,7 @@ test_probe_loose_csnobol4_triage_include_trailing_space	chunk:23	family:test_sno
 simple_output_278	chunk:20	family:ladder	
 simple_output_305	chunk:20	family:ladder	
 test_linker_greet_main	chunk:23	family:test_snobol4_linker_greet_main	
-simple_assign_25	chunk:23	family:parser_mixed_comment_control	
+simple_assign_25	chunk:22	family:parser_mixed_comment_control	
 simple_assign_3	chunk:22	family:crosscheck_beauty	
 simple_output_158	chunk:22	family:crosscheck_rung4	
 simple_output_197	chunk:23	family:scrip_test_snobol4_control_new_037_goto_nested_labels	
