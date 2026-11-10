@@ -1,5 +1,0 @@
-        X = &LCASE
-        &LCASE = 'abcdefghijklmnopqrstuvwxyz'
-        Y LEN(1) . C
-        Z = REPLACE(Y, &UCASE, &LCASE)
-END

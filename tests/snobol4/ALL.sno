@@ -24163,3 +24163,2074 @@ fail            t1              =   TIME()
                 TERMINAL        =   'match_ms=' (t1 - t0) / 1000000
 *------------------------------------------------------------------------------
 END
+*-------------------------------------------------------------- 2217 demo_beauty
+*-----------------------------------------------------------------------------------------------------------
+* Program:       SNOBOL4 Beautifier
+* Author:        Lon Cherryholmes
+* First Created: 2002/12/10
+* Last Modified: 2005/01/16
+* Version:       0.25
+*
+START
+-INCLUDE 'global.inc'
+-INCLUDE 'case.inc'
+-INCLUDE 'assign.inc'
+-INCLUDE 'match.inc'
+-INCLUDE 'counter.inc'
+-INCLUDE 'stack.inc'
+-INCLUDE 'tree.inc'
+-INCLUDE 'ShiftReduce.inc'
+-INCLUDE 'TDump.inc'
+-INCLUDE 'Gen.inc'
+-INCLUDE 'Qize.inc'
+-INCLUDE 'ReadWrite.inc'
+-INCLUDE 'XDump.inc'
+-INCLUDE 'semantic.inc'
+-INCLUDE 'omega.inc'
+-INCLUDE 'trace.inc'
+
+                  &FULLSCAN      =  1
+                  &MAXLNGTH      =  524288
+*
+*                 Four tab-stops defined for the pretty-print routine.
+*                 ppStop[1] - subject
+*                 ppStop[2] - pattern or =
+*                 ppStop[3] - object of assignment
+*                 ppStop[4] - goto field
+*                 ppSmBump - the amount of extra space when within multi-line nesting
+*                 ppLgBump - the amount of extra space when no goto field is present
+*
+                  ppStop         =  ARRAY('1:4')
+                  ppStop[1]      =  18
+                  ppStop[2]      =  33
+                  ppStop[3]      =  36
+                  ppStop[4]      =  81
+                  ppSmBump       =  6
+                  ppLgBump       =  21
+*---------------- -------------- -- ----------------------------------------------- ------------------------
+*                 Parser patterns:
+*
+                  Integer        =  SPAN(digits)
+                  DQ             =  '"' BREAK('"' nl) '"'
+                  SQ             =  "'" BREAK("'" nl) "'"
+                  String         =  *SQ | *DQ
+                  Real           =  ( SPAN(digits)
++                                     ('.' FENCE(SPAN(digits) | epsilon) | epsilon)
++                                     ('E' | 'e')
++                                     ('+' | '-' | epsilon)
++                                     SPAN(digits)
++                                   | SPAN(digits) '.' FENCE(SPAN(digits) | epsilon)
++                                   )
+                  Id             =  ANY(&UCASE &LCASE) FENCE(SPAN('.' digits &UCASE '_' &LCASE) | epsilon)
+                  Function       =  SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *match(Functions, TxInList)
+                  BuiltinVar     =  SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *match(BuiltinVars, TxInList)
+                  SpecialNm      =  SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *match(SpecialNms, TxInList)
+                  ProtKwd        =  '&' SPAN(&UCASE &LCASE) $ tx $ *match(ProtKwds, TxInList)
+                  UnprotKwd      =  '&' SPAN(&UCASE &LCASE) $ tx $ *match(UnprotKwds, TxInList)
+
+                  Gray           =  *White | epsilon
+                  White          =  ( SPAN(' ' tab)
++                                     FENCE(nl ('+' | '.') FENCE(SPAN(' ' tab) | epsilon) | epsilon)
++                                   | nl ('+' | '.') FENCE(SPAN(' ' tab) | epsilon)
++                                   )
+
+                  TxInList       =  (POS(0) | ' ') *upr(tx) (' ' | RPOS(0))
+                  SpecialNms     =  'ABORT CONTINUE END FRETURN NRETURN RETURN SCONTINUE START'
+                  BuiltinVars    =  'ABORT ARB BAL FAIL FENCE INPUT OUTPUT REM TERMINAL'
+                  ProtKwds       =  'ABORT ALPHABET ARB BAL FAIL FENCE FILE FNCLEVEL '
++                                   'LASTFILE LASTLINE LASTNO LCASE LINE REM RTNTYPE '
++                                   'STCOUNT STNO SUCCEED UCASE'
+                  UnprotKwds     =  'ABEND ANCHOR CASE CODE COMPARE DUMP ERRLIMIT '
++                                   'ERRTEXT ERRTYPE FTRACE INPUT MAXLNGTH OUTPUT '
++                                   'PROFILE STLIMIT TRACE TRIM FULLSCAN'
+                  Functions      =  'ANY APPLY ARBNO ARG ARRAY ATAN BACKSPACE BREAK BREAKX '
++                                   'CHAR CHOP CLEAR CODE COLLECT CONVERT COPY COS DATA '
++                                   'DATATYPE DATE DEFINE DETACH DIFFER DUMP DUPL EJECT '
++                                   'ENDFILE EQ EVAL EXIT EXP FENCE FIELD GE GT HOST '
++                                   'IDENT INPUT INTEGER ITEM LE LEN LEQ LGE LGT LLE '
++                                   'LLT LN LNE LOAD LOCAL LPAD LT NE NOTANY OPSYN OUTPUT '
++                                   'POS PROTOTYPE REMDR REPLACE REVERSE REWIND RPAD RPOS '
++                                   'RSORT RTAB SET SETEXIT SIN SIZE SORT SPAN SQRT STOPTR '
++                                   'SUBSTR TAB TABLE TAN TIME TRACE TRIM UNLOAD'
+
+                  $'='           =  *White '=' *White
+                  $'?'           =  *White '?' *White
+                  $'|'           =  *White '|' *White
+                  $'+'           =  *White '+' *White
+                  $'-'           =  *White '-' *White
+                  $'/'           =  *White '/' *White
+                  $'*'           =  *White '*' *White
+                  $'^'           =  *White '^' *White
+                  $'!'           =  *White '!' *White
+                  $'**'          =  *White '**' *White
+                  $'$'           =  *White '$' *White
+                  $'.'           =  *White '.' *White
+                  $'&'           =  *White '&' *White
+                  $'@'           =  *White '@' *White
+                  $'#'           =  *White '#' *White
+                  $'%'           =  *White '%' *White
+                  $'~'           =  *White '~' *White
+                  $','           =  *Gray ',' *Gray
+                  $'('           =  '(' *Gray
+                  $'['           =  '[' *Gray
+                  $'<'           =  '<' *Gray
+                  $')'           =  *Gray ')'
+                  $']'           =  *Gray ']'
+                  $'>'           =  *Gray '>'
+
+                  ExprList       =  nPush()
++                                   *XList
++                                   (epsilon . *Reduce('ExprList', *(GT(nTop(), 1) nTop())))
++                                   nPop()
+                  XList          =  nInc()
++                                   (*Expr | epsilon . thx . *Shift('', thx))
++                                   FENCE($',' *XList | epsilon)
+                  Expr           =  *Expr0
+                  Expr0          =  *Expr1 FENCE($'=' *Expr0 (epsilon . *Reduce('=', 2)) | epsilon)
+                  Expr1          =  *Expr2 FENCE($'?' *Expr1 (epsilon . *Reduce('?', 2)) | epsilon)
+                  Expr2          =  *Expr3 FENCE($'&' *Expr2 (epsilon . *Reduce('&', 2)) | epsilon)
+                  Expr3          =  nPush() *X3 (epsilon . *Reduce('|', *(GT(nTop(), 1) nTop()))) nPop()
+                  X3             =  nInc() *Expr4 FENCE($'|' *X3 | epsilon)
+                  Expr4          =  nPush() *X4 (epsilon . *Reduce('..', *(GT(nTop(), 1) nTop()))) nPop()
+                  X4             =  nInc() *Expr5 FENCE(*White *X4 | epsilon)
+                  Expr5          =  *Expr6 FENCE($'@' *Expr5 (epsilon . *Reduce('@', 2)) | epsilon)
+                  Expr6          =  *Expr7
++                                   FENCE(
++                                     $'+' *Expr6 (epsilon . *Reduce('+', 2))
++                                   | $'-' *Expr6 (epsilon . *Reduce('-', 2))
++                                   | epsilon
++                                   )
+                  Expr7          =  *Expr8 FENCE($'#' *Expr7 (epsilon . *Reduce('#', 2)) | epsilon)
+                  Expr8          =  *Expr9 FENCE($'/' *Expr8 (epsilon . *Reduce('/', 2)) | epsilon)
+                  Expr9          =  *Expr10 FENCE($'*' *Expr9 (epsilon . *Reduce('*', 2)) | epsilon)
+                  Expr10         =  *Expr11 FENCE($'%' *Expr10 (epsilon . *Reduce('%', 2)) | epsilon)
+                  Expr11         =  *Expr12
++                                   FENCE(
++                                     ($'^' | $'!' | $'**') *Expr11 (epsilon . *Reduce('^', 2))
++                                   | epsilon
++                                   )
+                  Expr12         =  *Expr13
++                                   FENCE(
++                                     $'$' *Expr12 (epsilon . *Reduce('$', 2))
++                                   | $'.' *Expr12 (epsilon . *Reduce('.', 2))
++                                   | epsilon
++                                   )
+                  Expr13         =  *Expr14 FENCE($'~' *Expr13 (epsilon . *Reduce('~', 2)) | epsilon)
+                  Expr14         =  '@' *Expr14 (epsilon . *Reduce('@', 1))
++                                 | '~' *Expr14 (epsilon . *Reduce('~', 1))
++                                 | '?' *Expr14 (epsilon . *Reduce('?', 1))
++                                 | *ProtKwd . thx . *Shift('ProtKwd', thx)
++                                 | *UnprotKwd . thx . *Shift('UnprotKwd', thx)
++                                 | '&' *Expr14 (epsilon . *Reduce('&', 1))
++                                 | '+' *Expr14 (epsilon . *Reduce('+', 1))
++                                 | '-' *Expr14 (epsilon . *Reduce('-', 1))
++                                 | '*' *Expr14 (epsilon . *Reduce('*', 1))
++                                 | '$' *Expr14 (epsilon . *Reduce('$', 1))
++                                 | '.' *Expr14 (epsilon . *Reduce('.', 1))
++                                 | '!' *Expr14 (epsilon . *Reduce('!', 1))
++                                 | '%' *Expr14 (epsilon . *Reduce('%', 1))
++                                 | '/' *Expr14 (epsilon . *Reduce('/', 1))
++                                 | '#' *Expr14 (epsilon . *Reduce('#', 1))
++                                 | '=' *Expr14 (epsilon . *Reduce('=', 1))
++                                 | '|' *Expr14 (epsilon . *Reduce('|', 1))
++                                 | *Expr15
+                  Expr15         =  *Expr17
++                                   FENCE(
++                                     nPush() *Expr16 (epsilon . *Reduce('[]', nTop() + 1)) nPop()
++                                   | epsilon
++                                   )
+                  Expr16         =  nInc()
++                                   ($'[' *ExprList $']' | $'<' *ExprList $'>')
++                                   FENCE(*Expr16 | epsilon)
+                  Expr17         =  FENCE(
++                                     nPush()
++                                     $'('
++                                     *Expr
++                                     ( $',' *XList (epsilon . *Reduce(',', nTop() + 1))
++                                     | epsilon (epsilon . *Reduce('()', 1))
++                                     )
++                                     $')'
++                                     nPop()
++                                   | *Function . thx . *Shift('Function', thx)
++                                     $'('
++                                     *ExprList
++                                     $')'
++                                     (epsilon . *Reduce('Call', 2))
++                                   | *Id . thx . *Shift('Id', thx)
++                                     $'('
++                                     *ExprList
++                                     $')'
++                                     (epsilon . *Reduce('Call', 2))
++                                   | *BuiltinVar . thx . *Shift('BuiltinVar', thx)
++                                   | *SpecialNm . thx . *Shift('SpecialNm', thx)
++                                   | *Id . thx . *Shift('Id', thx)
++                                   | *String . thx . *Shift('String', thx)
++                                   | *Real . thx . *Shift('Real', thx)
++                                   | *Integer . thx . *Shift('Integer', thx)
++                                   )
+
+                  SGoto          =  ('S' | 's') . *assign(.sf, *'S')
+                  FGoto          =  ('F' | 'f') . *assign(.sf, *'F')
+                  SorF           =  *SGoto | *FGoto
+                  Target         =  $'(' . *assign(.Brackets, *'()') *Expr $')'
++                                 | $'<' . *assign(.Brackets, *'<>') *Expr $'>'
+                  Goto           =  *Gray
++                                   ':'
++                                   *Gray
++                                   FENCE(
++                                     *Target
++                                     (epsilon . *Reduce(*(':' Brackets), 1))
++                                     epsilon . thx . *Shift('', thx)
++                                   | *SorF
++                                     *Target
++                                     (epsilon . *Reduce(*(':' sf Brackets), 1))
++                                     FENCE(
++                                       *Gray *SorF *Target (epsilon . *Reduce(*(':' sf Brackets), 1))
++                                     | epsilon . thx . *Shift('', thx)
++                                     )
++                                   )
+                  Control        =  '-' BREAK(nl ';')
+                  Comment        =  '*' BREAK(nl)
+                  Label          =  BREAK(' ' tab nl ';') . thx . *Shift('Label', thx)
+                  Stmt           =  *Label
++                                   ( *White
++                                     *Expr14
++                                     FENCE(
++                                       epsilon . thx . *Shift('', thx)
++                                       *White
++                                       ( '=' . thx . *Shift('=', thx) *White *Expr
++                                       | '=' . thx . *Shift('=', thx) epsilon . thx . *Shift('', thx)
++                                       )
++                                     | ($'?' | *White)
++                                       *Expr1
++                                       FENCE(
++                                         *White
++                                         ( '=' . thx . *Shift('=', thx) *White *Expr
++                                         | '=' . thx . *Shift('=', thx) epsilon . thx . *Shift('', thx)
++                                         )
++                                       | epsilon . thx . *Shift('', thx) epsilon . thx . *Shift('', thx)
++                                       )
++                                     | epsilon . thx . *Shift('', thx)
++                                       epsilon . thx . *Shift('', thx)
++                                       epsilon . thx . *Shift('', thx)
++                                     )
++                                   | epsilon . thx . *Shift('', thx)
++                                     epsilon . thx . *Shift('', thx)
++                                     epsilon . thx . *Shift('', thx)
++                                     epsilon . thx . *Shift('', thx)
++                                   )
++                                   FENCE(
++                                     *Goto
++                                   | epsilon . thx . *Shift('', thx) epsilon . thx . *Shift('', thx)
++                                   )
++                                   *Gray
+
+                  Commands       =  *Command FENCE(*Commands | epsilon)
+                  Command        =  nInc()
++                                   FENCE(
++                                     *Comment . thx . *Shift('comment', thx)
++                                     (epsilon . *Reduce('Comment', 1))
++                                     nl
++                                   | *Control . thx . *Shift('control', thx)
++                                     (epsilon . *Reduce('Control', 1))
++                                     (nl | ';')
++                                   | *Stmt (epsilon . *Reduce('Stmt', 7)) (nl | ';')
++                                   )
+
+                  Parse          =  nPush() ARBNO(*Command) (epsilon . *Reduce('Parse', nTop())) nPop()
+
+                  Compiland      =  nPush()
++                                   ARBNO(*Command)
++                                   (epsilon . *Reduce('Parse', nTop()))
++                                   ( icase('END') (' ' BREAK(nl) nl | nl) ARBNO(BREAK(nl) nl)
++                                   | epsilon
++                                   )
++                                   nPop()
+
+*================ ============== == =============================================== ========================
+*                 Pretty-print routine.
+*                 null = pp(x=tree)
+*                 Recursive routine given a tree, to output SNOBOL4 code.
+*
+                  DEFINE('pp(x)c,i,n,s,t,v')                                     :(ppEnd)
+pp                DIFFER(x)                                                      :F(RETURN)
+                  t              =  t(x)
+                  v              =  v(x)
+                  n              =  n(x)
+                  c              =  c(x)
+                  OUTPUT         =  GT(doDebug, 0) 'pp(' t ')' ', sz = ' level '+' SIZE(v) ', v = ' v
+                  DIFFER(t)                                                      :S($('pp_' t))F(RETURN)
+*---------------- -------------- -- ----------------------------------------------- ------------------------
+pp_Parse          ppWidth        =  ppStop[4]                                    :(pp_0)
+pp_0              i              =  0
+pp_1              i              =  LT(i, n) i + 1                               :F(RETURN)
+                  pp(c[i])                                                       :(pp_1)
+*---------------- -------------- -- ----------------------------------------------- ------------------------
+pp_BuiltinVar     Gen(ss(x))                                                     :S(RETURN)F(error)
+pp_Function       Gen(ss(x))                                                     :S(RETURN)F(error)
+pp_Id             Gen(ss(x))                                                     :S(RETURN)F(error)
+pp_Integer        Gen(ss(x))                                                     :S(RETURN)F(error)
+pp_Label          Gen(ss(x))                                                     :S(RETURN)F(error)
+pp_ProtKwd        Gen(ss(x))                                                     :S(RETURN)F(error)
+pp_Real           Gen(ss(x))                                                     :S(RETURN)F(error)
+pp_SpecialNm      Gen(ss(x))                                                     :S(RETURN)F(error)
+pp_String         Gen(ss(x))                                                     :S(RETURN)F(error)
+pp_UnprotKwd      Gen(ss(x))                                                     :S(RETURN)F(error)
+*---------------- -------------- -- ----------------------------------------------- ------------------------
+pp_:()            Gen(ss(x))                                                     :S(RETURN)F(error)
+pp_:<>            Gen(ss(x))                                                     :S(RETURN)F(error)
+pp_:S()           Gen(ss(x))                                                     :S(RETURN)F(error)
+pp_:S<>           Gen(ss(x))                                                     :S(RETURN)F(error)
+pp_:F()           Gen(ss(x))                                                     :S(RETURN)F(error)
+pp_:F<>           Gen(ss(x))                                                     :S(RETURN)F(error)
+*---------------- -------------- -- ----------------------------------------------- ------------------------
+ppUnOp            Gen(ss(x, ppWidth - GetLevel()))                               :S(RETURN)
+                  Gen(t)
+                  pp(c[1])                                                       :(RETURN)
+ppBinOp           Gen(ss(x, ppWidth - GetLevel()))                               :S(RETURN)
+                  pp(c[1])
+                  Gen(nl)
+                  DecLevel()
+                  Gen(t)
+                  IncLevel()
+                  GenTab()
+                  pp(c[2])                                                       :(RETURN)
+*---------------- -------------- -- ----------------------------------------------- ------------------------
+pp_!              EQ(n, 1)                                                       :S(ppUnOp)
+pp_#              EQ(n, 1)                                                       :S(ppUnOp)
+                  EQ(n, 2)                                                       :S(ppBinOp)F(error)
+pp_$              EQ(n, 1)                                                       :S(ppUnOp)
+                  EQ(n, 2)                                                       :S(ppBinOp)F(error)
+pp_%              EQ(n, 1)                                                       :S(ppUnOp)
+                  EQ(n, 2)                                                       :S(ppBinOp)F(error)
+pp_&              EQ(n, 1)                                                       :S(ppUnOp)
+                  EQ(n, 2)                                                       :S(ppBinOp)F(error)
+pp_*              EQ(n, 1)                                                       :S(ppUnOp)
+                  EQ(n, 2)                                                       :S(ppBinOp)F(error)
+pp_+              EQ(n, 1)                                                       :S(ppUnOp)
+                  EQ(n, 2)                                                       :S(ppBinOp)F(error)
+pp_-              EQ(n, 1)                                                       :S(ppUnOp)
+                  EQ(n, 2)                                                       :S(ppBinOp)F(error)
+pp_.              EQ(n, 1)                                                       :S(ppUnOp)
+                  EQ(n, 2)                                                       :S(ppBinOp)F(error)
+pp_/              EQ(n, 1)                                                       :S(ppUnOp)
+                  EQ(n, 2)                                                       :S(ppBinOp)F(error)
+pp_=              EQ(n, 1)                                                       :S(ppUnOp)
+                  EQ(n, 2)                                                       :S(ppBinOp)F(error)
+pp_?              EQ(n, 1)                                                       :S(ppUnOp)
+                  EQ(n, 2)                                                       :S(ppBinOp)F(error)
+pp_@              EQ(n, 1)                                                       :S(ppUnOp)
+                  EQ(n, 2)                                                       :S(ppBinOp)F(error)
+pp_^              EQ(n, 2)                                                       :S(ppBinOp)F(error)
+pp_~              EQ(n, 1)                                                       :S(ppUnOp)
+                  EQ(n, 2)                                                       :S(ppBinOp)F(error)
+*---------------- -------------- -- ----------------------------------------------- ------------------------
+pp_Comment        SetLevel(0)
+                  GenSetCont()
+                  Gen(v(c[1]) nl)                                                :(RETURN)
+*---------------- -------------- -- ----------------------------------------------- ------------------------
+pp_Control        SetLevel(0)
+                  GenSetCont()
+                  Gen(v(c[1]) nl)                                                :(RETURN)
+*---------------- -------------- -- ----------------------------------------------- ------------------------
+pp_Stmt           SetLevel(0)
+                  GenSetCont('+')
+                  ppWidth        =  ppStop[4]
+                  ppLbl          =  ss(c[1])
+                  ppSubj         =  c[2]
+                  ppPatrn        =  c[3]
+                  ppAsgn         =  v(c[4])
+                  ppRepl         =  c[5]
+                  ppGo1          =  c[6]
+                  ppGo2          =  c[7]
+                  Gen(ppLbl)
+                  DIFFER(t(ppSubj))                                              :F(pp_Stmt7)
+                  Gen(' ')
+                  GenTab(ppStop[1])
+                  SetLevel(ppStop[1])
+                  ppWidth        =  IDENT(t(ppPatrn))
++                                   IDENT(ppAsgn)
++                                   IDENT(t(ppGo1))
++                                   ppStop[4] + ppLgBump
+                  pp(ppSubj)
+                  DIFFER(t(ppPatrn))                                             :F(pp_Stmt5)
+                  Gen(' ')
+                  GenTab(ppStop[2])
+                  SetLevel(ppStop[2])
+                  ppWidth        =  IDENT(ppAsgn) IDENT(t(ppGo1)) ppStop[4] + ppLgBump
+                  pp(ppPatrn)
+                  DIFFER(ppAsgn)                                                 :F(pp_Stmt7)
+                  Gen(' =')
+                  DIFFER(t(ppRepl))                                              :F(pp_Stmt7)
+                  Gen(' ')
+                  pp(ppRepl)                                                     :(pp_Stmt7)
+pp_Stmt5          DIFFER(ppAsgn)                                                 :F(pp_Stmt7)
+                  Gen(' ')
+                  GenTab(ppStop[2])
+                  SetLevel(ppStop[2])
+                  Gen('=')
+                  DIFFER(t(ppRepl))                                              :F(pp_Stmt7)
+                  Gen(' ')
+                  GenTab(ppStop[3])
+                  SetLevel(ppStop[3])
+                  ppWidth        =  IDENT(t(ppGo1)) ppStop[4] + ppLgBump
+                  pp(ppRepl)                                                     :(pp_Stmt7)
+pp_Stmt7          DIFFER(t(ppGo1))                                               :F(pp_Stmt9)
+                  ppWidth        =  256
+                  Gen(' ')
+                  GenTab(ppStop[4])
+                  SetLevel(ppStop[4])
+                  Gen(':')
+                  pp(ppGo1)
+                  DIFFER(t(ppGo2))                                               :F(pp_Stmt9)
+                  pp(ppGo2)                                                      :(pp_Stmt9)
+pp_Stmt9          Gen(nl)                                                        :(RETURN)
+*---------------- -------------- -- ----------------------------------------------- ------------------------
+pp_ExprList       Gen(ss(x, ppWidth - GetLevel()))                               :S(RETURN)
+                  pp(c[1])
+                  i              =  1
+pp_ExprList0      i              =  LT(i, n) i + 1                               :F(RETURN)
+                  Gen(nl)
+                  DecLevel()
+                  Gen(',')
+                  IncLevel()
+                  GenTab()
+                  pp(c[i])                                                       :(pp_ExprList0)
+*---------------- -------------- -- ----------------------------------------------- ------------------------
+pp_,              Gen(ss(x, ppWidth - GetLevel()))                               :S(RETURN)
+                  Gen('(')
+                  IncLevel()
+                  GenTab()
+                  pp(c[1])
+                  i              =  1
+pp_,0             i              =  LT(i, n) i + 1                               :F($'pp_,1')
+                  Gen(nl)
+                  DecLevel()
+                  Gen(',')
+                  IncLevel()
+                  GenTab()
+                  pp(c[i])                                                       :($'pp_,0')
+pp_,1             Gen(nl)
+                  DecLevel()
+                  Gen(')')                                                       :(RETURN)
+*---------------- -------------- -- ----------------------------------------------- ------------------------
+pp_|              EQ(n, 1)                                                       :S(ppUnOp)
+                  Gen(ss(x, ppWidth - GetLevel()))                               :S(RETURN)
+                  pp(c[1])
+                  i              =  1
+pp_|0             i              =  LT(i, n) i + 1                               :F(RETURN)
+                  Gen(nl)
+                  DecLevel()
+                  Gen('|')
+                  IncLevel()
+                  GenTab()
+                  pp(c[i])                                                       :($'pp_|0')
+*---------------- -------------- -- ----------------------------------------------- ------------------------
+pp_..             Gen(ss(x, ppWidth - GetLevel()))                               :S(RETURN)
+                  i              =  0
+pp_..0            i              =  LT(i, n) i + 1                               :F(RETURN)
+                  pp(c[i])
+                  (LT(i, n) Gen(nl))                                             :($'pp_..0')
+*---------------- -------------- -- ----------------------------------------------- ------------------------
+pp_[]             Gen(ss(x, ppWidth - GetLevel()))                               :S(RETURN)
+                  pp(c[1])
+                  i              =  1
+pp_[]0            i              =  LT(i, n) i + 1                               :F(RETURN)
+                  Gen('[')
+                  IncLevel()
+                  GenTab()
+                  pp(c[i])
+                  Gen(nl)
+                  DecLevel()
+                  Gen(']')
+                  (LT(i, n) Gen(nl))                                             :($'pp_[]0')
+*---------------- -------------- -- ----------------------------------------------- ------------------------
+pp_()             Gen(ss(x, ppWidth - GetLevel()))                               :S(RETURN)
+                  Gen('(')
+                  IncLevel()
+                  GenTab()
+                  pp(c[1])
+                  Gen(nl)
+                  DecLevel()
+                  Gen(')')                                                       :(RETURN)
+*---------------- -------------- -- ----------------------------------------------- ------------------------
+pp_Call           Gen(ss(x, ppWidth - GetLevel()))                               :S(RETURN)
+                  pp(c[1])
+                  Gen('(' nl)
+                  IncLevel()
+                  GenTab()
+                  pp(c[2])
+                  Gen(nl)
+                  DecLevel()
+                  Gen(')')                                                       :(RETURN)
+ppEnd
+*================ ============== == =============================================== ========================
+*                 Stringize Subject
+*                 string = ss(x=tree, len=integer)
+*                 Recursive function given a tree, to return SNOBOL4 code as a string.
+*
+                  DEFINE('ss(x,len)c,c1,c2,i,n,s,t,v')                           :(ssEnd)
+ss                DIFFER(x)                                                      :F(RETURN)
+                  len            =  IDENT(len) 1024
+                  GT(len, 0)                                                     :F(FRETURN)
+                  t              =  t(x)
+                  v              =  v(x)
+                  n              =  n(x)
+                  c              =  c(x)
+                  OUTPUT         =  GT(doDebug, 0) 'ss(' t ')' ', sz = ' level '+' SIZE(v) ', v = ' v
+                  DIFFER(t)                                                      :S($('ss_' t))F(RETURN)
+*---------------- -------------- -- ----------------------------------------------- ------------------------
+ss_BuiltinVar     ss             =  upr(v)                                       :(ss_atomic)
+ss_Function       ss             =  upr(v)                                       :(ss_atomic)
+ss_Id             ss             =  v                                            :(ss_atomic)
+ss_Integer        ss             =  v                                            :(ss_atomic)
+ss_Label          v              POS(0) *SpecialNm RPOS(0)                       :S(ss_Label0)F(ss_Label1)
+ss_Label0         ss             =  upr(v)                                       :(ss_atomic)
+ss_Label1         ss             =  v                                            :(ss_atomic)
+ss_ProtKwd        ss             =  upr(v)                                       :(ss_atomic)
+ss_Real           ss             =  v                                            :(ss_atomic)
+ss_SpecialNm      ss             =  upr(v)                                       :(ss_atomic)
+ss_String         ss             =  v                                            :(ss_atomic)
+ss_UnprotKwd      ss             =  upr(v)                                       :(ss_atomic)
+ss_atomic         LE(SIZE(ss), len)                                              :S(RETURN)F(FRETURN)
+*---------------- -------------- -- ----------------------------------------------- ------------------------
+ss_:()            ss             =  '(' ss(c[1], len - 2) ')'                    :S(RETURN)F(error)
+ss_:<>            ss             =  '<' ss(c[1], len - 2) '>'                    :S(RETURN)F(error)
+ss_:S()           ss             =  'S(' ss(c[1], len - 3) ')'                   :S(RETURN)F(error)
+ss_:S<>           ss             =  'S<' ss(c[1], len - 3) '>'                   :S(RETURN)F(error)
+ss_:F()           ss             =  'F(' ss(c[1], len - 3) ')'                   :S(RETURN)F(error)
+ss_:F<>           ss             =  'F<' ss(c[1], len - 3) '>'                   :S(RETURN)F(error)
+*---------------- -------------- -- ----------------------------------------------- ------------------------
+ssUnOp            ss             =  t ss(c[1], len - SIZE(t))                    :S(RETURN)F(FRETURN)
+ssBinOp           ss             =  ss(c[1], len)                                :F(FRETURN)
+                  ss             =  ss
++                                   ' '
++                                   t
++                                   ' '
++                                   ss(c[2], len - SIZE(ss) - SIZE(t) - 2)       :S(RETURN)F(FRETURN)
+*---------------- -------------- -- ----------------------------------------------- ------------------------
+ss_!              EQ(n, 1)                                                       :S(ssUnOp)
+ss_#              EQ(n, 1)                                                       :S(ssUnOp)
+                  EQ(n, 2)                                                       :S(ssBinOp)F(error)
+ss_$              EQ(n, 1)                                                       :S(ssUnOp)
+                  EQ(n, 2)                                                       :S(ssBinOp)F(error)
+ss_%              EQ(n, 1)                                                       :S(ssUnOp)
+                  EQ(n, 2)                                                       :S(ssBinOp)F(error)
+ss_&              EQ(n, 1)                                                       :S(ssUnOp)
+                  EQ(n, 2)                                                       :S(ssBinOp)F(error)
+ss_*              EQ(n, 1)                                                       :S(ssUnOp)
+                  EQ(n, 2)                                                       :S(ssBinOp)F(error)
+ss_+              EQ(n, 1)                                                       :S(ssUnOp)
+                  EQ(n, 2)                                                       :S(ssBinOp)F(error)
+ss_-              EQ(n, 1)                                                       :S(ssUnOp)
+                  EQ(n, 2)                                                       :S(ssBinOp)F(error)
+ss_.              EQ(n, 1)                                                       :S(ssUnOp)
+                  EQ(n, 2)                                                       :S(ssBinOp)F(error)
+ss_/              EQ(n, 1)                                                       :S(ssUnOp)
+                  EQ(n, 2)                                                       :S(ssBinOp)F(error)
+ss_=              EQ(n, 1)                                                       :S(ssUnOp)
+                  EQ(n, 2)                                                       :S(ssBinOp)F(error)
+ss_?              EQ(n, 1)                                                       :S(ssUnOp)
+                  EQ(n, 2)                                                       :S(ssBinOp)F(error)
+ss_@              EQ(n, 1)                                                       :S(ssUnOp)
+                  EQ(n, 2)                                                       :S(ssBinOp)F(error)
+ss_^              EQ(n, 2)                                                       :S(ssBinOp)F(error)
+ss_~              EQ(n, 1)                                                       :S(ssUnOp)
+                  EQ(n, 2)                                                       :S(ssBinOp)F(error)
+*---------------- -------------- -- ----------------------------------------------- ------------------------
+ss_ExprList       ss             =  ss(c[1], len)                                :F(FRETURN)
+                  i              =  1
+ss_ExprList0      i              =  LT(i, n) i + 1                               :F(RETURN)
+                  ss             =  ss ', ' ss(c[i], len - SIZE(ss) - 2)         :S(ss_ExprList0)F(FRETURN)
+*---------------- -------------- -- ----------------------------------------------- ------------------------
+ss_,              ss             =  '(' ss(c[1], len - 4)                        :F(FRETURN)
+                  i              =  1
+ss_,0             i              =  LT(i, n) i + 1                               :F($'ss_,1')
+                  ss             =  ss ', ' ss(c[i], len - SIZE(ss) - 3)         :S($'ss_,0')F(FRETURN)
+ss_,1             ss             =  ss ')'                                       :(RETURN)
+*---------------- -------------- -- ----------------------------------------------- ------------------------
+ss_|              EQ(n, 1)                                                       :S(ssUnOp)
+                  ss             =  ss(c[1], len)                                :F(FRETURN)
+                  i              =  1
+ss_|0             i              =  LT(i, n) i + 1                               :F(RETURN)
+                  ss             =  ss ' | ' ss(c[i], len - SIZE(ss) - 3)        :S($'ss_|0')F(FRETURN)
+*---------------- -------------- -- ----------------------------------------------- ------------------------
+ss_..             ss             =  ss(c[1], len)                                :F(FRETURN)
+                  i              =  1
+ss_..0            i              =  LT(i, n) i + 1                               :F(RETURN)
+                  ss             =  ss ' ' ss(c[i], len - SIZE(ss) - 1)          :S($'ss_..0')F(FRETURN)
+*---------------- -------------- -- ----------------------------------------------- ------------------------
+ss_[]             ss             =  ss(c[1], len)                                :F(FRETURN)
+                  i              =  1
+ss_[]0            i              =  LT(i, n) i + 1                               :F(RETURN)
+                  ss             =  ss '[' ss(c[i], len - SIZE(ss) - 2) ']'      :S($'ss_[]0')F(FRETURN)
+*---------------- -------------- -- ----------------------------------------------- ------------------------
+ss_()             ss             =  '(' ss(c[1], len - 2) ')'                    :S(RETURN)F(FRETURN)
+*---------------- -------------- -- ----------------------------------------------- ------------------------
+ss_Call           ss             =  ss(c[1]) '(' ss(c[2], len - SIZE(v) - 2) ')'  :S(RETURN)F(FRETURN)
+ssEnd
+*================ ============== == =============================================== ========================
+                  DEFINE('visit(x,fnc)i')                                        :(visitEnd)
+visit             APPLY(fnc, x)                                                  :F(RETURN)
+                  i              =  0
+visit_1           i              =  LT(i, n(x)) i + 1                            :F(RETURN)
+                  visit(c(x)[i], fnc)                                            :(visit_1)
+visitEnd
+*---------------- -------------- -- ----------------------------------------------- ------------------------
+                  DEFINE('findRefs(x)n,v')
+                  Refs           =                                               :(findRefsEnd)
+findRefs          DIFFER(x)                                                      :F(RETURN)
+                  IDENT(t(x), 'Call')                                            :F(findRefs_1)
+                  n              =  1
+findRefs_0        n              =  LT(n, n(x)) n + 1                            :F(FRETURN)
+                  visit(c(x)[n], .findRefs)                                      :(findRefs_0)
+findRefs_1        (IDENT(t(x), '&') EQ(n(x), 1))                                 :F(findRefs_2)
+                  v              =  ss(x)                                        :(findRefs_9)
+findRefs_2        IDENT(t(x), 'Id')                                              :F(RETURN)
+                  v              =  v(x)                                         :(findRefs_9)
+findRefs_9        v              POS(0) SPAN('0123456789' &UCASE '_') RPOS(0)    :F(FRETURN)
+                  Refs           =  DIFFER(Refs) Refs ' ' v                      :S(FRETURN)
+                  Refs           =  IDENT(Refs) v                                :(FRETURN)
+findRefsEnd
+*---------------- -------------- -- ----------------------------------------------- ------------------------
+                  DEFINE('refs(p)c,n,s,subj')                                    :(refsEnd)
+refs              c              =  c(p)
+                  n              =  0
+refs_0            n              =  LT(n, n(p)) n + 1                            :F(RETURN)
+                  IDENT(t(c[n]), 'Stmt')                                         :F(refs_0)
+                  s              =  s + 1
+                  IDENT(t(c(c[n])[3]))                                           :F(refs_0)
+                  IDENT(t(c(c[n])[4]), '=')                                      :F(refs_0)
+                  IDENT(t(c(c[n])[2]), 'Id')                                     :S(refs_1)
+                  IDENT(t(c(c[n])[2]), '$')                                      :S(refs_1)F(refs_0)
+refs_1            subj           =  ss(c(c[n])[2])
+                  Refs           =
+                  visit(c(c[n])[5], .findRefs)
+                  OUTPUT         =  LPAD(s, 3, 0) ': ' RPAD(subj, 38) ' ' Refs   :(refs_0)
+refsEnd
+*================ ============== == =============================================== ========================
+*                 Main program.
+*                 Read a SNOBOL4 program.
+*                 Parse the SNOBOL4 program.
+*                 Generate a more beautiful SNOBOL4 program.
+*
+                  doDebug        =  0
+                  Space          =  SPAN(' ' tab) | epsilon
+main00            Line           =  INPUT                                        :F(END)
+main01            Src            =
+                  Line           POS(0) ANY('*-')                                :F(main02)
+                  OUTPUT         =  Line                                         :(main00)
+main02            Src            =  Src Line nl
+                  Line           =  INPUT                                        :F(main05)
+                  Line           POS(0) ANY('.+')                                :S(main02)
+                  Src            POS(0) *Parse *Space RPOS(0)                    :F(mainErr1)
+                  DIFFER(sno = Pop())                                            :F(mainErr2)
+                  pp(sno)                                                        :(main01)
+main05            Src            POS(0) *Parse *Space RPOS(0)                    :F(mainErr1)
+                  DIFFER(sno = Pop())                                            :F(mainErr2)
+                  pp(sno)                                                        :(END)
+mainErr1          OUTPUT         =  'Parse Error'
+                  OUTPUT         =  Src                                          :(END)
+mainErr2          OUTPUT         =  'Internal Error'
+                  OUTPUT         =  Src                                          :(END)
+*-INCLUDE 'debug.sno'
+END
+*-------------------------------------------- 2218 demo_calculator-1-match-fence
+        &TRIM   =  0
+        I       =  SPAN('0123456789')
+        V       =  ANY(&LCASE)
+        A       =  FENCE(I | V | '(' *X ')')
+        F       =  FENCE('+' *F | '-' *F | A)
+        T       =  FENCE(F '*' *T | F '/' *T | F)
+        X       =  FENCE(T '+' *X | T '-' *X | T)
+        C       =  POS(0) ARBNO(X CHAR(10)) RPOS(0)
+        INPUT(.INPUT, 9, '[-f0 -r4194304]')
+        src     =  INPUT  :F(error)
+        src     ?  C  :F(error)
+        OUTPUT  =  'matched bytes=' SIZE(src)  :(END)
+error   OUTPUT  =  'Pattern match failed'
+END
+*-------------------------------------------------- 2219 demo_calculator-1-match
+        &TRIM   =  0
+        I       =  SPAN('0123456789')
+        V       =  ANY(&LCASE)
+        A       =  I | V | '(' *X ')'
+        F       =  '+' *F | '-' *F | A
+        T       =  F '*' *T | F '/' *T | F
+        X       =  T '+' *X | T '-' *X | T
+        C       =  POS(0) ARBNO(X CHAR(10)) RPOS(0)
+        INPUT(.INPUT, 9, '[-f0 -r4194304]')
+        src     =  INPUT  :F(error)
+        src     ?  C  :F(error)
+        OUTPUT  =  'matched bytes=' SIZE(src)  :(END)
+error   OUTPUT  =  'Pattern match failed'
+END
+*-------------------------------------------------------- 2220 demo_calculator-1
+        DEFINE('EMIT()')
+        DEFINE('PSH()')
+        DEFINE('DRF(nm)')
+        DEFINE('ADD()')
+        DEFINE('SUB()')
+        DEFINE('MUL()')
+        DEFINE('DIV()')
+        DEFINE('NEG()')                         :(FNS_end)
+EMIT    OUTPUT = DRF(S[1])
+        sp = 0
+        EMIT = .dm                              :(NRETURN)
+
+PSH     PSH = .S[sp = sp + 1]                   :(NRETURN)
+DRF     DRF = nm
+        nm ? POS(0) ANY(&LCASE) RPOS(0)         :F(RETURN)
+        DRF = vars[nm]                          :(RETURN)
+ADD     S[sp = sp - 1] = DRF(S[sp]) + DRF(S[sp + 1])
+        ADD = .dm                               :(NRETURN)
+SUB     S[sp = sp - 1] = DRF(S[sp]) - DRF(S[sp + 1])
+        SUB = .dm                               :(NRETURN)
+MUL     S[sp = sp - 1] = DRF(S[sp]) * DRF(S[sp + 1])
+        MUL = .dm                               :(NRETURN)
+DIV     S[sp = sp - 1] = DRF(S[sp]) / DRF(S[sp + 1])
+        DIV = .dm                               :(NRETURN)
+NEG     S[sp] = -DRF(S[sp])
+        NEG = .dm                               :(NRETURN)
+FNS_end
+*------------------------------------------------------------------------------
+        S = ARRAY(65536)
+        V = ANY(&LCASE) . *PSH()
+        I = SPAN('0123456789') . *PSH()
+        A = V | I | FENCE('(' *X ')')
+        F = A | FENCE('+' *F) | FENCE('-' *F . *NEG())
+        T = F ( FENCE('*' *T . *MUL()) | FENCE('/' *T . *DIV()) | '' )
+        X = T ( FENCE('+' *X . *ADD()) | FENCE('-' *X . *SUB()) | '' )
+        eol = CHAR(10) FENCE
+        C = POS(0) ARBNO(X eol . *EMIT()) RPOS(0)
+*------------------------------------------------------------------------------
+        &TRIM = 0
+        vars = TABLE()
+        vars['x'] = 1
+        vars['y'] = 2
+        vars['z'] = 3
+* read all at once: raw fd 0, one 4 MiB-max transfer (larger inputs truncate)
+        INPUT(.INPUT, 9, '[-f0 -r4194304]')
+        src = INPUT
+* TIME() is integer nanoseconds off a monotonic wall clock (FINDING s249);
+* divide by 1000000 for match_ms, same idiom as harness.inc's "ms:" line.
+        t0 = TIME()
+        src C                                   :F(bad)
+        t1 = TIME()
+        TERMINAL = 'match_ms=' (t1 - t0) / 1000000        :(END)
+bad     t1 = TIME()
+        OUTPUT = 'Boo!'
+        TERMINAL = 'match_ms=' (t1 - t0) / 1000000
+END
+*-------------------------------------------- 2221 demo_calculator-2-match-fence
+        V              =  ANY('abcdefghijklmnopqrstuvwxyz')
+        I              =  SPAN('0123456789')
+        A              =  FENCE(V | I | '(' *X ')')
+        F              =  FENCE(A | ANY('+-') *F)
+        T              =  F ARBNO(ANY('*/') F)
+        X              =  T ARBNO(ANY('+-') T)
+        eol            =  CHAR(10)
+        C              =  POS(0) ARBNO(X eol) RPOS(0)
+        &TRIM          =  0
+        INPUT(.INPUT, 9, '[-f0 -r4194304]')
+        src            =  INPUT                          :F(fail)
+        src            C                                 :F(fail)
+        OUTPUT         =  'matched bytes=' SIZE(src)      :(END)
+fail    OUTPUT         =  'Pattern match failed'
+END
+*-------------------------------------------------- 2222 demo_calculator-2-match
+*------------------------------------------------------------------------------
+* calculator-2-match.sno — arithmetic-expression pattern match ONLY, Variant 2:
+* ARBNO iteration (the grammar of calculator-2.sno with every semantic action
+* stripped).  Whole file in memory, ONE BIG MATCH, zero side effects.  The
+* subject is the entire input: a run of newline-terminated expression lines,
+* ARBNO(X eol), anchored POS(0)..RPOS(0).
+*
+* Atoms A (lowercase letters, unsigned ints, parens), signed factors F (unary
+* sign chains via *F), terms T ('*' '/'), expressions X ('+' '-').  Where -1
+* uses right recursion in T/X, this variant folds the operator chains with
+* ARBNO — the fullscan-safe iterative shape (calculator-2.sno's header
+* explains why the literal Gimpel left-recursive form stack-overflows on every
+* engine).  Language recognized is identical to calculator-1-match; the ARBNO
+* form removes the alternative re-parse of F that the right-recursive form
+* pays, so the two make a clean A/B on how the pattern engine handles deferred
+* recursion vs bounded iteration.  Shares calculator.input / calculator-gen.py.
+* Run: sbl -b calculator-2-match.sno < calculator.input
+*      snobol4 -b -f -d 8m -P 4m -S 4m calculator-2-match.sno < calculator.input
+*      scrip --run calculator-2-match.sno < calculator.input
+*------------------------------------------------------------------------------
+        V              =  ANY('abcdefghijklmnopqrstuvwxyz')
+        I              =  SPAN('0123456789')
+        A              =  V | I | '(' *X ')'
+        F              =  A | ANY('+-') *F
+        T              =  F ARBNO(ANY('*/') F)
+        X              =  T ARBNO(ANY('+-') T)
+        eol            =  CHAR(10)
+        C              =  POS(0) ARBNO(X eol) RPOS(0)
+*------------------------------------------------------------------------------
+        &TRIM          =  0
+*------------------------------------------------------------------------------
+*  ONE READ — SPITBOL raw mode: -f0 attaches stdin, -r sets raw record length;
+*  newlines come back in-string, short read at EOF (manual, file processing)
+        INPUT(.INPUT, 9, '[-f0 -r4194304]')
+        src            =  INPUT                          :F(fail)
+        src            C                                 :F(fail)
+        OUTPUT         =  'matched bytes=' SIZE(src)      :(END)
+fail    OUTPUT         =  'Pattern match failed'
+*------------------------------------------------------------------------------
+END
+*-------------------------------------------------------- 2223 demo_calculator-2
+*------------------------------------------------------------------------------
+* calculator-2.sno — precedence calculator, Variant 2: LEFT associativity
+* (Lon, 2026-07-24).  Same atoms/factors as calculator-1; terms and
+* expressions fold LEFT: 10-2-3 = (10-2)-3 = 5; 8/4/2 = (8/4)/2 = 1.
+* Lon's intended form was Gimpel's left-recursive grammar (p. 411, the
+* L_ONE program):  T = F | *T ANY('*/') F ;  X = T | *X ANY('+-') T.
+* That form worked in mainframe SNOBOL4 ONLY because quickscan assumed
+* every deferred pattern eats >= 1 character, bounding the recursion by
+* subject length.  Measured 2026-07-24: it stack-overflows on 3+4 under
+* SPITBOL (ERROR 246), SCRIP m3 (SEGV, same plunge), and csnobol4 in BOTH
+* &FULLSCAN modes (Error 16) — csnobol4's quickscan does not propagate the
+* length budget into deferred expansions.  See programs/gimpel/L_ONE.sno's
+* header: the Catspaw patch removed the left recursion for SPITBOL and
+* bought right associativity as the price; calculator-1.sno is that shape.
+* THIS file keeps the associativity left recursion was for, fullscan-safe,
+* by ITERATION: T = F ARBNO(op F . *action) — instances match left to
+* right, actions fold left.  Unary signs: ANY('+-') pushes the sign char,
+* SGN pops value+sign after the recursive *F (sign chains work: --3 = 3).
+* Operand order conventional (head OP tail).  Variables in a TABLE keyed
+* by letter; x=1, y=2, z=3; other lowercase letters deref to null = 0.
+* Shares calculator.input / calculator-gen.py with calculator-1; own ref
+* (490 of 2208 lines differ from calculator-1.ref — the associativity
+* delta).  Every '/' divisor is a trailing nonzero literal digit, safe
+* under either grouping.
+* Run: sbl -b calculator-2.sno < calculator.input
+*      scrip --run calculator-2.sno < calculator.input
+*------------------------------------------------------------------------------
+        DEFINE('EMIT()')
+        DEFINE('PSH()')
+        DEFINE('DRF(nm)')
+        DEFINE('ADD()')
+        DEFINE('SUB()')
+        DEFINE('MUL()')
+        DEFINE('DIV()')
+        DEFINE('SGN()p1')                       :(FNS_end)
+EMIT    OUTPUT = DRF(S[1])
+        sp = 0
+        EMIT = .dm                              :(NRETURN)
+PSH     PSH = .S[sp = sp + 1]                   :(NRETURN)
+DRF     DRF = nm
+        nm POS(0) ANY(&LCASE) RPOS(0)           :F(RETURN)
+        DRF = vars[nm]                          :(RETURN)
+ADD     S[sp = sp - 1] = DRF(S[sp]) + DRF(S[sp + 1])
+        ADD = .dm                               :(NRETURN)
+SUB     S[sp = sp - 1] = DRF(S[sp]) - DRF(S[sp + 1])
+        SUB = .dm                               :(NRETURN)
+MUL     S[sp = sp - 1] = DRF(S[sp]) * DRF(S[sp + 1])
+        MUL = .dm                               :(NRETURN)
+DIV     S[sp = sp - 1] = DRF(S[sp]) / DRF(S[sp + 1])
+        DIV = .dm                               :(NRETURN)
+SGN     p1 = DRF(S[sp])
+        p1 = IDENT(S[sp = sp - 1], '-') -p1
+        S[sp] = p1
+        SGN = .dm                               :(NRETURN)
+FNS_end
+*------------------------------------------------------------------------------
+        S = ARRAY(65536)
+        LCASE = &LCASE
+        DIGITS = '0123456789'
+        V = ANY(&LCASE) . *PSH()
+        I = SPAN('0123456789') . *PSH()
+        A = FENCE(V | I | '(' *X ')')
+        F = FENCE(A | ANY('+-') . *PSH() *F . *SGN())
+        T = F ARBNO('*' F . *MUL() | '/' F . *DIV())
+        X = T ARBNO('+' T . *ADD() | '-' T . *SUB())
+        eol = CHAR(10) FENCE
+        C = POS(0) ARBNO(X eol (epsilon . *EMIT())) RPOS(0)
+*------------------------------------------------------------------------------
+        &TRIM = 0
+        vars = TABLE()
+        vars['x'] = 1
+        vars['y'] = 2
+        vars['z'] = 3
+* read all at once: raw fd 0, one 4 MiB-max transfer (larger inputs truncate)
+        INPUT(.INPUT, 9, '[-f0 -r4194304]')
+        src = INPUT
+* TIME() is integer nanoseconds off a monotonic wall clock (FINDING s249);
+* divide by 1000000 for match_ms, same idiom as harness.inc's "ms:" line.
+        t0 = TIME()
+        src C                                   :F(bad)
+        t1 = TIME()
+        TERMINAL = 'match_ms=' (t1 - t0) / 1000000        :(END)
+bad     t1 = TIME()
+        OUTPUT = 'Boo!'
+        TERMINAL = 'match_ms=' (t1 - t0) / 1000000
+END
+*-------------------------------------------------- 2224 demo_claws5-match-fence
+        &TRIM   =   0
+        claws   =   POS(0)
++                   ARBNO(
++                     FENCE(
++                       (SPAN('0123456789')) '_CRD :_PUN'
++                     | (NOTANY('_') BREAK('_'))
++                       '_'
++                       (ANY(&UCASE) SPAN('0123456789' &UCASE))
++                     )
++                     SPAN(' ' CHAR(10))
++                   )
++                   RPOS(0)
+        INPUT(.INPUT, 9, '[-f0 -r4194304]')
+        src     =   INPUT  :F(error)
+        src     ?   claws  :F(error)
+        OUTPUT  =   'matched bytes=' SIZE(src)  :(END)
+error   OUTPUT  =   'Pattern match failed'
+END
+*-------------------------------------------------------- 2225 demo_claws5-match
+        &TRIM   =   0
+        claws   =   POS(0)
++                   ARBNO(
++                     ( (SPAN('0123456789')) '_CRD :_PUN'
++                     | (NOTANY('_') BREAK('_'))
++                       '_'
++                       (ANY(&UCASE) SPAN('0123456789' &UCASE))
++                     )
++                     SPAN(' ' CHAR(10))
++                   )
++                   RPOS(0)
+        INPUT(.INPUT, 9, '[-f0 -r4194304]')
+        src     =   INPUT  :F(error)
+        src     ?   claws  :F(error)
+        OUTPUT  =   'matched bytes=' SIZE(src)  :(END)
+error   OUTPUT  =   'Pattern match failed'
+END
+*---------------------------------------------------- 2226 demo_json-match-fence
+*------------------------------------------------------------------------------
+                &TRIM          =  0
+                $' '           =  FENCE(SPAN(' ' CHAR(9) CHAR(10) CHAR(13)) | '')
+*------------------------------------------------------------------------------
+                jescape        =  '\'
++                                 ( ANY('"/bfnrt\')
++                                 | 'u'
++                                   ANY('0123456789abcdefABCDEF')
++                                   ANY('0123456789abcdefABCDEF')
++                                   ANY('0123456789abcdefABCDEF')
++                                   ANY('0123456789abcdefABCDEF')
++                                 )
+                jchunk         =  BREAK('"\' CHAR(10) CHAR(13))
+                jstring        =  '"' jchunk ARBNO(jescape jchunk) '"' FENCE
+*------------------------------------------------------------------------------
+                jnumber        =  FENCE('-' | '')
++                                 ('0' | ANY('123456789') FENCE(SPAN('0123456789') | ''))
++                                 FENCE('.' SPAN('0123456789') | '')
++                                 FENCE( ANY('eE') FENCE(ANY('+-') | '') SPAN('0123456789')
++                                      | ''
++                                      )
+*------------------------------------------------------------------------------
+                jmember        =  $' ' jstring $' ' ':' *jelement
+                jobject        =  '{' ( jmember ARBNO($' ' ',' jmember) | $' ' ) '}'
+                jarray         =  '[' ( *jelement ARBNO($' ' ',' *jelement) | $' ' ) ']'
+                jvalue         =  ( jstring
++                                 | jnumber
++                                 | jobject FENCE
++                                 | jarray FENCE
++                                 | 'true'
++                                 | 'false'
++                                 | 'null'
++                                 )
+                jelement       =  $' ' *jvalue $' '
+                json           =  POS(0) jelement RPOS(0)
+*------------------------------------------------------------------------------
+                INPUT(.INPUT, 9, '[-f0 -r4194304]')
+                src             =   INPUT                       :F(error)
+                src             json                            :F(error)
+                OUTPUT          =  'matched bytes=' SIZE(src)   :(END)
+error           OUTPUT          =  'Pattern match failed'
+*------------------------------------------------------------------------------
+END
+*---------------------------------------------------------- 2227 demo_json-match
+*------------------------------------------------------------------------------
+                &TRIM          =  0
+                $' '           =  SPAN(' ' CHAR(9) CHAR(10) CHAR(13)) | ''
+*------------------------------------------------------------------------------
+                jescape        =  '\'
++                                 ( ANY('"/bfnrt\')
++                                 | 'u'
++                                   ANY('0123456789abcdefABCDEF')
++                                   ANY('0123456789abcdefABCDEF')
++                                   ANY('0123456789abcdefABCDEF')
++                                   ANY('0123456789abcdefABCDEF')
++                                 )
+                jchunk         =  BREAK('"\' CHAR(10) CHAR(13))
+                jstring        =  '"' jchunk ARBNO(jescape jchunk) '"'
+*------------------------------------------------------------------------------
+                jnumber        =  ('-' | '')
++                                 ('0' | ANY('123456789') (SPAN('0123456789') | ''))
++                                 ('.' SPAN('0123456789') | '')
++                                 ( ANY('eE') (ANY('+-') | '') SPAN('0123456789')
++                                 | ''
++                                 )
+*------------------------------------------------------------------------------
+                jmember        =  $' ' jstring $' ' ':' *jelement
+                jobject        =  '{' ( jmember ARBNO($' ' ',' jmember) | $' ' ) '}'
+                jarray         =  '[' ( *jelement ARBNO($' ' ',' *jelement) | $' ' ) ']'
+                jvalue         =  ( jstring
++                                 | jnumber
++                                 | jobject
++                                 | jarray
++                                 | 'true'
++                                 | 'false'
++                                 | 'null'
++                                 )
+                jelement       =  $' ' *jvalue $' '
+                json           =  POS(0) jelement RPOS(0)
+*------------------------------------------------------------------------------
+                INPUT(.INPUT, 9, '[-f0 -r4194304]')
+                src             =   INPUT                       :F(error)
+                src             json                            :F(error)
+                OUTPUT          =  'matched bytes=' SIZE(src)   :(END)
+error           OUTPUT          =  'Pattern match failed'
+*------------------------------------------------------------------------------
+END
+*------------------------------------------------------ 2228 demo_treebank-alloc
+*------------------------------------------------------------------------------
+* treebank-alloc.sno -- the ALLOCATING twin of treebank-match.sno.
+* Same grammar, same tape, same input: the ONLY difference is that this one runs
+* ACTION ROUTINES that ALLOCATE (one ARRAY per node, retained in a TABLE) while
+* the match runs, so the GC share of a matching workload becomes measurable.
+* The actions ride the NON-CAPTURE deferred call *fn() with immediate ($) capture
+* -- manual v3.7 p.87 'Immediate assignment and deferred evaluation' -- because a
+* non-capture call is NOT retracted when an alternative is abandoned: every path
+* the matcher tries allocates, which is the point of a GC workload.
+* It is therefore NOT the treebank PARSE.  The faithful parser is the manual's
+* Ch.9 p.136 action-routine ploy (conditional assignment, treebank.sno), which
+* SCRIP cannot run correctly today; see the s193 FINDING.
+* The identity gate is the ALLOCATION-SEQUENCE CHECKSUM, not 'matched bytes':
+* nodes/words/pops/ck pin the exact number and order of allocations, and a run
+* that matches while allocating nothing cannot pass it.
+*------------------------------------------------------------------------------
+                DEFINE('init_bank(v)')
+                DEFINE('push_tag(v)')
+                DEFINE('push_word(v)')
+                DEFINE('pop_tag()')
+                DEFINE('fin_bank(v)')                                   :(ActEnd)
+*------------------------------------------------------------------------------
+init_bank       $v              =
+                tags            =   TABLE()
+                live            =   TABLE()
+                depth           =   0
+                nlist           =   0;  nitem = 0;  npop = 0;  ck = 0
+                init_bank       =                                       :(RETURN)
+*------------------------------------------------------------------------------
+push_tag        nlist           =   nlist + 1
+                depth           =   depth + 1
+                tags[v]         =   tags[v] + 1
+                node            =   ARRAY('0:2')
+                node[0]         =   v
+                node[1]         =   depth
+                node[2]         =   nlist
+                live[nlist]     =   node
+                ck              =   ck + depth + SIZE(v)
+                push_tag        =                                       :(RETURN)
+*------------------------------------------------------------------------------
+push_word       nitem           =   nitem + 1
+                node            =   ARRAY('0:2')
+                node[0]         =   v
+                node[1]         =   depth
+                node[2]         =   nitem
+                ck              =   ck + depth + SIZE(v) + 1
+                push_word       =                                       :(RETURN)
+*------------------------------------------------------------------------------
+pop_tag         npop            =   npop + 1
+                depth           =   depth - 1
+                ck              =   ck + depth
+                pop_tag         =                                       :(RETURN)
+*------------------------------------------------------------------------------
+fin_bank        $v              =   ck
+                fin_bank        =                                       :(RETURN)
+*------------------------------------------------------------------------------
+ActEnd
+StackEnd        delim           =   SPAN(' ' CHAR(10))
+                word            =   NOTANY('( )' CHAR(10)) BREAK('( )' CHAR(10))
+*------------------------------------------------------------------------------
+                group           =   '('
++                                   word $ tag *push_tag(tag)
++                                   ARBNO(
++                                     delim
++                                     FENCE(
++                                       *group
++                                     | word $ wrd *push_word(wrd)
++                                     )
++                                   )
++                                   *pop_tag()
++                                   ')'
+*------------------------------------------------------------------------------
+                treebank        =   POS(0)
++                                   *init_bank('bank')
++                                   *push_tag('BANK')
++                                   ARBNO(
++                                     *push_tag('ROOT')
++                                     ARBNO(*group FENCE)
++                                     delim
++                                     FENCE
++                                     *pop_tag()
++                                   )
++                                   *fin_bank('bank')
++                                   RPOS(0)
+*------------------------------------------------------------------------------
+                INPUT(.INPUT, 9, '[-f0 -r1000000]')
+                src             =   INPUT  :F(error)
+                src             ?   treebank  :F(error)
+                OUTPUT          =   'matched bytes=' SIZE(src)
+                OUTPUT          =   'nodes=' nlist ' words=' nitem ' pops=' npop ' ck=' ck ' bank=' bank  :(END)
+error           OUTPUT          =   'Pattern match failed'
+END
+*------------------------------------------------ 2229 demo_treebank-match-fence
+        &TRIM       =   0
+        delim       =   SPAN(' ' CHAR(10))
+        word        =   NOTANY('( )' CHAR(10))
++                       BREAK('( )' CHAR(10))
+        group       =   '('
++                       word
++                       ARBNO(delim FENCE(*group | word))
++                       ')'
+        treebank    =   POS(0) ARBNO(ARBNO(*group FENCE) delim FENCE) RPOS(0)
+        INPUT(.INPUT, 9, '[-f0 -r4194304]')
+        src         =   INPUT  :F(error)
+        src         ?   treebank  :F(error)
+        OUTPUT      =   'matched bytes=' SIZE(src)  :(END)
+error   OUTPUT      =   'Pattern match failed'
+END
+*------------------------------------------------------ 2230 demo_treebank-match
+        &TRIM       =   0
+        delim       =   SPAN(' ' CHAR(10))
+        word        =   NOTANY('( )' CHAR(10))
++                       BREAK('( )' CHAR(10))
+        group       =   '('
++                       word
++                       ARBNO(delim (*group | word))
++                       ')'
+        treebank    =   POS(0) ARBNO(ARBNO(*group) delim) RPOS(0)
+        INPUT(.INPUT, 9, '[-f0 -r4194304]')
+        src         =   INPUT  :F(error)
+        src         ?   treebank  :F(error)
+        OUTPUT      =   'matched bytes=' SIZE(src)  :(END)
+error   OUTPUT      =   'Pattern match failed'
+END
+*--------------------------------------- 2231 benchmark_calculator-1-match-fence
+        &TRIM   =  0
+        I       =  SPAN('0123456789')
+        V       =  ANY(&LCASE)
+        A       =  FENCE(I | V | '(' *X ')')
+        F       =  FENCE('+' *F | '-' *F | A)
+        T       =  FENCE(F '*' *T | F '/' *T | F)
+        X       =  FENCE(T '+' *X | T '-' *X | T)
+        C       =  POS(0) ARBNO(X CHAR(10)) RPOS(0)
+*------------------------------------------------------------------------------
+* CALCULATOR_1_MATCH_FENCE(N) -- run the recognizer N times over the slurped source and report the
+* number of bytes it matched.  N=1 is what the standalone driver below asks for;
+* the timed twin built by scripts/bench_wrap.sh asks for many.
+*------------------------------------------------------------------------------
+        DEFINE('CALCULATOR_1_MATCH_FENCE(N)')  :(CALCULATOR_1_MATCH_FENCE_END)
+CALCULATOR_1_MATCH_FENCE  ZI = 1
+ZBL     src ? C  :F(ZBAD)
+        ZI = LT(ZI, N) ZI + 1  :S(ZBL)
+        CALCULATOR_1_MATCH_FENCE = 'matched bytes=' SIZE(src)  :(RETURN)
+ZBAD    CALCULATOR_1_MATCH_FENCE = 'Pattern match failed'  :(RETURN)
+CALCULATOR_1_MATCH_FENCE_END
+*------------------------------------------------------------------------------
+        INPUT(.INPUT, 9, '[-f0 -r4194304]')
+        src = INPUT
+*BENCH kernel=CALCULATOR_1_MATCH_FENCE check=1 bud=1000 flr=20
+        OUTPUT = CALCULATOR_1_MATCH_FENCE(1)
+END
+*--------------------------------------------- 2232 benchmark_calculator-1-match
+        &TRIM   =  0
+        I       =  SPAN('0123456789')
+        V       =  ANY(&LCASE)
+        A       =  I | V | '(' *X ')'
+        F       =  '+' *F | '-' *F | A
+        T       =  F '*' *T | F '/' *T | F
+        X       =  T '+' *X | T '-' *X | T
+        C       =  POS(0) ARBNO(X CHAR(10)) RPOS(0)
+*------------------------------------------------------------------------------
+* CALCULATOR_1_MATCH(N) -- run the recognizer N times over the slurped source and report the
+* number of bytes it matched.  N=1 is what the standalone driver below asks for;
+* the timed twin built by scripts/bench_wrap.sh asks for many.
+*------------------------------------------------------------------------------
+        DEFINE('CALCULATOR_1_MATCH(N)')  :(CALCULATOR_1_MATCH_END)
+CALCULATOR_1_MATCH  ZI = 1
+ZBL     src ? C  :F(ZBAD)
+        ZI = LT(ZI, N) ZI + 1  :S(ZBL)
+        CALCULATOR_1_MATCH = 'matched bytes=' SIZE(src)  :(RETURN)
+ZBAD    CALCULATOR_1_MATCH = 'Pattern match failed'  :(RETURN)
+CALCULATOR_1_MATCH_END
+*------------------------------------------------------------------------------
+        INPUT(.INPUT, 9, '[-f0 -r4194304]')
+        src = INPUT
+*BENCH kernel=CALCULATOR_1_MATCH check=1 bud=1000 flr=20
+        OUTPUT = CALCULATOR_1_MATCH(1)
+END
+*--------------------------------------- 2233 benchmark_calculator-2-match-fence
+        V              =  ANY('abcdefghijklmnopqrstuvwxyz')
+        I              =  SPAN('0123456789')
+        A              =  FENCE(V | I | '(' *X ')')
+        F              =  FENCE(A | ANY('+-') *F)
+        T              =  F ARBNO(ANY('*/') F)
+        X              =  T ARBNO(ANY('+-') T)
+        eol            =  CHAR(10)
+        C              =  POS(0) ARBNO(X eol) RPOS(0)
+        &TRIM          =  0
+*------------------------------------------------------------------------------
+* CALCULATOR_2_MATCH_FENCE(N) -- run the recognizer N times over the slurped source and report the
+* number of bytes it matched.  N=1 is what the standalone driver below asks for;
+* the timed twin built by scripts/bench_wrap.sh asks for many.
+*------------------------------------------------------------------------------
+        DEFINE('CALCULATOR_2_MATCH_FENCE(N)')  :(CALCULATOR_2_MATCH_FENCE_END)
+CALCULATOR_2_MATCH_FENCE  ZI = 1
+ZBL     src C  :F(ZBAD)
+        ZI = LT(ZI, N) ZI + 1  :S(ZBL)
+        CALCULATOR_2_MATCH_FENCE = 'matched bytes=' SIZE(src)  :(RETURN)
+ZBAD    CALCULATOR_2_MATCH_FENCE = 'Pattern match failed'  :(RETURN)
+CALCULATOR_2_MATCH_FENCE_END
+*------------------------------------------------------------------------------
+        INPUT(.INPUT, 9, '[-f0 -r4194304]')
+        src = INPUT
+*BENCH kernel=CALCULATOR_2_MATCH_FENCE check=1 bud=1000 flr=20
+        OUTPUT = CALCULATOR_2_MATCH_FENCE(1)
+END
+*--------------------------------------------- 2234 benchmark_calculator-2-match
+*------------------------------------------------------------------------------
+* calculator-2-match.sno — arithmetic-expression pattern match ONLY, Variant 2:
+* ARBNO iteration (the grammar of calculator-2.sno with every semantic action
+* stripped).  Whole file in memory, ONE BIG MATCH, zero side effects.  The
+* subject is the entire input: a run of newline-terminated expression lines,
+* ARBNO(X eol), anchored POS(0)..RPOS(0).
+*
+* Atoms A (lowercase letters, unsigned ints, parens), signed factors F (unary
+* sign chains via *F), terms T ('*' '/'), expressions X ('+' '-').  Where -1
+* uses right recursion in T/X, this variant folds the operator chains with
+* ARBNO — the fullscan-safe iterative shape (calculator-2.sno's header
+* explains why the literal Gimpel left-recursive form stack-overflows on every
+* engine).  Language recognized is identical to calculator-1-match; the ARBNO
+* form removes the alternative re-parse of F that the right-recursive form
+* pays, so the two make a clean A/B on how the pattern engine handles deferred
+* recursion vs bounded iteration.  Shares calculator.input / calculator-gen.py.
+* Run: sbl -b calculator-2-match.sno < calculator.input
+*      snobol4 -b -f -d 8m -P 4m -S 4m calculator-2-match.sno < calculator.input
+*      scrip --run calculator-2-match.sno < calculator.input
+*------------------------------------------------------------------------------
+        V              =  ANY('abcdefghijklmnopqrstuvwxyz')
+        I              =  SPAN('0123456789')
+        A              =  V | I | '(' *X ')'
+        F              =  A | ANY('+-') *F
+        T              =  F ARBNO(ANY('*/') F)
+        X              =  T ARBNO(ANY('+-') T)
+        eol            =  CHAR(10)
+        C              =  POS(0) ARBNO(X eol) RPOS(0)
+*------------------------------------------------------------------------------
+        &TRIM          =  0
+*------------------------------------------------------------------------------
+*  ONE READ — SPITBOL raw mode: -f0 attaches stdin, -r sets raw record length;
+*  newlines come back in-string, short read at EOF (manual, file processing)
+*------------------------------------------------------------------------------
+* CALCULATOR_2_MATCH(N) -- run the recognizer N times over the slurped source and report the
+* number of bytes it matched.  N=1 is what the standalone driver below asks for;
+* the timed twin built by scripts/bench_wrap.sh asks for many.
+*------------------------------------------------------------------------------
+        DEFINE('CALCULATOR_2_MATCH(N)')  :(CALCULATOR_2_MATCH_END)
+CALCULATOR_2_MATCH  ZI = 1
+ZBL     src C  :F(ZBAD)
+        ZI = LT(ZI, N) ZI + 1  :S(ZBL)
+        CALCULATOR_2_MATCH = 'matched bytes=' SIZE(src)  :(RETURN)
+ZBAD    CALCULATOR_2_MATCH = 'Pattern match failed'  :(RETURN)
+CALCULATOR_2_MATCH_END
+*------------------------------------------------------------------------------
+        INPUT(.INPUT, 9, '[-f0 -r4194304]')
+        src = INPUT
+*BENCH kernel=CALCULATOR_2_MATCH check=1 bud=1000 flr=20
+        OUTPUT = CALCULATOR_2_MATCH(1)
+END
+*--------------------------------------------- 2235 benchmark_claws5-match-fence
+        &TRIM   =   0
+        claws   =   POS(0)
++                   ARBNO(
++                     FENCE(
++                       (SPAN('0123456789')) '_CRD :_PUN'
++                     | (NOTANY('_') BREAK('_'))
++                       '_'
++                       (ANY(&UCASE) SPAN('0123456789' &UCASE))
++                     )
++                     SPAN(' ' CHAR(10))
++                   )
++                   RPOS(0)
+*------------------------------------------------------------------------------
+* CLAWS5_MATCH_FENCE(N) -- run the recognizer N times over the slurped source and report the
+* number of bytes it matched.  N=1 is what the standalone driver below asks for;
+* the timed twin built by scripts/bench_wrap.sh asks for many.
+*------------------------------------------------------------------------------
+        DEFINE('CLAWS5_MATCH_FENCE(N)')  :(CLAWS5_MATCH_FENCE_END)
+CLAWS5_MATCH_FENCE  ZI = 1
+ZBL     src ? claws  :F(ZBAD)
+        ZI = LT(ZI, N) ZI + 1  :S(ZBL)
+        CLAWS5_MATCH_FENCE = 'matched bytes=' SIZE(src)  :(RETURN)
+ZBAD    CLAWS5_MATCH_FENCE = 'Pattern match failed'  :(RETURN)
+CLAWS5_MATCH_FENCE_END
+*------------------------------------------------------------------------------
+        INPUT(.INPUT, 9, '[-f0 -r4194304]')
+        src = INPUT
+*BENCH kernel=CLAWS5_MATCH_FENCE check=1 bud=1000 flr=20
+        OUTPUT = CLAWS5_MATCH_FENCE(1)
+END
+*--------------------------------------------------- 2236 benchmark_claws5-match
+        &TRIM   =   0
+        claws   =   POS(0)
++                   ARBNO(
++                     ( (SPAN('0123456789')) '_CRD :_PUN'
++                     | (NOTANY('_') BREAK('_'))
++                       '_'
++                       (ANY(&UCASE) SPAN('0123456789' &UCASE))
++                     )
++                     SPAN(' ' CHAR(10))
++                   )
++                   RPOS(0)
+*------------------------------------------------------------------------------
+* CLAWS5_MATCH(N) -- run the recognizer N times over the slurped source and report the
+* number of bytes it matched.  N=1 is what the standalone driver below asks for;
+* the timed twin built by scripts/bench_wrap.sh asks for many.
+*------------------------------------------------------------------------------
+        DEFINE('CLAWS5_MATCH(N)')  :(CLAWS5_MATCH_END)
+CLAWS5_MATCH  ZI = 1
+ZBL     src ? claws  :F(ZBAD)
+        ZI = LT(ZI, N) ZI + 1  :S(ZBL)
+        CLAWS5_MATCH = 'matched bytes=' SIZE(src)  :(RETURN)
+ZBAD    CLAWS5_MATCH = 'Pattern match failed'  :(RETURN)
+CLAWS5_MATCH_END
+*------------------------------------------------------------------------------
+        INPUT(.INPUT, 9, '[-f0 -r4194304]')
+        src = INPUT
+*BENCH kernel=CLAWS5_MATCH check=1 bud=1000 flr=20
+        OUTPUT = CLAWS5_MATCH(1)
+END
+*----------------------------------------------- 2237 benchmark_json-match-fence
+*------------------------------------------------------------------------------
+                &TRIM          =  0
+                $' '           =  FENCE(SPAN(' ' CHAR(9) CHAR(10) CHAR(13)) | '')
+*------------------------------------------------------------------------------
+                jescape        =  '\'
++                                 ( ANY('"/bfnrt\')
++                                 | 'u'
++                                   ANY('0123456789abcdefABCDEF')
++                                   ANY('0123456789abcdefABCDEF')
++                                   ANY('0123456789abcdefABCDEF')
++                                   ANY('0123456789abcdefABCDEF')
++                                 )
+                jchunk         =  BREAK('"\' CHAR(10) CHAR(13))
+                jstring        =  '"' jchunk ARBNO(jescape jchunk) '"' FENCE
+*------------------------------------------------------------------------------
+                jnumber        =  FENCE('-' | '')
++                                 ('0' | ANY('123456789') FENCE(SPAN('0123456789') | ''))
++                                 FENCE('.' SPAN('0123456789') | '')
++                                 FENCE( ANY('eE') FENCE(ANY('+-') | '') SPAN('0123456789')
++                                      | ''
++                                      )
+*------------------------------------------------------------------------------
+                jmember        =  $' ' jstring $' ' ':' *jelement
+                jobject        =  '{' ( jmember ARBNO($' ' ',' jmember) | $' ' ) '}'
+                jarray         =  '[' ( *jelement ARBNO($' ' ',' *jelement) | $' ' ) ']'
+                jvalue         =  ( jstring
++                                 | jnumber
++                                 | jobject FENCE
++                                 | jarray FENCE
++                                 | 'true'
++                                 | 'false'
++                                 | 'null'
++                                 )
+                jelement       =  $' ' *jvalue $' '
+                json           =  POS(0) jelement RPOS(0)
+*------------------------------------------------------------------------------
+*------------------------------------------------------------------------------
+* JSON_MATCH_FENCE(N) -- run the recognizer N times over the slurped source and report the
+* number of bytes it matched.  N=1 is what the standalone driver below asks for;
+* the timed twin built by scripts/bench_wrap.sh asks for many.
+*------------------------------------------------------------------------------
+        DEFINE('JSON_MATCH_FENCE(N)')  :(JSON_MATCH_FENCE_END)
+JSON_MATCH_FENCE  ZI = 1
+ZBL     src json  :F(ZBAD)
+        ZI = LT(ZI, N) ZI + 1  :S(ZBL)
+        JSON_MATCH_FENCE = 'matched bytes=' SIZE(src)  :(RETURN)
+ZBAD    JSON_MATCH_FENCE = 'Pattern match failed'  :(RETURN)
+JSON_MATCH_FENCE_END
+*------------------------------------------------------------------------------
+        INPUT(.INPUT, 9, '[-f0 -r4194304]')
+        src = INPUT
+*BENCH kernel=JSON_MATCH_FENCE check=1 bud=1000 flr=20
+        OUTPUT = JSON_MATCH_FENCE(1)
+END
+*----------------------------------------------------- 2238 benchmark_json-match
+*------------------------------------------------------------------------------
+                &TRIM          =  0
+                $' '           =  SPAN(' ' CHAR(9) CHAR(10) CHAR(13)) | ''
+*------------------------------------------------------------------------------
+                jescape        =  '\'
++                                 ( ANY('"/bfnrt\')
++                                 | 'u'
++                                   ANY('0123456789abcdefABCDEF')
++                                   ANY('0123456789abcdefABCDEF')
++                                   ANY('0123456789abcdefABCDEF')
++                                   ANY('0123456789abcdefABCDEF')
++                                 )
+                jchunk         =  BREAK('"\' CHAR(10) CHAR(13))
+                jstring        =  '"' jchunk ARBNO(jescape jchunk) '"'
+*------------------------------------------------------------------------------
+                jnumber        =  ('-' | '')
++                                 ('0' | ANY('123456789') (SPAN('0123456789') | ''))
++                                 ('.' SPAN('0123456789') | '')
++                                 ( ANY('eE') (ANY('+-') | '') SPAN('0123456789')
++                                 | ''
++                                 )
+*------------------------------------------------------------------------------
+                jmember        =  $' ' jstring $' ' ':' *jelement
+                jobject        =  '{' ( jmember ARBNO($' ' ',' jmember) | $' ' ) '}'
+                jarray         =  '[' ( *jelement ARBNO($' ' ',' *jelement) | $' ' ) ']'
+                jvalue         =  ( jstring
++                                 | jnumber
++                                 | jobject
++                                 | jarray
++                                 | 'true'
++                                 | 'false'
++                                 | 'null'
++                                 )
+                jelement       =  $' ' *jvalue $' '
+                json           =  POS(0) jelement RPOS(0)
+*------------------------------------------------------------------------------
+*------------------------------------------------------------------------------
+* JSON_MATCH(N) -- run the recognizer N times over the slurped source and report the
+* number of bytes it matched.  N=1 is what the standalone driver below asks for;
+* the timed twin built by scripts/bench_wrap.sh asks for many.
+*------------------------------------------------------------------------------
+        DEFINE('JSON_MATCH(N)')  :(JSON_MATCH_END)
+JSON_MATCH  ZI = 1
+ZBL     src json  :F(ZBAD)
+        ZI = LT(ZI, N) ZI + 1  :S(ZBL)
+        JSON_MATCH = 'matched bytes=' SIZE(src)  :(RETURN)
+ZBAD    JSON_MATCH = 'Pattern match failed'  :(RETURN)
+JSON_MATCH_END
+*------------------------------------------------------------------------------
+        INPUT(.INPUT, 9, '[-f0 -r4194304]')
+        src = INPUT
+*BENCH kernel=JSON_MATCH check=1 bud=1000 flr=20
+        OUTPUT = JSON_MATCH(1)
+END
+*------------------------------------------- 2239 benchmark_treebank-match-fence
+        &TRIM       =   0
+        delim       =   SPAN(' ' CHAR(10))
+        word        =   NOTANY('( )' CHAR(10))
++                       BREAK('( )' CHAR(10))
+        group       =   '('
++                       word
++                       ARBNO(delim FENCE(*group | word))
++                       ')'
+        treebank    =   POS(0) ARBNO(ARBNO(*group FENCE) delim FENCE) RPOS(0)
+*------------------------------------------------------------------------------
+* TREEBANK_MATCH_FENCE(N) -- run the recognizer N times over the slurped source and report the
+* number of bytes it matched.  N=1 is what the standalone driver below asks for;
+* the timed twin built by scripts/bench_wrap.sh asks for many.
+*------------------------------------------------------------------------------
+        DEFINE('TREEBANK_MATCH_FENCE(N)')  :(TREEBANK_MATCH_FENCE_END)
+TREEBANK_MATCH_FENCE  ZI = 1
+ZBL     src ? treebank  :F(ZBAD)
+        ZI = LT(ZI, N) ZI + 1  :S(ZBL)
+        TREEBANK_MATCH_FENCE = 'matched bytes=' SIZE(src)  :(RETURN)
+ZBAD    TREEBANK_MATCH_FENCE = 'Pattern match failed'  :(RETURN)
+TREEBANK_MATCH_FENCE_END
+*------------------------------------------------------------------------------
+        INPUT(.INPUT, 9, '[-f0 -r4194304]')
+        src = INPUT
+*BENCH kernel=TREEBANK_MATCH_FENCE check=1 bud=1000 flr=20
+        OUTPUT = TREEBANK_MATCH_FENCE(1)
+END
+*------------------------------------------------- 2240 benchmark_treebank-match
+        &TRIM       =   0
+        delim       =   SPAN(' ' CHAR(10))
+        word        =   NOTANY('( )' CHAR(10))
++                       BREAK('( )' CHAR(10))
+        group       =   '('
++                       word
++                       ARBNO(delim (*group | word))
++                       ')'
+        treebank    =   POS(0) ARBNO(ARBNO(*group) delim) RPOS(0)
+*------------------------------------------------------------------------------
+* TREEBANK_MATCH(N) -- run the recognizer N times over the slurped source and report the
+* number of bytes it matched.  N=1 is what the standalone driver below asks for;
+* the timed twin built by scripts/bench_wrap.sh asks for many.
+*------------------------------------------------------------------------------
+        DEFINE('TREEBANK_MATCH(N)')  :(TREEBANK_MATCH_END)
+TREEBANK_MATCH  ZI = 1
+ZBL     src ? treebank  :F(ZBAD)
+        ZI = LT(ZI, N) ZI + 1  :S(ZBL)
+        TREEBANK_MATCH = 'matched bytes=' SIZE(src)  :(RETURN)
+ZBAD    TREEBANK_MATCH = 'Pattern match failed'  :(RETURN)
+TREEBANK_MATCH_END
+*------------------------------------------------------------------------------
+        INPUT(.INPUT, 9, '[-f0 -r4194304]')
+        src = INPUT
+*BENCH kernel=TREEBANK_MATCH check=1 bud=1000 flr=20
+        OUTPUT = TREEBANK_MATCH(1)
+END
+*-------------------------------------------------- 2241 test_coverage_sno_nodes
+* coverage_sno_nodes.sno — exercises every SNOBOL4 IR node kind
+* One touch per node: E_QLIT E_ILIT E_FLIT E_VART E_KW E_NULV
+*   E_ADD E_SUB E_MPY E_DIV E_ASGN E_EXPOP
+*   E_CONCAT E_SEQ E_OR E_NAM E_DOL E_ATP E_ARB E_ARBNO E_STAR E_INDR
+*   E_FNC E_IDX E_NULV E_OPSYN E_MNS E_PLUS
+
+* E_QLIT — string literal
+        OUTPUT = 'hello'
+
+* E_ILIT — integer literal
+        OUTPUT = 42
+
+* E_FLIT — float literal
+        X = 1.5
+        OUTPUT = X
+
+* E_VART — variable reference
+        A = 'world'
+        OUTPUT = A
+
+* E_KW — keyword reference
+        OUTPUT = &ALPHABET
+
+* E_ADD E_SUB E_MPY E_DIV — arithmetic
+        OUTPUT = 3 + 4
+        OUTPUT = 10 - 3
+        OUTPUT = 3 * 4
+        OUTPUT = 10 / 2
+
+* E_MNS — unary minus
+        N = -5
+        OUTPUT = N
+
+* E_EXPOP — exponentiation
+        OUTPUT = 2 ** 8
+
+* E_CONCAT — value-context string concat
+        OUTPUT = 'foo' 'bar'
+
+* E_ASGN — pattern = assignment capture
+        S = 'hello world'
+        S (CAPT = 'hello')
+        OUTPUT = CAPT
+
+* E_SEQ — pattern sequence (CAT)
+        S2 = 'abcd'
+        S2 'ab' 'cd'
+        OUTPUT = 'seq ok'
+
+* E_OR — pattern alternation
+        S3 = 'cat'
+        S3 ('dog' | 'cat')
+        OUTPUT = 'alt ok'
+
+* E_NAM — named capture (.)
+        S4 = 'hello'
+        S4 LEN(3) . PART
+        OUTPUT = PART
+
+* E_DOL — replacement capture ($)
+        S5 = 'hello world'
+        S5 'world' $ TRAIL
+        OUTPUT = TRAIL
+
+* E_ATP — cursor capture (@)
+        S6 = 'abcdef'
+        S6 'abc' @ POS1
+        OUTPUT = POS1
+
+* E_ARB — ARB builtin
+        S7 = 'xaby'
+        S7 ARB 'b'
+        OUTPUT = 'arb ok'
+
+* E_ARBNO — ARBNO()
+        S8 = 'aaab'
+        S8 ARBNO('a') 'b'
+        OUTPUT = 'arbno ok'
+
+* E_STAR — deferred pattern (*VAR)
+        PAT = LEN(2)
+        S9 = 'abcd'
+        S9 *PAT
+        OUTPUT = 'star ok'
+
+* E_INDR — indirect reference ($VAR as pattern)
+        VNAME = 'A'
+        OUTPUT = $VNAME
+
+* E_FNC — function call
+        OUTPUT = SIZE('hello')
+
+* E_IDX — array indexing
+        T = TABLE()
+        T['key'] = 'val'
+        OUTPUT = T['key']
+
+* E_NULV — null value (uninitialized)
+        OUTPUT = IDENT(UNDEF,)  :S(NULLOK)
+        OUTPUT = 'not null'     :(DONE)
+NULLOK  OUTPUT = 'null ok'
+DONE
+
+* E_OPSYN — operator synonym
+        OPSYN('MYSIZE','SIZE',1)
+        OUTPUT = MYSIZE('hi')
+
+END
+*------------------------------------------------- 2242 test_feat_f15_trace_dump
+*  f15: TRACE / DUMP / &TRACE — just test they don't crash
+        &TRACE = 1
+        TRACE('X', 'VALUE')
+        X = 'traced'
+        STOPTR('X', 'VALUE')
+        &TRACE = 0
+        OUTPUT = 'PASS'
+END
+*--------------------------------------------- 2243 test_feat_f18_error_handling
+*  f18: error handling — SETEXIT + &ERRLIMIT
+        &ERRLIMIT = 1
+        SETEXIT('HANDLER')
+        X = 1 / 0
+        OUTPUT = 'FAIL (should have jumped to HANDLER)'  :(END)
+HANDLER OUTPUT = 'PASS'
+END
+*--------------------------------------- 2244 test_linker_ancestor_ancestor_main
+* ancestor_main.sno — M-LINK-NET-4 acceptance test
+* Calls Prolog ANCESTOR predicate from SNOBOL4 via .NET ABI.
+* IMPORT assembly.METHOD (two-part, no LANG prefix)
+IMPORT          ancestor.ANCESTOR
+
+*       ancestor(tom, ann) should succeed → prints "ann"
+        OUTPUT = ANCESTOR('tom', 'ann')
+END
+*--------------------------------------------------- 2245 test_linker_greet_main
+* greet_main.sno — imports GREET from greet_lib assembly
+* LP-4 acceptance test (M-LINK-NET-3)
+* Two-part IMPORT: assembly.METHOD (no language prefix)
+IMPORT          greet_lib.GREET
+
+        OUTPUT = GREET('World')
+END
+*------------------------------------------- 2246 test_probe_loose_ab_undef_call
+* AB-0 witness: call of an undefined function -- record the SPITBOL error code.
+	OUTPUT = 'before'
+	OUTPUT = NOSUCH(1)
+	OUTPUT = 'after'
+END
+*----------------------------------- 2247 test_probe_loose_conformance_f09_apply
+        DEFINE('adder(a,b)')                        :(main)
+adder   adder = a + b                                :(RETURN)
+main    OUTPUT = APPLY('adder', 3, 4)
+        OUTPUT = APPLY('adder', 3)
+        OUTPUT = APPLY('adder', 3, 4, 5)
+END
+*------------------------------------ 2248 test_probe_loose_conformance_f12_load
+        OUTPUT = 'before-load'
+        LOAD('BOGUS(INTEGER)INTEGER', '/nonexistent/path/to/nothing.o')
+        OUTPUT = 'after-load'
+END
+*---------------------------------- 2249 test_probe_loose_conformance_f15_unload
+        DEFINE('foo(x)')                            :(main)
+foo     foo = x * 2                                  :(RETURN)
+main    OUTPUT = foo(5)
+        UNLOAD('foo')
+        OUTPUT = foo(5)
+        OUTPUT = 'unreachable'
+END
+*---------------------------------- 2250 test_probe_loose_conformance_f21_output
+        OUTPUT(.o)                                            :F(outfail)
+        o = 'output-default-stdout-ok'                          :(fin)
+outfail OUTPUT = 'output-attach-failed'
+fin
+END
+*--------------------------------- 2251 test_probe_loose_conformance_f25_collect
+        X = COLLECT(1)                                    :F(bad1)
+        OUTPUT = 'collect-small-ok-datatype=' DATATYPE(X)   :(chk2)
+bad1    OUTPUT = 'collect-small-failed-bad'
+chk2    COLLECT(2000000000)                                :S(bad2)
+        OUTPUT = 'collect-huge-failed-ok'                     :(fin)
+bad2    OUTPUT = 'collect-huge-succeeded-bad'
+fin
+END
+*------------------------------------ 2252 test_probe_loose_conformance_f26_dump
+        A = 'hello'
+        B = 42
+        DUMP(1)
+        OUTPUT = 'after-dump'
+END
+*------------------------------------ 2253 test_probe_loose_conformance_f52_dupl
+        OUTPUT = DUPL('ab',3)
+        OUTPUT = DUPL('xy',0)
+        DUPL('xy',-1)                                     :S(bad1)
+        OUTPUT = 'dupl-negative-failed-ok'                  :(chk2)
+bad1    OUTPUT = 'dupl-negative-succeeded-bad'
+chk2    'abcdef' DUPL(LEN(1),3) . V                        :F(bad2)
+        OUTPUT = 'dupl-pattern=' V                            :(fin)
+bad2    OUTPUT = 'dupl-pattern-failed-bad'
+fin
+END
+*------------------------------------ 2254 test_probe_loose_conformance_f65_exit
+        OUTPUT = 'before-exit'
+        EXIT('true')
+        OUTPUT = 'after-exit-should-not-print'
+END
+*-------------------------- 2255 test_probe_loose_conformance_f65b_exit_savefile
+        OUTPUT = 'before-savefile'
+        EXIT(-3,'/tmp/f65b_exit_savefile_scratch.spx')
+        OUTPUT = 'after-savefile-should-not-print'
+END
+*---------------------------------- 2256 test_probe_loose_conformance_f68_stoptr
+        &TRACE = 100
+        x = 1
+        TRACE('x')
+        x = 2
+        STOPTR('x')
+        x = 3
+        x = 4
+        OUTPUT = 'stoptr-done'
+END
+*----------------------------------- 2257 test_probe_loose_conformance_f69_trace
+        &TRACE = 100
+        x = 1
+        TRACE('x')
+        x = 2
+        x = 3
+        OUTPUT = 'trace-done'
+END
+*------------------------------------ 2258 test_probe_loose_conformance_f83_trim
+        OUTPUT = 'a=[' TRIM('hello   ') ']'
+        OUTPUT = 'b=[' TRIM('world			') ']'
+        OUTPUT = 'c=[' TRIM('noblanks') ']'
+        OUTPUT = 'd=' REPLACE(TRIM(REPLACE('1002000', '0 ', ' 0')), '0 ', ' 0')
+END
+*-------------------------------- 2259 test_probe_loose_conformance_k10_fnclevel
+        DEFINE('probelvl()')                        :(main)
+probelvl OUTPUT = 'inside=' &FNCLEVEL                 :(RETURN)
+main    OUTPUT = 'outside=' &FNCLEVEL
+        probelvl()
+        OUTPUT = 'outside-after=' &FNCLEVEL
+END
+*------------------ 2260 test_probe_loose_csnobol4_triage_include_trailing_space
+* csnobol4_suite/line.sno and include.sno both write -INCLUDE "line2.sno " (one trailing space
+* INSIDE the closing quote, present in the suite's own upstream source).  sbl -bf trims it and
+* includes the file; scrip takes the quoted argument literally byte-for-byte, looks for a file
+* named "target.sno " (with the space) and fails.  SCRIP-only defect, oracle-verified.
+-INCLUDE "include_trailing_space_lib.sno "
+END
+*-------------------- 2261 test_probe_loose_csnobol4_triage_setexit_label_pruned
+* A label reached ONLY through SETEXIT(.label) -- never by an ordinary GOTO/fallthrough edge --
+* whose body reads &LASTNO gets its own emission pruned by scrip's optimizer as unreachable, but
+* the __gva_names address table mode-4 emits for it still references the symbol: gcc -no-pie
+* link fails with "undefined reference to LBL__eh35" (mode-3 in-process binary papers over it,
+* an m3<>m4 divergence).  A same-shape handler body that DOESN'T read &LASTNO links cleanly --
+* the &LASTNO reference specifically is load-bearing for reproduction, cause not yet root-caused
+* past the optimizer/emit boundary.  Ablated from csnobol4_suite/setexit7.sno (3 handler labels,
+* all reproduce independently).  sbl -bf has no link stage to compare; it accepts the
+* SETEXIT/.label construct without complaint (a different, unrelated runtime error fires from
+* deliberately invoking :(CONTINUE) with no error in flight -- ERROR 037).
+	SETEXIT(.eh35)
+	:(CONTINUE)
+eh35	OUTPUT = 'S' &LASTNO
+END
+*--------------------------------------- 2262 test_probe_loose_dv_dv_nreturn_imm
+*  dv_nreturn_imm: $ *FUNC() -- immediate capture into an NRETURN computed name (manual Ch.7 PUSH/STK example)
+        DEFINE('PUSH(X)')                                :(PUSH_END)
+        STK = TABLE()
+PUSH    STK[0] = STK[0] + 1
+        PUSH = .STK[STK[0]]
+        $PUSH = X                                        :(NRETURN)
+PUSH_END
+        'ABCDE' ? LEN(2) $ *PUSH()                        :F(NO)
+        OUTPUT = 'M ' STK[1]                              :(EN)
+NO      OUTPUT = 'F'
+EN
+END
+*---------------------------------- 2263 test_probe_loose_errpath_bad_type_arith
+*  probe: arithmetic left operand is a non-numeric string -- Appendix D 1
+        &ERRLIMIT = 100
+        total = 'not a number' + 1                :F(fail1)
+        OUTPUT = 'accepted ' total                :(END)
+fail1   OUTPUT = 'errtype ' &ERRTYPE
+END
+*-------------------------------- 2264 test_probe_loose_errpath_bad_type_builtin
+*  probe: SUBSTR called with a non-integer second argument -- Appendix D 193
+        &ERRLIMIT = 100
+        piece = SUBSTR('hello world', 'x', 3)     :F(fail1)
+        OUTPUT = 'accepted ' piece                :(END)
+fail1   OUTPUT = 'errtype ' &ERRTYPE
+END
+*------------------------------------- 2265 test_probe_loose_errpath_div_by_zero
+*  probe: integer division by zero
+        &ERRLIMIT = 100
+        total = 1 / 0                             :F(fail1)
+        OUTPUT = 'accepted ' total                :(END)
+fail1   OUTPUT = 'errtype ' &ERRTYPE
+END
+*--------------------------------- 2266 test_probe_loose_errpath_duplicate_label
+*  probe: two statements share the identical label spelling -- Appendix D 217
+start   x = 1
+start   x = 2
+        OUTPUT = x
+END
+*------------------------------------- 2267 test_probe_loose_errpath_huge_string
+*  probe: string far exceeding practical size, built via a single DUPL call -- Appendix D 205 territory
+        &ERRLIMIT = 100
+        big = DUPL('x', 50000000)                 :F(fail1)
+        OUTPUT = 'accepted size=' SIZE(big)       :(END)
+fail1   OUTPUT = 'errtype ' &ERRTYPE
+END
+*----------------------------- 2268 test_probe_loose_errpath_unterminated_string
+*  probe: string literal missing its closing quote -- Appendix D 232
+        x = 'unterminated
+        OUTPUT = x
+END
+*------------------------------------- 2269 test_probe_loose_unload_un_self_exec
+*  ⛔ NAMED RED (s193, seat7, row unload-missing): a function that UNLOADs
+*  ITSELF completes its current call normally and the NEXT call must raise
+*  ERROR 022 "undefined function called" (oracle-measured).  SCRIP CALLS IT
+*  ANYWAY — UNLOAD's registry removal never reaches the call site, which
+*  jumps through a cell DEFINE baked and tests nothing.  Curing it is a
+*  template rung (the cell needs a NULL test routed to the error), not this
+*  row: see the FINDING.
+        DEFINE('SELFK(X)')
+        OUTPUT = SELFK('one')
+        OUTPUT = 'back in main'
+        OUTPUT = SELFK('two')
+        OUTPUT = 'NOT REACHED'                  :(END)
+SELFK   UNLOAD('SELFK')
+        SELFK = 'ran with X=' X                 :(RETURN)
+END
+*-------------------------------------------------- 2270 test_smoke_empty_string
+OUTPUT = ''
+END
+*--------------------------------------------------- 2271 test_smoke_expr_parser
+* expr_parser.sno — Expression parser in SNOBOL4
+* Translated mechanically from Expressions.py (ByrdBox)
+* Each Python generator function becomes a named SNOBOL4 pattern
+*
+* parse_item:
+*   SPAN('0123456789') | 'x' | 'y' | 'z' | '(' parse_term ')'
+*
+* parse_element:
+*   parse_item | '+' parse_element | '-' parse_element
+*
+* parse_factor:
+*   parse_element | parse_element '*' parse_factor | parse_element '/' parse_factor
+*
+* parse_term:
+*   parse_factor | parse_factor '+' parse_term | parse_factor '-' parse_term
+*
+* parse_expression:
+*   POS(0) parse_term RPOS(0)
+
+        DEFINE('ITEM()')
+        DEFINE('ELEMENT()')
+        DEFINE('FACTOR()')
+        DEFINE('TERM()')
+        DEFINE('EXPRESSION()')
+
+* ── ITEM ──────────────────────────────────────────────────────────────────
+ITEM    SUBJECT SPAN('0123456789')          :S(ITEM.OK)
+        SUBJECT LIT('x')                    :S(ITEM.OK)
+        SUBJECT LIT('y')                    :S(ITEM.OK)
+        SUBJECT LIT('z')                    :S(ITEM.OK)
+        SUBJECT LIT('(')                    :F(ITEM.FAIL)
+        TERM()                              :F(ITEM.FAIL)
+        SUBJECT LIT(')')                    :F(ITEM.FAIL)
+ITEM.OK                                     :(RETURN)
+ITEM.FAIL                                   :F(FRETURN)
+
+* ── ELEMENT ───────────────────────────────────────────────────────────────
+ELEMENT ITEM()                              :S(ELEMENT.OK)
+        SUBJECT LIT('+')                    :F(ELEMENT.TRY.MINUS)
+        ELEMENT()                           :S(ELEMENT.OK) F(ELEMENT.TRY.MINUS)
+ELEMENT.TRY.MINUS
+        SUBJECT LIT('-')                    :F(ELEMENT.FAIL)
+        ELEMENT()                           :S(ELEMENT.OK) F(ELEMENT.FAIL)
+ELEMENT.OK                                  :(RETURN)
+ELEMENT.FAIL                                :(FRETURN)
+
+END
+*--------------------------------------------------------- 2272 test_smoke_hello
+OUTPUT = 'HELLO WORLD'
+END
+*--------------------------------------------------------- 2273 test_smoke_multi
+OUTPUT = 'LINE ONE'
+OUTPUT = 'LINE TWO'
+OUTPUT = 'LINE THREE'
+END
+*--------------------------------------------- 2274 scrip_test_polyglot_tri_main
+        OUTPUT = "TRI: mainline alive"
+        OUTPUT = "TRI: DOUBLE(21) = " DOUBLE(21)
+END
+*-------------------------------------------- 2275 scrip_test_coverage_sno_nodes
+* coverage_sno_nodes.sno — exercises every SNOBOL4 IR node kind
+* One touch per node: AST_QLIT AST_ILIT AST_FLIT AST_VART AST_KW AST_NULV
+*   AST_ADD AST_SUB AST_MPY AST_DIV AST_ASGN AST_EXPOP
+*   AST_CONCAT AST_SEQ AST_OR AST_NAM AST_DOL AST_ATP AST_ARB AST_ARBNO AST_STAR AST_INDR
+*   AST_FNC AST_IDX AST_NULV AST_OPSYN AST_MNS AST_PLUS
+
+* AST_QLIT — string literal
+        OUTPUT = 'hello'
+
+* AST_ILIT — integer literal
+        OUTPUT = 42
+
+* AST_FLIT — float literal
+        X = 1.5
+        OUTPUT = X
+
+* AST_VART — variable reference
+        A = 'world'
+        OUTPUT = A
+
+* AST_KW — keyword reference
+        OUTPUT = &ALPHABET
+
+* AST_ADD AST_SUB AST_MPY AST_DIV — arithmetic
+        OUTPUT = 3 + 4
+        OUTPUT = 10 - 3
+        OUTPUT = 3 * 4
+        OUTPUT = 10 / 2
+
+* AST_MNS — unary minus
+        N = -5
+        OUTPUT = N
+
+* AST_EXPOP — exponentiation
+        OUTPUT = 2 ** 8
+
+* AST_CONCAT — value-context string concat
+        OUTPUT = 'foo' 'bar'
+
+* AST_ASGN — pattern = assignment capture
+        S = 'hello world'
+        S (CAPT = 'hello')
+        OUTPUT = CAPT
+
+* AST_SEQ — pattern sequence (CAT)
+        S2 = 'abcd'
+        S2 'ab' 'cd'
+        OUTPUT = 'seq ok'
+
+* AST_OR — pattern alternation
+        S3 = 'cat'
+        S3 ('dog' | 'cat')
+        OUTPUT = 'alt ok'
+
+* AST_NAM — named capture (.)
+        S4 = 'hello'
+        S4 LEN(3) . PART
+        OUTPUT = PART
+
+* AST_DOL — replacement capture ($)
+        S5 = 'hello world'
+        S5 'world' $ TRAIL
+        OUTPUT = TRAIL
+
+* AST_ATP — cursor capture (@)
+        S6 = 'abcdef'
+        S6 'abc' @ POS1
+        OUTPUT = POS1
+
+* AST_ARB — ARB builtin
+        S7 = 'xaby'
+        S7 ARB 'b'
+        OUTPUT = 'arb ok'
+
+* AST_ARBNO — ARBNO()
+        S8 = 'aaab'
+        S8 ARBNO('a') 'b'
+        OUTPUT = 'arbno ok'
+
+* AST_STAR — deferred pattern (*VAR)
+        PAT = LEN(2)
+        S9 = 'abcd'
+        S9 *PAT
+        OUTPUT = 'star ok'
+
+* AST_INDR — indirect reference ($VAR as pattern)
+        VNAME = 'A'
+        OUTPUT = $VNAME
+
+* AST_FNC — function call
+        OUTPUT = SIZE('hello')
+
+* AST_IDX — array indexing
+        T = TABLE()
+        T['key'] = 'val'
+        OUTPUT = T['key']
+
+* AST_NULV — null value (uninitialized)
+        OUTPUT = IDENT(UNDEF,)  :S(NULLOK)
+        OUTPUT = 'not null'     :(DONE)
+NULLOK  OUTPUT = 'null ok'
+DONE
+
+* AST_OPSYN — operator synonym
+        OPSYN('MYSIZE','SIZE',1)
+        OUTPUT = MYSIZE('hi')
+
+END
+*---------------------------------------------------- 2276 scrip_test_1113_table
+* 1113_table.sno — TABLE: string/integer keys, convert, roundtrip
+* Rung 11. 8 assertions.
+
+        t = TABLE(10)
+
+*       lookup of absent key returns null
+        DIFFER(t['cat'])           :f(e001)
+        OUTPUT = 'FAIL 1113/001: absent key is null'   :(END)
+e001
+
+*       string key assign/read
+        t['cat'] = 'dog'
+        DIFFER(t['cat'], 'dog')                   :f(e002)
+        OUTPUT = 'FAIL 1113/002: string key assign/read' :(END)
+e002
+
+*       integer key assign/read
+        t[7] = 45
+        DIFFER(t[7], 45)                   :f(e003)
+        OUTPUT = 'FAIL 1113/003: integer key assign/read' :(END)
+e003
+
+*       multiple keys coexist
+        DIFFER(t['cat'], 'dog')                   :f(e004)
+        OUTPUT = 'FAIL 1113/004: string key survives int key add' :(END)
+e004
+
+*       TABLE -> ARRAY conversion; prototype = '2,2' (key/value columns)
+        ta = CONVERT(t, 'array')
+        DIFFER(PROTOTYPE(ta), '2,2')                   :f(e005)
+        OUTPUT = 'FAIL 1113/005: table->array prototype 2,2' :(END)
+e005
+
+*       ARRAY -> TABLE roundtrip preserves integer key
+        ata = CONVERT(ta, 'table')
+        DIFFER(ata[7], 45)                   :f(e006)
+        OUTPUT = 'FAIL 1113/006: array->table int key roundtrip' :(END)
+e006
+
+*       roundtrip preserves string key
+        DIFFER(ata['cat'], 'dog')                   :f(e007)
+        OUTPUT = 'FAIL 1113/007: array->table string key roundtrip' :(END)
+e007
+
+*       bracket syntax [] equivalent to angle brackets <>
+        t['cat'] = 'fish'
+        DIFFER(t['cat'], 'fish')                   :f(e008)
+        OUTPUT = 'FAIL 1113/008: [] and <> syntax equivalent' :(END)
+e008
+
+        OUTPUT = 'PASS 1113_table (8/8)'
+END

@@ -1,3 +1,0 @@
-        n = 1
-LOOP    n = n + 1      :S(LOOP)
-END
