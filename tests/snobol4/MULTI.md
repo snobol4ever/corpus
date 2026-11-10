@@ -7640,6 +7640,9 @@ loop	OUTPUT = holder			:S(loop)
 END
 ```
 
+```file input_eof_hang.dat
+```
+
 ```stdout
 
 
