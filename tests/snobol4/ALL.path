@@ -1,5 +1,5 @@
-# COMPANION SEARCH PATH for the snobol4 rungs suite -- corpus-relative dirs, IN ORDER, one per line.
-# Read by SCRIP/scripts/lib_companion_closure.py at BUILD time only. The grader never reads this file: an entry is
+# ALL.path, THE COMPANION SEARCH PATH for the snobol4 container (named COMPANION_PATH under config/ until CIO-55, 2026-11-10) --
+# corpus-relative dirs, IN ORDER, one per line. Read by harness/scripts/lib_companion_closure.py at BUILD time only. The grader never reads this file: an entry is
 # graded in an isolated temp dir and sees exactly the files copied in beside it, which is what makes a board reproducible.
 #
 # ⛔ THIS LISTS ONLY DIRS THE GRADER CANNOT REACH BY ITSELF. It does NOT list `include/`: the harness sets
