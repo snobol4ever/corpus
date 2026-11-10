@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=396 features=48 ubiquitous=4(program var writeln assign) distinctive=44 core=45 clusters=40 chunks=4 sizes=100,100,100,51
+# shape: entries=398 features=48 ubiquitous=4(program var writeln assign) distinctive=44 core=45 clusters=40 chunks=4 sizes=100,100,100,53
 entry	part	cluster	shells
 ladder__rung17_reset_of_the_standard_input_does_not_open_a_file	chunk:01	family:ladder	
 ladder__rung00_hello	chunk:01	family:ladder	
@@ -105,7 +105,7 @@ ladder__rung18_gmp_mpz_arithmetic	chunk:03	feat:nil	for nil
 ladder__rung20_fgl_list_operations	chunk:03	feat:mod	for mod
 program_procedure_writeln_5	chunk:02	feat:procedure	procedure
 ladder__rung04_for_repeat_for_downto	core	core	downto for
-program_for_writeln_3	chunk:03	feat:in	for in
+program_for_writeln_3	chunk:04	feat:in	for in
 program_for_downto_1	chunk:04	feat:downto	downto for
 program_for_downto_3	chunk:04	feat:downto	downto for
 program_for_writeln_2	chunk:04	feat:in	for in
@@ -234,6 +234,7 @@ ladder__rung16_ansistring_index_past_length_reads_nul	chunk:03	feat:ord	const fu
 ladder__rung05_a_routine_cast_to_a_procedural_type_is_an_actual	chunk:01	feat:function	function nested_proc pointer type
 program_record_with_1	chunk:03	feat:with_record	record type with with_record
 program_record_with_2	chunk:03	feat:with_record	record type with with_record
+array_of_const__array_of_const_open	chunk:03	feat:const	array const function nested_proc procedure
 ladder__rung20_fgl_list_sort_remove_and_strings	chunk:03	feat:mod	const for function mod write
 program_case_repeat_replace_1	chunk:02	feat:case	case for in repeat
 program_case_repeat_replace_2	chunk:02	feat:case	case for in repeat
@@ -274,6 +275,7 @@ ladder__rung14_row_string_elem_char	chunk:03	feat:chr	array chr set_literal subr
 ladder__rung15_layout_ptr_to_nested_element_pointer	chunk:03	feat:pointer	array pointer set_literal subrange type
 program_array_packed_5	chunk:02	feat:packed	array packed set_literal subrange type
 ladder__rung20_generic_class_two_instances	chunk:03	feat:const	array const function nested_proc procedure type
+planner_finish__pf_binop	chunk:04	feat:read	function mod nested_proc procedure read
 program_function_procedure_5	core	core	function goto label nested_proc procedure
 program_procedure_record_12	chunk:02	feat:new	new pointer pointer_with_new procedure record type
 program_procedure_record_5	chunk:02	feat:new	new pointer pointer_with_new procedure record type
