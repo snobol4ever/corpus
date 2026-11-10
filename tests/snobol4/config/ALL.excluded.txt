@@ -1,3 +1,0 @@
-probe_loose	companion-dependent dir class (probe_loose) -- stays as files
-linker	companion-dependent dir class (linker) -- stays as files
-rtx_func_11	companion-dependent dir class (rtx_func_11) -- stays as files

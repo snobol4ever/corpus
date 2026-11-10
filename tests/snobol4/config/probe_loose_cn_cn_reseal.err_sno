@@ -1,4 +1,0 @@
-	&C = "one"
-	&C = "two"
-	OUTPUT = &C
-END
