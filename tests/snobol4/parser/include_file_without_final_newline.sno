@@ -1,4 +1,0 @@
--INCLUDE 'inc_nonl.inc'
--INCLUDE 'inc_a.inc'
-        Z = 9
-END
