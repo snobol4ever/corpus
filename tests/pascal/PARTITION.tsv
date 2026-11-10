@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=386 features=48 ubiquitous=4(program var writeln assign) distinctive=44 core=42 clusters=40 chunks=4 sizes=100,100,100,44
+# shape: entries=396 features=48 ubiquitous=4(program var writeln assign) distinctive=44 core=45 clusters=40 chunks=4 sizes=100,100,100,51
 entry	part	cluster	shells
 ladder__rung17_reset_of_the_standard_input_does_not_open_a_file	chunk:01	family:ladder	
 ladder__rung00_hello	chunk:01	family:ladder	
@@ -53,7 +53,7 @@ program_writeln_1	chunk:04	family:boolassign
 program_writeln_13	chunk:04	family:boolassign	
 program_writeln_16	chunk:04	family:boolnot	
 program_writeln_4	chunk:04	family:boolnot	
-ladder__rung17_ok_open_roundtrip	chunk:03	feat:readln	readln
+ladder__rung17_ok_open_roundtrip	chunk:04	feat:readln	readln
 ladder__rung16_real_fixed_decimals	chunk:01	family:ladder	
 program_writeln_14	chunk:04	family:boolchain	
 program_writeln_2	chunk:04	family:boolchain	
@@ -108,17 +108,17 @@ ladder__rung04_for_repeat_for_downto	core	core	downto for
 program_for_writeln_3	chunk:03	feat:in	for in
 program_for_downto_1	chunk:04	feat:downto	downto for
 program_for_downto_3	chunk:04	feat:downto	downto for
-program_for_writeln_2	chunk:03	feat:in	for in
+program_for_writeln_2	chunk:04	feat:in	for in
 ladder__rung00_crt_row_25_newline_then_cr	chunk:01	feat:write	for write
 ladder__rung21_dynamic_array_compared_with_nil	chunk:03	feat:nil	array nil type
 program_for_writeln_replace_1	chunk:01	feat:write	for write
-program_writeln_7	chunk:02	feat:chr	chr ord
+program_writeln_7	chunk:03	feat:chr	chr ord
 ladder__rung18_sha1_digest	chunk:03	feat:mod	chr for mod
 program_for_downto_2	chunk:04	feat:downto	downto for
 program_for_downto_4	chunk:04	feat:downto	downto for
 program_procedure_nested_19	chunk:01	feat:nested_proc	nested_proc procedure
 program_procedure_nested_5	chunk:01	feat:nested_proc	nested_proc procedure
-ladder__rung02_arithmetic	chunk:03	feat:mod	div mod
+ladder__rung02_arithmetic	chunk:03	feat:div	div mod
 ladder__rung04_for_repeat	chunk:04	feat:repeat	for repeat
 ladder__rung07_records	chunk:02	feat:record	record type
 ladder__rung16_lohi_byte_word	chunk:04	feat:subrange	subrange type
@@ -129,14 +129,14 @@ program_set_subrange_1	chunk:02	feat:set	set subrange
 program_writeln_5	chunk:03	feat:chr	chr ord
 program_record_writeln_3	chunk:02	feat:record	record type
 program_with_for_replace_1	chunk:04	feat:with	for with
-ladder__rung17_real_div_zero_classes	chunk:03	feat:mod	div mod
+ladder__rung17_real_div_zero_classes	chunk:03	feat:div	div mod
 ladder__rung19_generic_delphi_procedural_type	chunk:01	feat:nested_proc	nested_proc procedure type
-ladder__rung22_generics_dictionary_integer_keys_and_hashset	chunk:03	feat:in	for in write
+ladder__rung22_generics_dictionary_integer_keys_and_hashset	chunk:04	feat:in	for in write
 program_case_for_1	chunk:02	feat:case	case for
 program_goto_label_1	chunk:04	feat:goto	goto label
 program_writeln_sqrt_3	core	core	sqrt trunc
 ladder__rung19_generic_function_two_instances	chunk:03	feat:const	const function nested_proc procedure
-ladder__rung22_generics_list_queue_stack	chunk:03	feat:in	for in write
+ladder__rung22_generics_list_queue_stack	chunk:04	feat:in	for in write
 program_function_nested_1	chunk:01	feat:function	function nested_proc
 program_function_nested_2	chunk:01	feat:function	function nested_proc
 program_procedure_nested_22	chunk:01	feat:nested_proc	nested_proc procedure
@@ -177,7 +177,7 @@ ladder__rung00_crt_wrap_at_column_80	chunk:03	feat:mod	for mod write
 ladder__rung24_static_array_of_dynamic_arrays_growth_keeps_contents_and_untouched_elements_are_empty	chunk:04	feat:set_literal	array set_literal subrange type
 program_function_record_1	chunk:01	feat:function	function record type
 program_procedure_record_7	chunk:02	feat:record	procedure record type
-ladder__rung17_div_zero_caught_in_callee_and_uncaught	chunk:03	feat:mod	div function mod
+ladder__rung17_div_zero_caught_in_callee_and_uncaught	chunk:03	feat:div	div function mod
 program_function_record_2	chunk:01	feat:function	function record type
 ladder__rung16_string_index_zero_length_byte	chunk:03	feat:ord	const for ord
 program_procedure_record_10	chunk:02	feat:record	procedure record type
@@ -228,6 +228,7 @@ program_procedure_record_9	chunk:02	feat:record	nested_proc procedure record typ
 ladder__rung01_integer_width_fpc	chunk:03	feat:const	array const set_literal subrange
 ladder__rung01_integer_width_objfpc	chunk:03	feat:const	array const set_literal subrange
 ladder__rung13_ptr_empty_dynarray_nil	chunk:03	feat:nil	array nil set_literal subrange
+packed_arrays__pa09_setlength_raw	chunk:01	feat:write	array for for_with_array write
 ladder__rung08_sets	chunk:02	feat:set	in set subrange type
 ladder__rung16_ansistring_index_past_length_reads_nul	chunk:03	feat:ord	const function ord while
 ladder__rung05_a_routine_cast_to_a_procedural_type_is_an_actual	chunk:01	feat:function	function nested_proc pointer type
@@ -236,6 +237,7 @@ program_record_with_2	chunk:03	feat:with_record	record type with with_record
 ladder__rung20_fgl_list_sort_remove_and_strings	chunk:03	feat:mod	const for function mod write
 program_case_repeat_replace_1	chunk:02	feat:case	case for in repeat
 program_case_repeat_replace_2	chunk:02	feat:case	case for in repeat
+packed_arrays__pa03_dynamic	chunk:03	feat:for_with_array	array for for_with_array type
 program_case_for_2	chunk:02	feat:case	case for ord type
 program_function_procedure_replace_1	chunk:01	feat:function	for function nested_proc procedure
 ladder__rung12_fillqword_int64	chunk:03	feat:for_with_array	array for for_with_array set_literal subrange
@@ -275,12 +277,12 @@ ladder__rung20_generic_class_two_instances	chunk:03	feat:const	array const funct
 program_function_procedure_5	core	core	function goto label nested_proc procedure
 program_procedure_record_12	chunk:02	feat:new	new pointer pointer_with_new procedure record type
 program_procedure_record_5	chunk:02	feat:new	new pointer pointer_with_new procedure record type
-ladder__rung12_fillbyte_bytes	chunk:01	feat:write	array for for_with_array set_literal subrange write
-ladder__rung12_fillchar_chars	chunk:01	feat:write	array for for_with_array set_literal subrange write
+ladder__rung12_fillbyte_bytes	chunk:02	feat:write	array for for_with_array set_literal subrange write
+ladder__rung12_fillchar_chars	chunk:02	feat:write	array for for_with_array set_literal subrange write
 ladder__rung12_fillchar_zero	chunk:02	feat:write	array for for_with_array set_literal subrange write
 ladder__rung12_fillword_words	chunk:02	feat:write	array for for_with_array set_literal subrange write
 program_record_array_4	chunk:02	feat:packed	array packed record set_literal subrange type
-program_record_pointer_5	chunk:02	feat:case	case new pointer pointer_with_new record type
+program_record_pointer_5	chunk:03	feat:case	case new pointer pointer_with_new record type
 ladder__rung13_ptr_index	chunk:02	feat:write	array for for_with_array set_literal subrange write
 ladder__rung14_row_param	chunk:03	feat:const	array const nested_proc procedure set_literal subrange type
 ladder__rung12_move_arrays	chunk:02	feat:write	array for for_with_array set_literal subrange write
@@ -289,11 +291,12 @@ ladder__rung24_static_array_with_an_all_negative_index_range	chunk:03	feat:const
 program_array_for_2	chunk:02	feat:write	array for for_with_array set_literal subrange write
 program_array_for_3	chunk:02	feat:write	array for for_with_array set_literal subrange write
 program_array_for_6	chunk:02	feat:write	array for for_with_array set_literal subrange write
-program_array_packed_replace_1	chunk:03	feat:readln	array packed readln set_literal subrange type
+program_array_packed_replace_1	chunk:04	feat:readln	array packed readln set_literal subrange type
 program_procedure_array_1	chunk:02	feat:packed	array nested_proc packed procedure set_literal subrange
 program_procedure_array_4	chunk:02	feat:packed	array nested_proc packed procedure set_literal subrange
+packed_arrays__pa10_local_dynamic	chunk:01	feat:function	array for for_with_array function nested_proc procedure
 ladder__rung19_generic_record_array_and_pointer_types	chunk:03	feat:nil	array for for_with_array nil pointer record type
-program_record_array_3	chunk:02	feat:case	array case record set_literal subrange type
+program_record_array_3	chunk:03	feat:case	array case record set_literal subrange type
 program_record_pointer_8	chunk:03	feat:nil	new nil pointer pointer_with_new record type
 program_function_procedure_3	chunk:03	feat:chr	case chr function nested_proc ord procedure
 program_function_procedure_8	chunk:03	feat:chr	case chr function nested_proc ord procedure
@@ -303,7 +306,7 @@ program_array_for_replace_2	chunk:03	feat:chr	array chr const for for_with_array
 program_function_procedure_4	chunk:03	feat:ord	for function nested_proc ord procedure type
 program_function_procedure_9	chunk:03	feat:ord	for function nested_proc ord procedure type
 program_record_array_2	chunk:03	feat:with_record	array record set_literal subrange type with with_record
-ladder__rung14_row_forin	chunk:03	feat:in	array const for for_with_array in set_literal subrange
+ladder__rung14_row_forin	chunk:04	feat:in	array const for for_with_array in set_literal subrange
 program_record_array_1	chunk:02	feat:record	array for for_with_array record set_literal subrange type
 program_array_packed_3	chunk:02	feat:packed	array for for_with_array packed set_literal subrange write
 ladder__rung13_ptr_addr_whole_array	chunk:03	feat:pointer	array for for_with_array pointer set_literal subrange type
@@ -320,7 +323,8 @@ program_record_pointer_4	chunk:03	feat:with_record	new pointer pointer_with_new 
 ladder__rung15_layout_ptr_to_nested_chained	chunk:03	feat:pointer	array for for_with_array pointer set_literal subrange type
 ladder__rung15_layout_ptr_to_nested_two_index	chunk:03	feat:pointer	array for for_with_array pointer set_literal subrange type
 ladder__rung15_layout_ptr_to_two_index_array	chunk:03	feat:pointer	array for for_with_array pointer set_literal subrange type
-ladder__rung22_generics_dictionary_string_keys_order_like_fpc	chunk:03	feat:in	array const for for_with_array in set_literal subrange write
+ladder__rung22_generics_dictionary_string_keys_order_like_fpc	chunk:04	feat:in	array const for for_with_array in set_literal subrange write
+packed_arrays__pa01_bytes	chunk:03	feat:mod	array const for for_with_array mod set_literal subrange
 program_record_pointer_10	chunk:03	feat:with_record	new pointer pointer_with_new record type with with_record
 ladder__rung15_layout_nested_is_one_block	chunk:03	feat:pointer	array for for_with_array pointer set_literal subrange type
 ladder__rung16_real_const_fold_bound	core	core	array const round set_literal sqrt subrange trunc
@@ -331,15 +335,18 @@ program_record_array_replace_2	chunk:02	feat:packed	array case packed record set
 ladder__rung10_pointers	core	core	dispose new nil pointer pointer_with_new record type
 ladder__rung06_arrays_rows_of_an_inline_packed_char_array	chunk:03	feat:chr	array chr for for_with_array ord packed set_literal subrange
 program_array_packed_4	chunk:02	feat:packed	array for for_with_array packed set_literal subrange type write
-ladder__rung15_layout_dense_from_one	chunk:03	feat:mod	array div for for_with_array mod pointer set_literal subrange
+ladder__rung15_layout_dense_from_one	chunk:03	feat:div	array div for for_with_array mod pointer set_literal subrange
 ladder__rung13_ptr_array_pointer_index	chunk:03	feat:pointer	array for for_with_array pointer record set_literal subrange type
 ladder__rung13_ptr_row_pointer_var_param	chunk:03	feat:pointer	array for for_with_array pointer procedure set_literal subrange type
+packed_arrays__pa08_wide	core	core	array for for_with_array mod set_literal subrange trunc type
 program_array_packed_6	core	core	array for for_with_array packed read repeat set_literal subrange
 ladder__rung13_ptr_addr_element	chunk:02	feat:write	array for for_with_array pointer set_literal subrange type write
 ladder__rung12_fill_through_pointer	chunk:02	feat:write	array for for_with_array pointer set_literal subrange type write
 ladder__rung15_layout_nested_move_across_rows	chunk:03	feat:div	array div for for_with_array set_literal subrange type write
 program_record_pointer_9	chunk:03	feat:nil	for new nil pointer pointer_with_new record type while
+packed_arrays__pa04_pointer	chunk:02	feat:write	array for for_with_array pointer set_literal subrange type write
 program_record_pointer_replace_2	chunk:03	feat:with_record	case new pointer pointer_with_new record type with with_record
+packed_arrays__pa07_churn	chunk:03	feat:mod	array for for_with_array mod procedure set_literal subrange type
 program_array_while_replace_1	core	core	array const for for_with_array set_literal sqr subrange while
 program_array_while_replace_2	core	core	array const for for_with_array set_literal sqr subrange while
 ladder__rung22_class_derived_from_a_generic_object_dictionary	chunk:04	feat:with	const for function in nested_proc procedure type with write
@@ -349,7 +356,7 @@ benchmark_queens	chunk:04	feat:readln	array for for_with_array procedure readln 
 program_function_procedure_replace_3	chunk:03	feat:mod	for function in mod nested_proc procedure while with
 ladder__rung06_arrays_three_level_inline_char_rows	chunk:03	feat:chr	array chr for for_with_array ord packed set_literal subrange write
 ladder__rung06_arrays_a_named_array_type_whose_rows_are_inline_packed_char	chunk:03	feat:chr	array chr for for_with_array ord packed set_literal subrange type
-program_record_array_replace_1	chunk:02	feat:case	array case for for_with_array record set_literal subrange type write
+program_record_array_replace_1	chunk:03	feat:case	array case for for_with_array record set_literal subrange type write
 ladder__rung23_extended_parameters_records_and_arrays	chunk:01	feat:function	array for for_with_array function nested_proc procedure record set_literal subrange type
 ladder__rung12_move_through_a_record_pointer	chunk:02	feat:write	array for for_with_array pointer record set_literal subrange type write
 ladder__rung21_for_in_over_a_class_with_get_enumerator	core	core	array for for_with_array function in nested_proc procedure read type write
@@ -367,12 +374,13 @@ program_procedure_record_replace_1	core	core	case new nil pointer pointer_with_n
 program_procedure_record_replace_2	core	core	case new nil pointer pointer_with_new procedure record type with with_record
 program_procedure_array_3	core	core	array for for_with_array goto label packed procedure set_literal subrange type
 benchmark_intmm	core	core	array const div for for_with_array mod readln repeat set_literal subrange
+packed_arrays__pa02_widths	core	core	array chr for for_with_array odd ord set_literal subrange type write
 program_procedure_array_replace_1	core	core	array for for_with_array forward in nested_proc procedure type with write
 program_procedure_array_replace_6	core	core	array for for_with_array forward in nested_proc procedure type with write
 ladder__rung13_new_of_a_pointer_to_a_char_array	core	core	array dispose for for_with_array new pointer pointer_with_new set_literal subrange type write
 ladder__rung15_layout_arr_of_ptr_varparam	core	core	array for for_with_array new pointer pointer_with_new procedure record set_literal subrange type
 ladder__rung15_layout_arr_of_ptr_alias_varparam	core	core	array for for_with_array new pointer pointer_with_new procedure record set_literal subrange type
-ladder__rung15_layout_arr_of_ptr_valueparam	core	core	array for for_with_array function new pointer pointer_with_new record set_literal subrange type
+ladder__rung15_layout_arr_of_ptr_valueparam	chunk:02	feat:new	array for for_with_array function new pointer pointer_with_new record set_literal subrange type
 program_record_packed_replace_1	core	core	case new nil ord packed pointer pointer_with_new record type with with_record
 benchmark_perm	core	core	array const downto for for_with_array nested_proc procedure readln repeat set_literal subrange
 benchmark_bubble	core	core	array const div for for_with_array mod readln repeat set_literal subrange while
@@ -384,7 +392,9 @@ program_procedure_array_replace_4	chunk:02	feat:set	array for for_with_array in 
 program_procedure_array_replace_9	chunk:02	feat:set	array for for_with_array in nested_proc procedure repeat set set_literal subrange while
 program_procedure_array_replace_2	chunk:02	feat:set	array for for_with_array in nested_proc procedure repeat set set_literal subrange while
 program_procedure_array_replace_7	chunk:02	feat:set	array for for_with_array in nested_proc procedure repeat set set_literal subrange while
+packed_arrays__pa06_unpacked	core	core	array chr for for_with_array in ord pointer record set set_literal subrange type
 ladder__rung12_fill_with_records_and_procs	core	core	array const for for_with_array function nested_proc odd procedure record set_literal subrange type
 benchmark_quick	core	core	array const div for for_with_array mod procedure readln repeat set_literal subrange while
 ladder__rung13_ptr_with_fill_and_procs	core	core	array chr for for_with_array function ord pointer record set_literal subrange type while write
+packed_arrays__pa05_params	core	core	array const for for_with_array function nested_proc procedure record set_literal subrange type with with_record write
 program_array_case_replace_1	core	core	array case chr const for for_with_array in label ord set_literal subrange succ type write
