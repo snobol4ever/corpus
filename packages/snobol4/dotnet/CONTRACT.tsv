@@ -1,0 +1,2 @@
+# CONTRACT.tsv -- the dotnet package's run contract, read by util_build_package_suite.py: key<TAB>value<TAB>evidence.
+fatal	gradable	CEO-1344 (a SPITBOL fatal is gradable) and CIO-22 E: asgn1.sno ends in SPITBOL's graceful fatal (ERROR 038, a goto to an undefined label; the builder's sbl_died shape, measured by junior_06 2026-11-09 and in ALL.excluded.txt), and that fatal block is the program's answer; ALL.mask's five * rows mask the block's engine lines (stmts executed, execution time, regenerations, memory used and left)

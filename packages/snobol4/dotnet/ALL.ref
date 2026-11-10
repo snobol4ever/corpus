@@ -1,0 +1,69 @@
+*------------------------------------------------------------------------ 1 1brc
+{station001=station00.1/station00.1/station00.1,station002=station00.2/station00.2/station00.2,station003=station00.3/station00.3/station00.3,station004=station00.4/station00.4/station00.4,station005=station00.5/station00.5/station00.5,station006=station00.6/station00.6/station00.6,station007=station00.7/station00.7/station00.7,station008=station00.8/station00.8/station00.8,station009=station00.9/station00.9/station00.9,station010=station01.0/station01.0/station01.0,station011=station01.1/station01.1/station01.1,station012=station01.2/station01.2/station01.2,station013=station01.3/station01.3/station01.3,station014=station01.4/station01.4/station01.4,station015=station01.5/station01.5/station01.5,station016=station01.6/station01.6/station01.6,station017=station01.7/station01.7/station01.7,station018=station01.8/station01.8/station01.8,station019=station01.9/station01.9/station01.9,station020=station02.0/station02.0/station02.0,station021=station02.1/station02.1/station02.1,station022=station02.2/station02.2/station02.2,station023=station02.3/station02.3/station02.3,station024=station02.4/station02.4/station02.4,station025=station02.5/station02.5/station02.5,station026=station02.6/station02.6/station02.6,station027=station02.7/station02.7/station02.7,station028=station02.8/station02.8/station02.8,station029=station02.9/station02.9/station02.9,station030=station03.0/station03.0/station03.0,station031=station03.1/station03.1/station03.1,station032=station03.2/station03.2/station03.2,station033=station03.3/station03.3/station03.3,station034=station03.4/station03.4/station03.4,station035=station03.5/station03.5/station03.5,station036=station03.6/station03.6/station03.6,station037=station03.7/station03.7/station03.7,station038=station03.8/station03.8/station03.8,station039=station03.9/station03.9/station03.9,station040=station04.0/station04.0/station04.0,station041=station04.1/station04.1/station04.1,station042=station04.2/station04.2/station04.2,station043=station04.3/station04.3/station04.3,station044=station04.4/station04.4/station04.4,station045=station04.5/station04.5/station04.5,station046=station04.6/station04.6/station04.6,station047=station04.7/station04.7/station04.7,station048=station04.8/station04.8/station04.8,station049=station04.9/station04.9/station04.9,station050=station05.0/station05.0/station05.0,station051=station05.1/station05.1/station05.1,station052=station05.2/station05.2/station05.2,station053=station05.3/station05.3/station05.3,station054=station05.4/station05.4/station05.4,station055=station05.5/station05.5/station05.5,station056=station05.6/station05.6/station05.6,station057=station05.7/station05.7/station05.7,station058=station05.8/station05.8/station05.8,station059=station05.9/station05.9/station05.9,station060=station06.0/station06.0/station06.0,station061=station06.1/station06.1/station06.1,station062=station06.2/station06.2/station06.2,station063=station06.3/station06.3/station06.3,station064=station06.4/station06.4/station06.4,station065=station06.5/station06.5/station06.5,station066=station06.6/station06.6/station06.6,station067=station06.7/station06.7/station06.7,station068=station06.8/station06.8/station06.8,station069=station06.9/station06.9/station06.9,station070=station07.0/station07.0/station07.0,station071=station07.1/station07.1/station07.1,station072=station07.2/station07.2/station07.2,station073=station07.3/station07.3/station07.3,station074=station07.4/station07.4/station07.4,station075=station07.5/station07.5/station07.5,station076=station07.6/station07.6/station07.6,station077=station07.7/station07.7/station07.7,station078=station07.8/station07.8/station07.8,station079=station07.9/station07.9/station07.9,station080=station08.0/station08.0/station08.0,station081=station08.1/station08.1/station08.1,station082=station08.2/station08.2/station08.2,station083=station08.3/station08.3/station08.3,station084=station08.4/station08.4/station08.4,station085=station08.5/station08.5/station08.5,station086=station08.6/station08.6/station08.6,station087=station08.7/station08.7/station08.7,station088=station08.8/station08.8/station08.8,station089=station08.9/station08.9/station08.9,station090=station09.0/station09.0/station09.0,station091=station09.1/station09.1/station09.1,station092=station09.2/station09.2/station09.2,station093=station09.3/station09.3/station09.3,station094=station09.4/station09.4/station09.4,station095=station09.5/station09.5/station09.5,station096=station09.6/station09.6/station09.6,station097=station09.7/station09.7/station09.7,station098=station09.8/station09.8/station09.8,station099=station09.9/station09.9/station09.9,station100=station10.0/station10.0/station10.0,station101=station10.1/station10.1/station10.1,station102=station10.2/station10.2/station10.2,station103=station10.3/station10.3/station10.3,station104=station10.4/station10.4/station10.4,station105=station10.5/station10.5/station10.5,station106=station10.6/station10.6/station10.6,station107=station10.7/station10.7/station10.7,station108=station10.8/station10.8/station10.8,station109=station10.9/station10.9/station10.9,station110=station11.0/station11.0/station11.0,station111=station11.1/station11.1/station11.1,station112=station11.2/station11.2/station11.2,station113=station11.3/station11.3/station11.3,station114=station11.4/station11.4/station11.4,station115=station11.5/station11.5/station11.5,station116=station11.6/station11.6/station11.6,station117=station11.7/station11.7/station11.7,station118=station11.8/station11.8/station11.8,station119=station11.9/station11.9/station11.9,station120=station12.0/station12.0/station12.0,station121=station12.1/station12.1/station12.1,station122=station12.2/station12.2/station12.2,station123=station12.3/station12.3/station12.3,station124=station12.4/station12.4/station12.4,station125=station12.5/station12.5/station12.5,station126=station12.6/station12.6/station12.6,station127=station12.7/station12.7/station12.7,station128=station12.8/station12.8/station12.8,station129=station12.9/station12.9/station12.9,station130=station13.0/station13.0/station13.0,station131=station13.1/station13.1/station13.1,station132=station13.2/station13.2/station13.2,station133=station13.3/station13.3/station13.3,station134=station13.4/station13.4/station13.4,station135=station13.5/station13.5/station13.5,station136=station13.6/station13.6/station13.6,station137=station13.7/station13.7/station13.7,station138=station13.8/station13.8/station13.8,station139=station13.9/station13.9/station13.9,station140=station14.0/station14.0/station14.0,station141=station14.1/station14.1/station14.1,station142=station14.2/station14.2/station14.2,station143=station14.3/station14.3/station14.3,station144=station14.4/station14.4/station14.4,station145=station14.5/station14.5/station14.5,station146=station14.6/station14.6/station14.6,station147=station14.7/station14.7/station14.7,station148=station14.8/station14.8/station14.8,station149=station14.9/station14.9/station14.9,station150=station15.0/station15.0/station15.0,station151=station15.1/station15.1/station15.1,station152=station15.2/station15.2/station15.2,station153=station15.3/station15.3/station15.3,station154=station15.4/station15.4/station15.4,station155=station15.5/station15.5/station15.5,station156=station15.6/station15.6/station15.6,station157=station15.7/station15.7/station15.7,station158=station15.8/station15.8/station15.8,station159=station15.9/station15.9/station15.9,station160=station16.0/station16.0/station16.0,station161=station16.1/station16.1/station16.1,station162=station16.2/station16.2/station16.2,station163=station16.3/station16.3/station16.3,station164=station16.4/station16.4/station16.4,station165=station16.5/station16.5/station16.5,station166=station16.6/station16.6/station16.6,station167=station16.7/station16.7/station16.7,station168=station16.8/station16.8/station16.8,station169=station16.9/station16.9/station16.9,station170=station17.0/station17.0/station17.0,station171=station17.1/station17.1/station17.1,station172=station17.2/station17.2/station17.2,station173=station17.3/station17.3/station17.3,station174=station17.4/station17.4/station17.4,station175=station17.5/station17.5/station17.5,station176=station17.6/station17.6/station17.6,station177=station17.7/station17.7/station17.7,station178=station17.8/station17.8/station17.8,station179=station17.9/station17.9/station17.9,station180=station18.0/station18.0/station18.0,station181=station18.1/station18.1/station18.1,station182=station18.2/station18.2/station18.2,station183=station18.3/station18.3/station18.3,station184=station18.4/station18.4/station18.4,station185=station18.5/station18.5/station18.5,station186=station18.6/station18.6/station18.6,station187=station18.7/station18.7/station18.7,station188=station18.8/station18.8/station18.8,station189=station18.9/station18.9/station18.9,station190=station19.0/station19.0/station19.0,station191=station19.1/station19.1/station19.1,station192=station19.2/station19.2/station19.2,station193=station19.3/station19.3/station19.3,station194=station19.4/station19.4/station19.4,station195=station19.5/station19.5/station19.5,station196=station19.6/station19.6/station19.6,station197=station19.7/station19.7/station19.7,station198=station19.8/station19.8/station19.8,station199=station19.9/station19.9/station19.9,station200=station20.0/station20.0/station20.0,﻿station001=﻿station00.1/﻿station00.1/﻿station00.1}
+*-------------------------------------------------------------- 2 SourceLines001
+
+
+
+macro spitbol version 4.0f
+x86-64  Tue Nov 10 07:20:08 2026
+
+
+
+                                                                                                                page 1
+
+        -LIST
+1       Shift    A = B C
+2       shift    A = B C
+3       END
+*-------------------------------------------------------------- 3 SourceLines002
+
+
+
+macro spitbol version 4.0f
+x86-64  Tue Nov 10 07:20:09 2026
+
+
+
+                                                                                                                page 1
+
+        -LIST
+1       END
+*-------------------------------------------------------------- 4 SourceLines003
+
+
+
+macro spitbol version 4.0f
+x86-64  Tue Nov 10 07:20:10 2026
+
+
+
+                                                                                                                page 1
+
+        -LIST
+1       	DATE() ? LEN(2) . MTH LEN(1) LEN(2) . DAY LEN(1) LEN(2) . YEAR
+        -LIST
+3       	DATE() ? LEN(2) . MTH LEN(1) LEN(2) . DAY LEN(1) LEN(2) . YEAR
+        -LIST
+7       	DATE() ? LEN(2) . MTH LEN(1) LEN(2) . DAY LEN(1) LEN(2) . YEAR
+8       END
+*------------------------------------------------------------------------ 5 Test
+2
+Error trapped: Division by zero
+*----------------------------------------------------------------------- 6 asgn1
+
+
+
+asgn1.sno(5) : ERROR 038 -- goto undefined label
+
+
+
+
+
+in file              asgn1.sno
+in line              5
+in statement         2
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  14176
+memory left (bytes)  1034392

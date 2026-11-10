@@ -1,0 +1,111 @@
+*------------------------------------------------------------------------ 1 1brc
+      &TRIM = 1
+      &STLIMIT = 0
+      &PROFILE = 0
+
+      DEFINE('fmt(w)x,d')
+      DATA('tempdata(min,max,mean,total)')
+
+      INPUT(.in,10, 'measurements.txt')
+
+* Pattern to parse the input
+      stationpat = BREAKX(';') . station ';' REM . temp
+      mean = TABLE()
+      min = TABLE()
+      max = TABLE()
+      total = TABLE()
+      stations = TABLE()
+
+loop  line = in                                           :f(done)
+      line stationpat                                     :f(error)
+
+* Do all the arithmetic as integers
+      temp = CONVERT(CONVERT(temp,'REAL') * 10, 'integer') 
+
+* First time seeing this station.. set initial values
+      DIFFER(mean[station])                               :s(skip)
+      stations[station] = station
+      mean[station] = 1
+      min[station] = temp
+      max[station] = temp
+      total[station] = temp                               :(loop)
+
+* Otherwise update the existing entry
+skip  mean[station] = mean[station] + 1
+debug min[station] = LT(temp, min[station]) temp
+      max[station] = GT(temp, max[station]) temp
+      total[station] = total[station] + temp              :(loop)
+
+done  stations = SORT(stations)
+      i = 0
+      outstr = ''
+report
+      station = stations[i = i + 1,1]                     :f(finish)
+      v = stations[i,2]
+      outstr = outstr ',' station '=' 
++              fmt(min[v]) '/' 
++              fmt((total[v] / mean[v])) '/' 
++              fmt(max[v])                                :(report)
+   
+finish OUTPUT = '{' SUBSTR(outstr,2,SIZE(outstr) - 1) '}' :(END)
+
+error OUTPUT = 'error reading line:' line
+
+* A little cheat to format a value as a real with a single digit decimal.
+* A little cheat to format a value as a real with a single digit decimal.
+fmt   fmt = CONVERT(v,'STRING')
+      fmt LEN(SIZE(v) - 1) . x REM . d = x '.' d          :(RETURN) 
+END
+*-------------------------------------------------------------- 2 SourceLines001
+-LIST
+Shift    A = B C
+shift    A = B C
+END
+*-------------------------------------------------------------- 3 SourceLines002
+-LIST
+END
+*-------------------------------------------------------------- 4 SourceLines003
+-LIST
+	DATE() ? LEN(2) . MTH LEN(1) LEN(2) . DAY LEN(1) LEN(2) . YEAR
+-NOLIST
+-NOLIST
+	DATE() ? LEN(2) . MTH LEN(1) LEN(2) . DAY LEN(1) LEN(2) . YEAR
+-LIST
+	DATE() ? LEN(2) . MTH LEN(1) LEN(2) . DAY LEN(1) LEN(2) . YEAR
+-NOLIST
+	DATE() ? LEN(2) . MTH LEN(1) LEN(2) . DAY LEN(1) LEN(2) . YEAR
+	DATE() ? LEN(2) . MTH LEN(1) LEN(2) . DAY LEN(1) LEN(2) . YEAR
+	DATE() ? LEN(2) . MTH LEN(1) LEN(2) . DAY LEN(1) LEN(2) . YEAR
+-LIST
+	DATE() ? LEN(2) . MTH LEN(1) LEN(2) . DAY LEN(1) LEN(2) . YEAR
+END
+*------------------------------------------------------------------------ 5 Test
+		SETEXIT(.ERR)
+		&ERRLIMIT = 100
+		A = 2
+		OUTPUT = A
+		A = 1 / 2			:(CONTINUE)
+		OUTPUT = 'RETURN'     :(END)
+ERR		OUTPUT = "Error trapped: Division by zero"
+END
+*----------------------------------------------------------------------- 6 asgn1
+*     -----------------------------------------------------------------
+*     Assignment #1: Simple spelling checker program.
+*
+      &TRIM          =  1                                               ;*  Trim trailing blanks from all input
+      INPUT(.words, 3, "words.txt")                         :F(error)   ;*+ Open dictionary file for reading
+      dict           =  TABLE(1001)                                     ;*+ Create the dictionary table
+nextd dict[words]    =  0                                   :S(nextd)   ;*+ Enter all words into the dictionary
+      ENDFILE(3)                                                        ;*+ Close dictionary file
+      word           =  "'-" '0123456789' &LCASE                        ;*  Define the characters which form a 'word'
+      wpat           =  BREAK(word) SPAN(word) . item                   ;*  Pattern to isolate each word and assign it to item:
+      wcount         =  TABLE()                                         ;*  Create a table to maintain the word counts
+nextl line           =  REPLACE(INPUT, &UCASE, &LCASE)      :F(done)    ;*  Read a line of input
+nextw line           ?  wpat =                              :F(nextl)   ;*  Obtain next word
+      wcount[item]   =  IDENT(dict[item]) wcount[item] + 1  :(nextw)    ;** Increment misspelled usage count
+done  a              =  SORT(wcount)                        :F(empty)   ;*  Sort table to array. Fail if table is empty
+      i              =  0                                               ;*  Scan array, displaying misspelled words and counts
+print i              =  i + 1
+      OUTPUT         =  LPAD(a[i, 2], 3) ' ' a[i, 1]        :S(print)F(END)
+empty OUTPUT         =  'No words'
+END

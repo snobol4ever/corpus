@@ -1,5 +1,10 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1 features=1 ubiquitous=1(package) distinctive=0 core=1 clusters=0 chunks=0 sizes=
+# shape: entries=6 features=16 ubiquitous=1(package) distinctive=15 core=4 clusters=1 chunks=1 sizes=2
 entry	part	cluster	shells
-1brc	core	core	
+1brc	core	core	CONVERT DEFINE LEN REM SIZE TABLE TRIM arith cond_assign keyword_ref
+SourceLines001	chunk:01	family:SourceLines	
+SourceLines002	chunk:01	family:SourceLines	
+SourceLines003	core	core	LEN cond_assign
+Test	core	core	arith keyword_ref
+asgn1	core	core	BREAK REPLACE SPAN TABLE TRIM arith cond_assign goto_fail goto_success keyword_ref
