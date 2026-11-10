@@ -59,7 +59,7 @@ probe_loose_errpath_end_star_no_boundary[tests]	oracle produced EMPTY output at 
 probe_loose_errpath_missing_end[tests]	oracle produced EMPTY output at rc=1 -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs). THE ORACLE'S OWN FIRST DIAGNOSTIC: No END statement found in source file(s).
 probe_loose_errpath_undef_label_goto[tests]	NON-DETERMINISTIC, proven by repetition: two oracle runs of this program disagree (rc 0 then 0, different output)
 probe_loose_fuzz_fz_red_m4b_blob_defer_fence	fuzz nondeterministic-crash class -- a captured ref is one sample of a distribution; util_fuzz_witness_stability.sh owns these, stays as files
-probe_loose_fwctx_fwctx_standalone_ctl	plain body carries suite-format markers (banner or ';* tag' line) -- a block would split on re-read; quarantined class, stays as files
+probe_loose_fwctx_fwctx_standalone_ctl	plain body carries suite-format markers (banner or ';* tag' line) -- a block would split on re-read; quarantined class, stays as files -- 2026-11-10: the pair stands at harness/fixtures/snobol4_fwctx_standalone (not in this folder) until the witness tool writes a format-2 entry without the old-format round trip, which cannot hold its ;* comment lines (CIO-54)
 probe_loose_preord_pre_unsafe_then_guard[tests]	NON-DETERMINISTIC, proven by repetition: two oracle runs of this program disagree (rc 0 then 0, different output)
 probe_loose_table_nested_chain_incr_d1	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
 probe_loose_table_nested_chain_incr_d2	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files

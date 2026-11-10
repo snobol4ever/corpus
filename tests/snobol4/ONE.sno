@@ -1,0 +1,563 @@
+ TERMINAL = 'via-terminal'; OUTPUT = 'after the terminal assignment';END;* simple_assign_1
+ OUTPUT = 'AB' 'CD';END;* simple_output_10
+ OUTPUT = REMDR(10, 3);END;* simple_output_101
+ X = 'hello'; OUTPUT = X;END;* simple_output_102
+ N = 42; OUTPUT = N;END;* simple_output_103
+ X = 'alpha'; Y = X; OUTPUT = Y;END;* simple_output_104
+ X = 'first'; X = 'second'; OUTPUT = X;END;* simple_output_106
+ $'X' = 'hello'; OUTPUT = X;END;* simple_output_107
+ X = 'hello world'; X 'world' = 'there'; OUTPUT = X;END;* simple_output_109
+ X = 'hello world'; X ' world' =; OUTPUT = X;END;* simple_output_110
+ OUTPUT = ';* not a comment';END;* simple_output_112
+ OUTPUT = 1;END;* abc;* simple_output_113
+ OUTPUT = 'hello' ' world';END;* simple_output_114
+ OUTPUT = 'a' 'b' 'c';END;* simple_output_115
+ X = 'hello'; OUTPUT = X ' world';END;* simple_output_116
+ OUTPUT = 42 ' items';END;* simple_output_117
+ X = 'foo' 'bar'; OUTPUT = X;END;* simple_output_118
+ OUTPUT = 'a' 'b' 'c' 'd';END;* simple_output_119
+ OUTPUT = 'before' :(DONE); OUTPUT = 'skipped';DONE;END;* simple_output_120
+ OUTPUT = 'one' :(END); OUTPUT = 'two';END;* simple_output_125
+ OUTPUT = 'HELLO WORLD';END;* simple_output_131
+ OUTPUT = 'hello world';END;* simple_output_140
+ OUTPUT = 42;END;* simple_output_141
+ OUTPUT = 3.14;END;* simple_output_142
+ OUTPUT = "hello world";END;* simple_output_146
+ subject = 'hello world'; subject 'world' :f(e001); OUTPUT = 'PASS W01/001: literal match succeeded' :(END);e001 OUTPUT = 'FAIL W01/001: literal match should succeed';END;* simple_output_170
+ subject = 'hello world'; subject 'xyz' :s(e001); OUTPUT = 'PASS W01/002: literal mismatch failed correctly' :(END);e001 OUTPUT = 'FAIL W01/002: literal mismatch should fail';END;* simple_output_171
+ subject = 'foobar'; pat = 'foo' 'bar'; subject pat :f(e001); OUTPUT = 'PASS W02/001: seq match succeeded' :(END);e001 OUTPUT = 'FAIL W02/001: seq match should succeed';END;* simple_output_172
+ subject = 'foobar'; pat = 'foo' 'xyz'; subject pat :s(e001); OUTPUT = 'PASS W02/003: seq rightly failed' :(END);e001 OUTPUT = 'FAIL W02/003: seq should have failed';END;* simple_output_173
+ subject = 'key:value'; subject BREAKX(':') :f(e001); OUTPUT = 'PASS W05/005: breakx matched' :(END);e001 OUTPUT = 'FAIL W05/005: breakx should match';END;* simple_output_175
+ OUTPUT = SUBSTR('hello world', 7, 5);END;* simple_output_177
+ OUTPUT = REVERSE('hello');END;* simple_output_178
+ OUTPUT = LPAD('hi', 6);END;* simple_output_179
+ OUTPUT = 'PASS';END;* simple_output_4
+ 'ABCDEF' ? 'ABC' @cursor; OUTPUT = cursor;END;* simple_output_46
+ OUTPUT = +5;END;* simple_output_48
+ x = 42; OUTPUT = x;END;* simple_output_51
+ OUTPUT(.o, 1, '/tmp/f19_endfile_fixture.txt'); o = 'hello'; ENDFILE(1); INPUT(.i, 1, '/tmp/f19_endfile_fixture.txt'); line = i; OUTPUT = 'line=' line; ENDFILE(1);END;* simple_output_55
+ OUTPUT = 'should-be-skipped-if-end-label-honored';startpoint; OUTPUT = 'reached-via-end-label';END startpoint;* simple_output_60
+ S = 'abc'; S 'b' = 'X'; OUTPUT = S;END;* simple_output_72
+ S = "abc"; S ? "a"; OUTPUT = S;END;* simple_output_75
+ z = CHAR(0); w = 'a' z 'b'; OUTPUT = IDENT('a' z 'b', 'a' z 'c') 'SAME'; OUTPUT = DIFFER('a' z 'b', 'a' z 'c') 'DIFF';END;* simple_output_78
+ z = CHAR(0); w = 'a' z 'b'; OUTPUT = w;END;* simple_output_80
+ OUTPUT = -5;END;* simple_output_99
+;; OUTPUT = 'leading empty statements';END;;* simple_program_2
+ subject = 'foobar'; subject ('foo' | 'baz') :f(e001); OUTPUT = 'PASS W03/001: alt first branch matched' :(END);e001 OUTPUT = 'FAIL W03/001: alt first branch should match';END;* alt_1
+ subject = 'hello'; subject ANY('aeiou') :f(e001); OUTPUT = 'PASS W05/001: any matched' :(END);e001 OUTPUT = 'FAIL W05/001: any should match';END;* any_1
+ subject = 'xxx'; subject (ARBNO('ab') 'xxx') :f(e001); OUTPUT = 'PASS W04/003: arbno zero then literal' :(END);e001 OUTPUT = 'FAIL W04/003: should have matched';END;* arbno_1
+ subject = 'ababX'; subject (ARBNO('ab') 'X') :f(e001); OUTPUT = 'PASS W04/001: arbno matched' :(END);e001 OUTPUT = 'FAIL W04/001: arbno should match';END;* arbno_2
+ subject = 'hello'; subject (ARBNO('xyz') 'hello') :f(e001); OUTPUT = 'PASS W04/002: arbno zero match' :(END);e001 OUTPUT = 'FAIL W04/002: arbno zero should succeed';END;* arbno_3
+ a = ARRAY(3); a[2] = 'x'; DIFFER($.a[2], 'x') :f(e001); OUTPUT = 'FAIL 212/001: $.var<index> indirect array' :(END);e001; OUTPUT = 'PASS 212_indirect_array (1/1)';END;* array_8
+ subject = 'key:value'; subject BREAK(':') :f(e001); OUTPUT = 'PASS W05/004: break matched' :(END);e001 OUTPUT = 'FAIL W05/004: break should match';END;* break_1
+ &ERRLIMIT = 1; X = !('a'); OUTPUT = 'errtype=' &ERRTYPE;END;* call_scope_operator_1
+ &ERRLIMIT = 1; OUTPUT = sqrt(4.0); OUTPUT = 'errtype=' &ERRTYPE;END;* call_scope_sqrt_1
+ 'ab' ? ('a' . X) 'b'; OUTPUT = X;END;* capture_1
+ subject = 'ABCDEF'; subject (('ABC' . c1) ('DEF' . c2)) :f(e001); OUTPUT = 'PASS W07/001: c1=' c1 ' c2=' c2 :(END);e001 OUTPUT = 'FAIL W07/001: chained captures should match';END;* capture_2
+ OUTPUT = DUPL('ab', 3);END;* dupl_2
+ OUTPUT = EVAL('1 + 2');END;* eval_1
+ vname = 'TARGET'; $vname = 'hit'; OUTPUT = TARGET;END;* indirect_2
+ X = 'END'; OUTPUT = 'before' :($X); OUTPUT = 'after';END;* indirect_3
+ ONM = .OUTPUT; $ONM = 'hello';END;* indirect_4
+ V = 'X'; $V = 'world'; OUTPUT = X;END;* indirect_5
+ OUTPUT = 'input-initial=' &INPUT;END;* keyword_10
+ OUTPUT = 'maxlngth-initial=' &MAXLNGTH;END;* keyword_11
+ OUTPUT = 'output-initial=' &OUTPUT;END;* keyword_12
+ OUTPUT = 'profile-initial=' &PROFILE;END;* keyword_13
+ OUTPUT = 'stlimit-initial=' &STLIMIT;END;* keyword_14
+ OUTPUT = 'trace-initial=' &TRACE;END;* keyword_15
+ OUTPUT = 'case-initial=' &CASE;END;* keyword_18
+ SETEXIT(.H); &ERRLIMIT = 10; X = NOSUCHFN(1); OUTPUT = "AFTER" :(END);H OUTPUT = "HANDLER" :(END);END;* keyword_20
+ OUTPUT = &UCASE;END;* keyword_21
+ OUTPUT = &LCASE;END;* keyword_22
+ OUTPUT = 'anchor-initial=' &ANCHOR;END;* keyword_4
+ OUTPUT = 'dump-initial=' &DUMP;END;* keyword_5
+ OUTPUT = 'errlimit-initial=' &ERRLIMIT;END;* keyword_6
+ OUTPUT = 'ftrace-initial=' &FTRACE;END;* keyword_8
+ OUTPUT = 'fullscan-initial=' &FULLSCAN;END;* keyword_9
+ Q = LEN(3); S = 'ABCDEF'; V = (S ? Q); OUTPUT = 'V=[' V ']';END;* len_1
+ subject = 'hello'; subject NOTANY('aeiou') :f(e001); OUTPUT = 'PASS W05/002: notany matched' :(END);e001 OUTPUT = 'FAIL W05/002: notany should match';END;* notany_1
+ OUTPUT = REPLACE('hello', 'aeiou', 'AEIOU');END;* replace_2
+ X = 'hello'; IDENT(X, 'hello') :S(OK)F(FAIL);OK OUTPUT = 'PASS' :(END);FAIL OUTPUT = 'FAIL';END;* simple_output_1
+ OUTPUT = 2 + 3 * 4;END;* simple_output_100
+ OUTPUT = 3 + 4;END;* simple_output_11
+ X = 'hello'; X 'hello' :F(END); OUTPUT = 'found';END;* simple_output_111
+ OUTPUT = 10 - 3;END;* simple_output_12
+ X = 'hello world'; X 'hello' :S(FOUND)F(NOTFOUND);FOUND OUTPUT = 'found' :(END);NOTFOUND OUTPUT = 'not found';END;* simple_output_122
+ X = 'hello world'; X 'goodbye' :S(FOUND)F(NOTFOUND);FOUND OUTPUT = 'found' :(END);NOTFOUND OUTPUT = 'not found';END;* simple_output_123
+ X = 'abc'; X 'abc' :S(YES); OUTPUT = 'no' :(END);YES OUTPUT = 'yes';END;* simple_output_124
+ OUTPUT = 20 / 4;END;* simple_output_13
+ DIFFER('abc', 'xyz') :S(YES)F(NO);YES OUTPUT = 'different' :(END);NO OUTPUT = 'same';END;* simple_output_135
+ OUTPUT = 6 * 7;END;* simple_output_14
+ line = INPUT :F(bad); OUTPUT = 'input-had-data??' :(fin);bad OUTPUT = 'input-eof-fails-as-expected';fin;END;* simple_output_44
+ '' ? SUCCEED :F(bad); OUTPUT = 'succeed-ok' :(fin);bad OUTPUT = 'succeed-bad';fin;END;* simple_output_45
+ OUTPUT = -5 + 12;END;* simple_output_49
+ X = 1 + 2; Y = X * 4; OUTPUT = Y - 2;END;* simple_output_5
+ ABC = 'named-ok'; pname = .ABC; 'named-ok' ? pname :F(bad); OUTPUT = 'name-pattern-ok' :(fin);bad OUTPUT = 'name-pattern-bad';fin;END;* simple_output_50
+ SUBJ = 'ABC'; SUBJ ? 'B' :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* simple_output_6
+ A = 1; B = 2; OUTPUT = A + B;END;* simple_output_76
+ z = CHAR(0); w = 'a' z 'b'; w ('a' z 'b') :F(NO); OUTPUT = 'matched' :(END);NO OUTPUT = 'nomatch';END;* simple_output_79
+ P = '123'; Q = 'A' P 'Z'; P = 'XXX'; 'A123Z' ? Q :S(OK)F(NO);OK OUTPUT = 'S' :(END);NO OUTPUT = 'F';END;* simple_output_81
+ 'HELLOWORLD' ? 'WORLD' :F(bad); OUTPUT = 'pm-ok' :(fin);bad OUTPUT = 'pm-bad';fin;END;* simple_output_9
+ OUTPUT = 1 + 2;END;* simple_output_94
+ OUTPUT = 10 - 3;END;* simple_output_95
+ OUTPUT = 6 * 7;END;* simple_output_96
+ OUTPUT = 10 / 4;END;* simple_output_97
+ OUTPUT = 2 ** 8;END;* simple_output_98
+ z = CHAR(0); w = 'a' z 'b'; OUTPUT = SIZE(w);END;* size_3
+ z = CHAR(0); w = 'a' z 'b'; OUTPUT = SIZE(w w);END;* size_4
+ z = CHAR(0); w = 'a' z 'b'; OUTPUT = SIZE(REVERSE(w));END;* size_5
+ OUTPUT = SIZE('hello');END;* size_7
+ OUTPUT = SIZE(RPAD('hi', 6));END;* size_8
+ S = 'ABCDEF'; X = 'BDF'; P = SPAN(X); S P =; OUTPUT = S;END;* span_1
+ subject = '42abc'; subject SPAN('0123456789') :f(e001); OUTPUT = 'PASS W05/003: span matched' :(END);e001 OUTPUT = 'FAIL W05/003: span should match';END;* span_2
+ z = CHAR(0); w = 'a' z 'b'; t = TABLE(); t['a' z 'b'] = 'FIRST'; t['a' z 'c'] = 'SECOND'; t['a'] = 'PLAIN'; OUTPUT = t['a' z 'b'] '/' t['a' z 'c'] '/' t['a'];END;* table_2
+ DEFINE('S()') :(A);S S = .G :(NRETURN);A S() = 43; OUTPUT = 'g=' G;END;* user_function_12
+ DEFINE('F()') :(A);F F = .G :(NRETURN);A G = 5; dummy = F(); OUTPUT = 'ok ' dummy;END;* user_function_13
+ DEFINE('G(x)'); OUTPUT = G('ignored') :(DONE);G G = 7 :(RETURN);DONE;END;* user_function_16
+ DEFINE('F()') :(FEND);F F = .dummy :(NRETURN);FEND; F() = 43; OUTPUT = 'A dummy=' dummy;END;* user_function_17
+ DEFINE('R(t,n)'); OUTPUT = R('a','b') :(END);R R = 'GOT-' t n :(RETURN);END;* ctl_call2;* user_function_18
+ DEFINE('MYFN(X)'); MYFN = 'a value in the variable'; UNLOAD('MYFN'); OUTPUT = 'var after unload = [' MYFN ']' :(END);MYFN MYFN = X :(RETURN);END;* user_function_21
+ DEFINE('swap(a,b)tmp') :(swap_end);swap tmp = a; a = b; b = tmp; OUTPUT = a ' ' b :(RETURN);swap_end; swap('hello', 'world');END;* user_function_24
+ DEFINE('H()'); OUTPUT = H() :(END);H H = 42 :(RETURN);END;* user_function_7
+ 'DEF' ? ('ABC' | 'DEF') :F(bad); OUTPUT = 'alt-ok' :(fin);bad OUTPUT = 'alt-bad';fin;END;* alt_branch_1
+ 'X' ? ('A' | FAIL) :S(bad); OUTPUT = 'fail-ok' :(fin);bad OUTPUT = 'fail-bad';fin;END;* alt_branch_2
+ SUBJ = '1AB+'; SUBJ ? ANY('AB') '+' :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* any_branch_1
+ OUTPUT = APPLY('SIZE', 'abcd');END;* apply_size_1
+ 'MOUNTAIN' 'O' ARB . OUTPUT 'A';END;* arb_capture_1
+ 'b' ? ('b' . Y) | 'a'; OUTPUT = Y;END;* capture_alt_1
+ 'b' ? 'a' | ('b' . Y); OUTPUT = Y;END;* capture_alt_2
+ 'b' ? ('a' | 'b') . Y; OUTPUT = Y;END;* capture_alt_3
+ P = ('a' . X) | ('b' . Y); 'b' ? P; OUTPUT = Y;END;* capture_alt_4
+ E = 'b'; S = 'abc'; S (E) . X :S(OK)F(NO);OK OUTPUT = 'X=[' X ']' :(D);NO OUTPUT = 'NOMATCH';D;END;* capture_branch_1
+ OUTPUT = 'code-initial=' &CODE;END;* code_eval_keyword_1
+ E = *(1); OUTPUT = DATATYPE(E);END;* datatype_defer_2
+ E = *('AB'); OUTPUT = DATATYPE(E);END;* datatype_defer_3
+ SUBJ = 'a'; P = 'a'; SUBJ ? *P :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* defer_branch_1
+ X = 'q'; C = *DIFFER(X); 'a' C :S(OK)F(NO);OK OUTPUT = 'MATCH' :(END);NO OUTPUT = 'NOMATCH' :(END);END;* defer_branch_2
+ D = 'a'; C = *D; 'a' C :S(OK)F(NO);OK OUTPUT = 'MATCH' :(END);NO OUTPUT = 'NOMATCH' :(END);END;* defer_branch_3
+ D = 'a'; C = *D; 'a' *C :S(OK)F(NO);OK OUTPUT = 'MATCH' :(END);NO OUTPUT = 'NOMATCH' :(END);END;* defer_branch_4
+ D = 'a'; C = *D; E = *C; 'a' *E :S(OK)F(NO);OK OUTPUT = 'MATCH' :(END);NO OUTPUT = 'NOMATCH' :(END);END;* defer_branch_5
+ D = 'a'; C = *D 'b'; 'ab' C :S(OK)F(NO);OK OUTPUT = 'MATCH' :(END);NO OUTPUT = 'NOMATCH' :(END);END;* defer_branch_6
+ C = 'a'; 'a' *C :S(OK)F(NO);OK OUTPUT = 'MATCH' :(END);NO OUTPUT = 'NOMATCH' :(END);END;* defer_branch_7
+ z = CHAR(0); w = 'a' z 'b'; OUTPUT = SIZE(DUPL(w, 3));END;* dupl_size_1
+ X = EVAL('3 +* 5') :S(BAD)F(OK);BAD OUTPUT = 'no-fail' :(END);OK OUTPUT = 'failed ok';END;* eval_branch_1
+ S1 = 'BCD'; S1 FENCE 'C' :S(A)F(B);A OUTPUT = 'MATCH' :(END);B OUTPUT = 'FAIL';END;* fence_branch_2
+ X = 'Z'; 'AZB' ? 'A' $ X X :S(OK)F(NO);OK OUTPUT = 'S ' X :(END);NO OUTPUT = 'F ' X;END;* imm_capture_branch_1
+ subject = "HELLO WORLD"; p = "HELLO" . *$("dummy"); subject p :S(ok)F(no);ok OUTPUT = "ok dummy=" dummy :(END);no OUTPUT = "failed";END;* indirect_branch_1
+ subject = "HELLO WORLD"; p = "HELLO" $ *$("dummy"); subject p :S(ok)F(no);ok OUTPUT = "ok dummy=" dummy :(END);no OUTPUT = "failed";END;* indirect_branch_2
+ SETEXIT(.ERRTRACE); &ERRLIMIT = 100; lbl = 'NOSUCHLABEL'; x = 1 :($lbl); OUTPUT = 'unreachable' :(fin);ERRTRACE OUTPUT = 'caught-error-type=' &ERRTYPE;fin;END;* indirect_keyword_3
+ a1 = 1; first = &STCOUNT; a2 = 2; a3 = 3; second = &STCOUNT; OUTPUT = 'delta=' (second - first);END;* keyword_16
+ '' ? &SUCCEED :F(bad); OUTPUT = 'amp-succeed-ok' :(fin);bad OUTPUT = 'amp-succeed-bad';fin;END;* keyword_branch_1
+ X = 1; X = 2; GT(&STNO, 1) :S(YES)F(NO);YES OUTPUT = 'stno ok' :(END);NO OUTPUT = 'wrong';END;* keyword_branch_3
+ SUBJ = 'xabc'; SUBJ ? LEN(1) 'abc' :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* len_branch_1
+ SUBJ = 'abcd'; SUBJ ? LEN(2) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* len_branch_2
+ SUBJ = 'abcd'; SUBJ ? LEN(2) LEN(2) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* len_branch_3
+ S = 'abc'; S LEN(1) . C =; OUTPUT = C ' ' S;END;* len_capture_1
+ PAT = LEN(1) . *V; S = 'xyz'; S PAT =; OUTPUT = '[' V ']';END;* len_defer_1
+ N = 'V'; S = 'xyz'; S LEN(1) . *$N =; OUTPUT = '[' V ']';END;* len_indirect_1
+ S = 'abc'; S POS(0) LEN(1) = 'X'; OUTPUT = S;END;* pos_len_1
+ S = 'abc'; S POS(0) LEN(1) =; OUTPUT = S;END;* pos_len_2
+ z = CHAR(0); w = 'a' z 'b'; OUTPUT = SIZE(REPLACE(w, 'ab', 'xy'));END;* replace_size_1
+ N = 0;LOOP N = N + 1; GT(N, 5) :S(DONE); :(LOOP);DONE OUTPUT = N;END;* simple_output_121
+ EQ(2 + 3, 5) :F(FAIL); GT(10, 5) :F(FAIL); LT(3, 7) :F(FAIL); NE(1, 2) :F(FAIL); GT(1.5, 1.0) :F(FAIL); EQ(REMDR(10, 3), 1) :F(FAIL); OUTPUT = 'PASS' :(END);FAIL OUTPUT = 'FAIL';END;* simple_output_2
+ N = 0;LOOP N = N + 1; LT(N, 200000) :S(LOOP); OUTPUT = 'done ' N;END;* simple_output_65
+ OUTPUT = 'alphabet-size=' SIZE(&ALPHABET);END;* size_keyword_1
+ OUTPUT = SIZE(&ALPHABET);END;* size_keyword_3
+ OUTPUT = 'trim-initial=' &TRIM;END;* trim_keyword_1
+ z = CHAR(0); w = 'a' z 'b'; OUTPUT = SIZE(TRIM(w ' '));END;* trim_size_1
+ OUTPUT = SIZE(TRIM('hello '));END;* trim_size_2
+ DEFINE('ADD1(V)') :(E);ADD1 ADD1 = V + 1 :(RETURN);E OUTPUT = ADD1(5);END;* user_function_1
+ DEFINE('F(A)') :(FEND);F F = A + 1 :(RETURN);FEND; OUTPUT = 'R=' F(4);END;* user_function_14
+ DEFINE('bumpit(v)', .bumpit) :(bumpend);bumpit bumpit = v + 1 :(RETURN);bumpend; OUTPUT = bumpit(41);END;* user_function_25
+ DEFINE('ADD3(N)') :(MAIN);ADD3 ADD3 = N + 3 :(RETURN);MAIN OUTPUT = ADD3(4 * 2) + 1;END;* user_function_3
+ DEFINE('adder(a,b)') :(main);adder adder = a + b :(RETURN);main OUTPUT = adder(3,4);END;* user_function_4
+ DEFINE('ZERO()') :(E);ZERO ZERO = 7 :(RETURN);E OUTPUT = APPLY('ZERO');END;* user_function_apply_3
+ DEFINE('R(t,n)'); OUTPUT = APPLY('R','a','b') :(END);R R = 'GOT-' t n :(RETURN);END;* f_apply;* user_function_apply_4
+ DEFINE('F(x)'); OUTPUT = F('ignored') :(END);F F = EVAL('1 + 2') :(RETURN);END;* user_function_eval_1
+ DEFINE('F(x)'); OUTPUT = F('ignored') :(END);F F = EVAL('10 + 20') :(RETURN);END;* user_function_eval_2
+ DEFINE('F(x)'); OUTPUT = F('ignored') :(END);F F = EVAL('1 + 2') :(RETURN);END;* user_function_eval_3
+ DEFINE('F(x)'); OUTPUT = F('ignored') :(END);F F = EVAL('1 + 5') :(RETURN);END;* user_function_eval_4
+ DEFINE('G()'); s = '1 + 2'; OUTPUT = G() :(END);G G = EVAL(s) :(RETURN);END;* user_function_eval_5
+ DEFINE('F(x)'); OUTPUT = F('ignored') :(END);F F = EVAL('1 + 2') :(RETURN);END;* user_function_eval_6
+ DEFINE('F(x)'); PADV0 = 0; OUTPUT = F('ignored') :(END);F F = EVAL('1 + 2') :(RETURN);END;* user_function_eval_7
+ DEFINE('F(str,outNm)') :(F_END);F F = .dummy; outNm = IDENT(outNm) .OUTPUT; $outNm = str :(NRETURN);F_END; F('hello');END;* user_function_indirect_4
+ DEFINE('RED(A,B)') :(RED_end);RED RED = A '+' B :(RETURN);RED_end; OPSYN('&', 'RED', 2); X = 'l' & 'r'; OUTPUT = X;END;* user_function_opsyn_1
+ DEFINE('R(t,n)'); OPSYN('&', 'R', 2); OUTPUT = 'a' & 'b' :(END);R R = 'GOT-' t n :(RETURN);END;* opsyn_noeval;* user_function_opsyn_14
+ DEFINE('R(t,n)'); OPSYN('&', 'R', 2); OUTPUT = R('a','b') :(END);R R = 'GOT-' t n :(RETURN);END;* a_reg_only;* user_function_opsyn_3
+ DEFINE('R(t,n)'); OPSYN('&', 'R', 2); OUTPUT = 'a' & 'b' :(END);R R = 'CONST' :(RETURN);END;* b_noargs;* user_function_opsyn_4
+ DEFINE('U(s)'); OPSYN('!', 'U', 1); OUTPUT = !'x' :(END);U U = 'UN-' s :(RETURN);END;* d_unary;* user_function_opsyn_6
+ DEFINE('R(t,n)'); OPSYN('&', 'R', 2); X = 'a' & 'b'; OUTPUT = X :(END);R R = 'CONST' :(RETURN);END;* e_bare;* user_function_opsyn_7
+ DEFINE('cat(a,b)') :(ce);cat cat = a b :(RETURN);ce; OPSYN('foo', 'cat', 0); OUTPUT = foo('abc','def');END;* opsyn_alias_plain_function;* user_function_opsyn_8
+ DEFINE('STRIP(S1,S2)P') :(STRIP_END);STRIP STRIP = S1; P = SPAN(S2); STRIP P = :(RETURN);STRIP_END; OUTPUT = STRIP('ABCDEF', 'BDF');END;* user_function_span_1
+ 'X' ? ('A' | &FAIL) :S(bad); OUTPUT = 'amp-fail-ok' :(fin);bad OUTPUT = 'amp-fail-bad';fin;END;* alt_keyword_branch_1
+ &ANCHOR = 1; 'AC' ( 'A' 'B' | 'AC' ) :F(NO); OUTPUT = 'MATCH' :(FIN);NO OUTPUT = 'FAIL';FIN;END;* alt_keyword_branch_2
+ VOWEL = ANY('AEIOU'); 'VACUUM' ? VOWEL . N; OUTPUT = 'hit=' N :S(END); OUTPUT = 'miss';END;* any_capture_branch_3
+ VOWEL = ANY('AEIOU'); 'VACUUM' ? ANY('AEIOU') . N; OUTPUT = 'hit=' N :S(END); OUTPUT = 'miss';END;* any_capture_branch_4
+ SUBJ = 'abcd'; SUBJ ? POS(0) ARBNO(POS(0)) 'a' :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_pos_branch_1
+ '(A(B)C)D' ? BAL . matched 'D' :F(bad); OUTPUT = 'bal-matched=' matched :(fin);bad OUTPUT = 'bal-bad';fin;END;* bal_capture_branch_1
+ 'Now is the time' ? BREAK('ei') . X :F(bad); OUTPUT = X :(fin);bad OUTPUT = 'break-should-have-matched';fin;END;* break_capture_branch_2
+ E = 'b'; S = 'abc'; S ('z' | E) . X :S(OK)F(NO);OK OUTPUT = 'X=[' X ']' :(D);NO OUTPUT = 'NOMATCH';D;END;* capture_alt_branch_1
+ &ANCHOR = 1; 'AB' ('A' . X) ('B' . X) :F(NO); OUTPUT = 'MATCH X=' X :(FIN);NO OUTPUT = 'FAIL X=' X;FIN;END;* capture_keyword_branch_1
+ &ANCHOR = 1; X = 'untouched'; 'AC' ( ('A' . X) 'C' ) :F(NO); OUTPUT = 'MATCH X=' X :(FIN);NO OUTPUT = 'FAIL X=' X;FIN;END;* capture_keyword_branch_2
+ R = 3.14; INTEGER(R) :S(FAIL); IDENT(DATATYPE(R), 'REAL') :F(FAIL); GT(R, 3.0) :F(FAIL); EQ(CHOP(3.9), 3.0) :F(FAIL); OUTPUT = 'PASS' :(END);FAIL OUTPUT = 'FAIL';END;* datatype_branch_1
+ P = 'BC'; S = 'ABCD'; S ? 'A' *P $ X :F(NO); OUTPUT = 'M ' X :(EN);NO OUTPUT = 'F';EN;END;* defer_imm_capture_branch_1
+ P = 'BC'; Q = 'EF'; S = 'ABCDEF'; S ? 'A' *P $ X 'D' *Q $ Y :F(NO); OUTPUT = 'M ' X ' ' Y :(EN);NO OUTPUT = 'F';EN;END;* defer_imm_capture_branch_2
+ E = CONVERT('GE(1,2)', 'EXPRESSION'); EVAL(E) :S(Y); OUTPUT = 'FAILED AS IT SHOULD' :(Z);Y OUTPUT = 'SUCCEEDED (WRONG)';Z;END;* eval_convert_branch_1
+ t = *(1 + 2); OUTPUT = EVAL(t);END;* eval_defer_1
+ t = *(1 + 2); t = EVAL(t); OUTPUT = t;END;* eval_defer_2
+ OUTPUT = DATATYPE(EVAL('LEN(0)'));END;* eval_len_datatype_1
+ e = LEN(0); OUTPUT = DATATYPE(EVAL('e'));END;* eval_len_datatype_3
+ SUBJ = 'ABC'; SUBJ ? FENCE 'B' :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* fence_branch_1
+ 'ab' FENCE(('ab' . v0)) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* fence_capture_branch_4
+ 'XABC' ? &FENCE 'ABC' :S(bad); OUTPUT = 'amp-fence-anchors-ok' :(fin);bad OUTPUT = 'amp-fence-bad';fin;END;* fence_keyword_branch_1
+ &ERRLIMIT = 10; D = 0; X = 1 / D :F(NEXT); OUTPUT = "NOFAIL";NEXT OUTPUT = "CONTINUED";END;* keyword_branch_2
+ mk = LEN(0); mk = mk ('X' | 'y'); mk = mk ('X' | 'y'); 'Xy' mk :F(NO); OUTPUT = 'MATCHED unrolled' :(FIN);NO OUTPUT = 'NOMATCH unrolled';FIN;END;* len_alt_branch_2
+ S = 'b'; S ? 'a' | (LEN(1) . Y); OUTPUT = Y;END;* len_capture_alt_1
+ X = 'hello world'; X LEN(5) . V :S(YES); OUTPUT = 'fail' :(END);YES OUTPUT = V;END;* len_capture_branch_11
+ 'ABCDE' ? LEN(2) . x :F(C1); OUTPUT = 'C x=' x :(END);C1 OUTPUT = 'C NOMATCH';END;* len_capture_branch_7
+ L = 18; S = DUPL(' ', 30); S GT(L, 0) LEN(L) . ind; OUTPUT = '[' ind ']';END;* len_dupl_capture_1
+ S = DUPL(' ', 30); S GT(1, 0) LEN(18) . ind; OUTPUT = '[' ind ']';END;* len_dupl_capture_2
+ X = 'hello world'; X LEN(5) $ V :S(YES); OUTPUT = 'fail' :(END);YES OUTPUT = V;END;* len_imm_capture_branch_6
+ SUBJ = 'abcd'; SUBJ ? POS(0) ('ab' | 'xy') :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* pos_alt_branch_1
+ Q = 'q0'; P = 'A' . *Q; S = 'A'; S POS(0) P :S(Y)F(N);Y OUTPUT = 'match Q=[' Q '] q0=[' q0 ']' :(END);N OUTPUT = 'nomatch';END;* pos_defer_branch_1
+ G1 = 'aa'; G0 = *G1; P = *G0; 'aa a' POS(0) *P :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* pos_defer_branch_2
+ S = 'abc'; S POS(0) LEN(1) . C =; OUTPUT = 'c=' C ' s=' S;END;* pos_len_capture_1
+ P = '12'; Q = 'A' P; R = Q Q Q; P = 'X'; Q = 'B'; 'A12A12A12' ? POS(0) R RPOS(0) :S(OK)F(NO);OK OUTPUT = 'S' :(END);NO OUTPUT = 'F';END;* pos_rpos_branch_1
+ 'ABCDE' ? 'AB' REM . rest :F(bad); OUTPUT = 'rest=' rest :(fin);bad OUTPUT = 'rem-bad';fin;END;* rem_capture_branch_1
+ I = 0;LOOP I = LT(I,500000) I + 1 :F(DONE); X = GT(I,900000) 'never' :S(BAD); :(LOOP);BAD OUTPUT = 'bad' :(END);DONE OUTPUT = 'done ' I;END;* simple_output_7
+ IDENT(SIZE(&UCASE), 26) :F(FAIL); OUTPUT = 'PASS';END;* size_keyword_branch_1
+ IDENT(SIZE(&ALPHABET), 256) :F(FAIL); OUTPUT = 'PASS' :(END);FAIL OUTPUT = 'FAIL';END;* size_keyword_branch_2
+ VOWEL = ANY('AEIOU'); PAT = VOWEL SPAN('BCDFGHJKLMNPQRSTVWXYZ'); 'AY' ? PAT . N; OUTPUT = N;END;* span_any_capture_1
+ VOWEL = ANY('AEIOU'); PAT = (VOWEL SPAN('BCDFGHJKLMNPQRSTVWXYZ')) . N; 'GRAY' ? PAT; OUTPUT = N;END;* span_any_capture_2
+ 'GRAY' ? ANY('AEIOU') SPAN('BCDFGHJKLMNPQRSTVWXYZ') . N; OUTPUT = N;END;* span_any_capture_3
+ VOWEL = ANY('AEIOU'); PAT = VOWEL SPAN('BCDFGHJKLMNPQRSTVWXYZ'); 'GRAY' ? PAT . N; OUTPUT = N;END;* span_any_capture_4
+ VOWEL = ANY('AEIOU'); PAT = VOWEL SPAN('BCDFGHJKLMNPQRSTVWXYZ'); 'XXAY' ? PAT . N; OUTPUT = N;END;* span_any_capture_5
+ digits = '0123456789'; X = '99'; X SPAN(digits) . V :S(YES); OUTPUT = 'no digits' :(END);YES OUTPUT = V;END;* span_capture_branch_3
+ digits = '0123456789'; X = '999'; X SPAN(digits) . V :S(YES); OUTPUT = 'no digits' :(END);YES OUTPUT = V;END;* span_capture_branch_4
+ CS = 'a'; GV = 'b'; S = 'aab'; S SPAN(CS) *GV :S(OK)F(BAD);OK OUTPUT = 'MATCHED' :(DONE);BAD OUTPUT = 'FAILED';DONE;END;* span_defer_branch_1
+ DEFINE('mk(s)c') :(mk_end);mk c = s; mk = ('A' | c) :(RETURN);mk_end; 'A' mk('a') :F(NO); OUTPUT = 'MATCHED e4' :(FIN);NO OUTPUT = 'NOMATCH';FIN;END;* user_function_alt_branch_1
+ DEFINE('ADD1(V)') :(E);ADD1 ADD1 = V + 1 :(RETURN);E OUTPUT = APPLY('ADD1', 5);END;* user_function_apply_1
+ DEFINE('ADD1(V)') :(E);ADD1 ADD1 = V + 1 :(RETURN);E FN = 'ADD1'; OUTPUT = APPLY(FN, 5);END;* user_function_apply_2
+ DEFINE('bump(v)') :(bumpend);bump bump = v + 1 :(RETURN);bumpend; S = ''; J = 0;LOOP S = S bump(2 * J); J = J + 1; LT(J, 5) :S(LOOP); OUTPUT = S;END;* user_function_branch_11
+ DEFINE('F()') :(GO);F F = 'BC' :(RETURN);GO S = 'ABCD'; S ? 'A' F() $ X :F(NO); OUTPUT = 'M ' X :(EN);NO OUTPUT = 'F';EN;END;* user_function_imm_capture_branch_1
+ DEFINE('F()') :(FEND);F F = LEN(2) :(RETURN);FEND; 'ABCDE' F() :F(NOM); OUTPUT = 'MATCHED nocapture' :(FIN);NOM OUTPUT = 'NOMATCH';FIN;END;* user_function_len_branch_1
+ DEFINE('F()') :(FEND);F F = LEN(2) :(RETURN);FEND; X = 'ABCDE'; X ? F() :F(NOM); OUTPUT = 'MATCHED qmark' :(FIN);NOM OUTPUT = 'NOMATCH';FIN;END;* user_function_len_branch_2
+ DEFINE('S()') :(A);S S = .G :(NRETURN);A 'AB' ? LEN(1) . *S(); OUTPUT = 'g=' G;END;* user_function_len_defer_1
+ DEFINE('PC()'); DEFINE('nP()') :(MAIN);PC PC = .dummy :(NRETURN);nP nP = LEN(1) . *PC() :(RETURN);MAIN P = nP(); 'abc' ? P; OUTPUT = 'dummy=' dummy;END;* user_function_len_defer_2
+ DEFINE('R(t,n)'); OPSYN('&', 'R', 2); OUTPUT = 1 & 2 :(END);R R = EVAL("1 + 2") :(RETURN);END;* opsyn_int;* user_function_opsyn_eval_1
+ 'A' ? ('X' | &ABORT | 'A') :S(sawthird); OUTPUT = 'amp-abort-shortcircuits-ok' :(fin);sawthird OUTPUT = 'amp-abort-wrongly-reached-third';fin;END;* abort_alt_keyword_branch_1
+ mk = 'q'; n = 0;LP n = n + 1; mk = mk | 'y'; LT(n,2) :S(LP); 'y' mk :F(NO); OUTPUT = 'MATCHED toplevel' :(FIN);NO OUTPUT = 'NOMATCH toplevel';FIN;END;* alt_branch_3
+ 'ABCDEF' ? 'A' (&ARB | 'D') 'E' :F(bad); OUTPUT = 'amp-arb-ok' :(fin);bad OUTPUT = 'amp-arb-bad';fin;END;* arb_alt_keyword_branch_1
+ 'ABCDEF' ? 'A' (ARB | 'D') 'E' . matched :F(bad); OUTPUT = 'arb-ok' :(fin);bad OUTPUT = 'arb-bad';fin;END;* arb_capture_alt_branch_1
+ 'aaa' POS(0) ARB RPOS(0) :S(OK)F(NO);OK OUTPUT = 'MATCH' :(END);NO OUTPUT = 'NOMATCH' :(END);END;* arb_pos_rpos_branch_1
+ C = ARB; 'aaa' POS(0) C RPOS(0) :S(OK)F(NO);OK OUTPUT = 'MATCH' :(END);NO OUTPUT = 'NOMATCH' :(END);END;* arb_pos_rpos_branch_2
+ 'ab' ARBNO(('ab' . v0) $ v0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_capture_imm_capture_branch_1
+ G0 = *G1; G1 = ARBNO(*G2); G2 = 'a'; P = *G0; 'aa a' POS(0) *P :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_pos_defer_branch_1
+ SUBJ = 'abcd'; SUBJ ? POS(0) ARBNO(LEN(1)) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_pos_len_branch_1
+ SUBJ = 'abcd'; SUBJ ? POS(0) ARBNO(LEN(1)) 'a' :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_pos_len_branch_3
+ SUBJ = ''; SUBJ ? POS(0) ARBNO('ab') RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_pos_rpos_branch_33
+ SUBJ = 'ab'; SUBJ ? POS(0) ARBNO('ab') RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_pos_rpos_branch_34
+ SUBJ = 'abab'; SUBJ ? POS(0) ARBNO('ab') RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_pos_rpos_branch_35
+ SUBJ = 'ababab'; SUBJ ? POS(0) ARBNO('ab') RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_pos_rpos_branch_36
+ SUBJ = 'aaa'; SUBJ ? POS(0) ARBNO('a') RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_pos_rpos_branch_37
+ SUBJ = 'ab,ab'; SUBJ ? POS(0) 'ab' ARBNO(',' 'ab') RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_pos_rpos_branch_38
+ C = ARBNO('a'); 'aaa' POS(0) C RPOS(0) :S(OK)F(NO);OK OUTPUT = 'MATCH' :(END);NO OUTPUT = 'NOMATCH' :(END);END;* arbno_pos_rpos_branch_6
+ D = 'a'; 'aaa' POS(0) ARBNO(D) RPOS(0) :S(OK)F(NO);OK OUTPUT = 'MATCH' :(END);NO OUTPUT = 'NOMATCH' :(END);END;* arbno_pos_rpos_branch_7
+ D = 'a'; C = ARBNO(D); 'aaa' POS(0) C RPOS(0) :S(OK)F(NO);OK OUTPUT = 'MATCH' :(END);NO OUTPUT = 'NOMATCH' :(END);END;* arbno_pos_rpos_branch_8
+ '(A(B)C)D' ? &BAL . matched 'D' :F(bad); OUTPUT = 'amp-bal-matched=' matched :(fin);bad OUTPUT = 'amp-bal-bad';fin;END;* bal_capture_keyword_branch_1
+ z = CHAR(0); w = 'a' z 'b'; w BREAK(z) . m :F(NO); OUTPUT = SIZE(m) :(END);NO OUTPUT = 'nomatch';END;* break_size_capture_branch_1
+ &ANCHOR = 1; X = 'untouched'; 'AB' ( ('A' . X) 'B' | 'AC' ) :F(NO); OUTPUT = 'MATCH X=' X :(FIN);NO OUTPUT = 'FAIL X=' X;FIN;END;* capture_alt_keyword_branch_1
+ &ANCHOR = 1; X = 'untouched'; 'AC' ( 'AB' | ('A' . X) 'C' ) :F(NO); OUTPUT = 'MATCH X=' X :(FIN);NO OUTPUT = 'FAIL X=' X;FIN;END;* capture_alt_keyword_branch_2
+ &ANCHOR = 1; X = 'untouched'; 'AC' ( ('A' . X) 'B' | 'AC' ) :F(NO); OUTPUT = 'MATCH X=' X :(FIN);NO OUTPUT = 'FAIL X=' X;FIN;END;* capture_alt_keyword_branch_3
+ P = 'BC'; S = 'ABCD'; S ? 'A' (*P) . X :F(NO); OUTPUT = 'M ' X :(EN);NO OUTPUT = 'F';EN;END;* defer_capture_branch_1
+ e = LEN(0); OUTPUT = DATATYPE(EVAL('e . OUT'));END;* eval_len_datatype_2
+ SUBJ = '1AB+'; SUBJ ? ANY('AB') FENCE '+' :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* fence_any_branch_1
+ S = ','; S FENCE(BREAK(',')) *DIFFER(X) :S(A)F(B);A OUTPUT = 'd: MATCH' :(END);B OUTPUT = 'd: FAIL';END;* fence_break_defer_branch_1
+ SUBJ = 'xabc'; SUBJ ? LEN(1) FENCE 'abc' :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* fence_len_branch_1
+ S = 'aaabbbccc'; S ? SPAN('a') FENCE SPAN('b') SPAN('c') :F(NO); OUTPUT = 'MATCH' :(END);NO OUTPUT = 'FAIL';END;* fence_span_branch_1
+ mk = LEN(0); n = 0;LP n = n + 1; mk = mk 'x'; LT(n,2) :S(LP); 'xx' mk :F(NO); OUTPUT = 'MATCHED noalt' :(FIN);NO OUTPUT = 'NOMATCH noalt';FIN;END;* len_branch_11
+ $('Z' 'Z') = 1; 'ab' LEN(1) . *V :F(NO); OUTPUT = 'match V=' V :(DONE);NO OUTPUT = 'nomatch';DONE;END;* len_defer_indirect_branch_1
+ L = 20; S = DUPL(' ', 30); S LT(L, 99) LEN(L - 2) . ind; OUTPUT = '[' ind ']';END;* len_dupl_capture_3
+ L = 20; S = DUPL(' ', 30); S GT(L, 0) 'x' LEN(L - 2) . ind; OUTPUT = '[' ind ']';END;* len_dupl_capture_4
+ z = CHAR(0); w = 'a' z 'b'; w LEN(3) . m :F(NO); OUTPUT = SIZE(m) :(END);NO OUTPUT = 'nomatch';END;* len_size_capture_branch_1
+ P = "a" | "b"; "xay" POS(1) *P :S(Y)F(N);Y OUTPUT = "match" :(END);N OUTPUT = "nomatch";END;* pos_alt_keyword_branch_2
+ SUBJ = 'zzzz'; SUBJ ? POS(0) ('ab' | 'xy' | 'pq') $ OUTPUT :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* pos_imm_capture_alt_branch_3
+ SUBJ = 'ABCZ'; SUBJ ? POS(0) ('A' | 'AB') ('CD' | 'C') 'Z' RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* pos_rpos_alt_branch_1
+ SUBJ = 'abcd'; SUBJ ? POS(0) ('ab' | 'a') 'cd' RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* pos_rpos_alt_branch_2
+ SUBJ = 'abcd'; SUBJ ? POS(0) ('ab' | 'a') 'cd' RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* pos_rpos_alt_branch_3
+ SUBJ = 'abcd'; SUBJ ? POS(0) ('ab' | 'a') 'bcd' RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* pos_rpos_alt_branch_4
+ SUBJ = 'abcd'; SUBJ ? POS(0) LEN(4) RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* pos_rpos_len_branch_4
+ 'ABCDE' ? 'AB' &REM . rest :F(bad); OUTPUT = 'amp-rem-rest=' rest :(fin);bad OUTPUT = 'amp-rem-bad';fin;END;* rem_capture_keyword_branch_1
+ P = (BREAKX('abc') | 'a'); 'aa a' *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* rpos_defer_alt_branch_1
+ VOWEL = ANY('AEIOU'); PAT = VOWEL SPAN('BCDFGHJKLMNPQRSTVWXYZ'); 'VACUUM' ? VOWEL . N; OUTPUT = 'hit=' N :S(END); OUTPUT = 'miss';END;* span_any_capture_branch_3
+ VOWEL = ANY('AEIOU'); PAT = VOWEL SPAN('BCDFGHJKLMNPQRSTVWXYZ'); 'BCD' ? PAT . N :F(NOPE); OUTPUT = 'MATCHED:[' N ']' :(END);NOPE OUTPUT = 'FAILED';END;* span_any_capture_branch_4
+ I = SPAN('0123456789'); DY = 83; P = '(' I $ X *GT(DY,X) ',' I $ M; T = '(334,12)(31,2)(0,1)'; T P :F(GDP_F); OUTPUT = X ' ' M :(END);GDP_F OUTPUT = 'NO MATCH';END;* span_defer_imm_capture_branch_1
+ C = SPAN('a'); 'aaa' POS(0) C RPOS(0) :S(OK)F(NO);OK OUTPUT = 'MATCH' :(END);NO OUTPUT = 'NOMATCH' :(END);END;* span_pos_rpos_branch_1
+ z = CHAR(0); w = 'a' z 'b'; t = TABLE(); t[w] = 1; OUTPUT = SIZE(CONVERT(t,'ARRAY')[1,1]);END;* table_array_convert_2
+ DEFINE('R(t,n)'); DEFINE('Q(a,b)'); epsilon = ''; p = R('a','b'); OUTPUT = DATATYPE(p) :(END);R R = EVAL("epsilon . *Q(" t ", " n ")") :(RETURN);Q Q = 1 :(RETURN);END;* user_function_eval_datatype_1
+ DEFINE('F()') :(Fe);F F = 'x' :(RETURN);Fe P = EVAL("*F()"); 'x' P :S(Y)F(N);Y OUTPUT = 'match' :(END);N OUTPUT = 'nomatch';END;* user_function_eval_defer_branch_1
+ DEFINE('R(t)'); OUTPUT = DATATYPE(R('x')) :(END);R R = EVAL("LEN(1)") :(RETURN);END;* opsyn_control_nopsyn;* user_function_eval_len_4
+ DEFINE('F()') :(FEND);F F = LEN(2) . X :(RETURN);FEND; 'ABCDE' F() :F(NOM); OUTPUT = 'MATCHED X=[' X ']' :(FIN);NOM OUTPUT = 'NOMATCH';FIN;END;* user_function_len_capture_branch_1
+ DEFINE('F(N)T') :(F_END);F N ? LEN(1) . T :F(FRETURN); F = T :(RETURN);F_END; OUTPUT = F('AB');END;* user_function_len_capture_branch_3
+ DEFINE('F()') :(FEND);F F = .dummy :(NRETURN);FEND; P = LEN(2) . *F(); 'ABCDE' ? P :F(BAD); OUTPUT = 'dummy=' dummy :(END);BAD OUTPUT = 'NOMATCH';END;* user_function_len_defer_branch_10
+ DEFINE('F()') :(FEND);F F = .dummy :(NRETURN);FEND; 'ABCDE' ? LEN(3) $ *F() :F(D1); OUTPUT = 'D dummy=' dummy :(END);D1 OUTPUT = 'D NOMATCH';END;* user_function_len_defer_branch_11
+ DEFINE('F()') :(FEND);F F = .dummy :(NRETURN);FEND; 'ABCDE' ? LEN(2) . *F() :F(BAD); OUTPUT = 'dummy=' dummy :(END);BAD OUTPUT = 'NOMATCH';END;* user_function_len_defer_branch_9
+ DEFINE('twice(x)') :(setup);twice twice = x + x :(RETURN);setup OPSYN('double', 'twice');main OUTPUT = APPLY('double', 21);END;* opsyn_apply_alias_sigsegv;* user_function_opsyn_apply_1
+ DEFINE('F()') :(FEND);F F = LEN(2) :(RETURN);FEND; 'ABCDE' POS(0) F() :F(NOM); OUTPUT = 'MATCHED compound' :(FIN);NOM OUTPUT = 'NOMATCH';FIN;END;* user_function_pos_len_branch_1
+ DEFINE('mk(s)c,p') :(mk_end);mk c = s; p = (REPLACE(c,&LCASE,&UCASE) | c); mk = 'built-ok' :(RETURN);mk_end; OUTPUT = mk('a');END;* user_function_replace_alt_1
+ DEFINE('u(u)') :(ue);u u = REPLACE(u,'ab','AB') :(RETURN);ue P = 'x' | u('b'); 'B' ? P :S(K); OUTPUT = 'nm' :(E);K OUTPUT = 'ok';E;END;* user_function_replace_alt_branch_1
+ P = ARB; Q = *P 'X'; 'aaX' POS(0) Q RPOS(0) :S(OK)F(NO);OK OUTPUT = 'MATCH' :(END);NO OUTPUT = 'NOMATCH' :(END);END;* arb_pos_rpos_branch_3
+ ws = SPAN(' ') | ''; E = SPAN('0123456789'); P = '[' ( *E ARB | ws ) ']'; '[1,2]' P :F(NO); OUTPUT = 'MATCHED' :(END);NO OUTPUT = 'FAILED';END;* arb_span_defer_branch_1
+ SUBJ = 'a,b,c'; SUBJ ? POS(0) ANY('abc') ARBNO(',' ANY('abc')) RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_any_pos_branch_1
+ 'ab' ? POS(0) FENCE(ARBNO('z')) 'ab' RPOS(0) :S(A)F(B);A OUTPUT = 'ok' :(END);B OUTPUT = 'no';END;* arbno_fence_pos_branch_21
+ G1 = ARBNO(*G2); G2 = FENCE('a'); P = *G1; 'aa a' POS(0) *P :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_fence_pos_branch_26
+ SUBJ = '(ab)(c)'; SUBJ ? POS(0) ARBNO('(' ARBNO(NOTANY(')')) ')') RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_notany_pos_branch_1
+ SUBJ = '(ab)(c'; SUBJ ? POS(0) ARBNO('(' ARBNO(NOTANY(')')) ')') RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_notany_pos_branch_5
+ SUBJ = 'abcd'; SUBJ ? POS(0) ARBNO(LEN(1)) RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_pos_rpos_branch_17
+ SUBJ = 'abcd'; SUBJ ? POS(0) ARBNO(LEN(1)) RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_pos_rpos_branch_19
+ SUBJ = 'ab,ab'; SUBJ ? POS(0) LEN(2) ARBNO(',' LEN(2)) RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_pos_rpos_branch_39
+ SUBJ = 'ab,ab'; SUBJ ? POS(0) 'ab' ARBNO(',' LEN(2)) RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_pos_rpos_branch_40
+ SUBJ = 'ab,ab'; SUBJ ? POS(0) LEN(2) ARBNO(',' 'ab') RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_pos_rpos_branch_41
+ SUBJ = 'abc'; SUBJ ? POS(0) ARBNO(ARBNO(LEN(1))) RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_pos_rpos_branch_43
+ SUBJ = 'a'; SUBJ ? POS(0) ARBNO(ARBNO(LEN(1))) RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_pos_rpos_branch_46
+ SUBJ = 'ab'; SUBJ ? POS(0) ARBNO(ARBNO(LEN(1))) RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_pos_rpos_branch_47
+ SUBJ = 'xa'; SUBJ ? POS(0) 'x' ARBNO(ARBNO(LEN(1))) RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_pos_rpos_branch_48
+ SUBJ = 'ax'; SUBJ ? POS(0) ARBNO(ARBNO(LEN(1))) 'x' RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_pos_rpos_branch_49
+ D = 'a'; C = ARBNO(*D); 'aaa' POS(0) C RPOS(0) :S(OK)F(NO);OK OUTPUT = 'MATCH' :(END);NO OUTPUT = 'NOMATCH' :(END);END;* arbno_pos_rpos_branch_5
+ SUBJ = 'ax'; SUBJ ? POS(0) ARBNO(ARBNO(LEN(1)) 'x') RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_pos_rpos_branch_50
+ SUBJ = 'aa'; SUBJ ? POS(0) ARBNO(ARBNO(LEN(1)) '') RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_pos_rpos_branch_51
+ SUBJ = 'aa'; SUBJ ? POS(0) ARBNO(ARBNO(LEN(1)) LEN(0)) RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_pos_rpos_branch_52
+ A = ARBNO('a'); B = ''; P2 = A B; 'aa' POS(0) *P2 RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_pos_rpos_branch_54
+ P = 'AB'; S = 'ABABC'; S ? POS(0) ARBNO(P) $ X 'C' RPOS(0) :F(NO); OUTPUT = 'M ' X :(EN);NO OUTPUT = 'F';EN;END;* arbno_pos_rpos_branch_57
+ P = 'AB'; S = 'ABABABC'; S ? POS(0) ARBNO(*P) 'C' RPOS(0) :F(NO); OUTPUT = 'M' :(EN);NO OUTPUT = 'F';EN;END;* arbno_pos_rpos_branch_58
+ C = 'a'; P = ARBNO(*C); 'aa' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_pos_rpos_branch_77
+ A = ARBNO('a'); P = A ''; 'aa' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_pos_rpos_branch_86
+ ws = SPAN(' ') | ''; E = SPAN('0123456789'); P = '[' ( E ARBNO(',' E) | ws ) ']'; '[1,2]' P :F(NO); OUTPUT = 'MATCHED' :(END);NO OUTPUT = 'FAILED';END;* arbno_span_alt_branch_1
+ SUBJ = 'ab,ab'; SUBJ ? POS(0) SPAN('ab') ARBNO(',' SPAN('ab')) RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_span_pos_branch_4
+ SUBJ = '(12,345,6)'; ITEM = SPAN('0123456789'); SUBJ ? POS(0) '(' ITEM ARBNO(',' ITEM) ')' RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_span_pos_branch_5
+ SUBJ = '(12,,34)'; ITEM = SPAN('0123456789'); SUBJ ? POS(0) '(' ITEM ARBNO(',' ITEM) ')' RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_span_pos_branch_6
+ P = ARBNO(LEN(1)) TAB(3); 'abcabc' P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_tab_rpos_branch_1
+ S = 'a(b(c))d'; S POS(0) BAL . V RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match:' V :(END);NO OUTPUT = 'nomatch';END;* bal_pos_rpos_branch_1
+ X = 'John Smith'; X BREAK(' ') . FIRST LEN(1) REM . LAST :S(YES); OUTPUT = 'fail' :(END);YES OUTPUT = FIRST ' / ' LAST;END;* break_len_rem_branch_1
+ P = 'BC'; S = 'ABCDE'; S ? 'A' (*P $ X 'D') . Y :F(NO); OUTPUT = 'M ' X ' ' Y :(EN);NO OUTPUT = 'F';EN;END;* defer_capture_imm_capture_branch_1
+ &ANCHOR = 1; X = 'untouched'; 'AB' FENCE('A' . X) 'Z' :F(NO); OUTPUT = 'MATCH X=' X :(FIN);NO OUTPUT = 'FAIL X=' X;FIN;END;* fence_capture_keyword_branch_1
+ &ANCHOR = 1; X = 'untouched'; 'AZ' ('A' . X) FENCE 'Z' :F(NO); OUTPUT = 'MATCH X=' X :(FIN);NO OUTPUT = 'FAIL X=' X;FIN;END;* fence_capture_keyword_branch_2
+ &ANCHOR = 1; X = 'untouched'; 'AZ' FENCE('A' . X) 'Z' :F(NO); OUTPUT = 'MATCH X=' X :(FIN);NO OUTPUT = 'FAIL X=' X;FIN;END;* fence_capture_keyword_branch_3
+ SUBJ = 'abcd'; SUBJ ? POS(0) LEN(2) FENCE :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* fence_pos_len_branch_1
+ SUBJ = 'abcd'; SUBJ ? POS(0) FENCE('ab') 'cd' RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* fence_pos_rpos_branch_8
+ P = (BREAKX('abc') | FENCE('a')); 'aa a' *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* fence_rpos_defer_branch_2
+ P = ('zz' | FENCE('a')); 'aa a' *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* fence_rpos_defer_branch_3
+ mk = LEN(0); n = 0;LP n = n + 1; mk = mk ('X' | 'y'); LT(n,1) :S(LP); 'X' mk :F(NO); OUTPUT = 'MATCHED once' :(FIN);NO OUTPUT = 'NOMATCH once';FIN;END;* len_alt_branch_1
+ mk = LEN(0); n = 0;LP n = n + 1; mk = mk ('X' | 'y'); LT(n,2) :S(LP); 'Xy' mk :F(NO); OUTPUT = 'MATCHED cycle' :(FIN);NO OUTPUT = 'NOMATCH cycle';FIN;END;* len_alt_branch_3
+ N = 2; P = LEN(*N) . X; S = 'ab'; S ? P :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* len_defer_capture_branch_2
+ N = 2; C = LEN(*N); 'abc' C . x :S(OK)F(NO);OK OUTPUT = 'MATCH x=' x :(END);NO OUTPUT = 'NOMATCH' :(END);END;* len_defer_capture_branch_3
+ L = 20; X2 = 'AB'; S = DUPL(' ', 30); S GT(L, 0) LEN(L - SIZE(X2)) . ind; OUTPUT = '[' ind ']';END;* len_dupl_size_2
+ &ALPHABET POS(0) LEN(1) . nul; OUTPUT = 'ok ' SIZE(nul);END;* pos_len_size_2
+ z = CHAR(0); w = 'a' z 'b'; w POS(0) LEN(1) . a1 LEN(1) . a2 LEN(1) . a3 :F(NO); OUTPUT = SIZE(a1) '/' SIZE(a2) '/' SIZE(a3) :(END);NO OUTPUT = 'nomatch';END;* pos_len_size_branch_1
+ A2 = 'xy'; P = ('x' | *A2); Q = ('z' | 'yz'); s = 'xyyz'; s POS(0) *P *Q RPOS(0) :S(G)F(B);G OUTPUT = 'match' :(END);B OUTPUT = 'nomatch';END;* pos_rpos_defer_branch_1
+ digits = '0123456789'; E =; S = 'Name'; S ANY('NX') (SPAN(digits 'abcdemn') | E) RPOS(0) :S(OK)F(NO);OK OUTPUT = 'MATCHED' :(END);NO OUTPUT = 'NOMATCH';END;* span_any_rpos_branch_2
+ digits = '0123456789'; lets = 'abcdemn'; E =; S = 'Name'; S ANY('NX') (SPAN(lets) | E) RPOS(0) :S(OK)F(NO);OK OUTPUT = 'MATCHED' :(END);NO OUTPUT = 'NOMATCH';END;* span_any_rpos_branch_3
+ digits = '0123456789'; lets = 'abcdemn'; E =; S = 'Name'; S ANY('NX') (ANY(lets) SPAN(lets) | E) RPOS(0) :S(OK)F(NO);OK OUTPUT = 'MATCHED' :(END);NO OUTPUT = 'NOMATCH';END;* span_any_rpos_branch_4
+ V1 = "pad1"; V2 = "pad2"; V3 = "pad3"; V4 = "pad4"; V5 = "pad5"; "ab" POS(0) (SPAN("ab") | SPAN("09")) RPOS(0) :S(Y)F(N);Y OUTPUT = "match" :(END);N OUTPUT = "nomatch";END;* span_pos_rpos_branch_2
+ digits = '0123456789'; P1 = SPAN(digits); P2 = *P1; P3 = *P2; S = 'A1'; S POS(0) 'A' *P3 RPOS(0) :F(NO); OUTPUT = 'match' :(FIN);NO OUTPUT = 'nomatch';FIN;END;* span_pos_rpos_branch_7
+ digits = '0123456789'; P1 = SPAN(digits); P2 = *P1; S = 'A1'; S POS(0) 'A' *P2 RPOS(0) :F(NO); OUTPUT = 'match' :(FIN);NO OUTPUT = 'nomatch';FIN;END;* span_pos_rpos_branch_8
+ R = 3; 'ABCDEF' TAB(*R) LEN(1) . C; OUTPUT = C;END;* tab_len_defer_1
+ DEFINE('mk()') :(E);mk mk = ARBNO('a') :(RETURN);E 'aa' POS(0) mk() '' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* user_function_arbno_pos_branch_11
+ DEFINE('j3(a,b,c)') :(j_end);j3 j3 = a '|' b '|' c :(RETURN);j_end; I = 0;lp I = LT(I, 80) I + 1 :F(done); R = j3('A' I, DUPL('b', 10) I, 'C' I) :(lp);done OUTPUT = R;END;* user_function_dupl_alt_branch_1
+ DEFINE('F()') :(FE);F F = 'v' :(RETURN);FE; e = LEN(0); OUTPUT = DATATYPE(EVAL('e . *F()'));END;* user_function_eval_len_3
+ DEFINE('R(t,n)'); OPSYN('&', 'R', 2); OUTPUT = DATATYPE('a' & 'b') :(END);R R = EVAL("LEN(1)") :(RETURN);END;* opsyn_pat;* user_function_opsyn_eval_2
+ DEFINE('mk(s)c') :(mk_end);mk c = s; mk = (REPLACE(c,&LCASE,&UCASE) | c) :(RETURN);mk_end; 'A' mk('a') :F(NO); OUTPUT = 'MATCHED e7' :(FIN);NO OUTPUT = 'NOMATCH';FIN;END;* user_function_replace_alt_branch_4
+ DEFINE('mk(s)c,p') :(mk_end);mk c = s; p = (REPLACE(c,&LCASE,&UCASE) | c); 'A' p :F(FRETURN); mk = 'inner-ok' :(RETURN);mk_end; OUTPUT = mk('a');END;* user_function_replace_alt_branch_5
+ $('Z' 'Z') = 1; P1 = ARB 'd'; 'abcdef' POS(0) *P1 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arb_pos_rpos_branch_6
+ C = 'a'; P = ARBNO(FENCE(*C)); 'aa' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_fence_pos_branch_23
+ C = 'a'; 'aa' POS(0) ARBNO(FENCE(*C)) RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_fence_pos_branch_24
+ P = ARBNO(FENCE('a')); 'aa' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_fence_pos_branch_25
+ P = ARBNO(FENCE(LEN(1))) TAB(3); 'abcabc' P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_fence_tab_branch_2
+ SUBJ = 'ABB'; SUBJ ? (POS(0) ARBNO('ABC' | 'AB' | 'A') 'BB' RPOS(0)) :F(FAILED); OUTPUT = 'Success!' :(END);FAILED OUTPUT = 'Failure.';END;* arbno_pos_rpos_branch_12
+ SUBJ = 'ABCBB'; SUBJ ? (POS(0) ARBNO('ABC' | 'AB' | 'A') 'CBB' RPOS(0)) :F(FAILED); OUTPUT = 'Success!' :(END);FAILED OUTPUT = 'Failure.';END;* arbno_pos_rpos_branch_13
+ s = 'ab'; s POS(0) ARBNO(('a' | 'ab') | 'c') RPOS(0) :S(M)F(N);M OUTPUT = 'match' :(END);N OUTPUT = 'nomatch';END;* arbno_pos_rpos_branch_3
+ s = 'ab'; s POS(0) ARBNO('a' | 'ab') RPOS(0) :S(BAD)F(GOOD);BAD OUTPUT = 'match' :(END);GOOD OUTPUT = 'nomatch';END;* arbno_pos_rpos_branch_4
+ SUBJ = 'CCBBAAAACC'; SUBJ ? POS(0) ARBNO('AA' | 'BB' | 'CC') RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_pos_rpos_branch_42
+ SUBJ = 'CCBBAAAACC'; SUBJ ? POS(0) ARBNO('AA' | 'BB' | 'CC') RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_pos_rpos_branch_44
+ SUBJ = 'AABBB'; SUBJ ? POS(0) ARBNO('AA' | 'BB' | 'CC') RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_pos_rpos_branch_45
+ P = 'AB'; S = 'ABABC'; S ? POS(0) ARBNO(*P) $ X 'C' RPOS(0) :F(NO); OUTPUT = 'M ' X :(EN);NO OUTPUT = 'F';EN;END;* arbno_pos_rpos_branch_59
+ $('Z' 'Z') = 1; P1 = ARBNO('ab') 'cd'; 'abcdef' POS(0) *P1 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_pos_rpos_branch_62
+ Command = 'a'; Parse = LEN(0) ARBNO(*Command) LEN(0); Src = 'aaa'; Src POS(0) *Parse RPOS(0) :S(OK)F(NO);OK OUTPUT = 'MATCH' :(END);NO OUTPUT = 'NOMATCH';END;* arbno_pos_rpos_branch_88
+ Command = 'a'; Parse = ARBNO(*Command) LEN(0); Src = 'aaa'; Src POS(0) *Parse RPOS(0) :S(OK)F(NO);OK OUTPUT = 'MATCH' :(END);NO OUTPUT = 'NOMATCH';END;* arbno_pos_rpos_branch_89
+ Command = 'a'; Parse = LEN(0) ARBNO(*Command); Src = 'aaa'; Src POS(0) *Parse RPOS(0) :S(OK)F(NO);OK OUTPUT = 'MATCH' :(END);NO OUTPUT = 'NOMATCH';END;* arbno_pos_rpos_branch_90
+ t = 'ab'; t POS(0) LEN(1) . V ARBNO(LEN(1)) RPOS(0) :S(YES)F(NO);YES OUTPUT = 'capture-then-arbno ok V=' V :(END);NO OUTPUT = 'fail';END;* arbno_pos_rpos_branch_91
+ V = 'ab'; X = '22World'; X ARBNO(*SIZE(V)) 'World' . C :S(YES)F(NO); OUTPUT = 'fail' :(END);YES OUTPUT = C;END;* arbno_size_defer_branch_1
+ ws = SPAN(' ') | ''; E = SPAN('0123456789'); P = '[' *E ARBNO(',' *E) ']'; '[1,2]' P :F(NO); OUTPUT = 'MATCHED' :(END);NO OUTPUT = 'FAILED';END;* arbno_span_defer_branch_1
+ ws = SPAN(' ') | ''; E = SPAN('0123456789'); P = '[' ( *E ARBNO(',' *E) ) ']'; '[1,2]' P :F(NO); OUTPUT = 'MATCHED' :(END);NO OUTPUT = 'FAILED';END;* arbno_span_defer_branch_2
+ ws = SPAN(' ') | ''; E = SPAN('0123456789'); P = '[' ( *E ARBNO(',' *E) | ws ) ']'; '[1,2]' P :F(NO); OUTPUT = 'MATCHED' :(END);NO OUTPUT = 'FAILED';END;* arbno_span_defer_branch_3
+ ws = SPAN(' ') | ''; E = SPAN('0123456789'); P = '[' ( *E ARBNO(',' *E) | 'zzz' ) ']'; '[1,2]' P :F(NO); OUTPUT = 'MATCHED' :(END);NO OUTPUT = 'FAILED';END;* arbno_span_defer_branch_4
+ ws = SPAN(' ') | ''; E = SPAN('0123456789'); P = '[' ( ARBNO(*E ',') *E | ws ) ']'; '[1,2]' P :F(NO); OUTPUT = 'MATCHED' :(END);NO OUTPUT = 'FAILED';END;* arbno_span_defer_branch_5
+ S = 'a(b(c))d'; P = ('zz' . V) | (BAL . V); S POS(0) P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match:' V :(END);NO OUTPUT = 'nomatch';END;* bal_pos_rpos_branch_2
+ SUBJ = 'ABCZ'; SUBJ ? POS(0) ('A' | 'AB') FENCE ('CD' | 'C') 'Z' RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* fence_pos_rpos_branch_1
+ SUBJ = 'abcd'; SUBJ ? POS(0) FENCE('ab' | 'a') 'cd' RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* fence_pos_rpos_branch_10
+ SUBJ = 'abcd'; SUBJ ? POS(0) FENCE('ab' | 'a') 'bcd' RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* fence_pos_rpos_branch_11
+ SUBJ = 'abcd'; SUBJ ? POS(0) FENCE(FENCE('ab' | 'a')) 'cd' RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* fence_pos_rpos_branch_16
+ SUBJ = 'abcd'; SUBJ ? POS(0) FENCE(LEN(2) FENCE) LEN(2) RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* fence_pos_rpos_branch_17
+ SUBJ = 'abcd'; SUBJ ? POS(0) LEN(2) FENCE LEN(2) RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* fence_pos_rpos_branch_2
+ SUBJ = 'abcd'; SUBJ ? POS(0) FENCE(POS(0)) LEN(4) RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* fence_pos_rpos_branch_20
+ SUBJ = 'abcd'; SUBJ ? POS(0) FENCE(LEN(2)) FENCE(LEN(2)) RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* fence_pos_rpos_branch_21
+ SUBJ = 'abcd'; SUBJ ? POS(0) (('ab' FENCE) | 'xy') 'cd' RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* fence_pos_rpos_branch_3
+ SUBJ = 'abcd'; SUBJ ? POS(0) ('ab' | 'a') FENCE 'cd' RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* fence_pos_rpos_branch_4
+ SUBJ = 'abcd'; SUBJ ? POS(0) LEN(1) FENCE LEN(1) FENCE LEN(2) RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* fence_pos_rpos_branch_5
+ SUBJ = 'ABCZ'; SUBJ ? POS(0) ('A' | 'AB') FENCE('CD' | 'C') 'Z' RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* fence_pos_rpos_branch_7
+ SUBJ = 'abcd'; SUBJ ? POS(0) FENCE(LEN(2) LEN(2)) RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* fence_pos_rpos_branch_9
+ G0 = (BREAKX('abc') | FENCE('a')); P = (*G0) $ v1; 'aa a' *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* fence_rpos_defer_branch_1
+ P = FENCE((BREAKX('abc')) $ v0) REM; 'a+a+a' *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* fence_rpos_rem_branch_1
+ P = FENCE((BREAKX('abc')) $ v0) FENCE(REM); 'a+a+a' *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* fence_rpos_rem_branch_2
+ $'#L' = 20; $'$X' = 'AB'; S = DUPL(' ', 30); S GT($'#L', 0) LEN($'#L' - SIZE($'$X')) . ind; OUTPUT = '[' ind ']';END;* len_dupl_size_1
+ $'#L' = 20; $'$X' = 'AB'; S = DUPL(' ', 30); S LEN($'#L' - SIZE($'$X')) . ind; OUTPUT = '[' ind ']';END;* len_dupl_size_3
+ s = 'ab'; mk = LEN(0);LP IDENT(s) :S(DONE); s POS(0) LEN(1) . c =; mk = mk ('X' | c) :(LP);DONE 'ab' mk :F(NO); OUTPUT = 'MATCHED r3' :(FIN);NO OUTPUT = 'NOMATCH r3';FIN;END;* pos_len_capture_branch_3
+ $('Z' 'Z') = 1; P = 'a' *P | 'b'; 'aaac' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* pos_rpos_defer_branch_2
+ $('Z' 'Z') = 1; P = 'a' *P | 'b'; 'aaab' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* pos_rpos_defer_branch_3
+ CS = 'ab'; S = 'aabbz'; S POS(0) SPAN(*CS) . V :S(OK)F(NO);OK OUTPUT = 'match:' V :(END);NO OUTPUT = 'nomatch';END;* span_pos_defer_branch_2
+ DEFINE('mk()') :(E);mk mk = ARBNO('a') :(RETURN);E P = mk() ''; 'aa' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* user_function_arbno_pos_branch_10
+ DEFINE('mk(p)') :(E);mk mk = p :(RETURN);E P = mk(ARBNO('a')); 'aa' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* user_function_arbno_pos_branch_7
+ DEFINE('mk(p)') :(E);mk mk = p :(RETURN);E A = ARBNO('a'); P = mk(A) ''; 'aa' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* user_function_arbno_pos_branch_8
+ DEFINE('mk(p)') :(E);mk mk = p :(RETURN);E Q = ARBNO('a'); P = mk(Q); 'aa' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* user_function_arbno_pos_branch_9
+ DEFINE('mk(p)') :(E);mk mk = p :(RETURN);E P = mk(SPAN('a')) ''; 'aa' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* user_function_span_pos_branch_3
+ $('Z' 'Z') = 1; P1 = ANY('b') LEN(1); P2 = LEN(1) *P1 LEN(1); 'abcdef' POS(0) *P2 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* any_pos_rpos_branch_5
+ $('Z' 'Z') = 1; P1 = ARB 'c' | ARB 'd'; 'abcdef' POS(0) *P1 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arb_pos_rpos_branch_4
+ $('Z' 'Z') = 1; P1 = ARB 'c'; P2 = LEN(1) *P1 LEN(1); 'abcdef' POS(0) *P2 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arb_pos_rpos_branch_7
+ $'W' = ''; S = '11'; S POS(0) ( ANY('1') ARBNO(ANY('1')) | $'W' ) RPOS(0) :S(OK)F(BAD);OK OUTPUT = 'MATCH' :(END);BAD OUTPUT = 'FAIL';END;* arbno_any_pos_branch_2
+ W = ''; S = '11'; S POS(0) ( ANY('1') ARBNO(ANY('1')) | W ) RPOS(0) :S(OK)F(BAD);OK OUTPUT = 'MATCH' :(END);BAD OUTPUT = 'FAIL';END;* arbno_any_pos_branch_3
+ P = (ANY('1') ARBNO(ANY('1')) | 'z') ('x' | ''); S = '11x'; S POS(0) P RPOS(0) :S(OK)F(BAD);OK OUTPUT = 'MATCH' :(END);BAD OUTPUT = 'FAIL';END;* arbno_any_pos_branch_4
+ P = ARBNO(REM) BAL; 'aaa' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_bal_pos_branch_3
+ G0 = FENCE(BAL); P = ARBNO(*G0); 'a+a+a' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_fence_bal_branch_1
+ SUBJ = '(ab)(c)'; SUBJ ? POS(0) ARBNO('(' ARBNO(NOTANY(')') FENCE) ')') RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_fence_notany_branch_1
+ SUBJ = '(ab)(c)'; SUBJ ? POS(0) ARBNO('(' ARBNO(NOTANY(')')) ')' FENCE) RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_fence_notany_branch_2
+ SUBJ = '(ab)(c)'; SUBJ ? POS(0) ARBNO('(' ARBNO(FENCE(NOTANY(')'))) ')') RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_fence_notany_branch_3
+ SUBJ = '(ab)(c)'; SUBJ ? POS(0) ARBNO(FENCE('(' ARBNO(NOTANY(')')) ')')) RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_fence_notany_branch_4
+ s = 'ab'; s POS(0) ARBNO('a' | FENCE('ab')) RPOS(0) :S(M)F(N);M OUTPUT = 'match' :(END);N OUTPUT = 'nomatch';END;* arbno_fence_pos_branch_1
+ SUBJ = 'abc'; SUBJ ? POS(0) ARBNO(LEN(1)) FENCE RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_fence_pos_branch_10
+ SUBJ = 'abc'; SUBJ ? POS(0) FENCE ARBNO(LEN(1)) RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_fence_pos_branch_11
+ SUBJ = 'abcd'; SUBJ ? POS(0) FENCE(ARBNO(LEN(1))) RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_fence_pos_branch_14
+ SUBJ = 'abc'; SUBJ ? POS(0) ARBNO(FENCE(LEN(1))) RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_fence_pos_branch_16
+ s = 'ab'; s POS(0) ARBNO(FENCE('a') | 'ab') RPOS(0) :S(M)F(N);M OUTPUT = 'match' :(END);N OUTPUT = 'nomatch';END;* arbno_fence_pos_branch_2
+ s = 'ab'; s POS(0) ARBNO(FENCE('a' | 'ab') | 'c') RPOS(0) :S(M)F(N);M OUTPUT = 'match' :(END);N OUTPUT = 'nomatch';END;* arbno_fence_pos_branch_3
+ SUBJ = 'aaaX'; SUBJ ? POS(0) ARBNO(LEN(1)) FENCE 'X' RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_fence_pos_branch_5
+ SUBJ = 'abc'; SUBJ ? POS(0) ARBNO(LEN(1) FENCE) RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_fence_pos_branch_7
+ SUBJ = 'abc'; SUBJ ? POS(0) ARBNO(FENCE LEN(1)) RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_fence_pos_branch_8
+ SUBJ = 'abc'; SUBJ ? POS(0) ARBNO(LEN(1) FENCE) RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_fence_pos_branch_9
+ P = ARBNO(FENCE(POS(1))) TAB(3); 'abcabc' *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_fence_tab_branch_1
+ cmd = ('a' | 'ab') ('d' | 'bd'); outer = ARBNO(*cmd); s = 'adbd'; s POS(0) *outer RPOS(0) :S(G)F(B);G OUTPUT = 'match' :(END);B OUTPUT = 'nomatch';END;* arbno_pos_rpos_branch_2
+ inner = ('a' | 'ab'); outer = ARBNO(*inner); s = 'abab'; s POS(0) *outer RPOS(0) :S(G)F(B);G OUTPUT = 'match' :(END);B OUTPUT = 'nomatch';END;* arbno_pos_rpos_branch_60
+ $('Z' 'Z') = 1; P1 = ARBNO(LEN(1)) 'd'; 'abcdef' POS(0) *P1 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_pos_rpos_branch_61
+ Z = ''; E = ARBNO('a' *Z) ('+' *E | ''); 'a+a+a' POS(0) *E RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_pos_rpos_branch_72
+ E = ARBNO('a' '') ('+' *E | ''); 'a+a+a' POS(0) *E RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_pos_rpos_branch_73
+ F = '+' 'a'; E = ARBNO('a') (*F | ''); 'a+a' POS(0) *E RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_pos_rpos_branch_74
+ E = ARBNO('a') 'x' ('+' *E | ''); 'ax+ax' POS(0) *E RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_pos_rpos_branch_75
+ E = ARBNO('a') ('+' *G | ''); G = 'a' ('+' *E | ''); 'a+a+a' POS(0) *E RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_pos_rpos_branch_76
+ E = ARBNO('a') ('+' *E | 'z'); 'a+az' POS(0) *E RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_pos_rpos_branch_78
+ G1 = ARBNO('a' | 'ab'); 'abcdef' POS(0) *G1 RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_pos_rpos_branch_80
+ elem = *val; val = ('"s"' | '[' elem ARBNO(',' elem) ']'); '["s","s"]' ? POS(0) elem RPOS(0) :F(NO); OUTPUT = 'MATCH' :(END);NO OUTPUT = 'FAIL';END;* arbno_pos_rpos_branch_87
+ &ANCHOR = 1; L = SPAN('ABCDEFGHIJKLMNOPQRSTUVWXYZ'); C1 = L; 'ABCD' POS(0) ARBNO(*C1) RPOS(0) :F(F1); OUTPUT = 'ok' :(END);F1 OUTPUT = 'FAIL';END;* arbno_span_pos_branch_12
+ P = (ANY('abc') | (((BAL | '') | 'ab' BREAKX(' ')) | '')); 'ab' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* bal_any_pos_branch_1
+ P = (ANY('abc') | (BAL | '')); 'ab' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* bal_any_pos_branch_2
+ P = (ANY('abc') | BAL); 'ab' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* bal_any_pos_branch_3
+ P = BREAK('abc') (BREAK('+') | REM); 'ab+ab' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* break_pos_rpos_branch_2
+ $('Z' 'Z') = 1; PX = 'LEN(4)'; 'abcdef' POS(0) *EVAL(PX) 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* eval_pos_rpos_branch_2
+ $('Z' 'Z') = 1; PX = 'LEN(2)'; P2 = LEN(1) *EVAL(PX) LEN(1); 'abcdef' POS(0) *P2 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* eval_pos_rpos_branch_3
+ S = ','; S FENCE(BREAK(',') | REM) $ W *DIFFER(W) :S(A)F(B);A OUTPUT = 't6m MATCH ' W :(END);B OUTPUT = 't6m FAIL';END;* fence_break_rem_branch_2
+ SUBJ = 'abc'; P = LEN(3); SUBJ ? POS(0) FENCE(*P) RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* fence_pos_rpos_branch_18
+ $('Z' 'Z') = 1; P1 = FENCE LEN(4); 'abcdef' POS(0) *P1 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* fence_pos_rpos_branch_22
+ $('Z' 'Z') = 1; P1 = FENCE LEN(2); P2 = LEN(1) *P1 LEN(1); 'abcdef' POS(0) *P2 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* fence_pos_rpos_branch_23
+ SUBJ = 'abc'; P = LEN(3); SUBJ ? POS(0) *P FENCE RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* fence_pos_rpos_branch_6
+ P = LEN(4) . V; 'abcdef' POS(0) *P 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match:' V :(END);NO OUTPUT = 'nomatch';END;* pos_rpos_len_branch_12
+ $('Z' 'Z') = 1; P1 = LEN(3) | LEN(2) LEN(2); 'abcdef' POS(0) *P1 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* pos_rpos_len_branch_16
+ $('Z' 'Z') = 1; P1 = RTAB(3) | RTAB(2); 'abcdef' POS(0) *P1 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* rtab_pos_rpos_branch_1
+ P = (SPAN(' ') | NOTANY('abc')) TAB(0); 'aaa' *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* span_notany_tab_branch_1
+ CS = 'ab'; S = 'aabbz'; S POS(0) (('q' . V) | (SPAN(*CS) . V)) :S(OK)F(NO);OK OUTPUT = 'match:' V :(END);NO OUTPUT = 'nomatch';END;* span_pos_defer_branch_1
+ CS = 'ab'; S = 'aabbz'; P = ('q' . V) | (SPAN(*CS) . V); S POS(0) P :S(OK)F(NO);OK OUTPUT = 'match:' V :(END);NO OUTPUT = 'nomatch';END;* span_pos_defer_branch_3
+ INNER = TAB(2); MID = *INNER TAB(4); OUTER = (*MID . V) 'ef'; 'abcdef' POS(0) *OUTER RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match:' V :(END);NO OUTPUT = 'nomatch';END;* tab_pos_rpos_branch_5
+ P = TAB(4) . V; 'abcdef' POS(0) *P 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match:' V :(END);NO OUTPUT = 'nomatch';END;* tab_pos_rpos_branch_6
+ $('Z' 'Z') = 1; DEFINE('F1()') :(GO);F1 F1 = ARB 'd' :(RETURN);GO 'abcdef' POS(0) *F1() 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* user_function_arb_pos_branch_3
+ $('Z' 'Z') = 1; DEFINE('F1()') :(GO);F1 F1 = ARBNO('ab') 'cd' :(RETURN);GO 'abcdef' POS(0) *F1() 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* user_function_arbno_pos_branch_4
+ $('Z' 'Z') = 1; DEFINE('F1()') :(GO);F1 F1 = 'a' *F1() | 'b' :(RETURN);GO 'aaac' POS(0) *F1() RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* user_function_pos_rpos_branch_4
+ $('Z' 'Z') = 1; DEFINE('F1()') :(GO);F1 F1 = 'a' *F1() | 'b' :(RETURN);GO 'aaab' POS(0) *F1() RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* user_function_pos_rpos_branch_5
+ DEFINE('mk()') :(E);mk mk = LEN(0) :(RETURN);E X = mk() ('a' *X | ''); 'aaa' POS(0) *X RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* user_function_pos_rpos_branch_6
+ $('Z' 'Z') = 1; P1 = LEN(1) ANY('b') NOTANY('a') LEN(1); 'abcdef' POS(0) *P1 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* any_notany_pos_branch_2
+ INNER = LEN(2); MID = ANY('a') *INNER; 'abcdef' POS(0) (*MID . V) RPOS(3) :S(OK)F(NO);OK OUTPUT = 'match:' V :(END);NO OUTPUT = 'nomatch';END;* any_pos_rpos_branch_1
+ MID = LEN(2) ANY('c'); 'abcdef' POS(0) (*MID . V) RPOS(3) :S(OK)F(NO);OK OUTPUT = 'match:' V :(END);NO OUTPUT = 'nomatch';END;* any_pos_rpos_branch_2
+ $('Z' 'Z') = 1; P1 = LEN(3) | LEN(2) ANY('c') LEN(1); 'abcdef' POS(0) *P1 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* any_pos_rpos_branch_3
+ $('Z' 'Z') = 1; P1 = LEN(3) | ANY('b') LEN(1); P2 = LEN(1) *P1 LEN(1); 'abcdef' POS(0) *P2 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* any_pos_rpos_branch_4
+ $('Z' 'Z') = 1; P1 = ARB 'd' | ARB 'c'; P2 = LEN(1) *P1 LEN(1); 'abcdef' POS(0) *P2 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arb_pos_rpos_branch_5
+ $('Z' 'Z') = 1; P1 = ARBNO(ANY('bc')); P2 = LEN(1) *P1 LEN(1); 'abcdef' POS(0) *P2 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_any_pos_branch_6
+ P = ARBNO(ARBNO(REM) FENCE(SPAN('abc'))); 'abcabc' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_fence_span_branch_4
+ SUBJ = 'BirdX'; SUBJ ? POS(0) ARBNO(('Bird' | 'Blue' | LEN(1)) . W) RPOS(0) :F(N); OUTPUT = 'ok W=' W;N;END;* arbno_pos_rpos_branch_10
+ $('Z' 'Z') = 1; P = ARBNO('a') ('' . v); 'aa' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_pos_rpos_branch_65
+ G1 = ARBNO((LEN(1) | LEN(2)) (LEN(1) | LEN(2))); 'abc' POS(0) *G1 RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_pos_rpos_branch_66
+ G1 = ARBNO((LEN(1) | LEN(2)) (LEN(1) | LEN(2))); 'abcde' POS(0) *G1 RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_pos_rpos_branch_67
+ G1 = ARBNO((LEN(1) | LEN(2)) LEN(1)); 'abc' POS(0) *G1 RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_pos_rpos_branch_68
+ G1 = ARBNO((LEN(1) | LEN(2)) (LEN(1) | LEN(2))); 'abcdef' POS(0) *G1 LEN(1) RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_pos_rpos_branch_70
+ G1 = ARBNO(LEN(1) (LEN(1) | LEN(2))); 'abc' POS(0) *G1 RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_pos_rpos_branch_71
+ $('Z' 'Z') = 1; A = ARBNO('a'); B = '' . v; P2 = A B; 'aa' POS(0) *P2 RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_pos_rpos_branch_79
+ G1 = ARBNO(LEN(1) | LEN(2) | LEN(3)); P = G1; 'abcdef' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_pos_rpos_branch_82
+ G1 = ARBNO(LEN(1) | LEN(2) | LEN(3)); P = *G1; 'abcdef' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_pos_rpos_branch_83
+ G1 = ARBNO(LEN(1) | LEN(2) | LEN(3)); G0 = *G1; P = *G0; 'abcdef' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_pos_rpos_branch_84
+ G2 = ARBNO(LEN(1) | LEN(2) | LEN(3)); G1 = *G2; G0 = *G1; P = *G0; 'abcdef' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_pos_rpos_branch_85
+ SUBJ = 'BlueGold'; SUBJ ? POS(0) ARBNO(('Bird' | 'Blue' | LEN(1)) . W) RPOS(0) :F(NO4); OUTPUT = 'ok W=' W;NO4;END;* arbno_pos_rpos_branch_9
+ $'W' = SPAN(' ') | ''; S = '1,2,3'; S POS(0) ANY('123') ARBNO($'W' ',' ANY('123')) RPOS(0) :S(OK)F(BAD);OK OUTPUT = 'MATCH' :(END);BAD OUTPUT = 'FAIL';END;* arbno_span_any_branch_1
+ $'W' = SPAN(' ') | ''; S = '1,2'; S POS(0) ( ANY('12') ARBNO(',' ANY('12')) | $'W' ) RPOS(0) :S(OK)F(BAD);OK OUTPUT = 'MATCH' :(END);BAD OUTPUT = 'FAIL';END;* arbno_span_any_branch_3
+ SUBJ = '(12,(3,45,(6)),78)'; ITEM = SPAN('0123456789') | *LIST; LIST = '(' ITEM ARBNO(',' ITEM) ')'; SUBJ ? POS(0) *LIST RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_span_pos_branch_1
+ SUBJ = '(12,(34)'; ITEM = SPAN('0123456789') | *LIST; LIST = '(' ITEM ARBNO(',' ITEM) ')'; SUBJ ? POS(0) *LIST RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* arbno_span_pos_branch_2
+ P = (BREAK('abc') REM) . v0; 'ab+ab' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* break_pos_rpos_branch_3
+ $('Z' 'Z') = 1; PB = 'LEN(3) | LEN(2)'; P2 = LEN(1) *EVAL(PB) LEN(1); 'abcdef' POS(0) *P2 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* eval_pos_rpos_branch_1
+ $('Z' 'Z') = 1; P1 = FENCE TAB(3) | TAB(4); 'abcdef' POS(0) *P1 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* fence_tab_pos_branch_2
+ INNER = LEN(2); MID = *INNER NOTANY('x'); 'abcdef' POS(0) (*MID . V) RPOS(3) :S(OK)F(NO);OK OUTPUT = 'match:' V :(END);NO OUTPUT = 'nomatch';END;* notany_pos_rpos_branch_1
+ P = LEN(2) | LEN(4); 'abcdef' POS(0) (*P . V) 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match:' V :(END);NO OUTPUT = 'nomatch';END;* pos_rpos_len_branch_13
+ $('Z' 'Z') = 1; P1 = LEN(2) . CV; P2 = LEN(1) *P1 LEN(1); 'abcdef' POS(0) *P2 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match:' CV :(END);NO OUTPUT = 'nomatch';END;* pos_rpos_len_branch_15
+ $('Z' 'Z') = 1; P1 = SPAN('b') BREAK('d'); P2 = LEN(1) *P1 LEN(1); 'abcdef' POS(0) *P2 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* span_break_pos_branch_2
+ $('Z' 'Z') = 1; P1 = SPAN('a') BREAK('c') TAB(4); 'abcdef' POS(0) *P1 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* span_break_tab_branch_1
+ P = TAB(2) | TAB(4); 'abcdef' POS(0) (*P . V) 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match:' V :(END);NO OUTPUT = 'nomatch';END;* tab_pos_rpos_branch_1
+ $('Z' 'Z') = 1; P1 = TAB(4) | TAB(3); P2 = LEN(1) *P1 LEN(1); 'abcdef' POS(0) *P2 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* tab_pos_rpos_branch_10
+ INNER = TAB(2) | TAB(4); MID = (*INNER . V) 'e'; 'abcdef' POS(0) *MID 'f' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match:' V :(END);NO OUTPUT = 'nomatch';END;* tab_pos_rpos_branch_2
+ INNER = TAB(2) | TAB(4); MID = *INNER . V; 'abcdef' POS(0) *MID 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match:' V :(END);NO OUTPUT = 'nomatch';END;* tab_pos_rpos_branch_3
+ P1 = TAB(4) . V1; P2 = RPOS(3) | TAB(5) 'f'; 'abcdef' POS(0) *P1 *P2 RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match:' V1 :(END);NO OUTPUT = 'nomatch';END;* tab_pos_rpos_branch_4
+ $('Z' 'Z') = 1; P1 = TAB(4) | TAB(3); P2 = LEN(1) *P1 LEN(1); 'abcdef' POS(0) *P2 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* tab_pos_rpos_branch_7
+ $('Z' 'Z') = 1; DEFINE('F1()') :(GO);F1 F1 = ARB 'c' | ARB 'd' :(RETURN);GO 'abcdef' POS(0) *F1() 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* user_function_arb_pos_branch_1
+ $('Z' 'Z') = 1; DEFINE('F1()') :(GO);F1 F1 = ARBNO(LEN(1)) 'd' :(RETURN);GO 'abcdef' POS(0) *F1() 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* user_function_arbno_pos_branch_3
+ $('Z' 'Z') = 1; DEFINE('F1()') :(GO);F1 F1 = 'LEN(4)' :(RETURN);GO 'abcdef' POS(0) *EVAL(F1()) 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* user_function_eval_pos_branch_7
+ $('Z' 'Z') = 1; DEFINE('F1()') :(GO);F1 F1 = FENCE LEN(4) :(RETURN);GO 'abcdef' POS(0) *F1() 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* user_function_fence_pos_branch_1
+ DEFINE('mk()') :(E);mk mk = LEN(0) :(RETURN);E X = mk() FENCE('a' *X | ''); 'aaa' POS(0) *X RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* user_function_fence_pos_branch_3
+ P = RTAB(2); DEFINE('F()') :(GO);F F = *P . V :(RETURN);GO 'abcdef' POS(0) *F() 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match:' V :(END);NO OUTPUT = 'nomatch';END;* user_function_rtab_pos_branch_1
+ $('Z' 'Z') = 1; DEFINE('F1()') :(GO);F1 F1 = RTAB(3) | RTAB(2) :(RETURN);GO 'abcdef' POS(0) *F1() 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* user_function_rtab_pos_branch_2
+ DEFINE('F()') :(GO);F F = TAB(4) :(RETURN);GO 'abcdef' POS(0) (*F() . V) 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match:' V :(END);NO OUTPUT = 'nomatch';END;* user_function_tab_pos_branch_1
+ INNER = LEN(2); MID = *INNER ANY('c'); OUTER = (*MID . V) NOTANY('x'); 'abcdef' POS(0) *OUTER LEN(2) RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match:' V :(END);NO OUTPUT = 'nomatch';END;* any_notany_pos_branch_1
+ $('Z' 'Z') = 1; P1 = ANY('ab'); P2 = ARBNO(*P1 . CV); 'abab' POS(0) *P2 'ab' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match:' CV :(END);NO OUTPUT = 'nomatch';END;* arbno_any_pos_branch_7
+ $('Z' 'Z') = 1; P1 = ANY('ab'); P2 = ARBNO(*P1 . CV); 'abab' POS(0) *P2 RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match:' CV :(END);NO OUTPUT = 'nomatch';END;* arbno_any_pos_branch_8
+ G0 = BREAK('abc'); P = (ARBNO(BAL) BREAKX('abc') *G0) . v1; 'abcabc' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_bal_break_branch_1
+ P = (ARBNO(REM) BAL | ''); 'aaa' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_bal_pos_branch_2
+ $'W' = FENCE(SPAN(' ') | ''); S = '1,2,3'; S POS(0) ANY('123') ARBNO($'W' ',' ANY('123')) RPOS(0) :S(OK)F(BAD);OK OUTPUT = 'MATCH' :(END);BAD OUTPUT = 'FAIL';END;* arbno_fence_span_branch_1
+ $'W' = FENCE(SPAN(' ') | ''); S = '1,2'; S POS(0) ANY('123') ARBNO($'W' ',' ANY('123')) RPOS(0) :S(OK)F(BAD);OK OUTPUT = 'MATCH' :(END);BAD OUTPUT = 'FAIL';END;* arbno_fence_span_branch_2
+ cmd = 'a' . X | 'ab' . X; outer = ARBNO(*cmd); s = 'ab'; s POS(0) *outer RPOS(0) :S(G)F(B);G OUTPUT = 'match ' X :(END);B OUTPUT = 'nomatch';END;* arbno_pos_rpos_branch_1
+ P = ((BREAK('+') | REM)) . v0; 'ab+ab' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* break_pos_rpos_branch_1
+ P = (BREAK('abc') (BREAK('+') | REM)) . v0; 'ab+ab' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* break_pos_rpos_branch_4
+ $('Z' 'Z') = 1; QC = 'c'; PB = 'LEN(3) | LEN(2) ANY(QC) LEN(1)'; 'abcdef' POS(0) *EVAL(PB) 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* eval_any_pos_branch_1
+ $('Z' 'Z') = 1; P1 = FENCE TAB(3) | LEN(2); P2 = LEN(1) *P1 LEN(1); 'abcdef' POS(0) *P2 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* fence_tab_pos_branch_3
+ $('Z' 'Z') = 1; P1 = LEN(3) . CV | LEN(2) . CV; P2 = LEN(1) *P1 LEN(1); 'abcdef' POS(0) *P2 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match:' CV :(END);NO OUTPUT = 'nomatch';END;* pos_rpos_len_branch_14
+ $('Z' 'Z') = 1; P1 = (LEN(2) . CV) TAB(4); 'abcdef' POS(0) *P1 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match:' CV :(END);NO OUTPUT = 'nomatch';END;* tab_pos_rpos_branch_9
+ $('Z' 'Z') = 1; DEFINE('F1()') :(GO);F1 F1 = FENCE TAB(3) | TAB(4) :(RETURN);GO 'abcdef' POS(0) *F1() 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* user_function_fence_tab_branch_1
+ $('Z' 'Z') = 1; DEFINE('F1()') :(GO);F1 F1 = SPAN('a') BREAK('c') TAB(4) :(RETURN);GO 'abcdef' POS(0) *F1() 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* user_function_span_break_branch_2
+ $('Z' 'Z') = 1; P1 = LEN(3) | ARBNO(ANY('bc')); P2 = LEN(1) *P1 LEN(1); 'abcdef' POS(0) *P2 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_any_pos_branch_5
+ P = ('' | '') ARBNO(REM) FENCE(SPAN('abc')); 'abcabc' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_fence_span_branch_5
+ P = ('' | '') ARBNO(ARBNO(REM) FENCE(SPAN('abc'))); 'abcabc' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_fence_span_branch_6
+ G0 = FENCE(POS(1)); G1 = ((BAL) . v1 | ''); P = (*G0 FENCE(NOTANY('ab') BREAKX('+')) | *G1); 'ab+ab' *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* fence_bal_notany_branch_1
+ $('Z' 'Z') = 1; P1 = (LEN(3) . CV | LEN(2) . CV) TAB(4); 'abcdef' POS(0) *P1 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match:' CV :(END);NO OUTPUT = 'nomatch';END;* tab_pos_rpos_branch_8
+ $('Z' 'Z') = 1; DEFINE('F1()') :(GO);F1 F1 = ANY('ab') :(RETURN);GO P2 = ARBNO(*F1() . CV); 'abab' POS(0) *P2 RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match:' CV :(END);NO OUTPUT = 'nomatch';END;* user_function_arbno_any_branch_4
+ DEFINE('mk()') :(E);mk mk = LEN(0) :(RETURN);E P = mk() FENCE(ARBNO('a') | ''); 'aa' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* user_function_arbno_fence_branch_2
+ $('Z' 'Z') = 1; DEFINE('F1()') :(GO);F1 F1 = (LEN(2) . CV) TAB(4) :(RETURN);GO 'abcdef' POS(0) *F1() 'ef' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match:' CV :(END);NO OUTPUT = 'nomatch';END;* user_function_tab_pos_branch_5
+ P = (((ARBNO(ARB)) . v0 | '' ARB)) $ v0; 'ab+ab' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_arb_pos_branch_1
+ G0 = BAL; P = ((ARBNO(REM) *G0 | '')) . v1; 'aaa' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_bal_pos_branch_1
+ P = ((ARBNO(BREAK('abc')) (BREAK('+') | REM)) . v0) . v0; 'ab+ab' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_break_pos_branch_1
+ P = (ARBNO(TAB(0)) | '') ARBNO(ARBNO(REM) FENCE(SPAN('abc'))); 'abcabc' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_fence_span_branch_3
+ $('Z' 'Z') = 1; CMD = 'a' | 'b'; P = (LEN(1) . HD) ARBNO(*CMD); 'xabab' POS(0) *P 'ab' RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match:' HD :(END);NO OUTPUT = 'nomatch';END;* arbno_pos_rpos_branch_63
+ $('Z' 'Z') = 1; CMD = 'a' | 'b'; P = (LEN(1) . HD) ARBNO(*CMD); 'xabab' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match:' HD :(END);NO OUTPUT = 'nomatch';END;* arbno_pos_rpos_branch_64
+ P = BAL ((RTAB(1)) . v0 | RTAB(2)) FENCE(((BAL) $ v0) $ v0); 'aaa' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* fence_bal_rtab_branch_1
+ G0 = (BREAK('ab')) . v0; P = (FENCE(BREAK(' ')) | (RTAB(0) REM) . v0) (*G0) $ v1; '' POS(0) *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* fence_break_rtab_branch_1
+ P = (SPAN(' ') | (NOTANY('abc') | NOTANY('+'))) FENCE(FENCE(TAB(0))) ARBNO((ARB) . v0); 'aaa' *P RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* arbno_fence_arb_branch_1
