@@ -1,3 +1,0 @@
-procedure main()
-  x := a[1].y;
-end

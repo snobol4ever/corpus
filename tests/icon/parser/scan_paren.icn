@@ -1,3 +1,0 @@
-procedure main()
-  s ? (r := move(1));
-end

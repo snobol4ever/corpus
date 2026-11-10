@@ -1,3 +1,0 @@
-procedure main()
-  every { if x > 5 then break; write(x) };
-end

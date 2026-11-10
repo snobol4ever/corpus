@@ -1,4 +1,0 @@
-procedure main()
-  x := a[1:3];
-  write(x);
-end

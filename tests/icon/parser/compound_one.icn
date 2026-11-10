@@ -1,3 +1,0 @@
-procedure main()
-  every i do { write(i) };
-end

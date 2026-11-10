@@ -1,3 +1,0 @@
-procedure main()
-  every { if x < 0 then next; write(x) };
-end

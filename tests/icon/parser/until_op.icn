@@ -1,3 +1,0 @@
-procedure main()
-  until x > 5 do write(x);
-end

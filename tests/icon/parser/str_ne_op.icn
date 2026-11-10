@@ -1,3 +1,0 @@
-procedure main()
-  if "a" ~== "b" then write("yes");
-end

@@ -1,1 +1,0 @@
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_BANG_BINARY (TT_VAR write) (TT_VAR args)))))

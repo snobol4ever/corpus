@@ -1,3 +1,0 @@
-procedure main()
-  s := "a" || "b" | "c" || "d";
-end

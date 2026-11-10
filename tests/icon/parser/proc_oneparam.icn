@@ -1,3 +1,0 @@
-procedure f(x)
-  write(x);
-end

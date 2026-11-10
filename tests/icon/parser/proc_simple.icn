@@ -1,3 +1,0 @@
-procedure greet()
-  write("hi");
-end

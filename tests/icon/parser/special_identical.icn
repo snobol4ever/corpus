@@ -1,3 +1,0 @@
-procedure main()
-  if x === y then write("eq");
-end

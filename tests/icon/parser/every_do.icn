@@ -1,3 +1,0 @@
-procedure main()
-  every i := 1 | 2 | 3 do write(i);
-end

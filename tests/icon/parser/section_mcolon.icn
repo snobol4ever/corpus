@@ -1,3 +1,0 @@
-procedure main()
-  x := s[1:-2];
-end

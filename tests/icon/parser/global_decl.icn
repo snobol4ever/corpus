@@ -1,5 +1,0 @@
-global g1, g2
-
-procedure main()
-    write(g1);
-end

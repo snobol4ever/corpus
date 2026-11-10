@@ -1,5 +1,0 @@
-procedure gen(n)
-    suspend n;
-    suspend n + 1;
-    return;
-end
