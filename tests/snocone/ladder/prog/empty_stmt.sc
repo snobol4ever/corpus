@@ -1,4 +1,0 @@
-OUTPUT = 'before';
-;
-;
-OUTPUT = 'after';

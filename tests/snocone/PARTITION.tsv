@@ -1,7 +1,8 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=358 features=32 ubiquitous=0() distinctive=32 core=36 clusters=51 chunks=4 sizes=100,100,100,22
+# shape: entries=426 features=34 ubiquitous=0() distinctive=34 core=41 clusters=53 chunks=4 sizes=100,100,100,85
 entry	part	cluster	shells
+ladder_prog__ctl_for	chunk:01	family:ladder_prog	
 simple_output_153	chunk:01	family:ladder	
 simple_output_173	chunk:01	family:ladder	
 simple_output_174	chunk:01	family:ladder	
@@ -30,12 +31,22 @@ simple_output_208	chunk:01	family:ladder
 simple_output_209	chunk:01	family:ladder	
 simple_output_210	chunk:01	family:ladder	
 simple_output_211	chunk:01	family:ladder	
-simple_output_88	chunk:03	family:crosscheck_rungB04	
+simple_output_88	chunk:04	family:crosscheck_rungB04	
 ladder__rung24_output_associated_write	chunk:01	family:ladder	
+ladder_prog__amp_seq	chunk:01	family:ladder_prog	
+ladder_prog__arith_add	chunk:01	family:ladder_prog	
+ladder_prog__cmp_fail	chunk:01	family:ladder_prog	
+ladder_prog__ctl_continue	chunk:01	family:ladder_prog	
+ladder_prog__ctl_while	chunk:01	family:ladder_prog	
+ladder_prog__hello	chunk:01	family:ladder_prog	
+ladder_prog__lit_int	chunk:01	family:ladder_prog	
+ladder_prog__tilde_bin	chunk:01	family:ladder_prog	
+ladder_prog__unary_neg	chunk:01	family:ladder_prog	
+ladder_prog__vlist	chunk:01	family:ladder_prog	
 simple_output_104	chunk:01	family:ladder	
 simple_output_11	chunk:03	family:crosscheck_rungA01	
 simple_output_12	chunk:03	family:crosscheck_rungA01	
-simple_output_135	chunk:01	family:crosscheck_toplevel	
+simple_output_135	chunk:02	family:crosscheck_toplevel	
 simple_output_137	chunk:02	family:crosscheck_toplevel	
 simple_output_138	chunk:02	family:crosscheck_toplevel	
 simple_output_139	chunk:02	family:crosscheck_toplevel	
@@ -64,11 +75,19 @@ simple_output_27	chunk:03	family:crosscheck_rungA04
 simple_output_28	chunk:03	family:crosscheck_rungA04	
 simple_output_32	chunk:04	family:crosscheck_rungA06	
 simple_output_39	chunk:04	family:crosscheck_rungA08	
-simple_output_60	chunk:01	family:crosscheck_rungA16	
-simple_output_62	chunk:01	family:crosscheck_rungA16	
-simple_output_63	chunk:01	family:crosscheck_rungA16	
-simple_output_64	chunk:01	family:crosscheck_rungA16	
-simple_output_68	chunk:01	family:crosscheck_rungA16	
+simple_output_60	chunk:02	family:crosscheck_rungA16	
+simple_output_62	chunk:02	family:crosscheck_rungA16	
+simple_output_63	chunk:02	family:crosscheck_rungA16	
+simple_output_64	chunk:02	family:crosscheck_rungA16	
+simple_output_68	chunk:02	family:crosscheck_rungA16	
+ladder_prog__arith_muldiv	chunk:01	family:ladder_prog	
+ladder_prog__arith_unary	chunk:01	family:ladder_prog	
+ladder_prog__ctl_break	chunk:01	family:ladder_prog	
+ladder_prog__fn_basic	chunk:01	family:ladder_prog	
+ladder_prog__fn_freturn	chunk:01	family:ladder_prog	
+ladder_prog__lit_real	chunk:01	family:ladder_prog	
+ladder_prog__lit_string	chunk:01	family:ladder_prog	
+ladder_prog__pat_replace	chunk:01	family:ladder_prog	
 simple_output_10	chunk:03	family:crosscheck_rungA01	
 simple_output_127	chunk:02	family:crosscheck_toplevel	
 simple_output_128	chunk:02	family:crosscheck_toplevel	
@@ -94,19 +113,28 @@ simple_output_222	chunk:01	family:ladder
 simple_output_223	chunk:01	family:ladder	
 simple_output_25	chunk:03	family:crosscheck_rungA04	
 simple_output_29	chunk:03	family:crosscheck_rungA04	
-simple_output_52	chunk:01	family:crosscheck_rungA16	
-simple_output_53	chunk:01	family:crosscheck_rungA16	
-simple_output_57	chunk:01	family:crosscheck_rungA16	
-simple_output_58	chunk:01	family:crosscheck_rungA16	
-simple_output_59	chunk:01	family:crosscheck_rungA16	
-simple_output_65	chunk:01	family:crosscheck_rungA16	
-simple_output_67	chunk:01	family:crosscheck_rungA16	
-simple_output_91	chunk:03	family:crosscheck_rungB04	
-simple_output_100	chunk:02	family:crosscheck_rungB07	
-simple_output_101	chunk:02	family:crosscheck_rungB07	
-simple_output_102	chunk:02	family:crosscheck_rungB07	
-simple_output_103	chunk:02	family:crosscheck_rungB07	
-simple_output_122	chunk:03	family:crosscheck_rungB11	
+simple_output_52	chunk:02	family:crosscheck_rungA16	
+simple_output_53	chunk:02	family:crosscheck_rungA16	
+simple_output_57	chunk:02	family:crosscheck_rungA16	
+simple_output_58	chunk:02	family:crosscheck_rungA16	
+simple_output_59	chunk:02	family:crosscheck_rungA16	
+simple_output_65	chunk:02	family:crosscheck_rungA16	
+simple_output_67	chunk:02	family:crosscheck_rungA16	
+simple_output_91	chunk:04	family:crosscheck_rungB04	
+ladder_prog__alt_eval	chunk:02	family:ladder_prog	
+ladder_prog__arith_prec	chunk:02	family:ladder_prog	
+ladder_prog__cmp_lex	chunk:02	family:ladder_prog	
+ladder_prog__ctl_dowhile	chunk:02	family:ladder_prog	
+ladder_prog__ctl_if	chunk:02	family:ladder_prog	
+ladder_prog__empty_stmt	chunk:02	family:ladder_prog	
+ladder_prog__ident_differ	chunk:02	family:ladder_prog	
+ladder_prog__multi_assign	chunk:02	family:ladder_prog	
+ladder_prog__pat_basic	chunk:02	family:ladder_prog	
+simple_output_100	chunk:03	family:crosscheck_rungB07	
+simple_output_101	chunk:03	family:crosscheck_rungB07	
+simple_output_102	chunk:03	family:crosscheck_rungB07	
+simple_output_103	chunk:03	family:crosscheck_rungB07	
+simple_output_122	chunk:04	family:crosscheck_rungB11	
 simple_output_129	chunk:02	family:crosscheck_toplevel	
 simple_output_13	chunk:03	family:crosscheck_rungA01	
 simple_output_131	chunk:02	family:crosscheck_toplevel	
@@ -128,18 +156,23 @@ simple_output_226	chunk:01	family:ladder
 simple_output_227	chunk:01	family:ladder	
 simple_output_228	chunk:01	family:ladder	
 simple_output_231	chunk:01	family:ladder	
-simple_output_42	chunk:03	family:crosscheck_rungA10	
-simple_output_43	chunk:03	family:crosscheck_rungA10	
-simple_output_54	chunk:01	family:crosscheck_rungA16	
-simple_output_56	chunk:01	family:crosscheck_rungA16	
-simple_output_61	chunk:01	family:crosscheck_rungA16	
-simple_output_66	chunk:01	family:crosscheck_rungA16	
-simple_output_81	chunk:02	family:crosscheck_rungB03	
-simple_output_87	chunk:03	family:crosscheck_rungB04	
-simple_output_89	chunk:03	family:crosscheck_rungB04	
-simple_output_90	chunk:03	family:crosscheck_rungB04	
-simple_output_98	chunk:02	family:crosscheck_rungB07	
-simple_output_105	chunk:03	family:crosscheck_rungB08	
+simple_output_42	chunk:04	family:crosscheck_rungA10	
+simple_output_43	chunk:04	family:crosscheck_rungA10	
+simple_output_54	chunk:02	family:crosscheck_rungA16	
+simple_output_56	chunk:02	family:crosscheck_rungA16	
+simple_output_61	chunk:02	family:crosscheck_rungA16	
+simple_output_66	chunk:02	family:crosscheck_rungA16	
+simple_output_81	chunk:03	family:crosscheck_rungB03	
+simple_output_87	chunk:04	family:crosscheck_rungB04	
+simple_output_89	chunk:04	family:crosscheck_rungB04	
+simple_output_90	chunk:04	family:crosscheck_rungB04	
+simple_output_98	chunk:03	family:crosscheck_rungB07	
+ladder_prog__comments	chunk:02	family:ladder_prog	
+ladder_prog__concat	chunk:02	family:ladder_prog	
+ladder_prog__ctl_switch_default	chunk:02	family:ladder_prog	
+ladder_prog__goto_basic	chunk:02	family:ladder_prog	
+ladder_prog__unary_interro	chunk:02	family:ladder_prog	
+simple_output_105	chunk:04	family:crosscheck_rungB08	
 simple_output_130	chunk:02	family:crosscheck_toplevel	
 simple_output_163	chunk:01	family:ladder	
 simple_output_166	chunk:01	family:ladder	
@@ -148,15 +181,20 @@ simple_output_183	chunk:01	family:ladder
 simple_output_185	chunk:01	family:ladder	
 simple_output_30	chunk:04	family:crosscheck_rungA05	
 simple_output_40	chunk:04	family:crosscheck_rungA09	
-simple_output_41	chunk:03	family:crosscheck_rungA10	
-simple_output_45	chunk:02	family:crosscheck_rungA13	
-simple_output_55	chunk:01	family:crosscheck_rungA16	
+simple_output_41	chunk:04	family:crosscheck_rungA10	
+simple_output_45	chunk:03	family:crosscheck_rungA13	
+simple_output_55	chunk:02	family:crosscheck_rungA16	
 simple_output_6	chunk:02	family:corpus	
 simple_output_73	chunk:03	family:crosscheck_rungB01	
-simple_output_84	chunk:02	family:crosscheck_rungB03	
-simple_output_86	chunk:02	family:crosscheck_rungB03	
-simple_output_93	chunk:03	family:crosscheck_rungB06	
-simple_output_121	chunk:03	family:crosscheck_rungB11	
+simple_output_84	chunk:03	family:crosscheck_rungB03	
+simple_output_86	chunk:03	family:crosscheck_rungB03	
+simple_output_93	chunk:04	family:crosscheck_rungB06	
+ladder_prog__augop	chunk:02	family:ladder_prog	
+ladder_prog__cmp_infix	chunk:02	family:ladder_prog	
+ladder_prog__cmp_num	chunk:02	family:ladder_prog	
+ladder_prog__fn_local	chunk:02	family:ladder_prog	
+ladder_prog__struct_basic	chunk:02	family:ladder_prog	
+simple_output_121	chunk:04	family:crosscheck_rungB11	
 simple_output_158	chunk:01	family:ladder	
 simple_output_164	chunk:01	family:ladder	
 simple_output_217	chunk:01	family:ladder	
@@ -164,54 +202,57 @@ simple_output_218	chunk:01	family:ladder
 simple_output_224	chunk:01	family:ladder	
 simple_output_3	chunk:02	family:corpus	
 simple_output_33	chunk:03	family:crosscheck_rungA07	
-simple_output_49	chunk:02	family:crosscheck_rungA13	
+simple_output_49	chunk:03	family:crosscheck_rungA13	
 simple_output_5	chunk:02	family:corpus	
-simple_output_50	chunk:02	family:crosscheck_rungA13	
-simple_output_72	chunk:03	family:crosscheck_rungB01	
-simple_output_75	chunk:02	family:crosscheck_rungB02	
-simple_output_77	chunk:02	family:crosscheck_rungB02	
-simple_output_80	chunk:02	family:crosscheck_rungB02	
-simple_output_99	chunk:02	family:crosscheck_rungB07	
-simple_output_106	chunk:03	family:crosscheck_rungB08	
+simple_output_50	chunk:03	family:crosscheck_rungA13	
+simple_output_72	chunk:04	family:crosscheck_rungB01	
+simple_output_75	chunk:03	family:crosscheck_rungB02	
+simple_output_77	chunk:03	family:crosscheck_rungB02	
+simple_output_80	chunk:03	family:crosscheck_rungB02	
+simple_output_99	chunk:03	family:crosscheck_rungB07	
+ladder_prog__ctl_switch	chunk:02	family:ladder_prog	
+ladder_prog__fn_recur	chunk:02	family:ladder_prog	
+ladder_prog__integ_fib	chunk:02	family:ladder_prog	
+simple_output_106	chunk:04	family:crosscheck_rungB08	
 simple_output_126	chunk:04	family:crosscheck_rungB12	
 simple_output_31	chunk:04	family:crosscheck_rungA05	
 simple_output_44	chunk:04	family:crosscheck_rungA12	
 simple_output_7	chunk:02	family:corpus	
-simple_output_70	chunk:03	family:crosscheck_rungB01	
-simple_output_71	chunk:03	family:crosscheck_rungB01	
-simple_output_83	chunk:02	family:crosscheck_rungB03	
-simple_output_94	chunk:03	family:crosscheck_rungB06	
-simple_output_95	chunk:03	family:crosscheck_rungB06	
-simple_output_96	chunk:03	family:crosscheck_rungB06	
-simple_output_97	chunk:03	family:crosscheck_rungB06	
-simple_output_107	chunk:03	family:crosscheck_rungB08	
-simple_output_108	chunk:03	family:crosscheck_rungB08	
-simple_output_123	chunk:03	family:crosscheck_rungB11	
+simple_output_70	chunk:04	family:crosscheck_rungB01	
+simple_output_71	chunk:04	family:crosscheck_rungB01	
+simple_output_83	chunk:03	family:crosscheck_rungB03	
+simple_output_94	chunk:04	family:crosscheck_rungB06	
+simple_output_95	chunk:04	family:crosscheck_rungB06	
+simple_output_96	chunk:04	family:crosscheck_rungB06	
+simple_output_97	chunk:04	family:crosscheck_rungB06	
+simple_output_107	chunk:04	family:crosscheck_rungB08	
+simple_output_108	chunk:04	family:crosscheck_rungB08	
+simple_output_123	chunk:04	family:crosscheck_rungB11	
 simple_output_215	chunk:01	family:ladder	
 simple_output_220	chunk:01	family:ladder	
 simple_output_4	chunk:02	family:corpus	
 simple_output_8	chunk:02	family:corpus	
-simple_output_82	chunk:02	family:crosscheck_rungB03	
+simple_output_82	chunk:03	family:crosscheck_rungB03	
 simple_output_214	chunk:01	family:ladder	
-simple_output_48	chunk:02	family:crosscheck_rungA13	
-simple_output_51	chunk:02	family:crosscheck_rungA13	
-simple_output_85	chunk:02	family:crosscheck_rungB03	
+simple_output_48	chunk:03	family:crosscheck_rungA13	
+simple_output_51	chunk:03	family:crosscheck_rungA13	
+simple_output_85	chunk:03	family:crosscheck_rungB03	
 simple_output_145	chunk:04	family:fibonacci	
 simple_output_37	chunk:03	family:crosscheck_rungA07	
-simple_output_78	chunk:02	family:crosscheck_rungB02	
-simple_output_79	chunk:02	family:crosscheck_rungB02	
+simple_output_78	chunk:03	family:crosscheck_rungB02	
+simple_output_79	chunk:03	family:crosscheck_rungB02	
 simple_output_1	chunk:02	family:corpus	
 simple_output_34	chunk:03	family:crosscheck_rungA07	
 simple_output_35	chunk:03	family:crosscheck_rungA07	
 simple_output_36	chunk:03	family:crosscheck_rungA07	
 simple_output_38	chunk:04	family:crosscheck_rungA08	
-simple_output_47	chunk:02	family:crosscheck_rungA13	
-simple_output_74	chunk:03	family:crosscheck_rungB01	
-simple_output_149	chunk:03	family:probe_nested_while	
-simple_output_150	chunk:03	family:probe_nested_while	
-simple_output_76	chunk:02	family:crosscheck_rungB02	
+simple_output_47	chunk:03	family:crosscheck_rungA13	
+simple_output_74	chunk:04	family:crosscheck_rungB01	
+simple_output_149	chunk:04	family:probe_nested_while	
+simple_output_150	chunk:04	family:probe_nested_while	
+simple_output_76	chunk:03	family:crosscheck_rungB02	
 simple_output_125	chunk:04	family:crosscheck_rungB12	
-simple_output_46	chunk:02	family:crosscheck_rungA13	
+simple_output_46	chunk:03	family:crosscheck_rungA13	
 simple_output_115	chunk:03	family:crosscheck_rungB10	
 simple_output_117	chunk:03	family:crosscheck_rungB10	
 simple_output_119	chunk:03	family:crosscheck_rungB10	
@@ -220,23 +261,27 @@ simple_output_109	chunk:03	family:crosscheck_rungB09
 simple_output_111	chunk:03	family:crosscheck_rungB09	
 simple_output_113	chunk:03	family:crosscheck_rungB09	
 simple_output_114	chunk:03	family:crosscheck_rungB09	
-simple_output_146	chunk:03	family:probe_nested_while	
+simple_output_146	chunk:04	family:probe_nested_while	
 simple_output_9	chunk:02	family:corpus	
-simple_output_148	chunk:03	family:probe_nested_while	
-simple_output_147	chunk:03	family:probe_nested_while	
+simple_output_148	chunk:04	family:probe_nested_while	
+simple_output_147	chunk:04	family:probe_nested_while	
 simple_output_152	chunk:04	family:test_for	
 simple_output_116	chunk:03	family:crosscheck_rungB10	
 simple_output_118	chunk:03	family:crosscheck_rungB10	
 simple_output_110	chunk:03	family:crosscheck_rungB09	
 simple_output_112	chunk:03	family:crosscheck_rungB09	
 simple_output_144	chunk:04	family:crosscheck_toplevel_xfail	
-simple_output_69	chunk:01	family:crosscheck_rungA16	
+simple_output_69	chunk:02	family:crosscheck_rungA16	
 simple_output_151	chunk:04	family:test_break_return	
-dupl_1	chunk:03	feat:DUPL	DUPL
+dupl_1	chunk:04	feat:DUPL	DUPL
 replace_1	chunk:03	feat:REPLACE	REPLACE
 size_3	chunk:02	feat:SIZE	SIZE
 array_6	chunk:02	feat:ARRAY	ARRAY
-dupl_replace_1	chunk:03	feat:DUPL	DUPL
+dupl_replace_1	chunk:04	feat:DUPL	DUPL
+ladder_prog__cursor_capture	chunk:03	feat:LEN	LEN
+ladder_prog__lit_keyword	chunk:03	feat:keyword_ref	keyword_ref
+ladder_prog__pat_alt	chunk:03	feat:alternation	alternation
+ladder_prog__pat_defer	chunk:04	feat:deferred_eval	deferred_eval
 replace_replace_1	chunk:03	feat:REPLACE	REPLACE
 size_2	chunk:02	feat:SIZE	SIZE
 size_replace_1	chunk:02	feat:SIZE	SIZE
@@ -246,113 +291,136 @@ array_4	chunk:02	feat:ARRAY	ARRAY
 array_5	chunk:02	feat:ARRAY	ARRAY
 array_7	chunk:02	feat:ARRAY	ARRAY
 capture_1	chunk:04	feat:cond_assign	cond_assign
-ladder__rung22_datatype_function_name_operator_yields_name	chunk:03	feat:DATATYPE	DATATYPE
+ladder__rung22_datatype_function_name_operator_yields_name	chunk:04	feat:DATATYPE	DATATYPE
+ladder_prog__fn_nreturn	chunk:02	feat:indirect_ref	indirect_ref
+ladder_prog__nul_parens	chunk:02	feat:SIZE	SIZE
 len_1	chunk:03	feat:LEN	LEN
 table_2	chunk:02	feat:TABLE	TABLE
 table_3	chunk:02	feat:TABLE	TABLE
 table_4	chunk:02	feat:TABLE	TABLE
 table_5	chunk:02	feat:TABLE	TABLE
-datatype_1	chunk:03	feat:DATATYPE	DATATYPE
-indirect_1	chunk:02	feat:indirect_ref	indirect_ref
-indirect_2	chunk:02	feat:indirect_ref	indirect_ref
+datatype_1	chunk:04	feat:DATATYPE	DATATYPE
+indirect_1	chunk:03	feat:indirect_ref	indirect_ref
+indirect_2	chunk:03	feat:indirect_ref	indirect_ref
 ladder__rung04_builtin_string_functions_size_of_a_control_character_string	chunk:02	feat:SIZE	SIZE
+ladder_prog__idx_multi	chunk:02	feat:ARRAY	ARRAY
+ladder_prog__indirect	chunk:03	feat:indirect_ref	indirect_ref
+ladder_prog__table_basic	chunk:02	feat:TABLE	TABLE
+ladder_prog__unary_name	chunk:03	feat:indirect_ref	indirect_ref
 table_1	chunk:02	feat:TABLE	TABLE
 array_1	chunk:02	feat:ARRAY	ARRAY
-datatype_replace_1	chunk:03	feat:DATATYPE	DATATYPE
+datatype_replace_1	chunk:04	feat:DATATYPE	DATATYPE
 fence_replace_1	core	core	FENCE
-indirect_3	chunk:02	feat:indirect_ref	indirect_ref
+indirect_3	chunk:03	feat:indirect_ref	indirect_ref
+ladder_prog__array_basic	chunk:02	feat:ARRAY	ARRAY
 size_1	chunk:02	feat:SIZE	SIZE
-ladder__rung23_keyword_and_system_variables_stlimit_halts_a_loop_body	chunk:02	feat:keyword_ref	keyword_ref
-simple_output_92	chunk:02	feat:alternation	alternation
+ladder__rung23_keyword_and_system_variables_stlimit_halts_a_loop_body	chunk:03	feat:keyword_ref	keyword_ref
+simple_output_92	chunk:03	feat:alternation	alternation
 array_replace_1	chunk:02	feat:ARRAY	ARRAY
 capture_replace_5	chunk:04	feat:cond_assign	cond_assign
-keyword_replace_2	chunk:02	feat:keyword_ref	keyword_ref
-ladder__rung23_keyword_and_system_variables_anchor_toggle	chunk:02	feat:keyword_ref	keyword_ref
-ladder__rung23_keyword_and_system_variables_stcount_query	chunk:02	feat:keyword_ref	keyword_ref
+keyword_replace_2	chunk:03	feat:keyword_ref	keyword_ref
+ladder__rung23_keyword_and_system_variables_anchor_toggle	chunk:03	feat:keyword_ref	keyword_ref
+ladder__rung23_keyword_and_system_variables_stcount_query	chunk:03	feat:keyword_ref	keyword_ref
 table_replace_1	chunk:02	feat:TABLE	TABLE
 array_replace_2	chunk:02	feat:ARRAY	ARRAY
-keyword_replace_1	chunk:02	feat:keyword_ref	keyword_ref
-indirect_replace_1	chunk:02	feat:indirect_ref	indirect_ref
-ladder__rung23_keyword_and_system_variables_stcount_counts_loop_body	chunk:02	feat:keyword_ref	keyword_ref
+keyword_replace_1	chunk:03	feat:keyword_ref	keyword_ref
+indirect_replace_1	chunk:03	feat:indirect_ref	indirect_ref
+ladder__rung23_keyword_and_system_variables_stcount_counts_loop_body	chunk:03	feat:keyword_ref	keyword_ref
 size_replace_2	chunk:02	feat:SIZE	SIZE
 array_replace_3	chunk:02	feat:ARRAY	ARRAY
 defer_replace_1	chunk:04	feat:deferred_eval	deferred_eval
-keyword_replace_3	chunk:02	feat:keyword_ref	keyword_ref
-trim_alt_1	chunk:03	feat:TRIM	TRIM alternation
+keyword_replace_3	chunk:03	feat:keyword_ref	keyword_ref
+trim_alt_1	chunk:04	feat:TRIM	TRIM alternation
+ladder_prog__pat_fence	core	core	ANY FENCE
+ladder_prog__pat_strvar	chunk:04	feat:RPOS	POS RPOS
 size_keyword_1	chunk:02	feat:SIZE	SIZE keyword_ref
 size_keyword_2	chunk:02	feat:SIZE	SIZE keyword_ref
-trim_size_replace_1	chunk:03	feat:TRIM	SIZE TRIM
+trim_size_replace_1	chunk:04	feat:TRIM	SIZE TRIM
 any_capture_1	chunk:04	feat:ANY	ANY cond_assign
 arb_capture_1	core	core	ARB cond_assign
 arbno_capture_1	core	core	ARBNO cond_assign
 bal_capture_1	core	core	BAL cond_assign
-break_capture_1	chunk:03	feat:BREAK	BREAK cond_assign
-capture_alt_1	chunk:02	feat:alternation	alternation cond_assign
-capture_alt_2	chunk:02	feat:alternation	alternation cond_assign
+break_capture_1	chunk:04	feat:BREAK	BREAK cond_assign
+capture_alt_1	chunk:03	feat:alternation	alternation cond_assign
+capture_alt_2	chunk:03	feat:alternation	alternation cond_assign
+ladder_prog__pat_immed	core	core	LEN imm_assign
 len_capture_1	chunk:03	feat:LEN	LEN cond_assign
 len_capture_2	chunk:03	feat:LEN	LEN cond_assign
-len_imm_capture_1	core	core	LEN imm_assign
+len_imm_capture_1	chunk:04	feat:imm_assign	LEN imm_assign
 notany_capture_1	core	core	NOTANY cond_assign
 replace_keyword_replace_1	chunk:03	feat:REPLACE	REPLACE keyword_ref
 rtab_capture_1	core	core	RTAB cond_assign
-span_capture_1	chunk:03	feat:SPAN	SPAN cond_assign
+span_capture_1	chunk:04	feat:SPAN	SPAN cond_assign
 tab_capture_1	core	core	TAB cond_assign
 abort_alt_1	core	core	ABORT alternation
-dupl_size_replace_1	chunk:03	feat:DUPL	DUPL SIZE
+dupl_size_replace_1	chunk:04	feat:DUPL	DUPL SIZE
 ladder__rung23_keyword_and_system_variables_code_exit_value	core	core	CODE keyword_ref
+ladder_prog__capture_chain	chunk:03	feat:LEN	LEN cond_assign
+ladder_prog__datatype	core	core	CONVERT DATATYPE
 size_keyword_replace_1	chunk:02	feat:SIZE	SIZE keyword_ref
-capture_replace_1	chunk:02	feat:alternation	alternation cond_assign
-capture_replace_2	chunk:02	feat:alternation	alternation cond_assign
-capture_replace_3	chunk:02	feat:alternation	alternation cond_assign
-capture_replace_4	chunk:02	feat:alternation	alternation cond_assign
-datatype_indirect_1	chunk:02	feat:indirect_ref	DATATYPE indirect_ref
+capture_replace_1	chunk:03	feat:alternation	alternation cond_assign
+capture_replace_2	chunk:03	feat:alternation	alternation cond_assign
+capture_replace_3	chunk:03	feat:alternation	alternation cond_assign
+capture_replace_4	chunk:03	feat:alternation	alternation cond_assign
+datatype_indirect_1	chunk:04	feat:DATATYPE	DATATYPE indirect_ref
 len_capture_replace_1	chunk:03	feat:LEN	LEN cond_assign
-len_imm_capture_replace_1	core	core	LEN imm_assign
-span_capture_replace_2	chunk:03	feat:SPAN	SPAN cond_assign
+len_imm_capture_replace_1	chunk:04	feat:imm_assign	LEN imm_assign
+span_capture_replace_2	chunk:04	feat:SPAN	SPAN cond_assign
 replace_keyword_replace_2	chunk:03	feat:REPLACE	REPLACE keyword_ref
 any_capture_replace_1	chunk:04	feat:ANY	ANY cond_assign
-break_capture_replace_1	chunk:03	feat:BREAK	BREAK cond_assign
+break_capture_replace_1	chunk:04	feat:BREAK	BREAK cond_assign
 len_capture_replace_2	chunk:03	feat:LEN	LEN cond_assign
 notany_capture_replace_1	core	core	NOTANY cond_assign
-pos_capture_replace_1	chunk:03	feat:POS	POS cond_assign
+pos_capture_replace_1	chunk:04	feat:POS	POS cond_assign
 rtab_capture_replace_1	core	core	RTAB cond_assign
-span_capture_replace_1	chunk:03	feat:SPAN	SPAN cond_assign
-span_capture_replace_3	chunk:03	feat:SPAN	SPAN cond_assign
+span_capture_replace_1	chunk:04	feat:SPAN	SPAN cond_assign
+span_capture_replace_3	chunk:04	feat:SPAN	SPAN cond_assign
 table_size_replace_1	chunk:02	feat:TABLE	SIZE TABLE
 array_keyword_replace_1	chunk:02	feat:ARRAY	ARRAY keyword_ref
-trim_keyword_replace_1	chunk:03	feat:TRIM	TRIM keyword_ref
-indirect_keyword_replace_1	chunk:02	feat:indirect_ref	indirect_ref keyword_ref
+trim_keyword_replace_1	chunk:04	feat:TRIM	TRIM keyword_ref
+indirect_keyword_replace_1	chunk:03	feat:indirect_ref	indirect_ref keyword_ref
 table_keyword_replace_1	chunk:02	feat:TABLE	TABLE keyword_ref
+scrip__sm_lower	chunk:04	feat:deferred_eval	ARRAY deferred_eval
+ladder_prog__pat_abort	core	core	ABORT ANY alternation
 len_rem_capture_1	chunk:04	feat:REM	LEN REM cond_assign
-pos_len_capture_1	chunk:03	feat:POS	LEN POS cond_assign
+pos_len_capture_1	chunk:04	feat:POS	LEN POS cond_assign
 rpos_len_capture_1	chunk:04	feat:RPOS	LEN RPOS cond_assign
 break_rem_capture_1	chunk:04	feat:REM	BREAK REM cond_assign
-datatype_replace_keyword_replace_1	core	core	DATATYPE REPLACE keyword_ref
-ladder__rung23_keyword_and_system_variables_maxlngth_query	chunk:03	feat:DUPL	DUPL SIZE keyword_ref
+datatype_replace_keyword_replace_1	chunk:03	feat:REPLACE	DATATYPE REPLACE keyword_ref
+ladder__rung23_keyword_and_system_variables_maxlngth_query	chunk:04	feat:DUPL	DUPL SIZE keyword_ref
+ladder_prog__pat_capture	chunk:04	feat:REM	BREAK REM cond_assign
 eval_datatype_defer_1	core	core	DATATYPE EVAL deferred_eval
-break_len_capture_replace_1	chunk:03	feat:BREAK	BREAK LEN cond_assign
-pos_len_capture_replace_1	chunk:03	feat:POS	LEN POS cond_assign
+break_len_capture_replace_1	chunk:04	feat:BREAK	BREAK LEN cond_assign
+pos_len_capture_replace_1	chunk:04	feat:POS	LEN POS cond_assign
 rpos_len_capture_replace_1	chunk:04	feat:RPOS	LEN RPOS cond_assign
 tab_len_capture_replace_1	core	core	LEN TAB cond_assign
-trim_size_keyword_replace_1	chunk:03	feat:TRIM	SIZE TRIM keyword_ref
+trim_size_keyword_replace_1	chunk:04	feat:TRIM	SIZE TRIM keyword_ref
 array_datatype_keyword_replace_1	core	core	ARRAY DATATYPE keyword_ref
 convert_size_keyword_replace_1	core	core	CONVERT SIZE keyword_ref
 trim_replace_keyword_replace_1	chunk:03	feat:REPLACE	REPLACE TRIM keyword_ref
-datatype_defer_keyword_replace_1	core	core	DATATYPE deferred_eval keyword_ref
+datatype_defer_keyword_replace_1	chunk:04	feat:deferred_eval	DATATYPE deferred_eval keyword_ref
 table_size_keyword_replace_1	chunk:02	feat:TABLE	SIZE TABLE keyword_ref
-array_indirect_keyword_replace_1	chunk:02	feat:indirect_ref	ARRAY indirect_ref keyword_ref
+array_indirect_keyword_replace_1	chunk:03	feat:indirect_ref	ARRAY indirect_ref keyword_ref
+ladder_prog__pat_arbno	core	core	ARBNO POS RPOS SPAN
 ladder__rung23_keyword_and_system_variables_keyword_value_operator_ampersand	core	core	ABORT DATATYPE SIZE keyword_ref
-break_len_rem_replace_1	core	core	BREAK LEN REM cond_assign
+break_len_rem_replace_1	chunk:04	feat:REM	BREAK LEN REM cond_assign
+ladder_prog__builtin_str	core	core	DUPL REPLACE SIZE TRIM
+ladder_prog__integ_wordcount	chunk:04	feat:RPOS	BREAK RPOS alternation cond_assign
 ladder__rung22_datatype_function_uppercase_type_name_query	core	core	ARRAY DATATYPE LEN TABLE
-trim_dupl_size_replace_1	core	core	DUPL SIZE TRIM keyword_ref
+trim_dupl_size_replace_1	chunk:04	feat:DUPL	DUPL SIZE TRIM keyword_ref
 table_size_indirect_replace_1	core	core	SIZE TABLE indirect_ref keyword_ref
-break_pos_capture_replace_1	chunk:03	feat:POS	BREAK POS cond_assign keyword_ref
+break_pos_capture_replace_1	chunk:04	feat:POS	BREAK POS cond_assign keyword_ref
 eval_datatype_indirect_replace_1	core	core	DATATYPE EVAL indirect_ref keyword_ref
-pos_table_datatype_replace_1	chunk:03	feat:POS	DATATYPE POS TABLE keyword_ref
+pos_table_datatype_replace_1	chunk:04	feat:POS	DATATYPE POS TABLE keyword_ref
+ladder_prog__capture_feed	core	core	LEN capture_plus_defer cond_assign deferred_eval imm_assign
+ladder_prog__pat_pos	core	core	POS REM RPOS RTAB TAB
+ladder_prog__pat_prims	core	core	ANY BREAK LEN NOTANY SPAN
 fence_len_capture_replace_1	core	core	FENCE LEN alternation cond_assign keyword_ref
 table_convert_size_replace_1	core	core	CONVERT SIZE TABLE indirect_ref keyword_ref
 user_function_span_any_replace_1	core	core	ANY DEFINE LEN RPOS SPAN keyword_ref
+probe_loose__test_capture_call	core	core	LEN SPAN alternation capture_plus_defer cond_assign deferred_eval
 break_len_rem_replace_2	core	core	BREAK LEN REM TRIM cond_assign keyword_ref
+ladder_prog__pat_recursive	core	core	ARBNO POS RPOS SPAN alternation arbno_with_alt deferred_eval
 arb_span_break_replace_2	core	core	ANY ARB BREAK LEN SPAN alternation cond_assign
 eval_datatype_replace_replace_1	core	core	DATATYPE EVAL REPLACE deferred_eval imm_assign indirect_ref keyword_ref
 any_pos_len_replace_1	core	core	ANY LEN POS REPLACE alternation cond_assign keyword_ref

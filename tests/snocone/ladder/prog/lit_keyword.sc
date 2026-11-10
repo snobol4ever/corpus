@@ -1,2 +1,0 @@
-OUTPUT = &UCASE;
-OUTPUT = &LCASE;

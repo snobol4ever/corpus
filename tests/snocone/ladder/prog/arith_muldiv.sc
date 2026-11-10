@@ -1,3 +1,0 @@
-OUTPUT = 6 * 7;
-OUTPUT = 20 / 4;
-OUTPUT = 2 ^ 10;

@@ -1,3 +1,0 @@
-OUTPUT = 3.14;
-OUTPUT = 1.0e3;
-OUTPUT = 2.5E-2;

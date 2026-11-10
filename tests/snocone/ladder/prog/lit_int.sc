@@ -1,2 +1,0 @@
-OUTPUT = 42;
-OUTPUT = 0;
