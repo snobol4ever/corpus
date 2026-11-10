@@ -1,25 +1,20 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=21 features=1 ubiquitous=1(package) distinctive=0 core=2 clusters=19 chunks=1 sizes=19
+# shape: entries=16 features=18 ubiquitous=3(package TRIM keyword_ref) distinctive=15 core=12 clusters=4 chunks=1 sizes=4
 entry	part	cluster	shells
-arcget	core	core	
-arcput	core	core	
+arcget	core	core	LEN REM arith cond_assign
+arcput	core	core	alternation
 c	chunk:01	family:c	
-cc	chunk:01	family:cc	
-d	chunk:01	family:d	
-def	chunk:01	family:def	
-e	chunk:01	family:e	
-en	chunk:01	family:en	
-enum	chunk:01	family:enum	
-equ	chunk:01	family:equ	
-g	chunk:01	family:g	
+cc	core	core	ARB RPOS cond_assign
+d	core	core	SIZE arith
+def	core	core	REPLACE TAB indirect_ref
+enum	core	core	TAB arith
+equ	core	core	TAB arith
+g	core	core	BREAK SPAN cond_assign
 hello	chunk:01	family:hello	
 hi	chunk:01	family:hi	
 host	chunk:01	family:host	
-lower	chunk:01	family:lower	
-module	chunk:01	family:module	
-op	chunk:01	family:op	
-rev	chunk:01	family:rev	
-save	chunk:01	family:save	
-sv	chunk:01	family:sv	
-tbl	chunk:01	family:tbl	
+lower	core	core	REPLACE
+op	core	core	ANY LEN REM cond_assign
+rev	core	core	BREAK LEN REM TABLE arith cond_assign
+tbl	core	core	BREAK REM SPAN cond_assign

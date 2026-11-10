@@ -1,0 +1,193 @@
+*---------------------------------------------------------------------- 1 arcget
+!@#$extract1.txt
+the first extracted line
+the second extracted line
+!@#$extract2.txt
+the only line of the second file
+*---------------------------------------------------------------------- 2 arcput
+hello.spt
+hi.spt
+*--------------------------------------------------------------------------- 3 c
+program demo;
+{ a block comment opens here
+* a starred line inside it
+  an indented line inside it
+}
+begin
+  writeln(1)
+end.
+*-------------------------------------------------------------------------- 4 cc
+int count; /* the counter */
+/* a whole-line comment */
+int total;
+x = y; /* swap later */
+*--------------------------------------------------------------------------- 5 d
+program demo;
+
+*
+{ a block comment opener on its own line
+* a starred line inside the block
+  an indented line inside the block
+}
+begin
+end.
+*------------------------------------------------------------------------- 6 def
+b$efc
+b$icl
+b$rcl
+b$scl
+b$vct
+b$xnt
+b$xrt
+c$aaa
+cswfl
+c$yyy
+dffnc
+dnamb
+dnamp
+flprt
+flptr
+g$aaa
+gbcnt
+gtcef
+headv
+hshtb
+id1
+id2blk
+inpbuf
+kvcom
+kvdmp
+kvftr
+kvpfl
+kvstn
+lowspmin
+mxlen
+pmhbs
+polct
+r$cod
+r$fcb
+s$aaa
+stage
+statb
+state
+stbas
+stmcs
+stmct
+s$yyy
+ticblk
+timsx
+tscblk
+ttybuf
+typet
+w$yyy
+*------------------------------------------------------------------------ 7 enum
+GBCNT
+HEADV
+MXLEN
+STAGE
+TIMSX
+DNAMB
+DNAMP
+STATE
+STBAS
+STATB
+POLCT
+TYPET
+LOWSPMIN
+FLPRT
+FLPTR
+GTCEF
+HSHTB
+PMHBS
+R_FCB
+C_AAA
+C_YYY
+G_AAA
+W_YYY
+R_COD
+KVSTN
+KVDMP
+KVFTR
+KVCOM
+KVPFL
+CSWFL
+STMCS
+STMCT
+TICBLK
+TSCBLK
+ID1
+ID2BLK
+INPBUF
+TTYBUF
+END_MIN_DATA
+*------------------------------------------------------------------------- 8 equ
+B_EFC
+B_ICL
+B_RCL
+B_SCL
+B_VCT
+B_XNT
+B_XRT
+C_AAA
+CSWFL
+C_YYY
+DFFNC
+DNAMB
+DNAMP
+FLPRT
+FLPTR
+G_AAA
+GBCNT
+GTCEF
+HEADV
+HSHTB
+ID1
+ID2BLK
+INPBUF
+KVCOM
+KVDMP
+KVFTR
+KVPFL
+KVSTN
+LOWSPMIN19
+MXLEN
+PMHBS
+POLCT
+R_COD
+R_FCB
+S_AAA
+STAGE
+STATB
+STATE
+STBAS
+STMCS
+STMCT
+S_YYY
+TICBLK
+TIMSX
+TSCBLK
+TTYBUF
+TYPET
+W_YYY
+*---------------------------------------------------------------------- 13 lower
+HELLO, WORLD
+Mixed Case Line 42
+already lower
+*------------------------------------------------------------------------- 14 op
+	add	xr,wa
+	mov	wb,=nulls
+	ttl	the title
+	zer	wc
+*------------------------------------------------------------------------ 15 rev
+* a comment line is copied
+       mov  xr,wa  copy the pointer
+       add  wb,wc  add the counts
+       lda  xl,xs  not in the table, copied
+       sub  ia,wa
+{
+       mov  in,block
+}
+*------------------------------------------------------------------------ 16 tbl
+arith add x,y the sum of two values
+control brn lbl branch unconditionally
+string lch w,(x) load a character
