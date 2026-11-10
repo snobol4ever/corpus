@@ -48,7 +48,7 @@ containers 43 (38 INCLUDED_BY, 4 NO_DEFINITION, 1 LOADED_BY). util_container_or_
 prints whole.
 
 Graded against the oracle: swipl -q (SWI-Prolog, the Prolog oracle; a program runs its load-time directives and its initialization goal). The container ALL.pl / ALL.ref / ALL.csv is built by
-SCRIP/scripts/util_build_package_suite.py, which cuts every ref from the oracle and names in ALL.excluded.txt, with its
+SCRIP/scripts/util_build_package_suite.py, which cuts every ref from the oracle and names in ALL.omit, with its
 reason, every program the oracle cannot grade (it refuses to compile or load it, fails, hangs past the timeout, prints
 nothing, or answers differently on two runs). Each is also named in UNGRADABLE.tsv (the oracle gives no one ground truth: ORACLE_REFUSES,
 NONDETERMINISTIC) or UNGRADED.tsv (work owed: NEEDS_DRIVER, TIMEOUT, NEEDS_RUNNER_WIRING for a program that prints a carriage

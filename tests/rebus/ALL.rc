@@ -1,6 +1,6 @@
-# ALL.wantrc — DECLARED exit codes for entries whose CORRECT run exits nonzero.
+# ALL.rc — DECLARED exit codes for entries whose CORRECT run exits nonzero.
 # Format: name<TAB>rc   ·   blank lines and # comments ignored   ·   rc=0 is the default and is REFUSED here.
-# See tests/prolog/ALL.wantrc for the convention this file follows.
+# See tests/prolog/ALL.rc for the convention this file follows.
 #
 # The expected rc is the ORACLE's (Lon 2026-11-05: the expected result is the oracle's exit code, stdout and stderr), measured with sbl -bf through
 # util_oracle.sh on the scrip --transpile text of each entry on SCRIP 5217bd1e8, 2026-11-05. The earlier rc 1 lines were declared from SCRIP's old

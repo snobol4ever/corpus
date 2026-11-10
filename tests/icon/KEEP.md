@@ -60,20 +60,20 @@ because there was nothing to gain — which is the honest answer this section pr
   skips silently on a missing witness. `generators.ref` is kept beside it as the pinned oracle cut that
   closes hq_C's row `icon-generator-comma-conjunction-in-an-every-operand-resumes-once`.
 - **`meander.icn`** — NOT in the rungs, and held by a LIVE BUILDER RULE, not by a judgement of mine.
-  `ALL.excluded.txt` computes it: *"stdin sidecar (.in/.input) -- stays as files until the stdin-sections
+  `ALL.omit` computes it: *"stdin sidecar (.in/.input) -- stays as files until the stdin-sections
   format extension lands"*. It is oracle-green with `meander.in` fed (m3=AGREE, m4=AGREE), so the ONLY thing
   between it and the denominator is that format extension.
   ⛔ **EXIT CONDITION, STATED SO THIS NOTE CANNOT OUTLIVE THE RULE IT IS QUOTING:** when the suite format can
   carry a stdin sidecar, DELETE this bullet and re-run the builder — `meander` will absorb on its own. Do not
-  re-justify it; re-measure the RULE by reading `ALL.excluded.txt`'s own line for `meander`, which is the
+  re-justify it; re-measure the RULE by reading `ALL.omit`'s own line for `meander`, which is the
   authority. ⚠ **AND NAMING IT HERE HAS A MEASURED COST**, recorded because I paid it both ways in one
   sitting: with the `.icn` suffix present the builder re-labels it *KEEPER, declared in KEEP.md* and
-  **overwrites its own true reason** in `ALL.excluded.txt`; without the suffix the sidecar keeps the true
+  **overwrites its own true reason** in `ALL.omit`; without the suffix the sidecar keeps the true
   reason but `test_gate_suite_conversion_complete.sh` — which reads only KEEP.md and PENDING.md — counts the
   file as undeclared and goes red. **Neither spelling is free.** The suffix is kept because a red gate is
   noise for every seat while an exit condition is the sanctioned cure for a note that could decay, and the
   quoted reason above is what a re-measure checks. ⭐ ROUTED TO hq_T as an instrument improvement rather than
-  taken unilaterally: that gate could accept a reasoned line in `ALL.excluded.txt` as a third declaration
+  taken unilaterally: that gate could accept a reasoned line in `ALL.omit` as a third declaration
   source, which is newly SAFE because CEO-545's digest now makes an invented exclusion line impossible to
   add by hand. A second copy with its own ref lives at `samples/meander.*` under that directory's own KEEP.md.
 
@@ -160,7 +160,7 @@ GC relocation SIGSEGV"), same session that discovered this row's own `stale-defe
 because it is a NEW loose `.icn` in this directory, which is exactly what this gate exists to catch.
 
 **Why it stays loose, per the authoring commit's own words:** *"Loose pair per the documented
-repro/probe_witness precedent in `ALL.excluded.txt` ('left in place for inspection, NOT re-absorbed')
+repro/probe_witness precedent in `ALL.omit` ('left in place for inspection, NOT re-absorbed')
 ... the only runner globbing `tests/icon` is the parser suite, which it passes."* Same class as this
 file's own `rung37_subscript_genproc.icn` entry above — a deliberate crash-regression probe, where
 folding it into a byte-equal suite pin would defeat its purpose. Oracle-graded at authoring time
@@ -190,7 +190,7 @@ This entry's own exit condition was *"stays loose until N-2 lands, then re-run `
 N-2 has landed. All four files — `rung03_suspend_gen`, `_gen_compose`, `_gen_filter`, `_suspend_return` —
 now run **rc=0 and MATCH in BOTH modes**, and each `.ref` was re-cut from Arizona icont/iconx here and
 found byte-identical to the committed one rather than trusted. They are absorbed into `ALL.icn`/`ALL.ref`/
-`ALL.csv` as passing entries and their `ALL.excluded.txt` KEEPER lines are removed in the same landing.
+`ALL.csv` as passing entries and their `ALL.omit` KEEPER lines are removed in the same landing.
 
 ⛔ **AND THE SWEEP THIS ENTRY ITSELF ASKED FOR** (*"do not assume these 4 are the only rung03-shaped
 casualties elsewhere in the tree"*) **found two more expired deferrals, declared via `PENDING.md` against
@@ -274,7 +274,7 @@ six above are what remains of it; the bucket's original count is history, not a 
 
 ⛔⭐ **THREE MORE NAMES LEFT THIS BUCKET 2026-09-10 (hq_V, ceo CEO-516, from hq_I's verified batch under
 CEO-512): `rung36_jcon_misc` `rung36_jcon_sorting` `rung36_jcon_struct` are ABSORBED into the Icon rungs
-as ordinary graded entries**, and their three KEEPER lines come out of `ALL.excluded.txt` in the same
+as ordinary graded entries**, and their three KEEPER lines come out of `ALL.omit` in the same
 landing — a witness in no denominator is an orphan, and `orphaned_witnesses_do_not_grow` was already at
 icon 21 against floor 19 while this was decided. **Each was RE-VERIFIED HERE before absorption rather than
 taken on the handing seat's word: GREEN in m3 AND m4, and the shipped `.expected` equals the ORACLE'S RUN
@@ -701,7 +701,7 @@ for the ceo, routed 2026-09-10, not something this file decides.
 ## ⛔⭐ THE ELEVEN INPUT-INDEPENDENT `rung36_jcon_*` KEEPERS ARE ABSORBED — CEO-541, hq_V 2026-09-10
 
 `rung36_jcon_{arith,case,checkfpx,ck,collate,errkwds,iobig,large,lgint,nargs,radix}` are **ABSORBED into
-the Icon rungs as ordinary graded entries**, their eleven KEEPER lines came out of `ALL.excluded.txt` in
+the Icon rungs as ordinary graded entries**, their eleven KEEPER lines came out of `ALL.omit` in
 the same landing, and their loose pairs were deleted by the builder's own verified `--delete-absorbed`.
 
 ⭐ **RE-MEASURED AT ABSORB TIME, NOT ON THE 18:3x MEASUREMENT THAT PROMPTED THE ASK.** Verified on SCRIP
@@ -718,7 +718,7 @@ than waved off: **the jcon PACKAGE suite grading the upstream originals is not d
 and Jcon already ship the same programs under two oracles and we grade both, deliberately.** So a copy in
 the rungs and an original in a package suite are two measurements, not one measurement twice.
 
-⛔ **AND THE BUILDER CANNOT RETRACT AN EXCLUSION BY ITSELF — THE ELEVEN `ALL.excluded.txt` LINES WERE
+⛔ **AND THE BUILDER CANNOT RETRACT AN EXCLUSION BY ITSELF — THE ELEVEN `ALL.omit` LINES WERE
 REMOVED BY HAND, DELIBERATELY.** That sidecar is written by a MERGE (`_excl_existing.update(...)`), so a
 family's line survives forever once written: absorb the family, delete its loose pair, and the line still
 reads *"KEEPER, declared in KEEP.md -- never absorbed"* about a file that no longer exists and a
@@ -726,7 +726,7 @@ declaration that no longer does either. Absorbing in the same call that deletes 
 the previous batch (CEO-516) only looked self-healing because a later pass re-classified those three while
 their files were still on disk. **This is the same shape as the closed exclusion that carried jcon `kwds`
 for four cycles: a wrong exclusion is invisible by construction, because a name that is excluded cannot be
-red, so nobody looks.** The rule for the next absorb: after `--delete-absorbed`, READ `ALL.excluded.txt`
+red, so nobody looks.** The rule for the next absorb: after `--delete-absorbed`, READ `ALL.omit`
 and delete the lines for what you just absorbed. The builder will not, and it will not warn you.
 
 ⛔ **WHAT DOES NOT GENERALISE FROM THIS.** The bar is CEO-516's and it is a MEASUREMENT, not a category:

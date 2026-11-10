@@ -17,7 +17,7 @@ PERMANENTLY, by ruling, not by omission.** These five continue to be graded exac
 stdin when present.
 
 ⭐ **Confirmed current as of the rungs consolidation (seat04, 2026-08-29/30):** `util_build_rungs_suite.py
---lang pascal` independently reaches the same conclusion — all 5 are EXCLUDED LOUDLY (`ALL.excluded.txt`),
+--lang pascal` independently reaches the same conclusion — all 5 are EXCLUDED LOUDLY (`ALL.omit`),
 never silently absorbed, matching this ruling exactly. `pb35` was added to this list after being found by a
 `read`/`readln`/`eof`/`eoln` sweep, not by its filename (unlike `read1`-`4`, its name gives no hint) — its
 `.ref` had also been silently captured against `/dev/null` rather than its own documented input; both the

@@ -12,7 +12,7 @@ output; **the oracle's answer is the ref**, and a `.std` the oracle disagrees wi
 `unicon_bin()` (`lib_oracle_flags.sh`), `ALL.ref` by `util_build_package_suite.py --lang icon --twice` (a program whose two oracle runs differ is not absorbed). Never `unicon -E`, never a normalizer.
 
 ## The population
-`ALL.icn / ALL.ref / ALL.csv` (declared `heap_kb`/`stack_kb`), `PARTITION.tsv`; `ALL.excluded.txt` names every shipped program the container does not absorb with its reason. `EXCLUDED.tsv` holds the
+`ALL.icn / ALL.ref / ALL.csv` (declared `heap_kb`/`stack_kb`), `PARTITION.tsv`; `ALL.omit` names every shipped program the container does not absorb with its reason. `EXCLUDED.tsv` holds the
 programs a ruled class leaves out of the denominator: bench (26, NOT_A_UNIT_TEST: library modules and benchmarks, CEO-1221), graphics (4, CEO-1315), database (9, the oracle build has no SQL/ODBC), and the
 oracle's non-answers (CEO-1696: empty output, a crash, a hang, a nondeterministic answer, program monitoring). Five tests import precompiled packages (`unicon/FxPtTest`, `FxPtTest_OVLD`, `list_test`,
 `udb/prime`, `udb/scopes`) and are shipped, ungraded and debt until the oracle runner can prebuild their packages.

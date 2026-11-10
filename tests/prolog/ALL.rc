@@ -1,4 +1,4 @@
-# ALL.wantrc — DECLARED exit codes for entries whose CORRECT run exits nonzero.
+# ALL.rc — DECLARED exit codes for entries whose CORRECT run exits nonzero.
 # Format: name<TAB>rc   ·   blank lines and # comments ignored   ·   rc=0 is the default and is REFUSED here.
 #
 # ⛔ DECLARED, NEVER INFERRED (hq_C ruling 2026-08-30, corpus-suites-consolidation.task.md

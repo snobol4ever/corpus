@@ -11,7 +11,7 @@ that sentence were misleading, and each cost a measurement:
   table below listed `packs/` and `gpacks/` as present ("varies"), so it described two
   directories that have never existed in this tree.
 - **Not just upstream files.** The directory also holds `ALL.icn`, `ALL.csv`, `ALL.ref`,
-  `ALL.wantrc` and `ALL.excluded.txt` — **ours, generated**, not Icon's. `ALL.icn` is a
+  `ALL.rc` and `ALL.omit` — **ours, generated**, not Icon's. `ALL.icn` is a
   16k-line concatenation of the graded entries. ⛔ A bare `find . -name '*.icn' | wc -l`
   therefore answers **852**, and that is not the population: it is 851 upstream programs
   plus our own container. hq_I published 852 on 2026-09-05 on exactly that evidence and
