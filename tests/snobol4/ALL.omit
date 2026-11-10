@@ -78,4 +78,4 @@ test_case[scrip_test]	module (include/ or library/ dir -- no runnable top level,
 test_math[scrip_test]	module (include/ or library/ dir -- no runnable top level, never absorbed alone)
 test_stack[scrip_test]	module (include/ or library/ dir -- no runnable top level, never absorbed alone)
 test_string[scrip_test]	module (include/ or library/ dir -- no runnable top level, never absorbed alone)
-# builder-digest: 1c555565b3217698308ba69854269f2e4ac124be5b76946bfa135775f61fb937
+# builder-digest: 5f86aafacc4545c9378251ebb71a9552e715b6889d2236a4bc6cc412b91bfa3d
