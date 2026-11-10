@@ -1,5 +1,0 @@
-* AB-0 witness: call of an undefined function -- record the SPITBOL error code.
-	OUTPUT = 'before'
-	OUTPUT = NOSUCH(1)
-	OUTPUT = 'after'
-END

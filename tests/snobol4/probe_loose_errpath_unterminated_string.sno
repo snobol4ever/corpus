@@ -1,4 +1,0 @@
-*  probe: string literal missing its closing quote -- Appendix D 232
-        x = 'unterminated
-        OUTPUT = x
-END

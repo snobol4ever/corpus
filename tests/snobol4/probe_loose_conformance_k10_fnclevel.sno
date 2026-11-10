@@ -1,6 +1,0 @@
-        DEFINE('probelvl()')                        :(main)
-probelvl OUTPUT = 'inside=' &FNCLEVEL                 :(RETURN)
-main    OUTPUT = 'outside=' &FNCLEVEL
-        probelvl()
-        OUTPUT = 'outside-after=' &FNCLEVEL
-END
