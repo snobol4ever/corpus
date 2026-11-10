@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=2286 features=40 ubiquitous=0() distinctive=40 core=21 clusters=156 chunks=23 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,65
+# shape: entries=2287 features=40 ubiquitous=0() distinctive=40 core=22 clusters=156 chunks=23 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,65
 entry	part	cluster	shells
 simple_assign_1	chunk:21	family:probe_conformance	
 simple_output_10	chunk:21	family:probe_conformance	
@@ -2280,6 +2280,7 @@ demo_treebank-alloc	core	core	ARBNO ARRAY BREAK DEFINE FENCE NOTANY POS RPOS SIZ
 benchmark_calculator-2	chunk:14	feat:TABLE	ANY ARBNO ARRAY DEFINE FENCE POS RPOS SIZE SPAN TABLE TRIM alternation arbno_with_alt arith deferred_eval fence_guarded_fail goto_fail goto_success keyword_ref
 user_function_arbno_span_replace_branch_3	chunk:18	feat:NOTANY	ANY ARBNO BREAK DEFINE LEN NOTANY POS RPOS SPAN TABLE TRIM alternation arbno_with_alt arith capture_plus_defer cond_assign deferred_eval goto_fail keyword_ref
 user_function_arbno_fence_replace_branch_1	chunk:18	feat:NOTANY	ANY ARBNO BREAK DEFINE FENCE NOTANY POS RPOS SPAN TABLE TRIM alternation arbno_with_alt arith capture_plus_defer cond_assign deferred_eval fence_guarded_fail goto_fail keyword_ref
+probe_loose_fwctx__probe_loose_fwctx_fwctx_standalone_ctl	core	core	ARBNO BREAK DEFINE EVAL FENCE LEN OPSYN POS RPOS SPAN alternation arbno_with_alt arith capture_plus_defer cond_assign deferred_eval fence_guarded_fail goto_fail indirect_ref keyword_ref
 scrip_test_treebank-prepend	core	core	ARBNO BREAK DATATYPE DEFINE DUPL LEN NOTANY POS RPOS SPAN TRIM alternation arbno_with_alt arith capture_plus_defer cond_assign deferred_eval goto_fail indirect_ref keyword_ref
 demo_claws5	chunk:18	feat:NOTANY	ANY ARBNO BREAK DEFINE FENCE NOTANY POS RPOS SIZE SPAN TABLE TRIM alternation arbno_with_alt arith capture_plus_defer cond_assign deferred_eval fence_guarded_fail goto_fail keyword_ref
 benchmark_claws5	core	core	ANY ARBNO BREAK DEFINE FENCE NOTANY POS RPOS SIZE SPAN TABLE TRIM alternation arbno_with_alt arith capture_plus_defer cond_assign deferred_eval fence_guarded_fail goto_fail goto_success keyword_ref
