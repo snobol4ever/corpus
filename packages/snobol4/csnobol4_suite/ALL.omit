@@ -1,7 +1,6 @@
 8bit2: source is not valid UTF-8 (genuine 8-bit content, e.g. accented bytes) -- h.write_suite's writer has no encoding param and would re-encode it as UTF-8, silently changing the byte-oriented source's own byte count/content versus what the ref was cut from; excluded rather than absorbed-but-wrong until write_suite itself grows byte-faithful output (shared machinery, out of this tool's lane)
 aa: oracle produced EMPTY output -- refusing to mint a vacuous ref
 aa/aa: oracle produced EMPTY output -- refusing to mint a vacuous ref
-atn: oracle produced EMPTY output -- refusing to mint a vacuous ref
 base: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
 basename: oracle produced EMPTY output -- refusing to mint a vacuous ref
 bb: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -25,10 +24,8 @@ json1: oracle died: graceful fatal report (e.g. undefined function) -- no ground
 k: oracle produced EMPTY output -- refusing to mint a vacuous ref
 label: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
 labelcode: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
-len: oracle produced EMPTY output -- refusing to mint a vacuous ref
 line2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 loaderr: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
-longrec: oracle produced EMPTY output -- refusing to mint a vacuous ref
 loop: oracle produced EMPTY output -- refusing to mint a vacuous ref
 matchloop: oracle produced EMPTY output -- refusing to mint a vacuous ref
 maxint: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
@@ -45,17 +42,12 @@ preload3: oracle produced EMPTY output -- refusing to mint a vacuous ref
 preload4: oracle produced EMPTY output -- refusing to mint a vacuous ref
 punch: oracle produced EMPTY output -- refusing to mint a vacuous ref
 random: oracle produced EMPTY output -- refusing to mint a vacuous ref
-repl: oracle produced EMPTY output -- refusing to mint a vacuous ref
 setexit2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 setexit4: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
 setexit7: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
 sleep: missing corpus dependency: -INCLUDE '../modules/time/time.sno' not vendored anywhere in corpus
 t: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
-tab: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
 time: missing corpus dependency: -INCLUDE '../modules/time/time.sno' not vendored anywhere in corpus
-trim0: oracle produced EMPTY output -- refusing to mint a vacuous ref
-trim1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-uneval2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 update: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
 utf: oracle produced EMPTY output -- refusing to mint a vacuous ref
 vdiffer: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
