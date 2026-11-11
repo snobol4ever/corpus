@@ -1,0 +1,2 @@
+tobj2.proc1(a:integer) called: 100
+tobj1.proc1(a:char) called: a

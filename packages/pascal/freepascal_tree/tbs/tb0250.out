@@ -1,0 +1,2 @@
+i:=$ffff loads -1$7fff if i is integer !
+j:=65535 loads -1 if j is integer !

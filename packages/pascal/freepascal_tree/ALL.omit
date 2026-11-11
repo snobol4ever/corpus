@@ -1,0 +1,579 @@
+tbs/tb0001.pp: LIBRARY: the source names unit tb0001;
+tbs/tb0002.pp: LIBRARY: the source names unit tb0002;
+tbs/tb0004.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0004.pp(5,3) Fatal: Can't find unit erroru used by Program
+tbs/tb0005.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0005.pp(5,3) Fatal: Can't find unit erroru used by Program
+tbs/tb0006.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0006.pp(5,3) Fatal: Can't find unit erroru used by Program
+tbs/tb0008.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0009.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0010.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0011.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0013.pp: NEEDS-DISPLAY: the source names uses crt
+tbs/tb0014.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0015.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0016.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0017.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0018.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0019.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0020.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0021.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0022.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0023.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0025.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0026.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0027.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0029.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0030.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0032.pp: NEEDS-DISPLAY: the source names uses graph, crt
+tbs/tb0033.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0034.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0036.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0037.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0037.pp(9,10) Error: Unknown identifier "AX"
+tbs/tb0038.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0039.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0040.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0042.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0043.pp: NEEDS-DISPLAY: the source names uses graph,crt
+tbs/tb0044.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0045.pp: NEEDS-DISPLAY: the source names uses crt,graph
+tbs/tb0046.pp: NEEDS-DISPLAY: the source names uses crt,graph
+tbs/tb0047.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0048.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0049.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0051.pp: NEEDS-DISPLAY: the source names uses graph,crt
+tbs/tb0052.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0053.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0054.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0055.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0056.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0057.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0060.pp: LIBRARY: the source names unit tb0060;
+tbs/tb0062.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0063.pp: LIBRARY: the source names Unit tb0063;
+tbs/tb0064.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0065.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0066.pp: LIBRARY: the source names Unit tb0066;
+tbs/tb0068.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0070.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0071.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0072.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0073.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0074.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0075.pp: LIBRARY: the source names Unit tb0075;
+tbs/tb0076.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0077.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0078.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0079.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0082.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0083.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0085.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0086.pp: LIBRARY: the source names unit tb0086;
+tbs/tb0087.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0090.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0092.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0094.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0095.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0098.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0099.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0101.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0102.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0104.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0106.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0107.pp: NEEDS-DISPLAY: the source names uses crt
+tbs/tb0108.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0113.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0116.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0118.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0118.pp(65,1) Fatal: Syntax error, "ASM" expected but "BEGIN" found
+tbs/tb0119.pp: LIBRARY: the source names unit tb0119;
+tbs/tb0120.pp: LIBRARY: the source names unit tb0120;
+tbs/tb0122.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0122.pp(11,16) Error: Identifier not found "class"
+tbs/tb0123.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0125.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0126.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0128.pp: LIBRARY: the source names unit tb0128;
+tbs/tb0129.pp: LIBRARY: the source names unit tb0129;
+tbs/tb0130.pp: NO-OUTPUT: nothing on standard output, exit 227; a dead engine would earn the same; stderr: Assertion failed (tb0130.pp, line 26).
+tbs/tb0132.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0133.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0135.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0136.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0137.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0139.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0140.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0140.pp(9,3) Fatal: Can't find unit erroru used by bug0165
+tbs/tb0141.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0142.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0143.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0144.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0145.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0146.pp: LIBRARY: the source names unit tb150_wrong;
+tbs/tb0147.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0148.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0149.pp: LIBRARY: the source names UNIT tb0149;
+tbs/tb0150.pp: LIBRARY: the source names UNIT tb154_wrong;
+tbs/tb0151.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0152.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0153.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0154.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0155.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0159.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0161.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0162.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0163.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0164.pp: NEEDS-DISPLAY: the source names uses graph
+tbs/tb0165.pp: LIBRARY: the source names Unit tb0165;
+tbs/tb0166.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0168.pp: NO-OUTPUT: nothing on standard output, exit 216; a dead engine would earn the same; stderr: Runtime error 216 at $00000000004010A2
+tbs/tb0169.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0172a.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0174.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0175.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0176.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0178.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0179.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0187.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0188a.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0189.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0189.pp(6,4) Fatal: Can't find unit erroru used by Program
+tbs/tb0190.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0192.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0194.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0196.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0198.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0200.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0200.pp(8,3) Fatal: Can't find unit erroru used by test_set_subrange
+tbs/tb0201.pp: LIBRARY: the source names unit tb0201;
+tbs/tb0205.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0205.pp(23,1) Error: Error while linking
+tbs/tb0208.pp: LIBRARY: the source names Unit tb0208;
+tbs/tb0209.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0211.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0211.pp(6,6) Fatal: Can't find unit erroru used by testme
+tbs/tb0212.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0212.pp(5,6) Fatal: Can't find unit erroru used by Program
+tbs/tb0213.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0215.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0216.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0217.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0219.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0219.pp(9,6) Fatal: Can't find unit erroru used by test_set
+tbs/tb0219a.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0219.pp(9,6) Fatal: Can't find unit erroru used by test_set
+tbs/tb0220.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0221.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0222.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0222.pp(10,3) Fatal: Can't find unit erroru used by bug0261
+tbs/tb0225.pp: NO-OUTPUT: nothing on standard output, exit -11; a dead engine would earn the same; stderr: timeout: the monitored command dumped core
+tbs/tb0227.pp: NEEDS-DISPLAY: the source names USES CRT
+tbs/tb0230.pp: LIBRARY: the source names unit tb0230;
+tbs/tb0234.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0238.pp: LIBRARY: the source names unit tb0238;
+tbs/tb0239.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0239.pp(7,3) Fatal: Can't find unit erroru used by AnsiTest
+tbs/tb0240.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0240.pp(7,3) Fatal: Can't find unit Erroru used by Program
+tbs/tb0243.pp: LIBRARY: the source names unit tb0243;
+tbs/tb0245.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0248.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0249.pp: LIBRARY: the source names unit tb0249;
+tbs/tb0254.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0255.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0257.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0258.pp: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 39 and 39 bytes
+tbs/tb0259.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0260.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0261.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0261.pp(33,1) Fatal: Syntax error, "ASM" expected but "BEGIN" found
+tbs/tb0267.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0269.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0269.pp(14,6) Error: Asm: [mov reg32,reg??] invalid combination of opcode and operands
+tbs/tb0270.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0271.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0272.pp: NO-OUTPUT: nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $00000000004010C6:
+tbs/tb0273.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0274.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0275.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0276.pp: LIBRARY: the source names unit tb0276;
+tbs/tb0277.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0278.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0279.pp: LIBRARY: the source names unit tb0279;
+tbs/tb0280.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0282.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0283.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0284.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0285.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0289.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0290.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0292.pp: LIBRARY: the source names unit tb0292;
+tbs/tb0293.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0294.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0296.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0298.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0299.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0300.pp: LIBRARY: the source names Unit tb0300;
+tbs/tb0301.pp: NEEDS-DISPLAY: the source names uses crt
+tbs/tb0302.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0303.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0304.pp: NO-OUTPUT: nothing on standard output, exit -11; a dead engine would earn the same; stderr: timeout: the monitored command dumped core
+tbs/tb0305.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0306.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0308.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0311.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0313.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0315.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0316.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0317.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0318.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0319.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0320.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0321.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0322.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0323.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0324.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0325.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0326.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0327.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0329.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0331.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0332.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0334.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0335.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0337.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0338.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0342.pp: LIBRARY: the source names unit tb0342;
+tbs/tb0343.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0344.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0345.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0347.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0348.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0350.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0351.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0352.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0353.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0354.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0355.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0356.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0358.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0360.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0361.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0362.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0365.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0368.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0370.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0371.pp: LIBRARY: the source names unit tb0371;
+tbs/tb0372.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0373.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0374.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0375.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0376.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0378.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0380.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0381.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0382.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0383.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0386.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0390.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0392.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0393.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0396.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0397.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0398.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0399.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0400.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0401.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0402.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0403.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0404.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0406.pp: LIBRARY: the source names unit tb0406;
+tbs/tb0407.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0408.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0409.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0410.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0411.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0412.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0413.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0414.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0414.pp(3,2) Error: User defined: obsolete test, because we do support both HW and softFPU now on all systems
+tbs/tb0415.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0416.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0417.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0418.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0419.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0420.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0422.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0423.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0424.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0425.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0426.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0427.pp: LIBRARY: the source names unit tb0427;
+tbs/tb0428.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0430.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0431.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0434.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0435.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0436.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0437.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0439.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0440.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0441.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0442.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0443.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0444.pp: LIBRARY: the source names unit tb0444;
+tbs/tb0445.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0448.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0449.pp: NO-OUTPUT: nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $0000000000401099:
+tbs/tb0450.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0451.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0454.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0456.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0457.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0458.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0459.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0460.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0462.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0465.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0466.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0467.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0468.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0468a.pas: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0469.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0470.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0475.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0476.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0478.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0482.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0483u.pp: LIBRARY: the source names unit tb0483u;
+tbs/tb0484.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0488a.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0488a.pp(57,12) Fatal: Can't find unit erroru used by Program
+tbs/tb0488b.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0488b.pp(29,12) Fatal: Can't find unit erroru used by Program
+tbs/tb0489.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0490.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0491.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0492.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0493.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0494.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0495.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0497a.pp: LIBRARY: the source names unit tb0497a;
+tbs/tb0497b.pp: LIBRARY: the source names unit tb0497b;
+tbs/tb0497c.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0499.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0501.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0502.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0503.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0504.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0505.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0507.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0508.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0509.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0510.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0516.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0517.pp: LIBRARY: the source names unit tb0517;
+tbs/tb0518.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0519.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0520.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0521.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0522.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0524.pp: NEEDS-NETWORK: the source names uses sockets
+tbs/tb0525.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0526.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0527.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0528.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0528.pp(36,1) Error: Error while linking
+tbs/tb0529.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0530.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0531.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0532.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0533.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0534.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0535.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0536.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0537.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0538.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0539.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0540.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0542.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0545.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0547.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0548.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0548a.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0549.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0550.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0550a.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0550a.pp(2,17) Fatal: Syntax error, ":" expected but "identifier O" found
+tbs/tb0550b.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0550b.pp(2,17) Fatal: Syntax error, ":" expected but "identifier O" found
+tbs/tb0551.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0552.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0553.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0554.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0555.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0557.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0558.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0558.pp(14,10) Error: Identifier not found "has_sse2_support"
+tbs/tb0559.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0561a.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0561b.pp: NO-OUTPUT: nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $000000000047B0D9:
+tbs/tb0564.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0565.pp: NEEDS-INPUT: the source names { %interactive
+tbs/tb0566.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0567.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0568.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0571.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0571.pas(16,11) Error: No matching implementation for interface method "QueryInterface(constref TGuid;out <Formal type>):LongInt; CDecl;" 
+tbs/tb0573.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0575.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0576.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0577.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0577a.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0578.pp: NO-OUTPUT: nothing on standard output, exit 216; a dead engine would earn the same; stderr: Runtime error 216 at $0000000000401099
+tbs/tb0581.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0582.pp: NO-OUTPUT: nothing on standard output, exit -11; a dead engine would earn the same; stderr: timeout: the monitored command dumped core
+tbs/tb0583.pp: NO-OUTPUT: nothing on standard output, exit 201; a dead engine would earn the same; stderr: Runtime error 201 at $00000000004010DB
+tbs/tb0583a.pp: NO-OUTPUT: nothing on standard output, exit 201; a dead engine would earn the same; stderr: Runtime error 201 at $0000000000401104
+tbs/tb0584.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0585.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0586.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0587.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0589.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0590.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0591.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0592.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0593.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0594.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0595.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0596.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0597.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0597.pp(8,4) Error: Unrecognized opcode ldr
+tbs/tb0599.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0600.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0601.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0602.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0603.pp: NO-OUTPUT: nothing on standard output, exit 216; a dead engine would earn the same; stderr: Runtime error 216 at $00000000004010B4
+tbs/tb0604.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0605.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0606.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0609.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0610.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0612.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0613.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0615.pp: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same
+tbs/tb0616.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0616.pp(9,5) Error: Not a directive or local symbol .code
+tbs/tb0617.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0618.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0619.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0622.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0623.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0624.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0625.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0626.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0627.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0628.pp: NO-OUTPUT: nothing on standard output, exit 207; a dead engine would earn the same; stderr: Runtime error 207 at $000000000040109E
+tbs/tb0629.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0630.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0633.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0635.pp: LIBRARY: the source names unit tb0635;
+tbs/tb0637.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0638.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0639.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0639.pp(24,3) Error: Unrecognized opcode ldd
+tbs/tb0643.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0644.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0645a.pp: LIBRARY: the source names unit tb0645a;
+tbs/tb0645b.pp: LIBRARY: the source names unit tb0645b;
+tbs/tb0645c.pp: LIBRARY: the source names unit tb0645c;
+tbs/tb0650.pp: LIBRARY: the source names unit tb0650;
+tbs/tb0654.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0655.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0656.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0657.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0658.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0659a.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0659b.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0659c.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0659d.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0659e.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0659f.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0659g.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0661.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0662.pp: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 90 and 90 bytes
+tbs/tb0663.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0664.pp: LIBRARY: the source names unit tb0664;
+tbs/tb0666a.pp: NO-OUTPUT: nothing on standard output, exit -11; a dead engine would earn the same; stderr: timeout: the monitored command dumped core
+tbs/tb0666b.pp: NO-OUTPUT: nothing on standard output, exit -11; a dead engine would earn the same; stderr: timeout: the monitored command dumped core
+tbs/tb0667.pp: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same
+tbs/tb0668a.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0668b.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0669.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0669.pp(23,3) Error: Unrecognized opcode bl
+tbs/tb0670.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0672.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0672.pp(12,13) Error: Ordinal expression expected
+tbs/tb0673.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0674.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0675.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0676.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0677.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0678.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0679.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0680.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0681.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0682.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0682.pp(10,11) Error: Assembler syntax error in operand
+tbs/tb0683.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0687.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0687.pp(6,5) Error: Unrecognized opcode ld1
+tbs/tb0688.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0689.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0689.pp(6,16) Fatal: illegal character "'%'" ($25)
+tbs/tb0690.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: ib0690.inc(2,14) Fatal: Syntax error, ";" expected but "identifier _1001" found
+tbs/tb0691.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: ib0690.inc(2,9) Fatal: illegal character "'%'" ($25)
+tbs/tb0692.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0692.pp(12,5) Error: Unrecognized opcode sbi
+tbs/tb0693.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0693.pp(22,14) Error: range check error while evaluating constants (255 must be between 0 and 3)
+tbs/tb0693a.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0693a.pp(25,13) Error: range check error while evaluating constants (255 must be between 0 and 3)
+tbs/tb0693b.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0693b.pp(27,13) Error: range check error while evaluating constants (255 must be between 0 and 3)
+tbs/tb0694.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0694.pp(27,64) Error: Illegal expression
+tbs/tb0696.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0696.pp(4,19) Error: Incompatible types: got "WideChar" expected "PChar"
+tbs/tb0697.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0697.pp(25,10) Error: String types have to match exactly in $V+ mode
+tbs/tb0698.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0698.pp(17,9) Error: String types have to match exactly in $V+ mode
+tbs/tb0699.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0700.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0701.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0702.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0703.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0703.pp(20,9) Error: Illegal qualifier
+tbs/tb0704.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0705.pp: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same
+tbs/tb0706.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0706.pp(6,3) Error: Identifier not found "volatile"
+tbs/tb0708.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0709.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0710.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0711.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0712.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0714.pp: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same
+tbs/tb0716.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb0716.pp(22,5) Error: Illegal expression
+tbs/tb0717.pp: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same
+tbs/tb0718.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0719.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0722.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0723.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0724.pp: LIBRARY: the source names unit tb0724;
+tbs/tb0725.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0726.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb0727.pp: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tbs/tb9000.pp: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tb9000.pp(19,10) Error: identifier idents no member "Pack"
+tbs/ub0060.pp: LIBRARY: the source names unit ub0060;
+tbs/ub0069.pp: LIBRARY: the source names unit ub0069;
+tbs/ub0119.pp: LIBRARY: the source names unit ub0119;
+tbs/ub0120.pp: LIBRARY: the source names unit ub0120;
+tbs/ub0129.pp: LIBRARY: the source names unit ub0129;
+tbs/ub0133.pp: LIBRARY: the source names unit ub0133;
+tbs/ub0150.pp: LIBRARY: the source names UNIT Unit_with_strange_name;
+tbs/ub0155.pp: LIBRARY: the source names Unit ub0155;
+tbs/ub0170.pp: LIBRARY: the source names unit ub0170;
+tbs/ub0179.pp: LIBRARY: the source names unit ub0179;
+tbs/ub0222.pp: LIBRARY: the source names unit ub0222;
+tbs/ub0265.pp: LIBRARY: the source names unit ub0265;
+tbs/ub0292.pp: LIBRARY: the source names unit ub0292;
+tbs/ub0308.pp: LIBRARY: the source names unit ub0308;
+tbs/ub0313.pp: LIBRARY: the source names unit ub0313;
+tbs/ub0339.pp: LIBRARY: the source names unit ub0339;
+tbs/ub0342a.pp: LIBRARY: the source names unit ub0342a;
+tbs/ub0342b.pp: LIBRARY: the source names unit ub0342b;
+tbs/ub0366.pp: LIBRARY: the source names unit ub0366;
+tbs/ub0380.pp: LIBRARY: the source names unit ub0380;
+tbs/ub0386.pp: LIBRARY: the source names unit ub0386;
+tbs/ub0391.pp: LIBRARY: the source names unit ub0391;
+tbs/ub0406.pp: LIBRARY: the source names unit ub0406;
+tbs/ub0421a.pp: LIBRARY: the source names unit ub0421a;
+tbs/ub0421b.pp: LIBRARY: the source names unit ub0421b ;
+tbs/ub0421c.pp: LIBRARY: the source names unit ub0421c;
+tbs/ub0426.pp: LIBRARY: the source names Unit ub0426;
+tbs/ub0437a.pp: LIBRARY: the source names unit ub0437a;
+tbs/ub0437b.pp: LIBRARY: the source names unit ub0437b;
+tbs/ub0437c.pp: LIBRARY: the source names unit ub0437c;
+tbs/ub0440.pp: LIBRARY: the source names unit ub0440;
+tbs/ub0461.pp: LIBRARY: the source names unit ub0461;
+tbs/ub0489.pp: LIBRARY: the source names unit ub0489;
+tbs/ub0489b.pp: LIBRARY: the source names unit ub0489b;
+tbs/ub0506.pp: LIBRARY: the source names unit ub0506;
+tbs/ub0569.pp: LIBRARY: the source names unit ub0569;
+tbs/ub0629.pp: LIBRARY: the source names unit ub0629;
+tbs/ub0635.pp: LIBRARY: the source names unit ub0635;
+tbs/ub0674.pp: LIBRARY: the source names unit ub0674;
+tbs/ub0717.pp: LIBRARY: the source names unit ub0717;
+tbs/ub0724a.pp: LIBRARY: the source names unit ub0724a;
+tbs/ub0724b.pp: LIBRARY: the source names unit ub0724b;
+tbs/ub0724c.pp: LIBRARY: the source names unit ub0724c;
+tbs/ub0725.pp: LIBRARY: the source names unit ub0725;

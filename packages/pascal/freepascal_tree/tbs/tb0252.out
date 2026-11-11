@@ -1,0 +1,3 @@
+refcount before init: 0
+refcount after init: 0
+refcount after done: 0

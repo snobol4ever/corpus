@@ -1,0 +1,13 @@
+IntGetter.TInnerObject.InstanceSize: 32
+IntGetter.TSpecialObject.InstanceSize: 48
+IntGetter.TFoo.InstanceSize: 24
+IntGetter.TBar.InstanceSize: 48
+***TestFoo(AFoo)*****************
+Calls TInnerObject.YMethod on a TInnerObject
+***TestFoo(ABar)*****************
+Calls TInnerObject.YMethod on a TInnerObject
+***TestBar(ABar)*****************
+Calls TSpecialObject.YMethod on a TSpecialObject
+TFoo.Destroy
+TBar.Destroy
+TFoo.Destroy

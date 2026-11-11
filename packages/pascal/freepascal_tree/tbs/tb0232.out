@@ -1,0 +1,3 @@
+testvalue s is "Test stringe"
+testconst s is "Test stringtest"
+testconst s is "Const test"

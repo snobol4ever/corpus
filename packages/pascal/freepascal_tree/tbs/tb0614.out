@@ -1,0 +1,5 @@
+get_objmethod
+TMyClass.Moo
+get_nestedprocvar
+nested
+Ok!

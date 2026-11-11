@@ -1,0 +1,19 @@
+t1: Calling fOnNotify
+t1 in t2: Signalling ev1
+t1 in t2: Synchronizing DoSync
+t1: Done
+t2: Waiting for ev1
+t2: Signalling ev2
+t2: Synchronizing DoSync2
+t2: Waiting for ev1
+t2: Done
+main: Starting t2
+main: Starting t1
+main: Waiting for ev2
+main: Calling CheckSynchronize
+main in t2: DoSync
+main: Signalling ev1
+main: Waiting for threads
+main in t2: DoSync2
+main: Cleaning up
+main: ok

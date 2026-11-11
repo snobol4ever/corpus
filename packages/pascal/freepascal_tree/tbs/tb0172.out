@@ -1,0 +1,3 @@
+if a boolean contains 2 it is considered as TRUE
+if a boolean contains 3 it is considered as TRUE
+if a boolean contains shortint(-1) it is considered as TRUE

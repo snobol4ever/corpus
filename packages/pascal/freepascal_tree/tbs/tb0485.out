@@ -1,0 +1,5 @@
+GetWidget.Width (123)?:    entering TQWidget.CreateWrapper ......leaving TQWidget.CreateWrapper
+    entering TQWidget.Width......leaving TQWidget.Width
+123
+    entering TQWidget.CreateWrapper ......leaving TQWidget.CreateWrapper
+    entering TQWidget.Width......leaving TQWidget.Width

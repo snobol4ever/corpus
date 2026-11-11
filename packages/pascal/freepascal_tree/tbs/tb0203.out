@@ -1,0 +1,11 @@
+tt is a class of ttest initialized by "tt:=ttest"
+i is a ttest class initialized by "i:=ttest.create"
+j is a ttest class initialized by "j:=ttest2.create"
+i is tobject TRUE
+i is tt TRUE
+i is ttest TRUE
+i is ttest2 FALSE
+j is tobject TRUE
+j is tt TRUE
+j is ttest TRUE
+j is ttest2 TRUE
