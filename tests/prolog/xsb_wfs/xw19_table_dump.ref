@@ -1,0 +1,6 @@
+caught(domain_error([summary(<true/False>),details(<subgoals/answers/false>),results(<var>),output(<true/false>)],badopt))
+details = p(A,B) - subgoals(2) - details([p(C,D) - times_called(1) - answers(5) - [p(7,c) - t,p(2,f(y)) - t,p(2,f(x)) - t,p(1,b) - t,p(1,a) - t] - completed,p(1,E) - times_called(2) - answers(2) - [p(1,b) - t,p(1,a) - t] - completed]).
+details = p(A,B) - subgoals(2) - details([p(C,D) - times_called(1) - answers(5) - completed,p(1,E) - times_called(2) - answers(2) - completed]).
+results(summary = p(A,B) - subgoals(2) - total_times_called(3) - total_answers(7))
+summary = p(A,B) - subgoals(2) - total_times_called(3) - total_answers(7).
+summary = p(A,B) - subgoals(2) - total_times_called(3) - total_answers(7).

@@ -1,0 +1,16 @@
+% DESIGN-PLAN xsb-tabling-wfs step 14 (the cio, 2026-11-10): the tables in progress as XSB shows them: their order, their SCC, who called whom
+:- import print_incomplete_tables/0, get_sdg_info/1, print_sdg_info/0, sdg_scc_info/2 from tables.
+:- import between/3 from basics.
+:- table q/2, c/2, g/2, m/2.
+q(0,_) :- !, print_incomplete_tables.
+q(2,A) :- q(3,A).
+q(N,A) :- N1 is N - 1, q(N1,A).
+c(M,N) :- between(1,N,X), ( M = N, N = X -> print_sdg_info ; true ), g(X,N).
+g(_,N) :- between(1,N,X), c(X,N).
+m(M,N) :- between(1,N,X), ( M = N, N = X -> get_sdg_info(L), sdg_scc_info(L,S), writeln(S) ; true ), tnot(m(X,N)).
+test :- q(3,k), fail.
+test :- writeln('----'), fail.
+test :- c(2,2), fail.
+test :- writeln('----'), fail.
+test :- m(2,2), fail.
+test.

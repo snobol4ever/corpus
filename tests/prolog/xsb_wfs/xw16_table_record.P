@@ -1,0 +1,28 @@
+% DESIGN-PLAN xsb-tabling-wfs step 12 (the cio, 2026-11-10): a table's record as XSB reads it: calls to it, its answers, its place among the tables in progress
+:- import get_callsto_number/2, get_answer_number/2, get_current_scc/2 from tables.
+:- table p/1, q/1, r/2, n/1.
+p(X) :- q(X).
+p(3).
+q(1).
+q(2).
+n(a) :- tnot(n(b)).
+n(b) :- tnot(n(a)).
+r(0,_) :- !, show(r(_,_)).
+r(3,A) :- r(5,A).
+r(N,A) :- N1 is N - 1, r(N1,A).
+bindv([]).
+bindv([v|T]) :- bindv(T).
+show(G) :- copy_term(G,C), get_calls(C,SF,_), get_callsto_number(SF,N), get_answer_number(SF,A),
+           ( get_current_scc(SF,S) -> true ; S = completed ),
+           term_variables(C,Vs), bindv(Vs), writeln(t(C,N,A,S)), fail.
+show(_).
+test :- p(_), fail.
+test :- p(_), fail.
+test :- q(1), fail.
+test :- n(a), fail.
+test :- show(p(_)), fail.
+test :- show(q(_)), fail.
+test :- show(n(_)), fail.
+test :- r(5,a), fail.
+test :- show(r(_,_)), fail.
+test.

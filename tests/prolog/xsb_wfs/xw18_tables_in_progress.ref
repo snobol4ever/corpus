@@ -1,0 +1,19 @@
+        Affects positively c(1,2)
+        Affects positively c(2,2) ; c(1,2)
+        Affects positively g(1,2) ; g(2,2)
+        Affects positively g(1,2) ; g(2,2)
+        SCC: 1; Number of calls to this subgoal 1; Number of answers 0
+        SCC: 1; Number of calls to this subgoal 2; Number of answers 0
+        SCC: 1; Number of calls to this subgoal 2; Number of answers 0
+        SCC: 1; Number of calls to this subgoal 3; Number of answers 0
+----
+----
+Subgoal: c(1,2)
+Subgoal: c(2,2)
+Subgoal: g(1,2)
+Subgoal: g(2,2)
+[scc(1,2,0,0,3)]
+q(0, k) - scc(3,4).
+q(1, k) - scc(2,3).
+q(2, k) - scc(1,1).
+q(3, k) - scc(1,1).

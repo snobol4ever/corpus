@@ -1,0 +1,19 @@
+% DESIGN-PLAN xsb-tabling-wfs step 15 (the cio, 2026-11-10): table_dump, and the order in which XSB lists a table's answers
+:- import table_dump/2 from dump_table.
+:- import numbervars/1 from num_vars.
+:- table p/2, s/1.
+p(1,a).
+p(1,b).
+p(2,f(x)).
+p(2,f(y)).
+p(X,c) :- s(X).
+s(7).
+test :- p(_,_), fail.
+test :- p(1,_), fail.
+test :- p(1,_), fail.
+test :- table_dump(p(_,_),[summary(true)]), fail.
+test :- table_dump(p(_,_),[details(true)]), fail.
+test :- table_dump(p(_,_),[details(subgoals),summary(false)]), fail.
+test :- table_dump(p(_,_),[results(R),output(false)]), numbervars(R), writeln(results(R)), fail.
+test :- catch(table_dump(p(_,_),[badopt]),error(A,_),writeln(caught(A))), fail.
+test.

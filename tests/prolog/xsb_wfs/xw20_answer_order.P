@@ -1,0 +1,18 @@
+% DESIGN-PLAN xsb-tabling-wfs, kept for the order measurement (the cio, 2026-11-10): the order in which XSB returns the answers of a COMPLETED table,
+% and the order in which answers delayed by negation enter a table. Not a step's witness until the measurement row says the order is worth a step.
+:- import table_dump/2 from dump_table.
+:- table a/1, b/1, w/1.
+a(1).
+a(2).
+a(3).
+b(X) :- a(X).
+w(a) :- tnot(w(b)).
+w(b) :- tnot(w(a)).
+w(c).
+test :- a(_), fail.
+test :- findall(X,a(X),L), writeln(completed_read(L)), fail.
+test :- b(_), fail.
+test :- table_dump(b(_),[details(answers),summary(false)]), fail.
+test :- w(_), fail.
+test :- table_dump(w(_),[details(answers),summary(false)]), fail.
+test.

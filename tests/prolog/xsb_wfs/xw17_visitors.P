@@ -1,0 +1,25 @@
+% DESIGN-PLAN xsb-tabling-wfs step 13 (the cio, 2026-11-10): the visitors of a completed incremental table: the readers that still hold a choice into it
+:- import get_visitors_number/2 from tables.
+:- table t/1 as incremental.
+:- dynamic d/1 as incremental.
+t(X) :- d(X).
+d(1).
+d(2).
+d(3).
+vis(N) :- get_call(t(_),SF,_), get_visitors_number(SF,N).
+c1 :- t(X), vis(N), writeln(each(X,N)), fail.
+c1 :- vis(N), writeln(after_all(N)).
+c2 :- t(_), !, vis(N), writeln(after_cut(N)).
+c3 :- ( t(_) -> vis(N), writeln(after_then(N)) ; true ).
+c4 :- catch(( t(_), throw(out) ), out, true), vis(N), writeln(after_throw(N)).
+c5 :- t(X), t(Y), X == 1, Y == 2, vis(N), writeln(two_readers(N)), fail.
+c5 :- vis(N), writeln(after_two(N)).
+c6 :- t(1), vis(N), writeln(ground_call(N)), fail.
+c6 :- once(t(_)), vis(N), writeln(after_once(N)).
+test :- c1, fail.
+test :- c2, fail.
+test :- c3, fail.
+test :- c4, fail.
+test :- c5, fail.
+test :- c6, fail.
+test.

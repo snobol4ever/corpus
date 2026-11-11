@@ -1,0 +1,3 @@
+completed_read([3,2,1])
+details = b(A) - subgoals(1) - details([b(B) - times_called(1) - answers(3) - [b(1) - t,b(2) - t,b(3) - t] - completed]).
+details = w(A) - subgoals(3) - details([w(B) - times_called(1) - answers(3) - [w(c) - t,w(b) - u,w(a) - u] - completed,w(a) - times_called(1) - answers(1) - [w(a) - u] - completed,w(b) - times_called(1) - answers(1) - [w(b) - u] - completed]).
