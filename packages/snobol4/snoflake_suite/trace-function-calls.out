@@ -1,0 +1,7 @@
+****6*******  FACT(3)
+****3******* i FACT(2)
+****3******* ii FACT(1)
+****2******* ii RETURN FACT = 1
+****3******* i RETURN FACT = 2
+****3*******  RETURN FACT = 6
+6
