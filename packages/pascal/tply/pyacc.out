@@ -1,0 +1,3 @@
+TP Yacc Version 4.1a [April 2000], Copyright (c) 1990-2000 Albert Graef
+Usage: pyacc [options] yacc-file[.y] [output-file[.pas]]
+Options: -v verbose, -d debug

@@ -1,0 +1,2 @@
+Usage : CONVERT OldFile NewFile [n]
+n = 1) dos2unix 2) dos2mac 3) mac2dos 4) mac2unix 5) unix2dos 6) unix2mac 

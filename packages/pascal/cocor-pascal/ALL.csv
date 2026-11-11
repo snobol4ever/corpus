@@ -1,0 +1,3 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,dialect
+1,Convert,Convert.pas,cocor-pascal__Convert,cocor-pascal,64,0,131072,4096,60,,fpc
+2,src/CRQ,src/CRQ.pas,cocor-pascal__src/CRQ,cocor-pascal,524,0,131072,4096,60,,tp

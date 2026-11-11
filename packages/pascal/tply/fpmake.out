@@ -1,0 +1,24 @@
+Start compiling package utils-lexyacc for target x86_64-linux.
+       Compiling lexlib.pas
+       Compiling yacclib.pas
+       Compiling lexbase.pas
+       Compiling lexmsgs.pas
+       Compiling lexopt.pas
+       Compiling lextable.pas
+       Compiling lexdfa.pas
+       Compiling lexpos.pas
+       Compiling lexlist.pas
+       Compiling lexrules.pas
+       Compiling yaccbase.pas
+       Compiling yaccmsgs.pas
+       Compiling yaccclos.pas
+       Compiling yacctabl.pas
+       Compiling yaccpars.pas
+       Compiling yacclook.pas
+       Compiling yaccsem.pas
+       Compiling yacclr0.pas
+       Compiling plex.pas
+       Linking bin/x86_64-linux/plex
+       Compiling pyacc.pas
+       Linking bin/x86_64-linux/pyacc
+[100%] Compiled package utils-lexyacc

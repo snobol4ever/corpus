@@ -1,0 +1,17 @@
+EBNF/crossrefs.pas: LIBRARY: the source names UNIT CrossRef;
+Taste/CrossRef.pas: LIBRARY: the source names UNIT CrossRef;
+Taste/Prettier.pas: LIBRARY: the source names UNIT Prettier;
+Taste/TC.pas: LIBRARY: the source names UNIT TC;
+Taste/TL.pas: LIBRARY: the source names UNIT TL;
+pretty/Prettier.pas: LIBRARY: the source names UNIT Prettier;
+spreadsheets/Machine.pas: LIBRARY: the source names UNIT Machine;
+src/CR.pas: NEEDS-INPUT: its answer changes with what standard input holds
+src/CRA.pas: LIBRARY: the source names UNIT CRA;
+src/CRC.pas: LIBRARY: the source names UNIT CRC;
+src/CRG.pas: LIBRARY: the source names UNIT CRG;
+src/CRP.pas: LIBRARY: the source names UNIT CRP;
+src/CRS.pas: LIBRARY: the source names UNIT CRS;
+src/CRTable.pas: LIBRARY: the source names UNIT CRTable;
+src/CRX.pas: LIBRARY: the source names UNIT CRX;
+src/FileIO.pas: LIBRARY: the source names UNIT FileIO;
+src/Sets.pas: LIBRARY: the source names UNIT Sets;

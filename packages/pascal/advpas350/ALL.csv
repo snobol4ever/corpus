@@ -1,0 +1,5 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,dialect
+1,src/fpc/advent,src/fpc/advent.pas,advpas350__src/fpc/advent,advpas350,171,2,131072,4096,60,,iso
+2,src/fpc/advfls,src/fpc/advfls.pas,advpas350__src/fpc/advfls,advpas350,371,2,131072,4096,60,,iso
+3,src/tp55/advent,src/tp55/advent.pas,advpas350__src/tp55/advent,advpas350,166,2,131072,4096,60,,tp
+4,src/tp55/advfls,src/tp55/advfls.pas,advpas350__src/tp55/advfls,advpas350,370,2,131072,4096,60,,fpc

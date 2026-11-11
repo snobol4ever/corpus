@@ -1,0 +1,155 @@
+testpgm/algolx1.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: algolx1.pas(70,17) Error: Procedures cannot return a value
+testpgm/aufbadr.pas: NO-OUTPUT: nothing on standard output, exit 102; a dead engine would earn the same; stderr: Runtime error 102 at $00000000004010B9
+testpgm/automat.pas: NEEDS-INPUT: its answer changes with what standard input holds
+testpgm/copyreal.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: copyreal.pas(16,15) Error: Illegal expression
+testpgm/crash.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: crash.pas(811,6) Fatal: Syntax error, "BEGIN" expected but "/" found
+testpgm/crash2.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: crash2.pas(4,26) Error: Identifier not found "CMAX"
+testpgm/fibdemo.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: fibdemo.pas(16,8) Fatal: Syntax error, ":" expected but "identifier TESTDUMP" found
+testpgm/fibok.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: fibok.pas(16,8) Fatal: Syntax error, ":" expected but "identifier TESTDUMP" found
+testpgm/iso7185.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: iso7185.pas(99,15) Error: Variable identifier expected
+testpgm/iso7185n.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: iso7185n.pas(3,2) Fatal: Syntax error, "BEGIN" expected but "/" found
+testpgm/iso7185pat.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: iso7185pat.pas(99,15) Error: Variable identifier expected
+testpgm/ivmoded.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: ivmoded.pas(68,15) Error: Illegal expression
+testpgm/kalender.pas: DOES-NOT-END: no answer inside 60 s
+testpgm/modrand.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: modrand.pas(1,7) Fatal: Syntax error, "BEGIN" expected but "identifier MODULE" found
+testpgm/msaus2.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: msaus2.pas(204,18) Error: Illegal expression
+testpgm/msfedit.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: msfedit.pas(59,15) Error: Illegal expression
+testpgm/oevmoded.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: oevmoded.pas(44,15) Error: Illegal expression
+testpgm/pdokkneu.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: pdokkneu.pas(23,15) Error: Identifier not found "X"
+testpgm/pfehl.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: pfehl.pas(153,13) Error: Illegal expression
+testpgm/primzerl.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: primzerl.pas(119,24) Fatal: illegal character "'&'" ($26)
+testpgm/qsort.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: qsort.pas(1,7) Fatal: Syntax error, "BEGIN" expected but "identifier MODULE" found
+testpgm/rrwcomp.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: rrwcomp.pas(33,16) Error: Error in type definition
+testpgm/scanerg.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: scanerg.pas(14,17) Error: Illegal expression
+testpgm/scanergx.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: scanergx.pas(1,7) Fatal: Syntax error, "BEGIN" expected but "identifier MODULE" found
+testpgm/scangen.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: scangen.pas(53,17) Error: Illegal expression
+testpgm/showhex.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: showhex.pas(40,9) Error: Identifier not found "OSPARM"
+testpgm/splitf.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: splitf.pas(19,35) Error: Identifier not found "VOIDPTR"
+testpgm/splitf2.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: splitf2.pas(18,35) Error: Identifier not found "VOIDPTR"
+testpgm/splitpas.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: splitpas.pas(44,17) Error: Illegal expression
+testpgm/test.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: test.pas(6,2) Fatal: Syntax error, "BEGIN" expected but "/" found
+testpgm/testasg2.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testasg2.pas(10,3) Error: Wrong number of parameters specified for call to "Assign"
+testpgm/testasgn.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testasgn.pas(10,3) Error: Wrong number of parameters specified for call to "Assign"
+testpgm/testavl.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testavl.pas(11,18) Error: Illegal expression
+testpgm/testc1.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testc1.pas(11,31) Fatal: Syntax error, ";" expected but "(" found
+testpgm/testc2.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testc2.pas(6,35) Error: Error in type definition
+testpgm/testchar.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testchar.pas(9,28) Fatal: Syntax error, ";" expected but "const string" found
+testpgm/testchk.pas: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+testpgm/testcopy.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testcopy.pas(12,22) Error: Error in type definition
+testpgm/testdec.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testdec.pas(7,14) Error: Identifier not found "DECIMAL"
+testpgm/testdump.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testdump.pas(6,11) Error: Illegal expression
+testpgm/testeof.pas: NEEDS-INPUT: its answer changes with what standard input holds
+testpgm/testerr3.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testerr3.pas(4,21) Error: Error in type definition
+testpgm/testfpar.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testfpar.pas(48,40) Fatal: Syntax error, "identifier" expected but "FUNCTION" found
+testpgm/testindx.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testindx.pas(12,16) Fatal: Syntax error, ";" expected but "(" found
+testpgm/testints.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testints.pas(4,20) Error: Error in type definition
+testpgm/testkomm.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testkomm.pas(8,29) Error: Identifier not found "SOURCELINE"
+testpgm/testlab2.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testlab2.pas(23,16) Error: Illegal expression
+testpgm/testlev.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testlev.pas(130,1) Error: Error while linking
+testpgm/testlevu.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testlevu.pas(1,7) Fatal: Syntax error, "BEGIN" expected but "identifier MODULE" found
+testpgm/testlit.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testlit.pas(9,22) Error: Error in type definition
+testpgm/testlitf.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testlitf.pas(9,22) Error: Error in type definition
+testpgm/testljmp.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testljmp.pas(13,18) Error: Goto statements are not allowed between different procedures
+testpgm/testmcmp.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testmcmp.pas(9,22) Error: Error in type definition
+testpgm/testncom.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testncom.pas(3,2) Fatal: Syntax error, "BEGIN" expected but "/" found
+testpgm/testnf.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testnf.pas(4,27) Fatal: Syntax error, ";" expected but "(" found
+testpgm/testopt.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testopt.pas(10,21) Error: Error in type definition
+testpgm/testp3.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testp3.pas(6,32) Fatal: Syntax error, ";" expected but "(" found
+testpgm/testp4.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testp4.pas(12,23) Fatal: Syntax error, ";" expected but "(" found
+testpgm/testp5.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testp5.pas(10,16) Fatal: Syntax error, ";" expected but "(" found
+testpgm/testp6.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testp6.pas(8,3) Error: Identifier not found "TERMIN"
+testpgm/testp7.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testp7.pas(3,27) Error: Error in type definition
+testpgm/testptr.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testptr.pas(9,18) Error: Illegal expression
+testpgm/testptr2.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testptr2.pas(11,21) Error: Illegal expression
+testpgm/testrbol.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testrbol.pas(8,16) Fatal: Syntax error, ";" expected but "(" found
+testpgm/testrdr.pas: NEEDS-INPUT: its answer changes with what standard input holds
+testpgm/testrdsx.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testrdsx.pas(19,27) Fatal: Syntax error, "]" expected but ")" found
+testpgm/testset5.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testset5.pas(17,26) Error: Type identifier expected
+testpgm/testset6.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testset6.pas(28,11) Error: Illegal expression
+testpgm/testsin.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testsin.pas(23,12) Error: Identifier not found "ROUNDX"
+testpgm/testsin2.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testsin2.pas(37,40) Fatal: Syntax error, "identifier" expected but "FUNCTION" found
+testpgm/testskon.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testskon.pas(10,29) Error: Error in type definition
+testpgm/teststr0.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: teststr0.pas(10,21) Error: Error in type definition
+testpgm/teststr1.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: teststr1.pas(12,16) Fatal: Syntax error, ";" expected but "(" found
+testpgm/teststr2.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: teststr2.pas(4,16) Fatal: Syntax error, ";" expected but "(" found
+testpgm/teststr3.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: teststr3.pas(9,22) Error: Error in type definition
+testpgm/testsub.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testsub.pas(17,23) Error: Error in type definition
+testpgm/testvarc.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testvarc.pas(17,23) Error: Error in type definition
+testpgm/testvc2.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testvc2.pas(9,40) Fatal: Syntax error, ";" expected but "(" found
+testpgm/testw2.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testw2.pas(10,29) Error: Error in type definition
+testpgm/testwith.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testwith.pas(18,13) Error: Illegal expression
+testpgm/testx.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testx.pas(10,28) Error: Error in type definition
+testpgm/tqsort.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tqsort.pas(3,2) Fatal: Syntax error, "BEGIN" expected but "/" found
+testpgm/xconvert.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: xconvert.pas(18,31) Error: Error in type definition
+srctest/test0002.pas: NEEDS-INPUT: its answer changes with what standard input holds
+srctest/test0003.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: test0003.pas(17,44) Fatal: Syntax error, ";" expected but ":=" found
+srctest/test0005.pas: NEEDS-INPUT: its answer changes with what standard input holds
+srctest/test0007.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: test0007.pas(13,14) Fatal: Syntax error, ";" expected but ":=" found
+srctest/testavl.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testavl.pas(11,18) Error: Illegal expression
+srctest/testch01.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testch01.pas(42,19) Fatal: Syntax error, ";" expected but "(" found
+srctest/testchk2.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testchk2.pas(38,14) Fatal: Syntax error, ")" expected but ":" found
+srctest/testcopy.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testcopy.pas(12,22) Error: Error in type definition
+srctest/testcpy2.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testcpy2.pas(6,17) Fatal: Syntax error, ";" expected but "(" found
+srctest/testcpy3.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testcpy3.pas(6,22) Error: Error in type definition
+srctest/testerr.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testerr.pas(26,9) Error: Illegal expression
+srctest/testfilp.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testfilp.pas(4,14) Error: Illegal expression
+srctest/testfp2.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testfp2.pas(33,40) Fatal: Syntax error, "identifier" expected but "FUNCTION" found
+srctest/testget.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testget.pas(34,3) Error: Identifier not found "GET"
+srctest/testhel.pas: NEEDS-INPUT: its answer changes with what standard input holds
+srctest/testhex.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testhex.pas(4,12) Error: Identifier not found "x"
+srctest/testmems.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testmems.pas(9,22) Error: Error in type definition
+srctest/testpp.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testpp.pas(14,24) Error: Error in type definition
+srctest/testrdb.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testrdb.pas(11,16) Fatal: Syntax error, ";" expected but "(" found
+srctest/testrdc.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testrdc.pas(24,26) Error: Illegal expression
+srctest/testrdc2.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testrdc2.pas(14,23) Error: Error in type definition
+srctest/testrdc3.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testrdc3.pas(45,12) Error: Goto statements are not allowed between different procedures
+srctest/testrdd.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testrdd.pas(26,22) Error: Illegal expression
+srctest/testrdi.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testrdi.pas(34,16) Fatal: Syntax error, ";" expected but "(" found
+srctest/testrdi2.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testrdi2.pas(47,1) Error: Error while linking
+srctest/testrdr.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testrdr.pas(54,16) Fatal: Syntax error, ")" expected but ":" found
+srctest/testrds.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testrds.pas(5,23) Error: Error in type definition
+srctest/testrdv.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testrdv.pas(5,18) Fatal: Syntax error, ";" expected but "(" found
+srctest/testrdx.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testrdx.pas(31,14) Fatal: Syntax error, ")" expected but ":" found
+srctest/testrea2.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testrea2.pas(4,22) Error: Error in type definition
+srctest/testrea3.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testrea3.pas(9,24) Error: Error in type definition
+srctest/testrea6.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testrea6.pas(10,24) Error: Error in type definition
+srctest/testrea7.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testrea7.pas(12,24) Error: Error in type definition
+srctest/testrea8.pas: NEEDS-INPUT: its answer changes with what standard input holds
+srctest/testrs1.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testrs1.pas(9,16) Fatal: Syntax error, ";" expected but "(" found
+srctest/testrs2.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testrs2.pas(9,16) Fatal: Syntax error, ";" expected but "(" found
+srctest/testrs3.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testrs3.pas(4,16) Fatal: Syntax error, ";" expected but "(" found
+srctest/testsin.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testsin.pas(23,12) Error: Identifier not found "ROUNDX"
+srctest/testskip.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testskip.pas(12,6) Fatal: Syntax error, ":" expected but "identifier IS" found
+srctest/testspa.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testspa.pas(4,28) Error: Error in type definition
+srctest/testspl.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testspl.pas(6,20) Fatal: Syntax error, ";" expected but "(" found
+srctest/testsqr.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testsqr.pas(13,14) Fatal: Syntax error, ";" expected but ":=" found
+srctest/teststa2.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: teststa2.pas(1501,6) Fatal: Syntax error, "BEGIN" expected but "/" found
+srctest/teststa3.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: teststa3.pas(18,29) Fatal: Syntax error, ";" expected but "(" found
+srctest/testtrap.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testtrap.pas(6,40) Error: Error in type definition
+srctest/testwrb.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: testwrb.pas(14,22) Error: Error in type definition
+srceval/avltree.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: avltree.pas(1,7) Fatal: Syntax error, "BEGIN" expected but "identifier MODULE" found
+srceval/cobform.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: cobform.pas(53,28) Fatal: Syntax error, ";" expected but "(" found
+srceval/copyteil.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: copyteil.pas(27,32) Error: Error in type definition
+srceval/decod.pas: NEEDS-INPUT: its answer changes with what standard input holds
+srceval/diraufb.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: diraufb.pas(18,23) Fatal: Syntax error, ";" expected but "(" found
+srceval/diraufb2.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: diraufb2.pas(20,23) Fatal: Syntax error, ";" expected but "(" found
+srceval/download.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: download.pas(65,17) Error: Illegal expression
+srceval/egfor.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: egfor.pas(12,14) Fatal: Syntax error, ";" expected but ":=" found
+srceval/egrepeat.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: egrepeat.pas(12,14) Fatal: Syntax error, ";" expected but ":=" found
+srceval/egwhile.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: egwhile.pas(12,14) Fatal: Syntax error, ";" expected but ":=" found
+srceval/empty.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: Fatal: Syntax error, "BEGIN" expected but "end of file" found
+srceval/encod.pas: NEEDS-INPUT: its answer changes with what standard input holds
+srceval/listgenc.pas: NEEDS-INPUT: its answer changes with what standard input holds
+srceval/manorbvv.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: manorbvv.pas(44,28) Fatal: Syntax error, "identifier" expected but "FUNCTION" found
+srceval/modify2.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: modify2.pas(5,20) Fatal: Syntax error, ";" expected but "(" found
+srceval/pas2pas.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: pas2pas.pas(1,7) Fatal: Syntax error, "BEGIN" expected but "identifier MODULE" found
+srceval/pas8000.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: pas8000.pas(55,31) Fatal: Syntax error, "identifier" expected but "ordinal const" found
+srceval/pascals-sam.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: pascals-sam.pas(209,8) Fatal: Syntax error, "BEGIN" expected but "OBJECT" found
+srceval/pfehl.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: pfehl.pas(862,6) Fatal: Syntax error, "BEGIN" expected but "/" found
+srceval/pfehl2.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: pfehl2.pas(862,6) Fatal: Syntax error, "BEGIN" expected but "/" found
+srceval/primzerl.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: primzerl.pas(119,24) Fatal: illegal character "'&'" ($26)
+srceval/rrwcomp.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: rrwcomp.pas(33,16) Error: Error in type definition
+srceval/showhex.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: showhex.pas(29,1) Fatal: Syntax error, "BEGIN" expected but "/" found
+srceval/splitmvs.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: splitmvs.pas(30,17) Error: Illegal expression
+srceval/splitpas.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: splitpas.pas(44,17) Error: Illegal expression
+srceval/t2.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: t2.pas(3,12) Fatal: Syntax error, "BEGIN" expected but "/" found

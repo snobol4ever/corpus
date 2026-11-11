@@ -1,0 +1,20 @@
+Coco/R (MS-DOS) - Compiler-Compiler V1.53q (for Pascal)
+Turbo Pascal (TM) version by Pat Terry/Volker Pohlers 17 September 2002
+Usage: COCOR [-Options] [Grammar[.atg]] [-Options]
+Example: COCOR -cs Test
+
+Options are
+a  - Trace automaton
+c  - Generate compiler module
+f  - Give Start and Follower sets
+g  - Print top-down graph
+i  - Trace start set computations
+l  - Force listing
+n  - Generate symbolic names
+p  - Generate parser only
+q  - Generate error messages to interface with editor
+s  - Print symbol table
+t  - Grammar tests only - no code generated
+x  - Print cross reference list
+COMPILER.FRM, SCANNER.FRM and PARSER.FRM must be in the working directory,
+or on the path specified by the environment variable CRFRAMES

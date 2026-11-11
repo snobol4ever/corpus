@@ -1,0 +1,2 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,dialect
+1,Recursion/Zadanie4,Recursion/Zadanie4.lpr,dsa__Recursion/Zadanie4,dsa,28,0,131072,4096,60,,objfpc
