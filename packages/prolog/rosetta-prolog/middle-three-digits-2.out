@@ -1,0 +1,17 @@
+Middle 3 digits of 123        : [1,2,3]
+Middle 3 digits of 12345      : [2,3,4]
+Middle 3 digits of 1234567    : [3,4,5]
+Middle 3 digits of 987654321  : [6,5,4]
+Middle 3 digits of 10001      : [0,0,0]
+Middle 3 digits of -10001     : [0,0,0]
+Middle 3 digits of -123       : [1,2,3]
+Middle 3 digits of -100       : [1,0,0]
+Middle 3 digits of 100        : [1,0,0]
+Middle 3 digits of -12345     : [2,3,4]
+Middle 3 digits of 1          : domain_error(at least 3 digits,1)
+Middle 3 digits of 2          : domain_error(at least 3 digits,2)
+Middle 3 digits of -1         : domain_error(at least 3 digits,-1)
+Middle 3 digits of -10        : domain_error(at least 3 digits,-10)
+Middle 3 digits of 2002       : domain_error(odd number of digits,2002)
+Middle 3 digits of -2002      : domain_error(odd number of digits,-2002)
+Middle 3 digits of 0          : domain_error(at least 3 digits,0)

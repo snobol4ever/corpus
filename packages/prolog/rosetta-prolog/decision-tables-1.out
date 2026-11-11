@@ -1,0 +1,8 @@
+prints=false flashing=false recognised=false: [check the power cable,check the printer-computer cable,ensure the printer software is installed]
+prints=false flashing=false recognised=true: [check for paper jam]
+prints=false flashing=true recognised=false: [check the printer-computer cable,ensure the printer software is installed,check/replace ink]
+prints=false flashing=true recognised=true: [check/replace ink,check for paper jam]
+prints=true flashing=false recognised=false: [ensure the printer software is installed]
+prints=true flashing=false recognised=true: []
+prints=true flashing=true recognised=false: [ensure the printer software is installed]
+prints=true flashing=true recognised=true: [check/replace ink]

@@ -1,0 +1,19 @@
+4	1	keyword_print
+4	6	left_paren
+4	7	string		"Hello, World!\n"
+4	24	right_paren
+4	25	semicolon
+5	1	end_of_input
+
+4	1	identifier	phoenix_number
+4	16	op_assign
+4	18	integer		142857
+4	24	semicolon
+5	1	keyword_print
+5	6	left_paren
+5	7	identifier	phoenix_number
+5	21	comma
+5	23	string		"\n"
+5	27	right_paren
+5	28	semicolon
+6	1	end_of_input

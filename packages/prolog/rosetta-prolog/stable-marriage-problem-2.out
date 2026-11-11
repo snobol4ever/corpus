@@ -1,0 +1,22 @@
+abi with jon
+bea with fred
+cath with bob
+dee with col
+eve with hal
+fay with dan
+gay with gav
+hope with ian
+ivy with abe
+jan with ed
+
+Couples are stable
+
+perturbation of couples
+abi with fred
+bea with jon
+
+Unstable couples are
+couple(jon,bea) and couple(dan,fay)
+couple(jon,bea) and couple(fred,abi)
+couple(jon,bea) and couple(gav,gay)
+couple(jon,bea) and couple(hal,eve)

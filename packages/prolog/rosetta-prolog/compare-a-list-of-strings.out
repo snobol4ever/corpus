@@ -1,0 +1,19 @@
+for list [AA,BB,CC]
+The items in the list are NOT lexically equal
+The items in the list ARE in ascending order
+
+for list [AA,AA,AA]
+The items in the list ARE lexically equal
+The items in the list are NOT in ascending order
+
+for list [AA,CC,BB]
+The items in the list are NOT lexically equal
+The items in the list are NOT in ascending order
+
+for list [AA,ACB,BB,CC]
+The items in the list are NOT lexically equal
+The items in the list ARE in ascending order
+
+for list [single_element]
+The items in the list ARE lexically equal
+The items in the list ARE in ascending order

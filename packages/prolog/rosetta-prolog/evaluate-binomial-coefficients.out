@@ -1,0 +1,4 @@
+binomial(5, 3) = 10
+binomial(10, 0) = 1
+binomial(10, 5) = 252
+binomial(3, 5) = 0

@@ -1,0 +1,34 @@
+First 20 harmonic numbers:
+  1. 1/1
+  2. 3/2
+  3. 11/6
+  4. 25/12
+  5. 137/60
+  6. 49/20
+  7. 363/140
+  8. 761/280
+  9. 7129/2520
+ 10. 7381/2520
+ 11. 83711/27720
+ 12. 86021/27720
+ 13. 1145993/360360
+ 14. 1171733/360360
+ 15. 1195757/360360
+ 16. 2436559/720720
+ 17. 42142223/12252240
+ 18. 14274301/4084080
+ 19. 275295799/77597520
+ 20. 55835135/15519504
+
+100th harmonic number: 14466636279520351160221518043104131447711/2788815009188499086581352357412492142272
+
+Position of first term >  1: 2
+Position of first term >  2: 4
+Position of first term >  3: 11
+Position of first term >  4: 31
+Position of first term >  5: 83
+Position of first term >  6: 227
+Position of first term >  7: 616
+Position of first term >  8: 1674
+Position of first term >  9: 4550
+Position of first term > 10: 12367

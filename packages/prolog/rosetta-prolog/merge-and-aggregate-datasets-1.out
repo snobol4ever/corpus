@@ -1,0 +1,7 @@
+summaryDates(1001,Hopper,2020-11-18)
+summaryDates(2002,Gosling,2020-10-07)
+summaryDates(3003,Kemeny,2020-11-11)
+summaryDates(4004,Wirth,2020-11-04)
+summaryScores(1001,Hopper,17.4,5.8)
+summaryScores(2002,Gosling,6.8,6.8)
+summaryScores(4004,Wirth,15.4,7.7)

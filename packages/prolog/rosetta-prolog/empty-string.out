@@ -1,0 +1,3 @@
+S is empty
+"abc" is not empty
+is_empty_string("abc") fails

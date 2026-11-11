@@ -1,0 +1,6 @@
+pop: 1
+pop: 2
+empty: no
+pop: 3
+empty: yes
+pop on the empty queue fails

@@ -1,0 +1,30 @@
+~/{Downloads,Pictures}/*.{jpg,gif,png}
+    ~/Downloads/*.jpg
+    ~/Downloads/*.gif
+    ~/Downloads/*.png
+    ~/Pictures/*.jpg
+    ~/Pictures/*.gif
+    ~/Pictures/*.png
+It{{em,alic}iz,erat}e{d,}, please.
+    Itemized, please.
+    Itemize, please.
+    Iterated, please.
+    Iterate, please.
+    Italicized, please.
+    Italicize, please.
+{,{,gotta have{ ,\, again\, }}more }cowbell!
+    cowbell!
+    {cowbell!
+    gotta have }more cowbell!
+    gotta have, again, }more cowbell!
+    more cowbell!
+    gotta have more cowbell!
+    gotta have, again, more cowbell!
+    more }cowbell!
+    {more }cowbell!
+    gotta have more }cowbell!
+    gotta have, again, more }cowbell!
+    {,cowbell!
+    {,gotta have }more cowbell!
+    {,gotta have, again, }more cowbell!
+{}} some }{,{\\{ edge, edge} \,}{ cases, {here} \\\\\}

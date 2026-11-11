@@ -1,0 +1,7 @@
+(empty) succeed
+[] succeed
+[][] succeed
+[[][]] succeed
+][ failed
+][][ failed
+[]][[] failed

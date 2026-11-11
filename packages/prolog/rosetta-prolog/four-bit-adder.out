@@ -1,0 +1,6 @@
+in(hi,lo,lo,lo) + in(hi,lo,lo,lo) is out(lo,hi,lo,lo) c(lo)  	(1 + 1 = 2)
+in(lo,hi,lo,lo) + in(lo,hi,lo,lo) is out(lo,lo,hi,lo) c(lo)  	(2 + 2 = 4)
+in(hi,lo,hi,lo) + in(hi,lo,lo,hi) is out(lo,hi,hi,hi) c(lo)  	(5 + 9 = 14)
+in(hi,hi,lo,hi) + in(hi,lo,lo,hi) is out(lo,lo,hi,lo) c(hi)  	(11 + 9 = 20)
+in(lo,lo,lo,hi) + in(lo,lo,lo,hi) is out(lo,lo,lo,lo) c(hi)  	(8 + 8 = 16)
+in(hi,hi,hi,hi) + in(hi,lo,lo,lo) is out(lo,lo,lo,lo) c(hi)  	(15 + 1 = 16)

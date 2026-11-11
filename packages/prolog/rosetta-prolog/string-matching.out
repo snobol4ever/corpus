@@ -1,0 +1,4 @@
+abcd / ab: starts with yes, contains yes at [1], ends with no
+abcd / bc: starts with no, contains yes at [2], ends with no
+abcd / cd: starts with no, contains yes at [3], ends with yes
+abab / ab: starts with yes, contains yes at [1,3], ends with yes

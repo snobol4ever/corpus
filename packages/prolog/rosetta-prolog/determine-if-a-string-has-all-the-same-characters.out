@@ -1,0 +1,14 @@
+input string is "" .
+all the same characters .
+input string is "   " .
+all the same characters .
+input string is "2" .
+all the same characters .
+input string is "333" .
+all the same characters .
+input string is ".55" .
+character "5" (hex 35) different than "." at 1-based index 2 .
+input string is "tttTTT" .
+character "T" (hex 54) different than "t" at 1-based index 4 .
+input string is "4444 444k" .
+character " " (hex 20) different than "4" at 1-based index 5 .

@@ -1,0 +1,5 @@
+stack: [3,2,1]
+popped 3, stack: [2,1]
+empty: no
+popped 2 and 1, stack: []
+empty: yes

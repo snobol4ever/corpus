@@ -1,0 +1,11 @@
+Create queue A-A
+
+Add numbers 1 and 2 : [1,2|A]-A
+
+Pop : Value 1 Queue : [2|A]-A
+
+Test of the queue : Queue not empty
+
+Pop the queue : Value 2 Queue : A-A
+
+Pop the queue : fails, the queue is empty

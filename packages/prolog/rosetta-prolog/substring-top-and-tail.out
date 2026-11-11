@@ -1,0 +1,4 @@
+Original string      : Rosetta
+Without first char       : osetta
+Without last char        : Rosett
+Without first/last chars : osett

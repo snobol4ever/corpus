@@ -1,0 +1,6 @@
+my_compare(1, 2): A is less than B
+my_compare2(1, 2): A is less than B.
+my_compare(2, 1): A is greater than B
+my_compare2(2, 1): A is greater than B.
+my_compare(2, 2): A is equal to B
+my_compare2(2, 2): A is equal to B.

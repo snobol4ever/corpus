@@ -1,0 +1,7 @@
+[move,a,disk,from,the,left,pole,to,center,pole]
+[move,a,disk,from,the,left,pole,to,right,pole]
+[move,a,disk,from,the,center,pole,to,right,pole]
+[move,a,disk,from,the,left,pole,to,center,pole]
+[move,a,disk,from,the,right,pole,to,left,pole]
+[move,a,disk,from,the,right,pole,to,center,pole]
+[move,a,disk,from,the,left,pole,to,center,pole]

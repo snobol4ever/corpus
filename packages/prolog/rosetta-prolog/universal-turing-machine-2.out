@@ -1,0 +1,2 @@
+turing(incrementer_config, incrementer, [1,1,1], TapeOut): false
+turing(busy_beaver_config, busy_beaver, [], TapeOut): TapeOut = [1,1,1,1,1,1]

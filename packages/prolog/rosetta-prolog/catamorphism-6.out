@@ -1,0 +1,8 @@
+foldy_len: foldr 5, foldl 5
+foldy_add: foldr 15, foldl 15
+foldy_mult: foldr 120, foldl 120
+foldy_build: foldr [1,2,3,4,5], foldl [5,4,3,2,1]
+foldy_squadd: foldr 507425426245, foldl 21909
+foldy_join: foldr "1,2,3,4,5", foldl "5,4,3,2,1"
+foldy_expr(*): foldr 1*(2*(3*(4*(5*1)))), foldl 5*(4*(3*(2*(1*1))))
+run_tests: all passed

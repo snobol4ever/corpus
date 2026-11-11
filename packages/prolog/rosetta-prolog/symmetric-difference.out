@@ -1,0 +1,7 @@
+A : [John,Serena,Bob,Mary,Serena]
+B : [Jim,Mary,John,Jim,Bob]
+set from A : [John,Serena,Bob,Mary]
+set from B : [Jim,Mary,John,Bob]
+difference A\B : [Serena]
+difference B\A : [Jim]
+symetric difference : [Serena,Jim]

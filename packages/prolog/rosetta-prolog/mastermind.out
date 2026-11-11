@@ -1,0 +1,11 @@
+Guess the code!
+There are 7 character types, and 4 letters to guess
+Duplicates are not allowed
+
+Guess #1 of #8: 1: a b c d  : O O O - 
+Guess #2 of #8: 1: a b c d  : O O O - 
+2: b a d f  : X X O O 
+Guess #3 of #8: 1: a b c d  : O O O - 
+2: b a d f  : X X O O 
+3: b d f a  : X X O O 
+Guess #4 of #8: Well done! You Guessed Correctly.

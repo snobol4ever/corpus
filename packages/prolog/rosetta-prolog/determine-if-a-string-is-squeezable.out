@@ -1,0 +1,27 @@
+squeeze ' '
+original: <<<>>> (length 0)
+squeezed: <<<>>> (length 0)
+squeeze '-'
+original: <<<"If I were two-faced, would I be wearing this one?" --- Abraham Lincoln >>> (length 72)
+squeezed: <<<"If I were two-faced, would I be wearing this one?" - Abraham Lincoln >>> (length 70)
+squeeze '7'
+original: <<<..1111111111111111111111111111111111111111111111111111111111111117777888>>> (length 72)
+squeezed: <<<..1111111111111111111111111111111111111111111111111111111111111117888>>> (length 69)
+squeeze '.'
+original: <<<I never give 'em hell, I just tell the truth, and they think it's hell. >>> (length 72)
+squeezed: <<<I never give 'em hell, I just tell the truth, and they think it's hell. >>> (length 72)
+squeeze ' '
+original: <<<                                                    --- Harry S Truman >>> (length 71)
+squeezed: <<< --- Harry S Truman >>> (length 20)
+squeeze '-'
+original: <<<                                                    --- Harry S Truman >>> (length 71)
+squeezed: <<<                                                    - Harry S Truman >>> (length 69)
+squeeze 'r'
+original: <<<                                                    --- Harry S Truman >>> (length 71)
+squeezed: <<<                                                    --- Hary S Truman >>> (length 70)
+squeeze 'e'
+original: <<<The better the 4-wheel drive, the further you'll be from help when ya get stuck!>>> (length 80)
+squeezed: <<<The better the 4-whel drive, the further you'll be from help when ya get stuck!>>> (length 79)
+squeeze 's'
+original: <<<headmistressship>>> (length 16)
+squeezed: <<<headmistreship>>> (length 14)
