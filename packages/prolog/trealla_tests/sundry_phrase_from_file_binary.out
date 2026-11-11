@@ -1,0 +1,14 @@
+[]-threw(error(existence_error(procedure,seq/3),context($dcg:call_dcg/3,_13056)))
+[]-failed
+[type(binary)]-threw(error(existence_error(procedure,seq/3),context($dcg:call_dcg/3,_13290)))
+[type(binary)]-failed
+
+[]-threw(error(existence_error(procedure,seq/3),context($dcg:call_dcg/3,_13544)))
+[]-failed
+[type(binary)]-threw(error(existence_error(procedure,seq/3),context($dcg:call_dcg/3,_13778)))
+[type(binary)]-failed
+
+[]-threw(error(existence_error(procedure,seq/3),context($dcg:call_dcg/3,_14014)))
+[]-failed
+[type(binary)]-threw(error(existence_error(procedure,seq/3),context($dcg:call_dcg/3,_14248)))
+[type(binary)]-failed

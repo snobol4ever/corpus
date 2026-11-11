@@ -1,0 +1,8 @@
+roundtrip FAILED got threw(existence_error(procedure,unget_char/2)) wanted [a,a,b]
+arbitrary FAILED got threw(existence_error(procedure,unget_char/2)) wanted ['Z',a]
+unget_eof FAILED got threw(existence_error(procedure,unget_char/2)) wanted a
+at_real_eof FAILED got threw(existence_error(procedure,unget_char/2)) wanted [end_of_file,end_of_file]
+empty FAILED got threw(existence_error(procedure,unget_char/2)) wanted threw(type_error(in_character,''))
+current_input FAILED got threw(existence_error(procedure,unget_char/1)) wanted [a,a,b]
+multibyte FAILED got threw(existence_error(procedure,unget_char/2)) wanted [é,é,l]
+after_read FAILED got threw(existence_error(procedure,unget_char/2)) wanted [1,'Z',' ',a]

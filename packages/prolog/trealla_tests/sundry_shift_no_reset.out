@@ -1,0 +1,12 @@
+n_bare: uncaught(error(existence_error(reset,x),context(shift/1,'No matching reset/3 call')))
+n_catch: caught(error(existence_error(reset,x),context(shift/1,'No matching reset/3 call')))
+n_runtime: caught(error(existence_error(reset,x),context(shift/1,'No matching reset/3 call')))
+n_later_catch: uncaught(error(existence_error(reset,x),context(shift/1,'No matching reset/3 call')))
+n_later_runtime: uncaught(error(existence_error(reset,x),context(shift/1,'No matching reset/3 call')))
+m_ball: uncaught(error(existence_error(reset,a),context(shift/1,'No matching reset/3 call')))
+m_cont: uncaught(error(uninstantiation_error(a),context(system:shift/1,_7976)))
+m_nested: outer(a)
+m_later_catch: uncaught(error(existence_error(reset,a),context(shift/1,'No matching reset/3 call')))
+m_retry: uncaught(error(existence_error(reset,a),context(shift/1,'No matching reset/3 call')))
+ok_shift: uncaught(error(uninstantiation_error(a),context(system:shift/1,_8280)))
+ok_none: 0

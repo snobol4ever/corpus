@@ -1,0 +1,115 @@
+DIVERGENCE-FAILED noncallable_after_braces: wanted type_error(callable,1), got err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_10110)))
+DIVERGENCE-FAILED noncallable_first: wanted type_error(callable,1), got err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_10380)))
+DIVERGENCE-FAILED noncallable_last: wanted type_error(callable,1), got err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_10650)))
+DIFF empty
+   native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_208)))
+   ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_256)))
+DIFF nonterminal
+   native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_976)))
+   ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_1094)))
+DIFF conjunction
+   native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_1224)))
+   ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_1342)))
+DIFF conj3
+   native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_1484)))
+   ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_1602)))
+DIFF terminals
+   native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_1756)))
+   ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_1874)))
+DIFF terminal_one
+   native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_2004)))
+   ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_2122)))
+DIFF string
+   native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_2252)))
+   ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_2370)))
+DIFF alternation
+   native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_2500)))
+   ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_2618)))
+DIFF bar
+   native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_2748)))
+   ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_2866)))
+DIFF braces
+   native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_2992)))
+   ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_3110)))
+DIFF braces_conj
+   native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_3248)))
+   ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_3366)))
+DIFF cut
+   native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_3484)))
+   ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_3602)))
+DIFF cut_mixed
+   native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_3756)))
+   ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_3874)))
+DIFF ite_in_alt
+   native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_4016)))
+   ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_4134)))
+DIFF ite_in_bar
+   native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_4276)))
+   ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_4394)))
+DIFF call1
+   native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_4520)))
+   ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_4638)))
+DIFF phrase1
+   native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_4764)))
+   ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_4882)))
+DIFF phrase2
+   native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_5012)))
+   ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_5130)))
+DIFF phrase3
+   native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_5264)))
+   ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_5382)))
+DIFF head_args
+   native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_5540)))
+   ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_5658)))
+DIFF head_args2
+   native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_5816)))
+   ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_5934)))
+DIFF pushback
+   native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_6076)))
+   ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_6194)))
+DIFF pushback_multi
+   native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_6360)))
+   ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_6478)))
+DIFF module_head
+   native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_6608)))
+   ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_6726)))
+DIFF module_body
+   native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_6856)))
+   ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_6974)))
+DIFF module_both
+   native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_7116)))
+   ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_7234)))
+DIFF var_body
+   native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_7352)))
+   ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_7470)))
+DIFF var_in_conj
+   native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_7612)))
+   ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_7730)))
+DIFF empty_mixed
+   native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_7872)))
+   ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_7990)))
+DIFF nested
+   native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_8164)))
+   ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_8282)))
+DIFF nested_deep
+   native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_8480)))
+   ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_8598)))
+DIFF alt_of_alt
+   native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_8752)))
+   ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_8870)))
+DIFF partial_list
+   native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_9000)))
+   ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_9118)))
+DIFF improper_list
+   native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_9248)))
+   ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_9366)))
+DIFF negation
+   native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_9492)))
+   ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_9610)))
+DIFF ite_toplevel
+   native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_9740)))
+   ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_9858)))
+DIFF string_conj
+   native err(error(existence_error(procedure,'$dcg_rule'/2),context(system:catch/3,_10024)))
+   ref    err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_10142)))
+dcg differential: 38 cases, 3 divergences, 1 expected diffs

@@ -1,0 +1,5 @@
+min shortest path: ok
+cyclic min: ok
+max: ok
+floor fixpoint: ok
+zero markers: FAILED

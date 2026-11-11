@@ -1,0 +1,8 @@
+named FAILED
+stable FAILED
+enumerated FAILED
+agrees_with_unix FAILED
+read_only FAILED
+rationals_boolean FAILED
+rationals_agree FAILED
+rationals_read_only FAILED

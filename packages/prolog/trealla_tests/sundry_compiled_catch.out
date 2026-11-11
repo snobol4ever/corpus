@@ -1,0 +1,11 @@
+var_goal_ite: instantiation_error
+var_goal_call: ok
+throw_call: ok
+ball_arg: bound(instantiation_error)
+in_condition: outer(bound(instantiation_error))
+count_var_goal: uncaught error(existence_error(procedure,bb_put/2),context(t/1,_7842))
+count_builtin: uncaught error(existence_error(procedure,bb_put/2),context(t/1,_7926))
+count_call_var: uncaught error(existence_error(procedure,bb_put/2),context(t/1,_8010))
+cut_after_nondet: [1]
+nondet_recovery: [1,2,3]
+backtrack_into_goal: [x(1),inner(in)]

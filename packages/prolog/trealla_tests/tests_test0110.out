@@ -1,0 +1,10 @@
+nested-var indexing check
+  ok    query [a]    - expect [ground,nested_var_tail,nested_var_arg]
+          both gave [ground,nested_var_tail,nested_var_arg]
+  ok    query [b]    - expect [nested_var_tail,other_ground]
+          both gave [nested_var_tail,other_ground]
+  ok    query [a,c]  - expect [nested_var_arg]
+          both gave [nested_var_arg]
+  ok    query [z]    - expect [nested_var_tail]
+          both gave [nested_var_tail]
+main succeeded

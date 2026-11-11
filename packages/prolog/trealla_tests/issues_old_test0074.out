@@ -1,0 +1,6 @@
+clause(cup(_5190),(liftable(_5190),holds_liquid(_5190)))
+clause(liftable(_5190),(light(_5190),part(_5190,handle)))
+clause(light(_5190),small(_5190))
+clause(holds_liquid(_5190),(part(_5190,_5494),concave(_5494),points_up(_5494)))
+clause(concave(bowl),true)
+cup(_5190):-(small(_5190),part(_5190,handle)),part(_5190,_5494),concave(_5494),points_up(_5494)

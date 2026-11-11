@@ -1,0 +1,14 @@
+s_if: uncaught(error(existence_error(procedure,if/3),context(system:reset/3,A)))
+s_soft: 1
+s_soft_member: 1
+s_runtime_if: uncaught(error(existence_error(procedure,if/3),context(system:reset/3,A)))
+s_runtime_soft: 1
+s_ite: 1
+s_nested: 1-a
+s_cont: uncaught(error(uninstantiation_error(1),context(system:shift/1,A)))
+n_stray: no_reset
+e_soft: [1,2]
+e_if: uncaught(error(existence_error(procedure,if/3),context('$bags':findall_loop/4,A)))
+e_runtime_soft: [1,2]
+e_runtime_if: uncaught(error(existence_error(procedure,if/3),context('$bags':findall_loop/4,A)))
+e_else: [none]

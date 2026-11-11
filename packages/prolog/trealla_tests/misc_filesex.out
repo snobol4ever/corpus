@@ -1,0 +1,18 @@
+FILESEX-FAIL rel_self: failed
+FILESEX-FAIL ensure: err(error(existence_error(procedure,ensure_directory/1),context(system:'<meta-call>'/1,_3434)))
+FILESEX-FAIL ensure_idem: err(error(existence_error(procedure,ensure_directory/1),context(system:catch/3,_3566)))
+FILESEX-FAIL link_sym: err(error(existence_error(procedure,posix_file_type/2),context(system:'<meta-call>'/1,_3952)))
+FILESEX-FAIL link_hard: err(error(existence_error(procedure,posix_file_type/2),context(system:'<meta-call>'/1,_4112)))
+FILESEX-FAIL dm_ext: failed
+FILESEX-FAIL dm_hidden: failed
+FILESEX-FAIL dm_missing: failed
+FILESEX-FAIL dm_cycle: err(error(existence_error(procedure,posix_unlink/1),context(system:'<meta-call>'/1,_21840)))
+FILESEX-FAIL copy_dir: err(error(existence_error(source_sink,'tmp_filesex_test/src/deep/loop'),context(system:open/4,'No such file or directory')))
+FILESEX-FAIL copy_link_kept: err(error(existence_error(source_sink,'tmp_filesex_test/sym.txt'),context(system:open/4,'No such file or directory')))
+FILESEX-FAIL chmod_int: err(error(existence_error(procedure,posix_file_mode/2),context(system:'<meta-call>'/1,_4502)))
+FILESEX-FAIL chmod_sym: err(error(existence_error(procedure,posix_file_mode/2),context(system:'<meta-call>'/1,_9394)))
+FILESEX-FAIL chmod_add: err(error(existence_error(procedure,posix_file_mode/2),context(system:'<meta-call>'/1,_9582)))
+FILESEX-FAIL chmod_sub: err(error(existence_error(procedure,posix_file_mode/2),context(system:'<meta-call>'/1,_9760)))
+FILESEX-FAIL chmod_bad: err(error(domain_error(posix_file_mode,nonsense),_11916))
+FILESEX-FAIL del_missing: err(error(existence_error(file,tmp_filesex_test),context(system:directory_files/2,_14596)))
+filesex: FAILURES above

@@ -1,0 +1,6 @@
+f(f(f(f(f(...)))))
+written ok
+thrown THREW @(error(type_error(text,S_1),context(system:atom_length/2,_5468)),[S_1=f(S_1)])
+thrown FAILED
+[a,a,a,a|...]
+list ok

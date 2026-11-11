@@ -1,0 +1,18 @@
+neg_true_1: ERROR error(type_error(callable,(\+ (true;1),fail)),context(system:catch/3,_10038))
+neg_true_1: FAILED
+neg_1_true: ERROR error(type_error(callable,(\+ (1;true),fail)),context(system:catch/3,_10236))
+neg_1_true: FAILED
+compiled_true_1: ERROR error(existence_error(procedure,c_true_1/0),context(system: <meta-call> / 1,_10978))
+compiled_true_1: FAILED
+compiled_1_true: ERROR error(existence_error(procedure,c_1_true/0),context(system: <meta-call> / 1,_11164))
+compiled_1_true: FAILED
+compiled_fail_1: ERROR error(existence_error(procedure,c_fail_1/0),context(system: <meta-call> / 1,_11350))
+compiled_fail_1: FAILED
+ok_fail: ok
+ok_true: ok
+ok_ff: ok
+ok_tf: ok
+ok_exist: ok
+ok_member_neg: ok
+ok_member_pos: ok
+variant_of_cyclic_term: ok

@@ -1,0 +1,9 @@
+assert/retract: FAILED
+[b,c]-[b,c]-[b,c]
+transitive: FAILED
+[1]-[1]
+non-incremental table frozen: ok
+untracked pred ignored: ok
+invalidate subsumptive: FAILED
+[5]-[5]-[5]
+no spurious recompute: ok

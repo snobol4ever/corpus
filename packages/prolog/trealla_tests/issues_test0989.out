@@ -1,0 +1,11 @@
+FAIL findall_inside: no error
+FAIL findall_existing: no error
+FAIL findall_list: no error
+FAIL findnsols: no error
+FAIL bagof_case1: no error
+FAIL bagof_case2: no error
+FAIL bagof_case3: no error
+acyclic_findall
+acyclic_compound
+acyclic_bagof
+acyclic_findnsols

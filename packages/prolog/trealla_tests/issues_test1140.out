@@ -1,0 +1,15 @@
+chars_pos: error(syntax_error(float_overflow),context(number_chars/2,_5324))
+chars_neg: error(syntax_error(float_overflow),context(number_chars/2,_5478))
+codes_pos: error(syntax_error(float_overflow),context(number_codes/2,_5626))
+read_term: error(syntax_error(float_overflow),string("9.9e999 . ",0))
+read_nested: error(syntax_error(float_overflow),string("f(9.9e999) . ",1))
+read_neg: error(syntax_error(float_overflow),string("-9.9e999 . ",0))
+read_spaced_neg: error(syntax_error(float_overflow),string("- 9.9e999 . ",1))
+read_pos_sign: error(syntax_error(float_overflow),string("+9.9e999 . ",0))
+read_spaced_pos: error(syntax_error(float_overflow),string("+ 9.9e999 . ",1))
+underflow: 0.0
+underflow: no error
+in_range: 1500.0
+in_range: no error
+bad_syntax: error(syntax_error(illegal_number),context(number_chars/2,_6824))
+not_a_num: error(syntax_error(illegal_number),context(number_chars/2,_6948))

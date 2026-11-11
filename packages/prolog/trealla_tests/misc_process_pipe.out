@@ -1,0 +1,12 @@
+PROCESS_PIPE-FAIL stdout_pipe: err(error(existence_error(source_sink,echo),_33606))
+PROCESS_PIPE-FAIL stderr_pipe: err(error(existence_error(source_sink,sh),_33968))
+PROCESS_PIPE-FAIL stdin_pipe_eof: err(error(existence_error(source_sink,cat),_34284))
+PROCESS_PIPE-FAIL stdin_stdout_roundtrip: err(error(existence_error(source_sink,tr),_34640))
+PROCESS_PIPE-FAIL stdin_stdout_stderr: err(error(existence_error(source_sink,sh),_35048))
+PROCESS_PIPE-FAIL pipe_2_type_text: err(error(existence_error(source_sink,echo),_35360))
+PROCESS_PIPE-FAIL pipe_2_type_binary: err(error(existence_error(source_sink,echo),_35672))
+PROCESS_PIPE-FAIL pipe_2_encoding: err(error(existence_error(source_sink,echo),_35984))
+PROCESS_PIPE-FAIL pipe_2_bad_option: err(error(existence_error(source_sink,echo),_36264))
+PROCESS_PIPE-FAIL pipe_2_bad_type: err(error(existence_error(source_sink,echo),_36544))
+PROCESS_PIPE-FAIL pipe_2_roundtrip: err(error(existence_error(source_sink,tr),_36922))
+process_pipe: FAILURES above

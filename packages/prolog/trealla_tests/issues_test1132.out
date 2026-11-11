@@ -1,0 +1,3 @@
+max_arity_flag_ok
+FAIL: max_procedure_arity_flag
+asserta_at_limit_ok

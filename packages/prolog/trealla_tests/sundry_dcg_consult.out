@@ -1,0 +1,64 @@
+CONSULT-DIFF c01
+   consulted c01(_228,_230):-_228=_230
+   reference err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_282)))
+CONSULT-DIFF c02
+   consulted c02(_918,_920):-b(_918,_920)
+   reference err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_1056)))
+CONSULT-DIFF c03
+   consulted c03(_1106,_1108):-b(_1106,_1128),c(_1128,_1108)
+   reference err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_1256)))
+CONSULT-DIFF c04
+   consulted c04(_1318,_1320):-b(_1318,_1340),c(_1340,_1346),d(_1346,_1320)
+   reference err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_1480)))
+CONSULT-DIFF c05
+   consulted c05(_1554,_1556):-_1554=[x,y,z|_1556]
+   reference err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_1710)))
+CONSULT-DIFF c06
+   consulted c06(_1760,_1762):-_1760=[97,98,99|_1762]
+   reference err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_1916)))
+CONSULT-DIFF c07
+   consulted c07(_1966,_1968):-b(_1966,_1968);c(_1966,_1968)
+   reference err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_2116)))
+CONSULT-DIFF c08
+   consulted c08(_2166,_2168):-b(_2166,_2168);c(_2166,_2168)
+   reference err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_2316)))
+CONSULT-DIFF c09
+   consulted c09(_2362,_2364):-g,_2364=_2362
+   reference err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_2506)))
+CONSULT-DIFF c10
+   consulted c10(_2544,_2546):-!,_2546=_2544
+   reference err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_2688)))
+CONSULT-DIFF c11
+   consulted c11(_2750,_2752):-b(_2750,_2772)->c(_2772,_2752);d(_2750,_2752)
+   reference err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_2912)))
+CONSULT-DIFF c12
+   consulted c12(_2958,_2960):-call(x,_2958,_2960)
+   reference err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_3098)))
+CONSULT-DIFF c14
+   consulted c14(_3362,_3364,_3366):-b(_3362,_3364,_3390),_3390=[_3362|_3366]
+   reference err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_3524)))
+CONSULT-DIFF c15
+   consulted c15(_3586,_3588):-b(_3586,_3608),_3588=[p|_3608]
+   reference err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_3742)))
+CONSULT-DIFF c16
+   consulted c16(_3792,_3794):-m:b(_3792,_3794)
+   reference err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_3936)))
+CONSULT-DIFF c17
+   consulted c17(_3974,_3976):-phrase(_3994,_3974,_3976)
+   reference err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_4114)))
+CONSULT-DIFF c18
+   consulted c18(_4176,_4178):-_4176=_4198,b(_4198,_4204),_4204=_4178
+   reference err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_4338)))
+CONSULT-DIFF c19
+   consulted c19(_4432,_4434):-b(_4432,_4454),c(_4454,_4460),(d(_4460,_4466);e(_4460,_4466)),f,_4434=_4466
+   reference err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_4624)))
+CONSULT-DIFF c20
+   consulted c20(_4710,_4712):-_4710=[97,98|_4738],c(_4738,_4750),_4750=[100,101|_4712]
+   reference err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_4896)))
+CONSULT-DIFF c21
+   consulted c21(_5010,_5012,_5014,_5016):-b(_5010,_5014,_5042),c(_5012,_5042,_5050),_5050=[_5010,_5012|_5016]
+   reference err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_5196)))
+CONSULT-DIFF c22
+   consulted c22(_5282,_5284):-b(_5282,_5304),c(_5304,_5310),_5284=[p,q|_5310]
+   reference err(error(existence_error(procedure,dcg_reference:dcg_rule/2),context(system:catch/3,_5456)))
+dcg consult: 21 of 24 disagree

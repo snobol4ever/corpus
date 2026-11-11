@@ -1,0 +1,19 @@
+get_char FAILED got � wanted threw(error(representation_error(character),get_char/2))
+peek_char FAILED got � wanted threw(error(representation_error(character),peek_char/2))
+read FAILED got threw(error(syntax_error(end_of_file),file('tmp.not_a_character.txt',1,3,0))) wanted threw(error(representation_error(character),read/2))
+read_then_get ok
+read_then_get2 FAILED got � wanted threw(error(representation_error(character),get_char/2))
+read_end_token FAILED got threw(error(syntax_error(end_of_file),file('tmp.not_a_character.txt',1,5,2))) wanted threw(error(representation_error(character),read/2))
+read_end_token_fe FAILED got threw(error(syntax_error(end_of_file),file('tmp.not_a_character.txt',1,5,2))) wanted threw(error(representation_error(character),read/2))
+read_end_token_80 FAILED got threw(error(syntax_error(end_of_file),file('tmp.not_a_character.txt',1,5,2))) wanted threw(error(representation_error(character),read/2))
+read_end_token_c0 FAILED got threw(error(syntax_error(end_of_file),file('tmp.not_a_character.txt',1,5,2))) wanted threw(error(representation_error(character),read/2))
+read_past_layout ok
+read_quoted FAILED got 'a�' wanted threw(error(representation_error(character),read/2))
+read_quoted_80 FAILED got 'a�' wanted threw(error(representation_error(character),read/2))
+read_line_comment FAILED got 1 wanted threw(error(representation_error(character),read/2))
+read_block_comment FAILED got 1 wanted threw(error(representation_error(character),read/2))
+peek_twice FAILED got � wanted threw(error(representation_error(character),peek_char/2))
+read_accented ok
+read_accented_quoted ok
+read_accented_line_comment ok
+read_accented_block_comment ok

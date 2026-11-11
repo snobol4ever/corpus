@@ -1,0 +1,3 @@
+SOCKET-FAIL ip4_name: err(error(existence_error(procedure,ip_name/2),context(system:'<meta-call>'/1,_724)))
+SOCKET-FAIL name_to_ip: err(error(existence_error(procedure,ip_name/2),context(system:'<meta-call>'/1,_880)))
+SOCKET-FAIL socket_create: failed
