@@ -1,0 +1,17 @@
+
+
+
+asgn1.sno(5) : ERROR 038 -- goto undefined label
+
+
+
+
+
+in file              asgn1.sno
+in line              5
+in statement         2
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  14176
+memory left (bytes)  1034392

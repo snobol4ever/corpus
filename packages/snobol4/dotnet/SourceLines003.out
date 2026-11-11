@@ -1,0 +1,17 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Tue Nov 10 07:20:10 2026
+
+
+
+                                                                                                                page 1
+
+        -LIST
+1       	DATE() ? LEN(2) . MTH LEN(1) LEN(2) . DAY LEN(1) LEN(2) . YEAR
+        -LIST
+3       	DATE() ? LEN(2) . MTH LEN(1) LEN(2) . DAY LEN(1) LEN(2) . YEAR
+        -LIST
+7       	DATE() ? LEN(2) . MTH LEN(1) LEN(2) . DAY LEN(1) LEN(2) . YEAR
+8       END
