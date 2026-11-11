@@ -1,0 +1,21 @@
+t0_before_any - no_dump
+t1_flag_off - no_dump
+t2_abort - (r(0,scc(b)) - scc(4,6))
+t2_abort - (r(1,scc(b)) - scc(3,5))
+t2_abort - (r(2,scc(b)) - scc(2,4))
+t2_abort - (r(3,scc(b)) - scc(1,1))
+t2_abort - (r(4,scc(b)) - scc(1,1))
+t2_abort - (r(5,scc(b)) - scc(1,1))
+t3_ball - my_ball
+t3_throw - (s(0,x) - scc(3,3))
+t3_throw - (s(1,x) - scc(2,2))
+t3_throw - (s(2,x) - scc(1,1))
+t4_no_table_in_progress - same_name_no_new_dump
+t5 - new_name
+t5_after_two - (s(0,y) - scc(3,3))
+t5_after_two - (s(1,y) - scc(2,2))
+t5_after_two - (s(2,y) - scc(1,1))
+t5b - new_name
+t6 - domain_error([print_incomplete_tables,none],bogus)
+t7 - print_incomplete_tables
+t8_flag_none - no_new_file

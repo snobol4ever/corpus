@@ -19,3 +19,7 @@ The witnesses of DESIGN-PLAN: xsb-tabling-wfs (.github/ARCH-PROLOG-WFS-TABLING.m
 ## 2026-11-10 (cio, CTO-587 answer 5: step 22)
 
 `xw26_negative_ring.P` beside its `.ref`: a ring of eleven calls under negation, each answer printed with the count of answers made before it, so the sorted lines carry the order the scheduler wakes the tables that wait on a negation. XSB 5.0.0 makes the answer of the oldest table's waiter first (10, then 0 to 9). The cto's first form of the program is `w5.P` in his evidence folder of CTO-587.
+
+## 2026-11-11 (cfo, CIO-102 and CIO-111: steps 17 to 21)
+
+Five witnesses, each a `.P` beside its `.ref`, copied from `/home/resources/progress/XSB-INSPECT-WITNESSES` where the cio staged them on 2026-11-10 and admitted as steps 17 to 21 by the rows `prolog-xsb-wfs-the-parsort-witness-is-admitted-to-the-plan-as-step-17-red` and `prolog-xsb-wfs-the-four-undefined-value-witnesses-are-admitted-to-the-plan-as-steps-18-to-21-each-red`: `xw23_parsort` (step 17, thirteen lines), `xw21_bounded_rationality` (step 18, 27), `xw22_unsafe_negation` (step 19, 3), `xw24_residual_sccs` (step 20, 20), `xw25_exception_dump` (step 21, 21). Every answer was cut again from XSB 5.0.0 by the harness's `--cut` on 2026-11-11 and equals the staged cut byte for byte. Each step reads RED in both modes on SCRIP 4e8ecf889, never a refusal; step 18's mode-3 run ends by its 300 s timeout (rc 124), the other four end rc 0 with a different answer.

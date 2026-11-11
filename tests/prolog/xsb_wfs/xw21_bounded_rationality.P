@@ -1,0 +1,28 @@
+:- import get_residual/2 from tables.
+:- import numbervars/1 from num_vars.
+:- set_prolog_flag(max_table_answer_size_action, bounded_rationality).
+:- set_prolog_flag(max_table_answer_size, 3).
+:- table b/1, l/1, k/2, s/2.
+b(f(X)) :- b(X).
+b(2).
+l([a|T]) :- l(T).
+l([]).
+k(f(f(1)),f(f(f(f(1))))).
+s(1, f(1,g(h(i(j(1)))))).
+s(2, f(g(h(i(j(1)))),1)).
+s(3, f(g(1),g(h(i(j(1)))))).
+s(4, f(g(1),g(1),g(h(i(j(1)))))).
+s(5, f(g(g(1)),g(h(i(j(1)))))).
+s(6, f(g(g(g(1))),g(h(i(j(1)))))).
+s(7, f(g(1,1),g(h(i(j(1)))))).
+s(8, f(1,1,g(h(i(j(1)))))).
+s(9, f(g(h(i(1))),g(h(i(1))))).
+s(10, f([1,2,3,4,5,6])).
+s(11, [f(f(f(f(1)))),f(f(f(f(1))))]).
+s(12, f(g(h(1,i(1),i(1))))).
+s(13, f(X,g(h(i(X))))).
+s(14, f(g(h(1)))).
+show(G) :- call(G), fail.
+show(G) :- get_residual(G,D), numbervars(G-D), writeln(G-D), fail.
+show(_).
+test :- show(b(_)), show(l(_)), show(k(_,_)), show(s(_,_)).

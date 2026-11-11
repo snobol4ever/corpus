@@ -1,0 +1,38 @@
+:- import get_residual_sccs/3, get_residual_sccs/5, explain_u_val/3, u_not/1 from tables.
+:- import numbervars/1 from num_vars.
+:- set_prolog_flag(max_table_answer_size_action, bounded_rationality).
+:- set_prolog_flag(max_table_answer_size, 3).
+:- table a/0, b/0, c/0, d/0, e/1, w/1, r/1, fl/1, t/0.
+a :- tnot(b).
+b :- tnot(a).
+c :- a.
+d :- c, tnot(t).
+t :- tnot(t).
+e(X) :- w(X).
+w(X) :- mv(X,Y), tnot(w(Y)).
+mv(1,2). mv(2,1). mv(3,1).
+r(f(X)) :- r(X).
+r(1).
+fl(a) :- u_not(e(_)).
+s3(N,G,A) :- (call(G), fail ; true), ( get_residual_sccs(G,A,S) -> true ; S = none ), numbervars(S), writeln(N-S).
+s5(N,G,A) :- (call(G), fail ; true), ( get_residual_sccs(G,A,S,D,Sg) -> true ; S = none, D = none, Sg = none ), numbervars(S), writeln(N-scc(S,D,Sg)).
+ex(N,G,A) :- (call(G), fail ; true), forall(explain_u_val(G,A,T), writeln(N-T)).
+test :- s3(s3_a,a,a), fail.
+test :- s3(s3_c,c,c), fail.
+test :- s3(s3_d,d,d), fail.
+test :- s3(s3_w3,w(_),w(3)), fail.
+test :- s3(s3_e3,e(_),e(3)), fail.
+test :- s5(s5_a,a,a), fail.
+test :- s5(s5_c,c,c), fail.
+test :- s5(s5_d,d,d), fail.
+test :- s5(s5_w3,w(_),w(3)), fail.
+test :- s5(s5_fl,fl(_),fl(a)), fail.
+test :- s5(s5_r,r(_),r(f(f(f(f(_)))))), fail.
+test :- ex(ex_a,a,a), fail.
+test :- ex(ex_c,c,c), fail.
+test :- ex(ex_d,d,d), fail.
+test :- ex(ex_w1,w(1),w(1)), fail.
+test :- ex(ex_w3,w(_),w(3)), fail.
+test :- ex(ex_fl,fl(_),fl(a)), fail.
+test :- ex(ex_r,r(_),r(f(f(f(f(_)))))), fail.
+test.

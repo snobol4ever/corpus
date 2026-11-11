@@ -1,0 +1,22 @@
+:- import get_scc_dumpfile/1 from tables.
+:- import shell/1 from shell.
+:- table r/2, s/2, u/1.
+r(0,_) :- !, abort.
+r(3,A) :- r(5,A).
+r(N,A) :- N1 is N - 1, r(N1,A).
+s(0,_) :- !, throw(my_ball).
+s(N,A) :- N1 is N - 1, s(N1,A).
+u(1).
+show(Tag) :- ( get_scc_dumpfile(F) -> open(F,read,S), cat(Tag,S), close(S), shell(['rm ',F]) ; writeln(Tag-no_dump) ).
+cat(Tag,S) :- repeat, read(S,T), ( T == end_of_file -> true ; writeln(Tag-T), fail ), !.
+test :- show(t0_before_any), fail.
+test :- catch(r(5,scc(a)),_,true), show(t1_flag_off), fail.
+test :- set_prolog_flag(exception_pre_action,print_incomplete_tables), fail.
+test :- catch(r(5,scc(b)),_,true), show(t2_abort), fail.
+test :- catch(s(2,x),B,(writeln(t3_ball-B))), show(t3_throw), fail.
+test :- get_scc_dumpfile(F1), catch((u(_),throw(outside)),_,true), get_scc_dumpfile(F2), ( F1 == F2 -> writeln(t4_no_table_in_progress-same_name_no_new_dump) ; writeln(t4_no_table_in_progress-new_name) ), fail.
+test :- get_scc_dumpfile(F1), catch(r(5,scc(c)),_,true), get_scc_dumpfile(F2), ( F1 == F2 -> writeln(t5-same_name) ; writeln(t5-new_name) ), catch(s(2,y),_,true), get_scc_dumpfile(F3), ( F2 == F3 -> writeln(t5b-same_name) ; writeln(t5b-new_name) ), shell(['rm -f ',F2]), show(t5_after_two), fail.
+test :- catch(set_prolog_flag(exception_pre_action,bogus),E,(E = error(Er,_), writeln(t6-Er))), fail.
+test :- current_prolog_flag(exception_pre_action,V), writeln(t7-V), fail.
+test :- set_prolog_flag(exception_pre_action,none), catch(r(5,scc(d)),_,true), get_scc_dumpfile(F), ( catch(open(F,read,S),_,fail) -> close(S), writeln(t8_flag_none-file_exists) ; writeln(t8_flag_none-no_new_file) ), fail.
+test.

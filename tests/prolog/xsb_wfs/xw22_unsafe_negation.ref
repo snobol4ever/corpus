@@ -1,0 +1,3 @@
+q(a) - [floundered(p(A))]
+q(b) - []
+q(d) - [floundered(p(A)),floundered(p(B))]
