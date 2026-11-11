@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1944 features=2 ubiquitous=1(package) distinctive=1 core=3 clusters=32 chunks=20 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,41
+# shape: entries=1940 features=2 ubiquitous=1(package) distinctive=1 core=3 clusters=32 chunks=20 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,37
 entry	part	cluster	shells
 tbs/tb0003	chunk:13	dir:tbs	
 tbs/tb0007	chunk:13	dir:tbs	
@@ -99,8 +99,8 @@ tbs/tb0295	chunk:13	dir:tbs
 tbs/tb0309	chunk:13	dir:tbs	
 tbs/tb0310	chunk:13	dir:tbs	
 tbs/tb0312	chunk:13	dir:tbs	
-tbs/tb0314	chunk:14	dir:tbs	
-tbs/tb0328	chunk:14	dir:tbs	
+tbs/tb0314	chunk:13	dir:tbs	
+tbs/tb0328	chunk:13	dir:tbs	
 tbs/tb0333	chunk:14	dir:tbs	
 tbs/tb0336	core	core	want_rc
 tbs/tb0339	chunk:14	dir:tbs	
@@ -203,9 +203,9 @@ tbs/tb0686	chunk:14	dir:tbs
 tbs/tb0695	chunk:17	feat:want_rc	want_rc
 tbs/tb0707	chunk:14	dir:tbs	
 tbs/tb0713	chunk:14	dir:tbs	
-tbs/tb0715	chunk:15	dir:tbs	
+tbs/tb0715	chunk:14	dir:tbs	
 tbs/tb0720	chunk:17	feat:want_rc	want_rc
-tbs/tb0721	chunk:15	dir:tbs	
+tbs/tb0721	chunk:14	dir:tbs	
 tbs/tb0728	chunk:15	dir:tbs	
 test/cg/taddbool	chunk:15	dir:test/cg	
 test/cg/taddbyte	chunk:15	dir:test/cg	
@@ -304,8 +304,8 @@ test/cg/tin	chunk:15	dir:test/cg
 test/cg/tincexc	chunk:15	dir:test/cg	
 test/cg/tis	chunk:15	dir:test/cg	
 test/cg/tldparam	chunk:15	dir:test/cg	
-test/cg/tloadvmt	chunk:16	dir:test/cg	
-test/cg/tmoddiv	chunk:16	dir:test/cg	
+test/cg/tloadvmt	chunk:15	dir:test/cg	
+test/cg/tmoddiv	chunk:15	dir:test/cg	
 test/cg/tmoddiv1	chunk:16	dir:test/cg	
 test/cg/tmoddiv2	chunk:16	dir:test/cg	
 test/cg/tmoddiv3	chunk:16	dir:test/cg	
@@ -409,8 +409,8 @@ test/cg/variants/ivarol156	chunk:16	dir:test/cg/variants
 test/cg/variants/ivarol158	chunk:16	dir:test/cg/variants	
 test/cg/variants/ivarol160	chunk:16	dir:test/cg/variants	
 test/cg/variants/ivarol161	chunk:16	dir:test/cg/variants	
-test/cg/variants/ivarol162	chunk:17	dir:test/cg/variants	
-test/cg/variants/ivarol164	chunk:17	dir:test/cg/variants	
+test/cg/variants/ivarol162	chunk:16	dir:test/cg/variants	
+test/cg/variants/ivarol164	chunk:16	dir:test/cg/variants	
 test/cg/variants/ivarol165	chunk:17	dir:test/cg/variants	
 test/cg/variants/ivarol166	chunk:17	dir:test/cg/variants	
 test/cg/variants/ivarol167	chunk:17	dir:test/cg/variants	
@@ -492,10 +492,10 @@ test/cg/variants/tvarol62	chunk:17	dir:test/cg/variants
 test/cpu16/i8086/tfarptr1	chunk:17	feat:want_rc	want_rc
 test/cpu16/i8086/tfarptr2	chunk:17	feat:want_rc	want_rc
 test/cpu16/i8086/tfarptr5	chunk:17	feat:want_rc	want_rc
-test/cpu16/i8086/tmmc	chunk:20	dir:test/cpu16/i8086	
-test/cpu16/i8086/tmml	chunk:20	dir:test/cpu16/i8086	
-test/cpu16/i8086/tmmm	chunk:20	dir:test/cpu16/i8086	
-test/cpu16/i8086/tmms	chunk:20	dir:test/cpu16/i8086	
+test/cpu16/i8086/tmmc	chunk:19	dir:test/cpu16/i8086	
+test/cpu16/i8086/tmml	chunk:19	dir:test/cpu16/i8086	
+test/cpu16/i8086/tmmm	chunk:19	dir:test/cpu16/i8086	
+test/cpu16/i8086/tmms	chunk:19	dir:test/cpu16/i8086	
 test/cpu16/i8086/tmmt	chunk:20	dir:test/cpu16/i8086	
 test/cpu16/i8086/ttasm1	chunk:20	dir:test/cpu16/i8086	
 test/cpu16/i8086/ttheap1	chunk:20	dir:test/cpu16/i8086	
@@ -626,8 +626,8 @@ test/tcmp0	chunk:09	dir:test
 test/tcpstr1	chunk:09	dir:test	
 test/tcpstr10	chunk:09	dir:test	
 test/tcpstr17	chunk:09	dir:test	
-test/tcpstr18	chunk:10	dir:test	
-test/tcpstr24	chunk:10	dir:test	
+test/tcpstr18	chunk:09	dir:test	
+test/tcpstr24	chunk:09	dir:test	
 test/tcpstr26	chunk:10	dir:test	
 test/tcpstr26a	chunk:10	dir:test	
 test/tcpstr26b	chunk:10	dir:test	
@@ -729,8 +729,8 @@ test/tgeneric51	chunk:10	dir:test
 test/tgeneric52	chunk:10	dir:test	
 test/tgeneric53	chunk:10	dir:test	
 test/tgeneric54	chunk:10	dir:test	
-test/tgeneric59	chunk:11	dir:test	
-test/tgeneric6	chunk:11	dir:test	
+test/tgeneric59	chunk:10	dir:test	
+test/tgeneric6	chunk:10	dir:test	
 test/tgeneric8	chunk:11	dir:test	
 test/tgeneric91	chunk:11	dir:test	
 test/tgeneric93	chunk:11	dir:test	
@@ -747,8 +747,8 @@ test/timplements1	chunk:11	dir:test
 test/timplements2	chunk:11	dir:test	
 test/timplements3	chunk:11	dir:test	
 test/timplements4	chunk:11	dir:test	
-test/timplements4a	chunk:18	feat:want_rc	want_rc
-test/timplements4b	chunk:18	feat:want_rc	want_rc
+test/timplements4a	chunk:17	feat:want_rc	want_rc
+test/timplements4b	chunk:17	feat:want_rc	want_rc
 test/timplements7	chunk:11	dir:test	
 test/timplements8	chunk:11	dir:test	
 test/tinivar	chunk:11	dir:test	
@@ -835,8 +835,8 @@ test/tparray12	chunk:11	dir:test
 test/tparray14	chunk:11	dir:test	
 test/tparray15	chunk:11	dir:test	
 test/tparray16	chunk:11	dir:test	
-test/tparray17	chunk:12	dir:test	
-test/tparray4	chunk:12	dir:test	
+test/tparray17	chunk:11	dir:test	
+test/tparray4	chunk:11	dir:test	
 test/tpopcnt1	chunk:12	dir:test	
 test/tpopcnt2	chunk:12	dir:test	
 test/tprec11	chunk:12	dir:test	
@@ -938,9 +938,9 @@ test/tunistrcopy	chunk:12	dir:test
 test/tunroll1	chunk:12	dir:test	
 test/tunroll2	chunk:12	dir:test	
 test/tutf81	chunk:12	dir:test	
-test/tutf82	chunk:13	dir:test	
+test/tutf82	chunk:12	dir:test	
 test/tutf8cpl	chunk:18	feat:want_rc	want_rc
-test/twide1	chunk:13	dir:test	
+test/twide1	chunk:12	dir:test	
 test/twide4	chunk:13	dir:test	
 test/twide8	chunk:13	dir:test	
 test/twrstr8	chunk:13	dir:test	
@@ -1070,10 +1070,10 @@ test/units/system/tsetstr2	chunk:18	dir:test/units/system
 test/units/system/tstr1	chunk:18	dir:test/units/system	
 test/units/system/tstr2	chunk:18	dir:test/units/system	
 test/units/system/tstr2a	chunk:18	dir:test/units/system	
-test/units/system/tstr3	chunk:19	dir:test/units/system	
-test/units/system/tstring	chunk:19	dir:test/units/system	
-test/units/system/ttrig	chunk:19	dir:test/units/system	
-test/units/system/ttrunc	chunk:19	dir:test/units/system	
+test/units/system/tstr3	chunk:18	dir:test/units/system	
+test/units/system/tstring	chunk:18	dir:test/units/system	
+test/units/system/ttrig	chunk:18	dir:test/units/system	
+test/units/system/ttrunc	chunk:18	dir:test/units/system	
 test/units/system/tval	chunk:19	dir:test/units/system	
 test/units/system/tval6	chunk:18	feat:want_rc	want_rc
 test/units/sysutils/tadjustlinebreaks	chunk:18	feat:want_rc	want_rc
@@ -1159,7 +1159,6 @@ webtbs/tw10753	chunk:01	dir:webtbs
 webtbs/tw10753a	chunk:01	dir:webtbs	
 webtbs/tw10791	chunk:01	dir:webtbs	
 webtbs/tw10795	chunk:01	dir:webtbs	
-webtbs/tw1081	chunk:01	dir:webtbs	
 webtbs/tw10825	chunk:01	dir:webtbs	
 webtbs/tw10863	chunk:01	dir:webtbs	
 webtbs/tw10920	chunk:01	dir:webtbs	
@@ -1196,7 +1195,7 @@ webtbs/tw12214	chunk:01	dir:webtbs
 webtbs/tw1222	chunk:01	dir:webtbs	
 webtbs/tw12224	chunk:01	dir:webtbs	
 webtbs/tw1223	chunk:01	dir:webtbs	
-webtbs/tw12233	chunk:02	dir:webtbs	
+webtbs/tw12233	chunk:01	dir:webtbs	
 webtbs/tw12242a	chunk:02	dir:webtbs	
 webtbs/tw1229	chunk:02	dir:webtbs	
 webtbs/tw12318	chunk:02	dir:webtbs	
@@ -1299,7 +1298,7 @@ webtbs/tw16848	chunk:02	dir:webtbs
 webtbs/tw16874	chunk:02	dir:webtbs	
 webtbs/tw16884	chunk:02	dir:webtbs	
 webtbs/tw17118	chunk:02	dir:webtbs	
-webtbs/tw17136	chunk:03	dir:webtbs	
+webtbs/tw17136	chunk:02	dir:webtbs	
 webtbs/tw17180	chunk:03	dir:webtbs	
 webtbs/tw17220	chunk:03	dir:webtbs	
 webtbs/tw1735	chunk:03	dir:webtbs	
@@ -1350,7 +1349,6 @@ webtbs/tw1938	chunk:03	dir:webtbs
 webtbs/tw19499	chunk:03	dir:webtbs	
 webtbs/tw19581	chunk:03	dir:webtbs	
 webtbs/tw19610	chunk:03	dir:webtbs	
-webtbs/tw1964	chunk:18	feat:want_rc	want_rc
 webtbs/tw19651	chunk:03	dir:webtbs	
 webtbs/tw19910	chunk:03	dir:webtbs	
 webtbs/tw19960	chunk:03	dir:webtbs	
@@ -1401,7 +1399,7 @@ webtbs/tw2233	chunk:03	dir:webtbs
 webtbs/tw22331	chunk:03	dir:webtbs	
 webtbs/tw2242	chunk:03	dir:webtbs	
 webtbs/tw22427	chunk:03	dir:webtbs	
-webtbs/tw2250	chunk:04	dir:webtbs	
+webtbs/tw2250	chunk:03	dir:webtbs	
 webtbs/tw2260	chunk:04	dir:webtbs	
 webtbs/tw2266	chunk:04	dir:webtbs	
 webtbs/tw2269	chunk:04	dir:webtbs	
@@ -1503,7 +1501,7 @@ webtbs/tw2885	chunk:04	dir:webtbs
 webtbs/tw2886	chunk:04	dir:webtbs	
 webtbs/tw28916	chunk:04	dir:webtbs	
 webtbs/tw2897	chunk:04	dir:webtbs	
-webtbs/tw2899	chunk:05	dir:webtbs	
+webtbs/tw2899	chunk:04	dir:webtbs	
 webtbs/tw29010b	chunk:05	dir:webtbs	
 webtbs/tw29086	chunk:05	dir:webtbs	
 webtbs/tw2913	chunk:05	dir:webtbs	
@@ -1606,7 +1604,7 @@ webtbs/tw3328	chunk:05	dir:webtbs
 webtbs/tw3328a	chunk:05	dir:webtbs	
 webtbs/tw3328b	chunk:05	dir:webtbs	
 webtbs/tw3340	chunk:05	dir:webtbs	
-webtbs/tw33414	chunk:06	dir:webtbs	
+webtbs/tw33414	chunk:05	dir:webtbs	
 webtbs/tw33417	chunk:06	dir:webtbs	
 webtbs/tw33439	chunk:06	dir:webtbs	
 webtbs/tw3349	chunk:06	dir:webtbs	
@@ -1670,7 +1668,6 @@ webtbs/tw36775a	chunk:06	dir:webtbs
 webtbs/tw36775b	chunk:06	dir:webtbs	
 webtbs/tw36775c	chunk:06	dir:webtbs	
 webtbs/tw36863	chunk:06	dir:webtbs	
-webtbs/tw3695	chunk:06	dir:webtbs	
 webtbs/tw3697	chunk:06	dir:webtbs	
 webtbs/tw37034	chunk:06	dir:webtbs	
 webtbs/tw3708	chunk:06	dir:webtbs	
@@ -1715,8 +1712,8 @@ webtbs/tw38351	chunk:06	dir:webtbs
 webtbs/tw38390	chunk:18	feat:want_rc	want_rc
 webtbs/tw3840	chunk:06	dir:webtbs	
 webtbs/tw38429	chunk:06	dir:webtbs	
-webtbs/tw38527	chunk:07	dir:webtbs	
-webtbs/tw38549	chunk:07	dir:webtbs	
+webtbs/tw38527	chunk:06	dir:webtbs	
+webtbs/tw38549	chunk:06	dir:webtbs	
 webtbs/tw38549a	chunk:07	dir:webtbs	
 webtbs/tw38549b	chunk:07	dir:webtbs	
 webtbs/tw38549c	chunk:07	dir:webtbs	
@@ -1828,8 +1825,8 @@ webtbs/tw41526	chunk:18	feat:want_rc	want_rc
 webtbs/tw41545	chunk:07	dir:webtbs	
 webtbs/tw4155	chunk:07	dir:webtbs	
 webtbs/tw41581	chunk:07	dir:webtbs	
-webtbs/tw4162	chunk:08	dir:webtbs	
-webtbs/tw41690	chunk:08	dir:webtbs	
+webtbs/tw4162	chunk:07	dir:webtbs	
+webtbs/tw41690	chunk:07	dir:webtbs	
 webtbs/tw4188	chunk:08	dir:webtbs	
 webtbs/tw4199	chunk:08	dir:webtbs	
 webtbs/tw4201	chunk:08	dir:webtbs	
@@ -1879,7 +1876,6 @@ webtbs/tw6742	chunk:08	dir:webtbs
 webtbs/tw6769	chunk:08	dir:webtbs	
 webtbs/tw6769b	chunk:08	dir:webtbs	
 webtbs/tw6960	chunk:08	dir:webtbs	
-webtbs/tw6980	chunk:18	feat:want_rc	want_rc
 webtbs/tw7071	chunk:08	dir:webtbs	
 webtbs/tw7104	chunk:08	dir:webtbs	
 webtbs/tw7143	chunk:08	dir:webtbs	
@@ -1929,8 +1925,8 @@ webtbs/tw9095	chunk:08	dir:webtbs
 webtbs/tw9096	chunk:08	dir:webtbs	
 webtbs/tw9098	chunk:08	dir:webtbs	
 webtbs/tw9107	chunk:08	dir:webtbs	
-webtbs/tw9126	chunk:09	dir:webtbs	
-webtbs/tw9139	chunk:09	dir:webtbs	
+webtbs/tw9126	chunk:08	dir:webtbs	
+webtbs/tw9139	chunk:08	dir:webtbs	
 webtbs/tw9139a	chunk:09	dir:webtbs	
 webtbs/tw9141	chunk:09	dir:webtbs	
 webtbs/tw9161	chunk:09	dir:webtbs	

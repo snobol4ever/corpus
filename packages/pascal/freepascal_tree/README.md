@@ -22,3 +22,8 @@ value of the process that runs them: `test/units/dos/tenv.pp` prints every varia
 the cutting seat's whole environment), 2 do not end, 1 needs a display. Every answer of the folder was scanned for a value of the cutting environment, a path of
 the machine and a credential-like word before its commit: none. The suite is 1,944 entries. `tbs` and `webtbs` are cut again in the scrubbed environment next;
 `tbf` and `webtbf` hold programs that must FAIL to compile and are not mined.
+
+`tbs` AND `webtbs` CUT AGAIN IN THE SCRUBBED ENVIRONMENT (2026-11-11). `tbs`: every verdict and every answer as before (205 entries). `webtbs`: 849 entries, four
+fewer: `tw1964` and `tw6980` READ THE ENVIRONMENT (their answers held the working folder of the seat that cut them, `/tmp/s4e/.../mine_.../f`, a path of the machine and
+no credential) and `tw1081` and `tw3695` answered differently twice this time; three programs that differed before now read READS-THE-ENVIRONMENT. The answers of both
+folders were scanned as `test`'s were: no value of the cutting environment, no path of the machine. THE SUITE IS 1,940 ENTRIES: `tbs` 205, `webtbs` 849, `test` 886.
