@@ -1,0 +1,5 @@
+popcnt(<byte>); passed
+popcnt(<word>); passed
+popcnt(<dword>); passed
+popcnt(<qword>); passed
+ok

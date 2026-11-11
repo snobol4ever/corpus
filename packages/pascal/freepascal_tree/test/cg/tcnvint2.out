@@ -1,0 +1,25 @@
+Testing LOC_REFERENCE...
+byte-> bytebool : Value should be TRUE...TRUE
+byte -> wordbool : Value should be TRUE...TRUE
+word -> wordbool : Value should be TRUE...TRUE
+byte -> longbool : Value should be TRUE...TRUE
+word -> longbool : Value should be TRUE...TRUE
+longint -> longbool : Value should be TRUE...TRUE
+int64 -> longbool : Value should be TRUE...TRUE
+int64 -> longbool : Value should be TRUE...TRUE
+Testing LOC_REGISTER...
+byte-> bytebool : Value should be TRUE...TRUE
+byte -> wordbool : Value should be TRUE...TRUE
+word -> wordbool : Value should be TRUE...TRUE
+byte -> longbool : Value should be TRUE...TRUE
+word -> longbool : Value should be TRUE...TRUE
+longint -> longbool : Value should be TRUE...TRUE
+int64 -> longbool : Value should be TRUE...TRUE
+int64 -> longbool : Value should be TRUE...TRUE
+Testing LOC_FLAGS...
+Value should be TRUE...TRUE
+Value should be TRUE...TRUE
+Value should be TRUE...TRUE
+Value should be TRUE...TRUE
+Value should be TRUE...TRUE
+Value should be TRUE...TRUE

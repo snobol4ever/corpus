@@ -1,0 +1,21 @@
+Currency = Currency test...Success.
+Currency <> Currency test...Success.
+Currency <= Currency test...Success.
+Currency >= Currency test...Success.
+Currency - Currency test...Result (89.9) : 8.990000000000000000E+01
+Result (-79.9) :-7.990000000000000000E+01
+Result (0.0) : 0.000000000000000000E+00
+Success.
+Currency + Currency test...
+Result (10.5) : 1.050000000000000000E+01
+Result (212.5) : 2.125000000000000000E+02
+Success.
+Currency / Currency test...
+Result (-9.99) :-9.990000000000000000E+00
+Result (-1.001) :-1.001000000000000000E+00
+Result (-0.1001) :-1.001000000000000000E-01
+Success.
+Currency * Currency test...
+Result (0.0) : 0.000000000000000000E+00
+Result (-1200.0) :-1.200000000000000000E+03
+Success.

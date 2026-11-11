@@ -1,0 +1,7 @@
+secondassign node testing.
+left : LOC_REFERENCE, right : LOC_CONSTANT tests..Success!
+left : LOC_REFERENCE, right : LOC_REGISTER tests..Success!
+left : LOC_REFERENCE, right : LOC_FPUREGISTER tests..Success!
+left : LOC_REFERENCE, right : LOC_REFERENCE tests..Success!
+left : LOC_REFERENCE, right : LOC_JUMP tests (32-bit cpus only!)..Success!
+left : LOC_REFERENCE, right : LOC_FLAGS tests..Success!

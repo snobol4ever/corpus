@@ -1,0 +1,14 @@
+Testing in main: | $00 | $FF | 1 |
+
+Testing in procedure: | $01 | $FF | 1 |
+
+Back in main: | $3F | $FF | 1 |
+
+In main, | $7F | $FF | 1 |
+
+Above tests, but with bits 8..1 set to  $FE - all work on my system
+ | $00 | $FE | 1 |
+
+ | $3F | $FE | 1 |
+
+ | $7F | $FE | 1 |

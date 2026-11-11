@@ -1,0 +1,23 @@
+Writing to stream : "01234567899876543210"
+Closing stream.
+Reading from stream : 
+After opening
+Reading (0123456789) : 0123456789
+Reading (9876543210) : 9876543210
+Closing stream.
+Same thing, using raw read method : 
+Reading from stream : 
+Reading (0123456789) : 0123456789
+Reading (9876543210) : 9876543210
+Closing stream.
+Statistics about stream : 
+Size     : 23
+Position : 0
+Reading (0123456789) : 0123456789
+Position : 11
+Closing stream.
+Reading from stream : 
+Seek to position :11
+Reading (9876543210) : 9876543210
+Closing stream.
+Truncating stream to zero length.

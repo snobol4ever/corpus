@@ -1,0 +1,8 @@
+Test val for longint type
+All tests succeeded count=259958
+Test val for dword type
+All tests succeeded count=519916
+Test val for int64 type
+All tests succeeded count=779874
+Test val for qword type
+All tests succeeded count=1039832

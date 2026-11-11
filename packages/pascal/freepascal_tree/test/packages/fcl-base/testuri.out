@@ -1,0 +1,18 @@
+http://user:pass@localhost:8080/test/dir/some%20index.html?param1=value1&param2=value2#bookmark
+
+Protocol: http
+Username: 
+Password: 
+Host: www.lazarus.freepascal.org
+Port: 0
+Path: /
+Document: main.php
+Params: 
+Bookmark: 
+
+Now testing relative URI resolving:
+Normal tests... OK
+URI authority is not changed by using dot segments... OK
+Dot segments are removed only if they are complete path components... OK
+Testing some nonsensical forms of URI... OK
+Testing dot segments present in query or fragments... OK

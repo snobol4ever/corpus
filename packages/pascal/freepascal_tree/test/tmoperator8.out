@@ -1,0 +1,112 @@
+TFoo.Initialize
+TFoo.Initialize
+TFoo.Initialize
+*** Test for variable copy
+    AValue.F = 1
+    AValue.Test = 0
+    AValue.Ref = FALSE
+    AValue.CopyState = 0
+TFoo.Copy
+    AValue.F = 2
+    AValue.Test = 0
+    AValue.Ref = FALSE
+    AValue.CopyState = 1
+    AValue.F = 2
+    AValue.Test = 1
+    AValue.Ref = FALSE
+    AValue.CopyState = 2
+*** Test for Copy(dyn array)
+TFoo.Initialize
+TFoo.Initialize
+TFoo.Initialize
+TFoo.Initialize
+TFoo.Initialize
+TFoo.AddRef
+TFoo.AddRef
+TFoo.AddRef
+TFoo.AddRef
+TFoo.AddRef
+    AValue.F = 2
+    AValue.Test = 0
+    AValue.Ref = FALSE
+    AValue.CopyState = 0
+    AValue.F = 3
+    AValue.Test = 1
+    AValue.Ref = TRUE
+    AValue.CopyState = 0
+    AValue.F = 2
+    AValue.Test = 1
+    AValue.Ref = FALSE
+    AValue.CopyState = 0
+    AValue.F = 3
+    AValue.Test = 2
+    AValue.Ref = TRUE
+    AValue.CopyState = 0
+    AValue.F = 2
+    AValue.Test = 2
+    AValue.Ref = FALSE
+    AValue.CopyState = 0
+    AValue.F = 3
+    AValue.Test = 3
+    AValue.Ref = TRUE
+    AValue.CopyState = 0
+    AValue.F = 2
+    AValue.Test = 3
+    AValue.Ref = FALSE
+    AValue.CopyState = 0
+    AValue.F = 3
+    AValue.Test = 4
+    AValue.Ref = TRUE
+    AValue.CopyState = 0
+    AValue.F = 2
+    AValue.Test = 4
+    AValue.Ref = FALSE
+    AValue.CopyState = 0
+    AValue.F = 3
+    AValue.Test = 5
+    AValue.Ref = TRUE
+    AValue.CopyState = 0
+*** Test for parameters modifiers
+TFoo.AddRef
+  *Test without modifier:
+    AValue.F = 3
+    AValue.Test = 1
+    AValue.Ref = TRUE
+    AValue.CopyState = 0
+TFoo.Finalize
+TFoo.Finalize
+TFoo.Initialize
+  *Test out modifier:
+    AValue.F = 1
+    AValue.Test = 0
+    AValue.Ref = FALSE
+    AValue.CopyState = 0
+  *Test var modifier:
+    AValue.F = 2
+    AValue.Test = 0
+    AValue.Ref = FALSE
+    AValue.CopyState = 0
+  *Test const modifier:
+    AValue.F = 2
+    AValue.Test = 0
+    AValue.Ref = FALSE
+    AValue.CopyState = 0
+  *Test constref modifier:
+    AValue.F = 2
+    AValue.Test = 0
+    AValue.Ref = FALSE
+    AValue.CopyState = 0
+TFoo.Finalize
+TFoo.Finalize
+TFoo.Finalize
+TFoo.Finalize
+TFoo.Finalize
+TFoo.Finalize
+TFoo.Finalize
+TFoo.Finalize
+TFoo.Finalize
+TFoo.Finalize
+TFoo.Finalize
+TFoo.Finalize
+TFoo.Finalize
+end

@@ -1,0 +1,49 @@
+AdjustLineBreaks(
+
+Entering the Snake Room without feeding the Frog to the Snake will cause the Snake to eat Viola.#13
+If Viola visits the Frog Room after the Frog was killed, and Viola reads the note, a black hand will emerge from the black pit and grab her.,
+
+tlbsLF)
+
+=
+
+Entering the Snake Room without feeding the Frog to the Snake will cause the Snake to eat Viola.#13
+If Viola visits the Frog Room after the Frog was killed, and Viola reads the note, a black hand will emerge from the black pit and grab her.
+
+expected
+
+Entering the Snake Room without feeding the Frog to the Snake will cause the Snake to eat Viola.#10
+If Viola visits the Frog Room after the Frog was killed, and Viola reads the note, a black hand will emerge from the black pit and grab her.
+
+AdjustLineBreaks(
+
+#10
+#13
+Drinking the soup in the Dining Room will poison Viola and cause her to lose HP with each step.#13#10
+The Chef will chop Viola's hands off if she chooses to lend the chef a hand in the Kitchen.#10
+Upon entering the Spider Room, If Viola takes the Butterfly without placing the Butterfly Model in the web, trying to exit the room will make a spider decapitate her.#13
+Reading the Book of Death will cause Viola to violently and uncontrollably bleed to death.#13#10
+#10,
+
+tlbsCR)
+
+=
+
+#10
+#10
+Drinking the soup in the Dining Room will poison Viola and cause her to lose HP with each step.#10
+The Chef will chop Viola's hands off if she chooses to lend the chef a hand in the Kitchen.#10
+Upon entering the Spider Room, If Viola takes the Butterfly without placing the Butterfly Model in the web, trying to exit the room will make a spider decapitate her.#10
+Reading the Book of Death will cause Viola to violently and uncontrollably bleed to death.#10
+#10
+
+expected
+
+#13
+#13
+Drinking the soup in the Dining Room will poison Viola and cause her to lose HP with each step.#13
+The Chef will chop Viola's hands off if she chooses to lend the chef a hand in the Kitchen.#13
+Upon entering the Spider Room, If Viola takes the Butterfly without placing the Butterfly Model in the web, trying to exit the room will make a spider decapitate her.#13
+Reading the Book of Death will cause Viola to violently and uncontrollably bleed to death.#13
+#13
+

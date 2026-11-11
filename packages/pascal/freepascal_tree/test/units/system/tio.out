@@ -1,0 +1,22 @@
+closing assigned only file...(IOResult=103 expected) Passed!
+opening file...Passed!
+writing to file...Passed!
+getting filesize...Passed!
+seek to beginning of file...Passed!
+reading from file...Passed!
+seek to beginning of file...Passed!
+verifying file position...Passed!
+closing file...Passed!
+closing already closed file...(IOResult=103 expected) Passed!
+opening file...Passed!
+writing to file...Passed!
+closing file...Passed!
+opening file...Passed!
+writing to file...Passed!
+getting filesize...Passed!
+seek to beginning of file...Passed!
+reading from file...Passed!
+closing file...Passed!
+renaming file...Passed!
+erasing file...Passed!
+erasing file...Passed!

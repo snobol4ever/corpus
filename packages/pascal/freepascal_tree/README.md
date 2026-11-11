@@ -15,3 +15,10 @@ follow, one a landing. An entry is graded on standard output and exit status.
 THE SECOND FOLDER IS `webtbs` (2,758 programs, added with `--mine-under webtbs --mine-add`, 2026-11-11): 853 entries; 1,151 print nothing; 320 are
 units; 369 fpc refuses as they stand; 26 need input, 26 differ between runs, 9 need a display, 2 the network, 2 do not end. The suite is 1,058
 entries. The folders `test`, `tbf` and `webtbf` follow.
+
+THE THIRD FOLDER IS `test` (2,980 programs, added with `--mine-under test --mine-add`, 2026-11-11, in a SCRUBBED environment with a canary: COO-513 (4)): 886
+entries; 1,217 fpc refuses as they stand; 629 print nothing; 209 are units; 16 differ between runs, 10 need input, 10 READ THE ENVIRONMENT (their answer holds a
+value of the process that runs them: `test/units/dos/tenv.pp` prints every variable, and a first cut of this folder, made before the scrub and never landed, held
+the cutting seat's whole environment), 2 do not end, 1 needs a display. Every answer of the folder was scanned for a value of the cutting environment, a path of
+the machine and a credential-like word before its commit: none. The suite is 1,944 entries. `tbs` and `webtbs` are cut again in the scrubbed environment next;
+`tbf` and `webtbf` hold programs that must FAIL to compile and are not mined.

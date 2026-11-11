@@ -1,0 +1,17 @@
+=== Test 1: Basic open array with dynamic strings ===
+  Inside Test, High(aArg) = 1
+  aArg[0] = hello548
+  aArg[1] = world592
+  Caught: Boom
+
+=== Test 2: Open array with many preceding params ===
+  Inside TestMany, High(aArg) = 2, A=1 B=2 C=3 D=4 E=5
+  Caught: Boom from TestMany
+
+=== Test 3: Large open array ===
+  Inside TestLargeArray, High(aArg) = 9
+..........
+  Caught: Boom from TestLargeArray
+
+AllocCount = 15
+All tests passed without crash.

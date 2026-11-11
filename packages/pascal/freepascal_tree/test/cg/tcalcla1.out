@@ -1,0 +1,115 @@
+*********************** CLASS TESTS ***********************
+No parameter / method call testing...Passed!
+Simple parameter (LOC_CONSTANT) / method call testing...Passed!
+Simple parameter (LOC_REFERENCE) / method call testing...Passed!
+Simple parameter (LOC_REGISTER) / method call testing...Passed!
+Simple parameter / complex return / nested method access testing...Passed!
+Testing mixed parameter (LOC_CONSTANT) constructor call...Passed!
+Testing mixed parameter (LOC_REFERENCE) constructor call...Passed!
+Testing mixed parameter (LOC_CONSTANT) inherited constructor call...Passed!
+Testing mixed parameter (LOC_REFERENCE) inherited constructor call...Passed!
+Testing mixed parameter (LOC_CONSTANT) constructor call w/virtual call...Passed!
+Testing mixed parameter (LOC_REFERENCE) constructor call w/virtual call...Passed!
+Testing mixed parameter (LOC_CONSTANT) constructor call w/virtual call...Passed!
+Testing mixed parameter (LOC_REFERENCE) constructor call w/virtual call...Passed!
+Testing mixed parameter (LOC_CONSTANT) constructor call w/method call...Passed!
+Testing mixed parameter (LOC_REFERENCE) constructor call w/method call...Passed!
+Testing mixed parameter (LOC_CONSTANT) constructor call w/static call...Passed!
+Testing mixed parameter (LOC_REFERENCE) constructor call w/static call...Passed!
+Testing mixed parameter (LOC_CONSTANT) virtual method call...Passed!
+Testing mixed parameter (LOC_REFERENCE) virtual method call...Passed!
+Testing mixed parameter (LOC_CONSTANT) dynamic method call...Passed!
+Testing mixed parameter (LOC_CONSTANT) dynamic method call...Passed!
+Testing mixed parameter (LOC_REFERENCE) dynamic method call...Passed!
+Testing mixed parameter (LOC_REFERENCE) dynamic method call...Passed!
+Testing mixed parameter (LOC_CONSTANT) virtual method call...Passed!
+Testing mixed parameter (LOC_REFERENCE) virtual method call...Passed!
+Testing mixed parameter (LOC_CONSTANT) method call...Passed!
+Testing mixed parameter (LOC_REFERENCE) method call...Passed!
+Testing mixed parameter (LOC_CONSTANT) static method call...Passed!
+Testing mixed parameter (LOC_REFERENCE) static method call...Passed!
+Testing mixed parameter (LOC_CONSTANT) method call w/virtual call...Passed!
+Testing mixed parameter (LOC_REFERENCE) method call w/virtual call...Passed!
+Testing mixed parameter (LOC_CONSTANT) method call w/virtual call...Passed!
+Testing mixed parameter (LOC_REFERENCE) method call w/virtual call...Passed!
+Testing mixed parameter (LOC_CONSTANT) method call w/normal call...Passed!
+Testing mixed parameter (LOC_REFERENCE) method call w/normal call...Passed!
+Testing mixed parameter (LOC_CONSTANT) method call w/constructor call...Passed!
+Testing mixed parameter (LOC_REFERENCE) method call w/constructor call...Passed!
+Testing mixed parameter (LOC_CONSTANT) method call w/static call...Passed!
+Testing mixed parameter (LOC_REFERENCE) method call w/static call...Passed!
+Testing mixed parameter (LOC_CONSTANT) method call w/inherited call...Passed!
+Testing mixed parameter (LOC_REFERENCE) method call w/inherited call...Passed!
+Testing mixed parameter (LOC_CONSTANT) virtual call w/virtual call...Passed!
+Testing mixed parameter (LOC_REFERENCE) virtual call w/virtual call...Passed!
+Testing mixed parameter (LOC_CONSTANT) virtual call w/virtual call...Passed!
+Testing mixed parameter (LOC_REFERENCE) virtual call w/virtual call...Passed!
+Testing mixed parameter (LOC_CONSTANT) virtual call w/normal call...Passed!
+Testing mixed parameter (LOC_REFERENCE) virtual call w/normal call...Passed!
+Testing virtual call w/destructor call...Passed!
+Testing mixed parameter (LOC_CONSTANT) virtual call w/constructor call...Passed!
+Testing mixed parameter (LOC_REFERENCE) virtual call w/constructor call...Passed!
+Testing mixed parameter (LOC_CONSTANT) virtual call w/static call...Passed!
+Testing mixed parameter (LOC_REFERENCE) virtual call w/static call...Passed!
+Testing mixed parameter (LOC_CONSTANT) virtual call w/inherited call...Passed!
+Testing mixed parameter (LOC_REFERENCE) virtual call w/inherited call...Passed!
+Testing mixed parameter (LOC_CONSTANT) dynamic call w/constructor call...Passed!
+Testing mixed parameter (LOC_REFERENCE) dynamic call w/constructor call...Passed!
+Testing mixed parameter (LOC_CONSTANT) dynamic call w/static call...Passed!
+Testing mixed parameter (LOC_REFERENCE) dynamic call w/static call...Passed!
+Testing mixed parameter (LOC_CONSTANT) dynamic call w/inherited call...Passed!
+Testing mixed parameter (LOC_REFERENCE) dynamic call w/inherited call...Passed!
+*******************CLASS TESTS USING WITH ******************
+Testing mixed parameter (LOC_CONSTANT) inherited constructor call...Passed!
+Testing mixed parameter (LOC_REFERENCE) inherited constructor call...Passed!
+Testing mixed parameter (LOC_CONSTANT) constructor call w/virtual call...Passed!
+Testing mixed parameter (LOC_REFERENCE) constructor call w/virtual call...Passed!
+Testing mixed parameter (LOC_CONSTANT) constructor call w/virtual call...Passed!
+Testing mixed parameter (LOC_REFERENCE) constructor call w/virtual call...Passed!
+Testing mixed parameter (LOC_CONSTANT) constructor call w/method call...Passed!
+Testing mixed parameter (LOC_REFERENCE) constructor call w/method call...Passed!
+Testing mixed parameter (LOC_CONSTANT) constructor call w/static call...Passed!
+Testing mixed parameter (LOC_REFERENCE) constructor call w/static call...Passed!
+Testing mixed parameter (LOC_CONSTANT) virtual method call...Passed!
+Testing mixed parameter (LOC_REFERENCE) virtual method call...Passed!
+Testing mixed parameter (LOC_CONSTANT) dynamic method call...Passed!
+Testing mixed parameter (LOC_CONSTANT) dynamic method call...Passed!
+Testing mixed parameter (LOC_REFERENCE) dynamic method call...Passed!
+Testing mixed parameter (LOC_REFERENCE) dynamic method call...Passed!
+Testing mixed parameter (LOC_CONSTANT) virtual method call...Passed!
+Testing mixed parameter (LOC_REFERENCE) virtual method call...Passed!
+Testing mixed parameter (LOC_CONSTANT) method call...Passed!
+Testing mixed parameter (LOC_REFERENCE) method call...Passed!
+Testing mixed parameter (LOC_CONSTANT) static method call...Passed!
+Testing mixed parameter (LOC_REFERENCE) static method call...Passed!
+Testing mixed parameter (LOC_CONSTANT) method call w/virtual call...Passed!
+Testing mixed parameter (LOC_REFERENCE) method call w/virtual call...Passed!
+Testing mixed parameter (LOC_CONSTANT) method call w/virtual call...Passed!
+Testing mixed parameter (LOC_REFERENCE) method call w/virtual call...Passed!
+Testing mixed parameter (LOC_CONSTANT) method call w/normal call...Passed!
+Testing mixed parameter (LOC_REFERENCE) method call w/normal call...Passed!
+Testing mixed parameter (LOC_CONSTANT) method call w/constructor call...Passed!
+Testing mixed parameter (LOC_REFERENCE) method call w/constructor call...Passed!
+Testing mixed parameter (LOC_CONSTANT) method call w/static call...Passed!
+Testing mixed parameter (LOC_REFERENCE) method call w/static call...Passed!
+Testing mixed parameter (LOC_CONSTANT) method call w/inherited call...Passed!
+Testing mixed parameter (LOC_REFERENCE) method call w/inherited call...Passed!
+Testing mixed parameter (LOC_CONSTANT) virtual call w/virtual call...Passed!
+Testing mixed parameter (LOC_REFERENCE) virtual call w/virtual call...Passed!
+Testing mixed parameter (LOC_CONSTANT) virtual call w/virtual call...Passed!
+Testing mixed parameter (LOC_REFERENCE) virtual call w/virtual call...Passed!
+Testing mixed parameter (LOC_CONSTANT) virtual call w/normal call...Passed!
+Testing mixed parameter (LOC_REFERENCE) virtual call w/normal call...Passed!
+Testing virtual call w/destructor call...Passed!
+Testing mixed parameter (LOC_CONSTANT) virtual call w/constructor call...Passed!
+Testing mixed parameter (LOC_REFERENCE) virtual call w/constructor call...Passed!
+Testing mixed parameter (LOC_CONSTANT) virtual call w/static call...Passed!
+Testing mixed parameter (LOC_REFERENCE) virtual call w/static call...Passed!
+Testing mixed parameter (LOC_CONSTANT) virtual call w/inherited call...Passed!
+Testing mixed parameter (LOC_REFERENCE) virtual call w/inherited call...Passed!
+Testing mixed parameter (LOC_CONSTANT) dynamic call w/constructor call...Passed!
+Testing mixed parameter (LOC_REFERENCE) dynamic call w/constructor call...Passed!
+Testing mixed parameter (LOC_CONSTANT) dynamic call w/static call...Passed!
+Testing mixed parameter (LOC_REFERENCE) dynamic call w/static call...Passed!
+Testing mixed parameter (LOC_CONSTANT) dynamic call w/inherited call...Passed!
+Testing mixed parameter (LOC_REFERENCE) dynamic call w/inherited call...Passed!

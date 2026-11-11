@@ -1,0 +1,5 @@
+first vartype=271
+Test 2: Custom variant type ($010E) is out of range
+Test 3: Custom variant type ($1000) is out of range
+Test 4: Custom variant type ($010F) already used by TTest
+Test 7: Custom variant type ($010F) is not usable

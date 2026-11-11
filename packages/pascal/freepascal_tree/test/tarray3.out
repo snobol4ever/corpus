@@ -1,0 +1,29 @@
+Testing if "ABCD" is equal to "ABCD"
+Testing if "ABCD" is equal to "ABCD"
+Testing if "ABCD" is equal to "ABCD"
+Chars after #0 are not ignored
+Testing if "ABCD" is equal to "ABCD"
+assigning shorter strings to array of char does zero rest of array
+Testing if "ABCD" is equal to "ABCD"
+st=AB
+Length(st)=2
+st=ABCD
+Length(st)=4
+st=ABCD
+Length(st)=4
+st=EFGH
+Length(st)=4
+st=Long
+Length(st)=4
+st=AB
+Length(st)=2
+st=EFGH
+Length(st)=4
+st=Test
+Length(st)=4
+st=ABCD
+Length(st)=4
+st=Test
+Length(st)=4
+st=ABCD
+Length(st)=4

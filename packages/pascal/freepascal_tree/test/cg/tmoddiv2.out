@@ -1,0 +1,32 @@
+positive int32 division test...Success.
+Negative int32 division test...Success.
+positive int32 division test...Success.
+Negative int32 division test...Success.
+positive int32 division test...Success.
+Negative int32 division test...Success.
+positive int32 division test...Success.
+Negative int32 division test...Success.
+positive int32 division test...Success.
+Negative int32 division test...Success.
+positive int32 modulus test (19)...Success.
+Negative int32 modulus test (-19)...Success.
+positive int32 modulus test (3)...Success.
+Negative int32 modulus test (-3)...Success.
+positive int32 modulus test (5)...Success.
+Negative int32 modulus test (-5)...Success.
+positive int32 modulus test (7)...Success.
+Negative int32 modulus test (-7)...Success.
+positive int32 modulus test (512)...Success.
+Negative int32 modulus test (-512)...Success.
+positive uint32 division test (19)...Success.
+positive uint32 modulus test (19)...Success.
+positive uint32 division test (3)...Success.
+positive uint32 modulus test (3)...Success.
+positive uint32 division test (5)...Success.
+positive uint32 modulus test (5)...Success.
+positive uint32 division test (7)...Success.
+positive uint32 modulus test (7)...Success.
+positive uint32 division test (512)...Success.
+positive uint32 modulus test (512)...Success.
+positive uint32 division test ($deadbeef)...Success.
+positive uint32 division test ($b16beef)...Success.

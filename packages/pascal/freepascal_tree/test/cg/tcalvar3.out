@@ -1,0 +1,12 @@
+Var parameter test (src : LOC_REFERENCE (orddef)))...Passed!
+Var parameter test (src : LOC_REFERENCE (recorddef)))...Passed!
+var parameter test (src : LOC_REFERENCE (setdef)))...Passed!
+var parameter test (src : LOC_REFERENCE (stringdef)))...Passed!
+Var parameter test (src : LOC_REFERENCE (formaldef)))...Passed!
+Var parameter test (src : LOC_REFERENCE (arraydef)))...Passed!
+Var parameter test (src : LOC_REFERENCE (orddef)))...Passed!
+Var parameter test (src : LOC_REFERENCE (recorddef)))...Passed!
+var parameter test (src : LOC_REFERENCE (setdef)))...Passed!
+var parameter test (src : LOC_REFERENCE (stringdef)))...Passed!
+Var parameter test (src : LOC_REFERENCE (formaldef)))...Passed!
+Var parameter test (src : LOC_REFERENCE (arraydef)))...Passed!

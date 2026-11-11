@@ -1,0 +1,15 @@
+Testing secondexitn() simple case...Passed!
+Testing secondexitn() with reference (simple case)...Passed!
+secondexitn() LOC_CONSTANT case...Passed!
+secondexitn() LOC_MEM case...Passed!
+Testing secondexitn() LOC_REFERENCE case...
+    ordinal/enumdef return value...Passed!
+    floating point return value...Passed!
+    pointer/procedure variable return value...Passed!
+Testing secondexitn() LOC_REGISTER case...
+    ordinal/enumdef return value...Passed!
+    floating point return value...Passed!
+    pointer/procedure variable return value...Passed!
+Testing secondexitn() LOC_FLAGS case...Passed!
+Testing secondexitn() LOC_JUMP case...Passed!
+Testing secondexitn() ansistring case...Passed!

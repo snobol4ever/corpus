@@ -1,0 +1,36 @@
+------------------------------ LONGINT --------------------------------
+(left) : LOC_REFERENCE; (right) : ordinal constant
+(SHL) Value should be 32768...Passed!
+(SHL) Value should be -32768...Passed!
+(SHL) Value should be 2...Passed!
+(SHR) Value should be 1...Passed!
+(SHR) Value should be 131071...Passed!
+(SHR) Value should be 32767...Passed!
+(left) : LOC_REFERENCE; (right) : LOC_REFERENCE
+(SHL) Value should be 32768...Passed!
+(SHL) Value should be -32768...Passed!
+(SHR) Value should be 1...Passed!
+(SHR) Value should be -32768...Passed!
+(SHL) Value should be 32768...Passed!
+(SHL) Value should be -32768...Passed!
+(SHR) Value should be 1...Passed!
+(SHR) Value should be 131071...Passed!
+(left) : LOC_REGISTER; (right) : LOC_REGISTER
+(SHL) Value should be 4...Passed!
+(SHR) Value should be 1...Passed!
+------------------------------  INT64  --------------------------------
+(left) : LOC_REFERENCE; (right) : ordinal constant
+(SHL) Value should be 32768...Passed!
+(SHL) Value should be -32768...Passed!
+(SHL) Value should be 2...Passed!
+(SHR) Value should be 1...Passed!
+(SHR) Value should be 32767...Passed!
+(SHL) Value should be 32768...Passed!
+(SHL) Value should be -32768...Passed!
+(SHL) Value should be 2 in high longint (85899345)...Passed!
+(SHR) Value should be 1...Passed!
+(SHR) Value should be -32768...Passed!
+(SHL) Value should be 32768...Passed!
+(SHL) Value should be -32768...Passed!
+(SHR) Value should be 1...Passed!
+(SHL) Value should be 2 in high longint (85899345)...Passed!

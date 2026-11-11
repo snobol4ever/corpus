@@ -1,0 +1,2 @@
+longint called instead of widechar
+Exception caught, as expected: EVariantError

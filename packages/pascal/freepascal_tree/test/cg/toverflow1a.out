@@ -1,0 +1,16 @@
+Testing 32-bit addition of 128 to 4294967167... no exception... Pass
+Testing 32-bit addition of 128 to 4294967168... no exception... FAIL: Overflow not triggered then it should have
+Testing 32-bit addition of 128 to 4294967169... no exception... FAIL: Overflow not triggered then it should have
+Testing 32-bit addition of 128 to 4294967295... no exception... FAIL: Overflow not triggered then it should have
+Testing 32-bit subtraction of 128 from 129... no exception... Pass
+Testing 32-bit subtraction of 128 from 128... no exception... Pass
+Testing 32-bit subtraction of 128 from 127... no exception... FAIL: Overflow not triggered then it should have
+Testing 32-bit subtraction of 128 from 0... no exception... FAIL: Overflow not triggered then it should have
+Testing 64-bit addition of 128 to 18446744073709551487... no exception... Pass
+Testing 64-bit addition of 128 to 18446744073709551488... no exception... FAIL: Overflow not triggered then it should have
+Testing 64-bit addition of 128 to 18446744073709551489... no exception... FAIL: Overflow not triggered then it should have
+Testing 64-bit addition of 128 to 18446744073709551615... no exception... FAIL: Overflow not triggered then it should have
+Testing 64-bit subtraction of 128 from 129... no exception... Pass
+Testing 64-bit subtraction of 128 from 128... no exception... Pass
+Testing 64-bit subtraction of 128 from 127... no exception... FAIL: Overflow not triggered then it should have
+Testing 64-bit subtraction of 128 from 0... no exception... FAIL: Overflow not triggered then it should have

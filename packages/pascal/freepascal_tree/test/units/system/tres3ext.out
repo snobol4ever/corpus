@@ -1,0 +1,9 @@
+Resources test.
+Type: FILE
+    Name: TESTFILE
+        Lang: 0409
+        Lang: 0410
+Type: TEXT
+    Name: TEST
+        Lang: 0409
+Done.

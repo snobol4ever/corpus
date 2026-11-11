@@ -1,0 +1,17 @@
+ShortString const test
+                                 ShortString const test with const len
+                         ShortString const test with var len
+ShortStr var test
+        ShortStr var test with const len
+                              ShortStr var test with var len
+A combo test: 60 -1 y 18       TRUE
+floats:  5.1234000000000002E+000  5.1E+000  5.1E+000       5.12
+array of char:                             arrofchars
+pchar test: arrofchar
+this is an ansistring
+int64 test : 1099511627776 65535
+widechar: y
+this is a widestring
+no new line now...-1y60testing text file functionality...
+write/read text passed...
+write/read typed passed...

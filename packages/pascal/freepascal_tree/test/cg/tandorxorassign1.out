@@ -1,0 +1,13 @@
+Testing And(Ref, Const)
+Testing And(Ref, Ref)
+Testing And(RegVar, Const)
+Testing And(RegVar, RegVar)
+Testing Or(Ref, Const)
+Testing Or(Ref, Ref)
+Testing Or(RegVar, Const)
+Testing Or(RegVar, RegVar)
+Testing Xor(Ref, Const)
+Testing Xor(Ref, Ref)
+Testing Xor(RegVar, Const)
+Testing Xor(RegVar, RegVar)
+Ok!

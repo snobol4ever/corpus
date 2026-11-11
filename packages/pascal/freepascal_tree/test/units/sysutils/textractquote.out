@@ -1,0 +1,8 @@
+testing: *"test1""test2"*: ok
+testing: *"test1" "test2"*: ok
+testing: *"test1 test2"*: ok
+testing: *"test1 test2*: ok
+testing: **: ok
+testing: *"*: ok
+testing: *""*: ok
+testing: *"x"*: ok

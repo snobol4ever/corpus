@@ -1,0 +1,3 @@
+TSomeClass.TPrivateNestedClass.DoSomething: ok
+TSomeClass.TNestedClass.DoSomething: ok
+TSomeClass.TNestedClass.DoSomething: ok

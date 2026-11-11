@@ -1,0 +1,9 @@
+Testing typecasting...
+When delegating by field, refcount=3
+When delegating by function, refcount=4
+Testing 'as' operator...
+When delegating by field, refcount=4
+When delegating by function, refcount=4
+Testing GetInterface()...
+When delegating by field, refcount=3
+When delegating by function, refcount=3

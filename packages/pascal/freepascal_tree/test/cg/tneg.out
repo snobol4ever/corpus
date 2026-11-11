@@ -1,0 +1,8 @@
+------------------------------ LONGINT --------------------------------
+Value should be -1...Passed!
+Value should be -2...Passed!
+Value should 1.0...Passed!
+Value should 1.0...Passed!
+------------------------------  INT64  --------------------------------
+Value should be -1...Passed!
+Value should be -2...Passed!

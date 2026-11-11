@@ -1,0 +1,26 @@
+type conversion src_size > dst_size
+dst : LOC_REGISTER src : LOC_REGISTER 
+Testing dst : s32bit src : s64bit...Passed.
+Testing dst : s8bit src : s64bit...Passed.
+Testing dst : s16bit src : s32bit...Passed.
+dst : LOC_REGISTER src : LOC_REFERENCE 
+Testing dst : s32bit src : s64bit...Passed.
+Testing dst : s16bit src : s32bit...Passed.
+Testing dst : s16bit src : s32bit...Passed.
+Testing dst : s8bit src : s16bit...Passed.
+Testing dst : u16bit src : u32bit...Passed.
+Testing dst : u8bit src : u16bit...Passed.
+type conversion dst_size > src_size
+dst : LOC_REGISTER src : LOC_REGISTER 
+Testing dst : u16bit  src : s8bit, u8bit... Passed.
+Testing dst : u32bit  src : s8bit, u8bit, s16bit, u16bit... Passed.
+Testing dst : s16bit  src : s8bit, u8bit...Passed.
+Testing dst : s32bit  src : s8bit, u8bit. s16bit, u16bit...Passed.
+Testing dst : s64bit  src : s8bit, u8bit. s16bit, u16bit, s32bit, u32bit...Passed.
+type conversion dst_size > src_size
+dst : LOC_REGISTER src : LOC_REFERENCE 
+Testing dst : u16bit  src : s8bit, u8bit... Passed.
+Testing dst : u32bit  src : s8bit, u8bit, s16bit, u16bit... Passed.
+Testing dst : s16bit  src : s8bit, u8bit...Passed.
+Testing dst : s32bit  src : s8bit, u8bit. s16bit, u16bit...Passed.
+Testing dst : s64bit  src : s8bit, u8bit. s16bit, u16bit, s32bit, u32bit...Passed.

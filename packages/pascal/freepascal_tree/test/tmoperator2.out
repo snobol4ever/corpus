@@ -1,0 +1,30 @@
+
+TFoo.Initialize
+=== Global variable [begin] ===
+
+=== Local variable ===
+
+TFoo.Initialize
+TFoo.Finalize
+
+=== Field in class ===
+
+TFoo.Initialize
+TFoo.Finalize
+
+=== New and Dispose ===
+
+TFoo.Initialize
+TFoo.Finalize
+
+=== InitializeArray and FinalizeArray ===
+
+TFoo.Initialize
+TFoo.Finalize
+
+=== Initialize and Finalize ===
+
+TFoo.Initialize
+TFoo.Finalize
+
+=== Global variable [end] ===

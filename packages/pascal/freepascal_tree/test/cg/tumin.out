@@ -1,0 +1,32 @@
+------------------------------ LONGINT --------------------------------
+(current) : LOC_REGISTER; (left) : LOC_REFERENCE
+Value should be $80808081...Passed!
+(current) : LOC_REGISTER; (left) : LOC_REGISTER
+Value should be $FFFF8081...Passed!
+Overflow tests
+-0...Passed!
+-2147483647...Passed!
+-(-2147483648)...Passed!
+------------------------------  CARDINAL  ----------------------------------
+Overflow/Rangecheck tests
+-0...Passed!
+-2147483647...Passed!
+-4294967295...Passed!
+------------------------------  INT64  ----------------------------------
+(current) : LOC_REGISTER; (left) : LOC_REFERENCE
+Value should be $80808081...Passed!
+(current) : LOC_REGISTER; (left) : LOC_REGISTER
+Value should be $8081...Passed!
+Overflow tests
+-0...Passed!
+-9223372036854775807... (2 tests)Passed!
+Passed!
+-(-9223372036854775808)...
+Passed!
+------------------------------  QWORD  ----------------------------------
+Overflow/Rangecheck tests
+-0...Passed!
+-9223372036854775807... (2 tests)Passed!
+Passed!
+-18446744073709551615...Passed!
+-9223372036854775808...Passed!

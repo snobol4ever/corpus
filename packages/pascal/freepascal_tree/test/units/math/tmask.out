@@ -1,0 +1,15 @@
+dividing by zero without having disabled FPU Exceptions...
+Exception occurred: Floating point division by zero
+Masking exceptions
+50
+63
+4
+dividing by zero with FPU Exceptions disabled...
+                    +Inf
+no exception was raised
+63
+59
+4
+dividing by zero without having disabled FPU Exceptions...
+Exception occurred: Floating point division by zero
+ok

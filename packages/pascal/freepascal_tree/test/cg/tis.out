@@ -1,0 +1,3 @@
+Testing left/right : LOC_REGISTER/LOC_REGISTER...Passed!
+Testing left/right : LOC_REFERENCE/LOC_REGISTER...Passed!
+Testing left/right : LOC_REFERENCE/LOC_REFERENCE...Passed!

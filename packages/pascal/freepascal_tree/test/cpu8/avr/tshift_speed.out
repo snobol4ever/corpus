@@ -1,0 +1,247 @@
+Testing SHL8:
+ 1 - Pass
+ 2 - Pass
+ 3 - Pass
+ 4 - Pass
+ 5 - Pass
+ 6 - Pass
+ 7 - Pass
+
+Testing SHR8:
+ 1 - Pass
+ 2 - Pass
+ 3 - Pass
+ 4 - Pass
+ 5 - Pass
+ 6 - Pass
+ 7 - Pass
+
+Testing SHL16:
+ 1 - Pass
+ 2 - Pass
+ 3 - Pass
+ 4 - Pass
+ 5 - Pass
+ 6 - Pass
+ 7 - Pass
+ 8 - Pass
+ 9 - Pass
+10 - Pass
+11 - Pass
+12 - Pass
+13 - Pass
+14 - Pass
+15 - Pass
+
+Testing SHR16:
+ 1 - Pass
+ 2 - Pass
+ 3 - Pass
+ 4 - Pass
+ 5 - Pass
+ 6 - Pass
+ 7 - Pass
+ 8 - Pass
+ 9 - Pass
+10 - Pass
+11 - Pass
+12 - Pass
+13 - Pass
+14 - Pass
+15 - Pass
+
+Testing SHL32:
+ 1 - Pass
+ 2 - Pass
+ 3 - Pass
+ 4 - Pass
+ 5 - Pass
+ 6 - Pass
+ 7 - Pass
+ 8 - Pass
+ 9 - Pass
+10 - Pass
+11 - Pass
+12 - Pass
+13 - Pass
+14 - Pass
+15 - Pass
+16 - Pass
+17 - Pass
+18 - Pass
+19 - Pass
+20 - Pass
+21 - Pass
+22 - Pass
+23 - Pass
+24 - Pass
+25 - Pass
+26 - Pass
+27 - Pass
+28 - Pass
+29 - Pass
+30 - Pass
+31 - Pass
+
+Testing SHR32:
+ 1 - Pass
+ 2 - Pass
+ 3 - Pass
+ 4 - Pass
+ 5 - Pass
+ 6 - Pass
+ 7 - Pass
+ 8 - Pass
+ 9 - Pass
+10 - Pass
+11 - Pass
+12 - Pass
+13 - Pass
+14 - Pass
+15 - Pass
+16 - Pass
+17 - Pass
+18 - Pass
+19 - Pass
+20 - Pass
+21 - Pass
+22 - Pass
+23 - Pass
+24 - Pass
+25 - Pass
+26 - Pass
+27 - Pass
+28 - Pass
+29 - Pass
+30 - Pass
+31 - Pass
+
+Testing SHL64:
+ 1 - Pass
+ 2 - Pass
+ 3 - Pass
+ 4 - Pass
+ 5 - Pass
+ 6 - Pass
+ 7 - Pass
+ 8 - Pass
+ 9 - Pass
+10 - Pass
+11 - Pass
+12 - Pass
+13 - Pass
+14 - Pass
+15 - Pass
+16 - Pass
+17 - Pass
+18 - Pass
+19 - Pass
+20 - Pass
+21 - Pass
+22 - Pass
+23 - Pass
+24 - Pass
+25 - Pass
+26 - Pass
+27 - Pass
+28 - Pass
+29 - Pass
+30 - Pass
+31 - Pass
+32 - Pass
+33 - Pass
+34 - Pass
+35 - Pass
+36 - Pass
+37 - Pass
+38 - Pass
+39 - Pass
+40 - Pass
+41 - Pass
+42 - Pass
+43 - Pass
+44 - Pass
+45 - Pass
+46 - Pass
+47 - Pass
+48 - Pass
+49 - Pass
+50 - Pass
+51 - Pass
+52 - Pass
+53 - Pass
+54 - Pass
+55 - Pass
+56 - Pass
+57 - Pass
+58 - Pass
+59 - Pass
+60 - Pass
+61 - Pass
+62 - Pass
+63 - Pass
+
+Testing SHR64:
+ 1 - Pass
+ 2 - Pass
+ 3 - Pass
+ 4 - Pass
+ 5 - Pass
+ 6 - Pass
+ 7 - Pass
+ 8 - Pass
+ 9 - Pass
+10 - Pass
+11 - Pass
+12 - Pass
+13 - Pass
+14 - Pass
+15 - Pass
+16 - Pass
+17 - Pass
+18 - Pass
+19 - Pass
+20 - Pass
+21 - Pass
+22 - Pass
+23 - Pass
+24 - Pass
+25 - Pass
+26 - Pass
+27 - Pass
+28 - Pass
+29 - Pass
+30 - Pass
+31 - Pass
+32 - Pass
+33 - Pass
+34 - Pass
+35 - Pass
+36 - Pass
+37 - Pass
+38 - Pass
+39 - Pass
+40 - Pass
+41 - Pass
+42 - Pass
+43 - Pass
+44 - Pass
+45 - Pass
+46 - Pass
+47 - Pass
+48 - Pass
+49 - Pass
+50 - Pass
+51 - Pass
+52 - Pass
+53 - Pass
+54 - Pass
+55 - Pass
+56 - Pass
+57 - Pass
+58 - Pass
+59 - Pass
+60 - Pass
+61 - Pass
+62 - Pass
+63 - Pass

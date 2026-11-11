@@ -1,0 +1,10 @@
+(Inline) Value parameter test (src : LOC_REGISTER)...Passed!
+(Inline) Value parameter test (src : LOC_FPUREGISTER)...Passed!
+(Inline) Value parameter test (src : LOC_REFERENCE (orddef/enumdef))...Passed!
+(Inline) Value parameter test (src : LOC_REFERENCE (floatdef))...Passed!
+(Inline) Value parameter test (src : LOC_REFERENCE (pointer))...Passed!
+(Inline) Value parameter test (src : LOC_FLAGS (orddef))...Passed!
+(Inline) Value parameter test (src : LOC_REFERENCE (recorddef)))...Passed!
+(Inline) Value parameter test (src : LOC_REFERENCE (setdef)))...Passed!
+(Inline) Value parameter test (src : LOC_REFERENCE (stringdef)))...Passed!
+(Inline) value parameter test (src : LOC_REFERENCE (arraydef)))...Passed!

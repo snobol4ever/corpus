@@ -1,0 +1,22 @@
+Value parameter test (src : LOC_REGISTER)...Passed!
+Value parameter test (src : LOC_FPUREGISTER)...Passed!
+Value parameter test (src : LOC_REFERENCE (orddef/enumdef)))...Passed!
+Value parameter test (src : LOC_REFERENCE (floatdef))...Passed!
+Value parameter test (src : LOC_REFERENCE (pointer))...Passed!
+Value parameter test (src : LOC_FLAGS (orddef)))...Passed!
+Value parameter test (src : LOC_JUMP (orddef)))...Passed!
+Value parameter test (src : LOC_REFERENCE (recorddef)))...Passed!
+Value parameter test (src : LOC_REFERENCE (setdef)))...Passed!
+Value parameter test (src : LOC_REFERENCE (stringdef)))...Passed!
+Value parameter test (src : LOC_REFERENCE (arraydef)))...Passed!
+Mixed value parameter test (src : LOC_REGISTER)...Passed!
+Mixed value parameter test (src : LOC_FPUREGISTER)...Passed!
+Mixed value parameter test (src : LOC_REFERENCE (orddef/enumdef)))...Passed!
+Mixed value parameter test (src : LOC_REFERENCE (floatdef))...Passed!
+Mixed value parameter test (src : LOC_REFERENCE (pointer))...Passed!
+Mixed value parameter test (src : LOC_FLAGS (orddef)))...Passed!
+Mixed value parameter test (src : LOC_JUMP (orddef)))...Passed!
+Mixed value parameter test (src : LOC_REFERENCE (recorddef)))...Passed!
+Mixed value parameter test (src : LOC_REFERENCE (setdef)))...Passed!
+Mixed value parameter test (src : LOC_REFERENCE (stringdef)))...Passed!
+Mixed value parameter test (src : LOC_REFERENCE (arraydef)))...Passed!

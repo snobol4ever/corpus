@@ -1,0 +1,8 @@
+Testing procedure variable call (LOC_REGISTER)..Passed!
+Testing procedure variable call (LOC_REFERENCE)..Passed!
+Testing function variable call (LOC_REGISTER)..Passed!
+Testing function variable call (LOC_REFERENCE)..Passed!
+Testing object method variable call (LOC_REGISTER) ..Passed!
+Testing object method variable call (LOC_REFERENCE) ..Passed!
+Testing class method variable call (LOC_REGISTER) ..Passed!
+Testing class method variable call (LOC_REFERENCE)...Passed!

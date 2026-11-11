@@ -1,0 +1,63 @@
+Testing LOC_REFERENCE...
+boolean->byte : value should be 1...1
+boolean->byte : value should be 0...0
+boolean->word : value should be 1...1
+boolean->word : value should be 0...0
+boolean->longint : value should be 1...1
+boolean->longint : value should be 0...0
+bytebool->byte : value should be 255...255
+bytebool->byte : value should be 0...0
+bytebool->word : value should be 65535...65535
+bytebool->word : value should be 0...0
+bytebool->longint : value should be -1...-1
+bytebool->longint : value should be 0...0
+wordbool->byte : value should be 255...255
+wordbool->byte : value should be 0...0
+wordbool->word : value should be 65535...65535
+wordbool->word : value should be 0...0
+wordbool->longint : value should be -1...-1
+wordbool->longint : value should be 0...0
+boolean->int64 : value should be 1...1
+boolean->int64 : value should be 0...0
+bytebool->int64 : value should be -1...-1
+bytebool->int64 : value should be 0...0
+wordbool->int64 : value should be -1...-1
+wordbool->int64 : value should be 0...0
+longbool->byte : value should be 255...255
+longbool->byte : value should be 0...0
+longbool->word : value should be 65535...65535
+longbool->word : value should be 0...0
+longbool->longint : value should be -1...-1
+longbool->longint : value should be 0...0
+wordbool->boolean : value should be TRUE...TRUE
+wordbool->boolean : value should be FALSE...FALSE
+longbool->boolean : value should be TRUE...TRUE
+longbool->boolean : value should be FALSE...FALSE
+wordbool->bytebool : value should be TRUE...TRUE
+wordbool->bytebool : value should be FALSE...FALSE
+longbool->bytebool : value should be TRUE...TRUE
+longbool->bytebool : value should be FALSE...FALSE
+boolean->longbool : value should be TRUE...TRUE
+boolean->longbool : value should be FALSE...FALSE
+bytebool->longbool : value should be TRUE...TRUE
+bytebool->longbool : value should be FALSE...FALSE
+Testing LOC_JUMP...
+value should be 0...0
+value should be 1...1
+value should be 0...0
+value should be 1...1
+value should be 0...0
+value should be 1...1
+value should be 0...0
+value should be 1...1
+Testing LOC_FLAGS...
+Value should be TRUE...TRUE
+Value should be FALSE...FALSE
+Value should be FALSE...FALSE
+Value should be TRUE...TRUE
+Value should be FALSE...FALSE
+Value should be TRUE...TRUE
+Value should be FALSE...FALSE
+Value should be TRUE...TRUE
+Value should be TRUE...TRUE
+Value should be FALSE...FALSE

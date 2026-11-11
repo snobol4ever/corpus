@@ -1,0 +1,1 @@
+check 94: Utf8CodePointLen(á·bb,3,FALSE) = -2 <> expected -3

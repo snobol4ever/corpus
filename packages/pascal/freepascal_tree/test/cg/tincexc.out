@@ -1,0 +1,8 @@
+Include Large Set element testing (LOC_REFERENCE/LOC_REFERENCE)...Success.
+Include Large Set element testing (LOC_REFERENCE/LOC_REGISTER)...Success.
+Include Small Set element testing (LOC_REFERENCE/LOC_REFERENCE)...Success.
+Include Small Set element testing (LOC_REFERENCE/LOC_REGISTER)...Success.
+Exclude Large Set element testing (LOC_REFERENCE/LOC_REFERENCE)...Success.
+Exclude Small Set element testing (LOC_REFERENCE/LOC_REFERENCE)...Success.
+Exclude Small Set element testing (LOC_REFERENCE/LOC_REGISTER)...Success.
+Exclude Large Set element testing (LOC_REFERENCE/LOC_REGISTER)...Success.

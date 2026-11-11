@@ -1,0 +1,36 @@
+DaysBetween
+- Crossing zero date
+    DaysBetween(31-12-99 [1.000000], 29-12-99 [-1.000000]) = 1, expected: 2 ---> ERROR
+    DaysBetween(29-12-99 [-1.000000], 31-12-99 [1.000000]) = 1, expected: 2 ---> ERROR
+- All dates positive
+    DaysBetween(31-12-99 [1.000000], 2-1-00 [3.000000]) = 2, expected: 2
+    DaysBetween(2-1-00 [3.000000], 31-12-99 [1.000000]) = 2, expected: 2
+- All dates negative
+    DaysBetween(21-12-99 [-9.000000], 23-12-99 [-7.000000]) = 2, expected: 2
+    DaysBetween(23-12-99 [-7.000000], 21-12-99 [-9.000000]) = 2, expected: 2
+
+HoursBetween
+- Crossing zero date
+    HoursBetween(30-12-99 06:00:00 [0.250000], 30-12-99 04:00:00 [0.166667]) = 2, expected: 2
+    HoursBetween(30-12-99 04:00:00 [0.166667], 30-12-99 06:00:00 [0.250000]) = 2, expected: 2
+- All dates positive
+    HoursBetween(30-12-99 06:00:00 [0.250000], 30-12-99 08:00:00 [0.333333]) = 2, expected: 2
+    HoursBetween(30-12-99 08:00:00 [0.333333], 30-12-99 06:00:00 [0.250000]) = 2, expected: 2
+- All dates negative
+    HoursBetween(29-12-99 06:00:00 [-1.250000], 29-12-99 04:00:00 [-1.166667]) = 2, expected: 2
+    HoursBetween(29-12-99 04:00:00 [-1.166667], 29-12-99 06:00:00 [-1.250000]) = 2, expected: 2
+
+MinutesBetween
+- Crossing zero date
+    MinutesBetween(30-12-99 06:00:00 [0.250000], 30-12-99 05:58:00 [0.248611]) = 2, expected: 2
+    MinutesBetween(30-12-99 05:58:00 [0.248611], 30-12-99 06:00:00 [0.250000]) = 2, expected: 2
+- All dates positive
+    MinutesBetween(30-12-99 06:00:00 [0.250000], 30-12-99 06:02:00 [0.251389]) = 2, expected: 2
+    MinutesBetween(30-12-99 06:02:00 [0.251389], 30-12-99 06:00:00 [0.250000]) = 2, expected: 2
+- All dates negative
+    MinutesBetween(29-12-99 06:00:00 [-1.250000], 29-12-99 05:58:00 [-1.248611]) = 2, expected: 2
+    MinutesBetween(29-12-99 05:58:00 [-1.248611], 29-12-99 06:00:00 [-1.250000]) = 2, expected: 2
+    MinutesBetween(30-12-99 06:00:00 [-0.250000], 30-12-99 05:58:00 [-0.248611]) = 2, expected: 2
+    MinutesBetween(30-12-99 05:58:00 [-0.248611], 30-12-99 06:00:00 [-0.250000]) = 2, expected: 2
+    MinutesBetween(29-12-99 [-1.000000], 28-12-99 23:58:00 [-2.998611]) = 2878, expected: 2 ---> ERROR
+    MinutesBetween(28-12-99 23:58:00 [-2.998611], 29-12-99 [-1.000000]) = 2878, expected: 2 ---> ERROR

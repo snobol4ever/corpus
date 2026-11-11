@@ -1,0 +1,5 @@
+Call to ta1.test after successful init
+Init called
+Init successful
+ta2 = 0 after unsuccessful init
+Trying to call ta2.test (should generate a Run Time Error)

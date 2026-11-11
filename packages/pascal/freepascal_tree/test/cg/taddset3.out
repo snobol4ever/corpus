@@ -1,0 +1,20 @@
+----------------------- Normal sets -----------------------
+Normal Set == Normal Set test...Success.
+Normal Set <> Normal Set test...Success.
+Set + Set element testing...Success.
+Complex Set + Set element testing...Success.
+Set - Set element testing...Success.
+Complex Set - Set element testing...Success.
+Range Set + element testing...Success.
+Normal Set <= Normal Set test...Success.
+Simple Set + element testing...Success.
+----------------------- Small sets -----------------------
+Small Set == Small Set test...Success.
+Small Set <> Small Set test...Success.
+Small Set + Small Set element testing...Success.
+Small Complex Set + Small Set element testing...Success.
+Small Set - Small Set element testing...Success.
+Small Complex Set - Small Set element testing...Success.
+Small Range Set + element testing...Success.
+Small Set <= Small Set test...Success.
+Small Simple Set + element testing...Success.

@@ -1,0 +1,42 @@
+---------------------------------------------
+Dump of TMyTest
+---------------------------------------------
+Processing TMyTest
+ Method count: 2
+ Search: P1
+ Found at index: 13
+ Search: P2
+ Found at index: 14
+ Processing TObject
+---------------------------------------------
+Dump of TMyTest2
+---------------------------------------------
+Processing TMyTest2
+ Method count: 2
+ Search: P2
+ Found at index: 14
+ Search: P3
+ Found at index: 15
+ Processing TMyTest
+  Method count: 2
+  Search: P1
+  Found at index: 13
+  Search: P2
+  Found at index: 14
+  Processing TObject
+---------------------------------------------
+Dump of TPersistent
+---------------------------------------------
+Processing TPersistent
+ Processing TObject
+---------------------------------------------
+Dump of TMyPersistent
+---------------------------------------------
+Processing TMyPersistent
+ Method count: 2
+ Search: P1
+ Found at index: 18
+ Search: P2
+ Found at index: 19
+ Processing TPersistent
+  Processing TObject

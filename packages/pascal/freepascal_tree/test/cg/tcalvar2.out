@@ -1,0 +1,5 @@
+(Inline) var parameter test (src : LOC_REFERENCE (recorddef)))...Passed!
+(Inline) var parameter test (src : LOC_REFERENCE (setdef)))...Passed!
+(Inline) var parameter test (src : LOC_REFERENCE (stringdef)))...Passed!
+(Inline) Var parameter test (src : LOC_REFERENCE (formaldef)))...Passed!
+(Inline) Var parameter test (src : LOC_REFERENCE (arraydef)))...Passed!

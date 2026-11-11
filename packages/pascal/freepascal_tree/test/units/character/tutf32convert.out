@@ -1,0 +1,5 @@
+Invalid high surrogate at index 1. High surrogate must be followed by a low surrogate pair
+String index 1 out of range [1 - 0]
+High surrogate $1 out of range [$D800 - $DBFF]
+Low surrogate $2 out of range [$DC00 - $DFFF]
+ok

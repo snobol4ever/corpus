@@ -1,0 +1,13 @@
+Const parameter test (src : LOC_REGISTER (orddef)))...Passed!
+Const parameter test (src : LOC_REFERENCE (recorddef)))...Passed!
+const parameter test (src : LOC_REFERENCE (setdef)))...Passed!
+const parameter test (src : LOC_REFERENCE (stringdef)))...Passed!
+Const parameter test (src : LOC_REFERENCE (formaldef)))...Passed!
+Const parameter test (src : LOC_REFERENCE (arraydef)))...Passed!
+Const parameter test (src : LOC_REFERENCE (const arraydef)))...Passed!
+Mixed const parameter test (src : LOC_REGISTER (orddef)))...Passed!
+Mixed const parameter test (src : LOC_REFERENCE (recorddef)))...Passed!
+Mixed const parameter test (src : LOC_REFERENCE (setdef)))...Passed!
+Mixed const parameter test (src : LOC_REFERENCE (stringdef)))...Passed!
+Mixed const parameter test (src : LOC_REFERENCE (formaldef)))...Passed!
+Mixed const parameter test (src : LOC_REFERENCE (arraydef)))...Passed!

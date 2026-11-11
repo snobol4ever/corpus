@@ -1,0 +1,40 @@
+Testing GetInterface()...
+  When delegating by intf field, refcount=2
+  When delegating by intf function, refcount=2
+  When delegating by class field, refcount=2
+Testing GetInterfaceByStr()...
+  When delegating by intf field, refcount=2
+  When delegating by intf function, refcount=2
+  When delegating by class field, refcount=2
+Testing GetInterfaceWeak()...
+  When delegating by intf field, refcount=1
+  When delegating by intf function, refcount=1
+  When delegating by class field, refcount=1
+Testing 'supports' function...
+  When delegating by intf field, refcount=2
+  When delegating by intf function, refcount=2
+  When delegating by class field, refcount=2
+Testing 'object is interface' operator...
+  When delegating by intf field
+  When delegating by intf function
+  When delegating by class field
+Testing 'interface is interface' operator...
+  When delegating by intf field
+  When delegating by intf function
+  When delegating by class field
+Testing 'interface is object' operator...
+  When delegating by intf field
+  When delegating by intf function
+  When delegating by class field
+Testing 'object as interface' operator...
+  When delegating by intf field, refcount=3
+  When delegating by intf function, refcount=3
+  When delegating by class field, refcount=3
+Testing 'interface as interface' operator...
+  When delegating by intf field, refcount=3
+  When delegating by intf function, refcount=3
+  When delegating by class field, refcount=3
+Testing 'interface as object' operator...
+  When delegating by intf field, Classname=TImpl
+  When delegating by intf function, Classname=TImpl
+  When delegating by class field, Classname=TImpl

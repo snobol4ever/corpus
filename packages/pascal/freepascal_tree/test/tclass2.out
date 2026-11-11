@@ -1,0 +1,6 @@
+to1.beforedestruction
+to1.destroy
+to2.beforedestruction
+to2.destroy
+to1.destroy
+ok

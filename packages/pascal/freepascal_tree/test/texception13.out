@@ -1,0 +1,8 @@
+=== Minimal Local Unwind Test ===
+Starting test...
+1. Entering try block
+2. Inside try, about to Exit
+3. FINALLY BLOCK
+4. After TestSimple returned
+SUCCESS: Finally was executed
+5. Program ending normally

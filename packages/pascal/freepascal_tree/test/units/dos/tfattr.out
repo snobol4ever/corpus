@@ -1,0 +1,7 @@
+File should never be executed in root path!
+Opening an invalid file...Success!
+Trying to open a valid file...Success!
+Trying to open the current directory file...Success!
+Trying to open the parent directory file...Success!
+Trying to open a directory file...Success!
+Setting Volume attribute on TESTDOS.DAT...Success.

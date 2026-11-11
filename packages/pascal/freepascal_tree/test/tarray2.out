@@ -1,0 +1,38 @@
+Size of VarRec : 16
+No aguments
+Got 2 arguments :
+Argument 0 has type Integer, Value :1
+Argument 1 has type Integer, Value :2
+Got 2 arguments :
+Argument 0 has type Char, value : A
+Argument 1 has type Char, value : B
+Got 3 arguments :
+Argument 0 has type Boolean, Value :TRUE
+Argument 1 has type Boolean, Value :FALSE
+Argument 2 has type Boolean, Value :TRUE
+Got 2 arguments :
+Argument 0 has type AnsiString, value :String
+Argument 1 has type AnsiString, value :Another string
+Got 2 arguments :
+Argument 0 has type AnsiString, value :Ansistring 1
+Argument 1 has type AnsiString, value :AnsiString 2
+Got 2 arguments :
+Argument 0 has type PCHar, value : Eerste Pchar
+Argument 1 has type PCHar, value : Tweede pchar
+Got 2 arguments :
+Argument 0 has type Pointer, value : 4198656
+Argument 1 has type Pointer, value : 0
+Got 2 arguments :
+Argument 0 has type Object, name : TObject
+Argument 1 has type Object, name : TObject
+Got 2 arguments :
+Argument 0 has type Extended, value :  1.23399999999999999999E+0000
+Argument 1 has type Extended, value :  1.23399999999999999999E+0000
+Got 1 arguments :
+Argument 0 has type Class reference, name : TObject
+Got 1 arguments :
+Argument 0 has type QWord, value : 1234
+Got 1 arguments :
+Argument 0 has type Int64, value : 1234
+Got 1 arguments :
+Argument 0 has type Int64, value : 12341234012341234

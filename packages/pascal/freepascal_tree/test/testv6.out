@@ -1,0 +1,16 @@
+Longint assignment : TRUE -> -1
+smallint assignment : TRUE -> -1
+ShortInt assignment : TRUE -> -1
+Cardinal assignment : TRUE -> 4294967295
+Word assignment : TRUE -> 65535
+Byte assignment : TRUE -> 255
+Int64 assignment : TRUE -> -1
+QWord assignment : TRUE -> 18446744073709551615
+Longint assignment : FALSE -> 0
+smallint assignment : FALSE -> 0
+ShortInt assignment : FALSE -> 0
+Cardinal assignment : FALSE -> 0
+Word assignment : FALSE -> 0
+Byte assignment : FALSE -> 0
+Int64 assignment : FALSE -> 0
+QWord assignment : FALSE -> 0

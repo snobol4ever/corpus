@@ -1,0 +1,2 @@
+Testing setjmp/longjmp simple case...Success!
+Testing setjmp/longjmp in virtual method...Success!

@@ -1,0 +1,9 @@
+------------------- STRING/PCHAR ------------------------
+(left) : LOC_MEM; (right) : LOC_MEM
+Value should be 'HELLO WORLD'...HELLO WORLD
+(left) : LOC_MEM; (right) : LOC_MEM
+Value should be 'HELLO WORLD'...HELLO WORLD
+------------------- ANSI/PCHAR ------------------------
+(left) : LOC_MEM; (right) : LOC_MEM
+Value should be 'COCORICCO!'...COCORICCO!
+Value should be ''...

@@ -1,0 +1,9 @@
+var, var
+Error: 1
+Error: 2
+var, ptr(const)
+Error: 1
+Error: 2
+ptr(const), ptr(const)
+Error: 1
+Error: 2

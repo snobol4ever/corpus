@@ -1,0 +1,5 @@
+u1proccalled in u1
+u1proccallednotoverridden in u1
+procvar called
+u1proccalled in u1
+u1proccalledinoverride in u2

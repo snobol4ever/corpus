@@ -1,0 +1,266 @@
+word called instead of double
+word called instead of double
+word called instead of extended
+word called instead of extended
+word called instead of char
+VVV
+word called instead of widestring
+VVV
+word called instead of widechar
+Caught exception EVariantErroras expected
+byte called instead of smallint
+byte called instead of smallint
+shortint called instead of smallint
+shortint called instead of smallint
+smallint called instead of shortstring
+VVV
+smallint called instead of ansistring
+VVV
+formal called instead of shortstring
+formal called instead of shortstring
+smallint called instead of single
+smallint called instead of single
+smallint called instead of double
+smallint called instead of double
+smallint called instead of extended
+smallint called instead of extended
+smallint called instead of char
+VVV
+smallint called instead of widestring
+VVV
+smallint called instead of widechar
+Caught exception as expectedEVariantError
+byte called instead of shortstring
+VVV
+byte called instead of ansistring
+VVV
+formal called instead of ansistring
+formal called instead of ansistring
+byte called instead of single
+byte called instead of single
+byte called instead of double
+byte called instead of double
+byte called instead of extended
+byte called instead of extended
+byte called instead of char
+VVV
+byte called instead of widestring
+VVV
+byte called instead of widechar
+Caught exception, as expectedEVariantError
+shortint called instead of shortstring
+VVV
+shortint called instead of ansistring
+VVV
+shortint called instead of single
+shortint called instead of single
+shortint called instead of double
+shortint called instead of double
+shortint called instead of extended
+shortint called instead of extended
+shortint called instead of char
+VVV
+shortint called instead of widestring
+VVV
+shortint called instead of widechar
+Caught exception, as expected EVariantError
+ansistring called instead of shortstring
+ansistring called instead of shortstring
+QQQ
+single called instead of shortstring
+QQQ
+double called instead of shortstring
+QQQ
+extended called instead of shortstring
+shortstring called instead of char
+shortstring called instead of char
+QQQ
+boolean called instead of shortstring
+widestring called instead of shortstring
+widestring called instead of shortstring
+shortstring called instead of widechar
+shortstring called instead of widechar
+QQQ
+single called instead of ansistring
+QQQ
+double called instead of ansistring
+QQQ
+extended called instead of ansistring
+ansistring called instead of char
+ansistring called instead of char
+QQQ
+boolean called instead of ansistring
+widestring called instead of ansistring
+widestring called instead of ansistring
+ansistring called instead of widechar
+ansistring called instead of widechar
+single called instead of double
+single called instead of double
+single called instead of extended
+single called instead of extended
+single called instead of char
+VVV
+single called instead of widestring
+VVV
+single called instead of widechar
+Caught exception as expected: EVariantError
+double called instead of char
+VVV
+formal called instead of char
+formal called instead of char
+double called instead of widestring
+VVV
+double called instead of widechar
+Caught exception, as expected: EVariantError
+extended called instead of char
+VVV
+extended called instead of widestring
+VVV
+extended called instead of widechar
+Caught exception as expected: EVariantError
+QQQ
+boolean called instead of char
+widestring called instead of char
+widestring called instead of char
+boolean called instead of widestring
+VVV
+boolean called instead of widechar
+Caught exception, as expected : EVariantError
+widestring called instead of widechar
+widestring called instead of widechar
+formal called instead of widestring
+formal called instead of widestring
+formal called instead of widechar
+formal called instead of widechar
+comp19 called instead of int64
+comp19 called instead of int64
+longint called instead of comp21
+longint called instead of comp21
+cardinal called instead of comp22
+cardinal called instead of comp22
+word called instead of comp23
+word called instead of comp23
+smallint called instead of comp24
+smallint called instead of comp24
+byte called instead of comp25
+byte called instead of comp25
+shortint called instead of comp26
+shortint called instead of comp26
+comp27 called instead of shortstring
+VVV
+comp28 called instead of ansistring
+VVV
+single called instead of comp29
+single called instead of comp29
+formal called instead of int64
+formal called instead of int64
+comp32 called instead of char
+VVV
+comp34 called instead of widestring
+VVV
+comp35 called instead of widechar
+Caught exception, as expected: EVariantError
+currency called instead of int64
+currency called instead of int64
+longint called instead of int64
+longint called instead of int64
+cardinal called instead of int64
+cardinal called instead of int64
+word called instead of int64
+word called instead of int64
+smallint called instead of int64
+smallint called instead of int64
+byte called instead of int64
+byte called instead of int64
+shortint called instead of int64
+shortint called instead of int64
+shortstring called instead of int64
+shortstring called instead of int64
+ansistring called instead of int64
+ansistring called instead of int64
+single called instead of int64
+single called instead of int64
+double called instead of int64
+double called instead of int64
+extended called instead of int64
+extended called instead of int64
+boolean called instead of int64
+boolean called instead of int64
+widestring called instead of int64
+widestring called instead of int64
+longint called instead of currency
+longint called instead of currency
+cardinal called instead of currency
+cardinal called instead of currency
+word called instead of currency
+word called instead of currency
+smallint called instead of currency
+smallint called instead of currency
+byte called instead of currency
+byte called instead of currency
+shortint called instead of currency
+shortint called instead of currency
+currency called instead of shortstring
+VVV
+currency called instead of ansistring
+VVV
+single called instead of currency
+single called instead of currency
+currency called instead of char
+VVV
+currency called instead of widestring
+VVV
+currency called instead of widechar
+Caught exception, as expected: EVariantError
+word called instead of longint
+word called instead of longint
+smallint called instead of longint
+smallint called instead of longint
+byte called instead of longint
+byte called instead of longint
+shortint called instead of longint
+shortint called instead of longint
+longint called instead of shortstring
+VVV
+longint called instead of ansistring
+VVV
+longint called instead of single
+longint called instead of single
+longint called instead of double
+longint called instead of double
+longint called instead of extended
+longint called instead of extended
+longint called instead of char
+VVV
+longint called instead of widestring
+VVV
+longint called instead of widechar
+Exception caught, as expected: EVariantError
+word called instead of cardinal
+word called instead of cardinal
+byte called instead of cardinal
+byte called instead of cardinal
+cardinal called instead of shortstring
+VVV
+cardinal called instead of ansistring
+VVV
+cardinal called instead of single
+cardinal called instead of single
+cardinal called instead of double
+cardinal called instead of double
+cardinal called instead of extended
+cardinal called instead of extended
+cardinal called instead of char
+VVV
+cardinal called instead of widestring
+VVV
+cardinal called instead of widechar
+Caught exception, as expected : EVariantError
+byte called instead of word
+byte called instead of word
+word called instead of shortstring
+VVV
+word called instead of ansistring
+VVV
+word called instead of single
+word called instead of single

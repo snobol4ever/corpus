@@ -1,0 +1,2 @@
+Error: Trying to write a read-only longint constant did not generate an exception
+Error: Trying to write a read-only longint array data element did not generate an exception

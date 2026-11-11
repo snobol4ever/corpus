@@ -1,0 +1,29 @@
+testing fillchar (non-aligned size)...Passed!
+testing fillchar (aligned size)...Passed!
+testing fillchar (zero count)...Passed!
+testing fillchar (negative count)...Passed!
+testing move (non-aligned size)...Passed!
+testing move (aligned size)...Passed!
+testing move (zero count)...Passed!
+testing move (negative count)...Passed!
+testing move of 500 dwords ...Passed!
+testing move of 500 dwords, opposite direction...Passed!
+testing move of 500 dwords, overlapping forward...Passed!
+testing move of 500 dwords, overlapping backward...Passed!
+testing move of 500000 dwords ...Passed!
+testing move of 500000 dwords, opposite direction...Passed!
+testing move of 500000 dwords, overlapping forward...Passed!
+testing move of 500000 dwords, overlapping backward...Passed!
+testing fillword (non-aligned size)...Passed!
+testing fillword (aligned size)...Passed!
+testing fillword (zero count)...Passed!
+testing fillword (negative count)...Passed!
+testing filldword (non-aligned size)...Passed!
+testing filldword (aligned size)...Passed!
+testing filldword (zero count)...Passed!
+testing filldword (negative count)...Passed!
+testing movechar0 (non-aligned size)...Passed!
+testing movechar0 (aligned size)...Passed!
+test movechar0 (zero count)...Passed!
+test movechar0 with null character...Passed!
+test movechar0 with null character (and char)...Passed!

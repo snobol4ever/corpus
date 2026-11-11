@@ -1,0 +1,27 @@
+ signed8 + signed8 -> signed16 
+Error: 3!
+ signed8 + signed16 -> signed16 
+Error: 4!
+Error: 5!
+ signed16 + signed16 -> signed16 
+Error: 6!
+ unsigned8 + unsigned8 -> signed16 
+Error: 9!
+s32=34680$00008778
+ unsigned8 + unsigned16 -> unsigned16 
+Error: 10!
+Error: 11!
+ unsigned16 + unsigned16 -> unsigned16 
+Error: 15!
+ signed8 + unsigned8 -> signed16 
+Error: 17!
+ unsigned8 + signed16 -> signed16 
+Error: 18!
+Error: 19!
+ signed8 + unsigned16 -> signed32 
+ signed16 + unsigned16 -> signed32 
+ signed32 + signed8 -> signed32 
+ signed32 + unsigned8 -> signed32 
+ signed32 + signed16 -> signed32 
+ signed32 + unsigned16 -> signed32 
+ signed32 + signed32 -> signed32 

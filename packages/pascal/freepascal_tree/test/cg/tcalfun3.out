@@ -1,0 +1,15 @@
+Testing function results (LOC_REFERENCE)...Passed!
+Testing orddef/enumdef function results (LOC_REGISTER)...Passed!
+Testing floatdef function results...Passed!
+Testing ansistring function result...Passed!
+Testing pointer function result (LOC_REGISTER)...Passed!
+Testing function results with parameter (LOC_REFERENCE)...Passed!
+Testing orddef/enumdef function results with parameter (LOC_REGISTER)...Passed!
+Testing floatdef function results with parameter...Passed!
+Testing ansistring function result with parameter...Passed!
+Testing pointer function result with parameter (LOC_REGISTER)...Passed!
+Testing function (w/nesting) results with parameter (LOC_REFERENCE)...Passed!
+Testing orddef/enumdef function (w/nesting) results with parameter (LOC_REGISTER)...Passed!
+Testing floatdef function (w/nesting) results with parameter...Passed!
+Testing ansistring function (w/nesting) result with parameter...Passed!
+Testing pointer function (w/nesting) result with parameter (LOC_REGISTER)...Passed!

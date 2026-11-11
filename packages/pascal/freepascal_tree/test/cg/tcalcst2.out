@@ -1,0 +1,5 @@
+(Inline) const parameter test (src : LOC_REFERENCE (recorddef)))...Passed!
+(Inline) const parameter test (src : LOC_REFERENCE (setdef)))...Passed!
+(Inline) const parameter test (src : LOC_REFERENCE (stringdef)))...Passed!
+(Inline) Const parameter test (src : LOC_REFERENCE (formaldef)))...Passed!
+Inline const parameter test (src : LOC_REFERENCE (arraydef)))...Passed!

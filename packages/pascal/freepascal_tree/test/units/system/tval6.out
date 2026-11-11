@@ -1,0 +1,8 @@
+64-bit test
+
+Test 8-bit signed integers.
+Low(ShortInt) =-128
+High(ShortInt)=127
+Test: 127: OK
+Test: -128: OK
+Test: 128: 

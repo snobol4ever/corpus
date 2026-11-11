@@ -1,0 +1,10 @@
+External simple parameter testing...Passed!
+External array parameter testing...Passed!
+External mixed parameter testing...Passed!
+External mixed parameter testing with floating values...Passed!
+External struct parameter testing...Passed!
+External mixed struct/byte parameter testing...Passed!
+Integer function result testing...Passed!
+pchar function result testing...Passed!
+Real function result testing...Passed!
+Function result testing for struct...Passed!

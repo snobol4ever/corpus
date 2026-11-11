@@ -1,0 +1,19 @@
+Sizeof(cb)=8
+cb.InstanceSize=16
+not the expected size : 9
+Tbaseclass.InstanceSize=16
+not the expected size : 9
+Sizeof(ct)=8
+Calling tbase class class method
+Calling tbase class class method
+Calling tderived class class method
+Calling tderived class class method
+Calling tbase class class method
+Calling tbase class class method
+Calling tderived class class method
+Calling tderived class class method
+Calling tbase class class method
+Calling tbase class class method
+Calling tderived class class method
+Calling tderived class class method
+Sizeof(cc)=8

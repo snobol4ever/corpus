@@ -1,0 +1,112 @@
+Testing Try/Finally without raise
+
+Try(1) : Checking for exception
+Try(1) : jumping to next level
+Try(2) : Checking for exception
+Try(2) : jumping to next level
+Try(3) : Checking for exception
+Try(3):  Not raising exception
+Finally (3): Starting code.
+Out of try/finally at level (3)
+Finally (2): Starting code.
+Out of try/finally at level (2)
+Finally (1): Starting code.
+Out of try/finally at level (1)
+
+Finished.
+
+Testing Try/except without raise
+
+Try(1) : Checking for exception
+Try(1) : jumping to next level
+Try(2) : Checking for exception
+Try(2) : jumping to next level
+Try(3) : Checking for exception
+Try(3): level 3. Not raising exception
+Out of try/except at level (3)
+Out of try/except at level (2)
+Out of try/except at level (1)
+
+Finished.
+
+Testing Mix without raise
+
+Try(1) : Checking for exception
+Try(1) : jumping to next level
+Try(2) : Checking for exception
+Try(2) : jumping to next level
+Try(3) : Checking for exception
+Try(3): level 3. Not raising exception
+Mix:Finally (3): Starting code.
+Level (3) : Out of try/finally
+Out of try/except at level (3)
+Mix:Finally (2): Starting code.
+Level (2) : Out of try/finally
+Out of try/except at level (2)
+Mix:Finally (1): Starting code.
+Level (1) : Out of try/finally
+Out of try/except at level (1)
+
+Finished.
+
+Testing Try/except with raise
+
+Try(1) : Checking for exception
+Try(1) : jumping to next level
+Try(2) : Checking for exception
+Try(2) : jumping to next level
+Try(3) : Checking for exception
+Try(3): Level 3, raising exception.
+Creating exception object
+Raising with this object
+Exception was caught by TAObject
+Out of try/except at level (3)
+Out of try/except at level (2)
+Out of try/except at level (1)
+
+Finished.
+
+Testing Mix with raise
+
+Try(1) : Checking for exception
+Try(1) : jumping to next level
+Try(2) : Checking for exception
+Try(2) : jumping to next level
+Try(3) : Checking for exception
+Try(3): Level 3, raising exception.
+Creating exception object
+Raising with this object
+Mix:Finally (3): Starting code.
+Exception was caught by TAObject
+Out of try/except at level (3)
+Mix:Finally (2): Starting code.
+Level (2) : Out of try/finally
+Out of try/except at level (2)
+Mix:Finally (1): Starting code.
+Level (1) : Out of try/finally
+Out of try/except at level (1)
+
+Finished.
+
+Testing Try/Finally with Exit
+
+Raising an exception in finally statement
+Creating exception object
+Raising with this object
+
+Finished.
+
+Testing Try/Finally with raise
+This one should end with an error message !!.
+
+Try(1) : Checking for exception
+Try(1) : jumping to next level
+Try(2) : Checking for exception
+Try(2) : jumping to next level
+Try(3) : Checking for exception
+Try(3): Level 3 reached, raising exception.
+Creating exception object
+Raising with this object
+Finally (3): Starting code.
+Finally (2): Starting code.
+Finally (1): Starting code.

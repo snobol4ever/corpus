@@ -1,0 +1,38 @@
+Testing ExcludeLastEmpty with individual separator
+--------------------------------------------------
+Testing "a,b,c"...  --> ok
+Testing "a,b,"...  --> ok
+Testing "a,,c"...  --> ok
+Testing ",b,c"...  --> ok
+Testing "a,,"...  --> ok
+Testing ",b,"...  --> ok
+Testing ",,"...  --> ok
+
+Testing ExcludeEmpty with individual separator
+----------------------------------------------
+Testing "a,b,c"...  --> ok
+Testing "a,b,,"...  --> ok
+Testing "a,,c"...  --> ok
+Testing ",b,c"...  --> ok
+Testing "a,,"...  --> ok
+Testing ",b,"...  --> ok
+Testing ",,"...  --> ok
+Testing ExcludeLastEmpty with set separators
+--------------------------------------------
+Testing "a,b,c"...  --> ok
+Testing "a,b,"...  --> ok
+Testing "a,,c"...  --> ok
+Testing ",b,c"...  --> ok
+Testing "a,,"...  --> ok
+Testing ",b,"...  --> ok
+Testing ",,"...  --> ok
+
+Testing ExcludeEmpty with set separators
+----------------------------------------
+Testing "a,b,c"...  --> ok
+Testing "a,b,,"...  --> ok
+Testing "a,,c"...  --> ok
+Testing ",b,c"...  --> ok
+Testing "a,,"...  --> ok
+Testing ",b,"...  --> ok
+Testing ",,"...  --> ok

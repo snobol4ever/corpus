@@ -1,0 +1,5 @@
+Testing simple thread creation
+Creating thread #1
+Creating thread #2
+Waiting for thread #1 ... result: 1
+Waiting for thread #2 ... result: 2

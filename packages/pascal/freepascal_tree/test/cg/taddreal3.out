@@ -1,0 +1,21 @@
+cextended = cextended test...Success.
+cextended <> cextended test...Success.
+cextended <= cextended test...Success.
+cextended >= cextended test...Success.
+cextended - cextended test...Result (89.9) : 8.99000000000000000014E+0001
+Result (-79.9) :-7.99000000000000000014E+0001
+Result (0.0) : 0.00000000000000000000E+0000
+Success.
+cextended + cextended test...
+Result (10.5) : 1.05000000000000000000E+0001
+Result (212.5) : 2.12500000000000000000E+0002
+Success.
+cextended / cextended test...
+Result (-9.9) :-9.98999999999999999979E+0000
+Result (-1.01) :-1.00100100100100100099E+0000
+Result (-0.1001) :-1.00100100100100100099E-0001
+Success.
+cextended * cextended test...
+Result (0.0) : 0.00000000000000000000E+0000
+Result (-1200.0) :-1.20000000000000000000E+0003
+Success.

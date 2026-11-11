@@ -1,0 +1,16 @@
+rawbytestring tests
+Getting current directory...Passed
+creating new directory...Passed
+changing to new directory...Passed!
+Getting current directory again...Passed
+Checking whether the current directories are properly relative to each other...Passed
+going directory up ...Passed!
+removing directory ...Passed!
+unicodestring tests
+Getting current directory...Passed
+creating new directory...Passed
+changing to new directory...Passed!
+Getting current directory again...Passed
+Checking whether the current directories are properly relative to each other...Passed
+going directory up ...Passed!
+removing directory ...Passed!

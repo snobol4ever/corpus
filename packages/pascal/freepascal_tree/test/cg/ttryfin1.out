@@ -1,0 +1,10 @@
+Try..Finally clause...Success!
+Try..Finally with break statement...Success!
+Try..Finally with continue statement...Success!
+Try..Finally with exit statement...Success!
+Try..Finally nested clauses (three-level nesting)...Success!
+Try..Finally nested clauses with break statement...Success!
+Try..Finally nested clauses with continue statement...Success!
+Try..Finally nested clauses with exit statement...Success!
+Try..Finally nested clauses with break statement in other try-block...Success!
+Try..Finally nested clauses with exit statement in other try-block...Success!

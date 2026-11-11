@@ -1,0 +1,5 @@
+Abs() test with currency type...Success!
+Abs() test with real type...Success!
+Abs() test with single type...Success!
+Abs() test with longint type...Success!
+Abs() test with int64 type...Failure!

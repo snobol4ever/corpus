@@ -1,0 +1,7 @@
+var, var
+Error: 5
+var, ptr(const)
+Error: 5
+ptr(const), ptr(const)
+Error: 5
+var, nil

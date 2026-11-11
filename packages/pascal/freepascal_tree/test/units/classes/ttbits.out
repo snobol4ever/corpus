@@ -1,0 +1,8 @@
+ZeroUpper failed after widening:
+expected = 101110010000
+got      = 101110010110
+
+ZeroUpper / NotBits failed:
+expected = 010000
+got      = 010110
+

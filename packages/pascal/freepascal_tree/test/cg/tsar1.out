@@ -1,0 +1,111 @@
+Testing constant SarInt64...
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+
+Testing constant SarLongint...
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+
+Testing constant SarSmallint...
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+
+Testing constant SarShortint...
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+
+Testing constant shifting overflows
+Pass!
+Pass!
+Pass!
+Pass!
+
+Testing SarInt64...
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+
+Testing SarLongint...
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+
+Testing SarSmallint...
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+
+Testing SarShortint...
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+Pass!
+
+All passed

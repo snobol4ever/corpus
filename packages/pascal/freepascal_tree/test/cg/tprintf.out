@@ -1,0 +1,23 @@
+Testing C printf function called from FPC code
+Testing with single pchar argument
+Testing with single longint argument
+Testing with single int64 argument
+Testing with single single argument
+Testing with single double argument
+Testing with combined pchar argument
+Testing with single longint argument and pchar
+Testing with single int64 argument and pchar
+Testing with single single argument
+Testing with single double argument
+Text containing "Enclosed text" text
+Text containing longint: 45
+Text containing int64: 345
+Text containing single: 32.119999
+Text containing double: 45.450000
+Text containing long double: 74.740000
+Text containing "Enclosed text" and "next" text
+Text containing longint: 45"next"
+Text containing int64: 345"next"
+Text containing single: 32.119999"next"
+Text containing double: 45.450000"next"
+Text containing long double: 74.740000"next"

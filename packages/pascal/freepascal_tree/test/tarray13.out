@@ -1,0 +1,4 @@
+TestDynArraySize errors starting at 1
+TestDynArrayIndexSingle errors starting at 7
+TestDynArrayIndexMulti errors starting at 65
+ok

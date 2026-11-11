@@ -1,0 +1,61 @@
+------------------------------------------------------
+           TESTING NON-COMPLEX PARAMETERS             
+------------------------------------------------------
+(byte value param) : Value should be 85...85
+(word value param) : Value should be 43690...43690
+(long value param) : Value should be -1...-1
+(byte var param) : Value should be 85...85
+(word var param) : Value should be 43690...43690
+(long var param) : Value should be -1...-1
+(int64 value param) : Value should be 43690...43690
+(int64 var param) : Value should be appx. 187 00000000000...187647121162240
+(mixed value params) : Values should 85,43690,-1...
+85
+43690
+-1
+(mixed value params) : Values should be -1, 43690, 85...
+-1
+43690
+85
+(mixed value params): Values should be 0, 127, 254...
+0
+127
+254
+(mixed value params) : Value should be 0, -1, 254...
+0
+-1
+254
+(real value param) : Value should be 1.1... 1.1000000000000001E+000
+(single value param) : Value should be 2.2... 2.200000048E+00
+(double value param) : Value should be 3.3... 3.2999999999999998E+000
+(real var param) : Value should be 7.7... 7.7000000000000002E+000
+(mixed value params) : Values should be 0, 10.7, 254...
+0
+ 1.0699999999999999E+001
+254
+------------------------------------------------------
+              TESTING FUNCTION RESULTS                
+------------------------------------------------------
+----------------------- NORMAL -----------------------
+(byte) : Value should be 127...127
+(word) : Value should be 43690...43690
+(long) : Value should be -1...-1
+(string) : Value should be 'HELLO WORLD'...HELLO WORLD
+(real) : Value should be 12.12... 1.2119999999999999E+001
+(single) : Value should be 13.13... 1.313000011E+01
+(double) : Value should be 14.14... 1.4140000000000001E+001
+(pchar) : Value should be  ...
+(int64) : Value should be -127...-127
+(ansi) : Value should be 'HELLO WORLD'...HELLO WORLD
+----------------------- INLINE -----------------------
+(byte) : Value should be 126...126
+(word) : Value should be 43689...43689
+(int64) : Value should be -128...-128
+(real) : Value should be 110.110... 1.1011000000000000E+002
+(double) : Value should be 130.130... 1.3013000000000000E+002
+------------------------ CDECL -----------------------
+(byte) : Value should be 125...125
+(word) : Value should be 43688...43688
+(int64) : Value should be -130...-130
+(real) : Value should be -55.55...-5.5549999999999997E+001
+(double) : Value should be -77.14...-7.7140000000000001E+001

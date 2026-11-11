@@ -1,0 +1,2 @@
+second_int_to_real (left : LOC_REFERENCE)...Passed!
+second_int_to_real (left : LOC_REGISTER)...Passed!

@@ -1,0 +1,57 @@
+------------------- LONGINT ------------------------
+(left) : LOC_REFERENCE; (right) : ordinal constant
+Value should be 6...Passed!
+Value should be 0...Passed!
+(left) : LOC_REFERENCE; (right) : LOC_REFERENCE
+Value should be -10...Passed!
+Value should be 10...Passed!
+(left) : LOC_REFERENCE; (right) : LOC_REGISTER
+Value should be 1111111...Passed!
+Value should be -1...Passed!
+Value should be -5...Passed!
+Value should be -1...Passed!
+special numeric values tests...
+Value should be 0...Passed!
+special numeric values tests...
+Value should be -1...Passed!
+special numeric values tests...
+Value should be 7...Passed!
+------------------- CARDINAL -----------------------
+special numeric values tests...
+Value should be 0...Passed!
+special numeric values tests...
+Value should be 1...Passed!
+special numeric values tests...
+Passed!
+(left) : LOC_REFERENCE; (right) : ordinal constant
+Value should be 6...Passed!
+Value should be 0...Passed!
+(left) : LOC_REFERENCE; (right) : LOC_REFERENCE
+Value should be 10...Passed!
+Value should be 10...Passed!
+(left) : LOC_REFERENCE; (right) : LOC_REGISTER
+Value should be 1111111...Passed!
+Value should be 1...Passed!
+Value should be 5...Passed!
+Value should be 1...Passed!
+--------------------- INT64 ------------------------
+(left) : LOC_REFERENCE; (right) : ordinal constant
+Value should be 6...Passed!
+Value should be 0...Passed!
+(left) : LOC_REFERENCE; (right) : LOC_REFERENCE
+Value should be -10...Passed!
+Value should be 85899345...Passed!
+Value should be 10...Passed!
+(left) : LOC_REFERENCE; (right) : LOC_REGISTER
+Value should be 1111111...Passed!
+Value should be -1...Passed!
+Value should be -5...Passed!
+Value should be -1...Passed!
+Value should be 85899345...Passed!
+special numeric values tests...
+Value should be 0...Passed!
+special numeric values tests...
+Value should be -1...Passed!
+Value should be 0...Passed!
+special numeric values tests...
+Value should be 1...Passed!

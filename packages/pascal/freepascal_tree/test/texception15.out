@@ -1,0 +1,69 @@
+=== Extended For-In + Try/Except/Finally Test Suite ===
+
+Test 1: For-in with Exit inside try/finally
+  Returned True ... PASS
+
+Test 2: For-in with Exit inside try/except
+  Returned True ... PASS
+
+Test 3: For-in with exception raised and caught
+  Exception was caught ... PASS
+  Returned True ... PASS
+
+Test 4: For-in with exception in try/finally
+  Finally ran before exception propagated ... PASS
+
+Test 5: Nested for-in with Exit
+  Found Banana+Y ... PASS
+
+Test 6: For-in with Break inside try/finally
+  Finally executed after break ... PASS
+  Break worked ... PASS
+
+Test 7: For-in with Continue inside try/finally
+  Finally executed after continues ... PASS
+  Skipped Banana (count=2) ... PASS
+
+Test 8: For-in with multiple Exit points
+  Found Apple at 0 ... PASS
+  Found Banana at 1 ... PASS
+  Found Cherry at 2 ... PASS
+  NotFound returns -2 ... PASS
+
+Test 9: For-in with re-raised exception
+  Both catches executed ... PASS
+
+Test 10: For-in with exception replaced
+  Got replacement exception ... PASS
+
+Test 11: For-in over array with Exit
+  Found 30 in array ... PASS
+
+Test 12: For-in with string characters and Exit
+  Found first l ... PASS
+
+Test 13: For-in with deeply nested try blocks
+  All 3 finally blocks ran ... PASS
+
+
+Test 15: For-in with local variables preservation
+  All locals preserved ... PASS
+
+Test 16: For-in with Exit inside nested procedure
+  Nested proc Exit worked ... PASS
+
+Test 17: For-in with Exit and var parameters
+  Found=True ... PASS
+  FoundValue=Banana ... PASS
+
+Test 18: For-in with multiple lists and Exit
+  Combined result ... PASS
+
+Test 19: For-in with complex control flow
+  Exit at 2 + finally added 100 ... PASS
+
+=== Results ===
+Passed: 25
+Failed: 0
+
+All tests passed!

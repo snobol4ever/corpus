@@ -1,0 +1,13 @@
+Before: BufPos = 0, BufEnd = 0
+After: BufPos = 2, BufEnd = 5
+Read: 123
+Before: BufPos = 0, BufEnd = 5
+After: BufPos = 1, BufEnd = 5
+Read: 23
+Before: BufPos = 3, BufEnd = 5
+After: BufPos = 4, BufEnd = 5
+Read: 45
+Before: BufPos = 1, BufEnd = 5
+After: BufPos = 0, BufEnd = 0
+SeekEof reached
+File at EOF after SeekEof

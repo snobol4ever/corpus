@@ -1,0 +1,89 @@
+------------------------------------------------------
+                    QWord test 
+------------------------------------------------------
+
+Testing assignqword and dumpqword ... 
+$12345678 9ABCDEF0
+The output should be:
+$12345678 9ABCDEF0
+
+Testing simple QWord comparisations
+  <>,= succesfully tested
+  <,> succesfully tested
+  >=,<= succesfully tested
+  More comparisations successful tested
+Testing simple QWord comparisations was successful
+
+Testing QWord additions
+Testing QWord additions was successful
+
+Testing more QWord comparisations
+Testing more QWord comparisations was successful
+
+Testing QWord subtraction
+Testing QWord subtraction was successful
+
+Testing QWord constants
+Testing QWord constants was successful
+
+Testing QWord logical operators (or,xor,and)
+Testing QWord logical operators (or,xor,and) was successful
+
+Testing QWord logical not operator
+Testing QWord logical not operator was successful
+
+Testing QWord logical - operator
+Testing QWord logical - operator was successful
+
+Testing QWord logical shift operators (shl,shr)
+Testing QWord logical shift operators (shl,shr) was successful
+
+Testing QWord function results
+Testing QWord function results was successful
+
+Testing QWord type casts
+Testing QWord type casts was successful
+
+Testing QWord internal procedures
+Testing QWord internal procedures was successful
+
+Testing QWord multiplications
+Doing some random multiplications (100000 iterations), takes a few seconds
+........................................ 100%
+........................................ OK
+Testing QWord multiplications was successful
+
+Testing QWord division
+Doing some random divisions (100000 iterations), takes a few seconds
+.................... 100%
+.................... OK
+Testing QWord division was successful
+
+Testing QWord modulo division
+Doing some random module divisions, takes a few seconds
+.................... 100%
+.................... OK
+Testing QWord modulo division was successful
+
+Testing QWord runtime errors
+Testing QWord runtime errors was successful
+
+Testing QWord string conversion
+Testing QWord string conversion was successful
+
+Testing QWord input/output
+Testing QWord input/output was successful
+
+Some extra tests for critical things
+Extra tests for critical things were successful
+------------------------------------------------------
+              QWord test successful
+------------------------------------------------------
+
+------------------------------------------------------
+                    Int64 test 
+------------------------------------------------------
+
+------------------------------------------------------
+                Int64 test successful
+------------------------------------------------------

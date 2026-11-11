@@ -1,0 +1,22 @@
+------------------------------ LONGINT --------------------------------
+(current) : LOC_REGISTER; (left) : LOC_REFERENCE
+Value should be $80808080...Passed!
+(current) : LOC_REGISTER; (left) : LOC_REGISTER
+Value should be $8080...Passed!
+----------------------------- BOOLEAN -----------------------------------
+(current) : LOC_REGISTER; (left) : LOC_REFERENCE
+Value should be FALSE...Passed!
+Value should be FALSE...Passed!
+Value should be FALSE...Passed!
+Value should be FALSE...Passed!
+(current) : LOC_REGISTER; (left) : LOC_REGISTER
+Value should be FALSE...Passed!
+(current) : LOC_FLAGS; (left) : LOC_FLAGS
+Value should be FALSE...Passed!
+Value should be FALSE...Passed!
+Value should be $ffffffff...Passed!
+------------------------------  INT64  ----------------------------------
+(current) : LOC_REGISTER; (left) : LOC_REFERENCE
+Value should be $80808080...Passed!
+(current) : LOC_REGISTER; (left) : LOC_REGISTER
+Value should be $8080...Passed!

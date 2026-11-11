@@ -1,0 +1,2 @@
+shortint called instead of widechar
+Caught exception, as expected EVariantError

@@ -1,0 +1,24 @@
+HL.Add: A = Index: 0
+HL.Add: B = Index: 1
+HL.Add: C = Index: 2
+HL.Add: D = Index: 3
+HL.Add: E = Index: 4
+HL.Add: F = Index: 5
+--------------
+Collision for Index: 0
+Index: 0 | NameOfIndex: A | HashOfIndex: 65 | NextCollision: -1
+--------------
+Collision for Index: 1
+Index: 1 | NameOfIndex: B | HashOfIndex: 66 | NextCollision: -1
+--------------
+Collision for Index: 2
+Index: 2 | NameOfIndex: C | HashOfIndex: 67 | NextCollision: -1
+--------------
+Collision for Index: 3
+Index: 3 | NameOfIndex: D | HashOfIndex: 68 | NextCollision: -1
+--------------
+Collision for Index: 4
+Index: 4 | NameOfIndex: E | HashOfIndex: 69 | NextCollision: -1
+--------------
+Collision for Index: 5
+Index: 5 | NameOfIndex: F | HashOfIndex: 70 | NextCollision: -1

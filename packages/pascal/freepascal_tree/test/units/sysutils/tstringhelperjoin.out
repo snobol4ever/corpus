@@ -1,0 +1,9 @@
+default number ok
+other sep ok
+index not 0 ok
+no data  ok
+both 0  FAIL, rangeexception while it shouldn't
+count 0 ok
+index not 0 overflow ok
+exception large start ok
+exception large count ok

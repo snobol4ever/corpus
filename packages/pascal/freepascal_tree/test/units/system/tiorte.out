@@ -1,0 +1,31 @@
+Reading from not opened text file... Passed!
+Seekeoln from not opened text file... Passed!
+Seekeof from not opened text file... Passed!
+Reading from write-only (rewritten) text file... Passed!
+Seekeoln from write-only (rewritten) text file... Passed!
+Seekeof from write-only (rewritten) text file... Passed!
+Reading from write-only (appended) text file... Passed!
+Seekeoln from write-only (appended) text file... Passed!
+Seekeof from write-only (appended) text file... Passed!
+Reading from not opened typed file... Passed!
+Reading from write-only typed file... Passed!
+Reading from not opened untyped file... Passed!
+Reading from write-only utyped file... Passed!
+Writing to not opened text file... Passed!
+Writing to read-only text file... Passed!
+Writing to not opened typed file... Passed!
+Writing to read-only typed file... Passed!
+Writing to not opened untyped file... Passed!
+Writing to read-only untyped file... Passed!
+Testing closing of not opened text file... Passed!
+Testing closing of not opened typed file... Passed!
+Testing closing of not opened untyped file... Passed!
+Testing change directory on non-existent file... Passed!
+Testing make directory on already existent dir... Passed!
+Testing erase of directory... Passed!
+Testing remove directory of non-existent file... Passed!
+Testing erase of non-existent file... Passed!
+Trying to erase current directory... Passed!
+Trying to erase parent directory... Passed!
+Testing Filepos on non initialized file... Passed!
+Testing Filesize on non initialized file... Passed!

@@ -1,0 +1,10 @@
+Start of test
+a_cmp_ref_reg_label
+a_load_reg_stack
+prepare_stack_for_ref
+a_load_reg_stack
+a_load_ref_stack
+prepare_stack_for_ref
+a_load_reg_stack
+a_load_ref_stack
+End of test, number of test: 4

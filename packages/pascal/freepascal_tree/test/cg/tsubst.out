@@ -1,0 +1,7 @@
+Aligned simple global record access (secondvecn())...Passed!
+Non-Aligned simple global record access (secondvecn())...Passed!
+Non-Aligned big global record access (secondvecn())...Passed!
+Non-Aligned simple local record access (secondvecn())...Passed!
+Non-Aligned big local record access (secondvecn())...Passed!
+Aligned class big field access (secondvecn())...Passed!
+Aligned class simple field access (secondvecn())...Passed!

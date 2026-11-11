@@ -1,0 +1,29 @@
+TR1.Initialize
+TR2.Initialize
+=== Global object variable [begin] ===
+
+=== Local variable ===
+TR1.Initialize
+TR2.Initialize
+TR1.Finalize
+TR2.Finalize
+
+=== New and Dispose ===
+TR1.Initialize
+TR2.Initialize
+TR1.Finalize
+TR2.Finalize
+
+=== InitializeArray and FinalizeArray ===
+TR1.Initialize
+TR2.Initialize
+TR1.Finalize
+TR2.Finalize
+
+=== Initialize and Finalize ===
+TR1.Initialize
+TR2.Initialize
+TR1.Finalize
+TR2.Finalize
+
+=== Global variable [end] ===

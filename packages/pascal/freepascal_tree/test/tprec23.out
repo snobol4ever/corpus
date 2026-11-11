@@ -1,0 +1,16 @@
+01FE
+Test : $1 + $80 << 1 + $00 << 9
+  Expected : $0101 Got : $0101 OK
+Test : $1 + $FE << 1 + $00 << 9
+  Expected : $01FD Got : $01FD OK
+Test : $1 + $FF << 1 + $00 << 9
+  Expected : $01FF Got : $01FF OK
+Test : $0 + $00 << 1 + $01 << 9
+  Expected : $0200 Got : $0200 OK
+01FE
+Test : $1 + $80 << 1 + $00 << 9
+  Expected : $0101 Got : $0101 OK
+Test : $1 + $FE << 1 + $00 << 9
+  Expected : $01FD Got : $01FD OK
+Test : $1 + $FF << 1 + $00 << 9
+  Expected : $01FF Got : $01FF OK
