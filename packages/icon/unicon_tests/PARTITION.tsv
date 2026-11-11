@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=160 features=64 ubiquitous=8(package write every procedure alternation to_by assign keyword_ref) distinctive=56 core=25 clusters=44 chunks=2 sizes=100,35
+# shape: entries=161 features=64 ubiquitous=8(package write every procedure alternation to_by assign keyword_ref) distinctive=56 core=25 clusters=44 chunks=2 sizes=100,36
 entry	part	cluster	shells
 coexpr/co	chunk:01	feat:create	coexpr_activate create global image limitation
 coexpr/cobench	chunk:01	feat:create	aug_assign coexpr_activate create element_gen gen_with_alternation local stop while writes
@@ -162,3 +162,4 @@ unicon/triple_strings	chunk:01	feat:want_rc	coexpr_activate create find image li
 udb/prime	chunk:01	feat:every_with_suspend	aug_assign coexpr_activate create every_with_suspend fail gen_with_alternation global image limitation local record return suspend table while
 udb/scopes	chunk:01	feat:static	aug_assign global limitation local return scan static
 unicon/list_test	core	core	aug_assign create delete element_gen fail gen_with_alternation global limitation list local pop push put repl return scan set static stop type
+unicon/FxPtTest	chunk:02	feat:stop	stop

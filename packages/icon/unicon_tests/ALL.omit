@@ -58,5 +58,4 @@ thread/threadh: EXCLUDED.tsv NOT_A_UNIT_TEST: CTO-544 U4: the $include sibling o
 udb/foo: EXCLUDED.tsv NOT_A_UNIT_TEST: a package source the udb tests import: it has no main procedure (run-time error 117 in startup code)
 udb/printme: EXCLUDED.tsv NO_ORACLE_ANSWER: CEO-1696: the oracle prints nothing (a udb helper program with no output of its own)
 udb/scopepkg: EXCLUDED.tsv NOT_A_UNIT_TEST: a package source the udb tests import: it has no main procedure (run-time error 117 in startup code)
-unicon/FxPtTest: the oracle's translator refused it: data/FxPtTests.icn:34: # "link" Unable to import (1) package "testing"
 unicon/FxPtTest_OVLD: the oracle's translator refused it: data/FxPtTests.icn:34: # "link" Unable to import (1) package "testing"
