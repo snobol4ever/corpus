@@ -1,0 +1,36 @@
+    1 this  $
+    1 next  program demo;$
+    1 
+
+    2 this  program demo;$
+    2 next  $
+    2 
+program demo;
+    3 this  $
+    3 next  *$
+    3 
+
+    4 this  *$
+    4 next  { a block comment opener on its own line$
+    4 
+
+    5 this  { a block comment opener on its own line$
+    5 next  * a starred line inside the block$
+    5 
+{ a block comment opener on its own line
+    6 this  * a starred line inside the block$
+    6 next    an indented line inside the block$
+    6 
+* a starred line inside the block
+    7 this    an indented line inside the block$
+    7 next  }$
+    7 
+  an indented line inside the block
+    8 this  }$
+    8 next  begin$
+    8 
+}
+    9 this  begin$
+    9 next  end.$
+    9 
+begin

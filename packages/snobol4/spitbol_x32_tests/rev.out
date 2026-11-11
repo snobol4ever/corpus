@@ -1,0 +1,8 @@
+* a comment line is copied
+       mov  wa,xr  copy the pointer
+       add  wc,wb  add the counts
+       lda  xl,xs  not in the table, copied
+       sub  wa,ia
+{
+       mov  in,block
+}

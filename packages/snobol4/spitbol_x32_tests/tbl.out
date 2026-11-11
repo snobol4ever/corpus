@@ -1,0 +1,18 @@
+<tr>
+<td>arith</td>
+<td>add</td>
+<td>x,y</td>
+<td>the sum of two values</td>
+</tr>
+<tr>
+<td>control</td>
+<td>brn</td>
+<td>lbl</td>
+<td>branch unconditionally</td>
+</tr>
+<tr>
+<td>string</td>
+<td>lch</td>
+<td>w,(x)</td>
+<td>load a character</td>
+</tr>

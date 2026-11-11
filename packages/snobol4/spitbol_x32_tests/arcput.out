@@ -1,0 +1,7 @@
+!@#$hello.spt
+   OUTPUT = 'Hello World'
+END
+!@#$hi.spt
+	OUTPUT = 'hello dave'
+END
+END
