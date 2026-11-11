@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=449 features=49 ubiquitous=4(program var writeln assign) distinctive=45 core=48 clusters=42 chunks=5 sizes=100,100,100,100,1
+# shape: entries=450 features=49 ubiquitous=4(program var writeln assign) distinctive=45 core=48 clusters=42 chunks=5 sizes=100,100,100,100,2
 entry	part	cluster	shells
 front_end__pf31_resourcestring	chunk:04	family:front_end	
 ladder__rung17_reset_of_the_standard_input_does_not_open_a_file	chunk:01	family:ladder	
@@ -75,7 +75,7 @@ ladder__rung04_for_repeat_repeat_once	chunk:04	feat:repeat	repeat
 ladder__rung16_q_shr	chunk:04	feat:for	for
 ladder__rung17_div_zero_without_sysutils_stays_200	chunk:03	feat:div	div
 ladder__rung16_q_write_expr	chunk:03	feat:div	div
-ladder__rung16_real_trunc_out_of_int64	chunk:04	feat:trunc	trunc
+ladder__rung16_real_trunc_out_of_int64	chunk:05	feat:trunc	trunc
 ladder__rung17_div_zero_math_closure	chunk:03	feat:div	div
 ladder__rung17_div_zero_sysutils_no_try	chunk:03	feat:div	div
 program_function_writeln_1	chunk:01	feat:function	function
@@ -306,6 +306,7 @@ program_record_pointer_7	chunk:03	feat:new	new pointer pointer_with_new record t
 ladder__rung14_row_string_elem_char	chunk:04	feat:chr	array chr set_literal subrange type
 ladder__rung15_layout_ptr_to_nested_element_pointer	chunk:03	feat:pointer	array pointer set_literal subrange type
 program_array_packed_5	chunk:02	feat:packed	array packed set_literal subrange type
+ladder__rung25_interface_type_parses	chunk:04	feat:read	function nested_proc procedure read type
 ladder__rung20_generic_class_two_instances	chunk:02	feat:const	array const function nested_proc procedure type
 planner_finish__pf_binop	chunk:04	feat:read	function mod nested_proc procedure read
 program_function_procedure_5	core	core	function goto label nested_proc procedure
